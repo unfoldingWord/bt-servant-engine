@@ -172,7 +172,7 @@ def query_open_ai(state: BrainState) -> dict:
         resource_list = ", ".join(set([item["resource_name"] for item in docs]))
         final_response = (
             f"{response}\n\n"
-            f"FYI: I cascaded to the {state["collection_used"]} stack. From there, "
+            f"FYI: I cascaded to the {state['collection_used']} stack. From there, "
             f"I used the following resources to generate my response: {resource_list}."
         )
         return {"response": final_response}
