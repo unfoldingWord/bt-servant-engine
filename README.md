@@ -1,2 +1,2 @@
 # bt-servant-engine
-repo for the bt servant
+This repo houses the source for the python fast api whats app bot server. 
