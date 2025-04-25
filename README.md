@@ -111,6 +111,33 @@ OPENAI_API_KEY=your-key-here
 # DATA_DIR=./my-data
 ```
 
+
+---
+
+## 🧪 Testing via GraphQL Playground
+
+This project exposes a GraphQL API at [`/graphql`](http://localhost:8000/graphql) that allows you to test your assistant without needing to use WhatsApp.
+
+### 🔍 Try it with `query_bt_servant`
+
+You can send test messages directly to the assistant using this query:
+
+```graphql
+query {
+  queryBtServant(query: "What is the Nicene Creed?")
+}
+```
+
+The assistant will respond as if the question had come from a real user, using the default test `user_id` configured in the backend.
+
+This is a great way to:
+- Test response formatting
+- Debug LLM behavior
+- Evaluate updates to your assistant without going through Twilio
+
+Just start the server locally (`uvicorn bt_servant:app --reload`) and navigate to [`http://localhost:8000/graphql`](http://localhost:8000/graphql) in your browser.
+
+
 ---
 
 Happy translating 🚀📖
