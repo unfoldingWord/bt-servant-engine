@@ -44,3 +44,6 @@ dist/
 # Local dev environment files
 .env
 .env.*
+
+# Other stuff
+.github/
