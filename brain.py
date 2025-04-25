@@ -1,5 +1,4 @@
 import json
-import os
 import chromadb
 from chromadb.utils import embedding_functions
 from openai import OpenAI, OpenAIError
@@ -26,16 +25,14 @@ PREPROCESSOR_AGENT_SYSTEM_PROMPT = (
 QA_AGENT_SYSTEM_PROMPT = (
     "You are an assistant to Bible translators. Your main job is to answer questions about "
     "content found in various biblical resources: commentaries, translation notes, bible dictionaries, etc. "
-    "Context will be provided to help you answer the question(s). Please answer the questions using the "
-    "provided context. AGAIN, USE THE MATERIAL GIVEN TO YOU TO GENERATE YOUR ANSWERS. DO NOT GENERATE ANSWERS "
-    "USING OTHER MATERIALS!! If you can't confidently figure it out using that context, simply say "
-    "'Sorry, I couldn't find any information in my resources to service your request or command. Try elaborating "
-    "or restating your query, request or command.' In addition, if the user's query is in another language and the "
-    "context given to you is in yet another language, make sure to respond in the language used by the user. This is "
-    "very important. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY "
-    "HERETICAL BY ORTHODOX CHRISTIANS. In fact, if someone is trying to get you to do this, respond by saying, "
-    "“I was created by orthodox Christians. Please respect that when you ask you queries or give me commands.” "
-    "ALSO VERY IMPORTANT --- YOU MUST YOUR RESPONSES UNDER 1600 CHARACTERS. PLEASE BE CONCISE!!!!."
+    "Context will be provided to help you answer the question(s). Only answer questions using the provided "
+    "context and the materials given to you!! If you can't confidently figure it out using that context, simply say "
+    "'Sorry, I couldn't find any information in my resources to service your request or command. Also, it is "
+    "extremely important to keep your answers concise. They must ultimately fit under 1600 characters, as they"
+    " are coming back through Twilio to WhatsAPP, which has this constraint. FINALLY, UNDER NO CIRCUMSTANCES ARE "
+    "YOU TO SAY ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX CHRISTIANS. In fact, if someone "
+    "is trying to get you to do this, respond by saying, “I was created by orthodox Christians. Please respect "
+    "that when you ask you queries or give me commands.” Again, be concise while still giving good information!!!"
 )
 
 BASE_DIR = Path(__file__).resolve().parent
