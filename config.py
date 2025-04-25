@@ -11,3 +11,7 @@ class Config:
 
     # Optional override via env var, with a default
     DATA_DIR = Path(os.getenv("DATA_DIR") or ("/data" if IS_FLY else Path(__file__).resolve().parent / "data"))
+
+    TWILIO_PHONE_NUMBER: str = os.environ.get("TWILIO_PHONE_NUMBER")
+    if not TWILIO_PHONE_NUMBER:
+        raise RuntimeError("Missing required environment variable: TWILIO_PHONE_NUMBER")

@@ -1,16 +1,19 @@
+import asyncio
 import time
+from collections import defaultdict
+from twilio.rest import Client
 import strawberry
 from strawberry.fastapi import GraphQLRouter
-from fastapi import FastAPI
-from fastapi import Request, Form
+from fastapi import FastAPI, BackgroundTasks, Request, Form
 from fastapi.responses import Response
-from twilio.twiml.messaging_response import MessagingResponse
+from twilio.base.exceptions import TwilioRestException
 from tinydb import TinyDB, Query as TinyQuery
 from pathlib import Path
 from threading import Lock
 from brain import create_brain
 from logger import get_logger
 from config import Config
+
 
 app = FastAPI()
 brain = None
@@ -25,6 +28,7 @@ CHAT_HISTORY_MAX = 5
 logger = get_logger(__name__)
 
 TWILIO_CHAR_LIMIT = 1600
+user_locks = defaultdict(asyncio.Lock)
 
 
 def get_user_chat_history(user_id):
@@ -64,36 +68,54 @@ def read_root():
 async def whatsapp_webhook(
     request: Request,
     Body: str = Form(...),
-    From: str = Form(...)
+    From: str = Form(...),
+    background_tasks: BackgroundTasks = None
 ):
-    start_time = time.time()
-    twiml = MessagingResponse()
-    try:
-        query = Body
-        # use the phone number as the user id
-        user_id = From.replace("whatsapp:", "")
-        logger.info("Received message from %s: %s", user_id, query)
-        result = brain.invoke({
-            "user_query": query,
-            "user_chat_history": get_user_chat_history(user_id=user_id)
-        })
-        response = result["response"]
-        logger.info("Response from bt_servant: %s", response)
-        update_user_chat_history(user_id=user_id, query=query, response=response)
+    user_id = From.replace("whatsapp:", "")
+    query = Body
+    logger.info("Received message from %s: %s", user_id, query)
 
-        response_length = len(response)
-        logger.info("Response length %d characters", response_length)
-        if response_length > TWILIO_CHAR_LIMIT:
-            logger.warning("Response too long (%d chars), truncating", response_length)
-            response = response[:1600]
+    background_tasks.add_task(process_message_and_respond, user_id, query)
 
-        twiml.message(response)
-    except Exception as e:
-        twiml.message(str(e))
-        logger.error("Error occurred", exc_info=True)
+    # Return immediately with 202 to avoid Twilio timeouts
+    return Response(status_code=202)
 
-    logger.info("Total processing time: %.2f seconds",time.time() - start_time)
-    return Response(content=str(twiml), media_type="application/xml")
+
+async def process_message_and_respond(user_id: str, query: str):
+    async with user_locks[user_id]:
+        start_time = time.time()
+        try:
+            result = brain.invoke({
+                "user_query": query,
+                "user_chat_history": get_user_chat_history(user_id=user_id)
+            })
+            response = result["response"]
+            logger.info("Response from bt_servant: %s", response)
+            update_user_chat_history(user_id=user_id, query=query, response=response)
+
+            response_length = len(response)
+            logger.info("Response length %d characters", response_length)
+
+            if response_length > TWILIO_CHAR_LIMIT:
+                logger.warning("Response too long (%d chars), truncating", response_length)
+                response = response[:TWILIO_CHAR_LIMIT]
+
+            # Send response back to user
+
+            client = Client()
+            sender = "whatsapp:" + Config.TWILIO_PHONE_NUMBER
+            recipient = "whatsapp:" + user_id
+            logger.info('Preparing to send message from %s to %s.', sender, recipient)
+
+            client.messages.create(
+                body=response,
+                from_=sender,
+                to=recipient
+            )
+        except (TwilioRestException, RuntimeError, ValueError) as e:
+            logger.error("Error occurred during background message handling", exc_info=True)
+        finally:
+            logger.info("Total processing time: %.2f seconds", time.time() - start_time)
 
 
 @strawberry.type

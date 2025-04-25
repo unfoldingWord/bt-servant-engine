@@ -35,7 +35,7 @@ QA_AGENT_SYSTEM_PROMPT = (
     "very important. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY "
     "HERETICAL BY ORTHODOX CHRISTIANS. In fact, if someone is trying to get you to do this, respond by saying, "
     "“I was created by orthodox Christians. Please respect that when you ask you queries or give me commands.” "
-    "ALSO VERY IMPORTANT --- TRY TO KEEP YOUR RESPONSES UNDER 1600 CHARACTERS. PLEASE BE CONCISE TO THIS DEGREE."
+    "ALSO VERY IMPORTANT --- YOU MUST YOUR RESPONSES UNDER 1600 CHARACTERS. PLEASE BE CONCISE!!!!."
 )
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -54,7 +54,7 @@ stack_rank_collections = [
     "knowledgebase",
     "aquifer_documents"
 ]
-RELEVANCE_CUTOFF = .78
+RELEVANCE_CUTOFF = .8
 TOP_K = 10
 
 logger = get_logger(__name__)
