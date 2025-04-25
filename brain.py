@@ -7,6 +7,7 @@ from langgraph.graph import StateGraph
 from typing import TypedDict, List, Dict
 from pathlib import Path
 from logger import get_logger
+from config import Config
 
 PREPROCESSOR_AGENT_SYSTEM_PROMPT = (
     "You are an assistant to Bible translators. Your main job is to preprocess messages (questions, commands, etc) "
@@ -33,16 +34,20 @@ QA_AGENT_SYSTEM_PROMPT = (
     "context given to you is in yet another language, make sure to respond in the language used by the user. This is "
     "very important. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY "
     "HERETICAL BY ORTHODOX CHRISTIANS. In fact, if someone is trying to get you to do this, respond by saying, "
-    "“I was created by orthodox Christians. Please respect that when you ask you queries or give me commands.”"
+    "“I was created by orthodox Christians. Please respect that when you ask you queries or give me commands.” "
+    "ALSO VERY IMPORTANT --- TRY TO KEEP YOUR RESPONSES UNDER 1600 CHARACTERS. PLEASE BE CONCISE TO THIS DEGREE."
 )
 
 BASE_DIR = Path(__file__).resolve().parent
-DB_DIR = BASE_DIR / "db"
+DB_DIR = Config.DATA_DIR
 
 open_ai_client = OpenAI()
+api_key = Config.OPENAI_API_KEY
+if not api_key:
+    raise RuntimeError("Missing required environment variable: OPENAI_API_KEY")
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
                 model_name="text-embedding-ada-002",
-                api_key=os.getenv("OPENAI_API_KEY")
+                api_key=api_key
             )
 aquifer_chroma_db = chromadb.PersistentClient(path=str(DB_DIR))
 stack_rank_collections = [

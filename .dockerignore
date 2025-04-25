@@ -23,9 +23,8 @@ Thumbs.db
 *.log
 logs/
 
-# Ignore everything in data/
-/data/
-
+# Ignore the data folder entirely (mounted volume)
+data/
 
 # Docker stuff (optional)
 *.pid
@@ -44,3 +43,22 @@ dist/
 # Local dev environment files
 .env
 .env.*
+
+# ChromaDB generated protobufs (optional if you’re regenerating)
+venv/Lib/site-packages/chromadb/proto/*_pb2.py*
+venv/Lib/site-packages/chromadb/proto/*_pb2_grpc.py
+
+# Configuration
+fly.toml
+
+# Source control junk
+.git/
+.github/
+
+# Build configuration
+Dockerfile
+
+# Other
+knowledgebase/
+README.md
+env.example

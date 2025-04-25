@@ -1,3 +1,4 @@
+import time
 import strawberry
 from strawberry.fastapi import GraphQLRouter
 from fastapi import FastAPI
@@ -9,18 +10,21 @@ from pathlib import Path
 from threading import Lock
 from brain import create_brain
 from logger import get_logger
+from config import Config
 
 app = FastAPI()
 brain = None
 
 BASE_DIR = Path(__file__).resolve().parent
-DB_DIR = BASE_DIR / "db"
+DB_DIR = Config.DATA_DIR
 DB_PATH = DB_DIR / "chat_history.json"
 db = TinyDB(str(DB_PATH))
 db_lock = Lock()
 CHAT_HISTORY_MAX = 5
 
 logger = get_logger(__name__)
+
+TWILIO_CHAR_LIMIT = 1600
 
 
 def get_user_chat_history(user_id):
@@ -62,6 +66,7 @@ async def whatsapp_webhook(
     Body: str = Form(...),
     From: str = Form(...)
 ):
+    start_time = time.time()
     twiml = MessagingResponse()
     try:
         query = Body
@@ -76,10 +81,18 @@ async def whatsapp_webhook(
         logger.info("Response from bt_servant: %s", response)
         update_user_chat_history(user_id=user_id, query=query, response=response)
 
-        twiml.message(response, escape=False)
+        response_length = len(response)
+        logger.info("Response length %d characters", response_length)
+        if response_length > TWILIO_CHAR_LIMIT:
+            logger.warning("Response too long (%d chars), truncating", response_length)
+            response = response[:1600]
+
+        twiml.message(response)
     except Exception as e:
-        twiml.message(str(e), escape=False)
+        twiml.message(str(e))
         logger.error("Error occurred", exc_info=True)
+
+    logger.info("Total processing time: %.2f seconds",time.time() - start_time)
     return Response(content=str(twiml), media_type="application/xml")
 
 
