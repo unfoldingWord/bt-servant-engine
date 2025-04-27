@@ -109,7 +109,7 @@ async def process_message_and_respond(user_id: str, query: str):
                 # in a prod situation we would want to handle this better
                 # using the Twilio delivery webhook - IJL
                 await asyncio.sleep(4)
-            update_user_chat_history(user_id=user_id, query=query, response="\n".join(responses).rstrip())
+            update_user_chat_history(user_id=user_id, query=query, response="\n\n".join(responses).rstrip())
         except (TwilioRestException, RuntimeError, ValueError) as e:
             logger.error("Error occurred during background message handling", exc_info=True)
         finally:
@@ -127,9 +127,10 @@ class Query:
             "user_chat_history": get_user_chat_history(user_id=user_id)
         })
         responses = result["responses"]
-        logger.info("Responses from bt_servant: %s", responses)
-        update_user_chat_history(user_id=user_id, query=query, response="\n".join(responses).rstrip())
-        return responses
+        response = "\n\n".join(responses).rstrip()
+        logger.info("Response from bt_servant: %s", response)
+        update_user_chat_history(user_id=user_id, query=query, response=response)
+        return response
 
     @strawberry.field
     def health_check(self) -> str:

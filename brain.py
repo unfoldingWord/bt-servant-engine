@@ -87,8 +87,8 @@ def preprocess_user_query(state: BrainState) -> dict:
         "latest_user_message": query
     })
     history_context_message = f"Past conversation and latest message: {json.dumps(chat_history)}"
-    completion = open_ai_client.chat.completions.create(
-        model="gpt-4o",
+    completion = groq_client.chat.completions.create(
+        model="llama3-70b-8192",
         messages=[
             {
                 "role": "system",
