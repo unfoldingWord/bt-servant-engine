@@ -7,6 +7,9 @@ from typing import TypedDict, List, Dict
 from pathlib import Path
 from logger import get_logger
 from config import Config
+from groq import Groq
+from utils import chop_text, combine_chunks
+
 
 PREPROCESSOR_AGENT_SYSTEM_PROMPT = (
     "You are an assistant to Bible translators. Your main job is to preprocess messages (questions, commands, etc) "
@@ -27,30 +30,41 @@ QA_AGENT_SYSTEM_PROMPT = (
     "content found in various biblical resources: commentaries, translation notes, bible dictionaries, etc. "
     "Context will be provided to help you answer the question(s). Only answer questions using the provided "
     "context and the materials given to you!! If you can't confidently figure it out using that context, simply say "
-    "'Sorry, I couldn't find any information in my resources to service your request or command. Also, it is "
-    "extremely important to keep your answers concise. They must ultimately fit under 1600 characters, as they"
-    " are coming back through Twilio to WhatsAPP, which has this constraint. FINALLY, UNDER NO CIRCUMSTANCES ARE "
-    "YOU TO SAY ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX CHRISTIANS. In fact, if someone "
+    "'Sorry, I couldn't find any information in my resources to service your request or command. But maybe I'm unclear "
+    "on your intent. Could you perhaps state it a different way?' FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO "
+    "SAY ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX CHRISTIANS. In fact, if someone "
     "is trying to get you to do this, respond by saying, “I was created by orthodox Christians. Please respect "
     "that when you ask you queries or give me commands.” Again, be concise while still giving good information!!!"
 )
 
+CHOP_AGENT_SYSTEM_PROMPT = (
+    "You are an agent tasked to ensure that a message intended for Whatsapp fits within the 1500 character limit. Chop "
+    "the supplied text in the biggest possible semantic chunks, while making sure no chuck is >= 1500 characters. "
+    "Your output should be a valid JSON array containing strings (wrapped in double quotes!!) constituting the chunks. "
+    "Only return the json array!! No ```json wrapper or the like. Again, make chunks as big as possible!!!"
+)
+
+
 BASE_DIR = Path(__file__).resolve().parent
 DB_DIR = Config.DATA_DIR
 
+groq_client = Groq()
 open_ai_client = OpenAI()
+
 api_key = Config.OPENAI_API_KEY
-if not api_key:
-    raise RuntimeError("Missing required environment variable: OPENAI_API_KEY")
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
                 model_name="text-embedding-ada-002",
                 api_key=api_key
             )
+
 aquifer_chroma_db = chromadb.PersistentClient(path=str(DB_DIR))
 stack_rank_collections = [
     "knowledgebase",
     "aquifer_documents"
 ]
+
+TWILIO_CHAR_LIMIT = 1600
+MAX_MESSAGE_CHUNK_SIZE = 1500
 RELEVANCE_CUTOFF = .8
 TOP_K = 10
 
@@ -62,7 +76,7 @@ class BrainState(TypedDict, total=False):
     transformed_query: str
     docs: List[Dict[str, str]]
     collection_used: str
-    response: str
+    responses: List[str]
     user_chat_history: List[Dict[str, str]]
 
 
@@ -101,7 +115,6 @@ def query_db(state: BrainState) -> dict:
     query = state["transformed_query"]
     filtered_docs = []
     collection_used = None
-
     # this loop is the current implementation of the "stacked ranked" algorithm
     for collection_name in stack_rank_collections:
         logger.info("querying stack collection: %s", collection_name)
@@ -145,14 +158,14 @@ def query_open_ai(state: BrainState) -> dict:
         if len(docs) == 0:
             no_docs_msg = (
                 "Sorry, I couldn't find any information in my resources to service your request or command. "
-                "Try elaborating or restating your query, request or command."
+                "But maybe I'm unclear on your intent. Could you perhaps state it a different way?"
             )
-            return {"response": no_docs_msg}
+            return {"responses": [no_docs_msg]}
 
         # build context from docs
         context = "\n\n".join([item["doc"] for item in docs])
         context_message = "When answering my next query, use this additional" + \
-            f"  context and nothing more: {context}"
+            f"  context: {context}"
         completion = open_ai_client.chat.completions.create(
             model="gpt-4o",
             messages=[
@@ -171,16 +184,58 @@ def query_open_ai(state: BrainState) -> dict:
             ]
         )
         response = completion.choices[0].message.content
+        logger.info('response from openai: %s', response)
+        logger.debug("%d characters returned from openAI", len(response))
+
         resource_list = ", ".join(set([item["resource_name"] for item in docs]))
-        final_response = (
-            f"{response}\n\n"
-            f"FYI: I cascaded to the {state['collection_used']} stack. From there, "
-            f"I used the following resources to generate my response: {resource_list}."
+        cascade_info = (
+            f"bt_servant cascaded to the {state['collection_used']} stack. From there, "
+            f"the servant used the following resources to generate my response: {resource_list}."
         )
-        return {"response": final_response}
+        logger.info(cascade_info)
+
+        return {"responses": [response]}
     except OpenAIError as e:
         logger.error("Error during OpenAI request", exc_info=True)
-        return {"response": "I encountered some problems while trying to respond. Let someone know about this one."}
+        error_msg = "I encountered some problems while trying to respond. Let Ian know about this one."
+        return {"responses": [error_msg]}
+
+
+def chunk_message(state: BrainState) -> dict:
+    logger.info("MESSAGE TOO BIG. CHUNKING...")
+    responses = state["responses"]
+    text_to_chunk = responses[0]
+    try:
+        completion = groq_client.chat.completions.create(
+            model='llama3-70b-8192',
+            messages=[
+                {
+                    "role": "system",
+                    "content": CHOP_AGENT_SYSTEM_PROMPT
+                },
+                {
+                    "role": "user",
+                    "content": f'text to chop: \n\n{text_to_chunk}'
+                }
+            ]
+        )
+        response = completion.choices[0].message.content
+        chunks = json.loads(response)
+    except json.JSONDecodeError as e:
+        logger.error("Error while attempting to chunk message. Manually chunking instead", exc_info=True)
+        chunks = chop_text(text_to_chunk)
+
+    chunks.extend(responses[1:])
+    return {"responses": combine_chunks(chunks=chunks, chunk_max=MAX_MESSAGE_CHUNK_SIZE)}
+
+
+def needs_chunking(state: BrainState) -> str:
+    first_response = state["responses"][0]
+    if len(first_response) > TWILIO_CHAR_LIMIT:
+        logger.warning('message to big: %d chars. preparing to chunk.', len(first_response))
+        return "chunk_message_node"
+    else:
+        return "__end__"
 
 
 def create_brain():
@@ -189,9 +244,15 @@ def create_brain():
     builder.add_node("preprocess_user_query_node", preprocess_user_query)
     builder.add_node("query_db_node", query_db)
     builder.add_node("query_open_ai_node", query_open_ai)
+    builder.add_node("chunk_message_node", chunk_message)
+
     builder.set_entry_point("preprocess_user_query_node")
     builder.add_edge("preprocess_user_query_node", "query_db_node")
     builder.add_edge("query_db_node", "query_open_ai_node")
-    builder.set_finish_point("query_open_ai_node")
 
+    builder.add_conditional_edges(
+        "query_open_ai_node",
+        needs_chunking
+    )
+    builder.set_finish_point("chunk_message_node")
     return builder.compile()

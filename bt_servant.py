@@ -27,7 +27,6 @@ CHAT_HISTORY_MAX = 5
 
 logger = get_logger(__name__)
 
-TWILIO_CHAR_LIMIT = 1600
 user_locks = defaultdict(asyncio.Lock)
 
 
@@ -57,6 +56,7 @@ def init():
     logger.info("Loading brain...")
     global brain
     brain = create_brain()
+    logger.info("brain loaded.")
 
 
 @app.get("/")
@@ -89,29 +89,27 @@ async def process_message_and_respond(user_id: str, query: str):
                 "user_query": query,
                 "user_chat_history": get_user_chat_history(user_id=user_id)
             })
-            response = result["response"]
-            logger.info("Response from bt_servant: %s", response)
-            update_user_chat_history(user_id=user_id, query=query, response=response)
+            responses = result["responses"]
+            response_count = len(responses)
+            if response_count > 1:
+                responses = [f'({i}/{response_count}) {r}' for i, r in enumerate(responses, start=1)]
+            for response in responses:
+                logger.info("Response from bt_servant: %s", response)
+                client = Client()
+                sender = "whatsapp:" + Config.TWILIO_PHONE_NUMBER
+                recipient = "whatsapp:" + user_id
+                logger.info('Preparing to send message from %s to %s.', sender, recipient)
 
-            response_length = len(response)
-            logger.info("Response length %d characters", response_length)
-
-            if response_length > TWILIO_CHAR_LIMIT:
-                logger.warning("Response too long (%d chars), truncating", response_length)
-                response = response[:TWILIO_CHAR_LIMIT]
-
-            # Send response back to user
-
-            client = Client()
-            sender = "whatsapp:" + Config.TWILIO_PHONE_NUMBER
-            recipient = "whatsapp:" + user_id
-            logger.info('Preparing to send message from %s to %s.', sender, recipient)
-
-            client.messages.create(
-                body=response,
-                from_=sender,
-                to=recipient
-            )
+                client.messages.create(
+                    body=response,
+                    from_=sender,
+                    to=recipient
+                )
+                # the sleep below is to prevent the (1/3)(3/3)(2/3) situation
+                # in a prod situation we would want to handle this better
+                # using the Twilio delivery webhook - IJL
+                await asyncio.sleep(4)
+            update_user_chat_history(user_id=user_id, query=query, response="\n".join(responses).rstrip())
         except (TwilioRestException, RuntimeError, ValueError) as e:
             logger.error("Error occurred during background message handling", exc_info=True)
         finally:
@@ -128,10 +126,10 @@ class Query:
             "user_query": query,
             "user_chat_history": get_user_chat_history(user_id=user_id)
         })
-        response = result["response"]
-        logger.info("Response from bt_servant: %s", response)
-        update_user_chat_history(user_id=user_id, query=query, response=response)
-        return response
+        responses = result["responses"]
+        logger.info("Responses from bt_servant: %s", responses)
+        update_user_chat_history(user_id=user_id, query=query, response="\n".join(responses).rstrip())
+        return responses
 
     @strawberry.field
     def health_check(self) -> str:
