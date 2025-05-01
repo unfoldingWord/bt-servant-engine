@@ -11,6 +11,25 @@ from groq import Groq
 from utils import chop_text, combine_chunks
 
 
+RESPONSE_TRANSLATOR_SYSTEM_PROMPT = """
+You are a translator for the final output in a chatbot system. You will receive the original 
+query submitted to the user. You will also receive the planned response to the user.
+Your job is to translate the final output given into the same language as the user's initial 
+query.
+"""
+
+LANG_DETECTOR_AGENT_SYSTEM_PROMPT = """
+You are a language detector agent. Your sole job is to detect the language of a message that will
+be given to you, and return the 3 letter language code of that language, using the list of codes
+below. Make sure to only return a code from that list. Do not come up with a code on your own. Return
+nothing in your response except the code itself.
+
+Language        Code
+Indonesian      ind
+English         eng
+Anything Else   oth
+"""
+
 PREPROCESSOR_AGENT_SYSTEM_PROMPT = (
     "You are an assistant to Bible translators. Your main job is to preprocess messages (questions, commands, etc) "
     "about content found in various biblical resources: commentaries, translation notes, bible dictionaries, etc. "
@@ -22,7 +41,9 @@ PREPROCESSOR_AGENT_SYSTEM_PROMPT = (
     "query into something like 'tell me about Titus chapter 2. This will increase the likelihood of rag hits in "
     "the vector db, because the user's actual intent is being used in the vector db query. The transformed message "
     "is what you should return, nothing more. If the only thing provided is the user's latest message "
-    "(so no history), simply pass the message through as is. No need to transform anything in this case."
+    "(so no history), simply pass the message through as is. No need to transform anything in this case. IMPORTANT: "
+    "IF YOU RETURN A TRANSFORMATION, IT MUST BE IN THE SAME LANGUAGE AS THE USER'S MOST RECENT QUERY. DO NOT CHANGE "
+    "THE LANGUAGE FROM THE LANGUAGE OF THE MOST RECENT QUERY."
 )
 
 QA_AGENT_SYSTEM_PROMPT = (
@@ -51,6 +72,8 @@ DB_DIR = Config.DATA_DIR
 groq_client = Groq()
 open_ai_client = OpenAI()
 
+supported_langs = set(['ind'])
+
 api_key = Config.OPENAI_API_KEY
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
                 model_name="text-embedding-ada-002",
@@ -58,10 +81,6 @@ openai_ef = embedding_functions.OpenAIEmbeddingFunction(
             )
 
 aquifer_chroma_db = chromadb.PersistentClient(path=str(DB_DIR))
-stack_rank_collections = [
-    "knowledgebase",
-    "aquifer_documents"
-]
 
 TWILIO_CHAR_LIMIT = 1600
 MAX_MESSAGE_CHUNK_SIZE = 1500
@@ -73,11 +92,83 @@ logger = get_logger(__name__)
 
 class BrainState(TypedDict, total=False):
     user_query: str
+    query_lang_code: str
     transformed_query: str
     docs: List[Dict[str, str]]
     collection_used: str
     responses: List[str]
+    stack_rank_collections: List[str]
     user_chat_history: List[Dict[str, str]]
+
+
+def determine_query_language(state: BrainState) -> dict:
+    query = state["user_query"]
+    response = find_query_language_code(query)
+    logger.info("language code %s detected.", response)
+    stack_rank_collections = [
+        "knowledgebase",
+        "aquifer_documents"
+    ]
+    # put the localized version of aq docs higher in the stack
+    if response in supported_langs:
+        stack_rank_collections.insert(1, f'aquifer_documents_{response}')
+    return {
+        "query_lang_code": response,
+        "stack_rank_collections": stack_rank_collections
+    }
+
+
+def translate_servant_responses(state: BrainState) -> dict:
+    query = state["user_query"]
+    responses = state["responses"]
+    translated_responses = []
+    query_lang_code = state["query_lang_code"]
+    for i, response in enumerate(responses, start=1):
+        response_lang_code = find_query_language_code(response)
+        if response_lang_code != query_lang_code:
+            logger.warning(('for response chunk %d lang code was %s but query '
+                            'lang code was %s. So translating.', response_lang_code,
+                            query_lang_code))
+            completion = open_ai_client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": RESPONSE_TRANSLATOR_SYSTEM_PROMPT
+                    },
+                    {
+                        "role": "user",
+                        "content": (f"user's initial query: {query}\n\n"
+                                    f"planned response: {response}")
+                    }
+                ]
+            )
+            translated_text = completion.choices[0].message.content
+            logger.info('chunk %s translated to: %s', response, translated_text)
+            translated_responses.append(translated_text)
+        else:
+            logger.info('chunk translation not required. using chunk as is.')
+            translated_responses.append(response)
+    return {
+        "responses": translated_responses
+    }
+
+
+def find_query_language_code(query) -> str:
+    completion = open_ai_client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {
+                "role": "system",
+                "content": LANG_DETECTOR_AGENT_SYSTEM_PROMPT
+            },
+            {
+                "role": "user",
+                "content": f'user query: {query}'
+            }
+        ]
+    )
+    return completion.choices[0].message.content
 
 
 def preprocess_user_query(state: BrainState) -> dict:
@@ -87,8 +178,8 @@ def preprocess_user_query(state: BrainState) -> dict:
         "latest_user_message": query
     })
     history_context_message = f"Past conversation and latest message: {json.dumps(chat_history)}"
-    completion = groq_client.chat.completions.create(
-        model="llama3-70b-8192",
+    completion = open_ai_client.chat.completions.create(
+        model="gpt-4o",
         messages=[
             {
                 "role": "system",
@@ -113,6 +204,7 @@ def preprocess_user_query(state: BrainState) -> dict:
 
 def query_db(state: BrainState) -> dict:
     query = state["transformed_query"]
+    stack_rank_collections = state["stack_rank_collections"]
     filtered_docs = []
     collection_used = None
     # this loop is the current implementation of the "stacked ranked" algorithm
@@ -235,24 +327,28 @@ def needs_chunking(state: BrainState) -> str:
         logger.warning('message to big: %d chars. preparing to chunk.', len(first_response))
         return "chunk_message_node"
     else:
-        return "__end__"
+        return "translate_servant_responses_node"
 
 
 def create_brain():
     builder = StateGraph(BrainState)
 
+    builder.add_node("determine_query_language_node", determine_query_language)
     builder.add_node("preprocess_user_query_node", preprocess_user_query)
     builder.add_node("query_db_node", query_db)
     builder.add_node("query_open_ai_node", query_open_ai)
     builder.add_node("chunk_message_node", chunk_message)
+    builder.add_node("translate_servant_responses_node", translate_servant_responses)
 
-    builder.set_entry_point("preprocess_user_query_node")
+    builder.set_entry_point("determine_query_language_node")
+    builder.add_edge("determine_query_language_node", "preprocess_user_query_node")
     builder.add_edge("preprocess_user_query_node", "query_db_node")
     builder.add_edge("query_db_node", "query_open_ai_node")
+    builder.add_edge("chunk_message_node", "translate_servant_responses_node")
 
     builder.add_conditional_edges(
         "query_open_ai_node",
         needs_chunking
     )
-    builder.set_finish_point("chunk_message_node")
+    builder.set_finish_point("translate_servant_responses_node")
     return builder.compile()
