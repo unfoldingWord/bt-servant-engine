@@ -203,7 +203,7 @@ def preprocess_user_query(state: BrainState) -> dict:
 
 
 def query_db(state: BrainState) -> dict:
-    query = state["transformed_query"]
+    query = state["user_query"]
     stack_rank_collections = state["stack_rank_collections"]
     filtered_docs = []
     collection_used = None
@@ -245,7 +245,7 @@ def query_db(state: BrainState) -> dict:
 
 def query_open_ai(state: BrainState) -> dict:
     docs = state["docs"]
-    query = state["transformed_query"]
+    query = state["user_query"]
     try:
         if len(docs) == 0:
             no_docs_msg = (
@@ -334,15 +334,13 @@ def create_brain():
     builder = StateGraph(BrainState)
 
     builder.add_node("determine_query_language_node", determine_query_language)
-    builder.add_node("preprocess_user_query_node", preprocess_user_query)
     builder.add_node("query_db_node", query_db)
     builder.add_node("query_open_ai_node", query_open_ai)
     builder.add_node("chunk_message_node", chunk_message)
     builder.add_node("translate_servant_responses_node", translate_servant_responses)
 
     builder.set_entry_point("determine_query_language_node")
-    builder.add_edge("determine_query_language_node", "preprocess_user_query_node")
-    builder.add_edge("preprocess_user_query_node", "query_db_node")
+    builder.add_edge("determine_query_language_node", "query_db_node")
     builder.add_edge("query_db_node", "query_open_ai_node")
     builder.add_edge("chunk_message_node", "translate_servant_responses_node")
 
