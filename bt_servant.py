@@ -97,7 +97,7 @@ class Query:
         return "aquifer_whatsapp_bot is healthy!"
 
 
-async def process_message_and_respond(user_id: str, query: str, is_voice_msg_sequence: str = True):
+async def process_message_and_respond(user_id: str, query: str, is_voice_msg_sequence: str = False):
     async with user_locks[user_id]:
         start_time = time.time()
         try:
