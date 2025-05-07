@@ -124,7 +124,7 @@ async def process_message_and_respond(user_id: str, query: str, is_voice_msg_seq
         except (TwilioRestException, RuntimeError, ValueError) as e:
             logger.error("Error occurred during background message handling", exc_info=True)
         finally:
-            logger.info("Total processing time: %.2f seconds", time.time() - start_time)
+            logger.info("Overall process_message_and_respond processing time: %.2f seconds", time.time() - start_time)
 
 
 def create_voice_file_from_text(user_id: str, text: str):
@@ -206,7 +206,7 @@ def transcribe_voice_message(media_url: str) -> str:
     dg = DeepgramClient()
     options = PrerecordedOptions(model="nova-3", smart_format=True)
     result = dg.listen.prerecorded.v("1").transcribe_file({"buffer": response.content}, options)
-    logger.info("Total processing time: %.2f seconds", time.time() - start_time)
+    logger.info("transcribe voice message total processing time: %.2f seconds", time.time() - start_time)
 
     return result["results"]["channels"][0]["alternatives"][0]["transcript"]
 
@@ -225,7 +225,7 @@ async def handle_voice_message(user_id: str, media_url: str):
     except Exception as e:
         logger.error("Error occurred during background message handling", exc_info=True)
     finally:
-        logger.info("Voice message processing time for user %s: %.2f seconds", user_id, time.time() - start_time)
+        logger.info("Total voice message processing time for user %s: %.2f seconds", user_id, time.time() - start_time)
 
 
 schema = strawberry.Schema(query=Query)
