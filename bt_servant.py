@@ -128,6 +128,8 @@ async def process_message_and_respond(user_id: str, query: str, is_voice_msg_seq
 
 
 def create_voice_file_from_text(user_id: str, text: str):
+    start_time = time.time()
+    logger.info("Preparing to transform text to audio file...")
     timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
     filename = f"response_{user_id}_{timestamp}.mp3"
     speech_file_path = AUDIO_DIR / filename
@@ -140,6 +142,7 @@ def create_voice_file_from_text(user_id: str, text: str):
     ) as response:
         response.stream_to_file(speech_file_path)
 
+    logger.info("Total processing time: %.2f seconds", time.time() - start_time)
     return f"{Config.PUBLIC_BASE_URL}/audio/{filename}"
 
 
@@ -187,6 +190,8 @@ def update_user_chat_history(user_id, query, response):
 
 
 def transcribe_voice_message(media_url: str) -> str:
+    start_time = time.time()
+    logger.info("Preparing to audio file to text...")
     auth = (Config.TWILIO_ACCOUNT_SID, Config.TWILIO_AUTH_TOKEN)
 
     # Try downloading from Twilio with proper auth
@@ -201,6 +206,7 @@ def transcribe_voice_message(media_url: str) -> str:
     dg = DeepgramClient()
     options = PrerecordedOptions(model="nova-3", smart_format=True)
     result = dg.listen.prerecorded.v("1").transcribe_file({"buffer": response.content}, options)
+    logger.info("Total processing time: %.2f seconds", time.time() - start_time)
 
     return result["results"]["channels"][0]["alternatives"][0]["transcript"]
 
