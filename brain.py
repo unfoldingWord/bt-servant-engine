@@ -25,8 +25,11 @@ below. Make sure to only return a code from that list. Do not come up with a cod
 nothing in your response except the code itself.
 
 Language        Code
+--------        --------
 Indonesian      ind
 English         eng
+French          fra
+Spanish         spa
 Anything Else   oth
 """
 
@@ -72,7 +75,7 @@ DB_DIR = Config.DATA_DIR
 groq_client = Groq()
 open_ai_client = OpenAI()
 
-supported_langs = set(['ind'])
+supported_collection_langs = set(['ind'])
 
 api_key = Config.OPENAI_API_KEY
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
@@ -110,7 +113,7 @@ def determine_query_language(state: BrainState) -> dict:
         "aquifer_documents"
     ]
     # put the localized version of aq docs higher in the stack
-    if response in supported_langs:
+    if response in supported_collection_langs:
         stack_rank_collections.insert(1, f'aquifer_documents_{response}')
     return {
         "query_lang_code": response,
@@ -127,7 +130,7 @@ def translate_servant_responses(state: BrainState) -> dict:
         response_lang_code = find_query_language_code(response)
         if response_lang_code != query_lang_code:
             logger.warning(('for response chunk %d lang code was %s but query '
-                            'lang code was %s. So translating.', response_lang_code,
+                            'lang code was %s. So translating.', i, response_lang_code,
                             query_lang_code))
             completion = open_ai_client.chat.completions.create(
                 model="gpt-4o",

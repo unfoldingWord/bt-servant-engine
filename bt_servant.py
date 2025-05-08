@@ -1,12 +1,13 @@
 import asyncio
 import time
 import requests
+import tempfile
+import os
 from openai import OpenAI
 from collections import defaultdict
 from twilio.rest import Client as TwilioClient
 import strawberry
 from strawberry.fastapi import GraphQLRouter
-from deepgram import DeepgramClient, PrerecordedOptions
 from fastapi import FastAPI, BackgroundTasks, Request, Form
 from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
@@ -191,24 +192,34 @@ def update_user_chat_history(user_id, query, response):
 
 def transcribe_voice_message(media_url: str) -> str:
     start_time = time.time()
-    logger.info("Preparing to audio file to text...")
+    logger.info("Preparing to transcribe audio file to text...")
     auth = (Config.TWILIO_ACCOUNT_SID, Config.TWILIO_AUTH_TOKEN)
 
     # Try downloading from Twilio with proper auth
     response = requests.get(media_url, auth=auth)
+    print(response.headers.get("Content-Type"))
 
     if response.status_code != 200:
         logger.error("Failed to fetch media. Status: %s %s\nURL: %s", response.status_code, response.reason, media_url)
         logger.error("Response text: %s", response.text)
         response.raise_for_status()
 
-    # Send raw bytes to Deepgram
-    dg = DeepgramClient()
-    options = PrerecordedOptions(model="nova-3", smart_format=True)
-    result = dg.listen.prerecorded.v("1").transcribe_file({"buffer": response.content}, options)
-    logger.info("transcribe voice message total processing time: %.2f seconds", time.time() - start_time)
+    temp_audio_path = os.path.join(tempfile.gettempdir(), "temp_audio.ogg")
+    with open(temp_audio_path, "wb") as f:
+        f.write(response.content)
 
-    return result["results"]["channels"][0]["alternatives"][0]["transcript"]
+    if os.path.getsize(temp_audio_path) == 0:
+        raise ValueError("Downloaded audio file is empty")
+
+    with open(temp_audio_path, "rb") as audio_file:
+        transcript = open_ai_client.audio.transcriptions.create(
+            model="gpt-4o-transcribe",
+            file=audio_file
+        )
+
+    duration = time.time() - start_time
+    logger.info("Transcription completed in %.2f seconds", duration)
+    return transcript.text
 
 
 async def handle_voice_message(user_id: str, media_url: str):
