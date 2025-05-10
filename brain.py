@@ -576,8 +576,7 @@ def process_intent(state: BrainState) -> str:
         if IntentType.TRANSLATE_THE_BIBLE in user_intents:
             return "handle_translate_the_bible_request_node"
         if IntentType.RETRIEVE_SYSTEM_INFORMATION in user_intents:
-            state["responses"] = [SYSTEM_INFORMATION_MESSAGE]
-            return "translate_responses_node"
+            return "handle_system_information_request_node"
     return "query_db_node"
 
 
@@ -600,6 +599,10 @@ def handle_unrelated_information_request(state: BrainState) -> str:
     return {"responses": [unrelated_information_message]}
 
 
+def handle_system_information_request(state: BrainState) -> str:
+    return {"responses": [SYSTEM_INFORMATION_MESSAGE]}
+
+
 def handle_translate_the_bible_request(state: BrainState) -> str:
     translate_the_bible_message = ("Sorry! Currently, I can't translate Bible passages. This function "
                                    "may be coming soon.")
@@ -620,6 +623,7 @@ def create_brain():
     builder.add_node("handle_unclear_intent_node", handle_unclear_intent)
     builder.add_node("handle_unrelated_information_request_node", handle_unrelated_information_request)
     builder.add_node("handle_translate_the_bible_request_node", handle_translate_the_bible_request)
+    builder.add_node("handle_system_information_request_node", handle_system_information_request)
     builder.add_node("translate_responses_node", translate_responses)
 
     builder.set_entry_point("determine_query_language_node")
@@ -641,6 +645,7 @@ def create_brain():
     builder.add_edge("handle_unsupported_function_node", "translate_responses_node")
     builder.add_edge("handle_unrelated_information_request_node", "translate_responses_node")
     builder.add_edge("handle_translate_the_bible_request_node", "translate_responses_node")
+    builder.add_edge("handle_system_information_request_node", "translate_responses_node")
 
     builder.set_finish_point("translate_responses_node")
 
