@@ -13,6 +13,21 @@ from pydantic import BaseModel
 from enum import Enum
 from db import set_user_response_language
 
+SYSTEM_INFORMATION_MESSAGE = """
+I am the Bible Translation Servant. I serve Bible translators. My main job is to answer questions 
+about content found in various biblical resources: commentaries, translation notes, bible dictionaries, etc. 
+I will attempt to answer any question you have, or follow any commands, using the resources at my 
+disposal. If I can't find the answer, or follow the command, based on my available resources, then 
+I will tell you. 
+
+Currently supported functions:
+1. Answer questions about the Bible or the Bible translation process.
+2. Execute commands related to the Bible or the Bible translation process.
+3. Respond in a supported language. Simply say "respond in Swahili" or "respond in Dutch".
+
+Currently supported languages: English, Arabic, French, Spanish, Hindi, Russian, Indonesian, 
+Swahili, Portuguese, Mandarin, and Dutch.
+"""
 
 RESPONSE_TRANSLATOR_SYSTEM_PROMPT = """
     You are a translator for the final output in a chatbot system. You will receive text that 
@@ -157,7 +172,7 @@ aquifer_chroma_db = chromadb.PersistentClient(path=str(DB_DIR))
 
 TWILIO_CHAR_LIMIT = 1600
 MAX_MESSAGE_CHUNK_SIZE = 1500
-RELEVANCE_CUTOFF = .8
+RELEVANCE_CUTOFF = .82
 TOP_K = 10
 
 logger = get_logger(__name__)
@@ -549,7 +564,43 @@ def process_intent(state: BrainState) -> str:
     if num_intents == 1:
         if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
             return "set_response_language_node"
+        if IntentType.UNCLEAR_INTENT in user_intents:
+            return "handle_unclear_intent_node"
+        if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
+            return "handle_unsupported_function_node"
+        if IntentType.RETRIEVE_UNRELATED_INFORMATION in user_intents:
+            return "handle_unrelated_information_request_node"
+        if IntentType.TRANSLATE_THE_BIBLE in user_intents:
+            return "handle_translate_the_bible_request_node"
+        if IntentType.RETRIEVE_SYSTEM_INFORMATION in user_intents:
+            state["responses"] = [SYSTEM_INFORMATION_MESSAGE]
+            return "translate_responses_node"
     return "query_db_node"
+
+
+def handle_unsupported_function(state: BrainState) -> str:
+    unsupported_function_message = ("Sorry! I can't do that yet. Let my creators know that you "
+                                    "desire that feature.")
+    return {"responses": [unsupported_function_message]}
+
+
+def handle_unclear_intent(state: BrainState) -> str:
+    unclear_intent_message = ("I'm unclear on your intent. Could you perhaps state it a "
+                              "different way?")
+    return {"responses": [unclear_intent_message]}
+
+
+def handle_unrelated_information_request(state: BrainState) -> str:
+    unrelated_information_message = ("Sorry! Currently, I can only answer questions, and execute certain "
+                                     "commands, related to the Bible or the process of Bible "
+                                     "translation.")
+    return {"responses": [unrelated_information_message]}
+
+
+def handle_translate_the_bible_request(state: BrainState) -> str:
+    translate_the_bible_message = ("Sorry! Currently, I can't translate Bible passages. This function "
+                                   "may be coming soon.")
+    return {"responses": [translate_the_bible_message]}
 
 
 def create_brain():
@@ -562,6 +613,10 @@ def create_brain():
     builder.add_node("query_db_node", query_db)
     builder.add_node("query_open_ai_node", query_open_ai)
     builder.add_node("chunk_message_node", chunk_message)
+    builder.add_node("handle_unsupported_function_node", handle_unsupported_function)
+    builder.add_node("handle_unclear_intent_node", handle_unclear_intent)
+    builder.add_node("handle_unrelated_information_request_node", handle_unrelated_information_request)
+    builder.add_node("handle_translate_the_bible_request_node", handle_translate_the_bible_request)
     builder.add_node("translate_responses_node", translate_responses)
 
     builder.set_entry_point("determine_query_language_node")
@@ -578,6 +633,11 @@ def create_brain():
     )
     builder.add_edge("set_response_language_node", "translate_responses_node")
     builder.add_edge("chunk_message_node", "translate_responses_node")
+
+    builder.add_edge("handle_unclear_intent_node", "translate_responses_node")
+    builder.add_edge("handle_unsupported_function_node", "translate_responses_node")
+    builder.add_edge("handle_unrelated_information_request_node", "translate_responses_node")
+    builder.add_edge("handle_translate_the_bible_request_node", "translate_responses_node")
 
     builder.set_finish_point("translate_responses_node")
 
