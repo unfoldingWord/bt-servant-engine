@@ -72,18 +72,20 @@ DB_DIR = Config.DATA_DIR
 groq_client = Groq()
 open_ai_client = OpenAI()
 
-SUPPORTED_LANGUAGES = [
-    "English",
-    "Arabic",
-    "French",
-    "Spanish",
-    "Hindi",
-    "Russian",
-    "Indonesian",
-    "Swahili",
-    "Portuguese",
-    "Mandarin"
-]
+supported_language_map = {
+    "en": "English",
+    "ar": "Arabic",
+    "fr": "French",
+    "es": "Spanish",
+    "hi": "Hindi",
+    "ru": "Russian",
+    "id": "Indonesian",
+    "sw": "Swahili",
+    "pt": "Portuguese",
+    "zh": "Mandarin",
+    "nl": "Dutch"
+}
+
 supported_collection_lang_map = {
     "id": "ind"
 }
@@ -212,16 +214,18 @@ def set_response_language(state: BrainState) -> dict:
     )
     response_language = response.output_parsed
     if response_language.language == Language.OTHER:
+        supported_language_list = ", ".join(supported_language_map.keys())
         return {
             "responses": [(f"I think you're trying to set the response language. The supported languages "
-                           f"are: {SUPPORTED_LANGUAGES}. If this is your intent, please clearly tell "
+                           f"are: {supported_language_list}. If this is your intent, please clearly tell "
                            f"me which supported language to use when responding.")],
         }
-    response_language = response_language.language.value
-    set_user_response_language(state["user_id"], response_language)
+    response_language_code = response_language.language.value
+    set_user_response_language(state["user_id"], response_language_code)
+    response_language = supported_language_map.get(response_language_code, response_language_code)
     return {
         "responses": [f"Sure! Setting response language to: {response_language}"],
-        "user_response_language": response_language
+        "user_response_language": response_language_code
     }
 
 
@@ -234,11 +238,12 @@ def translate_responses(state: BrainState) -> dict:
         target_language = state["query_language"]
         if target_language == LANGUAGE_UNKNOWN:
             logger.warning('target language unknown. bailing out.')
+            supported_language_list = ", ".join(supported_language_map.keys())
             responses.append(("You haven't set your desired response language and I wasn't able to "
                               "determine the language of your original message in order to match it. "
                               "You can set your desired response language at any time by saying: Set "
                               "my response language to Spanish, or Indonesian, or any of the supported "
-                              f"languages: {SUPPORTED_LANGUAGES}."))
+                              f"languages: {supported_language_list}."))
             return state
 
     translated_responses = []
