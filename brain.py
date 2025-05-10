@@ -20,33 +20,89 @@ RESPONSE_TRANSLATOR_SYSTEM_PROMPT = """
 """
 
 
-PREPROCESSOR_AGENT_SYSTEM_PROMPT = (
-    "You are an assistant to Bible translators. Your main job is to preprocess messages (questions, commands, etc) "
-    "about content found in various biblical resources: commentaries, translation notes, bible dictionaries, etc. "
-    "Past conversation context will be provided to you in the form of zero or more previous user/response pairs with "
-    "the final entry being the user's latest message. Your job is to transform the user's message (the value of the "
-    "latest_user_message property in the context provided into a message that more accurately conveys their intent, "
-    "based on past conversation. For example, if the user's latest message is something like 'this time use "
-    "chapter 2.', and their previous message was 'tell me about Titus chapter 1', you should transform their "
-    "query into something like 'tell me about Titus chapter 2. This will increase the likelihood of rag hits in "
-    "the vector db, because the user's actual intent is being used in the vector db query. The transformed message "
-    "is what you should return, nothing more. If the only thing provided is the user's latest message "
-    "(so no history), simply pass the message through as is. No need to transform anything in this case. IMPORTANT: "
-    "IF YOU RETURN A TRANSFORMATION, IT MUST BE IN THE SAME LANGUAGE AS THE USER'S MOST RECENT QUERY. DO NOT CHANGE "
-    "THE LANGUAGE FROM THE LANGUAGE OF THE MOST RECENT QUERY."
-)
+PREPROCESSOR_AGENT_SYSTEM_PROMPT = """
+# Identity
 
-QA_AGENT_SYSTEM_PROMPT = (
-    "You are an assistant to Bible translators. Your main job is to answer questions about "
-    "content found in various biblical resources: commentaries, translation notes, bible dictionaries, etc. "
-    "Context will be provided to help you answer the question(s). Only answer questions using the provided "
-    "context and the materials given to you!! If you can't confidently figure it out using that context, simply say "
-    "'Sorry, I couldn't find any information in my resources to service your request or command. But maybe I'm unclear "
-    "on your intent. Could you perhaps state it a different way?' FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO "
-    "SAY ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX CHRISTIANS. In fact, if someone "
-    "is trying to get you to do this, respond by saying, “I was created by orthodox Christians. Please respect "
-    "that when you ask you queries or give me commands.” Again, be concise while still giving good information!!!"
-)
+You are a preprocessor agent/node in a retrieval augmented generation (RAG) pipeline. 
+
+# Instructions
+
+Use past conversation context, 
+if supplied and applicable, to disambiguate or clarify the intent or meaning of the user's current message. Change 
+as little as possible. Change nothing unless necessary. If the intent of the user's message is already clear, 
+change nothing. Never greatly expand the user's current message. Changes should be small or none. Feel free to fix 
+obvious spelling mistakes or errors, but not logic errors like incorrect books of the Bible. Return the clarified 
+message and the reasons for clarifying or reasons for not changing anything. Examples below.
+
+# Examples
+
+## Example 1
+
+<past_conversation>
+    user_message: Summarize the book of Titus.
+    assistant_response: The book of titus is about...
+</past_conversation>
+
+<current_message>
+    user_message: Now Mark
+</current_message>
+
+<assistant_response>
+    new_message: Now Summarize the book of Mark.
+    reason_for_decision: Based on previous context, the user wants the system to do the same thing, but this time 
+                         with Mark.
+    message_changed: True
+</assistant_response>
+    
+## Example 2
+
+<past_conversation>
+    user_message: What is going on in 1 Peter 3:7?
+    assistant_response: Peter is instructing Christian husbands to be loving to their wives.
+</past_conversation>
+
+<current_message>
+    user_message: Summarize Mark 3:1
+</current_message>
+    
+<assistant_response>
+    new_message: Summarize Mark 3:1.
+    reason_for_decision: Nothing was changed. The user's current command has nothing to do with past context and
+                         is fine as is.
+    message_changed: False
+</assistant_response>
+
+## Example 3
+
+<past_conversation>
+    user_message: Explain John 1:1
+    assistant_response: John claims that Jesus, the Word, existed in the beginning with God the Father.
+</past_conversation>
+
+<current_message>
+    user_message: Explain Johhn 1:3
+</current_message>
+    
+<assistant_response>
+    new_message: Explain John 1:3.
+    reason_for_decision: The word 'John' was misspelled in the message.
+    message_changed: True
+</assistant_response>
+"""
+
+
+FINAL_RESPONSE_AGENT_SYSTEM_PROMPT = """
+You are an assistant to Bible translators. Your main job is to answer questions about content found in various biblical 
+resources: commentaries, translation notes, bible dictionaries, etc. Context from resources (RAG results) will be 
+provided to help you answer the question(s). Only answer questions using the provided context from resources!!! 
+If you can't confidently figure it out using that context, simply say 'Sorry, I couldn't find any information in my 
+resources to service your request or command. But maybe I'm unclear on your intent. Could you perhaps state it a 
+different way?' You will also be given the past conversation history. Use this to understand the user's current message 
+or query if necessary. If the past conversation history is not relevant to the user's current message, just ignore it. 
+FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX 
+CHRISTIANS. If you can't do what the user is asking because your response would be heretical, explain to the user why 
+you cannot comply with their reqeust or command.
+"""
 
 CHOP_AGENT_SYSTEM_PROMPT = (
     "You are an agent tasked to ensure that a message intended for Whatsapp fits within the 1500 character limit. Chop "
@@ -130,6 +186,12 @@ class MessageLanguage(BaseModel):
     language: Language
 
 
+class PreprocessorResult(BaseModel):
+    new_message: str
+    reason_for_decision: str
+    message_changed: bool
+
+
 class IntentType(str, Enum):
     RETRIEVE_INFORMATION_FROM_BIBLE = "retrieve-information-from-the-bible"
     RETRIEVE_INFORMATION_ABOUT_BIBLE = "retrieve-information-about-the-bible"
@@ -162,7 +224,7 @@ class BrainState(TypedDict, total=False):
 
 
 def determine_intent(state: BrainState) -> dict:
-    query = state["user_query"]
+    query = state["transformed_query"]
     chat_history = state["user_chat_history"]
     history_context_message = f"Past conversation: {json.dumps(chat_history)}"
     response = open_ai_client.responses.parse(
@@ -321,36 +383,36 @@ def determine_query_language(state: BrainState) -> dict:
 def preprocess_user_query(state: BrainState) -> dict:
     query = state["user_query"]
     chat_history = state["user_chat_history"]
-    chat_history.append({
-        "latest_user_message": query
-    })
-    history_context_message = f"Past conversation and latest message: {json.dumps(chat_history)}"
-    completion = open_ai_client.chat.completions.create(
+    history_context_message = f"past_conversation: {json.dumps(chat_history)}"
+    response = open_ai_client.responses.parse(
         model="gpt-4o",
-        messages=[
-            {
-                "role": "system",
-                "content": PREPROCESSOR_AGENT_SYSTEM_PROMPT
-            },
+        instructions=PREPROCESSOR_AGENT_SYSTEM_PROMPT,
+        input=[
             {
                 "role": "user",
                 "content": history_context_message
             },
             {
                 "role": "user",
-                "content": query
+                "content": f'current_message: {query}'
             }
-        ]
+        ],
+        text_format=PreprocessorResult,
+        store=False
     )
-    response = completion.choices[0].message.content
-    logger.info("user query transformed from %s to %s", query, response)
+    preprocessor_result = response.output_parsed
+    new_message = preprocessor_result.new_message
+    reason_for_decision = preprocessor_result.reason_for_decision
+    message_changed = preprocessor_result.message_changed
+    logger.info("new_message: %s\nreason_for_decision: %s\nmessage_changed: %s",
+                new_message, reason_for_decision, message_changed)
     return {
-        "transformed_query": response
+        "transformed_query": new_message if message_changed else query
     }
 
 
 def query_db(state: BrainState) -> dict:
-    query = state["user_query"]
+    query = state["transformed_query"]
     stack_rank_collections = state["stack_rank_collections"]
     filtered_docs = []
     collection_used = None
@@ -392,7 +454,8 @@ def query_db(state: BrainState) -> dict:
 
 def query_open_ai(state: BrainState) -> dict:
     docs = state["docs"]
-    query = state["user_query"]
+    query = state["transformed_query"]
+    chat_history = state["user_chat_history"]
     try:
         if len(docs) == 0:
             no_docs_msg = (
@@ -403,18 +466,21 @@ def query_open_ai(state: BrainState) -> dict:
 
         # build context from docs
         context = "\n\n".join([item["doc"] for item in docs])
-        context_message = "When answering my next query, use this additional" + \
+        rag_context_message = "When answering my next query, use this additional" + \
             f"  context: {context}"
-        completion = open_ai_client.chat.completions.create(
+        chat_history_context_message = (f"Use this conversation history to understand the user's "
+                                        f"current request only if needed: {json.dumps(chat_history)}")
+        response = open_ai_client.responses.parse(
             model="gpt-4o",
-            messages=[
+            instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
+            input=[
                 {
-                    "role": "system",
-                    "content": QA_AGENT_SYSTEM_PROMPT
+                    "role": "developer",
+                    "content": rag_context_message
                 },
                 {
-                    "role": "user",
-                    "content": context_message
+                    "role": "developer",
+                    "content": chat_history_context_message
                 },
                 {
                     "role": "user",
@@ -422,9 +488,9 @@ def query_open_ai(state: BrainState) -> dict:
                 }
             ]
         )
-        response = completion.choices[0].message.content
-        logger.info('response from openai: %s', response)
-        logger.debug("%d characters returned from openAI", len(response))
+        bt_servant_response = response.output_text
+        logger.info('response from openai: %s', bt_servant_response)
+        logger.debug("%d characters returned from openAI", len(bt_servant_response))
 
         resource_list = ", ".join(set([item["resource_name"] for item in docs]))
         cascade_info = (
@@ -433,7 +499,7 @@ def query_open_ai(state: BrainState) -> dict:
         )
         logger.info(cascade_info)
 
-        return {"responses": [response]}
+        return {"responses": [bt_servant_response]}
     except OpenAIError as e:
         logger.error("Error during OpenAI request", exc_info=True)
         error_msg = "I encountered some problems while trying to respond. Let Ian know about this one."
@@ -490,6 +556,7 @@ def create_brain():
     builder = StateGraph(BrainState)
 
     builder.add_node("determine_query_language_node", determine_query_language)
+    builder.add_node("preprocess_user_query_node", preprocess_user_query)
     builder.add_node("determine_intent_node", determine_intent)
     builder.add_node("set_response_language_node", set_response_language)
     builder.add_node("query_db_node", query_db)
@@ -498,7 +565,8 @@ def create_brain():
     builder.add_node("translate_responses_node", translate_responses)
 
     builder.set_entry_point("determine_query_language_node")
-    builder.add_edge("determine_query_language_node", "determine_intent_node")
+    builder.add_edge("determine_query_language_node", "preprocess_user_query_node")
+    builder.add_edge("preprocess_user_query_node", "determine_intent_node")
     builder.add_conditional_edges(
         "determine_intent_node",
         process_intent
