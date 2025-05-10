@@ -12,13 +12,12 @@ from fastapi import FastAPI, BackgroundTasks, Request, Form
 from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
 from twilio.base.exceptions import TwilioRestException
-from tinydb import TinyDB, Query as TinyQuery
 from pathlib import Path
-from threading import Lock
 from brain import create_brain
 from logger import get_logger
 from config import Config
 from datetime import datetime
+from db import get_user_chat_history, update_user_chat_history, get_user_response_language
 
 twilio_client = TwilioClient()
 app = FastAPI()
@@ -28,15 +27,7 @@ brain = None
 AUDIO_DIR = Config.DATA_DIR / "audio"
 Path(AUDIO_DIR).mkdir(parents=True, exist_ok=True)
 
-BASE_DIR = Path(__file__).resolve().parent
-DB_DIR = Config.DATA_DIR
-DB_PATH = DB_DIR / "chat_history.json"
-db = TinyDB(str(DB_PATH))
-db_lock = Lock()
-CHAT_HISTORY_MAX = 5
-
 logger = get_logger(__name__)
-
 user_locks = defaultdict(asyncio.Lock)
 
 
@@ -84,8 +75,10 @@ class Query:
         user_id = '+1231231234'
         logger.info("Received message from %s: %s", user_id, query)
         result = brain.invoke({
+            "user_id": user_id,
             "user_query": query,
-            "user_chat_history": get_user_chat_history(user_id=user_id)
+            "user_chat_history": get_user_chat_history(user_id=user_id),
+            "user_response_language": get_user_response_language(user_id=user_id)
         })
         responses = result["responses"]
         response = "\n\n".join(responses).rstrip()
@@ -103,8 +96,10 @@ async def process_message_and_respond(user_id: str, query: str, is_voice_msg_seq
         start_time = time.time()
         try:
             result = brain.invoke({
+                "user_id": user_id,
                 "user_query": query,
-                "user_chat_history": get_user_chat_history(user_id=user_id)
+                "user_chat_history": get_user_chat_history(user_id=user_id),
+                "user_response_language": get_user_response_language(user_id=user_id)
             })
             responses = result["responses"]
             if is_voice_msg_sequence:
@@ -168,26 +163,6 @@ def send_whatsapp_text_message(user_id: str, text: str):
         from_=sender,
         to=recipient
     )
-
-
-def get_user_chat_history(user_id):
-    with db_lock:
-        q = TinyQuery()
-        result = db.get(q.user_id == user_id)
-        return result["history"] if result else []
-
-
-def update_user_chat_history(user_id, query, response):
-    with db_lock:
-        q = TinyQuery()
-        result = db.get(q.user_id == user_id)
-        history = result["history"] if result else []
-        history.append({
-            "user_message": query,
-            "assistant_response": response
-        })
-        history = history[-CHAT_HISTORY_MAX:]
-        db.upsert({"user_id": user_id, "history": history}, q.user_id == user_id)
 
 
 def transcribe_voice_message(media_url: str) -> str:

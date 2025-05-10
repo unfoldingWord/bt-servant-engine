@@ -28,7 +28,7 @@ def get_logger(name: str) -> logging.Logger:
         logger.addHandler(stream_handler)
 
         # Optional: write to file too
-        file_handler = logging.FileHandler(log_file_path)
+        file_handler = logging.FileHandler(log_file_path, mode='a', encoding='utf-8')
         file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
 

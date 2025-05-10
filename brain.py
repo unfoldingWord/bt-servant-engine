@@ -9,29 +9,16 @@ from logger import get_logger
 from config import Config
 from groq import Groq
 from utils import chop_text, combine_chunks
+from pydantic import BaseModel
+from enum import Enum
+from db import set_user_response_language
 
 
 RESPONSE_TRANSLATOR_SYSTEM_PROMPT = """
-You are a translator for the final output in a chatbot system. You will receive the original 
-query submitted to the user. You will also receive the planned response to the user.
-Your job is to translate the final output given into the same language as the user's initial 
-query.
+    You are a translator for the final output in a chatbot system. You will receive text that 
+    needs to be translated into the language represented by the specified ISO 639-1 code.
 """
 
-LANG_DETECTOR_AGENT_SYSTEM_PROMPT = """
-You are a language detector agent. Your sole job is to detect the language of a message that will
-be given to you, and return the 3 letter language code of that language, using the list of codes
-below. Make sure to only return a code from that list. Do not come up with a code on your own. Return
-nothing in your response except the code itself.
-
-Language        Code
---------        --------
-Indonesian      ind
-English         eng
-French          fra
-Spanish         spa
-Anything Else   oth
-"""
 
 PREPROCESSOR_AGENT_SYSTEM_PROMPT = (
     "You are an assistant to Bible translators. Your main job is to preprocess messages (questions, commands, etc) "
@@ -68,6 +55,16 @@ CHOP_AGENT_SYSTEM_PROMPT = (
     "Only return the json array!! No ```json wrapper or the like. Again, make chunks as big as possible!!!"
 )
 
+INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT = """
+    You are a part of a chatbot system called 'bt servant', which provides information to Bible 
+    translators. Classify the intents of the user's latest message using any context or message history
+    supplied. Always return at least one intent and return the unclear intent if you can't figure it out.
+"""
+
+DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
+    Your job is simply to detect the language of the supplied text. Attempt to match it to one of
+    the 10 supported languages. If you can't, match it to OTHER.
+"""
 
 BASE_DIR = Path(__file__).resolve().parent
 DB_DIR = Config.DATA_DIR
@@ -75,7 +72,22 @@ DB_DIR = Config.DATA_DIR
 groq_client = Groq()
 open_ai_client = OpenAI()
 
-supported_collection_langs = set(['ind'])
+SUPPORTED_LANGUAGES = [
+    "English",
+    "Arabic",
+    "French",
+    "Spanish",
+    "Hindi",
+    "Russian",
+    "Indonesian",
+    "Swahili",
+    "Portuguese",
+    "Mandarin"
+]
+supported_collection_lang_map = {
+    "id": "ind"
+}
+LANGUAGE_UNKNOWN = "UNKNOWN"
 
 api_key = Config.OPENAI_API_KEY
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
@@ -93,62 +105,149 @@ TOP_K = 10
 logger = get_logger(__name__)
 
 
+class Language(str, Enum):
+    ENGLISH = "en"
+    ARABIC = "ar"
+    FRENCH = "fr"
+    SPANISH = "es"
+    HINDI = "hi"
+    RUSSIAN = "ru"
+    INDONESIAN = "id"
+    SWAHILI = "sw"
+    PORTUGUESE = "pt"
+    MANDARIN = "zh"
+    DUTCH = "nl"
+    OTHER = "Other"
+
+
+class ResponseLanguage(BaseModel):
+    language: Language
+
+
+class MessageLanguage(BaseModel):
+    language: Language
+
+
+class IntentType(str, Enum):
+    RETRIEVE_INFORMATION_FROM_BIBLE = "retrieve-information-from-the-bible"
+    RETRIEVE_INFORMATION_ABOUT_BIBLE = "retrieve-information-about-the-bible"
+    RETRIEVE_INFORMATION_ABOUT_TRANSLATION_PROCESS = "retrieve-information-about-the-process-of-translation"
+    RETRIEVE_UNRELATED_INFORMATION = "retrieve-non-translation-or-non-bible-information"
+    TRANSLATE_THE_BIBLE = "translate-the-bible"
+    PERFORM_UNSUPPORTED_FUNCTION = "execute-task-unrelated-to-the-bible-or-translation"
+    RETRIEVE_BIBLE_INFORMATION = "retrieve-information-from-the-bible"
+    RETRIEVE_SYSTEM_INFORMATION = "retrieve-information-about-the-bt-servant-system"
+    SET_RESPONSE_LANGUAGE = "specify-response-language"
+    UNCLEAR_INTENT = "unclear-intent"
+
+
+class UserIntents(BaseModel):
+    intents: List[IntentType]
+
+
 class BrainState(TypedDict, total=False):
+    user_id: str
     user_query: str
-    query_lang_code: str
+    query_language: str
+    user_response_language: str
     transformed_query: str
     docs: List[Dict[str, str]]
     collection_used: str
     responses: List[str]
     stack_rank_collections: List[str]
     user_chat_history: List[Dict[str, str]]
+    user_intents: UserIntents
 
 
-def determine_query_language(state: BrainState) -> dict:
+def determine_intent(state: BrainState) -> dict:
     query = state["user_query"]
-    response = find_query_language_code(query)
-    logger.info("language code %s detected.", response)
-    stack_rank_collections = [
-        "knowledgebase",
-        "aquifer_documents"
-    ]
-    # put the localized version of aq docs higher in the stack
-    if response in supported_collection_langs:
-        stack_rank_collections.insert(1, f'aquifer_documents_{response}')
+    chat_history = state["user_chat_history"]
+    history_context_message = f"Past conversation: {json.dumps(chat_history)}"
+    response = open_ai_client.responses.parse(
+        model="gpt-4o",
+        input=[
+            {
+                "role": "system",
+                "content": INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT
+            },
+            {
+                "role": "user",
+                "content": history_context_message
+            },
+            {
+                "role": "user",
+                "content": f"what is your classification of the latest user message: {query}"
+            }
+        ],
+        text_format=UserIntents,
+        store=False
+    )
+    user_intents = response.output_parsed
+    logger.info("extracted user intents: %s", ' '.join([i.value for i in user_intents.intents]))
     return {
-        "query_lang_code": response,
-        "stack_rank_collections": stack_rank_collections
+        "user_intents": user_intents.intents,
     }
 
 
-def translate_servant_responses(state: BrainState) -> dict:
-    query = state["user_query"]
+def set_response_language(state: BrainState) -> dict:
+    chat_input = [
+        {
+            "role": "user",
+            "content": f"Past conversation: {json.dumps(state['user_chat_history'])}"
+        },
+        {
+            "role": "user",
+            "content": f"the user's most recent message: {state['user_query']}"
+        },
+        {
+            "role": "user",
+            "content": f"What language is the user trying to set their response language to?"
+        }
+    ]
+    response = open_ai_client.responses.parse(
+        model="gpt-4o",
+        input=chat_input,
+        text_format=ResponseLanguage,
+        store=False
+    )
+    response_language = response.output_parsed
+    if response_language.language == Language.OTHER:
+        return {
+            "responses": [(f"I think you're trying to set the response language. The supported languages "
+                           f"are: {SUPPORTED_LANGUAGES}. If this is your intent, please clearly tell "
+                           f"me which supported language to use when responding.")],
+        }
+    response_language = response_language.language.value
+    set_user_response_language(state["user_id"], response_language)
+    return {
+        "responses": [f"Sure! Setting response language to: {response_language}"],
+        "user_response_language": response_language
+    }
+
+
+def translate_responses(state: BrainState) -> dict:
     responses = state["responses"]
+    user_response_language = state["user_response_language"]
+    if user_response_language:
+        target_language = user_response_language
+    else:
+        target_language = state["query_language"]
+        if target_language == LANGUAGE_UNKNOWN:
+            logger.warning('target language unknown. bailing out.')
+            responses.append(("You haven't set your desired response language and I wasn't able to "
+                              "determine the language of your original message in order to match it. "
+                              "You can set your desired response language at any time by saying: Set "
+                              "my response language to Spanish, or Indonesian, or any of the supported "
+                              f"languages: {SUPPORTED_LANGUAGES}."))
+            return state
+
     translated_responses = []
-    query_lang_code = state["query_lang_code"]
     for i, response in enumerate(responses, start=1):
-        response_lang_code = find_query_language_code(response)
-        if response_lang_code != query_lang_code:
-            logger.warning(('for response chunk %d lang code was %s but query '
-                            'lang code was %s. So translating.', i, response_lang_code,
-                            query_lang_code))
-            completion = open_ai_client.chat.completions.create(
-                model="gpt-4o",
-                messages=[
-                    {
-                        "role": "system",
-                        "content": RESPONSE_TRANSLATOR_SYSTEM_PROMPT
-                    },
-                    {
-                        "role": "user",
-                        "content": (f"user's initial query: {query}\n\n"
-                                    f"planned response: {response}")
-                    }
-                ]
-            )
-            translated_text = completion.choices[0].message.content
-            logger.info('chunk %s translated to: %s', response, translated_text)
-            translated_responses.append(translated_text)
+        response_language = detect_language(response)
+        if response_language != target_language:
+            logger.warning("target language: %s but response language: %s", target_language, response_language)
+            logger.info('preparing to translate to %s', target_language)
+            translated_responses.append(translate_text(response_text=response, target_language=target_language))
         else:
             logger.info('chunk translation not required. using chunk as is.')
             translated_responses.append(response)
@@ -157,21 +256,61 @@ def translate_servant_responses(state: BrainState) -> dict:
     }
 
 
-def find_query_language_code(query) -> str:
+def translate_text(response_text, target_language):
     completion = open_ai_client.chat.completions.create(
         model="gpt-4o",
         messages=[
             {
                 "role": "system",
-                "content": LANG_DETECTOR_AGENT_SYSTEM_PROMPT
+                "content": RESPONSE_TRANSLATOR_SYSTEM_PROMPT
             },
             {
                 "role": "user",
-                "content": f'user query: {query}'
+                "content": (f"text to translate: {response_text}\n\n"
+                            f"ISO 639-1 code representing target language: {target_language}")
             }
         ]
     )
-    return completion.choices[0].message.content
+    translated_text = completion.choices[0].message.content
+    logger.info('chunk: \n%s\n\ntranslated to:\n%s', response_text, translated_text)
+    return translated_text
+
+
+def detect_language(text) -> str:
+    response = open_ai_client.responses.parse(
+        model="gpt-4o",
+        input=[
+            {
+                "role": "system",
+                "content": DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT
+            },
+            {
+                "role": "user",
+                "content": f"text: {text}"
+            }
+        ],
+        text_format=MessageLanguage,
+        store=False
+    )
+    message_language = response.output_parsed
+    return message_language.language.value
+
+
+def determine_query_language(state: BrainState) -> dict:
+    query = state["user_query"]
+    query_language = detect_language(query)
+    logger.info("language code %s detected by gpt-4o.", query_language)
+    stack_rank_collections = [
+        "knowledgebase",
+        "aquifer_documents"
+    ]
+    if query_language in supported_collection_lang_map:
+        stack_rank_collections.insert(1, f'aquifer_documents_{supported_collection_lang_map[query_language]}')
+
+    return {
+        "query_language": query_language,
+        "stack_rank_collections": stack_rank_collections
+    }
 
 
 def preprocess_user_query(state: BrainState) -> dict:
@@ -330,26 +469,43 @@ def needs_chunking(state: BrainState) -> str:
         logger.warning('message to big: %d chars. preparing to chunk.', len(first_response))
         return "chunk_message_node"
     else:
-        return "translate_servant_responses_node"
+        return "translate_responses_node"
+
+
+def process_intent(state: BrainState) -> str:
+    user_intents = state["user_intents"]
+    num_intents = len(user_intents)
+    if num_intents == 1:
+        if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
+            return "set_response_language_node"
+    return "query_db_node"
 
 
 def create_brain():
     builder = StateGraph(BrainState)
 
     builder.add_node("determine_query_language_node", determine_query_language)
+    builder.add_node("determine_intent_node", determine_intent)
+    builder.add_node("set_response_language_node", set_response_language)
     builder.add_node("query_db_node", query_db)
     builder.add_node("query_open_ai_node", query_open_ai)
     builder.add_node("chunk_message_node", chunk_message)
-    builder.add_node("translate_servant_responses_node", translate_servant_responses)
+    builder.add_node("translate_responses_node", translate_responses)
 
     builder.set_entry_point("determine_query_language_node")
-    builder.add_edge("determine_query_language_node", "query_db_node")
+    builder.add_edge("determine_query_language_node", "determine_intent_node")
+    builder.add_conditional_edges(
+        "determine_intent_node",
+        process_intent
+    )
     builder.add_edge("query_db_node", "query_open_ai_node")
-    builder.add_edge("chunk_message_node", "translate_servant_responses_node")
-
     builder.add_conditional_edges(
         "query_open_ai_node",
         needs_chunking
     )
-    builder.set_finish_point("translate_servant_responses_node")
+    builder.add_edge("set_response_language_node", "translate_responses_node")
+    builder.add_edge("chunk_message_node", "translate_responses_node")
+
+    builder.set_finish_point("translate_responses_node")
+
     return builder.compile()
