@@ -13,7 +13,23 @@ from pydantic import BaseModel
 from enum import Enum
 from db import set_user_response_language
 
-SYSTEM_INFORMATION_MESSAGE = """
+HELP_AGENT_SYSTEM_PROMPT = """
+# Identity
+
+You are a part of a RAG bot system that assists Bible translators. 
+
+# Instructions
+
+You sole purpose is to 
+provide help information about the system, using the help documentation context given to you. You 
+are only to answer using the documentation given to you. If you can't, simply say: 'I think you're 
+trying to ask a question about the BT Servant system. But I am unable to answer your question. Maybe 
+restate your question and try again.' You will also be passed past conversation context. Leverage this 
+only if needed -- only if it helps you answer the user's question about the system.
+
+"""
+
+HELP_DOCS = """
 I am the Bible Translation Servant. I serve Bible translators. My main job is to answer questions 
 about content found in various biblical resources: commentaries, translation notes, bible dictionaries, etc. 
 I will attempt to answer any question you have, or follow any commands, using the resources at my 
@@ -600,7 +616,30 @@ def handle_unrelated_information_request(state: BrainState) -> str:
 
 
 def handle_system_information_request(state: BrainState) -> str:
-    return {"responses": [SYSTEM_INFORMATION_MESSAGE]}
+    query = state["user_query"]
+    chat_history = state["user_chat_history"]
+    response = open_ai_client.responses.parse(
+        model="gpt-4o",
+        instructions=HELP_AGENT_SYSTEM_PROMPT,
+        input=[
+            {
+                "role": "developer",
+                "content": f'Help docs to use: {HELP_DOCS}'
+            },
+            {
+                "role": "developer",
+                "content": f'Conversation history to use if needed: {json.dumps(chat_history)}'
+            },
+            {
+                "role": "user",
+                "content": query
+            }
+        ],
+        store=False
+    )
+    help_response_text = response.output_text
+    logger.info('help response from openai: %s', help_response_text)
+    return {"responses": [help_response_text]}
 
 
 def handle_translate_the_bible_request(state: BrainState) -> str:
