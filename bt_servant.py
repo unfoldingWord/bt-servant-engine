@@ -3,6 +3,7 @@ import time
 import requests
 import tempfile
 import os
+import json
 from openai import OpenAI
 from collections import defaultdict
 from twilio.rest import Client as TwilioClient
@@ -18,6 +19,8 @@ from logger import get_logger
 from config import Config
 from datetime import datetime
 from db import get_user_chat_history, update_user_chat_history, get_user_response_language
+from pydantic import BaseModel
+from db import add_knowledgebase_doc
 
 twilio_client = TwilioClient()
 app = FastAPI()
@@ -29,6 +32,11 @@ Path(AUDIO_DIR).mkdir(parents=True, exist_ok=True)
 
 logger = get_logger(__name__)
 user_locks = defaultdict(asyncio.Lock)
+
+
+class KnowledgeBaseEntry(BaseModel):
+    question_or_prompt: str
+    context_for_expected_response: str
 
 
 @app.on_event("startup")
@@ -66,6 +74,23 @@ async def whatsapp_webhook(
         background_tasks.add_task(process_message_and_respond, user_id, query)
 
     return Response(status_code=202)
+
+
+@app.post("/insert")
+async def insert_entry(entry: KnowledgeBaseEntry):
+    try:
+        doc_info = {
+            "question_or_prompt": entry.question_or_prompt,
+            "context_for_expected_response": entry.context_for_expected_response
+        }
+        doc_text = json.dumps(doc_info)
+        logger.info('received new knowledge base doc:\n\n%s', doc_text)
+        chroma_id = add_knowledgebase_doc(doc_text)
+        logger.info("returning chroma_id: %s", chroma_id)
+        return {"knowledgebase_id": chroma_id}
+    except Exception as e:
+        logger.error("Error while attempting to insert knowledgebase item.", exc_info=True)
+        return {"knowledgebase_id": -1}
 
 
 @strawberry.type

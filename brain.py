@@ -1,6 +1,4 @@
 import json
-import chromadb
-from chromadb.utils import embedding_functions
 from openai import OpenAI, OpenAIError
 from langgraph.graph import StateGraph
 from typing import TypedDict, List, Dict
@@ -11,7 +9,7 @@ from groq import Groq
 from utils import chop_text, combine_chunks
 from pydantic import BaseModel
 from enum import Enum
-from db import set_user_response_language
+from db import set_user_response_language, get_chroma_collection
 
 HELP_AGENT_SYSTEM_PROMPT = """
 # Identity
@@ -179,13 +177,6 @@ supported_collection_lang_map = {
 }
 LANGUAGE_UNKNOWN = "UNKNOWN"
 
-api_key = Config.OPENAI_API_KEY
-openai_ef = embedding_functions.OpenAIEmbeddingFunction(
-                model_name="text-embedding-ada-002",
-                api_key=api_key
-            )
-
-aquifer_chroma_db = chromadb.PersistentClient(path=str(DB_DIR))
 
 TWILIO_CHAR_LIMIT = 1600
 MAX_MESSAGE_CHUNK_SIZE = 1500
@@ -451,7 +442,7 @@ def query_db(state: BrainState) -> dict:
     # this loop is the current implementation of the "stacked ranked" algorithm
     for collection_name in stack_rank_collections:
         logger.info("querying stack collection: %s", collection_name)
-        db_collection = aquifer_chroma_db.get_collection(name=collection_name, embedding_function=openai_ef)
+        db_collection = get_chroma_collection(collection_name)
         results = db_collection.query(
             query_texts=[query],
             n_results=TOP_K
