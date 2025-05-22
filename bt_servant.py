@@ -12,6 +12,7 @@ from strawberry.fastapi import GraphQLRouter
 from fastapi import FastAPI, BackgroundTasks, Request, Form
 from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
+from fastapi import HTTPException
 from twilio.base.exceptions import TwilioRestException
 from pathlib import Path
 from brain import create_brain
@@ -20,7 +21,7 @@ from config import Config
 from datetime import datetime
 from db import get_user_chat_history, update_user_chat_history, get_user_response_language
 from pydantic import BaseModel
-from db import add_knowledgebase_doc
+from db import add_knowledgebase_doc, delete_knowledgebase_doc, update_knowledgebase_doc
 
 twilio_client = TwilioClient()
 app = FastAPI()
@@ -90,7 +91,34 @@ async def insert_entry(entry: KnowledgeBaseEntry):
         return {"knowledgebase_id": chroma_id}
     except Exception as e:
         logger.error("Error while attempting to insert knowledgebase item.", exc_info=True)
-        return {"knowledgebase_id": -1}
+        raise HTTPException(status_code=500, detail="Insert failed")
+
+
+@app.put("/update/{doc_id}")
+def update_knowledgebase_entry(doc_id: str, updated_data: KnowledgeBaseEntry):
+    try:
+        doc_info = {
+            "question_or_prompt": updated_data.question_or_prompt,
+            "context_for_expected_response": updated_data.context_for_expected_response
+        }
+        doc_text = json.dumps(doc_info)
+        logger.info('received knowledge base doc for update:\n\n%s', doc_text)
+        update_knowledgebase_doc(doc_id, doc_text)
+        return {"status": "updated"}
+    except Exception as e:
+        logger.error("Error while attempting to update knowledgebase item.", exc_info=True)
+        raise HTTPException(status_code=500, detail="Update failed")
+
+
+@app.delete("/delete/{doc_id}")
+def delete_knowledgebase_entry(doc_id: str):
+    try:
+        delete_knowledgebase_doc(doc_id)
+        return {"status": "deleted"}
+    except Exception as e:
+        logger.error("Error while attempting to delete knowledgebase item.", exc_info=True)
+        raise HTTPException(status_code=500, detail="Deletion failed")
+
 
 
 @strawberry.type

@@ -24,13 +24,27 @@ def get_chroma_collection(name) -> ClientAPI:
 def add_knowledgebase_doc(doc: str) -> str:
     doc_id = str(get_next_doc_id(_knowledge_base_collection))
     logger.info("using next doc id: %s", doc_id)
-    _knowledge_base_collection.upsert(
+    _knowledge_base_collection.add(
         documents=[doc],
         metadatas=[{"source": str("Knowledgebase User Override")}],
-        ids=[str(4)],
+        ids=[doc_id],
     )
     logger.info("successfully inserted:\n\n%s\n\ninto the db.", doc)
     return doc_id
+
+
+def update_knowledgebase_doc(doc_id: str, doc: str) -> str:
+    _knowledge_base_collection.update(
+        documents=[doc],
+        metadatas=[{"source": str("Knowledgebase User Override")}],
+        ids=[doc_id],
+    )
+    logger.info("successfully updated doc_id %s with:\n\n%s\n\n.", doc_id, doc)
+
+
+def delete_knowledgebase_doc(doc_id: str):
+    _knowledge_base_collection.delete(ids=[doc_id])
+    logger.info("Deleted Chroma doc with ID: %s", doc_id)
 
 
 def get_next_doc_id(collection) -> int:
