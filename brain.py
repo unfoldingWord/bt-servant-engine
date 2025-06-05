@@ -132,6 +132,12 @@ current message or query if necessary. If the past conversation history is not r
 just ignore it. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL 
 BY ORTHODOX CHRISTIANS. If you can't do what the user is asking because your response would be heretical, explain to 
 the user why you cannot comply with their reqeust or command.
+
+Some additional guidelines:
+- If the user asks for help translating a verse, passage, or book, focus your response on (a) any potential 
+translation issues, potential pitfalls, translation strategies, or alternate translations that may be helpful from the 
+supplied context. (b) any information, broadly understood, that would help them understand the verse, passage, or book 
+better, using the supplied context/resources.
 """
 
 CHOP_AGENT_SYSTEM_PROMPT = (
@@ -180,7 +186,7 @@ LANGUAGE_UNKNOWN = "UNKNOWN"
 
 TWILIO_CHAR_LIMIT = 1600
 MAX_MESSAGE_CHUNK_SIZE = 1500
-RELEVANCE_CUTOFF = .82
+RELEVANCE_CUTOFF = .75
 TOP_K = 10
 
 logger = get_logger(__name__)
@@ -580,8 +586,6 @@ def process_intent(state: BrainState) -> str:
             return "handle_unsupported_function_node"
         if IntentType.RETRIEVE_UNRELATED_INFORMATION in user_intents:
             return "handle_unrelated_information_request_node"
-        if IntentType.TRANSLATE_THE_BIBLE in user_intents:
-            return "handle_translate_the_bible_request_node"
         if IntentType.RETRIEVE_SYSTEM_INFORMATION in user_intents:
             return "handle_system_information_request_node"
     return "query_db_node"
