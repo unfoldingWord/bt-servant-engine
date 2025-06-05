@@ -1,0 +1,6 @@
+## Usability/Simplicity
+Usability of software is directly tied to the effectiveness of the user’s ability to use the software. Manuals and walkthroughs help address gaps in usability but greatly compromise maintainability. Intuitive interfaces address the root issue. Keeping the software as simple as possible helps remove unnecessary complexity. Learnability can be described as the difficulty for a user to learn the software and can be coerced as a secondary virtue. It can also refer to the software itself learning.
+
+The natural enemies of usability are originality, urgency, and versatility. New innovative features are rarely understood enough to be simplified and showcase a natural tension between these virtues. Urgency leads to rushing or even skipping user testing. Versatility invites ambiguity that may undermine intuitiveness.
+
+>Usability is a top priority for the BT Servant, especially given the intended user base. The app must be easy to use, which is why leveraging WhatsApp is essential. While additional functionality beyond simple Q&A may be valuable, the experience should always feel as effortless as chatting with a friend. Interacting with the BT Servant should be no more difficult than having a normal conversation on WhatsApp.
