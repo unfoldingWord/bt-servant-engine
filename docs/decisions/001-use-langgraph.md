@@ -1,5 +1,9 @@
 # ADR 001: Use LangGraph for AI Orchestration
 
+## Status
+
+✅ Accepted
+
 ## Context
 
 We needed a flexible, transparent, and modular framework to orchestrate the complex multi-step reasoning required by the BT Servant AI system. This includes:
