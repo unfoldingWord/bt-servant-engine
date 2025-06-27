@@ -18,6 +18,10 @@ class Config:
     TWILIO_PHONE_NUMBER: str = os.environ.get("TWILIO_PHONE_NUMBER")
     TWILIO_ACCOUNT_SID: str = os.getenv("TWILIO_ACCOUNT_SID")
     TWILIO_AUTH_TOKEN: str = os.getenv("TWILIO_AUTH_TOKEN")
-    ''
+
+    META_WHATSAPP_TOKEN = os.getenv("META_WHATSAPP_TOKEN")
+    META_VERIFY_TOKEN = os.getenv("META_VERIFY_TOKEN")
+    META_PHONE_NUMBER_ID = os.getenv("META_PHONE_NUMBER_ID")
+
 
 

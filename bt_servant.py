@@ -54,6 +54,58 @@ def read_root():
     return {"message": "Go to /graphql to access the GraphQL API"}
 
 
+# new Meta WhatsApp webhooks soon to replace the webhook below
+# this webhook is used for one-time authentication of our endpoint
+# when configuring/connecting the endpoint in the meta developer
+# dashboard. It's only called once when configuring the webhook in
+# the dev console.
+@app.get("/meta-whatsapp")
+async def verify_webhook(request: Request):
+    params = dict(request.query_params)
+    mode = params.get("hub.mode")
+    token = params.get("hub.verify_token")
+    challenge = params.get("hub.challenge")
+
+    if mode == "subscribe" and token == Config.META_VERIFY_TOKEN:
+        logger.info("Webhook verified successfully with Meta.")
+        return Response(content=challenge, media_type="text/plain", status_code=200)
+    else:
+        logger.warning("Webhook verification failed.")
+        return Response(status_code=403)
+
+
+# new Meta WhatsApp webhook for receiving whatsApp messages
+# mTLS (mutual TLS) is used to ensure we are who we say we are,
+# and Meta is who it says it is. This is configured in Nginx land
+# and in the Meta business console/WhatsApp manager portal
+@app.post("/meta-whatsapp")
+async def handle_meta_webhook(request: Request):
+    payload = await request.json()
+    logger.debug("Received Meta webhook payload: %s", json.dumps(payload, indent=2))
+
+    try:
+        for entry in payload.get("entry", []):
+            for change in entry.get("changes", []):
+                value = change.get("value", {})
+                messages = value.get("messages", [])
+                if not messages:
+                    continue
+
+                for msg in messages:
+                    user_id = msg["from"]
+                    text = msg.get("text", {}).get("body", "")
+                    logger.info(f"Incoming message from {user_id}: {text}")
+
+                    # Echo it back
+                    send_meta_text_message(to=user_id, text=f"You said: {text}")
+    except Exception as e:
+        logger.error("Error handling Meta webhook payload", exc_info=True)
+
+    return Response(status_code=200)
+
+
+# below is the old Twilio/Fly.io webhook that will be removed
+# very soon - IJL
 @app.post("/whatsapp")
 async def whatsapp_webhook(
     request: Request,
@@ -118,6 +170,25 @@ def delete_knowledgebase_entry(doc_id: str):
     except Exception as e:
         logger.error("Error while attempting to delete knowledgebase item.", exc_info=True)
         raise HTTPException(status_code=500, detail="Deletion failed")
+
+
+def send_meta_text_message(to: str, text: str):
+    url = f"https://graph.facebook.com/v18.0/{Config.META_PHONE_NUMBER_ID}/messages"
+    headers = {
+        "Authorization": f"Bearer {Config.META_WHATSAPP_TOKEN}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "messaging_product": "whatsapp",
+        "to": to,
+        "type": "text",
+        "text": {"body": text}
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+    logger.info("Sent Meta message to %s: %s", to, text)
+    if response.status_code >= 400:
+        logger.error("Failed to send Meta message: %s", response.text)
 
 
 
