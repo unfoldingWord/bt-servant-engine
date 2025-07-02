@@ -26,6 +26,7 @@ META_VERIFY_TOKEN=your-verify-token-here
 META_WHATSAPP_TOKEN=your-meta-access-token-here
 META_PHONE_NUMBER_ID=your-meta-phone-number-id
 BASE_URL=https://your.public.domain
+GROQ_API_KEY=gsk_IJ...
 ```
 
 > ℹ️ All five above variables are required for the Meta Cloud API to work properly.
@@ -49,6 +50,7 @@ uvicorn bt_servant:app --reload
 | Variable               | Purpose                                           |
 |------------------------|---------------------------------------------------|
 | `OPENAI_API_KEY`       | Auth token for OpenAI's GPT models                |
+| `GROQ_API_KEY`       | Auth token for Groq models                        |
 | `META_VERIFY_TOKEN`    | Custom secret used for Meta webhook verification  |
 | `META_WHATSAPP_TOKEN`  | Access token used to send messages via Meta API   |
 | `META_PHONE_NUMBER_ID` | Phone number ID tied to Meta app/WABA             |

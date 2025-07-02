@@ -5,6 +5,7 @@ from pathlib import Path
 
 class Config(BaseSettings):
     OPENAI_API_KEY: str = Field(..., env="OPENAI_API_KEY")
+    GROQ_API_KEY: str = Field(..., env="GROQ_API_KEY")
     META_VERIFY_TOKEN: str = Field(..., env="META_VERIFY_TOKEN")
     META_WHATSAPP_TOKEN: str = Field(..., env="META_WHATSAPP_TOKEN")
     META_PHONE_NUMBER_ID: str = Field(..., env="META_PHONE_NUMBER_ID")
