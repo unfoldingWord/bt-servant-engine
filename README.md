@@ -46,13 +46,16 @@ uvicorn bt_servant:app --reload
 
 ## 🌐 Environment Variables Explained
 
-| Variable               | Purpose                                         |
-|------------------------|-------------------------------------------------|
-| `OPENAI_API_KEY`       | Auth token for OpenAI's GPT models             |
-| `META_VERIFY_TOKEN`    | Custom secret used for Meta webhook verification |
-| `META_WHATSAPP_TOKEN`  | Access token used to send messages via Meta API |
-| `META_PHONE_NUMBER_ID` | Phone number ID tied to Meta app/WABA     |
+| Variable               | Purpose                                           |
+|------------------------|---------------------------------------------------|
+| `OPENAI_API_KEY`       | Auth token for OpenAI's GPT models                |
+| `META_VERIFY_TOKEN`    | Custom secret used for Meta webhook verification  |
+| `META_WHATSAPP_TOKEN`  | Access token used to send messages via Meta API   |
+| `META_PHONE_NUMBER_ID` | Phone number ID tied to Meta app/WABA             |
 | `PUBLIC_BASE_URL`      | Public base URL used to generate audio file links |
+| `BT_SERVANT_LOG_LEVEL` | (Optional) Defaults to DEBUG if not present       |
+
+Other acceptable values for log level: CRITICAL, ERROR, WARNING, and INFO
 
 ---
 
