@@ -13,7 +13,7 @@ This app uses a `.env` file for local development.
 1. **Create a `.env` file**
 
 ```bash
-cp .env.example .env
+cp env.example .env
 ```
 
 2. **Edit your `.env`**
