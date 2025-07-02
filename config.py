@@ -1,27 +1,22 @@
-import os
+from pydantic_settings import BaseSettings
+from pydantic import Field
 from pathlib import Path
-from dotenv import load_dotenv
-
-load_dotenv()
 
 
-class Config:
-    PUBLIC_BASE_URL = os.getenv("PUBLIC_BASE_URL")
+class Config(BaseSettings):
+    OPENAI_API_KEY: str = Field(..., env="OPENAI_API_KEY")
+    META_VERIFY_TOKEN: str = Field(..., env="META_VERIFY_TOKEN")
+    META_WHATSAPP_TOKEN: str = Field(..., env="META_WHATSAPP_TOKEN")
+    META_PHONE_NUMBER_ID: str = Field(..., env="META_PHONE_NUMBER_ID")
+    BASE_URL: str = Field(..., env="BASE_URL")
+    LOG_LEVEL: str = Field(default="DEBUG", env="BT_SERVANT_LOG_LEVEL")
 
-    IS_FLY = os.getenv("FLY_IO") == "1"
-    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-    DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY")
+    # Optional with default value
+    DATA_DIR: Path = Field(default=Path("./data"), env="DATA_DIR")
 
-    # Optional override via env var, with a default
-    DATA_DIR = Path(os.getenv("DATA_DIR") or ("/data" if IS_FLY else Path(__file__).resolve().parent / "data"))
-
-    TWILIO_PHONE_NUMBER: str = os.environ.get("TWILIO_PHONE_NUMBER")
-    TWILIO_ACCOUNT_SID: str = os.getenv("TWILIO_ACCOUNT_SID")
-    TWILIO_AUTH_TOKEN: str = os.getenv("TWILIO_AUTH_TOKEN")
-
-    META_WHATSAPP_TOKEN = os.getenv("META_WHATSAPP_TOKEN")
-    META_VERIFY_TOKEN = os.getenv("META_VERIFY_TOKEN")
-    META_PHONE_NUMBER_ID = os.getenv("META_PHONE_NUMBER_ID")
+    class Config:
+        env_file = ".env"
 
 
-
+# Create a single instance to import elsewhere
+config = Config()

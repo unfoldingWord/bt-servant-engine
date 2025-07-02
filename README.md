@@ -1,18 +1,16 @@
 # 🧠 bt-servant-engine
 
-An AI-powered WhatsApp assistant for Bible translators, using FastAPI, Twilio, OpenAI, and ChromaDB. Easily runs both locally and in production with environment-aware configuration.
+An AI-powered WhatsApp assistant for Bible translators, now powered by **Meta's Cloud API** (no more Twilio!). The assistant uses FastAPI, OpenAI, and ChromaDB to answer Bible translation questions in multiple languages.
 
 ---
 
 ## 🚀 Environment Setup
 
-This app uses a `.env` file for local development and Fly.io secrets in production.
+This app uses a `.env` file for local development.
 
 ### ✅ Step-by-Step Setup (Local)
 
 1. **Create a `.env` file**
-
-Copy the example template and edit your own:
 
 ```bash
 cp .env.example .env
@@ -20,14 +18,17 @@ cp .env.example .env
 
 2. **Edit your `.env`**
 
-Set your OpenAI API key and any optional overrides:
+Fill in the required values:
 
 ```env
-FLY_IO=0
 OPENAI_API_KEY=sk-...
-# Optional: override local data path
-# DATA_DIR=/your/custom/path
+META_VERIFY_TOKEN=your-verify-token-here
+META_WHATSAPP_TOKEN=your-meta-access-token-here
+META_PHONE_NUMBER_ID=your-meta-phone-number-id
+PUBLIC_BASE_URL=https://your.public.domain
 ```
+
+> ℹ️ All five above variables are required for the Meta Cloud API to work properly.
 
 3. **Install dependencies**
 
@@ -37,106 +38,49 @@ pip install -r requirements.txt
 
 4. **Run the app**
 
-From your project directory:
-
 ```bash
 uvicorn bt_servant:app --reload
 ```
 
 ---
 
-## 🌐 How Environment Detection Works
+## 🌐 Environment Variables Explained
 
-We use a centralized config system (`config.py`) to determine behavior based on environment:
-
-| Variable     | Used For                    | Description |
-|--------------|-----------------------------|-------------|
-| `FLY_IO`     | Detect Fly.io environment   | `1` = running on Fly |
-| `DATA_DIR`   | Path to ChromaDB + history  | Optional override of the default data folder |
-| `OPENAI_API_KEY` | Auth for OpenAI        | Always required |
-
-If `DATA_DIR` is **not provided**, it defaults to:
-
-- ✅ `/data` when `FLY_IO=1` (Fly volume mount)
-- ✅ `./data` relative to the codebase when `FLY_IO=0` (local)
+| Variable               | Purpose                                         |
+|------------------------|-------------------------------------------------|
+| `OPENAI_API_KEY`       | Auth token for OpenAI's GPT models             |
+| `META_VERIFY_TOKEN`    | Custom secret used for Meta webhook verification |
+| `META_WHATSAPP_TOKEN`  | Access token used to send messages via Meta API |
+| `META_PHONE_NUMBER_ID` | Phone number ID tied to Meta app/WABA     |
+| `PUBLIC_BASE_URL`      | Public base URL used to generate audio file links |
 
 ---
 
-## 🔐 Production with Fly.io
+## 🛰 Webhook Setup
 
-This project is Fly.io-ready and uses a Dockerfile for deployment.
+Set your webhook URL in the [Meta Developer Console](https://developers.facebook.com/) under your WhatsApp App configuration:
 
-In production:
-
-- You **do not need a `.env` file**
-- Instead, run:
-
-```bash
-fly secrets set FLY_IO=1
-fly secrets set OPENAI_API_KEY=sk-...
-```
-
-You can also set `DATA_DIR` if needed, but by default it uses the mounted volume at `/data`.
+- **Callback URL**: `https://<your-domain>/meta-whatsapp`
+- **Verify Token**: Must match `META_VERIFY_TOKEN` in your `.env`
 
 ---
 
-## 🧪 Testing Your Config
+## 📤 Sending Messages via Meta Cloud API
 
-Add this line in any Python file to see what config is being used:
-
-```python
-from config import Config
-print("Using data directory:", Config.DATA_DIR)
-```
+When a user sends a WhatsApp message to your number, Meta calls your `/meta-whatsapp` endpoint. This app currently echoes back the received message. All message logic is defined in `bt_servant.py`.
 
 ---
 
 ## 🛠️ Debugging Tips
 
-- If your app is writing to the wrong folder (`/app/data` instead of `/data`), double-check your `DATA_DIR` resolution.
-- Use `fly ssh console` to inspect files on your production volume.
-- To test changes, run `fly deploy --no-cache` for a clean rebuild.
+- If audio URLs don’t resolve, double-check `PUBLIC_BASE_URL`
+- If Meta webhook verification fails, confirm `META_VERIFY_TOKEN` matches what you entered in the Meta console
 
 ---
 
-## 📂 `.env.example`
+## 🧪 Testing Locally
 
-This file should be included in your repo:
-
-```env
-# Copy this to .env and customize
-FLY_IO=0
-OPENAI_API_KEY=your-key-here
-# Optional override
-# DATA_DIR=./my-data
-```
-
-
----
-
-## 🧪 Testing via GraphQL Playground
-
-This project exposes a GraphQL API at [`/graphql`](http://localhost:8000/graphql) that allows you to test your assistant without needing to use WhatsApp.
-
-### 🔍 Try it with `query_bt_servant`
-
-You can send test messages directly to the assistant using this query:
-
-```graphql
-query {
-  queryBtServant(query: "What is the Nicene Creed?")
-}
-```
-
-The assistant will respond as if the question had come from a real user, using the default test `user_id` configured in the backend.
-
-This is a great way to:
-- Test response formatting
-- Debug LLM behavior
-- Evaluate updates to your assistant without going through Twilio
-
-Just start the server locally (`uvicorn bt_servant:app --reload`) and navigate to [`http://localhost:8000/graphql`](http://localhost:8000/graphql) in your browser.
-
+You can test message flow locally using tools like [ngrok](https://ngrok.com/) to expose `localhost:8000` to the public internet, then set your webhook in Meta to use the `https://<ngrok-url>/meta-whatsapp` endpoint.
 
 ---
 

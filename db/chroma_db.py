@@ -1,15 +1,15 @@
 import chromadb
 from chromadb.utils import embedding_functions
 from chromadb.api import ClientAPI
-from config import Config
+from config import config
 from logger import get_logger
 
-DATA_DIR = Config.DATA_DIR
+DATA_DIR = config.DATA_DIR
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
                 model_name="text-embedding-ada-002",
-                api_key=Config.OPENAI_API_KEY
+                api_key=config.OPENAI_API_KEY
             )
 _aquifer_chroma_db = chromadb.PersistentClient(path=str(DATA_DIR))
 _knowledge_base_collection = _aquifer_chroma_db.get_collection(name="knowledgebase", embedding_function=openai_ef)

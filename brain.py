@@ -4,7 +4,7 @@ from langgraph.graph import StateGraph
 from typing import TypedDict, List, Dict
 from pathlib import Path
 from logger import get_logger
-from config import Config
+from config import config
 from groq import Groq
 from utils import chop_text, combine_chunks
 from pydantic import BaseModel
@@ -159,7 +159,7 @@ DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
 """
 
 BASE_DIR = Path(__file__).resolve().parent
-DB_DIR = Config.DATA_DIR
+DB_DIR = config.DATA_DIR
 
 groq_client = Groq()
 open_ai_client = OpenAI()

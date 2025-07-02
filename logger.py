@@ -1,10 +1,9 @@
 import logging
 import sys
-import os
 from pathlib import Path
+from config import config
 
-LOG_LEVEL = os.getenv("BT_SERVANT_LOG_LEVEL", "DEBUG").upper()
-LOG_LEVEL = getattr(logging, LOG_LEVEL, logging.INFO)
+LOG_LEVEL = getattr(logging, config.LOG_LEVEL.upper(), logging.INFO)
 
 BASE_DIR = Path(__file__).resolve().parent
 LOGS_DIR = BASE_DIR / "logs"
