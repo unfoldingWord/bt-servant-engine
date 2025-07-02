@@ -25,7 +25,7 @@ OPENAI_API_KEY=sk-...
 META_VERIFY_TOKEN=your-verify-token-here
 META_WHATSAPP_TOKEN=your-meta-access-token-here
 META_PHONE_NUMBER_ID=your-meta-phone-number-id
-PUBLIC_BASE_URL=https://your.public.domain
+BASE_URL=https://your.public.domain
 ```
 
 > ℹ️ All five above variables are required for the Meta Cloud API to work properly.
@@ -52,7 +52,7 @@ uvicorn bt_servant:app --reload
 | `META_VERIFY_TOKEN`    | Custom secret used for Meta webhook verification  |
 | `META_WHATSAPP_TOKEN`  | Access token used to send messages via Meta API   |
 | `META_PHONE_NUMBER_ID` | Phone number ID tied to Meta app/WABA             |
-| `PUBLIC_BASE_URL`      | Public base URL used to generate audio file links |
+| `BASE_URL`      | Public base URL used to generate audio file links |
 | `BT_SERVANT_LOG_LEVEL` | (Optional) Defaults to DEBUG if not present       |
 
 Other acceptable values for log level: CRITICAL, ERROR, WARNING, and INFO
@@ -76,7 +76,7 @@ When a user sends a WhatsApp message to your number, Meta calls your `/meta-what
 
 ## 🛠️ Debugging Tips
 
-- If audio URLs don’t resolve, double-check `PUBLIC_BASE_URL`
+- If audio URLs don’t resolve, double-check `BASE_URL`
 - If Meta webhook verification fails, confirm `META_VERIFY_TOKEN` matches what you entered in the Meta console
 
 ---
