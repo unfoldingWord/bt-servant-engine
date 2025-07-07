@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 from config import config
 
-LOG_LEVEL = getattr(logging, config.LOG_LEVEL.upper(), logging.INFO)
+LOG_LEVEL = getattr(logging, config.BT_SERVANT_LOG_LEVEL.upper(), logging.INFO)
 
 BASE_DIR = Path(__file__).resolve().parent
 LOGS_DIR = BASE_DIR / "logs"

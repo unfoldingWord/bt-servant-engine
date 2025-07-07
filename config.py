@@ -10,7 +10,7 @@ class Config(BaseSettings):
     META_WHATSAPP_TOKEN: str = Field(..., env="META_WHATSAPP_TOKEN")
     META_PHONE_NUMBER_ID: str = Field(..., env="META_PHONE_NUMBER_ID")
     BASE_URL: str = Field(..., env="BASE_URL")
-    LOG_LEVEL: str = Field(default="DEBUG", env="BT_SERVANT_LOG_LEVEL")
+    BT_SERVANT_LOG_LEVEL: str = Field(default="info", env="BT_SERVANT_LOG_LEVEL")
 
     # Optional with default value
     DATA_DIR: Path = Field(default=Path("./data"), env="DATA_DIR")

@@ -59,8 +59,9 @@ async def verify_webhook(request: Request):
 
 @app.post("/meta-whatsapp")
 async def handle_meta_webhook(request: Request):
+    logger.info("inside handle_meta_webhook...");
     payload = await request.json()
-    logger.debug("Received Meta webhook payload: %s", json.dumps(payload, indent=2))
+    logger.info("Received Meta webhook payload: %s", json.dumps(payload, indent=2))
 
     try:
         for entry in payload.get("entry", []):
