@@ -13,6 +13,7 @@ from config import config
 from pydantic import BaseModel
 
 app = FastAPI()
+
 open_ai_client = OpenAI()
 brain = None
 
@@ -40,6 +41,13 @@ def init():
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the API. Refer to /docs for available endpoints."}
+
+
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    logger.info(f"Incoming {request.method} request to {request.url}")
+    response = await call_next(request)
+    return response
 
 
 @app.get("/meta-whatsapp")
