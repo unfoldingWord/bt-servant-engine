@@ -17,7 +17,7 @@ class Config(BaseSettings):
     MAX_META_TEXT_LENGTH: int = Field(default=4096, env="MAX_META_TEXT_LENGTH")
 
     # Optional with default value
-    DATA_DIR: Path = Field(default=Path("./data"), env="DATA_DIR")
+    DATA_DIR: Path = Field(default=Path("/data"), env="DATA_DIR")
 
     class Config:
         env_file = ".env"
