@@ -56,6 +56,7 @@ uvicorn bt_servant:app --reload
 | `META_PHONE_NUMBER_ID` | Phone number ID tied to Meta app/WABA                           |
 | `BASE_URL`      | Public base URL used to generate audio file links               |
 | `BT_SERVANT_LOG_LEVEL` | (Optional) Defaults to info log level if not present            |
+| `IN_META_SANDBOX_MODE` | (Optional) Set to true when testing in sandbox mode             |
 | `META_SANDBOX_PHONE_NUMBER` | Only accept requests from this phonenumber when testing locally |
 
 Other acceptable values for log level: critical, error, warning, and debug
