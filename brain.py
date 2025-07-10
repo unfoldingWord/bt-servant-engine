@@ -446,6 +446,9 @@ def query_db(state: BrainState) -> dict:
     for collection_name in stack_rank_collections:
         logger.info("querying stack collection: %s", collection_name)
         db_collection = get_chroma_collection(collection_name)
+        if not db_collection:
+            logger.warning("collection %s not found in chroma db.", collection_name)
+            continue
         results = db_collection.query(
             query_texts=[query],
             n_results=TOP_K

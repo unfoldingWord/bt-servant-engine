@@ -17,7 +17,10 @@ logger = get_logger(__name__)
 
 
 def get_chroma_collection(name) -> ClientAPI:
-    return _aquifer_chroma_db.get_collection(name=name, embedding_function=openai_ef)
+    existing_collections = [col.name for col in _aquifer_chroma_db.list_collections()]
+    if name in existing_collections:
+        return _aquifer_chroma_db.get_collection(name=name, embedding_function=openai_ef)
+    return None
 
 
 def get_next_doc_id(collection) -> int:
