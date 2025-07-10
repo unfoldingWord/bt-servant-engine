@@ -183,10 +183,7 @@ supported_collection_lang_map = {
 }
 LANGUAGE_UNKNOWN = "UNKNOWN"
 
-
-TWILIO_CHAR_LIMIT = 1600
-MAX_MESSAGE_CHUNK_SIZE = 1500
-RELEVANCE_CUTOFF = .75
+RELEVANCE_CUTOFF = .78
 TOP_K = 10
 
 logger = get_logger(__name__)
@@ -562,12 +559,13 @@ def chunk_message(state: BrainState) -> dict:
         chunks = chop_text(text_to_chunk)
 
     chunks.extend(responses[1:])
-    return {"responses": combine_chunks(chunks=chunks, chunk_max=MAX_MESSAGE_CHUNK_SIZE)}
+    chunk_max = config.MAX_META_TEXT_LENGTH - 100
+    return {"responses": combine_chunks(chunks=chunks, chunk_max=chunk_max)}
 
 
 def needs_chunking(state: BrainState) -> str:
     first_response = state["responses"][0]
-    if len(first_response) > TWILIO_CHAR_LIMIT:
+    if len(first_response) > config.MAX_META_TEXT_LENGTH:
         logger.warning('message to big: %d chars. preparing to chunk.', len(first_response))
         return "chunk_message_node"
     else:
