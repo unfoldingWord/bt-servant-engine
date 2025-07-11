@@ -117,7 +117,7 @@ async def handle_meta_webhook(request: Request):
 
                     text = msg.get("text", {}).get("body", "")
                     logger.info(f"Incoming message from {user_id}: {text}")
-                    asyncio.create_task(process_message_and_respond(user_id=user_id, query=text))
+                    asyncio.create_task(process_message_and_respond(user_id=user_id, message_id=message_id, query=text))
 
         return Response(status_code=200)
 
@@ -130,9 +130,15 @@ async def handle_meta_webhook(request: Request):
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 
-async def process_message_and_respond(user_id: str, query: str):
+async def process_message_and_respond(user_id: str, message_id: str, query: str):
     async with user_locks[user_id]:
         start_time = time.time()
+
+        try:
+            await send_meta_typing_indicator(message_id)
+        except Exception as e:
+            logger.warning("Failed to send typing indicator: %s", e)
+
         loop = asyncio.get_event_loop()
         result = await loop.run_in_executor(None, brain.invoke, {
             "user_id": user_id,
@@ -176,6 +182,28 @@ async def send_meta_text_message(user_id: str, text: str):
             logger.error("Failed to send Meta message: %s", response.text)
         else:
             logger.info("Sent Meta message to %s: %s", user_id, text)
+
+
+async def send_meta_typing_indicator(message_id: str):
+    url = f"https://graph.facebook.com/v18.0/{config.META_PHONE_NUMBER_ID}/messages"
+    headers = {
+        "Authorization": f"Bearer {config.META_WHATSAPP_TOKEN}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "messaging_product": "whatsapp",
+        "status": "read",
+        "message_id": message_id,
+        "typing_indicator": {
+            "type": "text"
+        }
+    }
+    async with httpx.AsyncClient() as client:
+        response = await client.post(url, headers=headers, json=payload)
+        if response.status_code >= 400:
+            logger.error("Failed to send typing indicator (via read status): %s", response.text)
+        else:
+            logger.info("Sent typing indicator via message_id=%s", message_id)
 
 
 app.mount("/audio", StaticFiles(directory=AUDIO_DIR), name="audio")
