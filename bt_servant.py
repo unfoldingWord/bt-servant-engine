@@ -27,15 +27,6 @@ Path(AUDIO_DIR).mkdir(parents=True, exist_ok=True)
 logger = get_logger(__name__)
 user_locks = defaultdict(asyncio.Lock)
 
-# SOLVE THIS BETTER. At the very least, store this in the user's
-# json db...IJL
-processed_messages = set()
-
-
-class KnowledgeBaseEntry(BaseModel):
-    question_or_prompt: str
-    context_for_expected_response: str
-
 
 @app.on_event("startup")
 def init():
@@ -86,11 +77,6 @@ async def handle_meta_webhook(request: Request):
                     continue
                 for msg in messages:
                     message_id = msg.get("id", "")
-                    if message_id in processed_messages:
-                        logger.warning('skipping duplicate message: %s. already processed.', message_id)
-                        continue
-                    processed_messages.add(message_id)
-
                     timestamp = msg.get("timestamp", "")
                     if timestamp:
                         message_time_utc = datetime.fromtimestamp(int(timestamp), tz=timezone.utc)

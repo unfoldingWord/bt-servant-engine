@@ -183,7 +183,7 @@ supported_collection_lang_map = {
 }
 LANGUAGE_UNKNOWN = "UNKNOWN"
 
-RELEVANCE_CUTOFF = .78
+RELEVANCE_CUTOFF = .75
 TOP_K = 10
 
 logger = get_logger(__name__)
@@ -394,7 +394,6 @@ def determine_query_language(state: BrainState) -> dict:
     query_language = detect_language(query)
     logger.info("language code %s detected by gpt-4o.", query_language)
     stack_rank_collections = [
-        "knowledgebase",
         "aquifer_documents"
     ]
     if query_language in supported_collection_lang_map:
