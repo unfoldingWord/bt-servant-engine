@@ -1,8 +1,25 @@
-# 🧠 bt-servant-engine
+# 🤖 bt-servant-engine
 
 An AI-powered WhatsApp assistant for Bible translators, now powered by **Meta's Cloud API** (no more Twilio!). The assistant uses FastAPI, OpenAI, and ChromaDB to answer Bible translation questions in multiple languages.
 
 ---
+## 🧠 How the Decision Graph Works (brain.py)
+The decision graph below defines the flow of a Bible translation assistant that uses a Retrieval-Augmented Generation (RAG) pipeline to respond to user messages intelligently and faithfully. Each node represents a distinct step in the processing pipeline, and transitions between them are determined either linearly or conditionally based on user input and system state.
+
+![LangGraph Visualization](visualizations/brain_graph.png)
+**Nodes making LLM API calls*
+
+## 🔄 Node Summaries
+- **determine_query_language_node:** Detects the language of the user's message to support multilingual responses and select the appropriate document collection. 
+- **preprocess_user_query_node:** Clarifies the user's message using past conversation context, correcting ambiguity and minor issues while preserving intent.
+- **determine_intent_node:** Classifies the user's message into one or more predefined intents (e.g., ask a Bible question, change response language, etc.).
+- **set_response_language_node:** Updates the user's preferred response language in persistent storage.
+- **query_db_node:** Searches relevant ChromaDB document collections using the transformed query, applying a relevance filter to determine if results are useful.
+- **query_open_ai_node:** Uses OpenAI (with context from RAG results and chat history) to generate a response. Conditional logic routes long responses to chunking.
+- **chunk_message_node:** If the assistant's response exceeds the 1500-character limit imposed by WhatsApp, this node semantically chunks the message into smaller parts.
+- **translate_responses_node:** Translates the assistant's final output into the user’s preferred language, if needed.
+- **handle_unsupported_function_node**, **handle_unclear_intent_node**, and **handle_unrelated_information_request_node:** Graceful fallback nodes triggered when the system can't determine the user's intent, the function is unsupported, the question is off-topic, or the user is asking about how the system works.
+- **handle_system_information_request_node:** This node handles user questions about the assistant itself — such as what it can do, how it works, or what resources it uses. When this intent is detected, the system loads a predefined system prompt that frames the assistant as a helpful RAG-based servant to Bible translators. The assistant uses this context to generate a response strictly limited to the help docs.
 
 ## 🚀 Environment Setup
 
