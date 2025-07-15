@@ -24,7 +24,7 @@ Thumbs.db
 logs/
 
 # Ignore everything in data/
-/data/
+data/
 
 
 # Docker stuff (optional)
