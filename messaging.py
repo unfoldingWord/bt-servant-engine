@@ -2,7 +2,7 @@ import httpx
 import os
 import tempfile
 import time
-import datetime
+from datetime import datetime
 import asyncio
 from logger import get_logger
 from config import config
@@ -82,22 +82,8 @@ async def send_typing_indicator_message(message_id: str):
             logger.info("Sent typing indicator via message_id=%s", message_id)
 
 
-async def get_media_message_url(self) -> str:
-    url = f"https://graph.facebook.com/v23.0/{self.media_id}"
-    headers = {
-        "Authorization": f"Bearer {config.META_WHATSAPP_TOKEN}"
-    }
-    async with httpx.AsyncClient() as client:
-        response = await client.get(url, headers=headers)
-        if response.status_code >= 400:
-            logger.error("Failed to get media metadata: %s", response.text)
-            raise Exception("Media url retrieval failed")
-        url = response.json().get("url", "")
-        logger.info('url: %s retrieved from meta media endpoint.', url)
-        return url
-
-
-async def transcribe_voice_message(voice_message_url: str) -> str:
+async def transcribe_voice_message(media_id: str) -> str:
+    voice_message_url = await _get_media_message_url(media_id=media_id)
     headers = {
         "Authorization": f"Bearer {config.META_WHATSAPP_TOKEN}"
     }
@@ -126,6 +112,21 @@ async def transcribe_voice_message(voice_message_url: str) -> str:
     finally:
         if os.path.exists(temp_audio_path):
             os.remove(temp_audio_path)
+
+
+async def _get_media_message_url(media_id: str) -> str:
+    url = f"https://graph.facebook.com/v23.0/{media_id}"
+    headers = {
+        "Authorization": f"Bearer {config.META_WHATSAPP_TOKEN}"
+    }
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url, headers=headers)
+        if response.status_code >= 400:
+            logger.error("Failed to get media metadata: %s", response.text)
+            raise Exception("Media url retrieval failed")
+        url = response.json().get("url", "")
+        logger.info('url: %s retrieved from meta media endpoint.', url)
+        return url
 
 
 def _create_voice_message(user_id: str, text: str) -> str:

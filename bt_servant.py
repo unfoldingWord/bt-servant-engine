@@ -85,7 +85,7 @@ async def handle_meta_webhook(request: Request):
                             logger.warning("Unauthorized sender: %s", user_message.user_id)
                             return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content={"error": "Unauthorized sender"})
 
-                        asyncio.create_task(process_message(message=user_message))
+                        asyncio.create_task(process_message(user_message=user_message))
                     except Exception as e:
                         logger.error("Error while processing user message...", exc_info=True)
                         continue
