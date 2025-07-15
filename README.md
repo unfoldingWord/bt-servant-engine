@@ -21,6 +21,14 @@ The decision graph below defines the flow of a Bible translation assistant that 
 - **handle_unsupported_function_node**, **handle_unclear_intent_node**, and **handle_unrelated_information_request_node:** Graceful fallback nodes triggered when the system can't determine the user's intent, the function is unsupported, the question is off-topic, or the user is asking about how the system works.
 - **handle_system_information_request_node:** This node handles user questions about the assistant itself — such as what it can do, how it works, or what resources it uses. When this intent is detected, the system loads a predefined system prompt that frames the assistant as a helpful RAG-based servant to Bible translators. The assistant uses this context to generate a response strictly limited to the help docs.
 
+## 🧠 How User Intent Is Determined
+The assistant uses a dedicated node called determine_intent_node to classify the user’s message into one or more high-level intents, which are used to determine the next step in the assistant’s response pipeline. This node relies on the OpenAI model (gpt-4o) to parse the message in context. It sends the following structured input to the model:
+
+- The current user message (already preprocessed and clarified). 
+- The full chat history (if available), so the model can detect intent based on prior interactions.
+
+The model receives a tightly constrained system prompt instructing it to always return at least one intent, using a fixed enumeration. The model’s response is parsed into a list of valid IntentType enum values.
+
 ## 🧭 Current Supported User Intents
 - retrieve-information-from-the-bible 
 - retrieve-information-about-the-bible 
@@ -31,6 +39,17 @@ The decision graph below defines the flow of a Bible translation assistant that 
 - retrieve-information-about-the-bt-servant-system 
 - specify-response-language 
 - unclear-intent
+
+## 🔄 How Intents Drive the Decision Graph
+The extracted intent(s) are used by the function process_intent(state) to conditionally branch to the appropriate node in the LangGraph. Here’s how different intents affect the flow:
+- **specify-response-language** → Routes to set_response_language_node, which updates the user’s language preference and skips retrieval/generation. 
+- **retrieve-information-about-the-bt-servant-system** → Routes to handle_system_information_request_node, which uses help docs and a special system prompt to answer. 
+- **unclear-intent** → Routes to handle_unclear_intent_node, which politely asks the user to rephrase. 
+- **execute-task-unrelated-to-the-bible-or-translation** → Routes to handle_unsupported_function_node, a graceful fallback that informs the user the function isn't supported. 
+- **retrieve-non-translation-or-non-bible-information** → Routes to handle_unrelated_information_request_node, which tells the user that the assistant only supports Bible-related queries. 
+- **All other intents (e.g., Bible questions, translation process queries, etc.)** → Route to query_db_node, which kicks off the full RAG pipeline.
+
+This intent-based routing allows the assistant to intelligently short-circuit, fail gracefully, or fully engage the RAG pipeline depending on what the user needs — all with modular, explainable logic.
 
 ## 🚀 Environment Setup
 
