@@ -89,23 +89,6 @@ Set your webhook URL in the [Meta Developer Console](https://developers.facebook
 
 ---
 
-## 📤 Sending Messages via Meta Cloud API
-
-When a user sends a WhatsApp message to your number, Meta calls your `/meta-whatsapp` endpoint. This app currently echoes back the received message. All message logic is defined in `bt_servant.py`.
-
----
-
-## 🛠️ Debugging Tips
-
-- If audio URLs don’t resolve, double-check `BASE_URL`
-- If Meta webhook verification fails, confirm `META_VERIFY_TOKEN` matches what you entered in the Meta console
-
----
-
 ## 🧪 Testing Locally
 
 You can test message flow locally using tools like [ngrok](https://ngrok.com/) to expose `localhost:8000` to the public internet, then set your webhook in Meta to use the `https://<ngrok-url>/meta-whatsapp` endpoint.
-
----
-
-Happy translating 🚀📖
