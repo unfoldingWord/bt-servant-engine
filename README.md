@@ -25,9 +25,9 @@ The decision graph below defines the flow of a Bible translation assistant that 
 The assistant uses a dedicated node called determine_intent_node to classify the user’s message into one or more high-level intents, which are used to determine the next step in the assistant’s response pipeline. This node relies on the OpenAI model (gpt-4o) to parse the message in context. It sends the following structured input to the model:
 
 - The current user message (already preprocessed and clarified). 
-- The full chat history (if available), so the model can detect intent based on prior interactions.
+- Chat history (max five turns back), if available, so the model can detect intent based on prior interactions.
 
-The model receives a tightly constrained system prompt instructing it to always return at least one intent, using a fixed enumeration. The model’s response is parsed into a list of valid IntentType enum values.
+The model receives a tightly constrained system prompt instructing it to always return one or more intents, using a fixed enumeration. The model’s response is parsed into a list of valid IntentType enum values.
 
 ## 🧭 Current Supported User Intents
 - retrieve-information-from-the-bible 
