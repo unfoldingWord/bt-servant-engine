@@ -122,22 +122,18 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
 
 FINAL_RESPONSE_AGENT_SYSTEM_PROMPT = """
 You are an assistant to Bible translators. Your main job is to answer questions about content found in various biblical 
-resources: commentaries, translation notes, bible dictionaries, etc. Context from resources (RAG results) will be 
-provided to help you answer the question(s). Only answer questions using the provided context from resources!!! 
-If you can't confidently figure it out using that context, simply say 'Sorry, I couldn't find any information in my 
-resources to service your request or command. Currently, I only have resources loaded from Titus and Mark, and a few 
-other resources related to producing faithful translations. But maybe I'm unclear on your intent. Could you perhaps 
-state it a different way?' You will also be given the past conversation history. Use this to understand the user's 
-current message or query if necessary. If the past conversation history is not relevant to the user's current message, 
-just ignore it. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL 
-BY ORTHODOX CHRISTIANS. If you can't do what the user is asking because your response would be heretical, explain to 
-the user why you cannot comply with their reqeust or command.
-
-Some additional guidelines:
-- If the user asks for help translating a verse, passage, or book, focus your response on (a) any potential 
-translation issues, potential pitfalls, translation strategies, or alternate translations that may be helpful from the 
-supplied context. (b) any information, broadly understood, that would help them understand the verse, passage, or book 
-better, using the supplied context/resources.
+resources: commentaries, translation notes, bible dictionaries, and various resources like FIA. In addition to answering
+questions, you may be called upon to: summarize the data from resources, transform the data from resources (like
+explaining it a 5-year old level, etc, and interact with the resources in all kinds of ways. All this is a part of your 
+responsibilities. Context from resources (RAG results) will be provided to help you answer the question(s). Only answer 
+questions using the provided context from resources!!! If you can't confidently figure it out using that context, 
+simply say 'Sorry, I couldn't find any information in my resources to service your request or command. Currently, I only 
+have resources loaded from Titus and Mark, and a few other resources related to producing faithful translations. But 
+maybe I'm unclear on your intent. Could you perhaps state it a different way?' You will also be given the past 
+conversation history. Use this to understand the user's current message or query if necessary. If the past conversation 
+history is not relevant to the user's current message, just ignore it. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY 
+ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX CHRISTIANS. If you can't do what the user is asking 
+because your response would be heretical, explain to the user why you cannot comply with their reqeust or command.
 """
 
 CHOP_AGENT_SYSTEM_PROMPT = (
@@ -148,9 +144,96 @@ CHOP_AGENT_SYSTEM_PROMPT = (
 )
 
 INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT = """
-    You are a part of a chatbot system called 'bt servant', which provides information to Bible 
-    translators. Classify the intents of the user's latest message using any context or message history
-    supplied. Always return at least one intent and return the unclear intent if you can't figure it out.
+You are a node in a chatbot system called “BT Servant”, which provides intelligent assistance to Bible translators. Your 
+job is to classify the **intent(s)** of the user’s latest message. Always return **at least one** intent from the 
+approved list. However, if more than one intent is found, make sure to return those as well. If you're unsure, return 
+`unclear-intent`. If the user is asking for something outside the scope of the Bible, Bible translation, the Bible 
+translation process, or one of the resources stored in the system (ex. Translation Notes, FIA resources, the Bible, 
+Translation Words, Greek or Hebrew resources, commentaries, Bible dictionaries, etc.), or something outside system 
+capabilities (defined by the various intents), return the `perform-unsupported-function` intent.
+
+You MUST always return at least one intent. You MUST choose one or more intents from the following five intent types:
+
+<intents>
+  <intent name="get-bible-translation-assistance">
+    The user is asking for help with Bible translation — including understanding meaning; finding source verses; 
+    clarifying language issues; consulting translation resources (ex. Translation Notes, FIA, the Bible, etc); receiving
+    explanation of resources; interacting with resource content; asking for transformations of resource content 
+    (ex. summaries of resource portions, biblical content, etc); or how to handle specific words, phrases, 
+    or translation challenges.
+  </intent>
+  <intent name="set-response-language">
+    The user wants to change the language in which the system responds. They might ask for responses in 
+    Spanish, French, Arabic, etc.
+  </intent>
+  <intent name="retrieve-system-information">
+    The user wants information about the BT Servant system itself — how it works, where it gets data, uptime, 
+    example questions, supported languages, features, or current system configuration (like the documents currently 
+    stored in the ChromaDB (vector database).
+  </intent>
+  <intent name="perform-unsupported-function">
+    The user is asking BT Servant to do something outside the scope of Bible translation help, interacting with the 
+    resources in the vector database, or system diagnostics. For example, telling jokes, setting timers, 
+    summarizing current news, or anything else COMPLETELY UNRELATED to what BT Servant can do.
+  </intent>
+  <intent name="unclear-intent">
+    The user's request is too ambiguous or vague to classify confidently into one of the categories above.
+  </intent>
+</intents>
+
+Here are a few examples to guide you:
+
+<examples>
+  <example>
+    <message>"What is the best way to translate the word 'faith' in this passage?"</message>
+    <intent>get-bible-translation-assistance</intent>
+  </example>
+  <example>
+    <message>"What is the fourth step of the FIA process?"</message>
+    <intent>get-bible-translation-assistance</intent>
+  </example>
+  <example>
+    <message>"Explain the FIA process to me like I'm a three year old."</message>
+    <intent>get-bible-translation-assistance</intent>
+  </example>
+  <example>
+    <message>"What is a FIA process in Mark."</message>
+    <intent>get-bible-translation-assistance</intent>
+  </example>
+  <example>
+    <message>"Summarize Mark 3."</message>
+    <intent>get-bible-translation-assistance</intent>
+  </example>
+  <example>
+    <message>"Summarize Titus 3:4"</message>
+    <intent>get-bible-translation-assistance</intent>
+  </example>
+  <example>
+    <message>"Can you reply to me in French from now on?"</message>
+    <intent>set-response-language</intent>
+  </example>
+  <example>
+    <message>"Where does BT Servant get its information from?"</message>
+    <intent>retrieve-system-information</intent>
+  </example>
+  <example>
+    <message>"Help"</message>
+    <intent>retrieve-system-information</intent>
+  </example>
+  <example>
+    <message>"Can you tell me a joke?"</message>
+    <intent>perform-unsupported-function</intent>
+  </example>
+  <example>
+    <message>"Hmm, what was I saying again?"</message>
+    <intent>unclear-intent</intent>
+  </example>
+</examples>
+
+You will return a single structured output like this:
+```json
+{ "intents": ["get-bible-translation-assistance"] }
+```
 """
 
 DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
@@ -219,15 +302,10 @@ class PreprocessorResult(BaseModel):
 
 
 class IntentType(str, Enum):
-    RETRIEVE_INFORMATION_FROM_BIBLE = "retrieve-information-from-the-bible"
-    RETRIEVE_INFORMATION_ABOUT_BIBLE = "retrieve-information-about-the-bible"
-    RETRIEVE_INFORMATION_ABOUT_TRANSLATION_PROCESS = "retrieve-information-about-the-process-of-translation"
-    RETRIEVE_UNRELATED_INFORMATION = "retrieve-non-translation-or-non-bible-information"
-    TRANSLATE_THE_BIBLE = "translate-the-bible"
-    PERFORM_UNSUPPORTED_FUNCTION = "execute-task-unrelated-to-the-bible-or-translation"
-    RETRIEVE_BIBLE_INFORMATION = "retrieve-information-from-the-bible"
-    RETRIEVE_SYSTEM_INFORMATION = "retrieve-information-about-the-bt-servant-system"
-    SET_RESPONSE_LANGUAGE = "specify-response-language"
+    GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
+    PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
+    RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
+    SET_RESPONSE_LANGUAGE = "set-response-language"
     UNCLEAR_INTENT = "unclear-intent"
 
 
@@ -251,18 +329,12 @@ class BrainState(TypedDict, total=False):
 
 def determine_intent(state: BrainState) -> dict:
     query = state["transformed_query"]
-    chat_history = state["user_chat_history"]
-    history_context_message = f"Past conversation: {json.dumps(chat_history)}"
     response = open_ai_client.responses.parse(
         model="gpt-4o",
         input=[
             {
                 "role": "system",
                 "content": INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": history_context_message
             },
             {
                 "role": "user",
@@ -496,6 +568,7 @@ def query_open_ai(state: BrainState) -> dict:
 
         # build context from docs
         context = "\n\n".join([item["doc"] for item in docs])
+        logger.debug("context passed to final node:\n\n%s", context)
         rag_context_message = "When answering my next query, use this additional" + \
             f"  context: {context}"
         chat_history_context_message = (f"Use this conversation history to understand the user's "
@@ -576,19 +649,24 @@ def needs_chunking(state: BrainState) -> str:
 
 def process_intent(state: BrainState) -> str:
     user_intents = state["user_intents"]
-    num_intents = len(user_intents)
-    if num_intents == 1:
-        if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
-            return "set_response_language_node"
-        if IntentType.UNCLEAR_INTENT in user_intents:
-            return "handle_unclear_intent_node"
-        if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
-            return "handle_unsupported_function_node"
-        if IntentType.RETRIEVE_UNRELATED_INFORMATION in user_intents:
-            return "handle_unrelated_information_request_node"
-        if IntentType.RETRIEVE_SYSTEM_INFORMATION in user_intents:
-            return "handle_system_information_request_node"
-    return "query_db_node"
+    if not user_intents:
+        raise ValueError("no intents found. something went very wrong.")
+
+    if IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE in user_intents:
+        return "query_db_node"
+
+    # we need to think through and add support for multiple intents
+    # for now, if we have multiple non-get bible translation assistance intents
+    # simply process the first one only. FIX SOON. -- IJL
+    first_intent = user_intents[0]
+    if first_intent == IntentType.SET_RESPONSE_LANGUAGE:
+        return "set_response_language_node"
+    if first_intent == IntentType.UNCLEAR_INTENT:
+        return "handle_unclear_intent_node"
+    if first_intent == IntentType.PERFORM_UNSUPPORTED_FUNCTION:
+        return "handle_unsupported_function_node"
+    if first_intent == IntentType.RETRIEVE_SYSTEM_INFORMATION:
+        return "handle_system_information_request_node"
 
 
 def handle_unsupported_function(state: BrainState) -> str:
@@ -601,13 +679,6 @@ def handle_unclear_intent(state: BrainState) -> str:
     unclear_intent_message = ("I'm unclear on your intent. Could you perhaps state it a "
                               "different way?")
     return {"responses": [unclear_intent_message]}
-
-
-def handle_unrelated_information_request(state: BrainState) -> str:
-    unrelated_information_message = ("Sorry! Currently, I can only answer questions, and execute certain "
-                                     "commands, related to the Bible or the process of Bible "
-                                     "translation.")
-    return {"responses": [unrelated_information_message]}
 
 
 def handle_system_information_request(state: BrainState) -> str:
@@ -637,12 +708,6 @@ def handle_system_information_request(state: BrainState) -> str:
     return {"responses": [help_response_text]}
 
 
-def handle_translate_the_bible_request(state: BrainState) -> str:
-    translate_the_bible_message = ("Sorry! Currently, I can't translate Bible passages. This function "
-                                   "may be coming soon.")
-    return {"responses": [translate_the_bible_message]}
-
-
 def create_brain():
     builder = StateGraph(BrainState)
 
@@ -655,8 +720,6 @@ def create_brain():
     builder.add_node("chunk_message_node", chunk_message)
     builder.add_node("handle_unsupported_function_node", handle_unsupported_function)
     builder.add_node("handle_unclear_intent_node", handle_unclear_intent)
-    builder.add_node("handle_unrelated_information_request_node", handle_unrelated_information_request)
-    builder.add_node("handle_translate_the_bible_request_node", handle_translate_the_bible_request)
     builder.add_node("handle_system_information_request_node", handle_system_information_request)
     builder.add_node("translate_responses_node", translate_responses)
 
@@ -677,8 +740,6 @@ def create_brain():
 
     builder.add_edge("handle_unclear_intent_node", "translate_responses_node")
     builder.add_edge("handle_unsupported_function_node", "translate_responses_node")
-    builder.add_edge("handle_unrelated_information_request_node", "translate_responses_node")
-    builder.add_edge("handle_translate_the_bible_request_node", "translate_responses_node")
     builder.add_edge("handle_system_information_request_node", "translate_responses_node")
 
     builder.set_finish_point("translate_responses_node")

@@ -19,9 +19,6 @@ app = FastAPI()
 open_ai_client = OpenAI()
 brain = None
 
-AUDIO_DIR = config.DATA_DIR / "audio"
-Path(AUDIO_DIR).mkdir(parents=True, exist_ok=True)
-
 logger = get_logger(__name__)
 user_locks = defaultdict(asyncio.Lock)
 
