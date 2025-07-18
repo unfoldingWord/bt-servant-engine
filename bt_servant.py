@@ -6,7 +6,6 @@ from openai import OpenAI
 from collections import defaultdict
 from fastapi import FastAPI, Request, Response, status
 from fastapi.responses import JSONResponse
-from pathlib import Path
 from brain import create_brain
 from logger import get_logger
 from config import config
