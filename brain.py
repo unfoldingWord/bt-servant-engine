@@ -466,6 +466,7 @@ def determine_query_language(state: BrainState) -> dict:
     query_language = detect_language(query)
     logger.info("language code %s detected by gpt-4o.", query_language)
     stack_rank_collections = [
+        "knowledgebase",
         "aquifer_documents"
     ]
     if query_language in supported_collection_lang_map:
@@ -543,12 +544,9 @@ def query_db(state: BrainState) -> dict:
                 })
         if filtered_docs:
             logger.info("found %d hit(s) at stack collection: %s", len(filtered_docs), collection_name)
-            collection_used = collection_name
-            break
 
     return {
-        "docs": filtered_docs,
-        "collection_used": collection_used
+        "docs": filtered_docs
     }
 
 
@@ -597,8 +595,7 @@ def query_open_ai(state: BrainState) -> dict:
 
         resource_list = ", ".join(set([item["resource_name"] for item in docs]))
         cascade_info = (
-            f"bt_servant cascaded to the {state['collection_used']} stack. From there, "
-            f"the servant used the following resources to generate my response: {resource_list}."
+            f"bt servant used the following resources to generate its response: {resource_list}."
         )
         logger.info(cascade_info)
 
