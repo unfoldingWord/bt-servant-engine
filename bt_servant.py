@@ -97,43 +97,54 @@ async def handle_meta_webhook(request: Request):
 
 async def process_message(user_message: UserMessage):
     async with user_locks[user_message.user_id]:
-        start_time = time.time()
         try:
-            await send_typing_indicator_message(user_message.message_id)
+            start_time = time.time()
+            try:
+                await send_typing_indicator_message(user_message.message_id)
+            except Exception as e:
+                logger.warning("Failed to send typing indicator: %s", e)
+
+            if user_message.message_type == "audio":
+                text = await transcribe_voice_message(user_message.media_id)
+            else:
+                text = user_message.text
+
+            loop = asyncio.get_event_loop()
+            result = await loop.run_in_executor(None, brain.invoke, {
+                "user_id": user_message.user_id,
+                "user_query": text,
+                "user_chat_history": get_user_chat_history(user_id=user_message.user_id),
+                "user_response_language": get_user_response_language(user_id=user_message.user_id)
+            })
+            responses = result["translated_responses"]
+            full_response_text = "\n\n".join(responses).rstrip()
+            if user_message.message_type == "audio":
+                await send_voice_message(user_id=user_message.user_id, text=full_response_text)
+            else:
+                response_count = len(responses)
+                if response_count > 1:
+                    responses = [f'({i}/{response_count}) {r}' for i, r in enumerate(responses, start=1)]
+                for response in responses:
+                    logger.info("Response from bt_servant: %s", response)
+                    try:
+                        await send_text_message(user_id=user_message.user_id, text=response)
+                        # the sleep below is to prevent the (1/3)(3/3)(2/3) situation
+                        # in a prod situation we may want to handle this better - IJL
+                        await asyncio.sleep(4)
+                    except Exception as send_err:
+                        logger.error("Failed to send message to Meta for user %s: %s", user_message.user_id, send_err)
+
+            update_user_chat_history(user_id=user_message.user_id, query=user_message.text, response=full_response_text)
+            logger.info("Overall process_message processing time: %.2f seconds", time.time() - start_time)
         except Exception as e:
-            logger.warning("Failed to send typing indicator: %s", e)
-
-        if user_message.message_type == "audio":
-            text = await transcribe_voice_message(user_message.media_id)
-        else:
-            text = user_message.text
-
-        loop = asyncio.get_event_loop()
-        result = await loop.run_in_executor(None, brain.invoke, {
-            "user_id": user_message.user_id,
-            "user_query": text,
-            "user_chat_history": get_user_chat_history(user_id=user_message.user_id),
-            "user_response_language": get_user_response_language(user_id=user_message.user_id)
-        })
-        responses = result["responses"]
-        full_response_text = "\n\n".join(responses).rstrip()
-        if user_message.message_type == "audio":
-            await send_voice_message(user_id=user_message.user_id, text=full_response_text)
-        else:
-            response_count = len(responses)
-            if response_count > 1:
-                responses = [f'({i}/{response_count}) {r}' for i, r in enumerate(responses, start=1)]
-            for response in responses:
-                logger.info("Response from bt_servant: %s", response)
-                try:
-                    await send_text_message(user_id=user_message.user_id, text=response)
-                    # the sleep below is to prevent the (1/3)(3/3)(2/3) situation
-                    # in a prod situation we may want to handle this better - IJL
-                    await asyncio.sleep(4)
-                except Exception as send_err:
-                    logger.error("Failed to send message to Meta for user %s: %s", user_message.user_id, send_err)
-
-        update_user_chat_history(user_id=user_message.user_id, query=user_message.text, response=full_response_text)
-        logger.info("Overall process_message processing time: %.2f seconds", time.time() - start_time)
+            logger.error("Error handling Meta webhook payload", exc_info=True)
+            # TODO: THIS MESSAGE NEEDS TO BE TRANSLATED AT SOME POINT!!! - IJL
+            error_message = ("I'm sorry. I'm having a bad day and I'm having trouble responding. "
+                             "Please report this issue to my creators.")
+            if user_message.message_type == "audio":
+                await send_voice_message(user_id=user_message.user_id, text=error_message)
+            else:
+                await send_text_message(user_id=user_message.user_id, text=error_message)
+            update_user_chat_history(user_id=user_message.user_id, query=user_message.text, response=error_message)
 
 
