@@ -7,12 +7,16 @@ from .user import (
     update_user_chat_history,
     get_user_response_language,
     set_user_response_language,
+    set_first_interaction,
+    is_first_interaction
 )
 __all__ = [
     "get_user_chat_history",
     "update_user_chat_history",
     "get_user_response_language",
     "set_user_response_language",
+    "set_first_interaction",
+    "is_first_interaction",
     "get_chroma_collection",
 ]
 

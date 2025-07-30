@@ -2,6 +2,7 @@ from db.user_db import get_user_db
 from tinydb import Query
 from typing import List, Dict, Optional
 
+# TODO: MAKE A ENV VARIABLE!!!
 CHAT_HISTORY_MAX = 5
 
 
@@ -44,3 +45,23 @@ def set_user_response_language(user_id: str, language: str) -> None:
 
     updated["response_language"] = language
     db.upsert(updated, q.user_id == user_id)
+
+
+def set_first_interaction(user_id: str, is_first: bool) -> None:
+    """Set whether this is the user's first interaction."""
+    q = Query()
+    db = get_user_db().table("users")
+
+    existing = db.get(q.user_id == user_id)
+    updated = existing.copy() if existing else {"user_id": user_id}
+
+    updated["first_interaction"] = is_first
+    db.upsert(updated, q.user_id == user_id)
+
+
+def is_first_interaction(user_id: str) -> bool:
+    """Return True if this is the user's first interaction, otherwise False."""
+    q = Query()
+    result = get_user_db().table("users").get(q.user_id == user_id) or {}
+    return result.get("first_interaction", True)
+
