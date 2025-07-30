@@ -1,15 +1,15 @@
-# 🤖 bt-servant-engine
+# bt-servant-engine
 
 An AI-powered WhatsApp assistant for Bible translators, now powered by **Meta's Cloud API** (no more Twilio!). The assistant uses FastAPI, OpenAI, and ChromaDB to answer Bible translation questions in multiple languages.
 
 ---
-## 🧠 How the Decision Graph Works (brain.py)
+## How the Decision Graph Works (brain.py)
 The decision graph below defines the flow of a Bible translation assistant that uses a Retrieval-Augmented Generation (RAG) pipeline to respond to user messages intelligently and faithfully. Each node represents a distinct step in the processing pipeline, and transitions between them are determined either linearly or conditionally based on user input and system state.
 
 ![LangGraph Visualization](visualizations/brain_graph.png)
 **Nodes making LLM API calls*
 
-## 🔄 Node Summaries
+## Node Summaries
 - **determine_query_language_node:** Detects the language of the user's message to support multilingual responses and select the appropriate document collection. 
 - **preprocess_user_query_node:** Clarifies the user's message using past conversation context, correcting ambiguity and minor issues while preserving intent.
 - **determine_intent_node:** Classifies the user's message into one or more predefined intents: 
@@ -21,7 +21,7 @@ The decision graph below defines the flow of a Bible translation assistant that 
 - **handle_unsupported_function_node**, **handle_unclear_intent_node**, and **handle_unrelated_information_request_node:** Graceful fallback nodes triggered when the system can't determine the user's intent, the function is unsupported, the question is off-topic, or the user is asking about how the system works.
 - **handle_system_information_request_node:** This node handles user questions about the assistant itself — such as what it can do, how it works, or what resources it uses. When this intent is detected, the system loads a predefined system prompt that frames the assistant as a helpful RAG-based servant to Bible translators. The assistant uses this context to generate a response strictly limited to the help docs.
 
-## 🧠 How User Intent Is Determined
+## How User Intent Is Determined
 The assistant uses a dedicated node called determine_intent_node to classify the user’s message into one or more high-level intents, which are used to determine the next step in the assistant’s response pipeline. This node relies on the OpenAI model (gpt-4o) to parse the message in context. It sends the following structured input to the model:
 
 - The current user message (already preprocessed and clarified). 
@@ -29,7 +29,7 @@ The assistant uses a dedicated node called determine_intent_node to classify the
 
 The model receives a tightly constrained system prompt instructing it to always return one or more intents, using a fixed enumeration. The model’s response is parsed into a list of valid IntentType enum values.
 
-## 🧭 Current Supported User Intents
+## Current Supported User Intents
 - retrieve-information-from-the-bible 
 - retrieve-information-about-the-bible 
 - retrieve-information-about-the-process-of-translation 
@@ -40,7 +40,7 @@ The model receives a tightly constrained system prompt instructing it to always 
 - specify-response-language 
 - unclear-intent
 
-## 🔄 How Intents Drive the Decision Graph
+## How Intents Drive the Decision Graph
 The extracted intent(s) are used by the function process_intent(state) to conditionally branch to the appropriate node in the LangGraph. Here’s how different intents affect the flow:
 - **specify-response-language** → Routes to set_response_language_node, which updates the user’s language preference and skips retrieval/generation. 
 - **retrieve-information-about-the-bt-servant-system** → Routes to handle_system_information_request_node, which uses help docs and a special system prompt to answer. 
@@ -51,11 +51,11 @@ The extracted intent(s) are used by the function process_intent(state) to condit
 
 This intent-based routing allows the assistant to intelligently short-circuit, fail gracefully, or fully engage the RAG pipeline depending on what the user needs — all with modular, explainable logic.
 
-## 🚀 Environment Setup
+## Environment Setup
 
 This app uses a `.env` file for local development.
 
-### ✅ Step-by-Step Setup (Local)
+### Step-by-Step Setup (Local)
 
 1. **Create a `.env` file**
 
@@ -76,7 +76,7 @@ BASE_URL=https://your.public.domain
 GROQ_API_KEY=gsk_IJ...
 ```
 
-> ℹ️ All five above variables are required for the Meta Cloud API to work properly.
+> All five above variables are required for the Meta Cloud API to work properly.
 
 3. **Install dependencies**
 
@@ -92,7 +92,7 @@ uvicorn bt_servant:app --reload
 
 ---
 
-## 🌐 Environment Variables Explained
+## Environment Variables Explained
 
 | Variable               | Purpose                                                         |
 |------------------------|-----------------------------------------------------------------|
@@ -110,7 +110,7 @@ Other acceptable values for log level: critical, error, warning, and debug
 
 ---
 
-## 🛰 Webhook Setup
+## Webhook Setup
 
 Set your webhook URL in the [Meta Developer Console](https://developers.facebook.com/) under your WhatsApp App configuration:
 
@@ -119,6 +119,6 @@ Set your webhook URL in the [Meta Developer Console](https://developers.facebook
 
 ---
 
-## 🧪 Testing Locally
+## Testing Locally
 
 You can test message flow locally using tools like [ngrok](https://ngrok.com/) to expose `localhost:8000` to the public internet, then set your webhook in Meta to use the `https://<ngrok-url>/meta-whatsapp` endpoint.
