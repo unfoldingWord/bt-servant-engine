@@ -8,6 +8,7 @@ The decision graph below defines the flow of a Bible translation assistant that 
 
 ![LangGraph Visualization](visualizations/brain_graph.png)
 **Nodes making LLM API calls*
+*Grey boxes represent current user 'Intents'
 
 ## Node Summaries
 - **start_node:** Detects if its the first interaction with the user and, if so, adds welcome information to the list of responses passed through the graph.
