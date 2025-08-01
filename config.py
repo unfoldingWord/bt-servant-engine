@@ -9,6 +9,7 @@ class Config(BaseSettings):
     META_VERIFY_TOKEN: str = Field(..., env="META_VERIFY_TOKEN")
     META_WHATSAPP_TOKEN: str = Field(..., env="META_WHATSAPP_TOKEN")
     META_PHONE_NUMBER_ID: str = Field(..., env="META_PHONE_NUMBER_ID")
+    META_APP_SECRET: str = Field(..., env="META_APP_SECRET")
     IN_META_SANDBOX_MODE: bool = Field(default=False, env="IN_META_SANDBOX_MODE")
     META_SANDBOX_PHONE_NUMBER: str = Field(default="11111111", env="META_SANDBOX_PHONE_NUMBER")
     MESSAGE_AGE_CUTOFF_IN_SECONDS: int = Field(default=3600, env="MESSAGE_AGE_CUTOFF_IN_SECONDS")

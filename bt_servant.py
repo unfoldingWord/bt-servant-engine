@@ -2,9 +2,12 @@ import asyncio
 import concurrent.futures
 import json
 import time
+import hmac
+import hashlib
+from typing import Optional, Annotated
 from openai import OpenAI
 from collections import defaultdict
-from fastapi import FastAPI, Request, Response, status
+from fastapi import FastAPI, Request, Response, status, HTTPException, Header
 from fastapi.responses import JSONResponse
 from brain import create_brain
 from logger import get_logger
@@ -56,10 +59,18 @@ async def verify_webhook(request: Request):
 
 
 @app.post("/meta-whatsapp")
-async def handle_meta_webhook(request: Request):
+async def handle_meta_webhook(
+        request: Request,
+        x_hub_signature_256: Annotated[Optional[str], Header(alias="X-Hub-Signature-256")] = None,
+        x_hub_signature: Annotated[Optional[str], Header(alias="X-Hub-Signature")] = None,
+):
     try:
+
+        body = await request.body()
+        if not verify_facebook_signature(config.META_APP_SECRET, body, x_hub_signature_256, x_hub_signature):
+            raise HTTPException(status_code=401, detail="Invalid signature")
+
         payload = await request.json()
-        logger.info("Received request from meta...")
         for entry in payload.get("entry", []):
             for change in entry.get("changes", []):
                 value = change.get("value", {})
@@ -146,5 +157,26 @@ async def process_message(user_message: UserMessage):
             else:
                 await send_text_message(user_id=user_message.user_id, text=error_message)
             update_user_chat_history(user_id=user_message.user_id, query=user_message.text, response=error_message)
+
+
+def verify_facebook_signature(app_secret: str, payload: bytes,
+                              sig256: str | None, sig1: str | None) -> bool:
+    """
+    app_secret: your Meta app secret (string)
+    payload: raw request body as bytes
+    sig256: value of X-Hub-Signature-256 header (e.g., 'sha256=...')
+    sig1:   value of X-Hub-Signature header (e.g., 'sha1=...')  # legacy fallback
+    """
+    # Prefer SHA-256 if provided
+    if sig256:
+        expected = "sha256=" + hmac.new(app_secret.encode("utf-8"), payload, hashlib.sha256).hexdigest()
+        return hmac.compare_digest(expected, sig256.strip())
+
+    # Fallback to SHA-1 if only that header is present
+    if sig1:
+        expected = "sha1=" + hmac.new(app_secret.encode("utf-8"), payload, hashlib.sha1).hexdigest()
+        return hmac.compare_digest(expected, sig1.strip())
+
+    return False
 
 
