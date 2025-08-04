@@ -6,7 +6,6 @@ from typing import TypedDict, List, Dict, Annotated
 from pathlib import Path
 from logger import get_logger
 from config import config
-from groq import Groq
 from utils import chop_text, combine_chunks
 from pydantic import BaseModel
 from enum import Enum
@@ -378,7 +377,6 @@ DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
 BASE_DIR = Path(__file__).resolve().parent
 DB_DIR = config.DATA_DIR
 
-groq_client = Groq()
 open_ai_client = OpenAI()
 
 supported_language_map = {
@@ -788,8 +786,8 @@ def chunk_message(state: BrainState) -> dict:
     responses = state["translated_responses"]
     text_to_chunk = responses[0]
     try:
-        completion = groq_client.chat.completions.create(
-            model='llama3-70b-8192',
+        completion = open_ai_client.chat.completions.create(
+            model='gpt-4o',
             messages=[
                 {
                     "role": "system",
