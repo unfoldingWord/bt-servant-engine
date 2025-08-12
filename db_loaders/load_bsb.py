@@ -1,5 +1,4 @@
 """Utilities to load the Berean Standard Bible into ChromaDB."""
-from __future__ import annotations
 
 import json
 import re
