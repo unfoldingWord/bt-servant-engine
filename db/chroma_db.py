@@ -1,6 +1,15 @@
 import chromadb
 from chromadb.utils import embedding_functions
-from chromadb.api import ClientAPI
+from typing import Optional, Any
+try:
+    # Newer Chroma
+    from chromadb.api.models.Collection import Collection as ChromaCollection  # type: ignore
+except Exception:
+    try:
+        # Older alias in some versions
+        from chromadb.api import Collection as ChromaCollection  # type: ignore
+    except Exception:
+        ChromaCollection = Any  # type: ignore
 from config import config
 from logger import get_logger
 
@@ -16,14 +25,14 @@ _aquifer_chroma_db = chromadb.PersistentClient(path=str(DATA_DIR))
 logger = get_logger(__name__)
 
 
-def get_chroma_collection(name) -> ClientAPI:
+def get_chroma_collection(name: str) -> Optional[ChromaCollection]:
     existing_collections = [col.name for col in _aquifer_chroma_db.list_collections()]
     if name in existing_collections:
         return _aquifer_chroma_db.get_collection(name=name, embedding_function=openai_ef)
     return None
 
 
-def get_next_doc_id(collection) -> int:
+def get_next_doc_id(collection: ChromaCollection) -> int:
     results = collection.get(limit=10000)
     if not results["ids"]:
         return 1
