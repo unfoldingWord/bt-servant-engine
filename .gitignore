@@ -47,3 +47,8 @@ dist/
 
 # Other stuff
 .github/
+
+# Codex related files
+node_modules/
+package-lock.json
+package.json
