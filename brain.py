@@ -377,7 +377,7 @@ DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
 BASE_DIR = Path(__file__).resolve().parent
 DB_DIR = config.DATA_DIR
 
-open_ai_client = OpenAI()
+open_ai_client = OpenAI(api_key=config.OPENAI_API_KEY)
 
 supported_language_map = {
     "en": "English",

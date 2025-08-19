@@ -18,7 +18,7 @@ from user_message import UserMessage
 
 app = FastAPI()
 
-open_ai_client = OpenAI()
+open_ai_client = OpenAI(api_key=config.OPENAI_API_KEY)
 brain = None
 
 logger = get_logger(__name__)
@@ -72,6 +72,7 @@ async def handle_meta_webhook(
             raise HTTPException(status_code=401, detail="Invalid signature")
 
         if user_agent != config.FACEBOOK_USER_AGENT:
+            logger.error('received invalid user agent: %s', user_agent)
             raise HTTPException(status_code=401, detail="Invalid User Agent")
 
         payload = await request.json()

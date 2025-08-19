@@ -9,7 +9,7 @@ from config import config
 from openai import OpenAI
 
 logger = get_logger(__name__)
-open_ai_client = OpenAI()
+open_ai_client = OpenAI(api_key=config.OPENAI_API_KEY)
 
 
 async def send_text_message(user_id: str, text: str):
