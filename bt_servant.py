@@ -71,8 +71,8 @@ async def handle_meta_webhook(
         if not verify_facebook_signature(config.META_APP_SECRET, body, x_hub_signature_256, x_hub_signature):
             raise HTTPException(status_code=401, detail="Invalid signature")
 
-        if user_agent != config.FACEBOOK_USER_AGENT:
-            logger.error('received invalid user agent: %s', user_agent)
+        if user_agent.strip() != config.FACEBOOK_USER_AGENT:
+            logger.error('received invalid user agent: %s. expected: %s', user_agent, config.FACEBOOK_USER_AGENT)
             raise HTTPException(status_code=401, detail="Invalid User Agent")
 
         payload = await request.json()
