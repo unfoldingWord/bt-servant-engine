@@ -27,6 +27,7 @@ user_locks = defaultdict(asyncio.Lock)
 
 
 class Document(BaseModel):
+    document_id: int
     name: str
     text: str
     metadata: dict[str, Any]
@@ -60,6 +61,7 @@ async def add_document(document: Document):
         logger.info("add_document payload received: %s", document.model_dump())
         return JSONResponse(status_code=status.HTTP_200_OK, content={
             "status": "ok",
+            "document_id": document.document_id,
             "doc_name": document.name
         })
     except Exception:
