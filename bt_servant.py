@@ -13,7 +13,12 @@ from pydantic import BaseModel
 from brain import create_brain
 from logger import get_logger
 from config import config
-from db import get_user_chat_history, update_user_chat_history, get_user_response_language
+from db import (
+    get_user_chat_history,
+    update_user_chat_history,
+    get_user_response_language,
+    get_or_create_chroma_collection,
+)
 from messaging import send_text_message, send_voice_message, transcribe_voice_message, send_typing_indicator_message
 from user_message import UserMessage
 
@@ -27,7 +32,8 @@ user_locks = defaultdict(asyncio.Lock)
 
 
 class Document(BaseModel):
-    document_id: int
+    document_id: str
+    collection: str
     name: str
     text: str
     metadata: dict[str, Any]
@@ -59,6 +65,15 @@ async def add_document(document: Document):
     """
     try:
         logger.info("add_document payload received: %s", document.model_dump())
+
+        # Upsert into ChromaDB
+        collection = get_or_create_chroma_collection(document.collection)
+        collection.upsert(
+            ids=[str(document.document_id)],
+            documents=[document.text],
+            metadatas=[document.metadata],
+        )
+
         return JSONResponse(status_code=status.HTTP_200_OK, content={
             "status": "ok",
             "document_id": document.document_id,

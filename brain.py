@@ -644,8 +644,7 @@ def determine_query_language(state: BrainState) -> dict:
     query_language = detect_language(query)
     logger.info("language code %s detected by gpt-4o.", query_language)
     stack_rank_collections = [
-        "knowledgebase",
-        "aquifer_documents"
+        "test_collection"
     ]
     if query_language in supported_collection_lang_map:
         stack_rank_collections.insert(1, f'aquifer_documents_{supported_collection_lang_map[query_language]}')

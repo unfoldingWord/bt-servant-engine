@@ -14,8 +14,8 @@
 - Create venv and install: `python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`
 - Run API locally: `uvicorn bt_servant:app --reload`
 - Lint (fast): `ruff check .`
-- Lint (strict): `pylint db_loaders/load_bsb.py brain.py bt_servant.py`
-- Type check: `mypy .`
+- Lint (strict, all files): `pylint $(git ls-files '*.py')`
+- Type check (all files): `mypy .`
 - Tests: `pytest -q` (tests live under `tests/`).
 
 ## Coding Style & Naming Conventions
@@ -25,9 +25,18 @@
 - Docstrings for public functions; keep comments minimal and useful.
 - Tools: `ruff` for style, `pylint` for code hygiene, `mypy` for typing.
 
-### Linting Policy
-- Run `pylint` and do not stop until all errors/warnings are resolved.
-- Treat a clean `pylint` run (10/10 or no findings) as a pre‑PR requirement.
+### Linting & Type-Checking Policy
+- Always run linters and type-checkers on the entire project, not a subset:
+  - `ruff check .`
+  - `pylint $(git ls-files '*.py')`
+  - `mypy .`
+- Do not stop until all findings introduced by your change are resolved. If pre‑existing issues remain, surface them in the PR and get explicit sign‑off before merging.
+- Treat a clean `pylint` and `ruff` run as a pre‑PR requirement. Aim for a clean `mypy` run; add precise annotations or adjust types where practical.
+- Rationale: issues in un-touched files can be missed when running tools on a subset (e.g., a wrong return type annotation in `db/chroma_db.py` wasn’t flagged because only a few files were linted). Running repo‑wide prevents misses.
+
+Recommended workflow
+- Before committing: run `ruff`, `pylint`, and `mypy` repo‑wide. Fix or explicitly document remaining issues.
+- Prefer local casts or minimal docstrings to satisfy static analysis when frameworks (e.g., Pydantic) confuse linters.
 
 ## Testing Guidelines
 - Place tests in `tests/` as `test_*.py`.
