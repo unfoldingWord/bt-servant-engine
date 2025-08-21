@@ -25,6 +25,14 @@ _aquifer_chroma_db = chromadb.PersistentClient(path=str(DATA_DIR))
 logger = get_logger(__name__)
 
 
+class CollectionExistsError(Exception):
+    """Raised when attempting to create a collection that already exists."""
+
+
+class CollectionNotFoundError(Exception):
+    """Raised when attempting to access or delete a missing collection."""
+
+
 def get_or_create_chroma_collection(name: str) -> Collection:
     """Return an existing Chroma collection or create it if missing."""
     existing_collections = [col.name for col in _aquifer_chroma_db.list_collections()]
@@ -57,3 +65,35 @@ def get_next_doc_id(collection: Collection) -> int:
     # Convert string IDs to integers and get the max
     int_ids = [int(doc_id) for doc_id in results["ids"] if doc_id.isdigit()]
     return max(int_ids, default=0) + 1
+
+
+def list_chroma_collections() -> list[str]:
+    """List names of all existing Chroma collections."""
+    return [col.name for col in _aquifer_chroma_db.list_collections()]
+
+
+def _validate_collection_name(name: str) -> str:
+    cleaned = name.strip()
+    if not cleaned:
+        raise ValueError("Collection name must be non-empty")
+    return cleaned
+
+
+def create_chroma_collection(name: str) -> Collection:
+    """Create a new Chroma collection, raising if it already exists."""
+    cleaned = _validate_collection_name(name)
+    existing = list_chroma_collections()
+    if cleaned in existing:
+        raise CollectionExistsError(f"Collection '{cleaned}' already exists")
+    logger.info("creating chroma collection: %s", cleaned)
+    return _aquifer_chroma_db.create_collection(name=cleaned, embedding_function=openai_ef)
+
+
+def delete_chroma_collection(name: str) -> None:
+    """Delete a Chroma collection by name, raising if missing."""
+    cleaned = _validate_collection_name(name)
+    existing = list_chroma_collections()
+    if cleaned not in existing:
+        raise CollectionNotFoundError(f"Collection '{cleaned}' not found")
+    logger.info("deleting chroma collection: %s", cleaned)
+    _aquifer_chroma_db.delete_collection(name=cleaned)

@@ -55,3 +55,38 @@ Recommended workflow
 - Required vars include `OPENAI_API_KEY` and Meta tokens (see README).
 - Prefer dependency versions from `requirements.txt` and review upgrades.
 - Avoid network calls in tests; stub external clients (OpenAI, Meta).
+
+## Agent Handoff + Persistence Policy
+- Update this AGENTS.md only when there are material findings, caveats,
+  decisions, or fixes that future Codex sessions need to avoid re-solving the
+  same problems. If there’s nothing noteworthy, do not update this file.
+- Treat this as the single source of truth for persistent handoff notes across
+  sessions, but keep it lean—avoid unnecessary growth or repetition.
+- Record root causes and resolutions (not just symptoms) when they would change
+  how the next session should proceed.
+- Prefer concise bullets with concrete file paths, commands, and error messages.
+- Keep a running “Latest Session Notes” section below. Add a new dated block for
+  each session only when there is something worth persisting.
+
+## Testing Policy (Non-Negotiable)
+- Tests must never fail during local runs. If any test fails or errors during
+  collection, the agent must stop new feature work and fix the failure before
+  proceeding. It is not acceptable to leave failing tests.
+- If a test targets functionality moved to another repo or is obsolete, delete
+  or rewrite the test so the suite remains green. Document the rationale here
+  in AGENTS.md under the session notes.
+
+### Latest Session Notes (2025-08-21)
+- Pytest failures: root cause was a missing `db_loaders` package referenced by
+  `tests/test_load_bsb.py`, causing `ModuleNotFoundError: db_loaders` during
+  collection. Fixed by adding `db_loaders/__init__.py` and `db_loaders/load_bsb.py`
+  with minimal implementations for `fetch_verses()` and
+  `group_semantic_chunks()` used by the test.
+- Test status: `pytest -q` now passes locally (`2 passed, 26 warnings`). The
+  warnings include Pydantic v2 deprecations and Chroma embedding-config
+  deprecations. These are pre-existing and not addressed here.
+- New API endpoints added:
+  - `POST /chroma/collections` to create a collection (201/409/400).
+  - `DELETE /chroma/collections/{name}` to delete a collection (204/404/400).
+  Backed by new helpers in `db/chroma_db.py` and tests in
+  `tests/test_chroma_endpoints.py`.

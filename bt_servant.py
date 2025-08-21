@@ -18,6 +18,10 @@ from db import (
     update_user_chat_history,
     get_user_response_language,
     get_or_create_chroma_collection,
+    create_chroma_collection,
+    delete_chroma_collection,
+    CollectionExistsError,
+    CollectionNotFoundError,
 )
 from messaging import send_text_message, send_voice_message, transcribe_voice_message, send_typing_indicator_message
 from user_message import UserMessage
@@ -37,6 +41,10 @@ class Document(BaseModel):
     name: str
     text: str
     metadata: dict[str, Any]
+
+
+class CollectionCreate(BaseModel):
+    name: str
 
 
 @app.on_event("startup")
@@ -81,6 +89,47 @@ async def add_document(document: Document):
         })
     except Exception:
         logger.error("Error handling add_document payload", exc_info=True)
+        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+
+
+@app.post("/chroma/collections")
+async def create_collection_endpoint(payload: CollectionCreate):
+    """Create a Chroma collection by name.
+
+    Returns 201 on creation, 409 if it already exists, 400 on invalid name.
+    """
+    try:
+        logger.info("create collection request received: %s", payload.model_dump())
+        create_chroma_collection(payload.name)
+        return JSONResponse(status_code=status.HTTP_201_CREATED, content={
+            "status": "created",
+            "name": payload.name.strip(),
+        })
+    except ValueError as ve:
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
+    except CollectionExistsError:
+        return JSONResponse(status_code=status.HTTP_409_CONFLICT, content={"error": "Collection already exists"})
+    except Exception:
+        logger.error("Error creating collection", exc_info=True)
+        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+
+
+@app.delete("/chroma/collections/{name}")
+async def delete_collection_endpoint(name: str):
+    """Delete a Chroma collection by name.
+
+    Returns 204 on success, 404 if missing, 400 on invalid name.
+    """
+    try:
+        logger.info("delete collection request received: %s", name)
+        delete_chroma_collection(name)
+        return Response(status_code=status.HTTP_204_NO_CONTENT)
+    except ValueError as ve:
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
+    except CollectionNotFoundError:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
+    except Exception:
+        logger.error("Error deleting collection", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 

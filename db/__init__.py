@@ -4,6 +4,11 @@ from .user_db import get_user_db
 from .chroma_db import (
     get_or_create_chroma_collection,
     get_chroma_collection,
+    list_chroma_collections,
+    create_chroma_collection,
+    delete_chroma_collection,
+    CollectionExistsError,
+    CollectionNotFoundError,
 )
 from .user import (
     get_user_chat_history,
@@ -22,4 +27,9 @@ __all__ = [
     "is_first_interaction",
     "get_or_create_chroma_collection",
     "get_chroma_collection",
+    "list_chroma_collections",
+    "create_chroma_collection",
+    "delete_chroma_collection",
+    "CollectionExistsError",
+    "CollectionNotFoundError",
 ]
