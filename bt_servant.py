@@ -4,11 +4,12 @@ import json
 import time
 import hmac
 import hashlib
-from typing import Optional, Annotated
+from typing import Optional, Annotated, Any
 from openai import OpenAI
 from collections import defaultdict
 from fastapi import FastAPI, Request, Response, status, HTTPException, Header
 from fastapi.responses import JSONResponse
+from pydantic import BaseModel
 from brain import create_brain
 from logger import get_logger
 from config import config
@@ -23,6 +24,12 @@ brain = None
 
 logger = get_logger(__name__)
 user_locks = defaultdict(asyncio.Lock)
+
+
+class Document(BaseModel):
+    name: str
+    text: str
+    metadata: dict[str, Any]
 
 
 @app.on_event("startup")
@@ -41,6 +48,23 @@ def init():
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the API. Refer to /docs for available endpoints."}
+
+
+@app.post("/add-document")
+async def add_document(document: Document):
+    """Accepts a document payload for future ingestion into Chroma.
+
+    For now, simply logs the received payload.
+    """
+    try:
+        logger.info("add_document payload received: %s", document.model_dump())
+        return JSONResponse(status_code=status.HTTP_200_OK, content={
+            "status": "ok",
+            "doc_name": document.name
+        })
+    except Exception:
+        logger.error("Error handling add_document payload", exc_info=True)
+        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 
 @app.get("/meta-whatsapp")
@@ -183,5 +207,3 @@ def verify_facebook_signature(app_secret: str, payload: bytes,
         return hmac.compare_digest(expected, sig1.strip())
 
     return False
-
-

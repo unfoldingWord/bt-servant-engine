@@ -50,6 +50,9 @@ The extracted intent(s) are used by the function process_intents(state) to condi
 
 ## Environment Setup
 
+Prerequisites:
+- Python 3.12+
+
 This app uses a `.env` file for local development.
 
 ### Step-by-Step Setup (Local)
