@@ -19,7 +19,7 @@ class Config(BaseSettings):
     # Admin API token for protecting CRUD endpoints
     ADMIN_API_TOKEN: str | None = Field(default=None, env="ADMIN_API_TOKEN")
     # For local dev/tests only: set to true to bypass admin auth
-    DISABLE_ADMIN_AUTH: bool = Field(default=False, env="DISABLE_ADMIN_AUTH")
+    ENABLE_ADMIN_AUTH: bool = Field(default=False, env="ENABLE_ADMIN_AUTH")
 
     # Optional with default value
     DATA_DIR: Path = Field(default=Path("/data"), env="DATA_DIR")

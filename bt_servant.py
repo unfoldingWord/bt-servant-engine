@@ -56,11 +56,11 @@ async def require_admin_token(
 ):
     """Simple admin token guard for non-webhook endpoints.
 
-    - If DISABLE_ADMIN_AUTH is True, bypass checks (use only for dev/tests).
+    - If ENABLE_ADMIN_AUTH is False, bypass checks (use only for dev/tests).
     - Accepts either `Authorization: Bearer <token>` or `X-Admin-Token: <token>`.
     - Returns 401 if token missing/invalid or not configured.
     """
-    if config.DISABLE_ADMIN_AUTH:
+    if not config.ENABLE_ADMIN_AUTH:
         return
     expected = config.ADMIN_API_TOKEN
     if not expected:
