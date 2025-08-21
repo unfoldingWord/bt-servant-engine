@@ -7,7 +7,7 @@ import hashlib
 from typing import Optional, Annotated, Any
 from openai import OpenAI
 from collections import defaultdict
-from fastapi import FastAPI, Request, Response, status, HTTPException, Header
+from fastapi import FastAPI, Request, Response, status, HTTPException, Header, Depends
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from brain import create_brain
@@ -50,6 +50,38 @@ class CollectionCreate(BaseModel):
     name: str
 
 
+async def require_admin_token(
+    authorization: Annotated[Optional[str], Header(alias="Authorization")] = None,
+    x_admin_token: Annotated[Optional[str], Header(alias="X-Admin-Token")] = None,
+):
+    """Simple admin token guard for non-webhook endpoints.
+
+    - If DISABLE_ADMIN_AUTH is True, bypass checks (use only for dev/tests).
+    - Accepts either `Authorization: Bearer <token>` or `X-Admin-Token: <token>`.
+    - Returns 401 if token missing/invalid or not configured.
+    """
+    if config.DISABLE_ADMIN_AUTH:
+        return
+    expected = config.ADMIN_API_TOKEN
+    if not expected:
+        # Fail safe if not explicitly disabled and no token configured
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Admin token not configured",
+                            headers={"WWW-Authenticate": "Bearer"})
+
+    provided = None
+    if authorization and authorization.lower().startswith("bearer "):
+        provided = authorization.split(" ", 1)[1].strip()
+    elif x_admin_token:
+        provided = x_admin_token.strip()
+
+    if not provided:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Missing credentials",
+                            headers={"WWW-Authenticate": "Bearer"})
+    if not hmac.compare_digest(provided, expected):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials",
+                            headers={"WWW-Authenticate": "Bearer"})
+
+
 @app.on_event("startup")
 def init():
     logger.info("Initializing bt servant engine...")
@@ -69,7 +101,7 @@ def read_root():
 
 
 @app.post("/add-document")
-async def add_document(document: Document):
+async def add_document(document: Document, _: None = Depends(require_admin_token)):
     """Accepts a document payload for future ingestion into Chroma.
 
     For now, simply logs the received payload.
@@ -96,7 +128,7 @@ async def add_document(document: Document):
 
 
 @app.post("/chroma/collections")
-async def create_collection_endpoint(payload: CollectionCreate):
+async def create_collection_endpoint(payload: CollectionCreate, _: None = Depends(require_admin_token)):
     """Create a Chroma collection by name.
 
     Returns 201 on creation, 409 if it already exists, 400 on invalid name.
@@ -118,7 +150,7 @@ async def create_collection_endpoint(payload: CollectionCreate):
 
 
 @app.delete("/chroma/collections/{name}")
-async def delete_collection_endpoint(name: str):
+async def delete_collection_endpoint(name: str, _: None = Depends(require_admin_token)):
     """Delete a Chroma collection by name.
 
     Returns 204 on success, 404 if missing, 400 on invalid name.
@@ -137,7 +169,7 @@ async def delete_collection_endpoint(name: str):
 
 
 @app.get("/chroma/collections")
-async def list_collections_endpoint():
+async def list_collections_endpoint(_: None = Depends(require_admin_token)):
     """List all Chroma collection names."""
     try:
         names = list_chroma_collections()
@@ -148,7 +180,7 @@ async def list_collections_endpoint():
 
 
 @app.delete("/chroma/collections/{name}/documents/{document_id}")
-async def delete_document_endpoint(name: str, document_id: str):
+async def delete_document_endpoint(name: str, document_id: str, _: None = Depends(require_admin_token)):
     """Delete a specific document from a collection by id.
 
     Returns 204 on success, 404 if missing, 400 on invalid inputs.

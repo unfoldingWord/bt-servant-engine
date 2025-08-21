@@ -16,6 +16,10 @@ class Config(BaseSettings):
     BASE_URL: str = Field(..., env="BASE_URL")
     BT_SERVANT_LOG_LEVEL: str = Field(default="info", env="BT_SERVANT_LOG_LEVEL")
     MAX_META_TEXT_LENGTH: int = Field(default=4096, env="MAX_META_TEXT_LENGTH")
+    # Admin API token for protecting CRUD endpoints
+    ADMIN_API_TOKEN: str | None = Field(default=None, env="ADMIN_API_TOKEN")
+    # For local dev/tests only: set to true to bypass admin auth
+    DISABLE_ADMIN_AUTH: bool = Field(default=False, env="DISABLE_ADMIN_AUTH")
 
     # Optional with default value
     DATA_DIR: Path = Field(default=Path("/data"), env="DATA_DIR")

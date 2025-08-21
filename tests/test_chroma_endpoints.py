@@ -18,6 +18,7 @@ os.environ.setdefault("META_PHONE_NUMBER_ID", "test")
 os.environ.setdefault("META_APP_SECRET", "test")
 os.environ.setdefault("FACEBOOK_USER_AGENT", "test")
 os.environ.setdefault("BASE_URL", "http://example.com")
+os.environ.setdefault("DISABLE_ADMIN_AUTH", "true")
 
 
 class DummyEmbeddingFunction:
