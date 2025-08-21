@@ -33,6 +33,10 @@ class CollectionNotFoundError(Exception):
     """Raised when attempting to access or delete a missing collection."""
 
 
+class DocumentNotFoundError(Exception):
+    """Raised when attempting to delete a missing document from a collection."""
+
+
 def get_or_create_chroma_collection(name: str) -> Collection:
     """Return an existing Chroma collection or create it if missing."""
     existing_collections = [col.name for col in _aquifer_chroma_db.list_collections()]
@@ -97,3 +101,25 @@ def delete_chroma_collection(name: str) -> None:
         raise CollectionNotFoundError(f"Collection '{cleaned}' not found")
     logger.info("deleting chroma collection: %s", cleaned)
     _aquifer_chroma_db.delete_collection(name=cleaned)
+
+
+def delete_document(collection_name: str, document_id: str) -> None:
+    """Delete a document by id from a specific collection.
+
+    Raises CollectionNotFoundError if the collection doesn't exist, and
+    DocumentNotFoundError if the id isn't present.
+    """
+    col_name = _validate_collection_name(collection_name)
+    doc_id = str(document_id).strip()
+    if not doc_id:
+        raise ValueError("Document id must be non-empty")
+
+    existing = list_chroma_collections()
+    if col_name not in existing:
+        raise CollectionNotFoundError(f"Collection '{col_name}' not found")
+
+    collection = _aquifer_chroma_db.get_collection(name=col_name, embedding_function=openai_ef)
+    result = collection.get(ids=[doc_id])
+    if not result["ids"]:
+        raise DocumentNotFoundError(f"Document '{doc_id}' not found in collection '{col_name}'")
+    collection.delete(ids=[doc_id])

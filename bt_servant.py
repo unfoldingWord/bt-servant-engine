@@ -20,8 +20,11 @@ from db import (
     get_or_create_chroma_collection,
     create_chroma_collection,
     delete_chroma_collection,
+    delete_document,
+    list_chroma_collections,
     CollectionExistsError,
     CollectionNotFoundError,
+    DocumentNotFoundError,
 )
 from messaging import send_text_message, send_voice_message, transcribe_voice_message, send_typing_indicator_message
 from user_message import UserMessage
@@ -130,6 +133,38 @@ async def delete_collection_endpoint(name: str):
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
     except Exception:
         logger.error("Error deleting collection", exc_info=True)
+        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+
+
+@app.get("/chroma/collections")
+async def list_collections_endpoint():
+    """List all Chroma collection names."""
+    try:
+        names = list_chroma_collections()
+        return JSONResponse(status_code=status.HTTP_200_OK, content={"collections": names})
+    except Exception:
+        logger.error("Error listing collections", exc_info=True)
+        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+
+
+@app.delete("/chroma/collections/{name}/documents/{document_id}")
+async def delete_document_endpoint(name: str, document_id: str):
+    """Delete a specific document from a collection by id.
+
+    Returns 204 on success, 404 if missing, 400 on invalid inputs.
+    """
+    try:
+        logger.info("delete document request received: collection=%s, id=%s", name, document_id)
+        delete_document(name, document_id)
+        return Response(status_code=status.HTTP_204_NO_CONTENT)
+    except ValueError as ve:
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
+    except CollectionNotFoundError:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
+    except DocumentNotFoundError:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Document not found"})
+    except Exception:
+        logger.error("Error deleting document", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 

@@ -70,3 +70,55 @@ def test_create_and_delete_collection(monkeypatch, tmp_path):
     resp = client.post("/chroma/collections", json={"name": "   "})
     assert resp.status_code == 400
     assert "Invalid" in resp.json()["error"] or "must be non-empty" in resp.json()["error"]
+
+
+def test_list_collections_and_delete_document(monkeypatch, tmp_path):
+    # Patch Chroma client and embedding function used by db helpers
+    import db.chroma_db as cdb
+
+    tmp_client = chromadb.PersistentClient(path=str(tmp_path))
+    monkeypatch.setattr(cdb, "_aquifer_chroma_db", tmp_client)
+    monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
+
+    # Import app and patch startup to avoid brain initialization
+    import bt_servant as api
+
+    def noop_init():
+        return None
+
+    monkeypatch.setattr(api, "init", noop_init)
+    client = TestClient(api.app)
+
+    # Initially, list is empty
+    resp = client.get("/chroma/collections")
+    assert resp.status_code == 200
+    assert resp.json()["collections"] == []
+
+    # Create a collection
+    resp = client.post("/chroma/collections", json={"name": "col1"})
+    assert resp.status_code == 201
+
+    # List should include col1
+    resp = client.get("/chroma/collections")
+    assert resp.status_code == 200
+    assert "col1" in resp.json()["collections"]
+
+    # Add a document via existing endpoint
+    doc_payload = {
+        "document_id": "42",
+        "collection": "col1",
+        "name": "Test Doc",
+        "text": "Hello world",
+        "metadata": {"k": "v"},
+    }
+    resp = client.post("/add-document", json=doc_payload)
+    assert resp.status_code == 200
+
+    # Delete the document
+    resp = client.delete("/chroma/collections/col1/documents/42")
+    assert resp.status_code == 204
+
+    # Deleting again should yield 404
+    resp = client.delete("/chroma/collections/col1/documents/42")
+    assert resp.status_code == 404
+    assert resp.json()["error"] == "Document not found"

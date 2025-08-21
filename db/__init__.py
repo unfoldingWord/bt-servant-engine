@@ -7,8 +7,10 @@ from .chroma_db import (
     list_chroma_collections,
     create_chroma_collection,
     delete_chroma_collection,
+    delete_document,
     CollectionExistsError,
     CollectionNotFoundError,
+    DocumentNotFoundError,
 )
 from .user import (
     get_user_chat_history,
@@ -30,6 +32,8 @@ __all__ = [
     "list_chroma_collections",
     "create_chroma_collection",
     "delete_chroma_collection",
+    "delete_document",
     "CollectionExistsError",
     "CollectionNotFoundError",
+    "DocumentNotFoundError",
 ]
