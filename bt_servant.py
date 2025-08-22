@@ -103,7 +103,7 @@ def read_root():
     return {"message": "Welcome to the API. Refer to /docs for available endpoints."}
 
 
-@app.post("/add-document")
+@app.post("/chroma/add-document")
 async def add_document(document: Document, _: None = Depends(require_admin_token)):
     """Accepts a document payload for future ingestion into Chroma.
 
