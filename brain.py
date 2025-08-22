@@ -239,7 +239,7 @@ explaining it a 5-year old level, etc, and interact with the resources in all ki
 responsibilities. Context from resources (RAG results) will be provided to help you answer the question(s). Only answer 
 questions using the provided context from resources!!! If you can't confidently figure it out using that context, 
 simply say 'Sorry, I couldn't find any information in my resources to service your request or command. Currently, I only 
-have resources loaded from Titus and Mark, and a few other resources related to producing faithful translations. But 
+have resources loaded from Titus, Mark, the Berean Standard Bible (BSB), and a few other resources related to producing faithful translations. But 
 maybe I'm unclear on your intent. Could you perhaps state it a different way?' You will also be given the past 
 conversation history. Use this to understand the user's current message or query if necessary. If the past conversation 
 history is not relevant to the user's current message, just ignore it. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY 
@@ -706,20 +706,22 @@ def query_vector_db(state: BrainState) -> dict:
         docs = results["documents"]
         similarities = results["distances"]
         metadata = results["metadatas"]
-        logger.debug("\nquery: %s\n", query)
-        logger.debug("---")
+        logger.info("\nquery: %s\n", query)
+        logger.info("---")
         for i in range(len(docs[0])):
             cosine_similarity = round(1 - similarities[0][i], 4)
             doc = docs[0][i]
             m = metadata[0][i]
             resource_name = m.get("name", "")
             source = m.get("source", "")
-            logger.debug("Cosine Similarity: %s", cosine_similarity)
-            logger.debug("Metadata: %s", resource_name)
-            logger.debug("---")
+            logger.info("processing %s from %s.", resource_name, source)
+            logger.info("Cosine Similarity: %s", cosine_similarity)
+            logger.info("Metadata: %s", resource_name)
+            logger.info("---")
             if cosine_similarity >= RELEVANCE_CUTOFF:
                 filtered_docs.append({
                     "doc": doc,
+                    "collection_name": collection_name,
                     "resource_name": resource_name,
                     "source": source
                 })
@@ -744,7 +746,7 @@ def query_open_ai(state: BrainState) -> dict:
 
         # build context from docs
         context = "\n\n".join([item["doc"] for item in docs])
-        logger.debug("context passed to final node:\n\n%s", context)
+        logger.info("context passed to final node:\n\n%s", context)
         rag_context_message = "When answering my next query, use this additional" + \
             f"  context: {context}"
         chat_history_context_message = (f"Use this conversation history to understand the user's "
