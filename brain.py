@@ -708,6 +708,7 @@ def query_vector_db(state: BrainState) -> dict:
         metadata = results["metadatas"]
         logger.info("\nquery: %s\n", query)
         logger.info("---")
+        hits = 0
         for i in range(len(docs[0])):
             cosine_similarity = round(1 - similarities[0][i], 4)
             doc = docs[0][i]
@@ -719,14 +720,15 @@ def query_vector_db(state: BrainState) -> dict:
             logger.info("Metadata: %s", resource_name)
             logger.info("---")
             if cosine_similarity >= RELEVANCE_CUTOFF:
+                hits += 1
                 filtered_docs.append({
-                    "doc": doc,
                     "collection_name": collection_name,
                     "resource_name": resource_name,
-                    "source": source
+                    "source": source,
+                    "document_text": doc
                 })
-        if filtered_docs:
-            logger.info("found %d hit(s) at stack collection: %s", len(filtered_docs), collection_name)
+        if hits > 0:
+            logger.info("found %d hit(s) at stack collection: %s", hits, collection_name)
 
     return {
         "docs": filtered_docs
@@ -745,7 +747,8 @@ def query_open_ai(state: BrainState) -> dict:
                 {"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": no_docs_msg}]}
 
         # build context from docs
-        context = "\n\n".join([item["doc"] for item in docs])
+        # context = "\n\n".join([item["doc"] for item in docs])
+        context = json.dumps(docs, indent=2)
         logger.info("context passed to final node:\n\n%s", context)
         rag_context_message = "When answering my next query, use this additional" + \
             f"  context: {context}"
