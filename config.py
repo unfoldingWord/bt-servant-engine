@@ -18,7 +18,7 @@ class Config(BaseSettings):
     MAX_META_TEXT_LENGTH: int = Field(default=4096, env="MAX_META_TEXT_LENGTH")
     # Admin API token for protecting CRUD endpoints
     ADMIN_API_TOKEN: str | None = Field(default=None, env="ADMIN_API_TOKEN")
-    # For local dev/tests only: set to true to bypass admin auth
+    # Enable admin auth for protected endpoints (default False for local/dev tests)
     ENABLE_ADMIN_AUTH: bool = Field(default=False, env="ENABLE_ADMIN_AUTH")
 
     # Optional with default value

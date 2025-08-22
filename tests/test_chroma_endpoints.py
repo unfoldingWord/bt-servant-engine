@@ -18,7 +18,6 @@ os.environ.setdefault("META_PHONE_NUMBER_ID", "test")
 os.environ.setdefault("META_APP_SECRET", "test")
 os.environ.setdefault("FACEBOOK_USER_AGENT", "test")
 os.environ.setdefault("BASE_URL", "http://example.com")
-os.environ.setdefault("DISABLE_ADMIN_AUTH", "true")
 
 
 class DummyEmbeddingFunction:
@@ -125,7 +124,7 @@ def test_list_collections_and_delete_document(monkeypatch, tmp_path):
     assert resp.json()["error"] == "Document not found"
 
 
-def test_admin_auth_empty_401(monkeypatch):
+def test_admin_auth_401_json_body(monkeypatch):
     # Ensure auth is enabled and no valid token is provided
     import bt_servant as api
 
@@ -140,6 +139,7 @@ def test_admin_auth_empty_401(monkeypatch):
     # No Authorization headers provided
     resp = client.get("/chroma/collections")
     assert resp.status_code == 401
-    # Empty body and authenticate header
-    assert len(resp.content) == 0
+    # JSON body present with detail
     assert resp.headers.get("WWW-Authenticate") == "Bearer"
+    data = resp.json()
+    assert data.get("detail") in {"Missing credentials", "Admin token not configured", "Invalid credentials"}
