@@ -111,6 +111,8 @@ async def add_document(document: Document, _: None = Depends(require_admin_token
     """
     try:
         logger.info("add_document payload received: %s", document.model_dump())
+        # Log the full text explicitly for visibility per request
+        logger.info("add_document text content: %s", document.text)
 
         # Upsert into ChromaDB
         collection = get_or_create_chroma_collection(document.collection)
