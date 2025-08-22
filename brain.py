@@ -711,14 +711,17 @@ def query_vector_db(state: BrainState) -> dict:
         for i in range(len(docs[0])):
             cosine_similarity = round(1 - similarities[0][i], 4)
             doc = docs[0][i]
-            resource_name = metadata[0][i]["source"]
+            m = metadata[0][i]
+            resource_name = m.get("name", "")
+            source = m.get("source", "")
             logger.debug("Cosine Similarity: %s", cosine_similarity)
             logger.debug("Metadata: %s", resource_name)
             logger.debug("---")
             if cosine_similarity >= RELEVANCE_CUTOFF:
                 filtered_docs.append({
                     "doc": doc,
-                    "resource_name": resource_name
+                    "resource_name": resource_name,
+                    "source": source
                 })
         if filtered_docs:
             logger.info("found %d hit(s) at stack collection: %s", len(filtered_docs), collection_name)
@@ -768,7 +771,8 @@ def query_open_ai(state: BrainState) -> dict:
         logger.info('response from openai: %s', bt_servant_response)
         logger.debug("%d characters returned from openAI", len(bt_servant_response))
 
-        resource_list = ", ".join(set([item["resource_name"] for item in docs]))
+        resource_list = ", ".join(set([f"{item.get("resource_name", "unknown")} from {item.get("source", "unknown")}"
+                                       for item in docs]))
         cascade_info = (
             f"bt servant used the following resources to generate its response: {resource_list}."
         )
