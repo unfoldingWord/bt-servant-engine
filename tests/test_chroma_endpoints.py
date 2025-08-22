@@ -143,3 +143,22 @@ def test_admin_auth_401_json_body(monkeypatch):
     assert resp.headers.get("WWW-Authenticate") == "Bearer"
     data = resp.json()
     assert data.get("detail") in {"Missing credentials", "Admin token not configured", "Invalid credentials"}
+
+
+def test_chroma_root_unauthorized_returns_401(monkeypatch):
+    # Unauthorized access to /chroma should yield 401 (not 404)
+    import bt_servant as api
+
+    def noop_init():
+        return None
+
+    monkeypatch.setattr(api, "init", noop_init)
+    monkeypatch.setattr(api.config, "ENABLE_ADMIN_AUTH", True)
+    monkeypatch.setattr(api.config, "ADMIN_API_TOKEN", "secret")
+
+    client = TestClient(api.app)
+    resp = client.get("/chroma")
+    assert resp.status_code == 401
+    assert resp.headers.get("WWW-Authenticate") == "Bearer"
+    data = resp.json()
+    assert data.get("detail") in {"Missing credentials", "Admin token not configured", "Invalid credentials"}

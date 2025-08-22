@@ -203,6 +203,21 @@ async def delete_document_endpoint(name: str, document_id: str, _: None = Depend
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 
+# Catch-all routes under /chroma to enforce auth on unknown paths
+@app.api_route("/chroma", methods=[
+    "GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS", "HEAD"
+])
+async def chroma_root(_: None = Depends(require_admin_token)):
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not Found")
+
+
+@app.api_route("/chroma/{_path:path}", methods=[
+    "GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS", "HEAD"
+])
+async def chroma_catch_all(_path: str, _: None = Depends(require_admin_token)):
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not Found")
+
+
 @app.get("/meta-whatsapp")
 async def verify_webhook(request: Request):
     params = dict(request.query_params)
