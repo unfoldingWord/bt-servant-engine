@@ -64,9 +64,9 @@ async def require_admin_token(
         return
     expected = config.ADMIN_API_TOKEN
     if not expected:
-        # Fail safe if not explicitly disabled and no token configured
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Admin token not configured",
-                            headers={"WWW-Authenticate": "Bearer"})
+        # Fail safe if auth is enabled but no token configured
+        raise AdminAuthError(status_code=status.HTTP_401_UNAUTHORIZED,
+                             headers={"WWW-Authenticate": "Bearer"})
 
     provided = None
     if authorization and authorization.lower().startswith("bearer "):
@@ -75,11 +75,20 @@ async def require_admin_token(
         provided = x_admin_token.strip()
 
     if not provided:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Missing credentials",
-                            headers={"WWW-Authenticate": "Bearer"})
+        raise AdminAuthError(status_code=status.HTTP_401_UNAUTHORIZED,
+                             headers={"WWW-Authenticate": "Bearer"})
     if not hmac.compare_digest(provided, expected):
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials",
-                            headers={"WWW-Authenticate": "Bearer"})
+        raise AdminAuthError(status_code=status.HTTP_401_UNAUTHORIZED,
+                             headers={"WWW-Authenticate": "Bearer"})
+
+
+class AdminAuthError(HTTPException):
+    """Raised when admin authentication fails; mapped to empty 401."""
+
+
+@app.exception_handler(AdminAuthError)
+async def admin_auth_error_handler(_: Request, exc: AdminAuthError):  # type: ignore[override]
+    return Response(status_code=status.HTTP_401_UNAUTHORIZED, headers={"WWW-Authenticate": "Bearer"})
 
 
 @app.on_event("startup")

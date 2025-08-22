@@ -123,3 +123,23 @@ def test_list_collections_and_delete_document(monkeypatch, tmp_path):
     resp = client.delete("/chroma/collections/col1/documents/42")
     assert resp.status_code == 404
     assert resp.json()["error"] == "Document not found"
+
+
+def test_admin_auth_empty_401(monkeypatch):
+    # Ensure auth is enabled and no valid token is provided
+    import bt_servant as api
+
+    def noop_init():
+        return None
+
+    monkeypatch.setattr(api, "init", noop_init)
+    monkeypatch.setattr(api.config, "ENABLE_ADMIN_AUTH", True)
+    monkeypatch.setattr(api.config, "ADMIN_API_TOKEN", "secret")
+
+    client = TestClient(api.app)
+    # No Authorization headers provided
+    resp = client.get("/chroma/collections")
+    assert resp.status_code == 401
+    # Empty body and authenticate header
+    assert len(resp.content) == 0
+    assert resp.headers.get("WWW-Authenticate") == "Bearer"
