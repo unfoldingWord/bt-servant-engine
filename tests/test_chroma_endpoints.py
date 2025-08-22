@@ -162,3 +162,38 @@ def test_chroma_root_unauthorized_returns_401(monkeypatch):
     assert resp.headers.get("WWW-Authenticate") == "Bearer"
     data = resp.json()
     assert data.get("detail") in {"Missing credentials", "Admin token not configured", "Invalid credentials"}
+
+
+def test_count_documents_in_collection(monkeypatch, tmp_path):
+    # Patch Chroma client and embedding function used by db helpers
+    import db.chroma_db as cdb
+
+    tmp_client = chromadb.PersistentClient(path=str(tmp_path))
+    monkeypatch.setattr(cdb, "_aquifer_chroma_db", tmp_client)
+    monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
+
+    # Import app and patch startup to avoid brain initialization
+    import bt_servant as api
+
+    def noop_init():
+        return None
+
+    monkeypatch.setattr(api, "init", noop_init)
+    client = TestClient(api.app)
+
+    # Missing collection -> 404
+    resp = client.get("/chroma/collections/missing/count")
+    assert resp.status_code == 404
+    assert resp.json()["error"] == "Collection not found"
+
+    # Create a collection and add documents directly via client
+    cdb.create_chroma_collection("countcol")
+    collection = cdb.get_or_create_chroma_collection("countcol")
+    collection.upsert(ids=["1", "2", "3"], documents=["a", "b", "c"], metadatas=[{}, {}, {}])
+
+    # Count should be 3
+    resp = client.get("/chroma/collections/countcol/count")
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["collection"] == "countcol"
+    assert body["count"] == 3

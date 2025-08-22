@@ -76,6 +76,20 @@ def list_chroma_collections() -> list[str]:
     return [col.name for col in _aquifer_chroma_db.list_collections()]
 
 
+def count_documents_in_collection(name: str) -> int:
+    """Return the number of documents in the given collection.
+
+    Raises CollectionNotFoundError if the collection does not exist
+    and ValueError if the name is empty/invalid.
+    """
+    cleaned = _validate_collection_name(name)
+    existing = list_chroma_collections()
+    if cleaned not in existing:
+        raise CollectionNotFoundError(f"Collection '{cleaned}' not found")
+    collection = _aquifer_chroma_db.get_collection(name=cleaned, embedding_function=openai_ef)
+    return collection.count()
+
+
 def _validate_collection_name(name: str) -> str:
     cleaned = name.strip()
     if not cleaned:

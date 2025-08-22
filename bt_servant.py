@@ -22,6 +22,7 @@ from db import (
     delete_chroma_collection,
     delete_document,
     list_chroma_collections,
+    count_documents_in_collection,
     CollectionExistsError,
     CollectionNotFoundError,
     DocumentNotFoundError,
@@ -178,6 +179,29 @@ async def list_collections_endpoint(_: None = Depends(require_admin_token)):
         return JSONResponse(status_code=status.HTTP_200_OK, content={"collections": names})
     except Exception:
         logger.error("Error listing collections", exc_info=True)
+        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+
+
+@app.get("/chroma/collections/{name}/count")
+async def count_documents_endpoint(name: str, _: None = Depends(require_admin_token)):
+    """Return the number of documents in the specified collection.
+
+    Returns 200 with `{ "collection": name, "count": n }` on success,
+    404 if the collection does not exist, and 400 on invalid name.
+    """
+    try:
+        logger.info("count documents request received: %s", name)
+        count = count_documents_in_collection(name)
+        return JSONResponse(status_code=status.HTTP_200_OK, content={
+            "collection": name.strip(),
+            "count": count,
+        })
+    except ValueError as ve:
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
+    except CollectionNotFoundError:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
+    except Exception:
+        logger.error("Error counting documents", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 
