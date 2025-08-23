@@ -23,6 +23,7 @@ from db import (
     delete_document,
     list_chroma_collections,
     count_documents_in_collection,
+    get_document_text,
     CollectionExistsError,
     CollectionNotFoundError,
     DocumentNotFoundError,
@@ -130,6 +131,12 @@ async def add_document(document: Document, _: None = Depends(require_admin_token
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 
+# Back-compat alias used by tests and earlier clients
+@app.post("/add-document")
+async def add_document_alias(document: Document, _: None = Depends(require_admin_token)):
+    return await add_document(document)
+
+
 @app.post("/chroma/collections")
 async def create_collection_endpoint(payload: CollectionCreate, _: None = Depends(require_admin_token)):
     """Create a Chroma collection by name.
@@ -223,6 +230,32 @@ async def delete_document_endpoint(name: str, document_id: str, _: None = Depend
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Document not found"})
     except Exception:
         logger.error("Error deleting document", exc_info=True)
+        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+
+
+@app.get("/chroma/collections/{name}/documents/{document_id}")
+async def get_document_text_endpoint(name: str, document_id: str, _: None = Depends(require_admin_token)):
+    """Return the text of a specific document from a collection by id.
+
+    Returns 200 with `{ "collection": name, "document_id": id, "text": "..." }` on success,
+    404 if the collection or document does not exist, and 400 on invalid inputs.
+    """
+    try:
+        logger.info("get document text request received: collection=%s, id=%s", name, document_id)
+        text = get_document_text(name, document_id)
+        return JSONResponse(status_code=status.HTTP_200_OK, content={
+            "collection": name.strip(),
+            "document_id": str(document_id),
+            "text": text,
+        })
+    except ValueError as ve:
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
+    except CollectionNotFoundError:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
+    except DocumentNotFoundError:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Document not found"})
+    except Exception:
+        logger.error("Error retrieving document", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 

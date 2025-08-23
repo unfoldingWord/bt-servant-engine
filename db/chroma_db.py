@@ -137,3 +137,30 @@ def delete_document(collection_name: str, document_id: str) -> None:
     if not result["ids"]:
         raise DocumentNotFoundError(f"Document '{doc_id}' not found in collection '{col_name}'")
     collection.delete(ids=[doc_id])
+
+
+def get_document_text(collection_name: str, document_id: str) -> str:
+    """Return the text content of a document in a specific collection.
+
+    Raises CollectionNotFoundError if the collection doesn't exist, and
+    DocumentNotFoundError if the id isn't present.
+    """
+    col_name = _validate_collection_name(collection_name)
+    doc_id = str(document_id).strip()
+    if not doc_id:
+        raise ValueError("Document id must be non-empty")
+
+    existing = list_chroma_collections()
+    if col_name not in existing:
+        raise CollectionNotFoundError(f"Collection '{col_name}' not found")
+
+    collection = _aquifer_chroma_db.get_collection(name=col_name, embedding_function=openai_ef)
+    # Ensure documents are included in the response
+    result = collection.get(ids=[doc_id])
+    if not result["ids"]:
+        raise DocumentNotFoundError(f"Document '{doc_id}' not found in collection '{col_name}'")
+    documents = result.get("documents") or []
+    if not documents:
+        # Defensive: if API didn't return documents for some reason
+        raise DocumentNotFoundError(f"Document '{doc_id}' has no text in collection '{col_name}'")
+    return documents[0]
