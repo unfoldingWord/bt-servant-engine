@@ -397,8 +397,8 @@ supported_collection_lang_map = {
 }
 LANGUAGE_UNKNOWN = "UNKNOWN"
 
-RELEVANCE_CUTOFF = .75
-TOP_K = 20
+RELEVANCE_CUTOFF = .65
+TOP_K = 10
 
 logger = get_logger(__name__)
 
