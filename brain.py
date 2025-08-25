@@ -645,7 +645,8 @@ def determine_query_language(state: BrainState) -> dict:
     stack_rank_collections = [
         "knowledgebase",
         "aquifer_documents",
-        "bsb"
+        "bsb",
+        "tyndale_dictionary"
     ]
     if query_language in supported_collection_lang_map:
         stack_rank_collections.insert(1, f'aquifer_documents_{supported_collection_lang_map[query_language]}')
