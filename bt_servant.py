@@ -112,7 +112,7 @@ async def add_document(document: Document, _: None = Depends(require_admin_token
     For now, simply logs the received payload.
     """
     try:
-        logger.info("add_document payload received: %s for collection %s.", document.name, document.collection)
+        logger.info("add_document payload received: %s-%s for collection %s.",document.document_id, document.name, document.collection)
         # Upsert into ChromaDB
         collection = get_or_create_chroma_collection(document.collection)
         collection.upsert(
