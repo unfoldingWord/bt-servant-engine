@@ -8,6 +8,7 @@ from pathlib import Path
 import chromadb
 from chromadb.utils import embedding_functions
 from chromadb.api.models import Collection
+from chromadb.config import Settings
 from config import config
 from logger import get_logger
 
@@ -20,7 +21,12 @@ openai_ef = embedding_functions.OpenAIEmbeddingFunction(
                 model_name="text-embedding-ada-002",
                 api_key=config.OPENAI_API_KEY
             )
-_aquifer_chroma_db = chromadb.PersistentClient(path=str(DATA_DIR))
+
+settings = Settings(
+    chroma_segment_cache_policy="LRU",
+    chroma_memory_limit_bytes=1000000000  # ~1GB
+)
+_aquifer_chroma_db = chromadb.PersistentClient(path=str(DATA_DIR), settings=settings)
 
 logger = get_logger(__name__)
 
