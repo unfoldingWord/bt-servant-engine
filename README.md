@@ -122,3 +122,36 @@ Set your webhook URL in the [Meta Developer Console](https://developers.facebook
 ## Testing Locally
 
 You can test message flow locally using tools like [ngrok](https://ngrok.com/) to expose `localhost:8000` to the public internet, then set your webhook in Meta to use the `https://<ngrok-url>/meta-whatsapp` endpoint.
+
+---
+
+## Chroma API Endpoints
+
+These endpoints manage and inspect ChromaDB collections used by the assistant. When `ENABLE_ADMIN_AUTH=True`, include an admin token via either `Authorization: Bearer <token>` or `X-Admin-Token: <token>`.
+
+- `GET /chroma/collections`: List all collection names.
+- `POST /chroma/collections` body: `{ "name": "<collection>" }`: Create a collection.
+- `DELETE /chroma/collections/{name}`: Delete a collection.
+- `GET /chroma/collections/{name}/count`: Return document count in a collection.
+- `GET /chroma/collection/{name}/ids`: Return all document IDs in a collection.
+- `DELETE /chroma/collections/{name}/documents/{document_id}`: Delete a specific document.
+- `POST /chroma/add-document` (alias: `POST /add-document`) body:
+  `{ "document_id": "<id>", "collection": "<name>", "name": "<doc name>", "text": "...", "metadata": { ... } }`
+
+Example: fetch document IDs for a collection
+
+```bash
+curl -s \
+  -H "Authorization: Bearer $ADMIN_API_TOKEN" \
+  http://localhost:8000/chroma/collection/uw_translation_notes/ids | jq .
+```
+
+Response
+
+```json
+{
+  "collection": "uw_translation_notes",
+  "count": 67819,
+  "ids": ["tn_ACT_vcsw", "..."]
+}
+```

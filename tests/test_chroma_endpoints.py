@@ -189,7 +189,11 @@ def test_count_documents_in_collection(monkeypatch, tmp_path):
     # Create a collection and add documents directly via client
     cdb.create_chroma_collection("countcol")
     collection = cdb.get_or_create_chroma_collection("countcol")
-    collection.upsert(ids=["1", "2", "3"], documents=["a", "b", "c"], metadatas=[{}, {}, {}])
+    collection.upsert(
+        ids=["1", "2", "3"],
+        documents=["a", "b", "c"],
+        metadatas=[{"m": "1"}, {"m": "2"}, {"m": "3"}],
+    )
 
     # Count should be 3
     resp = client.get("/chroma/collections/countcol/count")
@@ -197,3 +201,43 @@ def test_count_documents_in_collection(monkeypatch, tmp_path):
     body = resp.json()
     assert body["collection"] == "countcol"
     assert body["count"] == 3
+
+
+def test_list_document_ids_endpoint(monkeypatch, tmp_path):
+    # Patch Chroma client and embedding function used by db helpers
+    import db.chroma_db as cdb
+
+    tmp_client = chromadb.PersistentClient(path=str(tmp_path))
+    monkeypatch.setattr(cdb, "_aquifer_chroma_db", tmp_client)
+    monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
+
+    # Import app and patch startup to avoid brain initialization
+    import bt_servant as api
+
+    def noop_init():
+        return None
+
+    monkeypatch.setattr(api, "init", noop_init)
+    client = TestClient(api.app)
+
+    # Missing collection -> 404
+    resp = client.get("/chroma/collection/missing/ids")
+    assert resp.status_code == 404
+    assert resp.json()["error"] == "Collection not found"
+
+    # Create a collection and add documents directly via client
+    cdb.create_chroma_collection("idscol")
+    collection = cdb.get_or_create_chroma_collection("idscol")
+    collection.upsert(
+        ids=["tn_ACT_vcsw", "2", "3"],
+        documents=["a", "b", "c"],
+        metadatas=[{"m": "a"}, {"m": "b"}, {"m": "c"}],
+    )
+
+    # Fetch ids via endpoint
+    resp = client.get("/chroma/collection/idscol/ids")
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["collection"] == "idscol"
+    assert body["count"] == 3
+    assert sorted(body["ids"]) == sorted(["tn_ACT_vcsw", "2", "3"])

@@ -83,3 +83,5 @@ Recommended workflow
   `ENABLE_ADMIN_AUTH=True`. Tokens are read from `ADMIN_API_TOKEN` and accepted
   via `Authorization: Bearer <token>` or `X-Admin-Token: <token>`. When
   disabled (default), no auth is required for these endpoints.
+- Commit message convention: when this agent commits code changes, it prefixes
+  the commit subject with `(CODEX)`.

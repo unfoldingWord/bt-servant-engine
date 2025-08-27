@@ -24,6 +24,7 @@ from db import (
     list_chroma_collections,
     count_documents_in_collection,
     get_document_text,
+    list_document_ids_in_collection,
     CollectionExistsError,
     CollectionNotFoundError,
     DocumentNotFoundError,
@@ -209,6 +210,30 @@ async def count_documents_endpoint(name: str, _: None = Depends(require_admin_to
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
     except Exception:
         logger.error("Error counting documents", exc_info=True)
+        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+
+
+@app.get("/chroma/collection/{name}/ids")
+async def list_document_ids_endpoint(name: str, _: None = Depends(require_admin_token)):
+    """Return all document ids for the specified collection.
+
+    Response format:
+    { "collection": name, "count": N, "ids": ["id1", ...] }
+    """
+    try:
+        logger.info("list document ids request received: %s", name)
+        ids = list_document_ids_in_collection(name)
+        return JSONResponse(status_code=status.HTTP_200_OK, content={
+            "collection": name.strip(),
+            "count": len(ids),
+            "ids": ids,
+        })
+    except ValueError as ve:
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
+    except CollectionNotFoundError:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
+    except Exception:
+        logger.error("Error listing document ids", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 

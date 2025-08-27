@@ -170,3 +170,35 @@ def get_document_text(collection_name: str, document_id: str) -> str:
         # Defensive: if API didn't return documents for some reason
         raise DocumentNotFoundError(f"Document '{doc_id}' has no text in collection '{col_name}'")
     return documents[0]
+
+
+def list_document_ids_in_collection(name: str) -> list[str]:
+    """Return all document ids for the given collection.
+
+    Raises CollectionNotFoundError if the collection doesn't exist, and
+    ValueError if the name is empty/invalid.
+    """
+    col_name = _validate_collection_name(name)
+    existing = list_chroma_collections()
+    if col_name not in existing:
+        raise CollectionNotFoundError(f"Collection '{col_name}' not found")
+
+    collection = _aquifer_chroma_db.get_collection(name=col_name, embedding_function=openai_ef)
+
+    # Page through results to avoid huge single calls. Use a generous page size.
+    page_size = 10000
+    all_ids: list[str] = []
+    offset = 0
+    while True:
+        # Some versions of chromadb support offset; if not, break after first page
+        try:
+            result = collection.get(limit=page_size, offset=offset)
+        except TypeError:
+            # Fallback for clients without offset support
+            result = collection.get(limit=page_size)
+        ids = result.get("ids") or []
+        all_ids.extend(ids)
+        if len(ids) < page_size:
+            break
+        offset += page_size
+    return all_ids
