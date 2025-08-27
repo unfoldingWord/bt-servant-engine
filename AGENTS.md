@@ -45,7 +45,15 @@ Recommended workflow
 - When adding loaders, test parsing and chunking separately.
 
 ## Commit & Pull Request Guidelines
-- Commits: clear, imperative subject (e.g., "Add loader test", "Fix model name").
+- Commits: subject must be succinct and prefixed as `(CODEX) <SUCINCT SUBJECT>`.
+  - Use a clear, imperative, and short subject (<= 72 chars when possible).
+  - Always include a non-empty commit body that describes:
+    - What changed, why, and any alternatives considered.
+    - Key files or areas touched and notable design decisions.
+    - Test plan (commands run, tests added/updated, results) and any manual verification.
+    - Backwards-compatibility notes, migrations, or operational considerations.
+    - Follow-ups or known limitations.
+  - Do not leave the description blank.
 - Scope changes narrowly; keep diffs focused and self-contained.
 - PRs: include description, rationale, screenshots/logs when useful, and a test plan.
 - Link related issues; note any follow-ups or known limitations.
@@ -83,5 +91,9 @@ Recommended workflow
   `ENABLE_ADMIN_AUTH=True`. Tokens are read from `ADMIN_API_TOKEN` and accepted
   via `Authorization: Bearer <token>` or `X-Admin-Token: <token>`. When
   disabled (default), no auth is required for these endpoints.
-- Commit message convention: when this agent commits code changes, it prefixes
-  the commit subject with `(CODEX)`.
+- Commit message convention:
+  - Always prefix the commit subject with `(CODEX)` and keep it succinct:
+    `(CODEX) <SUCINCT SUBJECT>`.
+  - Always provide a meaty, non-empty commit body detailing what changed,
+    rationale, test plan, and any risks/limitations. Never leave the
+    description blank.
