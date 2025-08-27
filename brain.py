@@ -648,6 +648,7 @@ def determine_query_language(state: BrainState) -> dict:
         "bsb",
         "tyndale_dictionary",
         "uw_translation_words",
+        "uw_translation_notes",
         "biblica_study_notes_key_terms"
     ]
     if query_language in supported_collection_lang_map:
