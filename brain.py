@@ -392,9 +392,6 @@ supported_language_map = {
     "nl": "Dutch"
 }
 
-supported_collection_lang_map = {
-    "id": "ind"
-}
 LANGUAGE_UNKNOWN = "UNKNOWN"
 
 RELEVANCE_CUTOFF = .6
@@ -644,15 +641,12 @@ def determine_query_language(state: BrainState) -> dict:
     logger.info("language code %s detected by gpt-4o.", query_language)
     stack_rank_collections = [
         "knowledgebase",
-        "aquifer_documents",
         "bsb",
         "tyndale_dictionary",
         "uw_translation_words",
         "uw_translation_notes",
         "biblica_study_notes_key_terms"
     ]
-    if query_language in supported_collection_lang_map:
-        stack_rank_collections.insert(1, f'aquifer_documents_{supported_collection_lang_map[query_language]}')
 
     return {
         "query_language": query_language,
