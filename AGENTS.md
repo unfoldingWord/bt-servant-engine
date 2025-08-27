@@ -54,6 +54,20 @@ Recommended workflow
     - Backwards-compatibility notes, migrations, or operational considerations.
     - Follow-ups or known limitations.
   - Do not leave the description blank.
+- Commit body formatting (newlines must render properly):
+  - Do not embed literal "\n" into commit messages with normal quotes; these show up as text.
+  - Use one of the following methods to ensure real newlines:
+    - Here-doc body:
+      - `git commit -m "(CODEX) <SUCINCT SUBJECT>" -F- <<'MSG'`
+      - `Detailed body line 1`
+      - `- bullet 1`
+      - `- bullet 2`
+      - `MSG`
+    - ANSI-C quoting for `-m`:
+      - `git commit -m "(CODEX) <SUCINCT SUBJECT>" -m $'Line 1\n\n- bullet 1\n- bullet 2'`
+    - Or write to a temp file and use `-F`:
+      - `printf '%s\n' "Line 1" "" "- bullet 1" "- bullet 2" > /tmp/msg.txt`
+      - `git commit -m "(CODEX) <SUCINCT SUBJECT>" -F /tmp/msg.txt`
 - Scope changes narrowly; keep diffs focused and self-contained.
 - PRs: include description, rationale, screenshots/logs when useful, and a test plan.
 - Link related issues; note any follow-ups or known limitations.
