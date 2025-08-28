@@ -111,3 +111,17 @@ Recommended workflow
   - Always provide a meaty, non-empty commit body detailing what changed,
     rationale, test plan, and any risks/limitations. Never leave the
     description blank.
+
+### Typing With LangGraph + OpenAI SDK
+- LangGraph `StateNode` is contravariant in the state type. PyCharm may expect
+  `StateNode[Any]` at `add_node(...)` call sites. To satisfy IDE type checks,
+  define node functions as `def node(state: Any) -> dict` and cast to
+  `BrainState` at the top: `s = cast(BrainState, state)`. This preserves runtime
+  behavior and internal typing, and avoids per-call casts or wrappers.
+- OpenAI SDK typed inputs:
+  - Responses API inputs should be built/annotated as
+    `list[EasyInputMessageParam]`.
+  - Chat Completions messages should be built/annotated as
+    `list[ChatCompletionMessageParam]`.
+  - Avoid using raw `list[dict[str, str]]` for these payloads; PyCharm will
+    warn since it expects richer typed dicts from the SDK stubs.
