@@ -770,18 +770,30 @@ def detect_language(text) -> str:
     )
     message_language = response.output_parsed
     predicted = message_language.language.value
+    logger.info("language detection (model): %s", predicted)
 
     # Heuristic guard: If we predicted Indonesian ('id') but the text looks like
     # an English instruction paired with a Bible reference, prefer English.
     # This specifically addresses the common "Dan" (Daniel) vs Indonesian "dan" ambiguity.
     try:
-        has_english_instruction = bool(re.search(r"\b(summarize|explain|what|who|why|how|list|give|provide)\b", str(text), re.IGNORECASE))
-        has_verse_pattern = bool(re.search(r"\b[A-Za-z]{2,4}\s+\d+:\d+\b", str(text)))
+        has_english_instruction = bool(
+            re.search(r"\b(summarize|explain|what|who|why|how|list|give|provide)\b", str(text), re.IGNORECASE)
+        )
+        has_verse_pattern = bool(
+            re.search(r"\b[A-Za-z]{2,4}\s+\d+:\d+\b", str(text))
+        )
+        logger.info(
+            "heuristic_guard: predicted=%s english_instruction=%s verse_pattern=%s",
+            predicted,
+            has_english_instruction,
+            has_verse_pattern,
+        )
         if predicted == "id" and has_english_instruction and has_verse_pattern:
+            logger.info("heuristic_guard: overriding id -> en due to English instruction + verse pattern")
             predicted = "en"
-    except re.error:
+    except re.error as err:
         # If regex fails for any reason, fall back to the model prediction.
-        pass
+        logger.info("heuristic_guard: regex error (%s); keeping model prediction: %s", err, predicted)
 
     return predicted
 
