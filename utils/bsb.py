@@ -116,6 +116,10 @@ BOOK_ALIASES: Dict[str, str] = {
 
 
 def normalize_book_name(name: str) -> str | None:
+    """Normalize various aliases/abbreviations to canonical book names.
+
+    Returns None if the name cannot be normalized to a canonical key.
+    """
     key = name.strip().lower()
     if key in BOOK_ALIASES:
         return BOOK_ALIASES[key]
@@ -126,7 +130,9 @@ def normalize_book_name(name: str) -> str | None:
 
 @lru_cache(maxsize=128)
 def load_book_json(data_root: Path, file_stem: str) -> List[Dict[str, str]]:
+    """Load a single book JSON file from sources/bsb (cached)."""
     path = data_root / f"{file_stem}.json"
+    # Intentionally no logging dependency here to keep utils lightweight
     return json.loads(path.read_text(encoding="utf-8"))
 
 
@@ -197,4 +203,3 @@ def label_ranges(canonical_book: str, ranges: List[Tuple[int, int | None, int | 
             end = f"{ec}:{ev if ev is not None else ''}".rstrip(":")
             parts.append(f"{start}-{end}")
     return f"{canonical_book} " + "; ".join(parts)
-

@@ -1067,9 +1067,15 @@ def handle_get_passage_summary(state: Any) -> dict:
     s = cast(BrainState, state)
     query = s["transformed_query"]
     query_lang = s["query_language"]
+    logger.info("[passage-summary] start; query_lang=%s; query=%s", query_lang, query)
 
     # Translate to English for parsing, if needed
-    parse_input = query if query_lang == Language.ENGLISH.value else translate_text(query, target_language="en")
+    if query_lang == Language.ENGLISH.value:
+        parse_input = query
+        logger.info("[passage-summary] parsing in English (no translation needed)")
+    else:
+        logger.info("[passage-summary] translating query to English for parsing")
+        parse_input = translate_text(query, target_language="en")
 
     # Build selection prompt with canonical books
     books = ", ".join(BSB_BOOK_MAP.keys())
@@ -1078,6 +1084,7 @@ def handle_get_passage_summary(state: Any) -> dict:
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": parse_input},
     ]
+    logger.info("[passage-summary] extracting passage selection via LLM")
     selection_resp = open_ai_client.responses.parse(
         model="gpt-4o",
         input=selection_messages,
@@ -1085,6 +1092,7 @@ def handle_get_passage_summary(state: Any) -> dict:
         store=False,
     )
     selection: PassageSelection = selection_resp.output_parsed
+    logger.info("[passage-summary] extracted %d selection(s)", len(selection.selections))
 
     if not selection.selections:
         supported = ", ".join(BSB_BOOK_MAP.keys())
@@ -1093,6 +1101,7 @@ def handle_get_passage_summary(state: Any) -> dict:
             "Please specify a book and passage, for example: 'John 3:16', 'Mark 1:1–8', or 'Psalm 1'. "
             f"Supported books include: {supported}."
         )
+        logger.info("[passage-summary] no passage detected; prompting user for clearer reference")
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
 
     # Ensure all selections are within the same canonical book
@@ -1106,6 +1115,7 @@ def handle_get_passage_summary(state: Any) -> dict:
                 f"The book '{sel.book}' is not recognized. Please use a supported canonical book name. "
                 f"Supported books include: {supported}."
             )
+            logger.info("[passage-summary] unsupported book requested: %s", sel.book)
             return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
         canonical_books.append(canonical)
         normalized_selections.append(PassageRef(
@@ -1121,9 +1131,11 @@ def handle_get_passage_summary(state: Any) -> dict:
             "Please request a summary for one book at a time. "
             "If you need multiple books summarized, send a separate message for each."
         )
+        logger.info("[passage-summary] cross-book selection detected; rejecting")
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
 
     canonical_book = canonical_books[0]
+    logger.info("[passage-summary] canonical_book=%s", canonical_book)
 
     # Build ranges: if no chapter info, interpret as whole book
     ranges: list[tuple[int, int | None, int | None, int | None]] = []
@@ -1134,14 +1146,18 @@ def handle_get_passage_summary(state: Any) -> dict:
             ranges.append((1, None, None, None))
         else:
             ranges.append((sel.start_chapter, sel.start_verse, sel.end_chapter, sel.end_verse))
+    logger.info("[passage-summary] ranges=%s", ranges)
 
     # Retrieve verses from BSB JSONs; data dir is project root / sources/bsb
     data_root = Path("sources") / "bsb"
+    logger.info("[passage-summary] retrieving verses from %s", data_root)
     verses = select_verses(data_root, canonical_book, ranges)
+    logger.info("[passage-summary] retrieved %d verse(s)", len(verses))
     if not verses:
         msg = (
             "I couldn't locate those verses in the BSB data. Please check the reference and try again."
         )
+        logger.info("[passage-summary] no verses found for selection; prompting user")
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
 
     # Prepare text for summarization
@@ -1154,6 +1170,7 @@ def handle_get_passage_summary(state: Any) -> dict:
         {"role": "developer", "content": f"Passage verses (use only this content):\n{joined}"},
         {"role": "user", "content": "Provide a concise, faithful summary of the passage above."},
     ]
+    logger.info("[passage-summary] summarizing %d verses", len(verses))
     summary_resp = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
@@ -1161,8 +1178,10 @@ def handle_get_passage_summary(state: Any) -> dict:
         store=False,
     )
     summary_text = summary_resp.output_text
+    logger.info("[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0)
 
     response_text = f"Summary of {ref_label}:\n{summary_text}"
+    logger.info("[passage-summary] done")
     return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
 
 
