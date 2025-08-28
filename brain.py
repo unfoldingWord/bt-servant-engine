@@ -554,8 +554,8 @@ def set_response_language(state: Any) -> dict:
                          f"me which supported language to use when responding.")
         return {"responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}]}
     user_id: str = s["user_id"]
-    response_language_code: str = resp_lang.language.value
-    set_user_response_language(cast(str, user_id), cast(str, response_language_code))
+    response_language_code: str = str(resp_lang.language.value)
+    set_user_response_language(user_id, response_language_code)
     language_name: str = supported_language_map.get(response_language_code, response_language_code)
     response_text = f"Setting response language to: {language_name}"
     return {
