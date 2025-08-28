@@ -1,26 +1,48 @@
+"""Decision graph and message-processing pipeline for BT Servant.
+
+This module defines the state, nodes, and orchestration logic for handling
+incoming user messages, classifying intents, querying resources, and producing
+final responses (including translation and chunking when necessary).
+"""
+# pylint: disable=line-too-long,too-many-lines
+
+from __future__ import annotations
+
 import json
 import operator
-from openai import OpenAI, OpenAIError
-from langgraph.graph import StateGraph, END
-from typing import TypedDict, List, Dict, Annotated
 from pathlib import Path
+from typing import Annotated, Dict, List, cast, Any
+from typing_extensions import TypedDict
+from enum import Enum
+
+from openai import OpenAI, OpenAIError
+from openai.types.responses.easy_input_message_param import EasyInputMessageParam
+from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
+from langgraph.graph import END, StateGraph
+from pydantic import BaseModel
+
 from logger import get_logger
 from config import config
 from utils import chop_text, combine_chunks
-from pydantic import BaseModel
-from enum import Enum
-from db import set_user_response_language, get_chroma_collection, is_first_interaction, set_first_interaction
+from db import (
+    get_chroma_collection,
+    is_first_interaction,
+    set_first_interaction,
+    set_user_response_language,
+)
 
-features_summary_response = ("Currently, I can do three main things: summarize a passage, provide key words in a "
-                             "passage, or provide the typical translation challenges found in a passage. Here are some "
-                             "example questions or commands corresponding to these three functions: ")
+FEATURES_SUMMARY_RESPONSE = (
+    "Currently, I can do three main things: summarize a passage, provide key words in a "
+    "passage, or provide the typical translation challenges found in a passage. Here are some "
+    "example questions or commands corresponding to these three functions: "
+)
 BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE = f"""
-    {features_summary_response} 
-    
+    {FEATURES_SUMMARY_RESPONSE}
+
     (1) Please summarize Titus chapter 1.
     (2) List all the important words in Romans 1.
     (3) What challenges might I face when translating John 1:1?
-    
+
     Which of these would you like me to do?
 """
 
@@ -99,7 +121,7 @@ CONVERSE_AGENT_SYSTEM_PROMPT = f"""
 # Identity
 
 You are a part of a RAG bot system that assists Bible translators. You are one node in the decision/intent processing 
-lange graph. Specifically, your job is to handle the converse-with-bt-servant intent by responding conversationally to 
+lang graph. Specifically, your job is to handle the converse-with-bt-servant intent by responding conversationally to 
 the user based on the provided context.
 
 # Instructions
@@ -243,7 +265,7 @@ maybe I'm unclear on your intent. Could you perhaps state it a different way?' Y
 conversation history. Use this to understand the user's current message or query if necessary. If the past conversation 
 history is not relevant to the user's current message, just ignore it. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY 
 ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX CHRISTIANS. If you can't do what the user is asking 
-because your response would be heretical, explain to the user why you cannot comply with their reqeust or command.
+because your response would be heretical, explain to the user why you cannot comply with their request or command.
 """
 
 CHOP_AGENT_SYSTEM_PROMPT = (
@@ -401,6 +423,7 @@ logger = get_logger(__name__)
 
 
 class Language(str, Enum):
+    """Supported ISO 639-1 language codes for responses/messages."""
     ENGLISH = "en"
     ARABIC = "ar"
     FRENCH = "fr"
@@ -416,20 +439,24 @@ class Language(str, Enum):
 
 
 class ResponseLanguage(BaseModel):
+    """Model for parsing/validating the detected response language."""
     language: Language
 
 
 class MessageLanguage(BaseModel):
+    """Model for parsing/validating the detected language of a message."""
     language: Language
 
 
 class PreprocessorResult(BaseModel):
+    """Result type for the preprocessor node output."""
     new_message: str
     reason_for_decision: str
     message_changed: bool
 
 
 class IntentType(str, Enum):
+    """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
@@ -438,10 +465,12 @@ class IntentType(str, Enum):
 
 
 class UserIntents(BaseModel):
+    """Container for a list of user intents."""
     intents: List[IntentType]
 
 
 class BrainState(TypedDict, total=False):
+    """State carried through the LangGraph execution."""
     user_id: str
     user_query: str
     query_language: str
@@ -449,15 +478,17 @@ class BrainState(TypedDict, total=False):
     transformed_query: str
     docs: List[Dict[str, str]]
     collection_used: str
-    responses: Annotated[List[str], operator.add]
+    responses: Annotated[List[Dict[str, str]], operator.add]
     translated_responses: List[str]
     stack_rank_collections: List[str]
     user_chat_history: List[Dict[str, str]]
     user_intents: UserIntents
 
 
-def start(state: BrainState) -> dict:
-    user_id = state["user_id"]
+def start(state: Any) -> dict:
+    """Handle first interaction greeting, otherwise no-op."""
+    s = cast(BrainState, state)
+    user_id = s["user_id"]
     if is_first_interaction(user_id):
         set_first_interaction(user_id, False)
         return {"responses": [
@@ -465,20 +496,23 @@ def start(state: BrainState) -> dict:
     return {}
 
 
-def determine_intents(state: BrainState) -> dict:
-    query = state["transformed_query"]
+def determine_intents(state: Any) -> dict:
+    """Classify the user's transformed query into one or more intents."""
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "system",
+            "content": INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT,
+        },
+        {
+            "role": "user",
+            "content": f"what is your classification of the latest user message: {query}",
+        },
+    ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
-        input=[
-            {
-                "role": "system",
-                "content": INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": f"what is your classification of the latest user message: {query}"
-            }
-        ],
+        input=messages,
         text_format=UserIntents,
         store=False
     )
@@ -490,20 +524,22 @@ def determine_intents(state: BrainState) -> dict:
     }
 
 
-def set_response_language(state: BrainState) -> dict:
-    chat_input = [
+def set_response_language(state: Any) -> dict:
+    """Detect and persist the user's desired response language."""
+    s = cast(BrainState, state)
+    chat_input: list[EasyInputMessageParam] = [
         {
             "role": "user",
-            "content": f"Past conversation: {json.dumps(state['user_chat_history'])}"
+            "content": f"Past conversation: {json.dumps(s['user_chat_history'])}",
         },
         {
             "role": "user",
-            "content": f"the user's most recent message: {state['user_query']}"
+            "content": f"the user's most recent message: {s['user_query']}",
         },
         {
             "role": "user",
-            "content": f"What language is the user trying to set their response language to?"
-        }
+            "content": "What language is the user trying to set their response language to?",
+        },
     ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
@@ -511,17 +547,18 @@ def set_response_language(state: BrainState) -> dict:
         text_format=ResponseLanguage,
         store=False
     )
-    response_language = response.output_parsed
-    if response_language.language == Language.OTHER:
+    resp_lang: ResponseLanguage = response.output_parsed
+    if resp_lang.language == Language.OTHER:
         supported_language_list = ", ".join(supported_language_map.keys())
         response_text = (f"I think you're trying to set the response language. The supported languages "
                          f"are: {supported_language_list}. If this is your intent, please clearly tell "
                          f"me which supported language to use when responding.")
         return {"responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}]}
-    response_language_code = response_language.language.value
-    set_user_response_language(state["user_id"], response_language_code)
-    response_language = supported_language_map.get(response_language_code, response_language_code)
-    response_text = f"Setting response language to: {response_language}"
+    user_id: str = s["user_id"]
+    response_language_code: str = str(resp_lang.language.value)
+    set_user_response_language(user_id, response_language_code)
+    language_name: str = supported_language_map.get(response_language_code, response_language_code)
+    response_text = f"Setting response language to: {language_name}"
     return {
         "responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}],
         "user_response_language": response_language_code
@@ -529,48 +566,52 @@ def set_response_language(state: BrainState) -> dict:
 
 
 def combine_responses(chat_history, latest_user_message, responses) -> str:
+    """Ask OpenAI to synthesize multiple node responses into one coherent text."""
     uncombined_responses = json.dumps(responses)
     logger.info("preparing to combine responses:\n\n%s", uncombined_responses)
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "developer",
+            "content": f"conversation history: {chat_history}",
+        },
+        {
+            "role": "developer",
+            "content": f"latest user message: {latest_user_message}",
+        },
+        {
+            "role": "developer",
+            "content": f"responses to synthesize: {uncombined_responses}",
+        },
+    ]
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=COMBINE_RESPONSES_SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "developer",
-                "content": f"conversation history: {chat_history}"
-            },
-            {
-                "role": "developer",
-                "content": f"latest user message: {latest_user_message}"
-            },
-            {
-                "role": "developer",
-                "content": f"responses to synthesize: {uncombined_responses}"
-            },
-        ]
+        input=messages,
     )
     combined = response.output_text
     logger.info("combined response from openai: %s", combined)
     return combined
 
 
-def translate_responses(state: BrainState) -> dict:
-    uncombined_responses = list(state["responses"])
+def translate_responses(state: Any) -> dict:
+    """Translate the response(s) into the user's desired language if needed."""
+    s = cast(BrainState, state)
+    uncombined_responses = list(s["responses"])
     num_responses = len(uncombined_responses)
     if num_responses > 1:
-        query = state["user_query"]
-        chat_history = state["user_chat_history"]
+        query = s["user_query"]
+        chat_history = s["user_chat_history"]
         responses = [combine_responses(chat_history, query, uncombined_responses)]
     elif num_responses == 1:
         responses = [uncombined_responses[0]["response"]]
     else:
         raise ValueError("no responses to translate. something bad happened. bailing out.")
 
-    user_response_language = state["user_response_language"]
+    user_response_language = s["user_response_language"]
     if user_response_language:
         target_language = user_response_language
     else:
-        target_language = state["query_language"]
+        target_language = s["query_language"]
         if target_language == LANGUAGE_UNKNOWN:
             logger.warning('target language unknown. bailing out.')
             supported_language_list = ", ".join(supported_language_map.keys())
@@ -581,7 +622,7 @@ def translate_responses(state: BrainState) -> dict:
             return {"translated_responses": responses}
 
     translated_responses = []
-    for i, response in enumerate(responses, start=1):
+    for response in responses:
         response_language = detect_language(response)
         if response_language != target_language:
             logger.warning("target language: %s but response language: %s", target_language, response_language)
@@ -596,19 +637,23 @@ def translate_responses(state: BrainState) -> dict:
 
 
 def translate_text(response_text, target_language):
+    """Translate a single text into the target ISO 639-1 language code."""
+    chat_messages = cast(List[ChatCompletionMessageParam], [
+        {
+            "role": "system",
+            "content": RESPONSE_TRANSLATOR_SYSTEM_PROMPT,
+        },
+        {
+            "role": "user",
+            "content": (
+                f"text to translate: {response_text}\n\n"
+                f"ISO 639-1 code representing target language: {target_language}"
+            ),
+        },
+    ])
     completion = open_ai_client.chat.completions.create(
         model="gpt-4o",
-        messages=[
-            {
-                "role": "system",
-                "content": RESPONSE_TRANSLATOR_SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": (f"text to translate: {response_text}\n\n"
-                            f"ISO 639-1 code representing target language: {target_language}")
-            }
-        ]
+        messages=chat_messages,
     )
     translated_text = completion.choices[0].message.content
     logger.info('chunk: \n%s\n\ntranslated to:\n%s', response_text, translated_text)
@@ -616,18 +661,20 @@ def translate_text(response_text, target_language):
 
 
 def detect_language(text) -> str:
+    """Detect ISO 639-1 language code of the given text via OpenAI."""
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "system",
+            "content": DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
+        },
+        {
+            "role": "user",
+            "content": f"text: {text}",
+        },
+    ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
-        input=[
-            {
-                "role": "system",
-                "content": DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": f"text: {text}"
-            }
-        ],
+        input=messages,
         text_format=MessageLanguage,
         store=False
     )
@@ -635,8 +682,10 @@ def detect_language(text) -> str:
     return message_language.language.value
 
 
-def determine_query_language(state: BrainState) -> dict:
-    query = state["user_query"]
+def determine_query_language(state: Any) -> dict:
+    """Determine the language of the user's original query and set collection order."""
+    s = cast(BrainState, state)
+    query = s["user_query"]
     query_language = detect_language(query)
     logger.info("language code %s detected by gpt-4o.", query_language)
     stack_rank_collections = [
@@ -656,23 +705,26 @@ def determine_query_language(state: BrainState) -> dict:
     }
 
 
-def preprocess_user_query(state: BrainState) -> dict:
-    query = state["user_query"]
-    chat_history = state["user_chat_history"]
+def preprocess_user_query(state: Any) -> dict:
+    """Lightly clarify or correct the user's query using conversation history."""
+    s = cast(BrainState, state)
+    query = s["user_query"]
+    chat_history = s["user_chat_history"]
     history_context_message = f"past_conversation: {json.dumps(chat_history)}"
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "user",
+            "content": history_context_message,
+        },
+        {
+            "role": "user",
+            "content": f"current_message: {query}",
+        },
+    ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
         instructions=PREPROCESSOR_AGENT_SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "user",
-                "content": history_context_message
-            },
-            {
-                "role": "user",
-                "content": f'current_message: {query}'
-            }
-        ],
+        input=messages,
         text_format=PreprocessorResult,
         store=False
     )
@@ -687,9 +739,12 @@ def preprocess_user_query(state: BrainState) -> dict:
     }
 
 
-def query_vector_db(state: BrainState) -> dict:
-    query = state["transformed_query"]
-    stack_rank_collections = state["stack_rank_collections"]
+def query_vector_db(state: Any) -> dict:
+    """Query the vector DB (Chroma) across ranked collections and filter by relevance."""
+    # pylint: disable=too-many-locals
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    stack_rank_collections = s["stack_rank_collections"]
     filtered_docs = []
     # this loop is the current implementation of the "stacked ranked" algorithm
     for collection_name in stack_rank_collections:
@@ -734,10 +789,13 @@ def query_vector_db(state: BrainState) -> dict:
     }
 
 
-def query_open_ai(state: BrainState) -> dict:
-    docs = state["docs"]
-    query = state["transformed_query"]
-    chat_history = state["user_chat_history"]
+# pylint: disable=too-many-locals
+def query_open_ai(state: Any) -> dict:
+    """Generate the final response text using RAG context and OpenAI."""
+    s = cast(BrainState, state)
+    docs = s["docs"]
+    query = s["transformed_query"]
+    chat_history = s["user_chat_history"]
     try:
         if len(docs) == 0:
             no_docs_msg = (f"Sorry, I couldn't find any information in my resources to service your request "
@@ -753,30 +811,33 @@ def query_open_ai(state: BrainState) -> dict:
             f"  context: {context}"
         chat_history_context_message = (f"Use this conversation history to understand the user's "
                                         f"current request only if needed: {json.dumps(chat_history)}")
+        messages = cast(List[EasyInputMessageParam], [
+            {
+                "role": "developer",
+                "content": rag_context_message
+            },
+            {
+                "role": "developer",
+                "content": chat_history_context_message
+            },
+            {
+                "role": "user",
+                "content": query
+            }
+        ])
         response = open_ai_client.responses.create(
             model="gpt-4o",
             instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
-            input=[
-                {
-                    "role": "developer",
-                    "content": rag_context_message
-                },
-                {
-                    "role": "developer",
-                    "content": chat_history_context_message
-                },
-                {
-                    "role": "user",
-                    "content": query
-                }
-            ]
+            input=messages
         )
         bt_servant_response = response.output_text
         logger.info('response from openai: %s', bt_servant_response)
         logger.debug("%d characters returned from openAI", len(bt_servant_response))
 
-        resource_list = ", ".join(set([f"{item.get("resource_name", "unknown")} from {item.get("source", "unknown")}"
-                                       for item in docs]))
+        resource_list = ", ".join({
+            f"{item.get('resource_name', 'unknown')} from {item.get('source', 'unknown')}"
+            for item in docs
+        })
         cascade_info = (
             f"bt servant used the following resources to generate its response: {resource_list}."
         )
@@ -784,52 +845,57 @@ def query_open_ai(state: BrainState) -> dict:
 
         return {"responses": [
             {"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": bt_servant_response}]}
-    except OpenAIError as e:
+    except OpenAIError:
         logger.error("Error during OpenAI request", exc_info=True)
         error_msg = "I encountered some problems while trying to respond. Let Ian know about this one."
         return {"responses": [{"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": error_msg}]}
 
 
-def chunk_message(state: BrainState) -> dict:
+def chunk_message(state: Any) -> dict:
+    """Chunk oversized responses to respect WhatsApp limits, via LLM or fallback."""
     logger.info("MESSAGE TOO BIG. CHUNKING...")
-    responses = state["translated_responses"]
+    s = cast(BrainState, state)
+    responses = s["translated_responses"]
     text_to_chunk = responses[0]
+    chunk_max = config.MAX_META_TEXT_LENGTH - 100
     try:
+        chat_messages = cast(List[ChatCompletionMessageParam], [
+            {
+                "role": "system",
+                "content": CHOP_AGENT_SYSTEM_PROMPT,
+            },
+            {
+                "role": "user",
+                "content": f"text to chop: \n\n{text_to_chunk}",
+            },
+        ])
         completion = open_ai_client.chat.completions.create(
             model='gpt-4o',
-            messages=[
-                {
-                    "role": "system",
-                    "content": CHOP_AGENT_SYSTEM_PROMPT
-                },
-                {
-                    "role": "user",
-                    "content": f'text to chop: \n\n{text_to_chunk}'
-                }
-            ]
+            messages=chat_messages,
         )
         response = completion.choices[0].message.content
         chunks = json.loads(response)
-    except json.JSONDecodeError as e:
+    except json.JSONDecodeError:
         logger.error("Error while attempting to chunk message. Manually chunking instead", exc_info=True)
-        chunks = chop_text(text_to_chunk)
+        chunks = chop_text(text=text_to_chunk, n=chunk_max)
 
     chunks.extend(responses[1:])
-    chunk_max = config.MAX_META_TEXT_LENGTH - 100
     return {"translated_responses": combine_chunks(chunks=chunks, chunk_max=chunk_max)}
 
 
 def needs_chunking(state: BrainState) -> str:
+    """Return next node key if chunking is required, otherwise finish."""
     first_response = state["translated_responses"][0]
     if len(first_response) > config.MAX_META_TEXT_LENGTH:
         logger.warning('message to big: %d chars. preparing to chunk.', len(first_response))
         return "chunk_message_node"
-    else:
-        return END
+    return END
 
 
-def process_intents(state: BrainState) -> List[str]:
-    user_intents = state["user_intents"]
+def process_intents(state: Any) -> List[str]:
+    """Map detected intents to the list of nodes to traverse."""
+    s = cast(BrainState, state)
+    user_intents = s["user_intents"]
     if not user_intents:
         raise ValueError("no intents found. something went very wrong.")
 
@@ -848,22 +914,25 @@ def process_intents(state: BrainState) -> List[str]:
     return nodes_to_traverse
 
 
-def handle_unsupported_function(state: BrainState) -> dict:
-    query = state["user_query"]
-    chat_history = state["user_chat_history"]
+def handle_unsupported_function(state: Any) -> dict:
+    """Generate a helpful response when the user requests unsupported functionality."""
+    s = cast(BrainState, state)
+    query = s["user_query"]
+    chat_history = s["user_chat_history"]
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "developer",
+            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
+        },
+        {
+            "role": "user",
+            "content": query,
+        },
+    ]
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=UNSUPPORTED_FUNCTION_AGENT_SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "developer",
-                "content": f'Conversation history to use if needed: {json.dumps(chat_history)}'
-            },
-            {
-                "role": "user",
-                "content": query
-            }
-        ],
+        input=messages,
         store=False
     )
     unsupported_function_response_text = response.output_text
@@ -871,22 +940,25 @@ def handle_unsupported_function(state: BrainState) -> dict:
     return {"responses": [{"intent": IntentType.PERFORM_UNSUPPORTED_FUNCTION, "response": unsupported_function_response_text}]}
 
 
-def handle_system_information_request(state: BrainState) -> dict:
-    query = state["user_query"]
-    chat_history = state["user_chat_history"]
+def handle_system_information_request(state: Any) -> dict:
+    """Provide help/about information for the BT Servant system."""
+    s = cast(BrainState, state)
+    query = s["user_query"]
+    chat_history = s["user_chat_history"]
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "developer",
+            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
+        },
+        {
+            "role": "user",
+            "content": query,
+        },
+    ]
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=HELP_AGENT_SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "developer",
-                "content": f'Conversation history to use if needed: {json.dumps(chat_history)}'
-            },
-            {
-                "role": "user",
-                "content": query
-            }
-        ],
+        input=messages,
         store=False
     )
     help_response_text = response.output_text
@@ -894,22 +966,25 @@ def handle_system_information_request(state: BrainState) -> dict:
     return {"responses": [{"intent": IntentType.RETRIEVE_SYSTEM_INFORMATION, "response": help_response_text}]}
 
 
-def converse_with_bt_servant(state: BrainState) -> dict:
-    query = state["user_query"]
-    chat_history = state["user_chat_history"]
+def converse_with_bt_servant(state: Any) -> dict:
+    """Respond conversationally to the user based on context and history."""
+    s = cast(BrainState, state)
+    query = s["user_query"]
+    chat_history = s["user_chat_history"]
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "developer",
+            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
+        },
+        {
+            "role": "user",
+            "content": query,
+        },
+    ]
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=CONVERSE_AGENT_SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "developer",
-                "content": f'Conversation history to use if needed: {json.dumps(chat_history)}'
-            },
-            {
-                "role": "user",
-                "content": query
-            }
-        ],
+        input=messages,
         store=False
     )
     converse_response_text = response.output_text
@@ -918,7 +993,12 @@ def converse_with_bt_servant(state: BrainState) -> dict:
 
 
 def create_brain():
-    builder = StateGraph(BrainState)
+    """Assemble and compile the LangGraph for the BT Servant brain."""
+    def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
+        # Accept Any to satisfy IDE variance on schema param; schema is BrainState
+        return StateGraph(schema)
+
+    builder: StateGraph[BrainState] = _make_state_graph(BrainState)
 
     builder.add_node("start_node", start)
     builder.add_node("determine_query_language_node", determine_query_language)

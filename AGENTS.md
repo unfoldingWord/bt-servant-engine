@@ -111,3 +111,36 @@ Recommended workflow
   - Always provide a meaty, non-empty commit body detailing what changed,
     rationale, test plan, and any risks/limitations. Never leave the
     description blank.
+
+### Typing With LangGraph + OpenAI SDK
+- LangGraph `StateNode` is contravariant in the state type. PyCharm may expect
+  `StateNode[Any]` at `add_node(...)` call sites. To satisfy IDE type checks,
+  define node functions as `def node(state: Any) -> dict` and cast to
+  `BrainState` at the top: `s = cast(BrainState, state)`. This preserves runtime
+  behavior and internal typing, and avoids per-call casts or wrappers.
+- OpenAI SDK typed inputs:
+  - Responses API inputs should be built/annotated as
+    `list[EasyInputMessageParam]`.
+  - Chat Completions messages should be built/annotated as
+    `list[ChatCompletionMessageParam]`.
+  - Avoid using raw `list[dict[str, str]]` for these payloads; PyCharm will
+    warn since it expects richer typed dicts from the SDK stubs.
+  - When inference is stubborn, wrap list literals with `cast(List[...Param], [...])`
+    to signal to the IDE that the union of TypedDict variants is intended.
+- LangGraph schema type for `StateGraph`:
+  - When using `TypedDict` for state (e.g., `BrainState`), some IDEs warn about
+    the constructor expecting `type[StateT]`. Prefer defining the `TypedDict`
+    via `typing_extensions.TypedDict` and, if needed, use a tiny helper that
+    accepts `Any` and returns `StateGraph[BrainState]` (mirroring the
+    contravariance pattern used for nodes):
+    
+    ```python
+    def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
+        return StateGraph(schema)
+    builder: StateGraph[BrainState] = _make_state_graph(BrainState)
+    ```
+- Enum to primitive conversions:
+  - When SDK models expose enums (e.g., `resp_lang.language.value`), PyCharm
+    can sometimes lose the concrete type and infer a callable union. Use
+    `cast(str, ...)` or `str(...)` at the call site to make the argument type
+    explicit, e.g., `set_user_response_language(cast(str, user_id), cast(str, code))`.
