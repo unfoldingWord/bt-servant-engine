@@ -1180,7 +1180,7 @@ def handle_get_passage_summary(state: Any) -> dict:
     summary_text = summary_resp.output_text
     logger.info("[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0)
 
-    response_text = f"Summary of {ref_label}:\n{summary_text}"
+    response_text = f"Summary of {ref_label}:\n\n{summary_text}"
     logger.info("[passage-summary] done")
     return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
 
