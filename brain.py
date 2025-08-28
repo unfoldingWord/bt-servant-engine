@@ -286,7 +286,7 @@ Return JSON parsable into the provided schema.
 PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT = """
 You summarize Bible passage content faithfully and concisely using only the verses provided.
 - Stay strictly within the supplied passage text; avoid speculation or doctrinal claims not present in the text.
-- Highlight the main flow, key ideas, and important movements or contrasts.
+- Highlight the main flow, key ideas, and important movements or contrasts across the entire selection.
 - Be clear and concise; 4–8 sentences is typical, but adapt to the passage size.
 """
 
@@ -1162,8 +1162,8 @@ def handle_get_passage_summary(state: Any) -> dict:
     for sel in normalized_selections:
         if sel.start_chapter is None:
             # entire book
-            # Represent as (1, None, None, None) and let selection handle inclusive scan
-            ranges.append((1, None, None, None))
+            # Represent using large end bounds so selection covers entire book
+            ranges.append((1, None, 10_000, None))
         else:
             ranges.append((sel.start_chapter, sel.start_verse, sel.end_chapter, sel.end_verse))
     logger.info("[passage-summary] ranges=%s", ranges)
@@ -1182,6 +1182,7 @@ def handle_get_passage_summary(state: Any) -> dict:
 
     # Prepare text for summarization
     ref_label = label_ranges(canonical_book, ranges)
+    logger.info("[passage-summary] label=%s", ref_label)
     joined = "\n".join(f"{ref}: {txt}" for ref, txt in verses)
 
     # Summarize using LLM with strict system prompt

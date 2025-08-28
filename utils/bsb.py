@@ -187,19 +187,42 @@ def select_verses(data_root: Path, canonical_book: str, ranges: Iterable[Tuple[i
 
 
 def label_ranges(canonical_book: str, ranges: List[Tuple[int, int | None, int | None, int | None]]) -> str:
-    """Return a canonical human-readable reference label for the selection."""
+    """Return a canonical human-readable reference label for the selection.
+
+    Rules:
+    - Whole chapter: "Book 3"
+    - Same-chapter verse range: "Book 3:1-8" (or single: "Book 3:1")
+    - Multi-chapter without verses: "Book 1-4" (no colon)
+    - Cross-chapter with verses: "Book 3:16-4:2"
+    """
     parts: List[str] = []
     for sc, sv, ec, ev in ranges:
-        if sv is None and ec is None and ev is None:
-            parts.append(f"{sc}")
-            continue
-        if ec is None or ec == sc:
-            if ev is None or sv == ev:
-                parts.append(f"{sc}:{sv if sv is not None else 1}")
+        # Whole-chapter(s) selection (no verses specified)
+        if sv is None and ev is None:
+            if ec is None or ec == sc:
+                parts.append(f"{sc}")
             else:
-                parts.append(f"{sc}:{sv}-{ev}")
+                parts.append(f"{sc}-{ec}")
+            continue
+
+        # Same chapter
+        if ec is None or ec == sc:
+            if sv is None and ev is not None:
+                parts.append(f"{sc}:{ev}")
+            elif sv is not None and (ev is None or ev == sv):
+                parts.append(f"{sc}:{sv}")
+            else:
+                # both present and differ
+                svv = sv if sv is not None else 1
+                parts.append(f"{sc}:{svv}-{ev}")
+            continue
+
+        # Cross-chapter
+        left = f"{sc}:{sv if sv is not None else 1}"
+        if ev is None:
+            right = f"{ec}"
         else:
-            start = f"{sc}:{sv if sv is not None else 1}"
-            end = f"{ec}:{ev if ev is not None else ''}".rstrip(":")
-            parts.append(f"{start}-{end}")
+            right = f"{ec}:{ev}"
+        parts.append(f"{left}-{right}")
+
     return f"{canonical_book} " + "; ".join(parts)
