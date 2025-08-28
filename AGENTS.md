@@ -112,6 +112,22 @@ Recommended workflow
     rationale, test plan, and any risks/limitations. Never leave the
     description blank.
 
+## Adding a New Intent
+- Update the enum in `brain.py`:
+  - Add a new member to `IntentType` (string value matches the wire intent name, e.g., `"get-passage-summary"`).
+- Extend intent classification prompt:
+  - In `INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT`, add a new `<intent>` block describing when to use it and include 1–2 examples.
+  - Avoid hardcoding the number of intents in the prompt text; prefer “the following intent types”.
+- Add a handler function:
+  - Implement `handle_<intent_name>(state: Any) -> dict` that returns `{ "responses": [{ "intent": IntentType.<…>, "response": <text> }] }`.
+- Wire into the graph:
+  - `create_brain()`: `builder.add_node("handle_<intent>_node", handle_<intent>)` and `builder.add_edge("handle_<intent>_node", "translate_responses_node")`.
+  - `process_intents(...)`: append the new handler node when the intent is present.
+- Tests and linting:
+  - Run `ruff`, `pylint`, `mypy`, and `pytest -q` repo‑wide. Keep the suite green.
+- Docs:
+  - If behavior impacts UX, update any user‑facing help text or examples.
+
 ### Typing With LangGraph + OpenAI SDK
 - LangGraph `StateNode` is contravariant in the state type. PyCharm may expect
   `StateNode[Any]` at `add_node(...)` call sites. To satisfy IDE type checks,

@@ -284,7 +284,7 @@ the Bible translation process, or one of the resources stored in the system (ex.
 the Bible, Translation Words, Greek or Hebrew resources, commentaries, Bible dictionaries, etc.), or something outside 
 system capabilities (defined by the various intents), also return the `perform-unsupported-function` intent.
 
-You MUST always return at least one intent. You MUST choose one or more intents from the following five intent types:
+You MUST always return at least one intent. You MUST choose one or more intents from the following intent types:
 
 <intents>
   <intent name="get-bible-translation-assistance">
@@ -293,6 +293,11 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     explanation of resources; interacting with resource content; asking for transformations of resource content 
     (ex. summaries of resource portions, biblical content, etc); or how to handle specific words, phrases, 
     or translation challenges.
+  </intent>
+  <intent name="get-passage-summary">
+    The user is explicitly asking for a summary of a specific Bible passage or verse range (e.g., "John 3:16-18").
+    Prefer this when the user clearly requests a passage summary, otherwise use
+    `get-bible-translation-assistance` for broader translation help.
   </intent>
   <intent name="set-response-language">
     The user wants to change the language in which the system responds. They might ask for responses in 
@@ -336,11 +341,15 @@ Here are a few examples to guide you:
   </example>
   <example>
     <message>Summarize Mark 3.</message>
-    <intent>get-bible-translation-assistance</intent>
+    <intent>get-passage-summary</intent>
   </example>
   <example>
     <message>Summarize Titus 3:4</message>
-    <intent>get-bible-translation-assistance</intent>
+    <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>Give me a summary of John 3:16-18.</message>
+    <intent>get-passage-summary</intent>
   </example>
   <example>
     <message>Can you reply to me in French from now on?</message>
@@ -458,6 +467,7 @@ class PreprocessorResult(BaseModel):
 class IntentType(str, Enum):
     """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
+    GET_PASSAGE_SUMMARY = "get-passage-summary"
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
     SET_RESPONSE_LANGUAGE = "set-response-language"
@@ -902,6 +912,8 @@ def process_intents(state: Any) -> List[str]:
     nodes_to_traverse = []
     if IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE in user_intents:
         nodes_to_traverse.append("query_vector_db_node")
+    if IntentType.GET_PASSAGE_SUMMARY in user_intents:
+        nodes_to_traverse.append("handle_get_passage_summary_node")
     if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
         nodes_to_traverse.append("set_response_language_node")
     if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
@@ -992,6 +1004,18 @@ def converse_with_bt_servant(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}]}
 
 
+def handle_get_passage_summary(state: Any) -> dict:
+    """Handle the get-passage-summary intent (stage 2 placeholder).
+
+    For now, this simply appends a dummy response. In later phases, this will
+    parse the passage reference, retrieve verses from sources/bsb, and produce
+    an actual summary.
+    """
+    _ = cast(BrainState, state)
+    response_text = "dummy passage summary."
+    return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
+
+
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
@@ -1011,6 +1035,7 @@ def create_brain():
     builder.add_node("handle_unsupported_function_node", handle_unsupported_function)
     builder.add_node("handle_system_information_request_node", handle_system_information_request)
     builder.add_node("converse_with_bt_servant_node", converse_with_bt_servant)
+    builder.add_node("handle_get_passage_summary_node", handle_get_passage_summary)
     builder.add_node("translate_responses_node", translate_responses, defer=True)
 
     builder.set_entry_point("start_node")
@@ -1028,6 +1053,7 @@ def create_brain():
     builder.add_edge("handle_unsupported_function_node", "translate_responses_node")
     builder.add_edge("handle_system_information_request_node", "translate_responses_node")
     builder.add_edge("converse_with_bt_servant_node", "translate_responses_node")
+    builder.add_edge("handle_get_passage_summary_node", "translate_responses_node")
     builder.add_edge("query_open_ai_node", "translate_responses_node")
 
     builder.add_conditional_edges(
