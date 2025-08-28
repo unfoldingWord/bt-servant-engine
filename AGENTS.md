@@ -128,6 +128,18 @@ Recommended workflow
 - Docs:
   - If behavior impacts UX, update any user‑facing help text or examples.
 
+### Passage Summary Intent
+- Extraction and scope:
+  - Supports a single canonical book per request. Disallow cross‑book selections.
+  - Allows multiple disjoint ranges within the same book and up to the entire book.
+  - If no clear passage or unsupported book: prompt user with supported examples and canonical book list.
+- Retrieval:
+  - Reads from `sources/bsb/<stem>.json` using a cached per‑book loader.
+  - Selection is range‑based and efficient; avoids loading unrelated books.
+- Summarization:
+  - Summarizes only from provided verses with a faithful, neutral prompt.
+  - Prepends a canonical reference echo (e.g., `Summary of John 3:16–18:`) for clarity.
+
 ### Typing With LangGraph + OpenAI SDK
 - LangGraph `StateNode` is contravariant in the state type. PyCharm may expect
   `StateNode[Any]` at `add_node(...)` call sites. To satisfy IDE type checks,

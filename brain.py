@@ -24,6 +24,7 @@ from pydantic import BaseModel
 from logger import get_logger
 from config import config
 from utils import chop_text, combine_chunks
+from utils.bsb import BOOK_MAP as BSB_BOOK_MAP, normalize_book_name, select_verses, label_ranges
 from db import (
     get_chroma_collection,
     is_first_interaction,
@@ -250,6 +251,41 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     reason_for_decision: The word 'John' was misspelled in the message.
     message_changed: True
 </assistant_response>
+"""
+
+
+PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT = """
+# Identity
+
+You classify the user's message to extract explicit Bible passage references.
+Return a normalized, structured selection of book + verse ranges.
+
+# Instructions
+
+- Only choose from these canonical book names (exact match):
+  {books}
+- Accept a variety of phrasings (e.g., "John 3:16", "Jn 3:16–18", "1 John 2:1-3", "Psalm 1", "Song of Songs 2").
+- Normalize all book names to the exact canonical name.
+- Support:
+  - Single verse (John 3:16)
+  - Verse ranges within a chapter (John 3:16-18)
+  - Cross-chapter within a single book (John 3:16–4:2)
+  - Whole chapters (John 3)
+  - Whole book (John)
+  - Multiple disjoint ranges within the same book (comma/semicolon separated)
+- Do not cross books in one selection. If user mentions multiple books, choose one or return the clearest primary one.
+- If no clear passage is present, return an empty list.
+
+# Output format
+Return JSON parsable into the provided schema.
+"""
+
+
+PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT = """
+You summarize Bible passage content faithfully and concisely using only the verses provided.
+- Stay strictly within the supplied passage text; avoid speculation or doctrinal claims not present in the text.
+- Highlight the main flow, key ideas, and important movements or contrasts.
+- Be clear and concise; 4–8 sentences is typical, but adapt to the passage size.
 """
 
 
@@ -493,6 +529,7 @@ class BrainState(TypedDict, total=False):
     stack_rank_collections: List[str]
     user_chat_history: List[Dict[str, str]]
     user_intents: UserIntents
+    passage_selection: list[dict]
 
 
 def start(state: Any) -> dict:
@@ -532,6 +569,18 @@ def determine_intents(state: Any) -> dict:
     return {
         "user_intents": user_intents.intents,
     }
+
+
+class PassageRef(BaseModel):
+    book: str
+    start_chapter: int | None = None
+    start_verse: int | None = None
+    end_chapter: int | None = None
+    end_verse: int | None = None
+
+
+class PassageSelection(BaseModel):
+    selections: List[PassageRef]
 
 
 def set_response_language(state: Any) -> dict:
@@ -1005,14 +1054,115 @@ def converse_with_bt_servant(state: Any) -> dict:
 
 
 def handle_get_passage_summary(state: Any) -> dict:
-    """Handle the get-passage-summary intent (stage 2 placeholder).
+    """Handle get-passage-summary: extract refs, retrieve verses, summarize.
 
-    For now, this simply appends a dummy response. In later phases, this will
-    parse the passage reference, retrieve verses from sources/bsb, and produce
-    an actual summary.
+    - If user query language is not English, translate the transformed query to English
+      for extraction only.
+    - Extract passage selection via structured LLM parse with a strict prompt and
+      canonical book list.
+    - Validate constraints (single book, up to whole book; no cross-book).
+    - Load verses from sources/bsb efficiently and summarize.
+    - Return a single combined summary prefixed with a canonical reference echo.
     """
-    _ = cast(BrainState, state)
-    response_text = "dummy passage summary."
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    query_lang = s["query_language"]
+
+    # Translate to English for parsing, if needed
+    parse_input = query if query_lang == Language.ENGLISH.value else translate_text(query, target_language="en")
+
+    # Build selection prompt with canonical books
+    books = ", ".join(BSB_BOOK_MAP.keys())
+    system_prompt = PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT.format(books=books)
+    selection_messages: list[EasyInputMessageParam] = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": parse_input},
+    ]
+    selection_resp = open_ai_client.responses.parse(
+        model="gpt-4o",
+        input=selection_messages,
+        text_format=PassageSelection,
+        store=False,
+    )
+    selection: PassageSelection = selection_resp.output_parsed
+
+    if not selection.selections:
+        supported = ", ".join(BSB_BOOK_MAP.keys())
+        msg = (
+            "I couldn't identify a clear Bible passage in your request. "
+            "Please specify a book and passage, for example: 'John 3:16', 'Mark 1:1–8', or 'Psalm 1'. "
+            f"Supported books include: {supported}."
+        )
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
+
+    # Ensure all selections are within the same canonical book
+    canonical_books: list[str] = []
+    normalized_selections: list[PassageRef] = []
+    for sel in selection.selections:
+        canonical = normalize_book_name(sel.book) or sel.book
+        if canonical not in BSB_BOOK_MAP:
+            supported = ", ".join(BSB_BOOK_MAP.keys())
+            msg = (
+                f"The book '{sel.book}' is not recognized. Please use a supported canonical book name. "
+                f"Supported books include: {supported}."
+            )
+            return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
+        canonical_books.append(canonical)
+        normalized_selections.append(PassageRef(
+            book=canonical,
+            start_chapter=sel.start_chapter,
+            start_verse=sel.start_verse,
+            end_chapter=sel.end_chapter,
+            end_verse=sel.end_verse,
+        ))
+
+    if len(set(canonical_books)) != 1:
+        msg = (
+            "Please request a summary for one book at a time. "
+            "If you need multiple books summarized, send a separate message for each."
+        )
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
+
+    canonical_book = canonical_books[0]
+
+    # Build ranges: if no chapter info, interpret as whole book
+    ranges: list[tuple[int, int | None, int | None, int | None]] = []
+    for sel in normalized_selections:
+        if sel.start_chapter is None:
+            # entire book
+            # Represent as (1, None, None, None) and let selection handle inclusive scan
+            ranges.append((1, None, None, None))
+        else:
+            ranges.append((sel.start_chapter, sel.start_verse, sel.end_chapter, sel.end_verse))
+
+    # Retrieve verses from BSB JSONs; data dir is project root / sources/bsb
+    data_root = Path("sources") / "bsb"
+    verses = select_verses(data_root, canonical_book, ranges)
+    if not verses:
+        msg = (
+            "I couldn't locate those verses in the BSB data. Please check the reference and try again."
+        )
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
+
+    # Prepare text for summarization
+    ref_label = label_ranges(canonical_book, ranges)
+    joined = "\n".join(f"{ref}: {txt}" for ref, txt in verses)
+
+    # Summarize using LLM with strict system prompt
+    sum_messages: list[EasyInputMessageParam] = [
+        {"role": "developer", "content": f"Passage reference: {ref_label}"},
+        {"role": "developer", "content": f"Passage verses (use only this content):\n{joined}"},
+        {"role": "user", "content": "Provide a concise, faithful summary of the passage above."},
+    ]
+    summary_resp = open_ai_client.responses.create(
+        model="gpt-4o",
+        instructions=PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
+        input=sum_messages,
+        store=False,
+    )
+    summary_text = summary_resp.output_text
+
+    response_text = f"Summary of {ref_label}:\n{summary_text}"
     return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
 
 
