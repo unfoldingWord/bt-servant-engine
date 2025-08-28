@@ -477,7 +477,7 @@ class BrainState(TypedDict, total=False):
     transformed_query: str
     docs: List[Dict[str, str]]
     collection_used: str
-    responses: Annotated[List[str], operator.add]
+    responses: Annotated[List[Dict[str, str]], operator.add]
     translated_responses: List[str]
     stack_rank_collections: List[str]
     user_chat_history: List[Dict[str, str]]
