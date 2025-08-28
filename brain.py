@@ -11,7 +11,8 @@ from __future__ import annotations
 import json
 import operator
 from pathlib import Path
-from typing import Annotated, Dict, List, TypedDict, cast, Any, Type
+from typing import Annotated, Dict, List, cast, Any
+from typing_extensions import TypedDict
 from enum import Enum
 
 from openai import OpenAI, OpenAIError
@@ -991,7 +992,7 @@ def converse_with_bt_servant(state: Any) -> dict:
 
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
-    builder: StateGraph[BrainState] = StateGraph(cast(Type[BrainState], BrainState))
+    builder: StateGraph[BrainState] = StateGraph(BrainState)
 
     builder.add_node("start_node", start)
     builder.add_node("determine_query_language_node", determine_query_language)
