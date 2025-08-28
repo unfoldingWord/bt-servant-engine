@@ -977,7 +977,7 @@ def converse_with_bt_servant(state: BrainState) -> dict:
 
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
-    builder = StateGraph(BrainState)
+    builder: StateGraph[BrainState] = StateGraph(BrainState)
 
     builder.add_node("start_node", cast(StateNode[BrainState], start))
     builder.add_node("determine_query_language_node", cast(StateNode[BrainState], determine_query_language))
