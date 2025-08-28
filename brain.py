@@ -808,23 +808,24 @@ def query_open_ai(state: Any) -> dict:
             f"  context: {context}"
         chat_history_context_message = (f"Use this conversation history to understand the user's "
                                         f"current request only if needed: {json.dumps(chat_history)}")
+        messages = cast(List[EasyInputMessageParam], [
+            {
+                "role": "developer",
+                "content": rag_context_message
+            },
+            {
+                "role": "developer",
+                "content": chat_history_context_message
+            },
+            {
+                "role": "user",
+                "content": query
+            }
+        ])
         response = open_ai_client.responses.create(
             model="gpt-4o",
             instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
-            input=[
-                {
-                    "role": "developer",
-                    "content": rag_context_message
-                },
-                {
-                    "role": "developer",
-                    "content": chat_history_context_message
-                },
-                {
-                    "role": "user",
-                    "content": query
-                }
-            ]
+            input=messages
         )
         bt_servant_response = response.output_text
         logger.info('response from openai: %s', bt_servant_response)
@@ -990,7 +991,7 @@ def converse_with_bt_servant(state: Any) -> dict:
 
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
-    builder: StateGraph[BrainState] = StateGraph(BrainState)
+    builder: StateGraph[BrainState] = StateGraph(cast(type, BrainState))
 
     builder.add_node("start_node", start)
     builder.add_node("determine_query_language_node", determine_query_language)

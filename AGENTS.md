@@ -125,6 +125,12 @@ Recommended workflow
     `list[ChatCompletionMessageParam]`.
   - Avoid using raw `list[dict[str, str]]` for these payloads; PyCharm will
     warn since it expects richer typed dicts from the SDK stubs.
+  - When inference is stubborn, wrap list literals with `cast(List[...Param], [...])`
+    to signal to the IDE that the union of TypedDict variants is intended.
+- LangGraph schema type for `StateGraph`:
+  - When using `TypedDict` for state (e.g., `BrainState`), PyCharm may warn that
+    the constructor expects a `type[StateT]`. Use `StateGraph(cast(type, BrainState))`
+    and annotate the builder as `StateGraph[BrainState]` to satisfy the generic.
 - Enum to primitive conversions:
   - When SDK models expose enums (e.g., `resp_lang.language.value`), PyCharm
     can sometimes lose the concrete type and infer a callable union. Use
