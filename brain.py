@@ -637,7 +637,7 @@ def translate_responses(state: Any) -> dict:
 
 def translate_text(response_text, target_language):
     """Translate a single text into the target ISO 639-1 language code."""
-    chat_messages: list[ChatCompletionMessageParam] = [
+    chat_messages = cast(List[ChatCompletionMessageParam], [
         {
             "role": "system",
             "content": RESPONSE_TRANSLATOR_SYSTEM_PROMPT,
@@ -649,7 +649,7 @@ def translate_text(response_text, target_language):
                 f"ISO 639-1 code representing target language: {target_language}"
             ),
         },
-    ]
+    ])
     completion = open_ai_client.chat.completions.create(
         model="gpt-4o",
         messages=chat_messages,
@@ -855,7 +855,7 @@ def chunk_message(state: Any) -> dict:
     text_to_chunk = responses[0]
     chunk_max = config.MAX_META_TEXT_LENGTH - 100
     try:
-        chat_messages: list[ChatCompletionMessageParam] = [
+        chat_messages = cast(List[ChatCompletionMessageParam], [
             {
                 "role": "system",
                 "content": CHOP_AGENT_SYSTEM_PROMPT,
@@ -864,7 +864,7 @@ def chunk_message(state: Any) -> dict:
                 "role": "user",
                 "content": f"text to chop: \n\n{text_to_chunk}",
             },
-        ]
+        ])
         completion = open_ai_client.chat.completions.create(
             model='gpt-4o',
             messages=chat_messages,
