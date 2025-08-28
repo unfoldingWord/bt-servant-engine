@@ -11,14 +11,13 @@ from __future__ import annotations
 import json
 import operator
 from pathlib import Path
-from typing import Annotated, Dict, List, TypedDict, cast, Any, Callable
+from typing import Annotated, Dict, List, TypedDict, cast, Any
 from enum import Enum
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
 from langgraph.graph import END, StateGraph
-from langgraph.graph.state import StateNode
 from pydantic import BaseModel
 
 from logger import get_logger
@@ -485,9 +484,10 @@ class BrainState(TypedDict, total=False):
     user_intents: UserIntents
 
 
-def start(state: BrainState) -> dict:
+def start(state: Any) -> dict:
     """Handle first interaction greeting, otherwise no-op."""
-    user_id = state["user_id"]
+    s = cast(BrainState, state)
+    user_id = s["user_id"]
     if is_first_interaction(user_id):
         set_first_interaction(user_id, False)
         return {"responses": [
@@ -495,9 +495,10 @@ def start(state: BrainState) -> dict:
     return {}
 
 
-def determine_intents(state: BrainState) -> dict:
+def determine_intents(state: Any) -> dict:
     """Classify the user's transformed query into one or more intents."""
-    query = state["transformed_query"]
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
     messages: list[EasyInputMessageParam] = [
         {
             "role": "system",
@@ -522,16 +523,17 @@ def determine_intents(state: BrainState) -> dict:
     }
 
 
-def set_response_language(state: BrainState) -> dict:
+def set_response_language(state: Any) -> dict:
     """Detect and persist the user's desired response language."""
+    s = cast(BrainState, state)
     chat_input: list[EasyInputMessageParam] = [
         {
             "role": "user",
-            "content": f"Past conversation: {json.dumps(state['user_chat_history'])}",
+            "content": f"Past conversation: {json.dumps(s['user_chat_history'])}",
         },
         {
             "role": "user",
-            "content": f"the user's most recent message: {state['user_query']}",
+            "content": f"the user's most recent message: {s['user_query']}",
         },
         {
             "role": "user",
@@ -552,7 +554,7 @@ def set_response_language(state: BrainState) -> dict:
                          f"me which supported language to use when responding.")
         return {"responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}]}
     response_language_code = response_language.language.value
-    set_user_response_language(state["user_id"], response_language_code)
+    set_user_response_language(s["user_id"], response_language_code)
     response_language = supported_language_map.get(response_language_code, response_language_code)
     response_text = f"Setting response language to: {response_language}"
     return {
@@ -589,24 +591,25 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
     return combined
 
 
-def translate_responses(state: BrainState) -> dict:
+def translate_responses(state: Any) -> dict:
     """Translate the response(s) into the user's desired language if needed."""
-    uncombined_responses = list(state["responses"])
+    s = cast(BrainState, state)
+    uncombined_responses = list(s["responses"])
     num_responses = len(uncombined_responses)
     if num_responses > 1:
-        query = state["user_query"]
-        chat_history = state["user_chat_history"]
+        query = s["user_query"]
+        chat_history = s["user_chat_history"]
         responses = [combine_responses(chat_history, query, uncombined_responses)]
     elif num_responses == 1:
         responses = [uncombined_responses[0]["response"]]
     else:
         raise ValueError("no responses to translate. something bad happened. bailing out.")
 
-    user_response_language = state["user_response_language"]
+    user_response_language = s["user_response_language"]
     if user_response_language:
         target_language = user_response_language
     else:
-        target_language = state["query_language"]
+        target_language = s["query_language"]
         if target_language == LANGUAGE_UNKNOWN:
             logger.warning('target language unknown. bailing out.')
             supported_language_list = ", ".join(supported_language_map.keys())
@@ -677,9 +680,10 @@ def detect_language(text) -> str:
     return message_language.language.value
 
 
-def determine_query_language(state: BrainState) -> dict:
+def determine_query_language(state: Any) -> dict:
     """Determine the language of the user's original query and set collection order."""
-    query = state["user_query"]
+    s = cast(BrainState, state)
+    query = s["user_query"]
     query_language = detect_language(query)
     logger.info("language code %s detected by gpt-4o.", query_language)
     stack_rank_collections = [
@@ -697,10 +701,11 @@ def determine_query_language(state: BrainState) -> dict:
     }
 
 
-def preprocess_user_query(state: BrainState) -> dict:
+def preprocess_user_query(state: Any) -> dict:
     """Lightly clarify or correct the user's query using conversation history."""
-    query = state["user_query"]
-    chat_history = state["user_chat_history"]
+    s = cast(BrainState, state)
+    query = s["user_query"]
+    chat_history = s["user_chat_history"]
     history_context_message = f"past_conversation: {json.dumps(chat_history)}"
     messages: list[EasyInputMessageParam] = [
         {
@@ -730,11 +735,12 @@ def preprocess_user_query(state: BrainState) -> dict:
     }
 
 
-def query_vector_db(state: BrainState) -> dict:
+def query_vector_db(state: Any) -> dict:
     """Query the vector DB (Chroma) across ranked collections and filter by relevance."""
     # pylint: disable=too-many-locals
-    query = state["transformed_query"]
-    stack_rank_collections = state["stack_rank_collections"]
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    stack_rank_collections = s["stack_rank_collections"]
     filtered_docs = []
     # this loop is the current implementation of the "stacked ranked" algorithm
     for collection_name in stack_rank_collections:
@@ -780,11 +786,12 @@ def query_vector_db(state: BrainState) -> dict:
 
 
 # pylint: disable=too-many-locals
-def query_open_ai(state: BrainState) -> dict:
+def query_open_ai(state: Any) -> dict:
     """Generate the final response text using RAG context and OpenAI."""
-    docs = state["docs"]
-    query = state["transformed_query"]
-    chat_history = state["user_chat_history"]
+    s = cast(BrainState, state)
+    docs = s["docs"]
+    query = s["transformed_query"]
+    chat_history = s["user_chat_history"]
     try:
         if len(docs) == 0:
             no_docs_msg = (f"Sorry, I couldn't find any information in my resources to service your request "
@@ -839,10 +846,11 @@ def query_open_ai(state: BrainState) -> dict:
         return {"responses": [{"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": error_msg}]}
 
 
-def chunk_message(state: BrainState) -> dict:
+def chunk_message(state: Any) -> dict:
     """Chunk oversized responses to respect WhatsApp limits, via LLM or fallback."""
     logger.info("MESSAGE TOO BIG. CHUNKING...")
-    responses = state["translated_responses"]
+    s = cast(BrainState, state)
+    responses = s["translated_responses"]
     text_to_chunk = responses[0]
     chunk_max = config.MAX_META_TEXT_LENGTH - 100
     try:
@@ -879,9 +887,10 @@ def needs_chunking(state: BrainState) -> str:
     return END
 
 
-def process_intents(state: BrainState) -> List[str]:
+def process_intents(state: Any) -> List[str]:
     """Map detected intents to the list of nodes to traverse."""
-    user_intents = state["user_intents"]
+    s = cast(BrainState, state)
+    user_intents = s["user_intents"]
     if not user_intents:
         raise ValueError("no intents found. something went very wrong.")
 
@@ -900,10 +909,11 @@ def process_intents(state: BrainState) -> List[str]:
     return nodes_to_traverse
 
 
-def handle_unsupported_function(state: BrainState) -> dict:
+def handle_unsupported_function(state: Any) -> dict:
     """Generate a helpful response when the user requests unsupported functionality."""
-    query = state["user_query"]
-    chat_history = state["user_chat_history"]
+    s = cast(BrainState, state)
+    query = s["user_query"]
+    chat_history = s["user_chat_history"]
     messages: list[EasyInputMessageParam] = [
         {
             "role": "developer",
@@ -925,10 +935,11 @@ def handle_unsupported_function(state: BrainState) -> dict:
     return {"responses": [{"intent": IntentType.PERFORM_UNSUPPORTED_FUNCTION, "response": unsupported_function_response_text}]}
 
 
-def handle_system_information_request(state: BrainState) -> dict:
+def handle_system_information_request(state: Any) -> dict:
     """Provide help/about information for the BT Servant system."""
-    query = state["user_query"]
-    chat_history = state["user_chat_history"]
+    s = cast(BrainState, state)
+    query = s["user_query"]
+    chat_history = s["user_chat_history"]
     messages: list[EasyInputMessageParam] = [
         {
             "role": "developer",
@@ -950,10 +961,11 @@ def handle_system_information_request(state: BrainState) -> dict:
     return {"responses": [{"intent": IntentType.RETRIEVE_SYSTEM_INFORMATION, "response": help_response_text}]}
 
 
-def converse_with_bt_servant(state: BrainState) -> dict:
+def converse_with_bt_servant(state: Any) -> dict:
     """Respond conversationally to the user based on context and history."""
-    query = state["user_query"]
-    chat_history = state["user_chat_history"]
+    s = cast(BrainState, state)
+    query = s["user_query"]
+    chat_history = s["user_chat_history"]
     messages: list[EasyInputMessageParam] = [
         {
             "role": "developer",
@@ -975,34 +987,22 @@ def converse_with_bt_servant(state: BrainState) -> dict:
     return {"responses": [{"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}]}
 
 
-def _as_node(fn: Callable[["BrainState"], dict]) -> StateNode[Any]:
-    """Wrap a BrainState -> dict function into a StateNode[Any] callable.
-
-    This widens the input type for IDE/type-checkers (e.g., PyCharm) while
-    preserving internal typing by casting inside the wrapper.
-    """
-    def _node(state: Any) -> dict:
-        return fn(cast(BrainState, state))
-
-    return cast(StateNode[Any], _node)
-
-
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     builder: StateGraph[BrainState] = StateGraph(BrainState)
 
-    builder.add_node("start_node", _as_node(start))
-    builder.add_node("determine_query_language_node", _as_node(determine_query_language))
-    builder.add_node("preprocess_user_query_node", _as_node(preprocess_user_query))
-    builder.add_node("determine_intents_node", _as_node(determine_intents))
-    builder.add_node("set_response_language_node", _as_node(set_response_language))
-    builder.add_node("query_vector_db_node", _as_node(query_vector_db))
-    builder.add_node("query_open_ai_node", _as_node(query_open_ai))
-    builder.add_node("chunk_message_node", _as_node(chunk_message))
-    builder.add_node("handle_unsupported_function_node", _as_node(handle_unsupported_function))
-    builder.add_node("handle_system_information_request_node", _as_node(handle_system_information_request))
-    builder.add_node("converse_with_bt_servant_node", _as_node(converse_with_bt_servant))
-    builder.add_node("translate_responses_node", _as_node(translate_responses), defer=True)
+    builder.add_node("start_node", start)
+    builder.add_node("determine_query_language_node", determine_query_language)
+    builder.add_node("preprocess_user_query_node", preprocess_user_query)
+    builder.add_node("determine_intents_node", determine_intents)
+    builder.add_node("set_response_language_node", set_response_language)
+    builder.add_node("query_vector_db_node", query_vector_db)
+    builder.add_node("query_open_ai_node", query_open_ai)
+    builder.add_node("chunk_message_node", chunk_message)
+    builder.add_node("handle_unsupported_function_node", handle_unsupported_function)
+    builder.add_node("handle_system_information_request_node", handle_system_information_request)
+    builder.add_node("converse_with_bt_servant_node", converse_with_bt_servant)
+    builder.add_node("translate_responses_node", translate_responses, defer=True)
 
     builder.set_entry_point("start_node")
     builder.add_edge("start_node", "determine_query_language_node")
