@@ -290,6 +290,7 @@ You summarize Bible passage content faithfully using only the verses provided.
 - Highlight the main flow, key ideas, and important movements or contrasts across the entire selection.
 - Provide a thorough, readable summary (not terse). Aim for roughly 8–15 sentences, but expand if the selection is large.
 - Wherever helpful, reference specific verses or verse ranges inline (e.g., "1:1–3", "3:16", "2:4–6") to anchor key points.
+- If the selection contains only a single verse, inline verse references are not necessary.
 """
 
 
@@ -516,6 +517,19 @@ class ResponseLanguage(BaseModel):
     language: Language
 
 
+SET_RESPONSE_LANGUAGE_AGENT_SYSTEM_PROMPT = """
+Task: Determine the language the user wants responses in, based on conversation context and the latest message.
+
+Allowed outputs: en, ar, fr, es, hi, ru, id, sw, pt, zh, nl, Other
+
+Instructions:
+- Use conversation history and the most recent message to infer the user's desired response language.
+- Only return one of the allowed outputs. If unclear or unsupported, return Other.
+- Consider explicit requests like "reply in French" or language names/codes.
+- Output must match the provided schema with no additional prose.
+"""
+
+
 class MessageLanguage(BaseModel):
     """Model for parsing/validating the detected language of a message."""
     language: Language
@@ -630,9 +644,11 @@ def set_response_language(state: Any) -> dict:
     ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
+        instructions=SET_RESPONSE_LANGUAGE_AGENT_SYSTEM_PROMPT,
         input=chat_input,
         text_format=ResponseLanguage,
-        store=False
+        temperature=0,
+        store=False,
     )
     resp_lang: ResponseLanguage = response.output_parsed
     if resp_lang.language == Language.OTHER:
