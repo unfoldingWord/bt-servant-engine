@@ -15,6 +15,8 @@ from typing import Annotated, Dict, List, TypedDict
 from enum import Enum
 
 from openai import OpenAI, OpenAIError
+from openai.types.responses.easy_input_message_param import EasyInputMessageParam
+from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
 from langgraph.graph import END, StateGraph
 from pydantic import BaseModel
 
@@ -118,7 +120,7 @@ CONVERSE_AGENT_SYSTEM_PROMPT = f"""
 # Identity
 
 You are a part of a RAG bot system that assists Bible translators. You are one node in the decision/intent processing 
-lange graph. Specifically, your job is to handle the converse-with-bt-servant intent by responding conversationally to 
+lang graph. Specifically, your job is to handle the converse-with-bt-servant intent by responding conversationally to 
 the user based on the provided context.
 
 # Instructions
@@ -262,7 +264,7 @@ maybe I'm unclear on your intent. Could you perhaps state it a different way?' Y
 conversation history. Use this to understand the user's current message or query if necessary. If the past conversation 
 history is not relevant to the user's current message, just ignore it. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY 
 ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX CHRISTIANS. If you can't do what the user is asking 
-because your response would be heretical, explain to the user why you cannot comply with their reqeust or command.
+because your response would be heretical, explain to the user why you cannot comply with their request or command.
 """
 
 CHOP_AGENT_SYSTEM_PROMPT = (
@@ -495,18 +497,19 @@ def start(state: BrainState) -> dict:
 def determine_intents(state: BrainState) -> dict:
     """Classify the user's transformed query into one or more intents."""
     query = state["transformed_query"]
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "system",
+            "content": INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT,
+        },
+        {
+            "role": "user",
+            "content": f"what is your classification of the latest user message: {query}",
+        },
+    ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
-        input=[
-            {
-                "role": "system",
-                "content": INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": f"what is your classification of the latest user message: {query}"
-            }
-        ],
+        input=messages,
         text_format=UserIntents,
         store=False
     )
@@ -520,19 +523,19 @@ def determine_intents(state: BrainState) -> dict:
 
 def set_response_language(state: BrainState) -> dict:
     """Detect and persist the user's desired response language."""
-    chat_input = [
+    chat_input: list[EasyInputMessageParam] = [
         {
             "role": "user",
-            "content": f"Past conversation: {json.dumps(state['user_chat_history'])}"
+            "content": f"Past conversation: {json.dumps(state['user_chat_history'])}",
         },
         {
             "role": "user",
-            "content": f"the user's most recent message: {state['user_query']}"
+            "content": f"the user's most recent message: {state['user_query']}",
         },
         {
             "role": "user",
-            "content": "What language is the user trying to set their response language to?"
-        }
+            "content": "What language is the user trying to set their response language to?",
+        },
     ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
@@ -561,23 +564,24 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
     """Ask OpenAI to synthesize multiple node responses into one coherent text."""
     uncombined_responses = json.dumps(responses)
     logger.info("preparing to combine responses:\n\n%s", uncombined_responses)
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "developer",
+            "content": f"conversation history: {chat_history}",
+        },
+        {
+            "role": "developer",
+            "content": f"latest user message: {latest_user_message}",
+        },
+        {
+            "role": "developer",
+            "content": f"responses to synthesize: {uncombined_responses}",
+        },
+    ]
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=COMBINE_RESPONSES_SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "developer",
-                "content": f"conversation history: {chat_history}"
-            },
-            {
-                "role": "developer",
-                "content": f"latest user message: {latest_user_message}"
-            },
-            {
-                "role": "developer",
-                "content": f"responses to synthesize: {uncombined_responses}"
-            },
-        ]
+        input=messages,
     )
     combined = response.output_text
     logger.info("combined response from openai: %s", combined)
@@ -628,19 +632,22 @@ def translate_responses(state: BrainState) -> dict:
 
 def translate_text(response_text, target_language):
     """Translate a single text into the target ISO 639-1 language code."""
+    chat_messages: list[ChatCompletionMessageParam] = [
+        {
+            "role": "system",
+            "content": RESPONSE_TRANSLATOR_SYSTEM_PROMPT,
+        },
+        {
+            "role": "user",
+            "content": (
+                f"text to translate: {response_text}\n\n"
+                f"ISO 639-1 code representing target language: {target_language}"
+            ),
+        },
+    ]
     completion = open_ai_client.chat.completions.create(
         model="gpt-4o",
-        messages=[
-            {
-                "role": "system",
-                "content": RESPONSE_TRANSLATOR_SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": (f"text to translate: {response_text}\n\n"
-                            f"ISO 639-1 code representing target language: {target_language}")
-            }
-        ]
+        messages=chat_messages,
     )
     translated_text = completion.choices[0].message.content
     logger.info('chunk: \n%s\n\ntranslated to:\n%s', response_text, translated_text)
@@ -649,18 +656,19 @@ def translate_text(response_text, target_language):
 
 def detect_language(text) -> str:
     """Detect ISO 639-1 language code of the given text via OpenAI."""
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "system",
+            "content": DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
+        },
+        {
+            "role": "user",
+            "content": f"text: {text}",
+        },
+    ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
-        input=[
-            {
-                "role": "system",
-                "content": DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": f"text: {text}"
-            }
-        ],
+        input=messages,
         text_format=MessageLanguage,
         store=False
     )
@@ -693,19 +701,20 @@ def preprocess_user_query(state: BrainState) -> dict:
     query = state["user_query"]
     chat_history = state["user_chat_history"]
     history_context_message = f"past_conversation: {json.dumps(chat_history)}"
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "user",
+            "content": history_context_message,
+        },
+        {
+            "role": "user",
+            "content": f"current_message: {query}",
+        },
+    ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
         instructions=PREPROCESSOR_AGENT_SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "user",
-                "content": history_context_message
-            },
-            {
-                "role": "user",
-                "content": f'current_message: {query}'
-            }
-        ],
+        input=messages,
         text_format=PreprocessorResult,
         store=False
     )
@@ -836,18 +845,19 @@ def chunk_message(state: BrainState) -> dict:
     text_to_chunk = responses[0]
     chunk_max = config.MAX_META_TEXT_LENGTH - 100
     try:
+        chat_messages: list[ChatCompletionMessageParam] = [
+            {
+                "role": "system",
+                "content": CHOP_AGENT_SYSTEM_PROMPT,
+            },
+            {
+                "role": "user",
+                "content": f"text to chop: \n\n{text_to_chunk}",
+            },
+        ]
         completion = open_ai_client.chat.completions.create(
             model='gpt-4o',
-            messages=[
-                {
-                    "role": "system",
-                    "content": CHOP_AGENT_SYSTEM_PROMPT
-                },
-                {
-                    "role": "user",
-                    "content": f'text to chop: \n\n{text_to_chunk}'
-                }
-            ]
+            messages=chat_messages,
         )
         response = completion.choices[0].message.content
         chunks = json.loads(response)
@@ -893,19 +903,20 @@ def handle_unsupported_function(state: BrainState) -> dict:
     """Generate a helpful response when the user requests unsupported functionality."""
     query = state["user_query"]
     chat_history = state["user_chat_history"]
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "developer",
+            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
+        },
+        {
+            "role": "user",
+            "content": query,
+        },
+    ]
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=UNSUPPORTED_FUNCTION_AGENT_SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "developer",
-                "content": f'Conversation history to use if needed: {json.dumps(chat_history)}'
-            },
-            {
-                "role": "user",
-                "content": query
-            }
-        ],
+        input=messages,
         store=False
     )
     unsupported_function_response_text = response.output_text
@@ -917,19 +928,20 @@ def handle_system_information_request(state: BrainState) -> dict:
     """Provide help/about information for the BT Servant system."""
     query = state["user_query"]
     chat_history = state["user_chat_history"]
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "developer",
+            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
+        },
+        {
+            "role": "user",
+            "content": query,
+        },
+    ]
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=HELP_AGENT_SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "developer",
-                "content": f'Conversation history to use if needed: {json.dumps(chat_history)}'
-            },
-            {
-                "role": "user",
-                "content": query
-            }
-        ],
+        input=messages,
         store=False
     )
     help_response_text = response.output_text
@@ -941,19 +953,20 @@ def converse_with_bt_servant(state: BrainState) -> dict:
     """Respond conversationally to the user based on context and history."""
     query = state["user_query"]
     chat_history = state["user_chat_history"]
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "developer",
+            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
+        },
+        {
+            "role": "user",
+            "content": query,
+        },
+    ]
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=CONVERSE_AGENT_SYSTEM_PROMPT,
-        input=[
-            {
-                "role": "developer",
-                "content": f'Conversation history to use if needed: {json.dumps(chat_history)}'
-            },
-            {
-                "role": "user",
-                "content": query
-            }
-        ],
+        input=messages,
         store=False
     )
     converse_response_text = response.output_text
