@@ -125,3 +125,8 @@ Recommended workflow
     `list[ChatCompletionMessageParam]`.
   - Avoid using raw `list[dict[str, str]]` for these payloads; PyCharm will
     warn since it expects richer typed dicts from the SDK stubs.
+- Enum to primitive conversions:
+  - When SDK models expose enums (e.g., `resp_lang.language.value`), PyCharm
+    can sometimes lose the concrete type and infer a callable union. Use
+    `cast(str, ...)` or `str(...)` at the call site to make the argument type
+    explicit, e.g., `set_user_response_language(cast(str, user_id), cast(str, code))`.
