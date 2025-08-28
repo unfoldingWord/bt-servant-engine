@@ -128,9 +128,17 @@ Recommended workflow
   - When inference is stubborn, wrap list literals with `cast(List[...Param], [...])`
     to signal to the IDE that the union of TypedDict variants is intended.
 - LangGraph schema type for `StateGraph`:
-  - When using `TypedDict` for state (e.g., `BrainState`), PyCharm may warn that
-    the constructor expects a `type[StateT]`. Use `StateGraph(cast(type, BrainState))`
-    and annotate the builder as `StateGraph[BrainState]` to satisfy the generic.
+  - When using `TypedDict` for state (e.g., `BrainState`), some IDEs warn about
+    the constructor expecting `type[StateT]`. Prefer defining the `TypedDict`
+    via `typing_extensions.TypedDict` and, if needed, use a tiny helper that
+    accepts `Any` and returns `StateGraph[BrainState]` (mirroring the
+    contravariance pattern used for nodes):
+    
+    ```python
+    def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
+        return StateGraph(schema)
+    builder: StateGraph[BrainState] = _make_state_graph(BrainState)
+    ```
 - Enum to primitive conversions:
   - When SDK models expose enums (e.g., `resp_lang.language.value`), PyCharm
     can sometimes lose the concrete type and infer a callable union. Use

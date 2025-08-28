@@ -992,7 +992,11 @@ def converse_with_bt_servant(state: Any) -> dict:
 
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
-    builder: StateGraph[BrainState] = StateGraph(BrainState)
+    def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
+        # Accept Any to satisfy IDE variance on schema param; schema is BrainState
+        return StateGraph(schema)
+
+    builder: StateGraph[BrainState] = _make_state_graph(BrainState)
 
     builder.add_node("start_node", start)
     builder.add_node("determine_query_language_node", determine_query_language)
