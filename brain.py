@@ -284,10 +284,12 @@ Return JSON parsable into the provided schema.
 
 
 PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT = """
-You summarize Bible passage content faithfully and concisely using only the verses provided.
+You summarize Bible passage content faithfully using only the verses provided.
+
 - Stay strictly within the supplied passage text; avoid speculation or doctrinal claims not present in the text.
 - Highlight the main flow, key ideas, and important movements or contrasts across the entire selection.
-- Be clear and concise; 4–8 sentences is typical, but adapt to the passage size.
+- Provide a thorough, readable summary (not terse). Aim for roughly 8–15 sentences, but expand if the selection is large.
+- Wherever helpful, reference specific verses or verse ranges inline (e.g., "1:1–3", "3:16", "2:4–6") to anchor key points.
 """
 
 
@@ -1193,7 +1195,8 @@ def handle_get_passage_summary(state: Any) -> dict:
     ]
     logger.info("[passage-summary] summarizing %d verses", len(verses))
     summary_resp = open_ai_client.responses.create(
-        model="gpt-4o",
+        model="gpt-5",
+        reasoning={"effort": "low"},
         instructions=PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
         input=sum_messages,
         store=False,
