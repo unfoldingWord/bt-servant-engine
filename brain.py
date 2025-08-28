@@ -335,9 +335,10 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     or translation challenges.
   </intent>
   <intent name="get-passage-summary">
-    The user is explicitly asking for a summary of a specific Bible passage or verse range (e.g., "John 3:16-18").
-    Prefer this when the user clearly requests a passage summary, otherwise use
-    `get-bible-translation-assistance` for broader translation help.
+    The user is explicitly asking for a summary of a specific Bible passage, verse range, chapter(s), or entire book
+    (e.g., "John 3:16-18", "John 1–4", "Summarize John"). Prefer this when the user clearly requests a summary.
+    If the user mentions multiple books (e.g., "summarize John and Mark"), still classify as `get-passage-summary` —
+    downstream logic will handle scope constraints.
   </intent>
   <intent name="set-response-language">
     The user wants to change the language in which the system responds. They might ask for responses in 
@@ -385,6 +386,10 @@ Here are a few examples to guide you:
   </example>
   <example>
     <message>Summarize Titus 3:4</message>
+    <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>summarize John and Mark</message>
     <intent>get-passage-summary</intent>
   </example>
   <example>
@@ -1196,7 +1201,7 @@ def handle_get_passage_summary(state: Any) -> dict:
     logger.info("[passage-summary] summarizing %d verses", len(verses))
     summary_resp = open_ai_client.responses.create(
         model="gpt-5",
-        reasoning={"effort": "low"},
+        reasoning=cast(Any, {"effort": "low"}),
         instructions=PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
         input=sum_messages,
         store=False,
