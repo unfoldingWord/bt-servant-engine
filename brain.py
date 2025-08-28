@@ -645,7 +645,9 @@ def determine_query_language(state: BrainState) -> dict:
         "tyndale_dictionary",
         "uw_translation_words",
         "uw_translation_notes",
-        "biblica_study_notes_key_terms"
+        "biblica_study_notes_key_terms",
+        "ult",
+        "ust"
     ]
 
     return {
