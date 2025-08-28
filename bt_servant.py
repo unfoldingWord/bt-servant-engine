@@ -354,7 +354,7 @@ async def handle_meta_webhook(
                             return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content={"error": "Unauthorized sender"})
 
                         asyncio.create_task(process_message(user_message=user_message))
-                    except Exception as e:
+                    except Exception:
                         logger.error("Error while processing user message...", exc_info=True)
                         continue
         return Response(status_code=200)
@@ -362,7 +362,7 @@ async def handle_meta_webhook(
     except json.JSONDecodeError:
         logger.error("Invalid JSON received", exc_info=True)
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": "Invalid JSON"})
-    except Exception as e:
+    except Exception:
         logger.error("Error handling Meta webhook payload", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
@@ -408,7 +408,7 @@ async def process_message(user_message: UserMessage):
 
             update_user_chat_history(user_id=user_message.user_id, query=user_message.text, response=full_response_text)
             logger.info("Overall process_message processing time: %.2f seconds", time.time() - start_time)
-        except Exception as e:
+        except Exception:
             logger.error("Error handling Meta webhook payload", exc_info=True)
             # TODO: THIS MESSAGE NEEDS TO BE TRANSLATED AT SOME POINT!!! - IJL
             error_message = ("I'm sorry. I'm having a bad day and I'm having trouble responding. "

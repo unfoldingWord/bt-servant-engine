@@ -1,26 +1,45 @@
+"""Decision graph and message-processing pipeline for BT Servant.
+
+This module defines the state, nodes, and orchestration logic for handling
+incoming user messages, classifying intents, querying resources, and producing
+final responses (including translation and chunking when necessary).
+"""
+# pylint: disable=line-too-long,too-many-lines
+
+from __future__ import annotations
+
 import json
 import operator
-from openai import OpenAI, OpenAIError
-from langgraph.graph import StateGraph, END
-from typing import TypedDict, List, Dict, Annotated
 from pathlib import Path
+from typing import Annotated, Dict, List, TypedDict
+from enum import Enum
+
+from openai import OpenAI, OpenAIError
+from langgraph.graph import END, StateGraph
+from pydantic import BaseModel
+
 from logger import get_logger
 from config import config
 from utils import chop_text, combine_chunks
-from pydantic import BaseModel
-from enum import Enum
-from db import set_user_response_language, get_chroma_collection, is_first_interaction, set_first_interaction
+from db import (
+    get_chroma_collection,
+    is_first_interaction,
+    set_first_interaction,
+    set_user_response_language,
+)
 
-features_summary_response = ("Currently, I can do three main things: summarize a passage, provide key words in a "
-                             "passage, or provide the typical translation challenges found in a passage. Here are some "
-                             "example questions or commands corresponding to these three functions: ")
+FEATURES_SUMMARY_RESPONSE = (
+    "Currently, I can do three main things: summarize a passage, provide key words in a "
+    "passage, or provide the typical translation challenges found in a passage. Here are some "
+    "example questions or commands corresponding to these three functions: "
+)
 BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE = f"""
-    {features_summary_response} 
-    
+    {FEATURES_SUMMARY_RESPONSE}
+
     (1) Please summarize Titus chapter 1.
     (2) List all the important words in Romans 1.
     (3) What challenges might I face when translating John 1:1?
-    
+
     Which of these would you like me to do?
 """
 
@@ -401,6 +420,7 @@ logger = get_logger(__name__)
 
 
 class Language(str, Enum):
+    """Supported ISO 639-1 language codes for responses/messages."""
     ENGLISH = "en"
     ARABIC = "ar"
     FRENCH = "fr"
@@ -416,20 +436,24 @@ class Language(str, Enum):
 
 
 class ResponseLanguage(BaseModel):
+    """Model for parsing/validating the detected response language."""
     language: Language
 
 
 class MessageLanguage(BaseModel):
+    """Model for parsing/validating the detected language of a message."""
     language: Language
 
 
 class PreprocessorResult(BaseModel):
+    """Result type for the preprocessor node output."""
     new_message: str
     reason_for_decision: str
     message_changed: bool
 
 
 class IntentType(str, Enum):
+    """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
@@ -438,10 +462,12 @@ class IntentType(str, Enum):
 
 
 class UserIntents(BaseModel):
+    """Container for a list of user intents."""
     intents: List[IntentType]
 
 
 class BrainState(TypedDict, total=False):
+    """State carried through the LangGraph execution."""
     user_id: str
     user_query: str
     query_language: str
@@ -457,6 +483,7 @@ class BrainState(TypedDict, total=False):
 
 
 def start(state: BrainState) -> dict:
+    """Handle first interaction greeting, otherwise no-op."""
     user_id = state["user_id"]
     if is_first_interaction(user_id):
         set_first_interaction(user_id, False)
@@ -466,6 +493,7 @@ def start(state: BrainState) -> dict:
 
 
 def determine_intents(state: BrainState) -> dict:
+    """Classify the user's transformed query into one or more intents."""
     query = state["transformed_query"]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
@@ -491,6 +519,7 @@ def determine_intents(state: BrainState) -> dict:
 
 
 def set_response_language(state: BrainState) -> dict:
+    """Detect and persist the user's desired response language."""
     chat_input = [
         {
             "role": "user",
@@ -502,7 +531,7 @@ def set_response_language(state: BrainState) -> dict:
         },
         {
             "role": "user",
-            "content": f"What language is the user trying to set their response language to?"
+            "content": "What language is the user trying to set their response language to?"
         }
     ]
     response = open_ai_client.responses.parse(
@@ -529,6 +558,7 @@ def set_response_language(state: BrainState) -> dict:
 
 
 def combine_responses(chat_history, latest_user_message, responses) -> str:
+    """Ask OpenAI to synthesize multiple node responses into one coherent text."""
     uncombined_responses = json.dumps(responses)
     logger.info("preparing to combine responses:\n\n%s", uncombined_responses)
     response = open_ai_client.responses.create(
@@ -555,6 +585,7 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
 
 
 def translate_responses(state: BrainState) -> dict:
+    """Translate the response(s) into the user's desired language if needed."""
     uncombined_responses = list(state["responses"])
     num_responses = len(uncombined_responses)
     if num_responses > 1:
@@ -581,7 +612,7 @@ def translate_responses(state: BrainState) -> dict:
             return {"translated_responses": responses}
 
     translated_responses = []
-    for i, response in enumerate(responses, start=1):
+    for response in responses:
         response_language = detect_language(response)
         if response_language != target_language:
             logger.warning("target language: %s but response language: %s", target_language, response_language)
@@ -596,6 +627,7 @@ def translate_responses(state: BrainState) -> dict:
 
 
 def translate_text(response_text, target_language):
+    """Translate a single text into the target ISO 639-1 language code."""
     completion = open_ai_client.chat.completions.create(
         model="gpt-4o",
         messages=[
@@ -616,6 +648,7 @@ def translate_text(response_text, target_language):
 
 
 def detect_language(text) -> str:
+    """Detect ISO 639-1 language code of the given text via OpenAI."""
     response = open_ai_client.responses.parse(
         model="gpt-4o",
         input=[
@@ -636,6 +669,7 @@ def detect_language(text) -> str:
 
 
 def determine_query_language(state: BrainState) -> dict:
+    """Determine the language of the user's original query and set collection order."""
     query = state["user_query"]
     query_language = detect_language(query)
     logger.info("language code %s detected by gpt-4o.", query_language)
@@ -655,6 +689,7 @@ def determine_query_language(state: BrainState) -> dict:
 
 
 def preprocess_user_query(state: BrainState) -> dict:
+    """Lightly clarify or correct the user's query using conversation history."""
     query = state["user_query"]
     chat_history = state["user_chat_history"]
     history_context_message = f"past_conversation: {json.dumps(chat_history)}"
@@ -686,6 +721,8 @@ def preprocess_user_query(state: BrainState) -> dict:
 
 
 def query_vector_db(state: BrainState) -> dict:
+    """Query the vector DB (Chroma) across ranked collections and filter by relevance."""
+    # pylint: disable=too-many-locals
     query = state["transformed_query"]
     stack_rank_collections = state["stack_rank_collections"]
     filtered_docs = []
@@ -732,7 +769,9 @@ def query_vector_db(state: BrainState) -> dict:
     }
 
 
+# pylint: disable=too-many-locals
 def query_open_ai(state: BrainState) -> dict:
+    """Generate the final response text using RAG context and OpenAI."""
     docs = state["docs"]
     query = state["transformed_query"]
     chat_history = state["user_chat_history"]
@@ -773,8 +812,10 @@ def query_open_ai(state: BrainState) -> dict:
         logger.info('response from openai: %s', bt_servant_response)
         logger.debug("%d characters returned from openAI", len(bt_servant_response))
 
-        resource_list = ", ".join(set([f"{item.get("resource_name", "unknown")} from {item.get("source", "unknown")}"
-                                       for item in docs]))
+        resource_list = ", ".join({
+            f"{item.get('resource_name', 'unknown')} from {item.get('source', 'unknown')}"
+            for item in docs
+        })
         cascade_info = (
             f"bt servant used the following resources to generate its response: {resource_list}."
         )
@@ -782,16 +823,18 @@ def query_open_ai(state: BrainState) -> dict:
 
         return {"responses": [
             {"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": bt_servant_response}]}
-    except OpenAIError as e:
+    except OpenAIError:
         logger.error("Error during OpenAI request", exc_info=True)
         error_msg = "I encountered some problems while trying to respond. Let Ian know about this one."
         return {"responses": [{"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": error_msg}]}
 
 
 def chunk_message(state: BrainState) -> dict:
+    """Chunk oversized responses to respect WhatsApp limits, via LLM or fallback."""
     logger.info("MESSAGE TOO BIG. CHUNKING...")
     responses = state["translated_responses"]
     text_to_chunk = responses[0]
+    chunk_max = config.MAX_META_TEXT_LENGTH - 100
     try:
         completion = open_ai_client.chat.completions.create(
             model='gpt-4o',
@@ -808,25 +851,25 @@ def chunk_message(state: BrainState) -> dict:
         )
         response = completion.choices[0].message.content
         chunks = json.loads(response)
-    except json.JSONDecodeError as e:
+    except json.JSONDecodeError:
         logger.error("Error while attempting to chunk message. Manually chunking instead", exc_info=True)
-        chunks = chop_text(text_to_chunk)
+        chunks = chop_text(text=text_to_chunk, n=chunk_max)
 
     chunks.extend(responses[1:])
-    chunk_max = config.MAX_META_TEXT_LENGTH - 100
     return {"translated_responses": combine_chunks(chunks=chunks, chunk_max=chunk_max)}
 
 
 def needs_chunking(state: BrainState) -> str:
+    """Return next node key if chunking is required, otherwise finish."""
     first_response = state["translated_responses"][0]
     if len(first_response) > config.MAX_META_TEXT_LENGTH:
         logger.warning('message to big: %d chars. preparing to chunk.', len(first_response))
         return "chunk_message_node"
-    else:
-        return END
+    return END
 
 
 def process_intents(state: BrainState) -> List[str]:
+    """Map detected intents to the list of nodes to traverse."""
     user_intents = state["user_intents"]
     if not user_intents:
         raise ValueError("no intents found. something went very wrong.")
@@ -847,6 +890,7 @@ def process_intents(state: BrainState) -> List[str]:
 
 
 def handle_unsupported_function(state: BrainState) -> dict:
+    """Generate a helpful response when the user requests unsupported functionality."""
     query = state["user_query"]
     chat_history = state["user_chat_history"]
     response = open_ai_client.responses.create(
@@ -870,6 +914,7 @@ def handle_unsupported_function(state: BrainState) -> dict:
 
 
 def handle_system_information_request(state: BrainState) -> dict:
+    """Provide help/about information for the BT Servant system."""
     query = state["user_query"]
     chat_history = state["user_chat_history"]
     response = open_ai_client.responses.create(
@@ -893,6 +938,7 @@ def handle_system_information_request(state: BrainState) -> dict:
 
 
 def converse_with_bt_servant(state: BrainState) -> dict:
+    """Respond conversationally to the user based on context and history."""
     query = state["user_query"]
     chat_history = state["user_chat_history"]
     response = open_ai_client.responses.create(
@@ -916,6 +962,7 @@ def converse_with_bt_servant(state: BrainState) -> dict:
 
 
 def create_brain():
+    """Assemble and compile the LangGraph for the BT Servant brain."""
     builder = StateGraph(BrainState)
 
     builder.add_node("start_node", start)
