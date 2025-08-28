@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import operator
 from pathlib import Path
+import re
 from typing import Annotated, Dict, List, cast, Any
 from typing_extensions import TypedDict
 from enum import Enum
@@ -271,6 +272,7 @@ Return a normalized, structured selection of book + verse ranges.
   - Verse ranges within a chapter (John 3:16-18)
   - Cross-chapter within a single book (John 3:16–4:2)
   - Whole chapters (John 3)
+  - Multi-chapter ranges with no verse specification (e.g., "John 1–4", "John chapters 1–4"): set start_chapter=1, end_chapter=4 and leave verses empty
   - Whole book (John)
   - Multiple disjoint ranges within the same book (comma/semicolon separated)
 - Do not cross books in one selection. If user mentions multiple books, choose one or return the clearest primary one.
@@ -1093,6 +1095,24 @@ def handle_get_passage_summary(state: Any) -> dict:
     )
     selection: PassageSelection = selection_resp.output_parsed
     logger.info("[passage-summary] extracted %d selection(s)", len(selection.selections))
+
+    # Heuristic correction: if user explicitly said "chapters X–Y", ensure we treat it
+    # as a multi-chapter span (not verses 1–Y). This guards against occasional LLM
+    # misreadings for phrasing like "John chapters 1-4".
+    lower_in = parse_input.lower()
+    chap_match = re.search(r"\bchapters?\s+(\d+)\s*[-–]\s*(\d+)\b", lower_in)
+    if chap_match and selection.selections:
+        a, b = int(chap_match.group(1)), int(chap_match.group(2))
+        logger.info("[passage-summary] correcting to multi-chapter range: %d-%d due to 'chapters' phrasing", a, b)
+        # Apply to the first selection; keep the canonical book returned by the model
+        first = selection.selections[0]
+        selection.selections[0] = PassageRef(
+            book=first.book,
+            start_chapter=a,
+            start_verse=None,
+            end_chapter=b,
+            end_verse=None,
+        )
 
     if not selection.selections:
         supported = ", ".join(BSB_BOOK_MAP.keys())
