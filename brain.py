@@ -546,17 +546,18 @@ def set_response_language(state: Any) -> dict:
         text_format=ResponseLanguage,
         store=False
     )
-    response_language = response.output_parsed
-    if response_language.language == Language.OTHER:
+    resp_lang: ResponseLanguage = response.output_parsed
+    if resp_lang.language == Language.OTHER:
         supported_language_list = ", ".join(supported_language_map.keys())
         response_text = (f"I think you're trying to set the response language. The supported languages "
                          f"are: {supported_language_list}. If this is your intent, please clearly tell "
                          f"me which supported language to use when responding.")
         return {"responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}]}
-    response_language_code = response_language.language.value
-    set_user_response_language(s["user_id"], response_language_code)
-    response_language = supported_language_map.get(response_language_code, response_language_code)
-    response_text = f"Setting response language to: {response_language}"
+    user_id: str = s["user_id"]
+    response_language_code: str = resp_lang.language.value
+    set_user_response_language(user_id, response_language_code)
+    language_name: str = supported_language_map.get(response_language_code, response_language_code)
+    response_text = f"Setting response language to: {language_name}"
     return {
         "responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}],
         "user_response_language": response_language_code
