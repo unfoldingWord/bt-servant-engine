@@ -11,13 +11,14 @@ from __future__ import annotations
 import json
 import operator
 from pathlib import Path
-from typing import Annotated, Dict, List, TypedDict
+from typing import Annotated, Dict, List, TypedDict, cast
 from enum import Enum
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
 from langgraph.graph import END, StateGraph
+from langgraph.graph.state import StateNode
 from pydantic import BaseModel
 
 from logger import get_logger
@@ -978,18 +979,18 @@ def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     builder = StateGraph(BrainState)
 
-    builder.add_node("start_node", start)
-    builder.add_node("determine_query_language_node", determine_query_language)
-    builder.add_node("preprocess_user_query_node", preprocess_user_query)
-    builder.add_node("determine_intents_node", determine_intents)
-    builder.add_node("set_response_language_node", set_response_language)
-    builder.add_node("query_vector_db_node", query_vector_db)
-    builder.add_node("query_open_ai_node", query_open_ai)
-    builder.add_node("chunk_message_node", chunk_message)
-    builder.add_node("handle_unsupported_function_node", handle_unsupported_function)
-    builder.add_node("handle_system_information_request_node", handle_system_information_request)
-    builder.add_node("converse_with_bt_servant_node", converse_with_bt_servant)
-    builder.add_node("translate_responses_node", translate_responses, defer=True)
+    builder.add_node("start_node", cast(StateNode[BrainState], start))
+    builder.add_node("determine_query_language_node", cast(StateNode[BrainState], determine_query_language))
+    builder.add_node("preprocess_user_query_node", cast(StateNode[BrainState], preprocess_user_query))
+    builder.add_node("determine_intents_node", cast(StateNode[BrainState], determine_intents))
+    builder.add_node("set_response_language_node", cast(StateNode[BrainState], set_response_language))
+    builder.add_node("query_vector_db_node", cast(StateNode[BrainState], query_vector_db))
+    builder.add_node("query_open_ai_node", cast(StateNode[BrainState], query_open_ai))
+    builder.add_node("chunk_message_node", cast(StateNode[BrainState], chunk_message))
+    builder.add_node("handle_unsupported_function_node", cast(StateNode[BrainState], handle_unsupported_function))
+    builder.add_node("handle_system_information_request_node", cast(StateNode[BrainState], handle_system_information_request))
+    builder.add_node("converse_with_bt_servant_node", cast(StateNode[BrainState], converse_with_bt_servant))
+    builder.add_node("translate_responses_node", cast(StateNode[BrainState], translate_responses), defer=True)
 
     builder.set_entry_point("start_node")
     builder.add_edge("start_node", "determine_query_language_node")
