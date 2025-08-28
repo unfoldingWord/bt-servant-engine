@@ -445,8 +445,27 @@ You will return a single structured output like this:
 """
 
 DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
-    Your job is simply to detect the language of the supplied text. Attempt to match it to one of
-    the 10 supported languages. If you can't, match it to OTHER.
+Task: Detect the language of the supplied user text and return the ISO 639-1 code from the allowed set.
+
+Allowed outputs: en, ar, fr, es, hi, ru, id, sw, pt, zh, nl, Other
+
+Bible context: Bible book abbreviations are language-neutral (e.g., Gen, Exo, Lev, Num, Deu, Dan, Joh, Rom, 1Co, 2Co,
+Gal, Eph, Php, Col, 1Th, 2Th, 1Ti, 2Ti, Tit, Phm, Heb, Jas, 1Pe, 2Pe, 1Jo, 2Jo, 3Jo, Jud, Rev). The token "Dan"
+often denotes the book Daniel and must NOT be interpreted as Indonesian "dan" ("and") when it appears as a book
+abbreviation near a chapter/verse reference (e.g., "Dan 1:1"). Treat such abbreviations and references as language-
+neutral signal.
+
+Ambiguity rule: If the text is mixed or ambiguous, prefer English (en), especially when common English instruction
+keywords are present (e.g., summarize, explain, what, who, why, how).
+
+Output format: Return only structured output matching the schema { "language": <one of the allowed outputs> } with no
+additional prose.
+
+Disambiguation examples:
+- text: "summarize Dan 1:1" -> { "language": "en" }
+- text: "tolong ringkas Dan 1:1" -> { "language": "id" }
+- text: "explain Joh 3:16" -> { "language": "en" }
+- text: "ringkas Yoh 3:16" -> { "language": "id" }
 """
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -729,12 +748,13 @@ def translate_text(response_text, target_language):
 
 
 def detect_language(text) -> str:
-    """Detect ISO 639-1 language code of the given text via OpenAI."""
+    """Detect ISO 639-1 language code of the given text via OpenAI.
+
+    Uses a domain-aware prompt with deterministic decoding and a light
+    heuristic to avoid false Indonesian due to Bible abbreviations like
+    "Dan" (Daniel).
+    """
     messages: list[EasyInputMessageParam] = [
-        {
-            "role": "system",
-            "content": DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
-        },
         {
             "role": "user",
             "content": f"text: {text}",
@@ -742,12 +762,28 @@ def detect_language(text) -> str:
     ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
+        instructions=DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
         input=messages,
         text_format=MessageLanguage,
-        store=False
+        temperature=0,
+        store=False,
     )
     message_language = response.output_parsed
-    return message_language.language.value
+    predicted = message_language.language.value
+
+    # Heuristic guard: If we predicted Indonesian ('id') but the text looks like
+    # an English instruction paired with a Bible reference, prefer English.
+    # This specifically addresses the common "Dan" (Daniel) vs Indonesian "dan" ambiguity.
+    try:
+        has_english_instruction = bool(re.search(r"\b(summarize|explain|what|who|why|how|list|give|provide)\b", str(text), re.IGNORECASE))
+        has_verse_pattern = bool(re.search(r"\b[A-Za-z]{2,4}\s+\d+:\d+\b", str(text)))
+        if predicted == "id" and has_english_instruction and has_verse_pattern:
+            predicted = "en"
+    except re.error:
+        # If regex fails for any reason, fall back to the model prediction.
+        pass
+
+    return predicted
 
 
 def determine_query_language(state: Any) -> dict:
