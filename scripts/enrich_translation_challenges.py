@@ -91,6 +91,11 @@ def _save_json(path: Path, data: List[dict]) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def _sanitize_issue_type(value: str) -> str:
+    prefix = "rc://*/ta/man/translate/"
+    return value[len(prefix):] if value.startswith(prefix) else value
+
+
 def _build_entry_index(entries: List[dict]) -> Dict[Tuple[int, int], dict]:
     idx: Dict[Tuple[int, int], dict] = {}
     for e in entries:
@@ -176,6 +181,7 @@ def enrich_book(tsv_path: Path, book_name: str) -> None:
             ref = (row.get("Reference") or "").strip()
             issue_type = (row.get("SupportReference") or "").strip()
             note = (row.get("Note") or "").strip()
+            issue_type = _sanitize_issue_type(issue_type)
 
             rng = _parse_reference_range(ref)
             if rng is None:
