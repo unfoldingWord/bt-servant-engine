@@ -186,6 +186,51 @@ def select_verses(data_root: Path, canonical_book: str, ranges: Iterable[Tuple[i
     return result
 
 
+def select_translation_challanges(
+    data_root: Path,
+    canonical_book: str,
+    ranges: Iterable[Tuple[int, int | None, int | None, int | None]],
+) -> List[Tuple[str, List[Dict[str, str]]]]:
+    """Select translation challanges for a canonical book given a set of ranges.
+
+    Returns a list of (reference, translation_challanges[]) for each verse in range order.
+    If a verse has no challanges, its list will be empty.
+    """
+    mapping = BOOK_MAP[canonical_book]
+    entries = load_book_json(data_root, mapping["file_stem"])  # cached
+    idx_cv_to_entry: Dict[Tuple[int, int], Dict[str, str]] = {}
+    for e in entries:
+        ref = e.get("reference", "")
+        try:
+            _, cv = ref.split(" ", 1)
+            ch_s, vs_s = cv.split(":", 1)
+            ch = int(ch_s)
+            vs = int(vs_s)
+            idx_cv_to_entry[(ch, vs)] = e
+        except Exception:
+            continue
+
+    result: List[Tuple[str, List[Dict[str, str]]]] = []
+    for sc, sv, ec, ev in ranges:
+        # Reuse the range logic by scanning all verses and filtering
+        s_ch = sc
+        s_vs = sv if sv is not None else 1
+        e_ch = ec if ec is not None else s_ch
+        e_vs = ev if ev is not None else 10_000
+        for (ch, vs) in sorted(idx_cv_to_entry.keys()):
+            if (ch < s_ch) or (ch == s_ch and vs < s_vs):
+                continue
+            if (ch > e_ch) or (ch == e_ch and vs > e_vs):
+                break
+            entry = idx_cv_to_entry[(ch, vs)]
+            ref = entry.get("reference", "")
+            challanges = entry.get("translation_challanges", [])
+            # Ensure a list to avoid None
+            chall_list: List[Dict[str, str]] = challanges if isinstance(challanges, list) else []
+            result.append((ref, chall_list))
+    return result
+
+
 def label_ranges(canonical_book: str, ranges: List[Tuple[int, int | None, int | None, int | None]]) -> str:
     """Return a canonical human-readable reference label for the selection.
 

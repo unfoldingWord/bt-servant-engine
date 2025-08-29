@@ -25,7 +25,7 @@ from pydantic import BaseModel
 from logger import get_logger
 from config import config
 from utils import chop_text, combine_chunks
-from utils.bsb import BOOK_MAP as BSB_BOOK_MAP, normalize_book_name, select_verses, label_ranges
+from utils.bsb import BOOK_MAP as BSB_BOOK_MAP, normalize_book_name, select_verses, label_ranges, select_translation_challanges
 from db import (
     get_chroma_collection,
     is_first_interaction,
@@ -294,6 +294,17 @@ You summarize Bible passage content faithfully using only the verses provided.
 """
 
 
+PASSAGE_TRANSLATION_CHALLANGES_AGENT_SYSTEM_PROMPT = """
+You synthesize translation challenges for a Bible passage using only the provided notes.
+
+- Use only the supplied translation notes; do not invent issues not present in the input.
+- Organize the output into clear, concise bullet points grouped logically if helpful.
+- When appropriate, include brief rationale from the notes, but keep the wording faithful and neutral.
+- Prefer actionable phrasing (e.g., "Ambiguity: X/Y meaning possible"; "Text variant: ..."; "Figurative language: ...").
+- Avoid doctrinal speculation or commentary not supported by the notes.
+"""
+
+
 FINAL_RESPONSE_AGENT_SYSTEM_PROMPT = """
 You are an assistant to Bible translators. Your main job is to answer questions about content found in various biblical 
 resources: commentaries, translation notes, bible dictionaries, and various resources like FIA. In addition to answering
@@ -340,6 +351,12 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     (e.g., "John 3:16-18", "John 1–4", "Summarize John"). Prefer this when the user clearly requests a summary.
     If the user mentions multiple books (e.g., "summarize John and Mark"), still classify as `get-passage-summary` —
     downstream logic will handle scope constraints.
+  </intent>
+  <intent name="get-passage-translation-challanges">
+    The user is explicitly asking for translation challenges or issues to watch out for in a specific Bible passage,
+    verse range, chapter(s), or entire book (e.g., "What should I worry about when translating Isaiah 6:1-7?",
+    "List translation issues in Mark 1"). Prefer this when the user clearly asks for translation challenges rather
+    than a general summary.
   </intent>
   <intent name="set-response-language">
     The user wants to change the language in which the system responds. They might ask for responses in 
@@ -396,6 +413,14 @@ Here are a few examples to guide you:
   <example>
     <message>Give me a summary of John 3:16-18.</message>
     <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>tell me what to worry about when translating Isaiah 6:1-7</message>
+    <intent>get-passage-translation-challanges</intent>
+  </example>
+  <example>
+    <message>What translation issues are in Mark 1?</message>
+    <intent>get-passage-translation-challanges</intent>
   </example>
   <example>
     <message>Can you reply to me in French from now on?</message>
@@ -546,6 +571,7 @@ class IntentType(str, Enum):
     """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
     GET_PASSAGE_SUMMARY = "get-passage-summary"
+    GET_PASSAGE_TRANSLATION_CHALLANGES = "get-passage-translation-challanges"
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
     SET_RESPONSE_LANGUAGE = "set-response-language"
@@ -1036,6 +1062,8 @@ def process_intents(state: Any) -> List[str]:
         nodes_to_traverse.append("query_vector_db_node")
     if IntentType.GET_PASSAGE_SUMMARY in user_intents:
         nodes_to_traverse.append("handle_get_passage_summary_node")
+    if IntentType.GET_PASSAGE_TRANSLATION_CHALLANGES in user_intents:
+        nodes_to_traverse.append("handle_get_passage_translation_challanges_node")
     if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
         nodes_to_traverse.append("set_response_language_node")
     if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
@@ -1278,6 +1306,145 @@ def handle_get_passage_summary(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
 
 
+def handle_get_passage_translation_challanges(state: Any) -> dict:
+    """Handle get-passage-translation-challanges: extract refs, gather notes, and synthesize challenges.
+
+    Mirrors the passage summary flow, but retrieves the `translation_challanges` arrays for all selected verses
+    within a single canonical book and asks the LLM to synthesize a practical checklist for translators.
+    """
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    query_lang = s["query_language"]
+    logger.info("[passage-challanges] start; query_lang=%s; query=%s", query_lang, query)
+
+    # Translate to English for parsing, if needed
+    if query_lang == Language.ENGLISH.value:
+        parse_input = query
+        logger.info("[passage-challanges] parsing in English (no translation needed)")
+    else:
+        logger.info("[passage-challanges] translating query to English for parsing")
+        parse_input = translate_text(query, target_language="en")
+
+    # Build selection prompt with canonical books
+    books = ", ".join(BSB_BOOK_MAP.keys())
+    system_prompt = PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT.format(books=books)
+    selection_messages: list[EasyInputMessageParam] = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": parse_input},
+    ]
+    logger.info("[passage-challanges] extracting passage selection via LLM")
+    selection_resp = open_ai_client.responses.parse(
+        model="gpt-4o",
+        input=selection_messages,
+        text_format=PassageSelection,
+        store=False,
+    )
+    selection: PassageSelection = selection_resp.output_parsed
+    logger.info("[passage-challanges] extracted %d selection(s)", len(selection.selections))
+
+    if not selection.selections:
+        supported = ", ".join(BSB_BOOK_MAP.keys())
+        msg = (
+            "I couldn't identify a clear Bible passage in your request. "
+            "Please specify a book and passage, for example: 'John 3:16', 'Mark 1:1–8', or 'Psalm 1'. "
+            f"Supported books include: {supported}."
+        )
+        logger.info("[passage-challanges] no passage detected; prompting user for clearer reference")
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_TRANSLATION_CHALLANGES, "response": msg}]}
+
+    # Ensure all selections are within the same canonical book
+    canonical_books: list[str] = []
+    normalized_selections: list[PassageRef] = []
+    for sel in selection.selections:
+        canonical = normalize_book_name(sel.book) or sel.book
+        if canonical not in BSB_BOOK_MAP:
+            supported = ", ".join(BSB_BOOK_MAP.keys())
+            msg = (
+                f"The book '{sel.book}' is not recognized. Please use a supported canonical book name. "
+                f"Supported books include: {supported}."
+            )
+            logger.info("[passage-challanges] unsupported book requested: %s", sel.book)
+            return {"responses": [{"intent": IntentType.GET_PASSAGE_TRANSLATION_CHALLANGES, "response": msg}]}
+        canonical_books.append(canonical)
+        normalized_selections.append(PassageRef(
+            book=canonical,
+            start_chapter=sel.start_chapter,
+            start_verse=sel.start_verse,
+            end_chapter=sel.end_chapter,
+            end_verse=sel.end_verse,
+        ))
+
+    if len(set(canonical_books)) != 1:
+        msg = (
+            "Please request translation challenges for one book at a time. "
+            "If you need multiple books, send a separate message for each."
+        )
+        logger.info("[passage-challanges] cross-book selection detected; rejecting")
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_TRANSLATION_CHALLANGES, "response": msg}]}
+
+    canonical_book = canonical_books[0]
+    logger.info("[passage-challanges] canonical_book=%s", canonical_book)
+
+    # Build ranges: if no chapter info, interpret as whole book
+    ranges: list[tuple[int, int | None, int | None, int | None]] = []
+    for sel in normalized_selections:
+        if sel.start_chapter is None:
+            ranges.append((1, None, 10_000, None))
+        else:
+            ranges.append((sel.start_chapter, sel.start_verse, sel.end_chapter, sel.end_verse))
+    logger.info("[passage-challanges] ranges=%s", ranges)
+
+    # Retrieve translation challanges from verse_data JSONs
+    data_root = Path("sources") / "verse_data"
+    logger.info("[passage-challanges] retrieving challanges from %s", data_root)
+    items = select_translation_challanges(data_root, canonical_book, ranges)
+    logger.info("[passage-challanges] retrieved %d verse entries", len(items))
+    if not items:
+        msg = (
+            "I couldn't locate any translation notes for that selection. Please check the reference and try again."
+        )
+        logger.info("[passage-challanges] no challanges found for selection; prompting user")
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_TRANSLATION_CHALLANGES, "response": msg}]}
+
+    # Prepare context for synthesis
+    ref_label = label_ranges(canonical_book, ranges)
+    logger.info("[passage-challanges] label=%s", ref_label)
+    payload = [
+        {"reference": ref, "translation_challanges": challanges}
+        for ref, challanges in items
+        if challanges
+    ]
+    if not payload:
+        msg = (
+            "No translation challenges were recorded for those verses in the current dataset."
+        )
+        logger.info("[passage-challanges] empty challanges payload after filtering")
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_TRANSLATION_CHALLANGES, "response": msg}]}
+
+    challenges_json = json.dumps(payload, ensure_ascii=False, indent=2)
+
+    # Synthesize with LLM
+    sum_messages: list[EasyInputMessageParam] = [
+        {"role": "developer", "content": f"Passage reference: {ref_label}"},
+        {"role": "developer", "content": f"Translation notes (use only this content):\n{challenges_json}"},
+        {"role": "user", "content": "List the translation challenges a translator should watch out for."},
+    ]
+    logger.info("[passage-challanges] synthesizing challenges from %d verse entries", len(payload))
+    chall_resp = open_ai_client.responses.create(
+        model="gpt-5",
+        reasoning=cast(Any, {"effort": "low"}),
+        instructions=PASSAGE_TRANSLATION_CHALLANGES_AGENT_SYSTEM_PROMPT,
+        input=sum_messages,
+        store=False,
+    )
+    chall_text = chall_resp.output_text
+    logger.info("[passage-challanges] challenges generated (len=%d)", len(chall_text) if chall_text else 0)
+
+    response_text = f"Translation challenges for {ref_label}:\n\n{chall_text}"
+    logger.info("[passage-challanges] done")
+    return {"responses": [{"intent": IntentType.GET_PASSAGE_TRANSLATION_CHALLANGES, "response": response_text}]}
+
+
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
@@ -1298,6 +1465,7 @@ def create_brain():
     builder.add_node("handle_system_information_request_node", handle_system_information_request)
     builder.add_node("converse_with_bt_servant_node", converse_with_bt_servant)
     builder.add_node("handle_get_passage_summary_node", handle_get_passage_summary)
+    builder.add_node("handle_get_passage_translation_challanges_node", handle_get_passage_translation_challanges)
     builder.add_node("translate_responses_node", translate_responses, defer=True)
 
     builder.set_entry_point("start_node")
@@ -1316,6 +1484,7 @@ def create_brain():
     builder.add_edge("handle_system_information_request_node", "translate_responses_node")
     builder.add_edge("converse_with_bt_servant_node", "translate_responses_node")
     builder.add_edge("handle_get_passage_summary_node", "translate_responses_node")
+    builder.add_edge("handle_get_passage_translation_challanges_node", "translate_responses_node")
     builder.add_edge("query_open_ai_node", "translate_responses_node")
 
     builder.add_conditional_edges(
