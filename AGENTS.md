@@ -111,6 +111,9 @@ Recommended workflow
   - Always provide a meaty, non-empty commit body detailing what changed,
     rationale, test plan, and any risks/limitations. Never leave the
     description blank.
+- Auto-commit small prompt fixes:
+  - For low-risk edits to prompt text/constants (e.g., `PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT` wording tweaks) or small doc updates, commit directly with a proper `(CODEX)` message without asking for confirmation.
+  - Keep diffs minimal and focused; do not batch unrelated changes.
 
 ## Adding a New Intent
 - Update the enum in `brain.py`:
@@ -139,6 +142,7 @@ Recommended workflow
 - Summarization:
   - Summarizes only from provided verses with a faithful, neutral prompt.
   - Prepends a canonical reference echo (e.g., `Summary of John 3:16–18:`) for clarity.
+  - Style: Use continuous prose paragraphs only; never bullets, numbered lists, or headers. Mix verse references inline as needed (e.g., “1:1–3”, “3:16”).
 
 ### Typing With LangGraph + OpenAI SDK
 - LangGraph `StateNode` is contravariant in the state type. PyCharm may expect
