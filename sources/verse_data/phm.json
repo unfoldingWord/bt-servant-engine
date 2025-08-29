@@ -2,7 +2,7 @@
   {
     "reference": "Phm 1:1",
     "text": "Paul, a prisoner of Christ Jesus, and Timothy our brother, To Philemon our beloved fellow worker,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "Your language may have a particular way of introducing the author of a letter. Use that here. Alternate translation: [From me, Paul] or [I, Paul]"
@@ -40,7 +40,7 @@
   {
     "reference": "Phm 1:2",
     "text": "to Apphia our sister, to Archippus our fellow soldier, and to the church that meets at your house:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Apphia** is the name of a woman."
@@ -78,7 +78,7 @@
   {
     "reference": "Phm 1:3",
     "text": "Grace and peace to you from God our Father and the Lord Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "After introducing the senders and recipients of the letter, Paul gives a blessing. Use a form that people would recognize as a blessing in your language. Alternate translation: [May God our Father and the Lord Jesus Christ give you grace and peace.]"
@@ -104,7 +104,7 @@
   {
     "reference": "Phm 1:4",
     "text": "I always thank my God, remembering you in my prayers,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "Here, the word **you** is singular and refers to Philemon."
@@ -114,7 +114,7 @@
   {
     "reference": "Phm 1:5",
     "text": "because I hear about your faith in the Lord Jesus and your love for all the saints.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the abstract nouns **love** and **faith** by stating the ideas behind them with verbs instead. Alternate translation: [hearing how much you love and believe in the Lord Jesus and all the saints]"
@@ -132,7 +132,7 @@
   {
     "reference": "Phm 1:6",
     "text": "I pray that your partnership in the faith may become effective as you fully acknowledge every good thing that is ours in Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **that** introduces the content of the prayer that Paul mentions in [verse 4](../01/04.md). If it would be helpful in your language, you could repeat the idea of prayer here. Alternate translation: [I pray that]"
@@ -158,7 +158,7 @@
   {
     "reference": "Phm 1:7",
     "text": "I take great joy and encouragement in your love, because you, brother, have refreshed the hearts of the saints.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the idea behind the abstract nouns **joy** and **comfort** with adjectives. Alternate translation: [For you made me very joyful and comforted]"
@@ -188,7 +188,7 @@
   {
     "reference": "Phm 1:8",
     "text": "So although in Christ I am bold enough to order you to do what is proper,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/checking/headings",
         "note": "Here Paul begins his plea and the reason for his letter. If you are using section headings, you could put one here before [verse 8](../01/08.md). Suggested heading: “Paul’s Request”"
@@ -206,7 +206,7 @@
   {
     "reference": "Phm 1:9",
     "text": "I prefer to appeal on the basis of love. For I, Paul, am now aged, and a prisoner of Christ Jesus as well.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "Paul does not say for whom this **love** is. If you need to use a verb here and say who loves whom, this could refer to: (1) the mutual love between him and Philemon. See the UST. (2) Paul’s love for Philemon. Alternate translation: [because I love you]; (3) Philemon’s love for his fellow believers. Alternate translation: [because I know that you love God’s people]"
@@ -220,7 +220,7 @@
   {
     "reference": "Phm 1:10",
     "text": "I appeal to you for my child Onesimus, whose father I became while I was in chains.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Onesimus** is the name of a man."
@@ -242,12 +242,12 @@
   {
     "reference": "Phm 1:11",
     "text": "Formerly he was useless to you, but now he has become useful both to you and to me.",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Phm 1:12",
     "text": "I am sending back to you him who is my very heart.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Paul was probably sending Onesimus with another believer who carried this letter."
@@ -265,7 +265,7 @@
   {
     "reference": "Phm 1:13",
     "text": "I would have liked to keep him with me, so that on your behalf he could minister to me in my chains for the gospel.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Paul knows that Philemon wants to help him, and so he suggests that a way to do that would be to allow Onesimus to serve Paul in prison. Alternate translation: [so that, since you could not be here, he might help me] or [so that he could help me in your place]"
@@ -283,7 +283,7 @@
   {
     "reference": "Phm 1:14",
     "text": "But I did not want to do anything without your consent, so that your goodness will not be out of compulsion, but by your own free will.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **compulsion** with a verb. Alternate translation: [for I did not want you to do this good deed because I commanded you to do it]"
@@ -297,7 +297,7 @@
   {
     "reference": "Phm 1:15",
     "text": "For perhaps this is why he was separated from you for a while, so that you might have him back for good—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you can state this in active form. Alternate translation: [For perhaps the reason that God took Onesimus away from you for a time was so that]"
@@ -311,7 +311,7 @@
   {
     "reference": "Phm 1:16",
     "text": "no longer as a slave, but better than a slave, as a beloved brother. He is especially beloved to me, but even more so to you, both in person and in the Lord.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [more valuable than a slave] or [more dear than a slave]"
@@ -341,7 +341,7 @@
   {
     "reference": "Phm 1:17",
     "text": "So if you consider me a partner, receive him as you would receive me.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "Paul is writing in a way that makes it seem as though it is possible that Philemon does not consider that Paul is his partner, but he knows that Philemon does consider Paul to be his partner. This is a way of getting Philemon to agree on one thing (that Paul is a partner) so that he will agree to the other thing (to receive Onesimus). If your language does not state something as uncertain if it is certain or true, and if your readers might think that what Paul is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [since you have me as a partner]"
@@ -359,7 +359,7 @@
   {
     "reference": "Phm 1:18",
     "text": "But if he has wronged you in any way or owes you anything, charge it to my account.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "Onesimus certainly did wrong to Philemon by running away, and he probably also stole some of Philemon’s property. But Paul is stating these things as uncertain in order to be polite. If your language does not use a conditional statement in this way, then use a more natural way to state this. Alternate translation: [But whatever he has taken or whatever wrong he has done to you]"
@@ -377,7 +377,7 @@
   {
     "reference": "Phm 1:19",
     "text": "I, Paul, write this with my own hand. I will repay it—not to mention that you owe me your very self.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Paul wrote this part with his **own hand** so that Philemon would know that these words were really from Paul, and that Paul really would pay him. He used the past tense here because the action of writing would be in the past when Philemon read the letter. Use the tense that is most natural in your language. Alternate translation: [I, Paul, write this myself.]"
@@ -395,7 +395,7 @@
   {
     "reference": "Phm 1:20",
     "text": "Yes, brother, let me have some benefit from you in the Lord. Refresh my heart in Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **brother** is a metaphor for a fellow believer. Alternate translation: [spiritual brother] or [brother in Christ]"
@@ -421,7 +421,7 @@
   {
     "reference": "Phm 1:21",
     "text": "Confident of your obedience, I write to you, knowing that you will do even more than I ask.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the idea behind the abstract nouns **confidence** and **obedience** with verbs. Alternate translation: [Because I am confident that you will obey]"
@@ -435,7 +435,7 @@
   {
     "reference": "Phm 1:22",
     "text": "In the meantime, prepare a guest room for me, because I hope that through your prayers I will be restored to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/checking/headings",
         "note": "Here Paul closes his letter and gives final instruction to Philemon and a blessing on Philemon and on the believers that met for church in Philemon’s house. If you are using section headings, you could put one here before [verse 22](../01/22.md). Suggested heading: “Final Instruction and Blessing”"
@@ -469,7 +469,7 @@
   {
     "reference": "Phm 1:23",
     "text": "Epaphras, my fellow prisoner in Christ Jesus, sends you greetings,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Epaphras** was the name of a man who was a fellow believer and prisoner with Paul."
@@ -483,7 +483,7 @@
   {
     "reference": "Phm 1:24",
     "text": "as do Mark, Aristarchus, Demas, and Luke, my fellow workers.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are names of men."
@@ -501,7 +501,7 @@
   {
     "reference": "Phm 1:25",
     "text": "The grace of the Lord Jesus Christ be with your spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "The words **your spirit** are a synecdoche and represent the people themselves. Paul is referring to Philemon and all who met in his house."

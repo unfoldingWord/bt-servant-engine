@@ -2,7 +2,7 @@
   {
     "reference": "Eph 1:1",
     "text": "Paul, an apostle of Christ Jesus by the will of God, To the saints in Ephesus, the faithful in Christ Jesus:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "Paul names himself as the writer of this letter to the believers in the church at Ephesus (and elsewhere). Except where noted, all instances of “you” and “your” refer to the Ephesian believers as well as to all believers, and so are plural."
@@ -20,7 +20,7 @@
   {
     "reference": "Eph 1:2",
     "text": "Grace and peace to you from God our Father and the Lord Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "This is a common greeting and blessing that Paul often uses in the beginning of his letters. Use a form in your language that makes it clear that this is a greeting and blessing."
@@ -30,7 +30,7 @@
   {
     "reference": "Eph 1:3",
     "text": "Blessed be the God and Father of our Lord Jesus Christ, who has blessed us in Christ with every spiritual blessing in the heavenly realms.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "In this book, unless otherwise stated, the words “us” and “we” refer to Paul, the believers in Ephesus, and all believers."
@@ -64,7 +64,7 @@
   {
     "reference": "Eph 1:4",
     "text": "For He chose us in Him before the foundation of the world to be holy and blameless in His presence. In love",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "Paul uses the two similar words **holy** and **blameless** to emphasize moral goodness. If your language does not have two similar words, you can use one word for both, as in the UST."
@@ -78,7 +78,7 @@
   {
     "reference": "Eph 1:5",
     "text": "He predestined us for adoption as His sons through Jesus Christ, according to the good pleasure of His will,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The words “he,” “himself,” and “his” refer to God."
@@ -104,7 +104,7 @@
   {
     "reference": "Eph 1:6",
     "text": "to the praise of His glorious grace, which He has freely given us in the Beloved One.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [he has kindly given to us by means of the One whom he loves]"
@@ -118,7 +118,7 @@
   {
     "reference": "Eph 1:7",
     "text": "In Him we have redemption through His blood, the forgiveness of our trespasses, according to the riches of His grace",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "The **blood** of Jesus is a metonym for his death. Alternate translation: [because he died]"
@@ -132,7 +132,7 @@
   {
     "reference": "Eph 1:8",
     "text": "that He lavished on us with all wisdom and understanding.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [which he gave us in a great amount] or [being extremely kind to us]"
@@ -150,7 +150,7 @@
   {
     "reference": "Eph 1:9",
     "text": "And He has made known to us the mystery of His will according to His good pleasure, which He purposed in Christ",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This could mean: (1) because he wanted to make it known to us. (2) which was what he wanted."
@@ -168,7 +168,7 @@
   {
     "reference": "Eph 1:10",
     "text": "as a plan for the fullness of time, to bring all things in heaven and on earth together in Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "A new sentence could be started here. Alternate translation: [He did this with a view to an administration] or [He did this, thinking about a stewardship]"
@@ -186,7 +186,7 @@
   {
     "reference": "Eph 1:11",
     "text": "In Him we were also chosen as God’s own, having been predestined according to the plan of Him who works out everything by the counsel of His will,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Both pronouns **we** and **We** are inclusive in this verse. Paul is referring to all Christians, who were predestined to belong to Christ. In [verses 12](../01/12.md) and [13](../01/13.md) he will divide this group into “we” (exclusive) Jewish Christians and “you” Gentile Christians."
@@ -204,7 +204,7 @@
   {
     "reference": "Eph 1:12",
     "text": "in order that we, who were the first to hope in Christ, would be for the praise of His glory.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Here, the word **we** is exclusive and refers to the Jewish believers who first heard the good news, not the believers at Ephesus."
@@ -218,7 +218,7 @@
   {
     "reference": "Eph 1:13",
     "text": "And in Him, having heard and believed the word of truth—the gospel of your salvation—you were sealed with the promised Holy Spirit,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-participants",
         "note": "Paul has been speaking in the previous two verses about himself and the other Jewish believers, but now he begins speaking about the Ephesian believers."
@@ -240,7 +240,7 @@
   {
     "reference": "Eph 1:14",
     "text": "who is the pledge of our inheritance until the redemption of those who are God’s possession, to the praise of His glory.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Receiving that which God has promised is spoken of in terms of one inheriting property or wealth from a family member. Alternate translation: [an initial portion that we will receive from what God has promised] or [a guarantee that we will receive what God has promised to give us]"
@@ -250,7 +250,7 @@
   {
     "reference": "Eph 1:15",
     "text": "For this reason, ever since I heard about your faith in the Lord Jesus and your love for all the saints,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting phrase **Because of this** introduces a reason-result relationship. The reason is that the Ephesians had believed the gospel and had been sealed by the Holy Spirit. The result is that Paul praises God. Use a phrase in your language that connects a reason to a result."
@@ -260,7 +260,7 @@
   {
     "reference": "Eph 1:16",
     "text": "I have not stopped giving thanks for you, remembering you in my prayers,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-litotes",
         "note": "Paul is using a figure of speech here that expresses a strongly positive meaning by using a negative word, **not**, together with an expression that is the opposite of the intended meaning. If it would be helpful in your language, you could express the positive meaning. Paul uses **not stopped** to emphasize that he continues to thank God. Alternate translation: [I continue to thank God]"
@@ -274,7 +274,7 @@
   {
     "reference": "Eph 1:17",
     "text": "that the God of our Lord Jesus Christ, the glorious Father, may give you a spirit of wisdom and revelation in your knowledge of Him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting phrase **so that** introduces a reason-result relationship. The reason is that Paul prays for the Ephesians. The result is that God would enlighten the Ephesians about all that he has done for them through Christ. Use a phrase in your language that connects a reason to a result."
@@ -288,7 +288,7 @@
   {
     "reference": "Eph 1:18",
     "text": "I ask that the eyes of your heart may be enlightened, so that you may know the hope of His calling, the riches of His glorious inheritance in the saints,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **heart** refers to a person’s mind or thinking. Alternate translation: [that you may gain understanding]"
@@ -322,7 +322,7 @@
   {
     "reference": "Eph 1:19",
     "text": "and the surpassing greatness of His power to us who believe. These are in accordance with the working of His mighty strength,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [God’s power, which is far beyond all other power]"
@@ -344,7 +344,7 @@
   {
     "reference": "Eph 1:20",
     "text": "which He exerted in Christ when He raised Him from the dead and seated Him at His right hand in the heavenly realms,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [when he made him alive again]"
@@ -370,7 +370,7 @@
   {
     "reference": "Eph 1:21",
     "text": "far above all rule and authority, power and dominion, and every name that is named, not only in the present age but also in the one to come.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "These are all terms for the ranks of supernatural beings, both angelic and demonic. If your language does not have four different terms for rulers or authorities, you can combine them. Alternate translation: [far above all types of supernatural beings]"
@@ -396,7 +396,7 @@
   {
     "reference": "Eph 1:22",
     "text": "And God put everything under His feet and made Him head over everything for the church,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **feet** represents Christ’s lordship, authority, and power. Alternate translation: [under Christ’s power]"
@@ -410,7 +410,7 @@
   {
     "reference": "Eph 1:23",
     "text": "which is His body, the fullness of Him who fills all in all.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Just as the head ([verse 22](../01/22.md)) rules all things pertaining to a human body, so Christ is the head of the church **body**."
@@ -428,7 +428,7 @@
   {
     "reference": "Eph 2:1",
     "text": "And you were dead in your trespasses and sins,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# Connecting Statement:\\n\\nPaul reminds the believers of their past and the way they now are before God."
@@ -450,7 +450,7 @@
   {
     "reference": "Eph 2:2",
     "text": "in which you used to walk when you conformed to the ways of this world and of the ruler of the power of the air, the spirit who is now at work in the sons of disobedience.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, “walk” is a metaphor for the way a person lives. Alternate translation: [which is how you lived] or [which you did habitually]"
@@ -476,7 +476,7 @@
   {
     "reference": "Eph 2:3",
     "text": "All of us also lived among them at one time, fulfilling the cravings of our flesh and indulging its desires and thoughts. Like the rest, we were by nature children of wrath.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "The words **body** and **minds** represent the entire person. Alternate translation: [the selfish things that people want to do]"
@@ -490,7 +490,7 @@
   {
     "reference": "Eph 2:4",
     "text": "But because of His great love for us, God, who is rich in mercy,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The connecting word **But** introduces a contrast relationship. The love and mercy of God is in sharp contrast to the evil way the Ephesians lived before they believed in God."
@@ -508,7 +508,7 @@
   {
     "reference": "Eph 2:5",
     "text": "made us alive with Christ even when we were dead in our trespasses. It is by grace you have been saved!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you can state this in active form. Alternate translation: [God saved you by being gracious to you]"
@@ -522,7 +522,7 @@
   {
     "reference": "Eph 2:6",
     "text": "And God raised us up with Christ and seated us with Him in the heavenly realms in Christ Jesus,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **raised up** is an idiom for causing someone who has died to become alive again."
@@ -548,7 +548,7 @@
   {
     "reference": "Eph 2:7",
     "text": "in order that in the coming ages He might display the surpassing riches of His grace, demonstrated by His kindness to us in Christ Jesus.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The connecting phrase **so that** introduces a goal relationship. The goal or purpose of God raising up believers and seating them in heaven with Christ is to show the extent of his grace in Christ."
@@ -562,7 +562,7 @@
   {
     "reference": "Eph 2:8",
     "text": "For it is by grace you have been saved through faith, and this not from yourselves; it is the gift of God,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **For** introduces a reason-result relationship. The reason is that the Ephesians had been saved by God and not by their own good works. The result is that people would see the grace of God to us in Christ. Use a phrase in your language that connects a reason to a result."
@@ -584,7 +584,7 @@
   {
     "reference": "Eph 2:9",
     "text": "not by works, so that no one can boast.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Paul is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words from earlier in the sentence if it would be clearer in your language. You may want to start a new sentence here. Alternate translation: [Salvation does not come from works, so that no one may boast] or [God does not save a person because of what that person does, so no one can boast and say that he earned his salvation]"
@@ -598,7 +598,7 @@
   {
     "reference": "Eph 2:10",
     "text": "For we are God’s workmanship, created in Christ Jesus to do good works, which God prepared in advance as our way of life.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **For** introduces a reason-result relationship. The reason is that God is the one who created us to do any good works that we do. The result is that people cannot boast. Use a phrase in your language that connects a reason to a result."
@@ -620,7 +620,7 @@
   {
     "reference": "Eph 2:11",
     "text": "Therefore remember that formerly you who are Gentiles in the flesh and called uncircumcised by the so-called circumcision (that done in the body by human hands)—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **Therefore** introduces a reason-result relationship. The reason is that they were saved by God and not by anything they had done on their own. The result is that the Ephesians would remember that they were once separated from God. Use a phrase in your language that connects a reason to a result."
@@ -646,7 +646,7 @@
   {
     "reference": "Eph 2:12",
     "text": "remember that at that time you were separate from Christ, alienated from the commonwealth of Israel, and strangers to the covenants of the promise, without hope and without God in the world.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **For** introduces a reason-result relationship. The reason is that they were not part of the Jews, who were circumcised. The result is that the Gentile Ephesians were separated from God. Use a phrase in your language that connects a reason to a result."
@@ -664,7 +664,7 @@
   {
     "reference": "Eph 2:13",
     "text": "But now in Christ Jesus you who once were far away have been brought near through the blood of Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The connecting word **But** introduces a contrast relationship. The current condition of the Ephesian Gentile believers, after they believed in Christ, is that they are near to God. That is in contrast to their previous condition, before they believed in Christ, of being separated from God."
@@ -682,7 +682,7 @@
   {
     "reference": "Eph 2:14",
     "text": "For He Himself is our peace, who has made the two one and has torn down the dividing wall of hostility",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **For** introduces a reason-result relationship. The reason is that Christ himself joined them to the Jewish believers. The result is that the Ephesian Gentile believers were brought near to God. Use a phrase in your language that connects a reason to a result."
@@ -712,7 +712,7 @@
   {
     "reference": "Eph 2:15",
     "text": "by abolishing in His flesh the law of commandments and decrees. He did this to create in Himself one new man out of the two, thus making peace",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Paul assumes that his readers will understand that Jesus’ blood satisfies the law of Moses so that both the Jews and Gentiles can live at peace in God. You could include this information if that would be helpful to your readers. Alternate translation: [He took away the requirements in the law of Moses]"
@@ -734,7 +734,7 @@
   {
     "reference": "Eph 2:16",
     "text": "and reconciling both of them to God in one body through the cross, by which He put to death their hostility.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [so that Christ might bring the Jews and the Gentiles together in peace]"
@@ -756,7 +756,7 @@
   {
     "reference": "Eph 2:17",
     "text": "He came and preached peace to you who were far away and peace to those who were near.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Paul tells the Ephesians that Gentile believers are also now just as much a part of God’s people as are Jewish believers. The Jewish apostles and prophets are theirs, as is Christ, and they all form a temple for God in the Spirit. Alternate translation: [and announced the gospel of peace] or [declaring the gospel of peace]"
@@ -774,7 +774,7 @@
   {
     "reference": "Eph 2:18",
     "text": "For through Him we both have access to the Father by one Spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Here, **both** refers to Paul and the rest of the believing Jews, and it also refers to the believing non-Jews."
@@ -792,7 +792,7 @@
   {
     "reference": "Eph 2:19",
     "text": "Therefore you are no longer strangers and foreigners, but fellow citizens with the saints and members of God’s household,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting phrase **So then** introduces a reason-result relationship. The reason is that Christ gave them access to God through the Spirit. The result is that the Ephesian believers are no longer separated from God. Use a phrase in your language that connects a reason to a result."
@@ -814,7 +814,7 @@
   {
     "reference": "Eph 2:20",
     "text": "built on the foundation of the apostles and prophets, with Christ Jesus Himself as the cornerstone.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of God’s people as if they were a building. Christ is the cornerstone, the apostles are the **foundation**, and the believers are the structure. Alternate translation: [you depend on the teaching]"
@@ -828,7 +828,7 @@
   {
     "reference": "Eph 2:21",
     "text": "In Him the whole building is fitted together and grows into a holy temple in the Lord.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul continues to speak of Christ’s family as if it were a **building**. In the same way that a builder fits stones together while building, so Christ is fitting us together. Alternate translation: [all of us, as we grow together, become a holy group that worships God]"
@@ -842,7 +842,7 @@
   {
     "reference": "Eph 2:22",
     "text": "And in Him you too are being built together into a dwelling place for God in His Spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "You can translate this as “in Christ,” which is a metaphor that expresses the strongest kind of relationship possible between Christ and those who believe in him."
@@ -860,7 +860,7 @@
   {
     "reference": "Eph 3:1",
     "text": "For this reason I, Paul, the prisoner of Christ Jesus for the sake of you Gentiles...",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "To make clear the hidden truth about the church to believers, Paul refers back to the oneness of Jews and Gentiles and how believers from both groups form part of the one group that worships God, like the stones that form one temple. The connecting phrase **For this reason** introduces a reason-result relationship. The reason is what Paul talked about in Chapter 2, that Christ showed his grace by removing the division between Jews and Gentiles and making them into one group. The result is that Paul prays for the Gentiles. Use a phrase in your language that connects a reason to a result. Alternate translation: [This is why]"
@@ -878,7 +878,7 @@
   {
     "reference": "Eph 3:2",
     "text": "Surely you have heard about the stewardship of God’s grace that was given to me for you,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Here, **grace** could mean: (1) the gift of the gospel that Paul is bringing to the Gentiles. Alternate translation: [the responsibility that God gave me to bring his grace to you]; (2) the gift to Paul of being the steward of the gospel for the Gentiles. Alternate translation: [the responsibility that God graciously gave me for your benefit]"
@@ -888,7 +888,7 @@
   {
     "reference": "Eph 3:3",
     "text": "that is, the mystery made known to me by revelation, as I have already written briefly.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you can state this in active form. Alternate translation: [according to what God revealed to me]"
@@ -902,12 +902,12 @@
   {
     "reference": "Eph 3:4",
     "text": "In reading this, then, you will be able to understand my insight into the mystery of Christ,",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Eph 3:5",
     "text": "which was not made known to men in other generations as it has now been revealed by the Spirit to God’s holy apostles and prophets.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you can state this in active form. Alternate translation: [God did not make these things known to people in the past]"
@@ -921,7 +921,7 @@
   {
     "reference": "Eph 3:6",
     "text": "This mystery is that through the gospel the Gentiles are fellow heirs, fellow members of the body, and fellow partakers of the promise in Christ Jesus.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Paul assumes that his readers will understand **that the Gentiles are to be fellow heirs.** You could include this information if that would be helpful to your readers. This is the hidden truth that Paul began to explain in the previous verse. The **Gentiles** who receive Christ also receive everything that the Jewish believers receive from God."
@@ -943,12 +943,12 @@
   {
     "reference": "Eph 3:7",
     "text": "I became a servant of this gospel by the gift of God’s grace, given me through the working of His power.",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Eph 3:8",
     "text": "Though I am less than the least of all the saints, this grace was given me: to preach to the Gentiles the unsearchable riches of Christ,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of everything that Christ offers as something so physically vast that it cannot be fully explored. Alternate translation: [unable to be completely known]"
@@ -962,7 +962,7 @@
   {
     "reference": "Eph 3:9",
     "text": "and to illuminate for everyone the stewardship of this mystery, which for ages past was kept hidden in God, who created all things.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you can state this in active form. Alternate translation: [of God, who created all things, kept this plan hidden for long ages in the past]"
@@ -972,7 +972,7 @@
   {
     "reference": "Eph 3:10",
     "text": "His purpose was that now, through the church, the manifold wisdom of God should be made known to the rulers and authorities in the heavenly realms,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The connecting phrase **so that** introduces a goal relationship. The goal or purpose of God revealing the mystery of the church to Paul is to enable the rulers in the heavenly places to see the wisdom of God."
@@ -998,7 +998,7 @@
   {
     "reference": "Eph 3:11",
     "text": "according to the eternal purpose that He accomplished in Christ Jesus our Lord.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [in keeping with the eternal plan] or [consistent with the eternal plan]"
@@ -1008,7 +1008,7 @@
   {
     "reference": "Eph 3:12",
     "text": "In Him and through faith in Him we may enter God’s presence with boldness and confidence.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hendiadys",
         "note": "In this section of the prayer, Paul praises God in his sufferings and prays for these Ephesian believers. The two words **boldness** and **access** work together to express one idea. Alternate translation: [bold access] or [boldness to enter]"
@@ -1026,7 +1026,7 @@
   {
     "reference": "Eph 3:13",
     "text": "So I ask you not to be discouraged because of my sufferings for you, which are your glory.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **Therefore** introduces a reason-result relationship. The reason is that the believers have access to Christ with confidence. The result is that the believers will not be discouraged. Use a phrase in your language that connects a reason to a result."
@@ -1040,7 +1040,7 @@
   {
     "reference": "Eph 3:14",
     "text": "... for this reason I bow my knees before the Father,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting phrase **For this reason** introduces a reason-result relationship. The reason is that Paul’s sufferings have caused glory for the believers. The result is that Paul prays to the Father. Use a phrase in your language that connects a reason to a result."
@@ -1058,7 +1058,7 @@
   {
     "reference": "Eph 3:15",
     "text": "from whom every family in heaven and on earth derives its name.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "The act of naming here probably also represents the act of creating. Alternate translation: [who created and named every family in heaven and on earth]"
@@ -1068,7 +1068,7 @@
   {
     "reference": "Eph 3:16",
     "text": "I ask that out of the riches of His glory He may strengthen you with power through His Spirit in your inner being,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The connecting phrase **so that** introduces a goal relationship. The goal or purpose of Paul’s prayer is that the Ephesian believers would be strengthened by God in their faith and love."
@@ -1086,7 +1086,7 @@
   {
     "reference": "Eph 3:17",
     "text": "so that Christ may dwell in your hearts through faith. Then you, being rooted and grounded in love,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Paul continues the prayer he began in [Ephesians 3:14](../03/14.md)."
@@ -1108,7 +1108,7 @@
   {
     "reference": "Eph 3:18",
     "text": "will have power, together with all the saints, to comprehend the length and width and height and depth",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting phrase **so that** introduces a reason-result relationship. The reason is that Christ would live in their hearts. The result is that the Ephesian believers would fully know the love of God and be filled with God’s fullness. Use a phrase in your language that connects a reason to a result."
@@ -1134,7 +1134,7 @@
   {
     "reference": "Eph 3:19",
     "text": "of the love of Christ, and to know this love that surpasses knowledge, that you may be filled with all the fullness of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "With the conjunction **and**, Paul continues the idea from the previous verse. They both refer to knowing the greatness of the love of Christ. Alternate translation: [that you can know how great Christ’s love for us is]"
@@ -1164,7 +1164,7 @@
   {
     "reference": "Eph 3:20",
     "text": "Now to Him who is able to do immeasurably more than all we ask or imagine, according to His power that is at work within us,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "The words “we” and “us” in this book continue to include Paul and all believers."
@@ -1182,7 +1182,7 @@
   {
     "reference": "Eph 3:21",
     "text": "to Him be the glory in the church and in Christ Jesus throughout all generations, forever and ever. Amen.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea behind the word **glory**, you could express the same idea with a verbal form. Alternate translation: [may God’s people glorify him] or [may God’s people praise him for how great he is]"
@@ -1192,7 +1192,7 @@
   {
     "reference": "Eph 4:1",
     "text": "As a prisoner in the Lord, then, I urge you to walk in a manner worthy of the calling you have received:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **Therefore** introduces a reason-result relationship. The reason is that God will be glorified in the church for all generations. The result is that believers should walk in a way that is worthy of the Lord. Use a phrase in your language that connects a reason to a result."
@@ -1214,7 +1214,7 @@
   {
     "reference": "Eph 4:2",
     "text": "with all humility and gentleness, with patience, bearing with one another in love,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea behind the words **humility**, **gentleness**, and **patience**, you could express the same ideas with verbal forms. Alternate translation: [to learn to be humble, gentle, and patient]"
@@ -1224,7 +1224,7 @@
   {
     "reference": "Eph 4:3",
     "text": "and with diligence to preserve the unity of the Spirit through the bond of peace.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks of **peace** as if it were a **bond** that ties people together. This is a metaphor for being united with other people by living peacefully with them. Alternate translation: [to live peacefully with one another and remain united as the Spirit made possible]"
@@ -1238,7 +1238,7 @@
   {
     "reference": "Eph 4:4",
     "text": "There is one body and one Spirit, just as you were called to one hope when you were called;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "The church is often referred to as the **body** of Christ."
@@ -1256,12 +1256,12 @@
   {
     "reference": "Eph 4:5",
     "text": "one Lord, one faith, one baptism;",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Eph 4:6",
     "text": "one God and Father of all, who is over all and through all and in all.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Father of every person … over every thing … through all things … in all things]"
@@ -1271,7 +1271,7 @@
   {
     "reference": "Eph 4:7",
     "text": "Now to each one of us grace has been given according to the measure of the gift of Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Paul assumes that his readers will understand that the poetic material which follows is from a song that King David wrote. You could include this information if that would be helpful to your readers"
@@ -1289,7 +1289,7 @@
   {
     "reference": "Eph 4:8",
     "text": "This is why it says: “When He ascended on high, He led captives away, and gave gifts to men.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **Therefore** introduces a reason-result relationship. The reason is that every believer has been given a spiritual gift. The result is that the Scripture says Jesus gave gifts to men. Use a phrase in your language that connects a reason to a result."
@@ -1303,7 +1303,7 @@
   {
     "reference": "Eph 4:9",
     "text": "What does “He ascended” mean, except that He also descended to the lower parts of the earth?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Christ went up]"
@@ -1321,7 +1321,7 @@
   {
     "reference": "Eph 4:10",
     "text": "He who descended is the very One who ascended above all the heavens, in order to fill all things.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [so that he might be working powerfully everywhere]"
@@ -1335,7 +1335,7 @@
   {
     "reference": "Eph 4:11",
     "text": "And it was He who gave some to be apostles, some to be prophets, some to be evangelists, and some to be pastors and teachers,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The word translated as **pastors** here is the the same word that is translated as “shepherds” elsewhere in the ULT. It is the plural form of the word used by Jesus to refer to himself in [John 10:10](../../jhn/10/10.md), where he says that he is the “good Shepherd.” The idea here is that in a similar way to how a shepherd feeds, protects, and watches over the well-being of his flock, so pastors feed (with spiritual food) and watch over and protect the spiritual well-being of those within their church. If it would help your readers, you could indicate explicitly the meaning of the word “pastors.” Alternate translation: [spiritual shepherds] or [shepherding Christian leaders]"
@@ -1345,7 +1345,7 @@
   {
     "reference": "Eph 4:12",
     "text": "to equip the saints for works of ministry and to build up the body of Christ,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [to prepare the people whom he has set apart] or [to provide the believers with what they need]"
@@ -1371,7 +1371,7 @@
   {
     "reference": "Eph 4:13",
     "text": "until we all reach unity in the faith and in the knowledge of the Son of God, as we mature to the full measure of the stature of Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that the believers need to know Jesus as the **Son of God** if they are to be united in **faith** and become mature as believers. You could include this information if that would be helpful to your readers. [we all join together in our belief and relationship with Jesus the Christ]"
@@ -1405,7 +1405,7 @@
   {
     "reference": "Eph 4:14",
     "text": "Then we will no longer be infants, tossed about by the waves and carried around by every wind of teaching and by the clever cunning of men in their deceitful scheming.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The connecting phrase **so that** introduces a goal relationship. The goal or purpose of gifted people in the church is to bring all the believers to spiritual maturity."
@@ -1427,7 +1427,7 @@
   {
     "reference": "Eph 4:15",
     "text": "Instead, speaking the truth in love, we will in all things grow up into Christ Himself, who is the head.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The connecting word **Instead** introduces a contrast relationship. Following every changing teaching is in contrast to becoming mature in Christ and building up his body. Use a word in your language that indicates contrast."
@@ -1449,7 +1449,7 @@
   {
     "reference": "Eph 4:16",
     "text": "From Him the whole body, fitted and held together by every supporting ligament, grows and builds itself up in love through the work of each individual part.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul continues the metaphor of the believers as a human **body** with Christ as the head to describe how Christ causes believers to work together in harmony as the head of a body causes the body parts to work together to grow in a healthy way."
@@ -1471,7 +1471,7 @@
   {
     "reference": "Eph 4:17",
     "text": "So I tell you this, and insist on it in the Lord, that you must no longer walk as the Gentiles do, in the futility of their thinking.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **Therefore** introduces a reason-result relationship in which Paul tells them what they should no longer do now that they, as believers, are sealed by the Holy Spirit of God. The reason is that Christ wants every believer to become spiritually mature and to serve the other believers. The result is that the Ephesian believers should no longer act as the Gentiles act. Use a phrase in your language that connects a reason to a result."
@@ -1493,7 +1493,7 @@
   {
     "reference": "Eph 4:18",
     "text": "They are darkened in their understanding and alienated from the life of God because of the ignorance that is in them due to the hardness of their hearts.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "This metaphor compares wrong thinking with darkness. Alternate translation: [they no longer think or reason clearly] or [they are not able to understand]"
@@ -1531,7 +1531,7 @@
   {
     "reference": "Eph 4:19",
     "text": "Having lost all sense of shame, they have given themselves over to sensuality for the practice of every kind of impurity, with a craving for more.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of these people as if they were objects that they themselves were giving to other people, and he speaks of the way that they want to satisfy their physical desires as if the desires were the person to whom they give themselves. Alternate translation: [have given in to every physical desire] or [only want to satisfy their physical desires]"
@@ -1541,7 +1541,7 @@
   {
     "reference": "Eph 4:20",
     "text": "But this is not the way you came to know Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "The word **thus** refers to the way that the Gentiles live, as described in [Ephesians 4:17–19](../04/17.md). Paul uses **thus** to emphasize strongly that what the believers learned from Christ was the opposite of what he just described. Alternate translation: [But what you learned about the ways of Christ was not like that] or [But what you learned about the ways of Christ was very different]"
@@ -1555,7 +1555,7 @@
   {
     "reference": "Eph 4:21",
     "text": "Surely you heard of Him and were taught in Him—in keeping with the truth that is in Jesus—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-irony",
         "note": "Paul knows that the people to whom he is writing have **heard** and been **taught** these things. He is using irony as a form of rebuke—if they are doing things contrary to the way of Christ, they know better than that and need to stop."
@@ -1573,7 +1573,7 @@
   {
     "reference": "Eph 4:22",
     "text": "to put off your former way of life, your old self, which is being corrupted by its deceitful desires;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul is speaking of moral qualities as if they were pieces of clothing. Alternate translation: [You must stop living according to your former manner of life]"
@@ -1595,7 +1595,7 @@
   {
     "reference": "Eph 4:23",
     "text": "to be renewed in the spirit of your minds;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "This may be translated with an active form. Alternate translation: [to allow God to change your attitudes and thoughts] or [to allow God to give you new attitudes and thoughts]"
@@ -1605,7 +1605,7 @@
   {
     "reference": "Eph 4:24",
     "text": "and to put on the new self, created to be like God in true righteousness and holiness.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea behind the words **righteousness**, **holiness**, and **truth**, you could express the same ideas with verbal forms. Alternate translation: [truly righteous and holy]"
@@ -1619,7 +1619,7 @@
   {
     "reference": "Eph 4:25",
     "text": "Therefore each of you must put off falsehood and speak truthfully to his neighbor, for we are all members of one another.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **Therefore** introduces a reason-result relationship. The reason is that God has created the believers as new, holy people. The result is that they would stop acting immorally like they used to live. Use a phrase in your language that connects a reason to a result."
@@ -1645,7 +1645,7 @@
   {
     "reference": "Eph 4:26",
     "text": "“Be angry, yet do not sin.” Do not let the sun set upon your anger,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [You may get angry, but do not sin] or [If you become angry, do not sin]"
@@ -1659,7 +1659,7 @@
   {
     "reference": "Eph 4:27",
     "text": "and do not give the devil a foothold.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [and do not give the devil an opportunity to lead you into sin]"
@@ -1669,7 +1669,7 @@
   {
     "reference": "Eph 4:28",
     "text": "He who has been stealing must steal no longer, but must work, doing good with his own hands, that he may have something to share with the one in need.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The connecting phrase **But rather** introduces a contrast relationship. The way a former thief should work hard to have something to share with others is in contrast to the way he formerly stole for himself."
@@ -1683,7 +1683,7 @@
   {
     "reference": "Eph 4:29",
     "text": "Let no unwholesome talk come out of your mouths, but only what is helpful for building up the one in need and bringing grace to those who listen.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "The phrase **corrupt talk** refers to speech that is cruel or rude. If your readers would not be familiar with this term, you could use the more familiar term in your area, or you could use a more general term. Alternate translation: [foul language] or [unwholesome words] or [abusive speech]"
@@ -1713,7 +1713,7 @@
   {
     "reference": "Eph 4:30",
     "text": "And do not grieve the Holy Spirit of God, in whom you were sealed for the day of redemption.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [do not distress] or [do not upset]"
@@ -1731,7 +1731,7 @@
   {
     "reference": "Eph 4:31",
     "text": "Get rid of all bitterness, rage and anger, outcry and slander, along with every form of malice.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul finishes his instructions on what believers should not do and ends with what they must do. Paul speaks of attitudes and behaviors as though they were physical objects that can be removed. Alternate translation: [you must not allow … to be part of your life]"
@@ -1749,7 +1749,7 @@
   {
     "reference": "Eph 4:32",
     "text": "Be kind and tenderhearted to one another, forgiving each other just as in Christ God forgave you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The connecting word **Instead** introduces a contrast relationship. Speaking angry and hurtful things is in contrast to speaking kind and tender things to one another."
@@ -1763,7 +1763,7 @@
   {
     "reference": "Eph 5:1",
     "text": "Be imitators of God, therefore, as beloved children,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **imitators**, you could express the same idea in another way.The word **imitators** is a verbal noun, and can be translated with a verb. Alternate translation: [Therefore, imitate God] or [Therefore you should do what God does.]"
@@ -1781,7 +1781,7 @@
   {
     "reference": "Eph 5:2",
     "text": "and walk in love, just as Christ loved us and gave Himself up for us as a fragrant sacrificial offering to God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "To **walk** is a common way to express the idea of living one’s life. Alternate translation: [live a life of love] or [always love each other]"
@@ -1795,7 +1795,7 @@
   {
     "reference": "Eph 5:3",
     "text": "But among you, as is proper among the saints, there must not be even a hint of sexual immorality, or of any kind of impurity, or of greed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you can state this in active form. Alternate translation: [Do not do anything that would let anyone think that you are guilty of sexual immorality or any kind of impurity or greed]"
@@ -1813,7 +1813,7 @@
   {
     "reference": "Eph 5:4",
     "text": "Nor should there be obscenity, foolish talk, or crude joking, which are out of character, but rather thanksgiving.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **thanksgiving**, you could express the same idea in another way. The word **thanksgiving** is a verbal noun, and can be translated with a verb. Alternate translation: [instead of those things, you should thank God]"
@@ -1827,7 +1827,7 @@
   {
     "reference": "Eph 5:5",
     "text": "For of this you can be sure: No immoral, impure, or greedy person (that is, an idolater) has any inheritance in the kingdom of Christ and of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Being **unclean** (dirty) is a metaphor for being sinful."
@@ -1841,7 +1841,7 @@
   {
     "reference": "Eph 5:6",
     "text": "Let no one deceive you with empty words, for because of such things the wrath of God is coming on the sons of disobedience.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [with words that have no truth in them] or [by speaking words that are not true]"
@@ -1863,7 +1863,7 @@
   {
     "reference": "Eph 5:7",
     "text": "Therefore do not be partakers with them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **Therefore** introduces a reason-result relationship. The reason is that God will judge those people in his wrath. The result is that the Ephesian believers should not become partners with evil men. Use a phrase in your language that connects a reason to a result."
@@ -1873,7 +1873,7 @@
   {
     "reference": "Eph 5:8",
     "text": "For you were once darkness, but now you are light in the Lord. Walk as children of light,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Just as one cannot see in the dark, so people who love to sin cannot see or understand the things of God. Alternate translation: [because formerly you did not understand anything about God]"
@@ -1903,7 +1903,7 @@
   {
     "reference": "Eph 5:9",
     "text": "for the fruit of the light consists in all goodness, righteousness, and truth.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **fruit** is a metaphor for “result” or “outcome.” Alternate translation: [the result of living in the light is good work, right living, and truthful behavior]"
@@ -1917,12 +1917,12 @@
   {
     "reference": "Eph 5:10",
     "text": "Test and prove what pleases the Lord.",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Eph 5:11",
     "text": "Have no fellowship with the fruitless deeds of darkness, but rather expose them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of the useless, sinful things that unbelievers do as if they are evil deeds that people do in the dark so no one will see them. Alternate translation: [do not do useless, sinful things with unbelievers]"
@@ -1948,7 +1948,7 @@
   {
     "reference": "Eph 5:12",
     "text": "For it is shameful even to mention what the disobedient do in secret.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **them** refers to the “sons of disobedience” mentioned in [5:6](../05/06.md) and also referred to as “them” in [5:7](../05/07.md). If it is unclear who “them” refers to in either place, then use “those who disobey God” or a similar phrase."
@@ -1958,7 +1958,7 @@
   {
     "reference": "Eph 5:13",
     "text": "But everything exposed by the light becomes visible, for everything that is illuminated becomes a light itself.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The connecting word **But** introduces a contrast relationship. Hiding the shameful works of darkness now is in contrast to the light exposing them later."
@@ -1972,7 +1972,7 @@
   {
     "reference": "Eph 5:14",
     "text": "So it is said: “Wake up, O sleeper, rise up from the dead, and Christ will shine on you.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **Therefore** introduces a reason-result relationship. The reason is that their sins will be revealed by the light. The result is that sinners should allow Christ to shine on them. Use a phrase in your language that connects a reason to a result. It is unknown if this quotation is a combination of quotations from the prophet Isaiah or a quotation from a hymn sung by the believers."
@@ -2002,7 +2002,7 @@
   {
     "reference": "Eph 5:15",
     "text": "Pay careful attention, then, to how you walk, not as unwise but as wise,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Paul assumes that his readers will understand that people who are **unwise** do not guard themselves against sin. Wise people, however, can identify sin and flee from it. You could include this information if that would be helpful to your readers. Alternate translation: [Therefore, you must be careful to live as a wise person rather than a foolish person]"
@@ -2028,7 +2028,7 @@
   {
     "reference": "Eph 5:16",
     "text": "redeeming the time, because the days are evil.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Using time wisely is spoken of as if it were **redeeming the time**. Alternate translation: [doing the best things you can with your time] or [using time wisely] or [putting time to its best use]"
@@ -2046,7 +2046,7 @@
   {
     "reference": "Eph 5:17",
     "text": "Therefore do not be foolish, but understand what the Lord’s will is.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting phrase **Because of this** introduces the result of a reason-result relationship. The reason is that the days are evil. The result is that the believers will not be foolish, but understand God’s will. Use a phrase in your language that connects a reason to a result."
@@ -2060,7 +2060,7 @@
   {
     "reference": "Eph 5:18",
     "text": "Do not get drunk on wine, which leads to reckless indiscretion. Instead, be filled with the Spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Paul ends his instructions on how all believers should live. Alternate translation: [You should not get drunk from drinking wine]"
@@ -2082,7 +2082,7 @@
   {
     "reference": "Eph 5:19",
     "text": "Speak to one another with psalms, hymns, and spiritual songs. Sing and make music in your hearts to the Lord,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-merism",
         "note": "This could mean: (1) Paul is using these words as a merism for “all sorts of songs to praise God” (2) Paul is listing specific forms of music."
@@ -2108,7 +2108,7 @@
   {
     "reference": "Eph 5:20",
     "text": "always giving thanks to God the Father for everything in the name of our Lord Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **name** could refer to: (1) Jesus himself. Alternate translation: [because you belong to our Lord Jesus Christ]; (2) the authority of Jesus. Alternate translation: [with the authority of our Lord Jesus Christ]"
@@ -2122,7 +2122,7 @@
   {
     "reference": "Eph 5:21",
     "text": "Submit to one another out of reverence for Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Paul assumes that his readers will understand that he is continuing to explain what it means to “be filled with the Spirit” ([Ephesians 5:18](../05/18.md)). You could include this information if that would be helpful to your readers. Here Paul says that Christians are to submit themselves to one another. Alternate translation: [yielding to fellow believers]"
@@ -2136,7 +2136,7 @@
   {
     "reference": "Eph 5:22",
     "text": "Wives, submit to your husbands as to the Lord.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Paul assumes that his readers will understand that he is continuing to explain what it means to “be filled with the Spirit” ([Ephesians 5:18](../05/18.md)). You could include this information if that would be helpful to your readers. Here Paul says that Christians are to submit themselves to one another. Alternate translation: [yielding to fellow believers]"
@@ -2150,7 +2150,7 @@
   {
     "reference": "Eph 5:23",
     "text": "For the husband is the head of the wife as Christ is the head of the church, His body, of which He is the Savior.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **For** introduces the reason of the reason-result relationship. The reason is that the husband is head of the wife in the same way that Christ is head of the church. The result is that wives should submit to their husbands. Use a phrase in your language that connects a reason to a result."
@@ -2168,12 +2168,12 @@
   {
     "reference": "Eph 5:24",
     "text": "Now as the church submits to Christ, so also wives should submit to their husbands in everything.",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Eph 5:25",
     "text": "Husbands, love your wives, just as Christ loved the church and gave Himself up for her",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here the words **himself** and **he** refer to Christ. The word **her** refers to the church."
@@ -2195,7 +2195,7 @@
   {
     "reference": "Eph 5:26",
     "text": "to sanctify her, cleansing her by the washing with water through the word,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The connecting phrase **so that** introduces a goal relationship. The goal or purpose of Christ giving himself up to death is to sanctify the church."
@@ -2213,7 +2213,7 @@
   {
     "reference": "Eph 5:27",
     "text": "and to present her to Himself as a glorious church, without stain or wrinkle or any such blemish, but holy and blameless.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The connecting phrase **so that** introduces a goal relationship. The goal or purpose of Christ cleansing the church with the word is to present the church to himself as a glorious bride."
@@ -2243,7 +2243,7 @@
   {
     "reference": "Eph 5:28",
     "text": "In the same way, husbands ought to love their wives as their own bodies. He who loves his wife loves himself.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "You can state explicitly that people love **their own bodies**. Alternate translation: [as husbands love their own bodies]"
@@ -2253,7 +2253,7 @@
   {
     "reference": "Eph 5:29",
     "text": "Indeed, no one ever hated his own body, but he nourishes and cherishes it, just as Christ does the church.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [but he feeds]"
@@ -2267,7 +2267,7 @@
   {
     "reference": "Eph 5:30",
     "text": "For we are members of His body.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **because** introduces the reason of a reason-result relationship. The reason is that the church is Christ’s body. The result is that Christ cares for the church. Use a phrase in your language that connects a reason to a result. Alternate translation: [since]"
@@ -2281,7 +2281,7 @@
   {
     "reference": "Eph 5:31",
     "text": "“For this reason a man will leave his father and mother and be united to his wife, and the two will become one flesh.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The quotation is from the writings of Moses in the Old Testament. The word **his** refers to a male believer who marries."
@@ -2295,17 +2295,17 @@
   {
     "reference": "Eph 5:32",
     "text": "This mystery is profound, but I am speaking about Christ and the church.",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Eph 5:33",
     "text": "Nevertheless, each one of you also must love his wife as he loves himself, and the wife must respect her husband.",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Eph 6:1",
     "text": "Children, obey your parents in the Lord, for this is right.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "The command in verse one is plural. Then in verses two and three Paul quotes from the law of Moses. Moses was talking to the people of Israel as though they were one person, so **your** and **you** are singular there. If that does not make sense, you may need to translate them as plurals."
@@ -2323,7 +2323,7 @@
   {
     "reference": "Eph 6:2",
     "text": "“Honor your father and mother” (which is the first commandment with a promise),",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "The command in verse one is plural. Then in verses two and three Paul quotes from the law of Moses. Moses was talking to the people of Israel as though they were one person, so **your** and **you** are singular there. If that does not make sense, you may need to translate them as plurals."
@@ -2333,7 +2333,7 @@
   {
     "reference": "Eph 6:3",
     "text": "“that it may go well with you and that you may have a long life on the earth.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "The command in verse one is plural. Then in verses two and three Paul quotes from the law of Moses. Moses was talking to the people of Israel as though they were one person, so **your** and **you** are singular there. If that does not make sense, you may need to translate them as plurals."
@@ -2347,7 +2347,7 @@
   {
     "reference": "Eph 6:4",
     "text": "Fathers, do not provoke your children to wrath; instead, bring them up in the discipline and instruction of the Lord.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [do not make your children angry] or [do not cause your children to be angry]"
@@ -2365,7 +2365,7 @@
   {
     "reference": "Eph 6:5",
     "text": "Slaves, obey your earthly masters with respect and fear and sincerity of heart, just as you would obey Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "The phrase **fear and trembling** uses two similar ideas to emphasize the importance of honoring their masters. Alternate translation: [with deep respect]"
@@ -2391,7 +2391,7 @@
   {
     "reference": "Eph 6:6",
     "text": "And do this not only to please them while they are watching, but as servants of Christ, doing the will of God from your heart.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The connecting word **but** introduces a contrast relationship. Obeying our masters as men-pleasers is in contrast to obeying them because we are slaves of Christ."
@@ -2409,17 +2409,17 @@
   {
     "reference": "Eph 6:7",
     "text": "Serve with good will, as to the Lord and not to men,",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Eph 6:8",
     "text": "because you know that the Lord will reward each one for whatever good he does, whether he is slave or free.",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Eph 6:9",
     "text": "And masters, do the same for your slaves. Give up your use of threats, because you know that He who is both their Master and yours is in heaven, and there is no favoritism with Him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **the same** refers back to “if he does something good” from ([Ephesians 6:8](../06/08.md)). Alternate translation: [you also must treat your slaves well] or [just as slaves must do good to their masters, you also must do good to your slaves]"
@@ -2437,7 +2437,7 @@
   {
     "reference": "Eph 6:10",
     "text": "Finally, be strong in the Lord and in His mighty power.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "Paul is using the word translated **Finally** to introduce a new event in the story. Here Paul gives instructions to make believers strong in this battle we are in for God. Use a word, phrase, or other method in your language that is natural for introducing a new event. Alternate translation: [In conclusion]"
@@ -2451,7 +2451,7 @@
   {
     "reference": "Eph 6:11",
     "text": "Put on the full armor of God, so that you can make your stand against the devil’s schemes.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "In this metaphor, Paul pictures the spiritual resources that **God** gives to all Christians as a soldier’s **armor**. Alternate translation: [Just as a soldier puts on armor to protect himself from enemy attacks, use all of God’s resources to stand firmly against the devil]"
@@ -2465,7 +2465,7 @@
   {
     "reference": "Eph 6:12",
     "text": "For our struggle is not against flesh and blood, but against the rulers, against the authorities, against the powers of this world’s darkness, and against the spiritual forces of evil in the heavenly realms.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The connecting word **For** introduces the reason of this reason-result relationship. The reason is that we are in a struggle against spiritual forces of darkness. The result is that we should put on the whole armor of God. Use a phrase in your language that connects a reason to a result."
@@ -2491,7 +2491,7 @@
   {
     "reference": "Eph 6:13",
     "text": "Therefore take up the full armor of God, so that when the day of evil comes, you will be able to stand your ground, and having done everything, to stand.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Christians should use the protective resources **God** gives them in fighting the devil in the same way that a soldier puts on **armor** to protect himself against his enemies."
@@ -2517,7 +2517,7 @@
   {
     "reference": "Eph 6:14",
     "text": "Stand firm then, with the belt of truth buckled around your waist, with the breastplate of righteousness arrayed,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The word **Stand** represents taking a position on what is right and true and successfully resisting forces that try to make the believer compromise that position. See how you translated “stand firm” in [Ephesians 6:13](../06/13.md). Alternate translation: [So resist evil]"
@@ -2547,7 +2547,7 @@
   {
     "reference": "Eph 6:15",
     "text": "and with your feet fitted with the readiness of the gospel of peace.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "In this metaphor, **the gospel of peace** is compared to a soldier’s sandals. Just as a soldier wears sturdy footwear to give him solid footing and enable him to march long distances, the believer must have solid knowledge of the gospel of peace and be ready to go where the Lord sends him to proclaim it."
@@ -2561,7 +2561,7 @@
   {
     "reference": "Eph 6:16",
     "text": "In addition to all this, take up the shield of faith, with which you can extinguish all the flaming arrows of the evil one.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "In this metaphor, faith is compared to a soldier’s **shield**. Just as a soldier uses a shield to protect himself from enemy attacks, the believer must use the **faith** that God gives for protection when the devil attacks."
@@ -2579,7 +2579,7 @@
   {
     "reference": "Eph 6:17",
     "text": "And take the helmet of salvation and the sword of the Spirit, which is the word of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The **salvation** that God gives protects the believer’s mind just as a **helmet** protects the head of a soldier."
@@ -2597,7 +2597,7 @@
   {
     "reference": "Eph 6:18",
     "text": "Pray in the Spirit at all times, with every kind of prayer and petition. To this end, stay alert with all perseverance in your prayers for all the saints.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Pray at all times in the Spirit as you pray and make specific requests]"
@@ -2615,7 +2615,7 @@
   {
     "reference": "Eph 6:19",
     "text": "Pray also for me, that whenever I open my mouth, words may be given me so that I will boldly make known the mystery of the gospel,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Paul is leaving out a word that in many languages a sentence would need in order to be complete. You could supply these words from earlier in the sentence if it would be clearer in your language. In closing this letter, Paul asks his readers to pray for his boldness in telling the gospel. Alternate translation: [and pray for me]"
@@ -2637,7 +2637,7 @@
   {
     "reference": "Eph 6:20",
     "text": "for which I am an ambassador in chains. Pray that I may proclaim it fearlessly, as I should.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "The phrase **in chains** is a metonym for being in prison. Alternate translation: [because of which I am now in prison]"
@@ -2659,7 +2659,7 @@
   {
     "reference": "Eph 6:21",
     "text": "Tychicus, the beloved brother and faithful servant in the Lord, will tell you everything, so that you also may know about me and what I am doing.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The connecting phrase **so that** introduces a goal relationship. The goal or purpose of Paul sending Tychicus to Ephesus was to tell the Ephesian believers what was happening to Paul."
@@ -2673,7 +2673,7 @@
   {
     "reference": "Eph 6:22",
     "text": "I have sent him to you for this very purpose, that you may know about us, and that he may encourage your hearts.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **hearts** is a metonym for people’s inner beings. Alternate translation: [he may encourage you]"
@@ -2687,7 +2687,7 @@
   {
     "reference": "Eph 6:23",
     "text": "Peace to the brothers and love with faith from God the Father and the Lord Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Paul closes his letter to the Ephesian believers with a blessing of **Peace** and **love** on all believers who love Christ. You could express this as either a blessing or a prayer, in whichever way is more natural in your language."
@@ -2713,7 +2713,7 @@
   {
     "reference": "Eph 6:24",
     "text": "Grace to all who love our Lord Jesus Christ with an undying love.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea behind the word **Grace**, you could express the same idea with a verbal form. Alternate translation: [May God act graciously to]"

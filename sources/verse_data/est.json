@@ -2,7 +2,7 @@
   {
     "reference": "Est 1:1",
     "text": "This is what happened in the days of Xerxes, who reigned over 127 provinces from India to Cush.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "In the Old Testament, this is a standard way of beginning a historical story. Many languages have similar story-opening formulas, and if your language has one, you can use it. But do not use it if it would suggest that the story is not real, only made up. Alternate translation: [this account happened]"
@@ -40,7 +40,7 @@
   {
     "reference": "Est 1:2",
     "text": "In those days King Xerxes sat on his royal throne in the citadel of Susa.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, the action of **sitting** on a throne is used to mean ruling over a kingdom. You could just say “ruled,” as UST does. But as an alternative, you could say, “ruled his empire from his royal throne”"
@@ -62,7 +62,7 @@
   {
     "reference": "Est 1:3",
     "text": "In the third year of his reign, Xerxes held a feast for all his officials and servants. The military leaders of Persia and Media were there, along with the nobles and princes of the provinces.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-ordinal",
         "note": "This means that Ahasuerus had already ruled for two full years and that these events took place in the year that followed them. Alternate translation: [during the third year that Ahasuerus ruled his empire] or [after he had ruled for two years]"
@@ -92,7 +92,7 @@
   {
     "reference": "Est 1:4",
     "text": "And for a full 180 days he displayed the glorious riches of his kingdom and the magnificent splendor of his greatness.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "You can translate the abstract noun with an emphasized adjective. Alternate translation: [Ahasuerus … wanted to demonstrate … the great wealth of his kingdom]"
@@ -126,7 +126,7 @@
   {
     "reference": "Est 1:5",
     "text": "At the end of this time, in the garden court of the royal palace, the king held a seven-day feast for all the people in the citadel of Susa, from the least to the greatest.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This implies “at the end of that feast.” You could say that explicitly. Alternate translation: [after those 180 days were over] or [at the end of those six months]"
@@ -160,7 +160,7 @@
   {
     "reference": "Est 1:6",
     "text": "Hangings of white and blue linen were fastened with cords of fine white and purple material to silver rings on the marble pillars. Gold and silver couches were arranged on a mosaic pavement of porphyry, marble, mother-of-pearl, and other costly stones.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "These **linens** were curtains that were hung in the courtyard. **Cotton** refers to the white color of some of them. So this means white and blue curtains."
@@ -198,7 +198,7 @@
   {
     "reference": "Est 1:7",
     "text": "Beverages were served in an array of goblets of gold, each with a different design, and the royal wine flowed freely, according to the king’s bounty.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "The abstract noun **serving** refers to how the drinks were served at the banquet. You can translate it with a verb by saying, “The attendants served wine.”"
@@ -224,7 +224,7 @@
   {
     "reference": "Est 1:8",
     "text": "By order of the king, no limit was placed on the drinking, and every official of his household was to serve each man whatever he desired.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "The abstract noun **drinking** refers here not to the action of drinking, but to the guidelines for serving drinks that the king had established for the banquet. Alternate translation: [Ahasuerus had established this rule for all his household attendants who served the wine]"
@@ -250,7 +250,7 @@
   {
     "reference": "Est 1:9",
     "text": "Queen Vashti also gave a banquet for the women in the royal palace of King Xerxes.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-simultaneous",
         "note": "This introduces something else that was happening at the same time. You can indicate this by saying something like “during this time.”"
@@ -280,7 +280,7 @@
   {
     "reference": "Est 1:10",
     "text": "On the seventh day, when the king’s heart was merry with wine, he ordered the seven eunuchs who served him—Mehuman, Biztha, Harbona, Bigtha, Abagtha, Zethar, and Carkas—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-ordinal",
         "note": "Alternate translation: [after six days]"
@@ -310,7 +310,7 @@
   {
     "reference": "Est 1:11",
     "text": "to bring Queen Vashti before him, wearing her royal crown, to display her beauty to the people and officials. For she was beautiful to behold.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This is the beginning of the instructions that King Ahasuerus gave to the seven eunuchs he summoned in [verse 10](../01/10.md). You can make this explicit by saying, “He told them to bring.”"
@@ -348,7 +348,7 @@
   {
     "reference": "Est 1:12",
     "text": "Queen Vashti, however, refused to come at the king’s command brought by his eunuchs. And the king became furious, and his anger burned within him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-events",
         "note": "You can put the events in chronological order and say first that the eunuchs told Vashti what the king had commanded and then say that she refused to come**.**"
@@ -382,7 +382,7 @@
   {
     "reference": "Est 1:13",
     "text": "Then the king consulted the wise men who knew the times, for it was customary for him to confer with the experts in law and justice.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This means the king’s advisors. You could call them “his advisors” or “the royal advisors.”"
@@ -412,7 +412,7 @@
   {
     "reference": "Est 1:14",
     "text": "His closest advisors were Carshena, Shethar, Admatha, Tarshish, Meres, Marsena, and Memucan, the seven princes of Persia and Media who had personal access to the king and ranked highest in the kingdom.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here the author is speaking of the king’s most trusted advisors as if they were **near to him**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [and the ones whom he trusted the most were]"
@@ -434,7 +434,7 @@
   {
     "reference": "Est 1:15",
     "text": "“According to law,” he asked, “what should be done with Queen Vashti, since she refused to obey the command of King Xerxes delivered by the eunuchs?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This verse presents the question that the king asked the wise men. It may be helpful to indicate this by saying something like “The king asked them.”"
@@ -460,7 +460,7 @@
   {
     "reference": "Est 1:16",
     "text": "And in the presence of the king and his princes, Memucan replied, “Queen Vashti has wronged not only the king, but all the princes and the peoples in all the provinces of King Xerxes.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **face** represents the presence of a person. The phrase means that Memukan was speaking in the presence of the king and of the other officials. Alternate translation: [then Memukan spoke so that both the king and the officials could hear]"
@@ -482,7 +482,7 @@
   {
     "reference": "Est 1:17",
     "text": "For the conduct of the queen will become known to all women, causing them to despise their husbands and say, ‘King Xerxes ordered Queen Vashti to be brought before him, but she did not come.’",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This introduces the reason why Memukan says that Queen Vashti has done wrong against all the men in the kingdom and not only against King Ahasuerus. To show that, you can begin with “This is what will happen.”"
@@ -512,7 +512,7 @@
   {
     "reference": "Est 1:18",
     "text": "This very day the noble women of Persia and Media who have heard about the queen’s conduct will say the same thing to all the king’s officials, resulting in much contempt and wrath.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [even today] or [even this very day]"
@@ -546,7 +546,7 @@
   {
     "reference": "Est 1:19",
     "text": "So if it pleases the king, let him issue a royal decree, and let it be recorded in the laws of Persia and Media so that it cannot be repealed, that Vashti shall never again enter the presence of King Xerxes, and that her royal position shall be given to a woman better than she.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This is an idiom that means “if the king thinks this is a good idea” or “if this advice is pleasing to the king.”"
@@ -600,7 +600,7 @@
   {
     "reference": "Est 1:20",
     "text": "The edict the king issues will be heard throughout his vast kingdom—and so all women, from the least to the greatest, will honor their husbands.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form, and you can say who will do the action. Alternate translation: [when everyone … hears]"
@@ -634,7 +634,7 @@
   {
     "reference": "Est 1:21",
     "text": "The king and his princes were pleased with this counsel; so the king did as Memucan advised.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Like “if it is good to the king” in [verse 19](../01/19.md), this is an idiom that means the king thought this was a good idea or this advice pleased the king."
@@ -656,7 +656,7 @@
   {
     "reference": "Est 1:22",
     "text": "He sent letters to all the provinces of the kingdom, to each province in its own script and to each people in their own language, proclaiming that every man should be master of his own household.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "**He** means King Ahasuerus. This is saying that the king sent letters to every province in his empire."
@@ -694,7 +694,7 @@
   {
     "reference": "Est 2:1",
     "text": "Some time later, when the anger of King Xerxes had subsided, he remembered Vashti and what she had done, and what had been decreed against her.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This introduces a new event that happened some time later, but we do not know how much later. You can show this with a phrase like “After some time had passed.”"
@@ -720,7 +720,7 @@
   {
     "reference": "Est 2:2",
     "text": "Then the king’s attendants proposed, “Let a search be made for beautiful young virgins for the king,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "These were not the older, wiser royal advisors whom Ahasuerus consulted in [1:13](../01/13.md), but younger men who stood nearby the king ready to help with any practical needs. You could call them his personal servants."
@@ -746,7 +746,7 @@
   {
     "reference": "Est 2:3",
     "text": "and let the king appoint commissioners in each province of his kingdom to assemble all the beautiful young women into the harem at the citadel of Susa. Let them be placed under the care of Hegai, the king’s eunuch in charge of the women, and let them be given beauty treatments.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "The young men speak to the king in third person as a sign of respect. Alternatively, you could have them say “you could appoint” in a respectful way"
@@ -796,7 +796,7 @@
   {
     "reference": "Est 2:4",
     "text": "Then let the young woman who pleases the king become queen in place of Vashti.” This suggestion pleased the king, and he acted accordingly.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "The servants spoke to the king in third person as a sign of respect. You could express the same meaning in the second person by saying something such as “the young woman you like the best.”"
@@ -818,7 +818,7 @@
   {
     "reference": "Est 2:5",
     "text": "Now there was at the citadel of Susa a Jewish man from the tribe of Benjamin named Mordecai son of Jair, the son of Shimei, the son of Kish.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-participants",
         "note": "This introduces Mordecai as a new character in the story. Use your language’s way of introducing a new character. This expression means a Jewish man."
@@ -844,7 +844,7 @@
   {
     "reference": "Est 2:6",
     "text": "He had been carried into exile from Jerusalem by Nebuchadnezzar king of Babylon among those taken captive with Jeconiah king of Judah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-background",
         "note": "The story now tells about something that happened many years before. This is background information that explains how this Jewish family came to live in Susa. You can introduce this by saying something like, “Many years earlier.”"
@@ -878,7 +878,7 @@
   {
     "reference": "Est 2:7",
     "text": "And Mordecai had brought up Hadassah (that is, Esther), the daughter of his uncle, because she did not have a father or mother. The young woman was lovely in form and appearance, and when her father and mother had died, Mordecai had taken her as his own daughter.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "The story now returns to talking about Mordecai. If it is helpful for your readers, you can specify his name, saying, “Now, Mordecai.”"
@@ -912,7 +912,7 @@
   {
     "reference": "Est 2:8",
     "text": "When the king’s command and edict had been proclaimed, many young women gathered at the citadel of Susa under the care of Hegai. Esther was also taken to the palace and placed under the care of Hegai, the custodian of the women.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "After providing this background information about Mordecai and Esther in [verses 5–7](../02/05.md), the story now tells what happened as a result of these facts, when the provincial officers described in [verse 3](../02/03.md) began sending young women to the harem. That is, the story tells what happened to Esther because her family was living in the Persian empire and she was very attractive. Use your language’s way of showing that the events are now moving forward after giving background information. Alternate translation: [and so this is what happened]"
@@ -978,7 +978,7 @@
   {
     "reference": "Est 2:9",
     "text": "And the young woman pleased him and obtained his favor, so he quickly provided her with beauty treatments and the special diet. He assigned to her seven select maidservants from the palace and transferred her with them to the best place in the harem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This means that Hegai found Esther attractive, and she obtained kindness from him or that Hegai was very impressed with Esther, and she won his favor. In other words, because he was so impressed with her, this made him want to do everything he could to help her. This is background information that explains why Hegai took the actions that are listed next."
@@ -1024,7 +1024,7 @@
   {
     "reference": "Est 2:10",
     "text": "Esther did not reveal her people or her lineage, because Mordecai had instructed her not to do so.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This means that Esther had not told anyone this information about herself."
@@ -1046,7 +1046,7 @@
   {
     "reference": "Est 2:11",
     "text": "And every day Mordecai would walk back and forth in front of the court of the harem to learn about Esther’s welfare and what was happening to her.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Alternate translation: [every single day]"
@@ -1080,7 +1080,7 @@
   {
     "reference": "Est 2:12",
     "text": "In the twelve months before her turn to go to King Xerxes, the harem regulation required each young woman to receive beauty treatments with oil of myrrh for six months, and then with perfumes and cosmetics for another six months.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-background",
         "note": "Verses 12 to 14 are background information about how the virgins who were gathered for the king became his concubines. These verses are not specifically about Esther, but about the women in general. Use your language’s way of letting your readers know that this is background information by using a connecting word or a phrase such as, “This is how virgins became concubines for the king.”"
@@ -1118,7 +1118,7 @@
   {
     "reference": "Est 2:13",
     "text": "When the young woman would go to the king, she was given whatever she requested to take with her from the harem to the king’s palace.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [after a woman’s year of beauty treatments was completed]"
@@ -1148,7 +1148,7 @@
   {
     "reference": "Est 2:14",
     "text": "She would go there in the evening, and in the morning she would return to a second harem under the care of Shaashgaz, the king’s eunuch in charge of the concubines. She would not return to the king unless he delighted in her and summoned her by name.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "She would not walk over on her own. Rather, the king’s servants would come and bring her to the king’s private quarters, in the way that they were told to bring Vashti to the banquet in [1:11](../01/11.md). you could say this explicitly if it would help your readers to understand the story."
@@ -1202,7 +1202,7 @@
   {
     "reference": "Est 2:15",
     "text": "Now Esther was the daughter of Abihail, the uncle from whom Mordecai had adopted her as his own daughter. And when it was her turn to go to the king, she did not ask for anything except what Hegai, the king’s trusted official in charge of the harem, had advised. And Esther found favor in the eyes of everyone who saw her.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The story resumes here after the background information that was provided in [verses 12–14](../02/12.md) about what the women in the harem did when they became concubines of the king. A contrast is being drawn. A young woman could take any clothing and jewelry she wanted from the harem. But Esther only asked for what Hegai recommended. So it would be good to introduce this episode with a word such as “but,” which draws a contrast."
@@ -1252,7 +1252,7 @@
   {
     "reference": "Est 2:16",
     "text": "She was taken to King Xerxes in the royal palace in the tenth month, the month of Tebeth, in the seventh year of his reign.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form by saying, for example, “The king’s servants brought Esther.”"
@@ -1286,7 +1286,7 @@
   {
     "reference": "Est 2:17",
     "text": "And the king loved Esther more than all the other women, and she found grace and favor in his sight more than all of the other virgins. So he placed the royal crown upon her head and made her queen in place of Vashti.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two phrases mean almost the same thing. The information is given twice, in slightly different ways, to emphasize that Ahasuerus was completely convinced that Esther was the one he should make his queen**.** “More than all the virgins” basically duplicates the meaning of “more than all the women,” so, if this duplication would be confusing in your language, you don’t need to include both phrases, or you could say, “more than all of them” for the second phrase."
@@ -1320,7 +1320,7 @@
   {
     "reference": "Est 2:18",
     "text": "Then the king held a great banquet, Esther’s banquet, for all his officials and servants. He proclaimed a tax holiday in the provinces and gave gifts worthy of the king’s bounty.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The king did this to celebrate Esther becoming the queen. You can say this explicitly. For example, you can say, “Then, to celebrate her becoming the queen, the king hosted a great feast.”"
@@ -1342,7 +1342,7 @@
   {
     "reference": "Est 2:19",
     "text": "When the virgins were assembled a second time, Mordecai was sitting at the king’s gate.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "Since this happened some time after Esther’s Feast, you can show this by using a connecting phrase such as “some time later.”"
@@ -1372,7 +1372,7 @@
   {
     "reference": "Est 2:20",
     "text": "Esther still had not revealed her lineage or her people, just as Mordecai had instructed. She obeyed Mordecai’s command, as she had done under his care.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "These two short phrases mean almost the same thing. They are used together to emphasize that Esther followed Mordecai’s instructions exactly. You could combine them, as UST does. Alternate translation: [who her relatives were or that she was a Jew]"
@@ -1386,7 +1386,7 @@
   {
     "reference": "Est 2:21",
     "text": "In those days, while Mordecai was sitting at the king’s gate, Bigthan and Teresh, two of the king’s eunuchs who guarded the entrance, grew angry and conspired to assassinate King Xerxes.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-simultaneous",
         "note": "This resumes the story after the background information that is provided in [verse 20](../02/20.md). Indicate this in the way that your language resumes a story after giving background information, such as with a connecting phrase like “during that time.”"
@@ -1424,7 +1424,7 @@
   {
     "reference": "Est 2:22",
     "text": "When Mordecai learned of the plot, he reported it to Queen Esther, and she informed the king on Mordecai’s behalf.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form, for example by saying, “Mordecai found out what they were planning.”"
@@ -1442,7 +1442,7 @@
   {
     "reference": "Est 2:23",
     "text": "After the report had been investigated and verified, both officials were hanged on the gallows. And all this was recorded in the Book of the Chronicles in the presence of the king.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "This verse tells what happened next after Esther gave the information to the king. You can use a word such as “then” to indicate this."
@@ -1476,7 +1476,7 @@
   {
     "reference": "Est 3:1",
     "text": "After these events, King Xerxes honored Haman son of Hammedatha, the Agagite, elevating him to a position above all the princes who were with him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This introduces a new event in the story. Use a connecting phrase that introduces a new event in your language."
@@ -1522,7 +1522,7 @@
   {
     "reference": "Est 3:2",
     "text": "All the royal servants at the king’s gate bowed down and paid homage to Haman, because the king had commanded that this be done for him. But Mordecai would not bow down or pay homage.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, the **gate of the king**, probably the entrance to the citadel, may represent the citadel itself, the place where these people served the king. The citadel, in turn, would represent everyone who served the king. So you could say just “all the king’s other servants.” However, this may also be a reference to the specific group of officials who were stationed at the gate, the way Mordecai was. Alternate translation: [the royal officials who were stationed at the palace gate]"
@@ -1564,7 +1564,7 @@
   {
     "reference": "Est 3:3",
     "text": "Then the royal servants at the king’s gate asked Mordecai, “Why do you disobey the command of the king?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "See how you translated this expression at the beginning of [3:2](../03/02.md)."
@@ -1582,7 +1582,7 @@
   {
     "reference": "Est 3:4",
     "text": "Day after day they warned him, but he would not comply. So they reported it to Haman to see whether Mordecai’s behavior would be tolerated, since he had told them he was a Jew.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This means that they spoke to him about not bowing down. Specifically, they warned him that he would be severely punished if he kept disobeying the king and not honoring his highest official. If it would be helpful in your language, you could say that explicitly."
@@ -1612,7 +1612,7 @@
   {
     "reference": "Est 3:5",
     "text": "When Haman saw that Mordecai would not bow down or pay him homage, he was filled with rage.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **seeing** means knowledge, notice, attention, or judgment. This phrase means that Haman learned about this."
@@ -1630,7 +1630,7 @@
   {
     "reference": "Est 3:6",
     "text": "And when he learned the identity of Mordecai’s people, he scorned the notion of laying hands on Mordecai alone. Instead, he sought to destroy all of Mordecai’s people, the Jews, throughout the kingdom of Xerxes.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form, and you can say who did the action. Alternate translation: [Haman considered that it was not enough]"
@@ -1676,7 +1676,7 @@
   {
     "reference": "Est 3:7",
     "text": "In the twelfth year of King Xerxes, in the first month, the month of Nisan, the Pur (that is, the lot) was cast before Haman to determine a day and month. And the lot fell on the twelfth month, the month of Adar.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-ordinal",
         "note": "Alternate translation: [In month one]"
@@ -1742,7 +1742,7 @@
   {
     "reference": "Est 3:8",
     "text": "Then Haman informed King Xerxes, “There is a certain people scattered and dispersed among the peoples of every province of your kingdom. Their laws are different from everyone else’s, and they do not obey the king’s laws. So it is not in the king’s best interest to tolerate them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that Haman then went to see the king so that he could speak with him. You could say that explicitly. Do not give your readers the impression that the king was present with Haman while he was casting the lot."
@@ -1780,7 +1780,7 @@
   {
     "reference": "Est 3:9",
     "text": "If it pleases the king, let a decree be issued to destroy them, and I will deposit ten thousand talents of silver into the royal treasury to pay those who carry it out.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "Haman speaks to the king in third person as a form of respect."
@@ -1822,7 +1822,7 @@
   {
     "reference": "Est 3:10",
     "text": "So the king removed the signet ring from his finger and gave it to Haman son of Hammedatha, the Agagite, the enemy of the Jews.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that Ahasuerus thought that Haman’s suggestion was a good idea and he agreed to it. You could say that explicitly. Alternate translation: [the king agreed that this was a good idea, so]"
@@ -1848,7 +1848,7 @@
   {
     "reference": "Est 3:11",
     "text": "“Keep your money,” said the king to Haman. “These people are given to you to do with them as you please.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form. This could mean one of the following things: (1) “You can keep the money from plundering the Jews for yourself.” (2) “I give you permission to take the money from the Jews and to give it to the men just as you have said.” (3) “You do not need to pay for the expenses of the plan yourself.” (4) This statement by the king may also be a formal and cultural way of expressing gratitude for the promised money without actually releasing Haman from paying the money into the treasury."
@@ -1862,7 +1862,7 @@
   {
     "reference": "Est 3:12",
     "text": "On the thirteenth day of the first month, the royal scribes were summoned and the order was written exactly as Haman commanded the royal satraps, the governors of each province, and the officials of each people, in the script of each province and the language of every people. It was written in the name of King Xerxes and sealed with the royal signet ring.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form. You can also say who did the action. It was most likely Haman, since the king had given him authority to act on his behalf. So you could say, “Haman called in the royal scribes.” Alternate translation: [the king summoned his scribes]"
@@ -1924,7 +1924,7 @@
   {
     "reference": "Est 3:13",
     "text": "And the letters were sent by couriers to each of the royal provinces with the order to destroy, kill, and annihilate all the Jews—young and old, women and children—and to plunder their possessions on a single day, the thirteenth day of Adar, the twelfth month.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form, and you can say who did the action. For example, you can say, “couriers delivered the letters.”"
@@ -1978,7 +1978,7 @@
   {
     "reference": "Est 3:14",
     "text": "A copy of the text of the edict was to be issued in every province and published to all the people, so that they would be ready on that day.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form. For example, you can say, “The officials in every province presented a copy of the letter as the law.”"
@@ -2000,7 +2000,7 @@
   {
     "reference": "Est 3:15",
     "text": "The couriers left, spurred on by the king’s command, and the edict was issued in the citadel of Susa. Then the king and Haman sat down to drink, but the city of Susa was in confusion.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This means that the king had commanded the couriers to deliver the letters as quickly as possible."
@@ -2042,7 +2042,7 @@
   {
     "reference": "Est 4:1",
     "text": "When Mordecai learned of all that had happened, he tore his clothes, put on sackcloth and ashes, and went out into the middle of the city, wailing loudly and bitterly.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-participants",
         "note": "Here the story re-introduces Mordecai as the main character in focus. Alternate translation: [when Mordecai found out]"
@@ -2072,7 +2072,7 @@
   {
     "reference": "Est 4:2",
     "text": "But he went only as far as the king’s gate, because the law prohibited anyone wearing sackcloth from entering that gate.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "**He** means Mordecai. Alternate translation: [Mordecai came]"
@@ -2094,7 +2094,7 @@
   {
     "reference": "Est 4:3",
     "text": "In every province to which the king’s command and edict came, there was great mourning among the Jews. They fasted, wept, and lamented, and many lay in sackcloth and ashes.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This expression means in every single province. See how you translated the term “province” in [1:1](../01/01.md). Alternate translation: [in each and every province] or [in every province of the empire]"
@@ -2128,7 +2128,7 @@
   {
     "reference": "Est 4:4",
     "text": "When Esther’s maidens and eunuchs came and told her about Mordecai, the queen was overcome with distress. She sent clothes for Mordecai to wear instead of his sackcloth, but he would not accept them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Esther’s female servants] of “Esther’s maids”"
@@ -2162,7 +2162,7 @@
   {
     "reference": "Est 4:5",
     "text": "Then Esther summoned Hathach, one of the king’s eunuchs appointed to her, and she dispatched him to Mordecai to learn what was troubling him and why.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [then Esther summoned Hathak, one of the king’s officials]"
@@ -2192,7 +2192,7 @@
   {
     "reference": "Est 4:6",
     "text": "So Hathach went out to Mordecai in the city square in front of the king’s gate,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Hathak went out specifically to speak with Mordecai and find out why he was so distressed, as Esther had asked him to do. If it would be helpful in your language, you could say that explicitly. Alternate translation: [Hathak went out to speak with Mordecai]"
@@ -2214,7 +2214,7 @@
   {
     "reference": "Est 4:7",
     "text": "and Mordecai told him all that had happened to him, including the exact amount of money that Haman had promised to pay into the royal treasury in order to destroy the Jews.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "Here, **him** refers to Mordecai, but here Mordecai represents the entire group of which he is a member. Alternate translation: [everything that Haman was planning to do to the Jews]"
@@ -2228,7 +2228,7 @@
   {
     "reference": "Est 4:8",
     "text": "Mordecai also gave Hathach a copy of the written decree issued in Susa for the destruction of the Jews, to show and explain to Esther, urging her to approach the king, implore his favor, and plead before him for her people.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [a copy of the letter that Haman had sent out] or [a copy of the decree]"
@@ -2266,12 +2266,12 @@
   {
     "reference": "Est 4:9",
     "text": "So Hathach went back and relayed Mordecai’s response to Esther.",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Est 4:10",
     "text": "Then Esther spoke to Hathach and instructed him to tell Mordecai,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [then Esther told Hathak to go back to Mordecai and tell him this]"
@@ -2281,7 +2281,7 @@
   {
     "reference": "Est 4:11",
     "text": "“All the royal officials and the people of the king’s provinces know that one law applies to every man or woman who approaches the king in the inner court without being summoned—that he be put to death. Only if the king extends the gold scepter may that person live. But I have not been summoned to appear before the king for the past thirty days.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-merism",
         "note": "**All the servants of the king** refers to the royal officials in the palace. **The people of the provinces** refers to those living out in the empire. So this phrase means something like “those both near and far.” Esther is using a figure of speech to refer to something by speaking of two extreme parts of it in order to include everything in between those parts. If it would be helpful in your language, you could combine these phrases and say something like, “everyone in the whole empire knows.” Alternate translation: [all the king’s officials and all the people in the empire know this law]"
@@ -2343,7 +2343,7 @@
   {
     "reference": "Est 4:12",
     "text": "When Esther’s words were relayed to Mordecai,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "From this point on, the author focuses only on Mordecai and Esther and does not specify who the messenger is. You can use a general phrase such as, “they told Mordecai” or “Mordecai was told” or “messengers told Mordecai.” If it would be helpful to your readers, you could continue to specify that the messenger was Hathak. The UST models a way to do that."
@@ -2353,7 +2353,7 @@
   {
     "reference": "Est 4:13",
     "text": "he sent back to her this reply: “Do not imagine that because you are in the king’s palace you alone will escape the fate of all the Jews.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [then Mordecai sent back this message to Esther]"
@@ -2363,7 +2363,7 @@
   {
     "reference": "Est 4:14",
     "text": "For if you remain silent at this time, relief and deliverance for the Jews will arise from another place, but you and your father’s house will perish. And who knows if perhaps you have come to the kingdom for such a time as this?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Here, **relief** and **deliverance** are spoken of as if they are living things that can rise up. Alternate translation: [someone else will rise up from another place and rescue the Jews]"
@@ -2385,12 +2385,12 @@
   {
     "reference": "Est 4:15",
     "text": "Then Esther sent this reply to Mordecai:",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Est 4:16",
     "text": "“Go and assemble all the Jews who can be found in Susa, and fast for me. Do not eat or drink for three days, night or day, and I and my maidens will fast as you do. After that, I will go to the king, even though it is against the law. And if I perish, I perish!”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form. Alternate translation: [all the Jews who live here in Susa]"
@@ -2424,7 +2424,7 @@
   {
     "reference": "Est 4:17",
     "text": "So Mordecai went and did all that Esther had instructed him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that Mordecai did this after Hathak brought Esther’s reply back to him. If it would be helpful in your language, you could say this explicitly. Alternate translation: [so after Hathak told this to Mordecai, he went]"
@@ -2438,7 +2438,7 @@
   {
     "reference": "Est 5:1",
     "text": "On the third day, Esther put on her royal robes and stood in the inner court of the palace across from the king’s quarters. The king was sitting on his royal throne in the royal courtroom, facing the entrance.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This introduces a new event in the story. Alternate translation: [three days later] or [when Esther had been fasting for three days]"
@@ -2472,7 +2472,7 @@
   {
     "reference": "Est 5:2",
     "text": "As soon as the king saw Queen Esther standing in the court, she found favor in his sight. The king extended the gold scepter in his hand toward Esther, and she approached and touched the tip of the scepter.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "This expression introduces what happened next. Alternate translation: [Now] or [and]"
@@ -2518,7 +2518,7 @@
   {
     "reference": "Est 5:3",
     "text": "“What is it, Queen Esther?” the king inquired. “What is your request? Even up to half the kingdom, it will be given to you.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [What do you want, Queen Esther?]"
@@ -2540,7 +2540,7 @@
   {
     "reference": "Est 5:4",
     "text": "“If it pleases the king,” Esther replied, “may the king and Haman come today to the banquet I have prepared for the king.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This is an idiom. See how you translated it in [1:19](../01/19.md) and [3:9](../03/09.md). Alternate translation: [If it seems like a good idea to you, O king]"
@@ -2566,7 +2566,7 @@
   {
     "reference": "Est 5:5",
     "text": "“Hurry,” commanded the king, “and bring Haman, so we can do as Esther has requested.” So the king and Haman went to the banquet that Esther had prepared.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The king would have said this to his servants, not to Esther. If it would be helpful in your language, you could say that explicitly. Alternate translation: [The king said to his servants]"
@@ -2584,7 +2584,7 @@
   {
     "reference": "Est 5:6",
     "text": "And as they drank their wine, the king said to Esther, “What is your petition? It will be given to you. What is your request? Even up to half the kingdom, it will be fulfilled.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two question-and-statement pairs mean almost the same thing. Ahasuerus says the same thing twice in slightly different ways to show that he is truly disposed to give Esther whatever she wants. If this is confusing, you do not need to repeat both phrases in your translation. you can combine them into one or replace the repetition with a statement of what the repetition means, as in the UST. Alternate translation: [now please tell me what you really want. I will do it for you]"
@@ -2610,7 +2610,7 @@
   {
     "reference": "Est 5:7",
     "text": "Esther replied, “This is my petition and my request:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hendiadys",
         "note": "Here a single idea is being expressed by using two words connected with “and.” Together the two words mean that Esther responded to the question that the king asked her. Alternate translation: [answered] or [replied]"
@@ -2628,7 +2628,7 @@
   {
     "reference": "Est 5:8",
     "text": "If I have found favor in the sight of the king, and if it pleases the king to grant my petition and fulfill my request, may the king and Haman come tomorrow to the banquet I will prepare for them. Then I will answer the king’s question.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The expression **find favor** means to gain the approval or acceptance of another person. Alternate translation: [if you are pleased with me]"
@@ -2670,7 +2670,7 @@
   {
     "reference": "Est 5:9",
     "text": "That day Haman went out full of joy and glad of heart. At the king’s gate, however, he saw Mordecai, who did not rise or tremble in fear at his presence. And Haman was filled with rage toward Mordecai.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [and … left the banquet]"
@@ -2700,7 +2700,7 @@
   {
     "reference": "Est 5:10",
     "text": "Nevertheless, Haman restrained himself and went home. And calling for his friends and his wife Zeresh,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "There is a contrast between this sentence and the previous one. Haman felt very much like doing one thing, but he decided it would be better to do something else. The contrast can be indicated with a phrase such as “but even though.” Alternate translation: [but even though Haman was so angry, he kept himself from losing his temper] or [Haman refused to show how angry he was]"
@@ -2714,7 +2714,7 @@
   {
     "reference": "Est 5:11",
     "text": "Haman recounted to them his glorious wealth, his many sons, and all the ways the king had honored and promoted him over the other officials and servants.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [then … made a long speech to them about]"
@@ -2752,7 +2752,7 @@
   {
     "reference": "Est 5:12",
     "text": "“What is more,” Haman added, “Queen Esther invited no one but me to join the king at the banquet she prepared, and I am invited back tomorrow along with the king.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "You can translate it as an exclamation because Haman believes he has saved the best for last and is now introducing what he considers to be his most recent significant honor. Alternate translation: [and that is not all]"
@@ -2774,7 +2774,7 @@
   {
     "reference": "Est 5:13",
     "text": "Yet none of this satisfies me as long as I see Mordecai the Jew sitting at the king’s gate.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "This is a figurative way of speaking. It is as if Haman is weighing his happiness on one side of a scale and his unhappiness on the other side. Haman is saying that his happiness over all the honors he has received is still not greater than his unhappiness over seeing Mordecai fail to honor him, so on balance, he is unhappy. Alternate translation: [I still cannot be happy as long as I keep seeing] or [all of this does not make me happy] or [ … does not satisfy me]"
@@ -2800,7 +2800,7 @@
   {
     "reference": "Est 5:14",
     "text": "His wife Zeresh and all his friends told him, “Have them build a gallows fifty cubits high, and ask the king in the morning to have Mordecai hanged on it. Then go to the banquet with the king and enjoy yourself.” The advice pleased Haman, and he had the gallows constructed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The verb is feminine, so it is Zeresh who is speaking here. By mentioning the friends, it is implied that they are in agreement with what she says. If it would be helpful in your language, you could say, “Then Haman’s wife Zeresh suggested, and his friends agreed.”"
@@ -2850,7 +2850,7 @@
   {
     "reference": "Est 6:1",
     "text": "That night sleep escaped the king; so he ordered the Book of Records, the Chronicles, to be brought in and read to him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This introduces a new event in the story. Use a natural way of introducing a new event in your language."
@@ -2880,7 +2880,7 @@
   {
     "reference": "Est 6:2",
     "text": "And there it was found recorded that Mordecai had exposed Bigthana and Teresh, two of the eunuchs who guarded the king’s entrance, when they had conspired to assassinate King Xerxes.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "Both terms **found** and **recorded** can be expressed in active form. Alternate translation: [they found that the writers had recorded there] or [they read the part where the writers had written]"
@@ -2918,7 +2918,7 @@
   {
     "reference": "Est 6:3",
     "text": "The king inquired, “What honor or dignity has been bestowed on Mordecai for this act?” “Nothing has been done for him,” replied the king’s attendants.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hendiadys",
         "note": "**Honor** and **greatness** have similar meanings and they are used together to emphasize that Mordecai should certainly have been honored in some grand way for saving the king’s life. If it would be helpful in your language, you could express this by putting the terms together. For example, you could say, “What great honor was done for Mordecai?” Alternate translation: [what did we do to reward Mordecai or to show that we appreciated what he did]"
@@ -2940,7 +2940,7 @@
   {
     "reference": "Est 6:4",
     "text": "“Who is in the court?” the king asked. Now Haman had just entered the outer court of the palace to ask the king to hang Mordecai on the gallows he had prepared for him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This could mean either: (1) The king knows that there is someone in the courtyard, maybe because he heard someone walking there; he wants to know who it is. (2) Since there are always people around the palace, the king assumes that there must be someone out in the courtyard. In either case, the king wants to know if there is someone there with whom he could consult about the best way to honor Mordecai. As the story has already said in [1:13](../01/13.md), it was the king’s habit to consult his advisors on important questions. If it would be helpful in your language, you could say this explicitly. Alternate translation: [the king wanted to consult someone about the best way to honor Mordecai, so he asked, “Who is in the courtyard?”]"
@@ -2974,7 +2974,7 @@
   {
     "reference": "Est 6:5",
     "text": "So the king’s attendants answered him, “Haman is there, standing in the court.” “Bring him in,” ordered the king.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "It is implied that the young men went and looked, perhaps through a window or a doorway, to see who might be in the courtyard before they answered the king. If it would be helpful in your language, you can say so. Alternate translation: [the young men who served the king looked and saw that Haman was in the courtyard. They said]"
@@ -2992,7 +2992,7 @@
   {
     "reference": "Est 6:6",
     "text": "Haman entered, and the king asked him, “What should be done for the man whom the king is delighted to honor?” Now Haman thought to himself, “Whom would the king be delighted to honor more than me?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [when Haman came in, the king said]"
@@ -3018,7 +3018,7 @@
   {
     "reference": "Est 6:7",
     "text": "And Haman told the king, “For the man whom the king is delighted to honor,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "**To delight** in doing something means to be glad to do it and to really want to do it. Alternate translation: [for a man the king is glad to honor] or [for a man the king wants to honor]"
@@ -3032,7 +3032,7 @@
   {
     "reference": "Est 6:8",
     "text": "have them bring a royal robe that the king himself has worn and a horse on which the king himself has ridden—one with a royal crest placed on its head.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that the king’s servants would do this. If it would be helpful in your language, you could say this explicitly. Alternate translation: [let someone bring] or [tell your servants to bring]"
@@ -3066,7 +3066,7 @@
   {
     "reference": "Est 6:9",
     "text": "Let the robe and the horse be entrusted to one of the king’s most noble princes. Let them array the man the king wants to honor and parade him on the horse through the city square, proclaiming before him, ‘This is what is done for the man whom the king is delighted to honor!’”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **hand** is a metaphor meaning power, control, or authority. It appears that the king himself would not perform such acts of service to one of his subjects even if he really wanted to honor that person. So Haman is saying that on behalf of the king, representing his authority and power, one of the king’s most noble officials should present the man with the robe and the horse. Alternate translation: [then, on your behalf, have one of your most noble officials present the man with the robe and the horse]"
@@ -3112,7 +3112,7 @@
   {
     "reference": "Est 6:10",
     "text": "“Hurry,” said the king to Haman, “and do just as you proposed. Take the robe and the horse to Mordecai the Jew, who is sitting at the king’s gate. Do not neglect anything that you have suggested.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that the king liked Haman’s suggestion. If it would be helpful in your language, you could say this explicitly. Alternate translation: [the king liked this idea, so he replied]"
@@ -3142,7 +3142,7 @@
   {
     "reference": "Est 6:11",
     "text": "So Haman took the robe and the horse, arrayed Mordecai, and paraded him through the city square, crying out before him, “This is what is done for the man whom the king is delighted to honor!”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "See how you translated these expressions in [verse 9](../06/09.md). Alternate translation: [seated him on the horse and then led the horse through the public square of the city]"
@@ -3160,7 +3160,7 @@
   {
     "reference": "Est 6:12",
     "text": "Then Mordecai returned to the king’s gate. But Haman rushed home, with his head covered in grief.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-symaction",
         "note": "People often covered their heads to show that they were either extremely sad or ashamed. Alternate translation: [covering his head because he felt completely disgraced]"
@@ -3170,7 +3170,7 @@
   {
     "reference": "Est 6:13",
     "text": "Haman told his wife Zeresh and all his friends everything that had happened. His advisers and his wife Zeresh said to him, “Since Mordecai, before whom your downfall has begun, is Jewish, you will not prevail against him—for surely you will fall before him.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that, just as Haman gathered his friends together in [5:10](../05/10.md) to boast of his status, now he gathered them together once again to talk about what had just happened. If it would be helpful in your language, you could say this explicitly. Alternate translation: [Haman brought all his friends together again. He told …]"
@@ -3220,7 +3220,7 @@
   {
     "reference": "Est 6:14",
     "text": "While they were still speaking with Haman, the king’s eunuchs arrived and rushed him to the banquet that Esther had prepared.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-background",
         "note": "This phrase indicates something that happened after Haman’s wife and friends started talking with Haman and while they were still talking. You should indicate this with a phrase such as “while.” Alternate translation: [while they were still talking together, the king’s eunuchs arrived]"
@@ -3242,7 +3242,7 @@
   {
     "reference": "Est 7:1",
     "text": "So the king and Haman went to dine with Esther the queen,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "Esther hosted Ahasuerus and Haman for more than just drinks. This is a figure of speech in which a part of something is used to mean the whole thing. An entire banquet is being described here by reference to one part of it, the drinks. Alternate translation: [so the king and Haman went to the second banquet that Queen Esther had prepared]"
@@ -3252,7 +3252,7 @@
   {
     "reference": "Est 7:2",
     "text": "and as they drank their wine on that second day, the king asked once more, “Queen Esther, what is your petition? It will be given to you. What is your request? Even up to half the kingdom, it will be fulfilled.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-ordinal",
         "note": "This refers to the day after the first banquet, as mentioned in [5:8](../05/08.md). Alternate translation: [at that second banquet] or [on that second day of feasting]"
@@ -3286,7 +3286,7 @@
   {
     "reference": "Est 7:3",
     "text": "Queen Esther replied, “If I have found favor in your sight, O king, and if it pleases the king, grant me my life as my petition, and the lives of my people as my request.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hendiadys",
         "note": "Here a single idea is being expressed by using two words connected with “and.” Together the two words mean that Esther responded to the question that the king asked her. Alternate translation: [answered]"
@@ -3332,7 +3332,7 @@
   {
     "reference": "Est 7:4",
     "text": "For my people and I have been sold out to destruction, death, and annihilation. If we had merely been sold as menservants and maidservants, I would have remained silent, because no such distress would justify burdening the king.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "As Esther points out later in the verse, the Jews actually have not been exchanged for money. Rather, **sell** is a figurative way of saying “turn over to.” If it would be helpful in your language, you could express this meaning by saying something like “For someone has turned us over to our enemies.” Alternatively, you could use the same figure, but show that it is a comparison. Alternate translation: [it is as though I and my people are cattle that have been sold to be slaughtered]"
@@ -3366,7 +3366,7 @@
   {
     "reference": "Est 7:5",
     "text": "Then King Xerxes spoke up and asked Queen Esther, “Who is this, and where is the one who would devise such a scheme?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "These two words mean the same thing. Alternate translation: [responded]"
@@ -3388,7 +3388,7 @@
   {
     "reference": "Est 7:6",
     "text": "Esther replied, “The adversary and enemy is this wicked man—Haman!” And Haman stood in terror before the king and queen.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "These words mean the same thing. Together, they emphasize Haman’s complete hostility towards the Jews. If it is more natural in your language, you can combine them and indicate the emphasis in a different way. Alternate translation: [the one who is our absolute nemesis]"
@@ -3406,7 +3406,7 @@
   {
     "reference": "Est 7:7",
     "text": "In his fury, the king arose from drinking his wine and went to the palace garden, while Haman stayed behind to beg Queen Esther for his life, for he realized that the king was planning a terrible fate for him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **in his rage** is an idiom meaning to be extremely angry. Alternate translation: [the king was extremely angry and got up]"
@@ -3436,7 +3436,7 @@
   {
     "reference": "Est 7:8",
     "text": "Just as the king returned from the palace garden to the banquet hall, Haman was falling on the couch where Esther was reclining. The king exclaimed, “Would he actually assault the queen while I am in the palace?” As soon as the words had left the king’s mouth, they covered Haman’s face.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that when the king returned to the room, he saw what this verse describes next. If it would be helpful in your language, you could say that explicitly. Alternate translation: [when the king returned … , he saw that Haman had fallen …]"
@@ -3490,7 +3490,7 @@
   {
     "reference": "Est 7:9",
     "text": "Then Harbonah, one of the eunuchs attending the king, said: “There is a gallows fifty cubits high at Haman’s house. He had it built for Mordecai, who gave the report that saved the king.” “Hang him on it!” declared the king.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "This is a man’s name. See how you translated it in [1:10](../01/10.md)."
@@ -3540,7 +3540,7 @@
   {
     "reference": "Est 7:10",
     "text": "So they hanged Haman on the gallows he had prepared for Mordecai. Then the fury of the king subsided.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "See how you translated this in [2:23](../02/23.md). Review the note there if that would be helpful. Be sure your translation is consistent in the chapters that follow."
@@ -3554,7 +3554,7 @@
   {
     "reference": "Est 8:1",
     "text": "That same day King Xerxes awarded Queen Esther the estate of Haman, the enemy of the Jews. And Mordecai entered the king’s presence because Esther had revealed his relation to her.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This could mean one of three things: (1) A new series of events is now being described, but the story makes clear that they happened on the same day as the second banquet. While it must have been some time later in the day, the idea is that when Haman lost his life, and also his property, Esther gained what her enemy had lost. Alternate translation: [that same day]; (2) The expression could also be an idiom that means “as of that day.” This would refer to the effective date for the transfer of Haman’s property to Esther. Alternate translation: [as of that day]; (3) The term “day” could also be used to mean around the same time."
@@ -3588,7 +3588,7 @@
   {
     "reference": "Est 8:2",
     "text": "The king removed the signet ring he had recovered from Haman and presented it to Mordecai. And Esther appointed Mordecai over the estate of Haman.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-symaction",
         "note": "Giving the ring to Mordecai showed that Mordecai could now act on the king’s own authority, and it enabled him to do that. If it would be helpful in your language, you could say this explicitly. Alternate translation: [the king now gave this ring to Mordecai to show that Mordecai had the power to act on the authority of the king]"
@@ -3622,7 +3622,7 @@
   {
     "reference": "Est 8:3",
     "text": "And once again, Esther addressed the king. She fell at his feet weeping and begged him to revoke the evil scheme of Haman the Agagite, which he had devised against the Jews.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "Here the exact meaning of the progression of verbs is uncertain, but this verse probably begins a new event in the story separate from what happened in the previous verse. Alternate translation: [then Esther again spoke in the king’s presence]"
@@ -3664,7 +3664,7 @@
   {
     "reference": "Est 8:4",
     "text": "The king extended the gold scepter toward Esther, and she arose and stood before the king.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-symaction",
         "note": "As in [5:2](../05/02.md), King Ahasuerus did this to show that Esther had his favor. In that earlier episode, this indicated that he would not enforce the law that said Esther should be executed for coming into the inner court without being summoned. But since Esther was apparently already in the king’s presence on this occasion, it seems that the gesture could also be used generally to show that the king was positively disposed towards a person and would grant the person’s request. Alternate translation: [the king held out his golden scepter to Esther]"
@@ -3686,7 +3686,7 @@
   {
     "reference": "Est 8:5",
     "text": "“If it pleases the king,” she said, “and if I have found favor in his sight, and the matter seems proper to the king, and I am pleasing in his sight, may an order be written to revoke the letters that the scheming Haman son of Hammedatha, the Agagite, wrote to destroy the Jews in all the king’s provinces.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two phrases mean basically the same thing. Esther is saying very deferentially that she hopes that the king will think that her suggestion is a good idea and will, therefore, grant her request. Esther uses the repetition to emphasize the importance of what she is expressing. If it would be helpful in your language, you could combine the phrases. Alternate translation: [if what I am going to suggest seems like a good idea to you]"
@@ -3728,7 +3728,7 @@
   {
     "reference": "Est 8:6",
     "text": "For how could I bear to see the disaster that would befall my people? How could I bear to see the destruction of my kindred?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here Esther is giving the reason why she is asking King Ahasuerus to revoke the letters. Alternate translation: [the reason I am asking is that]"
@@ -3762,7 +3762,7 @@
   {
     "reference": "Est 8:7",
     "text": "So King Xerxes said to Esther the Queen and Mordecai the Jew, “Behold, I have given Haman’s estate to Esther, and he was hanged on the gallows because he attacked the Jews.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "This is a term meant to focus the attention of the listener on what the speaker is about to say. If there is not a good way to translate this term in your language, this term can be omitted from the translation. Alternate translation: [as you know]"
@@ -3792,7 +3792,7 @@
   {
     "reference": "Est 8:8",
     "text": "Now you may write in the king’s name as you please regarding the Jews, and seal it with the royal signet ring. For a decree that is written in the name of the king and sealed with the royal signet ring cannot be revoked.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [so this is what you should do]"
@@ -3842,7 +3842,7 @@
   {
     "reference": "Est 8:9",
     "text": "At once the royal scribes were summoned, and on the twenty-third day of the third month (the month of Sivan), they recorded all of Mordecai’s orders to the Jews and to the satraps, governors, and princes of the 127 provinces from India to Cush—writing to each province in its own script, to every people in their own language, and to the Jews in their own script and language.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This indicates that what is described in this verse was done because of what the king said in the previous verse. Use a connecting word or phrase to show this in your language."
@@ -3920,7 +3920,7 @@
   {
     "reference": "Est 8:10",
     "text": "Mordecai wrote in the name of King Xerxes and sealed it with the royal signet ring. He sent the documents by mounted couriers riding on swift horses bred from the royal mares.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "**He** refers to Mordecai. If it would be helpful in your language, you can use his name here."
@@ -3950,7 +3950,7 @@
   {
     "reference": "Est 8:11",
     "text": "By these letters the king permitted the Jews in each and every city the right to assemble and defend themselves, to destroy, kill, and annihilate all the forces of any people or province hostile to them, including women and children, and to plunder their possessions.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This expression means “in each and every city.” It is possibly referring to the entire empire by naming one part of it, its cities. The story says in [9:19](../09/19.md) that not just Jews living in cities but Jews living in rural areas also defended themselves. It is likely that the messengers only published the news in the cities and not the entire countryside, but the news was certainly intended for everyone, not only people living in the cities. Alternate translation: [throughout the empire] or [in each and every city] or [in every single city]"
@@ -3980,7 +3980,7 @@
   {
     "reference": "Est 8:12",
     "text": "The single day appointed throughout all the provinces of King Xerxes was the thirteenth day of the twelfth month, the month of Adar.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This was the day that Haman had set for destroying the Jews in [3:13](../03/13.md). If it would be helpful in your language, you could make this explicit. Alternate translation: [on the same day that Haman had set for destroying the Jews]"
@@ -4010,7 +4010,7 @@
   {
     "reference": "Est 8:13",
     "text": "A copy of the text of the edict was to be issued in every province and published to all the people, so that the Jews would be ready on that day to avenge themselves on their enemies.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form. Alternate translation: [the letter told the officials to proclaim this as a law]"
@@ -4036,7 +4036,7 @@
   {
     "reference": "Est 8:14",
     "text": "The couriers rode out in haste on their royal horses, pressed on by the command of the king. And the edict was also issued in the citadel of Susa.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "See how you translated this in [8:10](../08/10.md). Alternate translation: [messengers riding on fast horses that were used for the king’s business]"
@@ -4062,7 +4062,7 @@
   {
     "reference": "Est 8:15",
     "text": "Mordecai went out from the presence of the king in royal garments of blue and white, with a large gold crown and a purple robe of fine linen. And the city of Susa shouted and rejoiced.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This introduces a new event in the story. Use a way that is natural in your language to indicate this."
@@ -4100,7 +4100,7 @@
   {
     "reference": "Est 8:16",
     "text": "For the Jews it was a time of light and gladness, of joy and honor.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **light** represents happiness. Alternate translation: [the Jews felt happy]"
@@ -4122,7 +4122,7 @@
   {
     "reference": "Est 8:17",
     "text": "In every province and every city, wherever the king’s edict and decree reached, there was joy and gladness among the Jews, with feasting and celebrating. And many of the people of the land themselves became Jews, because the fear of the Jews had fallen upon them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This expression means “each and every province.” Alternate translation: [in every single province]"
@@ -4172,7 +4172,7 @@
   {
     "reference": "Est 9:1",
     "text": "On the thirteenth day of the twelfth month, the month of Adar, the king’s command and edict were to be executed. On this day the enemies of the Jews had hoped to overpower them, but their plan was overturned and the Jews overpowered those who hated them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This introduces a new event. Use a natural way in your language to indicate a new event."
@@ -4226,7 +4226,7 @@
   {
     "reference": "Est 9:2",
     "text": "In each of the provinces of King Xerxes, the Jews assembled in their cities to attack those who sought to harm them. No man could withstand them, because the fear of them had fallen upon all peoples.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here the expression **to stretch out a hand** means to cause someone physical harm with the intention of killing him. Alternate translation: [to defend themselves] or [to fight]"
@@ -4260,7 +4260,7 @@
   {
     "reference": "Est 9:3",
     "text": "And all the officials of the provinces, the satraps, the governors, and the king’s administrators helped the Jews, because the fear of Mordecai had fallen upon them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "See how you translated these terms in [3:12](../03/12.md) and [8:9](../08/09.md). Alternate translation: [the government leaders in each province]"
@@ -4282,7 +4282,7 @@
   {
     "reference": "Est 9:4",
     "text": "For Mordecai exercised great power in the palace, and his fame spread throughout the provinces as he became more and more powerful.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This term introduces the reason why the officials and satraps and governors were becoming afraid of Mordecai."
@@ -4312,7 +4312,7 @@
   {
     "reference": "Est 9:5",
     "text": "The Jews put all their enemies to the sword, killing and destroying them, and they did as they pleased to those who hated them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "After the information about Mordecai, the story now returns to tell what happened on the appointed day. You could add a phrase to show this. Alternate translation, add: [on the day when they were allowed to defend themselves]"
@@ -4342,7 +4342,7 @@
   {
     "reference": "Est 9:6",
     "text": "In the citadel of Susa, the Jews killed and destroyed five hundred men,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [just in Susa, the capital city]"
@@ -4360,7 +4360,7 @@
   {
     "reference": "Est 9:7",
     "text": "including Parshandatha, Dalphon, Aspatha,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The story lists the names of Haman’s sons before explaining that they were his sons and that the Jews killed them. To be clear who these people are, you can add this information from [verse 10](../09/10.md) explicitly here. Alternate translation, add: [the Jews killed the ten sons of their enemy Haman son of Hammedatha. The names of his sons were …]"
@@ -4374,7 +4374,7 @@
   {
     "reference": "Est 9:8",
     "text": "Poratha, Adalia, Aridatha,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of men."
@@ -4384,7 +4384,7 @@
   {
     "reference": "Est 9:9",
     "text": "Parmashta, Arisai, Aridai, and Vaizatha.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of men."
@@ -4394,7 +4394,7 @@
   {
     "reference": "Est 9:10",
     "text": "They killed these ten sons of Haman son of Hammedatha, the enemy of the Jews, but they did not lay a hand on the plunder.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-numbers",
         "note": "Alternate translation: [the 10 sons]"
@@ -4416,7 +4416,7 @@
   {
     "reference": "Est 9:11",
     "text": "On that day the number of those killed in the citadel of Susa was reported to the king,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [at the end of that day]"
@@ -4438,7 +4438,7 @@
   {
     "reference": "Est 9:12",
     "text": "who said to Queen Esther, “In the citadel of Susa the Jews have killed and destroyed five hundred men, including Haman’s ten sons. What have they done in the rest of the royal provinces? Now what is your petition? It will be given to you. And what further do you request? It will be fulfilled.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "These terms mean the same thing and are used together for emphasis. Alternate translation: [killed]"
@@ -4476,7 +4476,7 @@
   {
     "reference": "Est 9:13",
     "text": "Esther replied, “If it pleases the king, may the Jews in Susa also have tomorrow to carry out today’s edict, and may the bodies of Haman’s ten sons be hanged on the gallows.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This is an idiom that has been used many times in the story. Alternate translation: [if it seems like a good idea to you, O king]"
@@ -4518,7 +4518,7 @@
   {
     "reference": "Est 9:14",
     "text": "So the king commanded that this be done. An edict was issued in Susa, and they hanged the ten sons of Haman.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form. Alternate translation: [the king granted both of Esther’s requests]"
@@ -4548,7 +4548,7 @@
   {
     "reference": "Est 9:15",
     "text": "On the fourteenth day of the month of Adar, the Jews in Susa came together again and put to death three hundred men there, but they did not lay a hand on the plunder.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [who lived in the capital city of Susa]"
@@ -4582,7 +4582,7 @@
   {
     "reference": "Est 9:16",
     "text": "The rest of the Jews in the royal provinces also assembled to defend themselves and rid themselves of their enemies. They killed 75,000 who hated them, but they did not lay a hand on the plunder.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **standing** is a metaphor meaning to defend oneself and to fight back instead of running away from an enemy. See how you translated this in [8:11](../08/11.md). Alternate translation: [joined together to fight back against their enemies]"
@@ -4612,7 +4612,7 @@
   {
     "reference": "Est 9:17",
     "text": "This was done on the thirteenth day of the month of Adar, and on the fourteenth day they rested, making it a day of feasting and joy.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-ordinal",
         "note": "Alternate translation: [on the thirteenth day]"
@@ -4642,7 +4642,7 @@
   {
     "reference": "Est 9:18",
     "text": "The Jews in Susa, however, had assembled on the thirteenth and the fourteenth days of the month. So they rested on the fifteenth day, making it a day of feasting and joy.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [but the Jews who lived in the capital city of Susa]"
@@ -4680,7 +4680,7 @@
   {
     "reference": "Est 9:19",
     "text": "This is why the rural Jews, who live in the villages, observe the fourteenth day of the month of Adar as a day of joy and feasting. It is a holiday for sending gifts to one another.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This term introduces the result of the events that were described in the previous verse. Alternate translation: [for that reason] or [that is why]"
@@ -4726,7 +4726,7 @@
   {
     "reference": "Est 9:20",
     "text": "Mordecai recorded these events and sent letters to all the Jews in all the provinces of King Xerxes, both near and far,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [wrote an account of all of these events]"
@@ -4744,7 +4744,7 @@
   {
     "reference": "Est 9:21",
     "text": "to establish among them an annual celebration on the fourteenth and fifteenth days of the month of Adar",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **to set up** means to establish, and to **make** a day means to observe it as a holiday. Alternate translation: [to establish … as a holiday]"
@@ -4770,7 +4770,7 @@
   {
     "reference": "Est 9:22",
     "text": "as the days on which the Jews gained rest from their enemies and the month in which their sorrow turned to joy and their mourning into a holiday. He wrote that these were to be days of feasting and joy, of sending gifts to one another and to the poor.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This verse gives the reason for what Mordecai told the Jews to do in the previous verse. Alternate translation: [because those were the days when]"
@@ -4828,7 +4828,7 @@
   {
     "reference": "Est 9:23",
     "text": "So the Jews agreed to continue the custom they had started, as Mordecai had written to them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication seems to be that the Jews were glad to do what Mordecai had instructed, because they had already been doing it. You can add a word such as “readily” to indicate this."
@@ -4846,7 +4846,7 @@
   {
     "reference": "Est 9:24",
     "text": "For Haman son of Hammedatha, the Agagite, the enemy of all the Jews, had plotted against the Jews to destroy them and had cast the Pur (that is, the lot) to crush and destroy them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This introduces the reason for the events previously described. The story will now summarize everything that happened previously. The Jews were to celebrate because they were able to fight back when Haman plotted to destroy all of them. Alternate translation: [they would celebrate these days to remember]"
@@ -4880,7 +4880,7 @@
   {
     "reference": "Est 9:25",
     "text": "But when it came before the king, he commanded by letter that the wicked scheme which Haman had devised against the Jews should come back upon his own head, and that he and his sons should be hanged on the gallows.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "In this summary, many details are communicated implicitly. **She** means Esther. Also, this verse continues the account of what this celebration is commemorating. If it would be helpful in your language, you could make these things explicit. Alternate translation: [the celebration also commemorated how Esther dared to come into the king’s presence without being summoned, and she won his favor]"
@@ -4910,7 +4910,7 @@
   {
     "reference": "Est 9:26",
     "text": "Therefore these days are called Purim, from the word Pur. Because of all the instructions in this letter, and because of all they had seen and experienced,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This introduces the reason why the Jews gave the name “Purim” to this celebration. Alternate translation: [for that reason] or [that is why]"
@@ -4960,7 +4960,7 @@
   {
     "reference": "Est 9:27",
     "text": "the Jews bound themselves to establish the custom that they and their descendants and all who join them should not fail to celebrate these two days at the appointed time each and every year, according to their regulation.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [the Jews said that they would tell their descendants and those people who became Jews to be certain to celebrate this festival]"
@@ -4998,7 +4998,7 @@
   {
     "reference": "Est 9:28",
     "text": "These days should be remembered and celebrated by every generation, family, province, and city, so that these days of Purim should not fail to be observed among the Jews, nor should the memory of them fade from their descendants.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This gives the result of the reasons described in [verses 26](../09/26.md) and [27](../09/27.md). Alternate translation: [therefore] or [that is why]"
@@ -5056,7 +5056,7 @@
   {
     "reference": "Est 9:29",
     "text": "So Queen Esther daughter of Abihail, along with Mordecai the Jew, wrote with full authority to confirm this second letter concerning Purim.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-distinguish",
         "note": "This information reminds the reader who Esther was."
@@ -5086,7 +5086,7 @@
   {
     "reference": "Est 9:30",
     "text": "And Mordecai sent letters with words of peace and truth to all the Jews in the 127 provinces of the kingdom of Xerxes,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "While this says “**he**,” in context it refers to the letter that Esther wrote with Mordecai’s help. Alternate translation: [they sent copies of this second letter] or [Mordecai ordered messengers to take copies of the letter]"
@@ -5116,7 +5116,7 @@
   {
     "reference": "Est 9:31",
     "text": "in order to confirm these days of Purim at their appointed time, just as Mordecai the Jew and Queen Esther had established them and had committed themselves and their descendants to the times of fasting and lamentation.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [in this second letter, Mordecai the Jew and Queen Esther confirmed that Purim should be celebrated on the fourteenth and fifteenth days of the month of Adar]"
@@ -5138,7 +5138,7 @@
   {
     "reference": "Est 9:32",
     "text": "So Esther’s decree confirmed these regulations about Purim, which were written into the record.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can say this with an active form, and you can say who did the action. Alternate translation: [and the royal scribes made an official record of it]"
@@ -5148,7 +5148,7 @@
   {
     "reference": "Est 10:1",
     "text": "Now King Xerxes imposed tribute throughout the land, even to its farthest shores.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This introduces a new event in the story. Use a natural way to introduce a new event in your language."
@@ -5174,7 +5174,7 @@
   {
     "reference": "Est 10:2",
     "text": "And all of Mordecai’s powerful and magnificent accomplishments, together with the full account of the greatness to which the king had raised him, are they not written in the Book of the Chronicles of the Kings of Media and Persia?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "**Power** and **might** mean essentially the same thing. They are used together to emphasize how powerful King Ahasuerus was. If it is more natural in your language, you can use one word with that meaning, with another word that gives it emphasis. Alternate translation: [all that he achieved because of how very powerful he was] or [all the great things that he did because of his great power]"
@@ -5216,7 +5216,7 @@
   {
     "reference": "Est 10:3",
     "text": "For Mordecai the Jew was second only to King Xerxes, preeminent among the Jews and highly favored by his many kinsmen, seeking the good of his people and speaking peace to all his countrymen.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This word indicates that this verse will give the reason why the scribes made a record about Mordecai."

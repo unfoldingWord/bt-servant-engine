@@ -2,7 +2,7 @@
   {
     "reference": "1Th 1:1",
     "text": "Paul, Silvanus, and Timothy, To the church of the Thessalonians in God the Father and the Lord Jesus Christ: Grace and peace to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Your language may have a particular way of introducing the author of a letter and its intended audience. For example, you may want to indicate that this is a letter. Alternate translation: [I, Paul, along with Silvanus and Timothy, wrote this letter to you, the church]"
@@ -44,7 +44,7 @@
   {
     "reference": "1Th 1:2",
     "text": "We always thank God for all of you, remembering you in our prayers",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "Here Paul first states what he, Silvanus, and Timothy do more specifically (they **give thanks to God**) and then describes it more generally (they are **making mention** of the Thessalonians). If it would be clearer in your language, you could reverse the order of the clauses. Alternate translation: [We continually make mention of you in our prayers, always giving thanks to God for all of you]"
@@ -62,7 +62,7 @@
   {
     "reference": "1Th 1:3",
     "text": "and continually recalling before our God and Father your work of faith, your labor of love, and your enduring hope in our Lord Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, when Paul says that he and those with him are **remembering** things **before our God and Father**, he means that they are thanking God about specific things. If it would be helpful in your language, you could make this idea more explicit. Alternate translation: [gratefully mentioning to our God and Father your work of faith and labor of love and endurance of hope of our Lord Jesus Christ]"
@@ -100,7 +100,7 @@
   {
     "reference": "1Th 1:4",
     "text": "Brothers who are beloved by God, we know that He has chosen you,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **knowing** introduces a reason why Paul and those with him give thanks to God (see [1:2](../01/02.md)). If it would be helpful in your language, you could use a word or phrase that introduces a reason. Alternate translation: [which we do because we know] or [since we know]"
@@ -126,7 +126,7 @@
   {
     "reference": "1Th 1:5",
     "text": "because our gospel came to you not only in word, but also in power, in the Holy Spirit, and with great conviction—just as you know we lived among you for your sake.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, **because** introduces a reason why Paul and those with him are sure about the Thessalonians’ “election” (see [1:4](../01/04.md)). If it would be helpful in your language, you could use a word or phrase that introduces a reason for a previous statement. Alternate translation: [which we are sure about because]"
@@ -156,7 +156,7 @@
   {
     "reference": "1Th 1:6",
     "text": "And you became imitators of us and of the Lord when you welcomed the message with the joy of the Holy Spirit, in spite of your great suffering.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "For emphasis, Paul is stating the pronoun **you**, which is already implied in the verb **became**. If your language can state implied pronouns explicitly for emphasis, you may want to use that construction in your translation. Other languages may have other ways of bringing out this emphasis. The ULT does so by using the intensive pronoun **yourselves**. Alternate translation: [it is you who became]"
@@ -186,7 +186,7 @@
   {
     "reference": "1Th 1:7",
     "text": "As a result, you have become an example to all the believers in Macedonia and Achaia.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the phrase **so that** introduces a result from how the Thessalonians became imitators of Paul, his fellow workers, and the Lord (see [1:6](../01/06.md)). If it would be helpful in your language, you could use a word or phrase that introduces a result. Alternate translation: [and as a result] or [and so]"
@@ -204,7 +204,7 @@
   {
     "reference": "1Th 1:8",
     "text": "For not only did the message of the Lord ring out from you to Macedonia and Achaia, but your faith in God has gone out to every place, so that we have no need to say anything more.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces an explanation of how the Thessalonians became examples throughout Macedonia and Achaia. If it would be helpful in your language, you could use a word or phrase that introduces an explanation. Alternate translation: [More specifically,] or [Indeed,]"
@@ -250,7 +250,7 @@
   {
     "reference": "1Th 1:9",
     "text": "For they themselves report what kind of welcome you gave us, and how you turned to God from idols to serve the living and true God",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a reason why Paul and his fellow workers do not need to say anything about the Thessalonians (see [1:8](../01/08.md)). If it would be helpful in your language, you could use a word or phrase that introduces a reason. Alternate translation: [In fact,] or [That is because]"
@@ -288,7 +288,7 @@
   {
     "reference": "1Th 1:10",
     "text": "and to await His Son from heaven, whom He raised from the dead—Jesus our deliverer from the coming wrath.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The phrase **to wait** is parallel with the phrase “to serve” in the previous verse ([1:9](../01/09.md)). Introduce it the same way you introduced “to serve.” Alternate translation: [and in order to wait for] or [and with the result that you wait for]"
@@ -330,7 +330,7 @@
   {
     "reference": "1Th 2:1",
     "text": "You yourselves know, brothers, that our visit to you was not in vain.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a longer explanation of the “entrance” that Paul and his fellow workers had among the Thessalonians (see [1:9](../01/09.md)). This explanation is found in [2:1–12](../02/01.md). If it would be helpful in your language, you could use a word or phrase that introduces an explanation of a previous statement. Alternate translation: [Concerning our entrance to you,] or [Now about your visit,]"
@@ -352,7 +352,7 @@
   {
     "reference": "1Th 2:2",
     "text": "As you are aware, we had already endured suffering and shameful treatment in Philippi. But in the face of strong opposition, we were bold in our God to speak to you the gospel of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** introduces a contrast with how Paul and his fellow workers might have visited the Thessalonians “in vain” (see [2:1](../02/01.md)). If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast. Alternate translation: [Rather,] or [Instead of acting in vain,]"
@@ -394,7 +394,7 @@
   {
     "reference": "1Th 2:3",
     "text": "For our appeal does not arise from deceit or ulterior motives or trickery.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces an explanation of how Paul and his fellow workers spoke the gospel. If it would be helpful in your language, you could use a word or phrase that introduces an explanation, or you could leave **For** untranslated. Alternate translation: [Here is how we spoke:] or [Indeed,]"
@@ -416,7 +416,7 @@
   {
     "reference": "1Th 2:4",
     "text": "Instead, we speak as those approved by God to be entrusted with the gospel, not in order to please men but God, who examines our hearts.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "Here Paul describes the manner in which he and his fellow workers **speak** something before he says that they **speak**. If it would be helpful in your language, you could rearrange the elements so that Paul says what he is doing before he describes the manner in which he does it. Alternate translation: [we speak as those who have been examined by God to be entrusted with the gospel]"
@@ -442,7 +442,7 @@
   {
     "reference": "1Th 2:5",
     "text": "As you know, we never used words of flattery or any pretext for greed. God is our witness!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces further explanation of how Paul and his fellow workers spoke and acted. If it would be helpful in your language, you could use a word or phrase that introduces an explanation, or you could leave **For** untranslated. Alternate translation: [Further,] or [Even more,]"
@@ -480,7 +480,7 @@
   {
     "reference": "1Th 2:6",
     "text": "Nor did we seek praise from you or from anyone else, although as apostles of Christ we had authority to demand it.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use the abstract noun **glory**, you could express the idea in another way. Alternate translation: [for men, neither you nor others, to praise us]"
@@ -494,7 +494,7 @@
   {
     "reference": "1Th 2:7",
     "text": "On the contrary, we were gentle among you, like a nursing mother caring for her children.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks as if he and his fellow workers could have made the Thessalonians carry something heavy. He means that he and his fellow workers could have made the Thessalonians’ lives harder. More specifically, the **burden** could be: (1) Paul and his fellow workers demanding respect and obedience. Alternate translation: [being able to require your obedience]; (2) Paul and his fellow workers demanding money and other things. Alternate translation: [being able to demand money from you]"
@@ -524,7 +524,7 @@
   {
     "reference": "1Th 2:8",
     "text": "We cared so deeply that we were delighted to share with you not only the gospel of God, but our own lives as well. That is how beloved you have become to us.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **in this manner** could: (1) refer back to what Paul said in the previous verse about how he and his fellow workers love and care for the Thessalonians as if they were the Thessalonians’ mothers. Alternate translation: [in that very way] or [as a mother does]; (2) make the word **longing** stronger. Alternate translation: [so very much]; (3) refer ahead to what Paul and his fellow workers did because of their **longing**. Alternate translation: [in the following way:]"
@@ -546,7 +546,7 @@
   {
     "reference": "1Th 2:9",
     "text": "Surely you recall, brothers, our labor and toil. We worked night and day so that we would not be a burden to anyone while we proclaimed to you the gospel of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a reason why the Thessalonians should believe Paul when he writes that he and his fellow workers loved and cared for them. If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis for a claim, or you could leave **For** untranslated. Alternate translation: [You know that is true because] or [In fact,]"
@@ -572,7 +572,7 @@
   {
     "reference": "1Th 2:10",
     "text": "You are witnesses, and so is God, of how holy, righteous, and blameless our conduct was among you who believed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks as if he were summoning both the Thessalonians and God as **witnesses** to testify on their behalf before a judge. He means that both the Thessalonians and God know how he and his fellow workers acted. If it would be helpful in your language, you could use a similar figure of speech or state the meaning plainly. Alternate translation: [You and God can declare how] or [You and God know how]"
@@ -586,7 +586,7 @@
   {
     "reference": "1Th 2:11",
     "text": "For you know that we treated each of you as a father treats his own children—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Paul is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words from the previous verse if it would be clearer in your language (see [2:10](../02/10.md)). Alternate translation: [how we were with each one of you as a father is with his own children] or [how we treated each one of you as a father treats his own children]"
@@ -600,7 +600,7 @@
   {
     "reference": "1Th 2:12",
     "text": "encouraging you, comforting you, and urging you to walk in a manner worthy of God, who calls you into His own kingdom and glory.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the words **exhorting**, **encouraging**, and **testifying** describe ways in which Paul and his fellow workers acted like fathers. If it would be helpful in your language, you could make this idea more explicit. Alternate translation: [by exhorting you and encouraging you and testifying to you]"
@@ -634,7 +634,7 @@
   {
     "reference": "1Th 2:13",
     "text": "And we continually thank God because, when you received the word of God that you heard from us, you accepted it not as the word of men, but as it truly is, the word of God, which is also now at work in you who believe.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, the word **this** could refer to: (1) what Paul is about to write, which he introduces with the word **that**. Alternate translation: [And here is why we also thank God constantly: it is that]; (2) what Paul has already written about how Paul and his fellow workers preached and how the Thessalonians welcomed them. Alternate translation: [And because of those things, we also thank God constantly, that]"
@@ -672,7 +672,7 @@
   {
     "reference": "1Th 2:14",
     "text": "For you, brothers, became imitators of the churches of God in Judea that are in Christ Jesus. You suffered from your own countrymen the very things they suffered from the Jews,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-versebridge",
         "note": "To help your readers understand the author’s main point in this verse and the next one, you could combine both verses into a verse bridge. You could include what the unbelieving **Jews** did first and then include how the Thessalonians are **imitators** of the believers in Judea. Alternate translation: [For the Jews, the ones having killed both the Lord Jesus and the prophets and having persecuted us, made the churches of God that are in Judea in Christ Jesus suffer. Now you, brothers, became imitators of them, because the same things you also suffered from your own countrymen, just as they also from the Jews, the ones not being pleasing to God and {being} hostile to all men,]"
@@ -710,7 +710,7 @@
   {
     "reference": "1Th 2:15",
     "text": "who killed both the Lord Jesus and their own prophets and drove us out as well. They are displeasing to God and hostile to all men,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-versebridge",
         "note": "To help your readers understand the author’s main point in this verse and the next one, you could combine both verses into a verse bridge. You could include what the unbelieving **Jews** did first and then include how the Thessalonians are **imitators** of the believers in Judea. Alternate translation: [For the Jews, the ones having killed both the Lord Jesus and the prophets and having persecuted us, made the churches of God that are in Judea in Christ Jesus suffer. Now you, brothers, became imitators of them, because the same things you also suffered from your own countrymen, just as they also from the Jews, the ones not being pleasing to God and {being} hostile to all men,]"
@@ -740,7 +740,7 @@
   {
     "reference": "1Th 2:16",
     "text": "hindering us from telling the Gentiles how they may be saved. As a result, they continue to heap up their sins to full capacity; the utmost wrath has come upon them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **forbidding** could introduce: (1) a reason why Paul says that the unbelieving Jews are not “pleasing to God” and are “hostile to all men” (see [2:15](../02/15.md)). Alternate translation: [because they forbid] or [which is because they forbid]; (2) the means by which the unbelieving Jews act in ways that are not “pleasing to God” and “hostile to all men” (see [2:15](../02/15.md)). Alternate translation: [which they do by forbidding]"
@@ -786,7 +786,7 @@
   {
     "reference": "1Th 2:17",
     "text": "Brothers, although we were torn away from you for a short time (in person, not in heart), our desire to see you face to face was even more intense.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** introduces how Paul and his fellow workers act in contrast to the people that Paul has described in the previous verses. If it would be helpful in your language, you could use a word or phrase that introduces a contrast. Alternate translation: [On the other hand,]"
@@ -824,7 +824,7 @@
   {
     "reference": "1Th 2:18",
     "text": "For we wanted to come to you—indeed I, Paul, tried again and again—but Satan obstructed us.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** could introduce: (1) the basis or evidence for Paul’s claim in the previous verse that he and his fellow workers were eager to visit the Thessalonians. Alternate translation: [In fact,] or [You know that is true because]; (2) an inference from Paul’s claim in the previous verse about how eager he and his fellow workers were to visit the Thessalonians. Alternate translation: [Therefore,] or [So then,]"
@@ -850,7 +850,7 @@
   {
     "reference": "1Th 2:19",
     "text": "After all, who is our hope, our joy, our crown of boasting, if it is not you yourselves in the presence of our Lord Jesus at His coming?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is using the question form to to show the Thessalonians how much he and his fellow workers value and care about them. If you would not use the question form for this purpose in your language, you could translate these questions as statements or exclamations. Alternate translation: [For here is our hope and joy and crown of boasting: it is also you before our Lord Jesus at his coming!] or [For you are our hope and joy and crown of boasting before our Lord Jesus at his coming.]"
@@ -900,7 +900,7 @@
   {
     "reference": "1Th 2:20",
     "text": "You are indeed our glory and our joy.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** could introduce: (1) a restatement of the point that Paul made in the previous verse (See: [2:19](../02/19.md)). Alternate translation: [Yes,]; (2) the basis for the point that Paul made in the previous verse (See: [2:19](../02/19.md)). Alternate translation: [That is because]"
@@ -914,7 +914,7 @@
   {
     "reference": "1Th 3:1",
     "text": "So when we could bear it no longer, we were willing to be left on our own in Athens.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces an inference or result based on what Paul said in the previous verses about how he and his fellow workers desired to visit the Thessalonians (see [2:17–20](../02/17.md)). If it would be helpful in your language, you could use a word or phrase that introduces an inference or result. Alternate translation: [As a result of that] or [Because of that]"
@@ -944,7 +944,7 @@
   {
     "reference": "1Th 3:2",
     "text": "We sent Timothy, our brother and fellow worker for God in the gospel of Christ, to strengthen and encourage you in your faith,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Here, the words **we** and **our** do not include the Thessalonians. Make sure that your translation fits with how you chose to translate “we” in the previous verse. In this verse, the words **we** and **our** could refer to: (1) Paul and Silvanus. Alternate translation: [Silvanus and I sent Timothy, our]; (2) just Paul. Alternate translation: [I sent Timothy, my]"
@@ -986,7 +986,7 @@
   {
     "reference": "1Th 3:3",
     "text": "so that none of you would be shaken by these trials. For you know that we are destined for this.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Here, the word **that** could introduce: (1) another purpose for which Paul sent Timothy to the Thessalonians to strengthen and comfort them (see [3:2](../03/02.md)). Alternate translation: [in order that no one would be disturbed]; (2) what Timothy strengthened and comforted the Thessalonians about. Alternate translation: [showing you that no one should be disturbed] or [that is, that no one be disturbed]"
@@ -1024,7 +1024,7 @@
   {
     "reference": "1Th 3:4",
     "text": "Indeed, when we were with you, we kept warning you that we would suffer persecution; and as you know, it has come to pass.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the phrase **For also** introduces another reason why the Thessalonians should “not be disturbed by these afflictions” (see [3:3](../03/03.md)). If it would be helpful in your language, you could use a word or phrase that introduces another reason for a claim. Alternate translation: [Another reason why you should not be disturbed is that] or [Further,]"
@@ -1050,7 +1050,7 @@
   {
     "reference": "1Th 3:5",
     "text": "For this reason, when I could bear it no longer, I sent to find out about your faith, for fear that the tempter had somehow tempted you and that our labor might have been in vain.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, the word **this** could refer to: (1) what Paul said in the previous verse about how the believers have experienced affliction (See: [3:4](../03/04.md)). Alternate translation: [Because of those afflictions, I also, no longer enduring it, sent]; (2) what Paul says in this verse about how he could no longer endure. Alternate translation: [Because I could no longer endure it, I also sent]"
@@ -1096,7 +1096,7 @@
   {
     "reference": "1Th 3:6",
     "text": "But just now, Timothy has returned from his visit with the good news about your faith, your love, and the fond memories you have preserved, longing to see us just as we long to see you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** introduces what actually happened in contrast to what Paul was worried about. If it would be helpful in your language, you could use a word or phrase that contrasts a concern with what actually happened. Alternate translation: [Despite my fears,] or [But here is what really happened:]"
@@ -1130,7 +1130,7 @@
   {
     "reference": "1Th 3:7",
     "text": "For this reason, brothers, in all our distress and persecution, we have been reassured about you, because of your faith.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, the word **this** refers to what Paul said in the previous verse about what Timothy reported about the Thessalonians’ faith, love, and good memory of Paul and his fellow workers. If it would be helpful in your language, you could make this idea more explicit. Alternate translation: [Because of this good news] or [Because of what Timothy told us]"
@@ -1156,7 +1156,7 @@
   {
     "reference": "1Th 3:8",
     "text": "For now we can go on living, as long as you are standing firm in the Lord.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a reason why what Paul said in the previous verse about being encouraged is true (See: [3:7](../03/07.md)). If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis for a previous claim. Alternate translation: [That is because] or [That happened because]"
@@ -1190,7 +1190,7 @@
   {
     "reference": "1Th 3:9",
     "text": "How can we adequately thank God for you in return for our great joy over you in His presence?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Here Paul is using the question form to show the Thessalonians how thankful he is that they continue to trust God. If you would not use the question form for this purpose in your language, you could translate this one as a statement or an exclamation. Alternate translation: [For we give back to God very many thanks concerning you for all the joy with which we rejoice before our God because of you, night and day pleading earnestly to see your face and to provide what is lacking in your faith!]"
@@ -1228,7 +1228,7 @@
   {
     "reference": "1Th 3:10",
     "text": "Night and day we pray most earnestly that we may see you face to face and supply what is lacking in your faith.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Here Paul is using the question form to show the Thessalonians how thankful he is that they continue to trust God. If you would not use the question form for this purpose in your language, you could translate this one as a statement or an exclamation. Alternate translation: [For we give back to God very many thanks concerning you for all the joy with which we rejoice before our God because of you, night and day pleading earnestly to see your face and to provide what is lacking in your faith!]"
@@ -1262,7 +1262,7 @@
   {
     "reference": "1Th 3:11",
     "text": "Now may our God and Father Himself, and our Lord Jesus, direct our way to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Here Paul is asking God to bless the Thessalonians. You could express this as either a blessing or a prayer, in whichever way is more natural in your language. Alternate translation: [But we ask our God and Father himself and our Lord Jesus to direct our way to you. We ask the Lord to make you increase and abound in love for one another and for all, just as we also toward you, to strengthen your hearts, blameless in holiness before our God and Father, at the coming of our Lord Jesus with all his saints. Amen!]"
@@ -1292,7 +1292,7 @@
   {
     "reference": "1Th 3:12",
     "text": "And may the Lord cause you to increase and overflow with love for one another and for everyone else, just as our love for you overflows,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Here Paul is asking God to bless the Thessalonians. You could express this as either a blessing or a prayer, in whichever way is more natural in your language. Alternate translation: [But we ask our God and Father himself and our Lord Jesus to direct our way to you. We ask the Lord to make you increase and abound in love for one another and for all, just as we also toward you, to strengthen your hearts, blameless in holiness before our God and Father, at the coming of our Lord Jesus with all his saints. Amen!]"
@@ -1322,7 +1322,7 @@
   {
     "reference": "1Th 3:13",
     "text": "so that He may establish your hearts in blamelessness and holiness before our God and Father at the coming of our Lord Jesus with all His saints. Amen.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Here Paul is asking God to bless the Thessalonians. You could express this as either a blessing or a prayer, in whichever way is more natural in your language. Alternate translation: [But we ask our God and Father himself and our Lord Jesus to direct our way to you. We ask the Lord to make you increase and abound in love for one another and for all, just as we also toward you, to strengthen your hearts, blameless in holiness before our God and Father, at the coming of our Lord Jesus with all his saints. Amen!]"
@@ -1368,7 +1368,7 @@
   {
     "reference": "1Th 4:1",
     "text": "Finally, brothers, we ask and encourage you in the Lord Jesus to live in a way that is pleasing to God, just as you have received from us. This is how you already live, so you should do so all the more.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces a development in Paul’s argument. He is transitioning from rejoicing about the Thessalonians to instructing them about how to act and what to believe. If it would be helpful in your language, you could use a word or phrase that introduces this kind of development. Alternate translation: [So] or [Given all that]"
@@ -1406,7 +1406,7 @@
   {
     "reference": "1Th 4:2",
     "text": "For you know the instructions we gave you by the authority of the Lord Jesus.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verse about how the Thessalonians received instructions from Paul and his fellow workers (See: [4:1](../04/01.md)). If it would be helpful in your language, you could use a word or phrase that introduces an explanation, or you could leave **For** untranslated. Alternate translation: [Indeed,] or [In fact,]"
@@ -1424,7 +1424,7 @@
   {
     "reference": "1Th 4:3",
     "text": "For it is God’s will that you should be holy: You must abstain from sexual immorality;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces specific examples of the “commands” that Paul and his fellow workers gave to the Thessalonians (See: [4:2](../04/02.md)). If it would be helpful in your language, you could use a word or phrase that introduces specific examples, or you could leave **For** untranslated. Alternate translation: [Specifically] or [For example, we told you that]"
@@ -1454,7 +1454,7 @@
   {
     "reference": "1Th 4:4",
     "text": "each of you must know how to control his own body in holiness and honor,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **that each of you knows** could: (1) give another example of what “sanctification” means (See: [4:3](../04/03.md)). Alternate translation: [and that each of you knows]; (2) describe more specifically what it means to avoid “sexual immorality” (See: [4:3](../04/03.md)). Alternate translation: [more specifically, that each of you knows]"
@@ -1484,7 +1484,7 @@
   {
     "reference": "1Th 4:5",
     "text": "not in lustful passion like the Gentiles who do not know God;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, **not in the passion of lust** contrasts with the previous phrase “in holiness and honor” (See: [4:4](../04/04.md)). If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast. Alternate translation: [and in contrast, not in the passion of lust]"
@@ -1514,7 +1514,7 @@
   {
     "reference": "1Th 4:6",
     "text": "and no one should ever violate or exploit his brother in this regard, because the Lord will avenge all such acts, as we have already told you and solemnly warned you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Here, the phrase **not to transgress** could introduce: (1) the purpose of what Paul has said in [4:3–5](../04/03.md) about abstaining from sexual immorality. Alternate translation: [in order not to transgress]; (2) another example of what “sanctification” means (See: [4:3](../04/03.md)). Alternate translation: [and that each of you does not transgress]; (3) another description of what it means to avoid “sexual immorality” (See: [4:3](../04/03.md)). Alternate translation: [that each of you does not transgress]"
@@ -1556,7 +1556,7 @@
   {
     "reference": "1Th 4:7",
     "text": "For God has not called us to impurity, but to holiness.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a reason or basis for what Paul has said about avoiding sexual immorality (See: [4:3–6](../04/03.md)). If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis. Alternate translation: [All that is important because]"
@@ -1578,7 +1578,7 @@
   {
     "reference": "1Th 4:8",
     "text": "Anyone, then, who rejects this command does not reject man but God, the very One who gives you His Holy Spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces an inference or conclusion from what Paul has said in [4:3–7](../04/03.md). If it would be helpful in your language, you could use another word that introduces an inference or conclusion. Alternate translation: [Because of all that] or [In conclusion]"
@@ -1612,7 +1612,7 @@
   {
     "reference": "1Th 4:9",
     "text": "Now about brotherly love, you do not need anyone to write to you, because you yourselves have been taught by God to love one another.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **But** introduces a new section in the letter. If it would be helpful in your language, you could use a word or phrase that introduces a new section, or you could leave **But** untranslated. Alternate translation: [Next,]"
@@ -1650,7 +1650,7 @@
   {
     "reference": "1Th 4:10",
     "text": "And you are indeed showing this love to all the brothers throughout Macedonia. But we urge you, brothers, to excel more and more",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the phrase **For also** introduces another reason why Paul and his fellow workers do not need to write to the Thessalonians (see [4:9](../04/09.md)). If it would be helpful in your language, you could use a word or phrase that introduces another reason or basis for a claim, or you could leave **For** untranslated. Alternate translation: [Again, we do not need to write to you about this, since you do] or [Even more, you do]"
@@ -1672,7 +1672,7 @@
   {
     "reference": "1Th 4:11",
     "text": "and to aspire to live quietly, to attend to your own matters, and to work with your own hands, as we instructed you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, the phrase **to be quiet** refers to living in a peaceful way that does not disrupt others. If it would be helpful in your language, you could use a similar phrase or state the meaning plainly. Alternate translation: [to avoid disrupting others] or [to behave calmly around other people]"
@@ -1694,7 +1694,7 @@
   {
     "reference": "1Th 4:12",
     "text": "Then you will behave properly toward outsiders, without being dependent on anyone.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the phrase **so that** could introduce: (1) the result of doing what Paul has commanded in [4:10–11](../04/10.md). Alternate translation: [with the result that]; (2) the purpose of doing what Paul has commanded in [4:10–11](../04/10.md). Alternate translation: [in order that]"
@@ -1716,7 +1716,7 @@
   {
     "reference": "1Th 4:13",
     "text": "Brothers, we do not want you to be uninformed about those who sleep in death, so that you will not grieve like the rest, who are without hope.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a new section in the letter. If it would be helpful in your language, you could use a word or phrase that introduces a new section, or you could leave **Now** untranslated. Alternate translation: [Next,]"
@@ -1758,7 +1758,7 @@
   {
     "reference": "1Th 4:14",
     "text": "For since we believe that Jesus died and rose again, we also believe that God will bring with Jesus those who have fallen asleep in Him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a reason why the Thessalonians should not grieve like other people do. If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis for a claim, or you could leave **For** untranslated. Alternate translation: [You should not grieve in those ways because,] or [Indeed,]"
@@ -1808,7 +1808,7 @@
   {
     "reference": "1Th 4:15",
     "text": "By the word of the Lord, we declare to you that we who are alive and remain until the coming of the Lord will by no means precede those who have fallen asleep.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul has said about believers who have died. If it would be helpful in your language, you could use a word or phrase that introduces a further explanation, or you could leave **For** untranslated. Alternate translation: [Further,] or [Indeed,]"
@@ -1854,7 +1854,7 @@
   {
     "reference": "1Th 4:16",
     "text": "For the Lord Himself will descend from heaven with a loud command, with the voice of an archangel, and with the trumpet of God, and the dead in Christ will be the first to rise.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces an elaboration or explanation of what Paul said in the previous verse about how living believers will not “go before” dead believers (see [4:15](../04/15.md)). This explanation continues in [4:17](../04/17.md). If it would be helpful in your language, you could use a word or phrase that introduces an elaboration or explanation. Alternate translation: [Here is what I mean:] or [More specifically,]"
@@ -1900,7 +1900,7 @@
   {
     "reference": "1Th 4:17",
     "text": "After that, we who are alive and remain will be caught up together with them in the clouds to meet the Lord in the air. And so we will always be with the Lord.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "Here, the word **Then** indicates that what Paul is about to describe will only happen after the events he described in the previous verse. If it would be helpful in your language, you could use a form that introduces the next event in a sequence. Alternate translation: [Next,] or [Afterward,]"
@@ -1942,7 +1942,7 @@
   {
     "reference": "1Th 4:18",
     "text": "Therefore encourage one another with these words.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces what Paul wants the Thessalonians to do in response to what he has told them about Jesus’ second coming and the resurrection of dead believers. If it would be helpful in your language, you could use a word or phrase that introduces the application of a specific teaching. Alternate translation: [So then] or [Now that I have taught you these things]"
@@ -1956,7 +1956,7 @@
   {
     "reference": "1Th 5:1",
     "text": "Now about the times and seasons, brothers, we do not need to write to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a new section in the letter. If it would be helpful in your language, you could use a word or phrase that introduces a new section, or you could leave **Now** untranslated. Alternate translation: [Next,]"
@@ -1978,7 +1978,7 @@
   {
     "reference": "1Th 5:2",
     "text": "For you are fully aware that the Day of the Lord will come like a thief in the night.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a reason why the Thessalonians “have no need for anything to be written” to them about the timing of Jesus’ second coming. If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis for a previous claim. Alternate translation: [In fact,] or [Indeed,]"
@@ -2004,7 +2004,7 @@
   {
     "reference": "1Th 5:3",
     "text": "While people are saying, “Peace and security,” destruction will come upon them suddenly, like labor pains on a pregnant woman, and they will not escape.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-pastforfuture",
         "note": "Here Paul uses the present tense forms **say** and **comes** to refer to something that will happen in the future. He uses the present tense to indicate that these things will certainly happen. If it would be helpful in your language, you could use the future tense. Alternate translation: [Whenever they will be saying, “Peace and safety,” then sudden destruction will come on them]"
@@ -2050,7 +2050,7 @@
   {
     "reference": "1Th 5:4",
     "text": "But you, brothers, are not in the darkness so that this day should overtake you like a thief.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the phrase **But you** introduces what is true about the Thessalonians in contrast to what Paul has said about unbelievers. If it would be helpful in your language, you could use a phrase that contrasts the Thessalonians with unbelievers. Alternate translation: [However, as for you, brothers, you are] or [In contrast, brothers, you are]"
@@ -2088,7 +2088,7 @@
   {
     "reference": "1Th 5:5",
     "text": "For you are all sons of the light and sons of the day; we do not belong to the night or to the darkness.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a reason or basis for what Paul has said about how the “day” will not overtake the Thessalonians (see [5:2](../05/02.md)). If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis for a previous claim. Alternate translation: [In fact,] or [That is true because]"
@@ -2130,7 +2130,7 @@
   {
     "reference": "1Th 5:6",
     "text": "So then, let us not sleep as the others do, but let us remain awake and sober.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the phrase **So then** introduces what Paul wants believers to do in response to what he has said about Jesus’ second coming. If it would be helpful in your language, you could use a word or phrase that introduces the application of a specific teaching. Alternate translation: [Because those things are true] or [Now that I have taught you these things]"
@@ -2160,7 +2160,7 @@
   {
     "reference": "1Th 5:7",
     "text": "For those who sleep, sleep at night, and those who get drunk, get drunk at night.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of the contrast between night and day (see [5:8](../05/08.md)). If it would be helpful in your language, you could use a word or phrase that introduces a further explanation, or you could leave **For** untranslated. Alternate translation: [Indeed,] or [As you know,]"
@@ -2178,7 +2178,7 @@
   {
     "reference": "1Th 5:8",
     "text": "But since we belong to the day, let us be sober, putting on the breastplate of faith and love, and the helmet of our hope of salvation.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** introduces a contrast with the people who “sleep” and “get drunk” during the night (see [5:7](../05/07.md)). If it would be helpful in your language, you could use a word or phrase that contrasts two groups of people. Alternate translation: [In contrast,] or [Unlike them,]"
@@ -2224,7 +2224,7 @@
   {
     "reference": "1Th 5:9",
     "text": "For God has not appointed us to suffer wrath, but to obtain salvation through our Lord Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a reason why the Thessalonians should do what Paul has commanded them to do in [5:6–8](../05/06.md). If it would be helpful in your language, you could use a word or phrase that introduces the reason or basis for previous commands. Alternate translation: [You should do those things because] or [I urge you to do those things since]"
@@ -2258,7 +2258,7 @@
   {
     "reference": "1Th 5:10",
     "text": "He died for us so that, whether we are awake or asleep, we may live together with Him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-distinguish",
         "note": "Here, the phrase **the one having died for us** gives more information about “our Lord Jesus Christ.” It does not distinguish between several Christs. If it would be helpful in your language, you could use a form that adds information instead of making distinctions. Alternate translation: [and he is the one who died for us] or [who died for us]"
@@ -2284,7 +2284,7 @@
   {
     "reference": "1Th 5:11",
     "text": "Therefore encourage and build one another up, just as you are already doing.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces what Paul wants the Thessalonians to do in response to what he has told them about Jesus’ second coming and how to be ready for it. If it would be helpful in your language, you could use a word or phrase that introduces the application of a specific teaching. Alternate translation: [So then] or [Now that I have taught you these things]"
@@ -2310,7 +2310,7 @@
   {
     "reference": "1Th 5:12",
     "text": "But we ask you, brothers, to acknowledge those who work diligently among you, who care for you in the Lord and who admonish you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a new section in the letter. If it would be helpful in your language, you could use a word or phrase that introduces a new section, or you could leave **Now** untranslated. Alternate translation: [Further,]"
@@ -2332,7 +2332,7 @@
   {
     "reference": "1Th 5:13",
     "text": "In love, hold them in highest regard because of their work. Live in peace with one another.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be helpful in your language, you could state the reason before the result. Alternate translation: [and, because of their work, to regard them highly in love]"
@@ -2358,7 +2358,7 @@
   {
     "reference": "1Th 5:14",
     "text": "And we urge you, brothers, to admonish the unruly, encourage the fainthearted, help the weak, and be patient with everyone.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a new section in the letter. If it would be helpful in your language, you could use a word or phrase that introduces a new section, or you could leave **Now** untranslated. Alternate translation: [Next,]"
@@ -2380,7 +2380,7 @@
   {
     "reference": "1Th 5:15",
     "text": "Make sure that no one repays evil for evil. Always pursue what is good for one another and for all people.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul tells the Thessalonians to see or look at what he wants them to do. He means that he wants them to make sure that it happens. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [Ensure that]"
@@ -2410,12 +2410,12 @@
   {
     "reference": "1Th 5:16",
     "text": "Rejoice at all times.",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "1Th 5:17",
     "text": "Pray without ceasing.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hyperbole",
         "note": "Paul says **continually** here as a generalization for emphasis. If it would be helpful in your language, you could use a different way to express the emphasis. Alternate translation: [very regularly] or [extremely often]"
@@ -2425,7 +2425,7 @@
   {
     "reference": "1Th 5:18",
     "text": "Give thanks in every circumstance, for this is God’s will for you in Christ Jesus.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **In everything** could refer to: (1) every situation or experience. Alternate translation: [In everything that you experience] or [In every circumstance]; (2) every moment in time. Alternate translation: [At every time] or [At all times]"
@@ -2451,7 +2451,7 @@
   {
     "reference": "1Th 5:19",
     "text": "Do not extinguish the Spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of the Holy **Spirit** as if he were a fire that that the Thessalonians should not **quench**. Paul means that the Thessalonians should not hinder or oppose the work of the Holy **Spirit**. If it would be helpful in your language, you could use a comparable figure of speech or state the meaning plainly. Alternate translation: [Do not restrain the Spirit] or [Do not hinder the Spirit]"
@@ -2461,7 +2461,7 @@
   {
     "reference": "1Th 5:20",
     "text": "Do not treat prophecies with contempt,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here Paul may be giving a specific example of his command not to “quench the Spirit” in [5:19](../05/19.md). If it would be helpful in your language, you could make this connection more explicit. Alternate translation: [Specifically, do not despise] or [For example, do not despise]"
@@ -2475,7 +2475,7 @@
   {
     "reference": "1Th 5:21",
     "text": "but test all things. Hold fast to what is good.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-textvariants",
         "note": "Here, many ancient manuscripts read **Test all things**. The ULT follows that reading. Other ancient manuscripts read “But test all things.” If a translation of the Bible exists in your region, you may wish to use the reading that it uses. If a translation of the Bible does not exist in your region, you may wish to use the reading of the ULT."
@@ -2493,7 +2493,7 @@
   {
     "reference": "1Th 5:22",
     "text": "Abstain from every form of evil.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, much as in the previous verse ([5:22](../05/22.md)), Paul could be referring to: (1) the “prophecies” that he referred to in [5:20](../05/20.md). Alternate translation: [Keep yourselves from every form of evil prophecy]; (2) spiritual gifts, or how the Holy Spirit specially empowers each person. Alternate translation: [Keep yourselves from every form of spiritual gift that does what is evil]; (3) anything people say and do. Alternate translation: [Keep yourselves from every form of what people say and do that is evil]"
@@ -2511,7 +2511,7 @@
   {
     "reference": "1Th 5:23",
     "text": "Now may the God of peace Himself sanctify you completely, and may your entire spirit, soul, and body be kept blameless at the coming of our Lord Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a new section, a blessing from Paul to the Thessalonians. If it would be helpful in your language, you could use a word or phrase that introduces a new section, or you could leave **Now** untranslated. Alternate translation: [Next,]"
@@ -2561,7 +2561,7 @@
   {
     "reference": "1Th 5:24",
     "text": "The One who calls you is faithful, and He will do it.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the clause **Faithful {is} the one calling you** gives the reason why God will be the one **who will also do {it}**. If it would be helpful in your language, you could make the relationship more explicit. Alternate translation: [Because the one calling you is faithful, he also will do it]"
@@ -2579,7 +2579,7 @@
   {
     "reference": "1Th 5:25",
     "text": "Brothers, pray for us as well.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **also** indicates that the Thessalonians should be praying for Paul, Silas, and Timothy just as Paul, Silas, and Timothy pray for them (see [5:23](../05/23.md)). If it would be helpful in your language, you could make this idea more explicit. Alternate translation: [just as we pray for you, pray also]"
@@ -2589,7 +2589,7 @@
   {
     "reference": "1Th 5:26",
     "text": "Greet all the brothers with a holy kiss.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-symaction",
         "note": "A **holy kiss** was a symbolic action to show familial love between believers. In some cultures, a kiss as a greeting is appropriate, but in other cultures it is not appropriate. The idea of a **holy kiss** is that it be a greeting that is appropriate in the culture, whether it be a kiss, a hug, a handshake, or something else, and also that it be holy, that is, appropriate between God’s people. If this would not be clear to your readers, you could explain the significance of this action in the text or in a footnote. Alternate translation: [warmly, as fellow believers]"
@@ -2599,7 +2599,7 @@
   {
     "reference": "1Th 5:27",
     "text": "I charge you before the Lord to have this letter read to all the brothers.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-oathformula",
         "note": "The phrase **{by} the Lord** could be: (1) an oath formula. Use a natural way in your language to express an oath. Alternate translation: [I make you swear before the Lord] or [I solemnly require that you promise the Lord]; (2) Paul’s claim that **the Lord** has authorized him. Alternate translation: [As one who represents the Lord, I solemnly charge you]"
@@ -2621,7 +2621,7 @@
   {
     "reference": "1Th 5:28",
     "text": "The grace of our Lord Jesus Christ be with you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "As was customary in his culture, Paul closes his letter with a blessing for the Thessalonians. Use a form that people would recognize as a blessing in your language. Alternate translation: [May you experience kindness from our Lord Jesus Christ within you] or [I pray that you will have grace from our Lord Jesus Christ]"

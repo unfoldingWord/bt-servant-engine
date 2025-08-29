@@ -2,7 +2,7 @@
   {
     "reference": "Ezr 1:1",
     "text": "In the first year of Cyrus king of Persia, to fulfill the word of the LORD spoken through Jeremiah, the LORD stirred the spirit of Cyrus king of Persia to send a proclamation throughout his kingdom and to put it in writing as follows:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "The word **now** introduces a new event in the story. Use the normal method for introducing the beginning of a true story in your language."
@@ -68,7 +68,7 @@
   {
     "reference": "Ezr 1:2",
     "text": "“This is what Cyrus king of Persia says: ‘The LORD, the God of heaven, who has given me all the kingdoms of the earth, has appointed me to build a house for Him at Jerusalem in Judah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-distinguish",
         "note": "Here Cyrus provides some background information to inform his subjects who Yahweh is. Alternate translation: [Yahweh, the God who is above all] or [Yahweh, the God who rules in heaven]"
@@ -102,7 +102,7 @@
   {
     "reference": "Ezr 1:3",
     "text": "Whoever among you belongs to His people, may his God be with him, and may he go to Jerusalem in Judah and build the house of the LORD, the God of Israel; He is the God who is in Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **all** probably indicates that Cyrus is thinking of not only the people whom the Babylonians had taken into exile from the southern kingdom of Judah some decades before, and their descendants, but also any of the people whose ancestors the Assyrians had taken into exile from the northern kingdom of Israel nearly two centuries earlier. Cyrus now ruled over the territories to which both groups had been exiled. If any in the second group still had awareness and proof of their identity, and if they still wanted to honor and worship Yahweh, they could also return to Jerusalem and help rebuild the temple. (However, as [1:5](../01/05.md) indicates, it was essentially Israelites from the tribes of Judah and Benjamin who actually did return.) To make this clear, you could include this information. Alternate translation: [Which of you is an Israelite from any tribe]"
@@ -136,7 +136,7 @@
   {
     "reference": "Ezr 1:4",
     "text": "And let every survivor, wherever he lives, be assisted by the men of that region with silver, gold, goods, and livestock, along with a freewill offering for the house of God in Jerusalem.’”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "The structure of this sentence may present difficulties for translation because the long phrase at the beginning actually describes who will receive the action, rather than who will do the action. If it would be helpful in your language, you could say first who will do the action. Alternate translation: [Let the people who live in any place where Jewish survivors are in exile help them]"
@@ -174,7 +174,7 @@
   {
     "reference": "Ezr 1:5",
     "text": "So the family heads of Judah and Benjamin, along with the priests and Levites—everyone whose spirit God had stirred—prepared to go up and rebuild the house of the LORD in Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **then** indicates that the sentence it introduces explains the results of what the previous verses have described. Alternate translation: [In response to this decree … prepared]"
@@ -212,7 +212,7 @@
   {
     "reference": "Ezr 1:6",
     "text": "And all their neighbors supported them with articles of silver and gold, with goods and livestock, and with valuables, in addition to all their freewill offerings.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hyperbole",
         "note": "**All** is an exaggeration for emphasis. Every person who lived near a returning Jew did not necessarily provide support. But the expression indicates that the Jews received very generous support from many of their neighbors. Alternate translation: [And the people of their communities]"
@@ -230,7 +230,7 @@
   {
     "reference": "Ezr 1:7",
     "text": "King Cyrus also brought out the articles belonging to the house of the LORD that Nebuchadnezzar had carried away from Jerusalem and placed in the temple of his gods.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "**Cyrus** did not do this work himself. He ordered others to do it. If that is not understood in your language, you can say this explicitly, as in the UST."
@@ -248,7 +248,7 @@
   {
     "reference": "Ezr 1:8",
     "text": "Cyrus king of Persia had them brought out by the hand of Mithredath the treasurer, who counted them out to Sheshbazzar the prince of Judah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **by the hand of** is a metaphor that represents control and action. The expression means that Mithredath did this at the command of Cyrus and on his behalf. Mithredath would have commanded others to do the work; he would not have carried the things in his own hands. Alternate translation: [King Cyrus of Persia ordered his treasurer, Mithredath, to bring them out]"
@@ -282,7 +282,7 @@
   {
     "reference": "Ezr 1:9",
     "text": "This was the inventory: 30 gold dishes, 1,000 silver dishes, 29 silver utensils,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This expression means that what follows is the number of each kind of utensil that Cyrus is returning"
@@ -296,7 +296,7 @@
   {
     "reference": "Ezr 1:10",
     "text": "30 gold bowls, 410 matching silver bowls, and 1,000 other articles.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This means that these bowls were a different type of bowl than the gold ones just mentioned. This could also mean that they were second in rank of status or honor behind the gold bowls. It does not mean that the silver was of a different type than the silver in the basins described in [1:9](../01/09.md)."
@@ -306,7 +306,7 @@
   {
     "reference": "Ezr 1:11",
     "text": "In all, there were 5,400 gold and silver articles. Sheshbazzar brought all these along when the exiles went up from Babylon to Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This expression means that the total number of these gold and silver objects was **5,400**. Verses [1:9](../01/09.md) and [1:10](../01/10.md) actually list only 2,499 items, and it is not clear why the numbers are different. The explanation does not seem to be that the total here includes other miscellaneous items because the last item on the list itself is other vessels. It would probably be best simply to report this total without calling attention to the difference and trying to explain it, since there is no clear reason for it."
@@ -328,7 +328,7 @@
   {
     "reference": "Ezr 2:1",
     "text": "Now these are the people of the province who came up from the captivity of the exiles carried away to Babylon by Nebuchadnezzar its king. They returned to Jerusalem and Judah, each to his own town,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **the sons of the province** is an idiom that means that these people originated in the province of Judah. Alternate translation: [the people from the province of Judah]"
@@ -354,7 +354,7 @@
   {
     "reference": "Ezr 2:2",
     "text": "accompanied by Zerubbabel, Jeshua, Nehemiah, Seraiah, Reelaiah, Mordecai, Bilshan, Mispar, Bigvai, Rehum, and Baanah. This is the count of the men of Israel:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This phrase introduces a list of the men who led this group back to Judah. Alternate translation: [traveling with]"
@@ -376,7 +376,7 @@
   {
     "reference": "Ezr 2:3",
     "text": "the descendants of Parosh, 2,172;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This means that from the descendants **of Parosh**, **2,172** returned. To help make this clear for your readers, you could say something like “returned” throughout [2:3–42](../02/03.md), after the name of each group and the number that is given."
@@ -394,7 +394,7 @@
   {
     "reference": "Ezr 2:4",
     "text": "the descendants of Shephatiah, 372;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Shephatiah]"
@@ -408,7 +408,7 @@
   {
     "reference": "Ezr 2:5",
     "text": "the descendants of Arah, 775;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Arah]"
@@ -422,7 +422,7 @@
   {
     "reference": "Ezr 2:6",
     "text": "the descendants of Pahath-moab (through the line of Jeshua and Joab), 2,812;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants."
@@ -436,7 +436,7 @@
   {
     "reference": "Ezr 2:7",
     "text": "the descendants of Elam, 1,254;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Elam]"
@@ -450,7 +450,7 @@
   {
     "reference": "Ezr 2:8",
     "text": "the descendants of Zattu, 945;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Zattu]"
@@ -464,7 +464,7 @@
   {
     "reference": "Ezr 2:9",
     "text": "the descendants of Zaccai, 760;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Zakkai]"
@@ -478,7 +478,7 @@
   {
     "reference": "Ezr 2:10",
     "text": "the descendants of Bani, 642;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Bani]"
@@ -492,7 +492,7 @@
   {
     "reference": "Ezr 2:11",
     "text": "the descendants of Bebai, 623;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Bebai]"
@@ -506,7 +506,7 @@
   {
     "reference": "Ezr 2:12",
     "text": "the descendants of Azgad, 1,222;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Azgad]"
@@ -520,7 +520,7 @@
   {
     "reference": "Ezr 2:13",
     "text": "the descendants of Adonikam, 666;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Adonikam]"
@@ -534,7 +534,7 @@
   {
     "reference": "Ezr 2:14",
     "text": "the descendants of Bigvai, 2,056;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Bigvai]"
@@ -548,7 +548,7 @@
   {
     "reference": "Ezr 2:15",
     "text": "the descendants of Adin, 454;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Adin]"
@@ -562,7 +562,7 @@
   {
     "reference": "Ezr 2:16",
     "text": "the descendants of Ater (through Hezekiah), 98;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Ater who were descendants of Hezekiah]"
@@ -576,7 +576,7 @@
   {
     "reference": "Ezr 2:17",
     "text": "the descendants of Bezai, 323;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Bezai]"
@@ -590,7 +590,7 @@
   {
     "reference": "Ezr 2:18",
     "text": "the descendants of Jorah, 112;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Jorah]"
@@ -604,7 +604,7 @@
   {
     "reference": "Ezr 2:19",
     "text": "the descendants of Hashum, 223;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Hashum]"
@@ -618,7 +618,7 @@
   {
     "reference": "Ezr 2:20",
     "text": "the descendants of Gibbar, 95;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Gibbar]"
@@ -632,7 +632,7 @@
   {
     "reference": "Ezr 2:21",
     "text": "the men of Bethlehem, 123;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The list speaks here of the **sons of Bethlehem**. This is an idiom that means that these men were from families that had originally lived in that town. Alternate translation: [From the town of Bethlehem, 123 returned]"
@@ -646,7 +646,7 @@
   {
     "reference": "Ezr 2:22",
     "text": "the men of Netophah, 56;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Netophah** is the name of a town. Alternate translation: [From the town of Netophah, 56 returned.]"
@@ -656,7 +656,7 @@
   {
     "reference": "Ezr 2:23",
     "text": "the men of Anathoth, 128;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Anathoth** is the name of a town. Alternate translation: [From the town of Anathoth, 128 returned]"
@@ -666,7 +666,7 @@
   {
     "reference": "Ezr 2:24",
     "text": "the descendants of Azmaveth, 42;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The list speaks here of the **sons of Azmaveth**. This is an idiom that means that these men were from families that had originally lived in that town. Alternate translation: [From the town of Azmaveth, 42 returned]"
@@ -680,7 +680,7 @@
   {
     "reference": "Ezr 2:25",
     "text": "the men of Kiriath-jearim, Chephirah, and Beeroth, 743;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The list speaks here of the **sons of Kirjath-Arim, Kephirah, and Beeroth**. This is an idiom that means that these men were from families that had originally lived in those towns. Alternate translation: [From the towns of Kirjath-Arim, Kephirah, and Beeroth]"
@@ -694,7 +694,7 @@
   {
     "reference": "Ezr 2:26",
     "text": "the men of Ramah and Geba, 621;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The list speaks here of the **sons of Ramah and Geba**. This is an idiom that means that these men were from families that had originally lived in those towns. Alternate translation: [From the towns of Ramah and Geba]"
@@ -708,7 +708,7 @@
   {
     "reference": "Ezr 2:27",
     "text": "the men of Michmash, 122;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Michmas** is the name of a town. Alternate translation: [From the town of Michmas, 122 returned]"
@@ -718,7 +718,7 @@
   {
     "reference": "Ezr 2:28",
     "text": "the men of Bethel and Ai, 223;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Bethel** and **Ai** are the names of towns. Alternate translation: [From the towns of Bethel and Ai, 223 returned]"
@@ -728,7 +728,7 @@
   {
     "reference": "Ezr 2:29",
     "text": "the descendants of Nebo, 52;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The list speaks here of the **sons of Nebo**. This is an idiom that means that these men were from families that had originally lived in this town. Alternate translation: [From the town of Nebo]"
@@ -742,7 +742,7 @@
   {
     "reference": "Ezr 2:30",
     "text": "the descendants of Magbish, 156;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The list speaks here of the **sons of Magbish**. This is an idiom that means that these men were from families that had originally lived in those towns. Alternate translation: [From the town of Magbish]"
@@ -756,7 +756,7 @@
   {
     "reference": "Ezr 2:31",
     "text": "the descendants of the other Elam, 1,254;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The list speaks here of the **sons of Elam**. This is an idiom that means that these men were from families that had originally lived in this town. (“The other Elam” indicates that this is the town of that name, not the person of that name mentioned in [2:7](../02/07.md).) Alternate translation: [From the town of Elam]"
@@ -770,7 +770,7 @@
   {
     "reference": "Ezr 2:32",
     "text": "the descendants of Harim, 320;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The list speaks here of the **sons of Harim**. This is an idiom that means that these men were from families that had originally lived in this town. Alternate translation: [From the town of Harim]"
@@ -784,7 +784,7 @@
   {
     "reference": "Ezr 2:33",
     "text": "the men of Lod, Hadid, and Ono, 725;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The list speaks here of the **sons of Lod, Hadid, and Ono**. This is an idiom that means that these men were from families that had originally lived in these towns. Alternate translation: [From the towns of Lod, Hadid, and Ono]"
@@ -798,7 +798,7 @@
   {
     "reference": "Ezr 2:34",
     "text": "the men of Jericho, 345;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, the list speaks of the **sons of Jericho**. This is an idiom that means that these men were from families that had originally lived in this city. Alternate translation: [From the city of Jericho]"
@@ -808,7 +808,7 @@
   {
     "reference": "Ezr 2:35",
     "text": "and the descendants of Senaah, 3,630.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The list speaks here of the **sons of Senaah**. This is an idiom that means that these men were from families that had originally lived in this town. Alternate translation: [From the town of Senaah]"
@@ -822,7 +822,7 @@
   {
     "reference": "Ezr 2:36",
     "text": "The priests: The descendants of Jedaiah (through the house of Jeshua), 973;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "**The priests** were men chosen to offer sacrifices to God on behalf of God’s people, and to perform other duties and functions to represent God to the people and to represent the people to God. Alternate translation: [This is how many men returned from each family of priests]"
@@ -844,7 +844,7 @@
   {
     "reference": "Ezr 2:37",
     "text": "the descendants of Immer, 1,052;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Immer]"
@@ -858,7 +858,7 @@
   {
     "reference": "Ezr 2:38",
     "text": "the descendants of Pashhur, 1,247;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Pashhur]"
@@ -872,7 +872,7 @@
   {
     "reference": "Ezr 2:39",
     "text": "and the descendants of Harim, 1,017.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [From the descendants of Harim]"
@@ -886,7 +886,7 @@
   {
     "reference": "Ezr 2:40",
     "text": "The Levites: the descendants of Jeshua and Kadmiel (through the line of Hodaviah), 74.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "**The Levites** were descendants of Levi. They had the special assignment of helping the priests. Alternate translation: [Some Levites also returned] or [Some of the descendants of Levi also returned]"
@@ -904,7 +904,7 @@
   {
     "reference": "Ezr 2:41",
     "text": "The singers: the descendants of Asaph, 128.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "**The ones who sang** refers to vocal musicians who led in worship, in processions, and ceremonies, producing music and chants that emphasized and enhanced the occasion."
@@ -922,7 +922,7 @@
   {
     "reference": "Ezr 2:42",
     "text": "The gatekeepers: the descendants of Shallum, the descendants of Ater, the descendants of Talmon, the descendants of Akkub, the descendants of Hatita, and the descendants of Shobai, 139 in all.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [Some of the descendants of the gatekeepers also returned]"
@@ -944,7 +944,7 @@
   {
     "reference": "Ezr 2:43",
     "text": "The temple servants: the descendants of Ziha, the descendants of Hasupha, the descendants of Tabbaoth,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "The term **Nethinim** describes servants who worked in the temple. Alternate translation: [The temple servants]"
@@ -966,7 +966,7 @@
   {
     "reference": "Ezr 2:44",
     "text": "the descendants of Keros, the descendants of Siaha, the descendants of Padon,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these three men. Alternate translation: [Keros, Siaha, Padon,]"
@@ -976,7 +976,7 @@
   {
     "reference": "Ezr 2:45",
     "text": "the descendants of Lebanah, the descendants of Hagabah, the descendants of Akkub,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these three men. Alternate translation: [Lebanah, Hagabah, Akkub,]"
@@ -986,7 +986,7 @@
   {
     "reference": "Ezr 2:46",
     "text": "the descendants of Hagab, the descendants of Shalmai, the descendants of Hanan,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these three men. Alternate translation: [Hagab, Shalmai, Hanan,]"
@@ -996,7 +996,7 @@
   {
     "reference": "Ezr 2:47",
     "text": "the descendants of Giddel, the descendants of Gahar, the descendants of Reaiah,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these three men. Alternate translation: [Giddel, Gahar, Reaiah,]"
@@ -1006,7 +1006,7 @@
   {
     "reference": "Ezr 2:48",
     "text": "the descendants of Rezin, the descendants of Nekoda, the descendants of Gazzam,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these three men. Alternate translation: [Rezin, Nekoda, Gazzam,]"
@@ -1016,7 +1016,7 @@
   {
     "reference": "Ezr 2:49",
     "text": "the descendants of Uzza, the descendants of Paseah, the descendants of Besai,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these three men. Alternate translation: [Uzza, Paseah, Besai,]"
@@ -1026,7 +1026,7 @@
   {
     "reference": "Ezr 2:50",
     "text": "the descendants of Asnah, the descendants of Meunim, the descendants of Nephusim,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these three men. Alternate translation: [Asnah, Meunim, Nephusim,]"
@@ -1036,7 +1036,7 @@
   {
     "reference": "Ezr 2:51",
     "text": "the descendants of Bakbuk, the descendants of Hakupha, the descendants of Harhur,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these three men. Alternate translation: [Bakbuk, Hakupha, Harhur,]"
@@ -1046,7 +1046,7 @@
   {
     "reference": "Ezr 2:52",
     "text": "the descendants of Bazluth, the descendants of Mehida, the descendants of Harsha,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these three men. Alternate translation: [Bazluth, Mehida, Harsha,]"
@@ -1056,7 +1056,7 @@
   {
     "reference": "Ezr 2:53",
     "text": "the descendants of Barkos, the descendants of Sisera, the descendants of Temah,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these three men. Alternate translation: [Barkos, Sisera, Temah,]"
@@ -1066,7 +1066,7 @@
   {
     "reference": "Ezr 2:54",
     "text": "the descendants of Neziah, and the descendants of Hatipha.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:43](../02/43.md), you can just list the names of these two men, and end the series in this verse. Alternate translation: [Neziah, and Hatipha]"
@@ -1076,7 +1076,7 @@
   {
     "reference": "Ezr 2:55",
     "text": "The descendants of the servants of Solomon: the descendants of Sotai, the descendants of Hassophereth, the descendants of Peruda,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. Alternate translation: [Some of the descendants of the laborers who had worked for the kingdom also returned]"
@@ -1098,7 +1098,7 @@
   {
     "reference": "Ezr 2:56",
     "text": "the descendants of Jaala, the descendants of Darkon, the descendants of Giddel,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:55](../02/55.md), you can just list the names of these three men. Alternate translation: [Jaalah, Darkon, Giddel,]"
@@ -1108,7 +1108,7 @@
   {
     "reference": "Ezr 2:57",
     "text": "the descendants of Shephatiah, the descendants of Hattil, the descendants of Pochereth-hazzebaim, and the descendants of Ami.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means descendants. If you continue the sentence from [2:55](../02/55.md), you can just list the names of these four men, and end the series in this verse. Alternate translation: [Shephatiah, Hattil, Pochereth Hazzebaim, and Ami]"
@@ -1118,7 +1118,7 @@
   {
     "reference": "Ezr 2:58",
     "text": "The temple servants and descendants of the servants of Solomon numbered 392 in all.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Altogether, 392 men returned who were descendants of temple servants or of laborers who had worked for the kingdom of Solomon]"
@@ -1128,7 +1128,7 @@
   {
     "reference": "Ezr 2:59",
     "text": "The following came up from Tel-melah, Tel-harsha, Cherub, Addan, and Immer, but they could not prove that their families were descended from Israel:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "As in [2:1](../02/01.md), **went up** means traveled from Babylon back to Judah, since that involved going from a river valley up into the mountains. Alternate translation: [Some others returned to Judah]"
@@ -1158,7 +1158,7 @@
   {
     "reference": "Ezr 2:60",
     "text": "the descendants of Delaiah, the descendants of Tobiah, and the descendants of Nekoda, 652 in all.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [In this group were 652 men from the descendants of Delaiah, Tobiah, and Nekoda]"
@@ -1176,7 +1176,7 @@
   {
     "reference": "Ezr 2:61",
     "text": "And from among the priests: the descendants of Hobaiah, the descendants of Hakkoz, and the descendants of Barzillai (who had married a daughter of Barzillai the Gileadite and was called by their name).",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Some of the men who returned from those towns were descendants of the priests]"
@@ -1210,7 +1210,7 @@
   {
     "reference": "Ezr 2:62",
     "text": "These men searched for their family records, but they could not find them and so were excluded from the priesthood as unclean.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If it would be helpful in your language, you could say this with an active form, and you could say who did the action. Alternate translation: [They searched for a mention of their names in the lists of people who were descendants of the priests]"
@@ -1236,7 +1236,7 @@
   {
     "reference": "Ezr 2:63",
     "text": "The governor ordered them not to eat the most holy things until there was a priest to consult the Urim and Thummim.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "**Tirshatha** was the formal Persian title for the governor of a province, so this would be referring to Sheshbazzar, who may be the same person as Zerubbabel. If it would be helpful in your language, you could translate the title with a word like “governor,” or you could state the title and then explain it. Alternate translation: [the Tirshatha, that is, the governor]"
@@ -1258,7 +1258,7 @@
   {
     "reference": "Ezr 2:64",
     "text": "The whole assembly numbered 42,360,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The expression **as one** means all together. Alternate translation: [The total number of men who returned was 42,360]"
@@ -1268,7 +1268,7 @@
   {
     "reference": "Ezr 2:65",
     "text": "in addition to their 7,337 menservants and maidservants, as well as their 200 male and female singers.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [not counting their 7,337 male and female servants]"
@@ -1282,7 +1282,7 @@
   {
     "reference": "Ezr 2:66",
     "text": "They had 736 horses, 245 mules,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation, beginning a sentence that will continue through the next verse: [The group also brought back with them 736 horses, 245 mules]"
@@ -1292,7 +1292,7 @@
   {
     "reference": "Ezr 2:67",
     "text": "435 camels, and 6,720 donkeys.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation, concluding the sentence from the previous verse: [435 camels, and 6,720 donkeys]"
@@ -1302,7 +1302,7 @@
   {
     "reference": "Ezr 2:68",
     "text": "When they arrived at the house of the LORD in Jerusalem, some of the heads of the families gave freewill offerings to rebuild the house of God on its original site.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "The word **and** introduces a new event in the story. Use the most natural way in your language to introduce this new event."
@@ -1328,7 +1328,7 @@
   {
     "reference": "Ezr 2:69",
     "text": "According to their ability, they gave to the treasury for this work 61,000 darics of gold, 5,000 minas of silver, and 100 priestly garments.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "**The work** means the project of rebuilding the temple. The **treasury** was where all of the money would be kept safely until it was needed. Alternate translation: [to the fund for rebuilding the temple]"
@@ -1350,7 +1350,7 @@
   {
     "reference": "Ezr 2:70",
     "text": "So the priests, the Levites, the singers, the gatekeepers, and the temple servants, along with some of the people, settled in their own towns; and the rest of the Israelites settled in their towns.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This is a summary conclusion to the list. See how you translated each of these terms within the list: priests in v. [36](../02/36.md), Levites in v. [40](../02/40.md), singers in v. [41](../02/41.md), gatekeepers in v. [42](../02/42.md), and temple servants in v. [43](../02/43.md). Review the notes to each of these verses if that would be helpful. Alternate translation: [So the priests, Levites, other Israelites, singers, gatekeepers, and temple servants returned to Judah and settled in the places where their ancestors had formerly lived]"
@@ -1364,7 +1364,7 @@
   {
     "reference": "Ezr 3:1",
     "text": "By the seventh month, the Israelites had settled in their towns, and the people assembled as one man in Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **then** indicates that the events the story will now relate came after the event it has just described. If it would be helpful in your language, you could show this relationship by using a fuller phrase. Alternate translation: [After this group had returned to Judah]"
@@ -1402,7 +1402,7 @@
   {
     "reference": "Ezr 3:2",
     "text": "Then Jeshua son of Jozadak and his fellow priests, along with Zerubbabel son of Shealtiel and his associates, began to build the altar of the God of Israel to sacrifice burnt offerings on it, as it is written in the Law of Moses the man of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **then** indicates that the events the story will now relate came after the event it has just described. If it would be helpful in your language, you could show this relationship by using a fuller phrase. Alternate translation: [Once everyone had gathered, arose]"
@@ -1452,7 +1452,7 @@
   {
     "reference": "Ezr 3:3",
     "text": "They set up the altar on its foundation and sacrificed burnt offerings on it to the LORD—both the morning and evening burnt offerings—even though they feared the people of the land.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be helpful in your language, you could reverse the order of these phrases since the second phrase gives the reason for the action that the first phrase describes. Alternate translation: [Because they were afraid of the people from other groups who lived around them, thinking they might attack them, they wanted to ask God for help and protection, so they made rebuilding the altar their first priority] or [Because they were afraid of the people from other groups who lived around them, thinking they might try to stop them from rebuilding the temple, they wanted to get started on rebuilding as quickly as possible, and so they began right away with the altar]"
@@ -1486,7 +1486,7 @@
   {
     "reference": "Ezr 3:4",
     "text": "They also celebrated the Feast of Tabernacles in accordance with what is written, and they offered burnt offerings daily based on the number prescribed for each day.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **Then** indicates that the events the story will now recount came after the event it has just related. If it would be helpful in your language, you could show this relationship by using an equivalent phrase. The next event is specifically the Festival of Tabernacles, which the law of Moses said to observe from the fifteenth through the twenty-second days of the seventh month. So that event would have taken place about two weeks after the Israelites first gathered in Jerusalem. Alternate translation: [Later that month]"
@@ -1508,7 +1508,7 @@
   {
     "reference": "Ezr 3:5",
     "text": "After that, they presented the regular burnt offerings and those for New Moons and for all the appointed sacred feasts of the LORD, as well as all the freewill offerings brought to the LORD.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "This phrase indicates that the activity it describes took place after the one it has just described. If it would be helpful in your language, you could show this relationship by using a phrase such as “And from that time on.”"
@@ -1522,7 +1522,7 @@
   {
     "reference": "Ezr 3:6",
     "text": "On the first day of the seventh month, the Israelites began to offer burnt offerings to the LORD, although the foundation of the temple of the LORD had not been laid.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-ordinal",
         "note": "The Hebrew uses a cardinal number here, **one**, but there is not a significant difference in meaning between that and the way the Hebrew uses an ordinal number, **first**, in similar contexts elsewhere. If your language customarily uses ordinals for the numbers of days, you can do that here in your translation. Alternate translation: [Starting on the first day]"
@@ -1544,7 +1544,7 @@
   {
     "reference": "Ezr 3:7",
     "text": "They gave money to the masons and carpenters, and food and drink and oil to the people of Sidon and Tyre to bring cedar logs from Lebanon to Joppa by sea, as authorized by Cyrus king of Persia.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **and** indicates that the sentence it introduces will explain what people did as a result of the situation that the previous sentence described. Alternate translation: [And so they gave]"
@@ -1618,7 +1618,7 @@
   {
     "reference": "Ezr 3:8",
     "text": "In the second month of the second year after they had arrived at the house of God in Jerusalem, Zerubbabel son of Shealtiel, Jeshua son of Jozadak, and the rest of their associates including the priests, the Levites, and all who had returned to Jerusalem from the captivity, began the work. They appointed Levites twenty years of age or older to supervise the construction of the house of the LORD.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **Then** at the beginning of this phrase indicates that the events the story will now relate came after the events it has just described. Alternate translation: [Then in the second year after they came]"
@@ -1676,7 +1676,7 @@
   {
     "reference": "Ezr 3:9",
     "text": "So Jeshua and his sons and brothers, Kadmiel and his sons (descendants of Yehudah), and the sons of Henadad and their sons and brothers—all Levites—joined together to supervise those working on the house of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **and** indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [So … helped]"
@@ -1734,7 +1734,7 @@
   {
     "reference": "Ezr 3:10",
     "text": "When the builders had laid the foundation of the temple of the LORD, the priests in their apparel with trumpets, and the Levites (the sons of Asaph) with cymbals, took their positions to praise the LORD, as David king of Israel had prescribed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **Then** at the beginning of this sentence indicates that it will describe something that took place after the event the story has just related. (Specifically, now that all the necessary supervisors were in place, the construction work could begin.)"
@@ -1784,7 +1784,7 @@
   {
     "reference": "Ezr 3:11",
     "text": "And they sang responsively with praise and thanksgiving to the LORD: “For He is good; for His loving devotion to Israel endures forever.” Then all the people gave a great shout of praise to the LORD, because the foundation of the house of the LORD had been laid.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **then** indicates that the sentence it introduces it will describe something that took place after the event the story has just related. If it would be helpful in your language, you could show this relationship by using an equivalent phrase. Alternate translation: [once all the musicians were in place, they sang back and forth]"
@@ -1818,7 +1818,7 @@
   {
     "reference": "Ezr 3:12",
     "text": "But many of the older priests, Levites, and family heads who had seen the first temple wept loudly when they saw the foundation of this temple. Still, many others shouted joyfully.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The word **But** indicates that the sentence it introduces will draw a contrast with what came just before it. That contrast is specifically between the joyful way that most of the Israelites were responding on this occasion and the sorrowful way that some of them responded. You could use a word such as “however” to indicate this contrast."
@@ -1864,7 +1864,7 @@
   {
     "reference": "Ezr 3:13",
     "text": "The people could not distinguish the shouts of joy from the sound of weeping, because the people were making so much noise. And the sound was heard from afar.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **So** indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [As a result the people could not differentiate]"
@@ -1886,7 +1886,7 @@
   {
     "reference": "Ezr 4:1",
     "text": "When the enemies of Judah and Benjamin heard that the exiles were building a temple for the LORD, the God of Israel,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-background",
         "note": "The word **Now** indicates that the sentence it introduces will provide background information that will be needed to understand what the book describes next. You can translate it with the word or phrase in your language that is most similar in meaning and significance."
@@ -1916,7 +1916,7 @@
   {
     "reference": "Ezr 4:2",
     "text": "they approached Zerubbabel and the heads of the families, saying, “Let us build with you because, like you, we seek your God and have been sacrificing to Him since the time of King Esar-haddon of Assyria, who brought us here.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **So** indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [As a result, they went]"
@@ -1958,7 +1958,7 @@
   {
     "reference": "Ezr 4:3",
     "text": "But Zerubbabel, Jeshua, and the other heads of the families of Israel replied, “You have no part with us in building a house for our God, since we alone must build it for the LORD, the God of Israel, as Cyrus king of Persia has commanded us.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The word **But** indicates that the sentence it introduces draws a contrast between what the men asked and what the Jewish leaders answered. You could begin the sentence with a word like “however” or “nevertheless” to indicate this contrast, or use another method that is natural in your language."
@@ -2008,7 +2008,7 @@
   {
     "reference": "Ezr 4:4",
     "text": "Then the people of the land set out to discourage the people of Judah and make them afraid to build.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "The phrase **and it happened that** introduces a new series of events in the story. Use a natural way in your language for introducing something new or different."
@@ -2034,7 +2034,7 @@
   {
     "reference": "Ezr 4:5",
     "text": "They hired counselors against them to frustrate their plans throughout the reign of Cyrus king of Persia and down to the reign of Darius king of Persia.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "Here, **counselors** means royal advisors in the Persian court. The enemies of the Jews were bribing the counselors to try to get them to influence the king against the Jews. Alternate translation: [and bribing royal advisors to work against the Jews in the Persian court]"
@@ -2060,7 +2060,7 @@
   {
     "reference": "Ezr 4:6",
     "text": "At the beginning of the reign of Xerxes, an accusation was lodged against the people of Judah and Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-background",
         "note": "The word **Now** indicates that the sentence it introduces will provide some background information. You can translate it with the word or phrase in your language that is most similar in meaning and significance."
@@ -2094,7 +2094,7 @@
   {
     "reference": "Ezr 4:7",
     "text": "And in the days of Artaxerxes king of Persia, Bishlam, Mithredath, Tabeel, and the rest of his associates wrote a letter to Artaxerxes. It was written in Aramaic and then translated.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "Here the word **And** introduces another event in the sequence of actions by the enemies of the Jews. Use the form in your language that is most natural for marking events in a sequence."
@@ -2140,7 +2140,7 @@
   {
     "reference": "Ezr 4:8",
     "text": "Rehum the commander and Shimshai the scribe wrote the letter against Jerusalem to King Artaxerxes as follows:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Rehum** is the name of a man."
@@ -2170,7 +2170,7 @@
   {
     "reference": "Ezr 4:9",
     "text": "From Rehum the commander, Shimshai the scribe, and the rest of their associates—the judges and officials over Tripolis, Persia, Erech and Babylon, the Elamites of Susa,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "The term translated as **Then** often introduces a new episode in a story. But the book is not continuing the story here. Instead, the book is quoting a document that begins with a list of names. So it seems that here the term **Then** is introducing the document that follows. Use the term in your language that would customarily introduce a list of the senders of a letter or other document. Alternate translation: [From]"
@@ -2212,7 +2212,7 @@
   {
     "reference": "Ezr 4:10",
     "text": "and the rest of the peoples whom the great and honorable Ashurbanipal deported and settled in the cities of Samaria and elsewhere west of the Euphrates.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This could mean one of two things. (1) It could be referring to two different sets of people groups: (a) **the rest of the nations**, which would be some further groups that, like the four listed in [4:9](../04/09.md), Ashurbanipal exiled to the region of Samaria, and (b) **the rest of Beyond-the-River**, which would be all the other groups that were then living in the province of Beyond-the-River, however they came to live there. This is the reading of ULT. or (2) It could be referring to one set of people groups made up of all the other groups that, like the four listed in [4:9](../04/09.md), Ashurbanipal moved to this area and resettled in the cities of Samaria and in other parts of the province. This is the reading of UST. Either way, the officials writing this letter feel that they can speak on behalf of those other groups in addition to the groups that they belong to personally."
@@ -2234,7 +2234,7 @@
   {
     "reference": "Ezr 4:11",
     "text": "(This is the text of the letter they sent to him.) To King Artaxerxes, From your servants, the men west of the Euphrates:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-aside",
         "note": "**They** means the men listed in [4:9](../04/09.md). The book is interrupting its quotation after the preamble to make sure that readers know that the text of the letter itself will now follow."
@@ -2264,7 +2264,7 @@
   {
     "reference": "Ezr 4:12",
     "text": "Let it be known to the king that the Jews who came from you to us have returned to Jerusalem and are rebuilding that rebellious and wicked city. They are restoring its walls and repairing its foundations.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "These officials address the king in the third person as a sign of respect. If it would be helpful in your language, you could indicate this respect by using an expression such as “O king.” Alternate translation: [we would like you to know, O king]"
@@ -2302,7 +2302,7 @@
   {
     "reference": "Ezr 4:13",
     "text": "Let it now be known to the king that if that city is rebuilt and its walls are restored, they will not pay tribute, duty, or toll, and the royal treasury will suffer.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "The word **now** is similar to the expression “and now” in [4:10](../04/10.md) and [4:11](../04/11.md). Here, **now** introduces an important point within the letter. If your language has a comparable expression that it uses for this same purpose, you can use that in your translation."
@@ -2336,7 +2336,7 @@
   {
     "reference": "Ezr 4:14",
     "text": "Now because we are in the service of the palace and it is not fitting for us to allow the king to be dishonored, we have sent to inform the king",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "As in [4:13](../04/13.md), the word **now** is similar to the expression “and now” found in [4:10](../04/10.md) and [4:11](../04/11.md). Here it introduces another important point within the letter. If your language has a comparable expression that it uses for this same purpose, you can use that in your translation."
@@ -2362,7 +2362,7 @@
   {
     "reference": "Ezr 4:15",
     "text": "that a search should be made of the record books of your fathers. In these books you will discover and verify that the city is a rebellious city, harmful to kings and provinces, inciting sedition from ancient times. That is why this city was destroyed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "Here again the officials are addressing the king in the third person as a sign of respect. They are also making their suggestion very diplomatically so that they do not appear to be telling the king what to do. Alternate translation: [and may we suggest that you search]"
@@ -2400,7 +2400,7 @@
   {
     "reference": "Ezr 4:16",
     "text": "We advise the king that if this city is rebuilt and its walls are restored, you will have no dominion west of the Euphrates.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "These officials address the king in the third person as a sign of respect. If it would be helpful in your language, you could indicate this respect by using an expression such as “O king.” Alternate translation: [We would like you to know, O king]"
@@ -2418,7 +2418,7 @@
   {
     "reference": "Ezr 4:17",
     "text": "Then the king sent this reply: To Rehum the commander, Shimshai the scribe, and the rest of your associates living in Samaria and elsewhere in the region west of the Euphrates: Greetings.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Rehum** is the name of a man and **a lord of decree** is his title. See how you translated them in [4:8](../04/08.md). Alternate translation: [Rehum, the royal deputy]"
@@ -2448,7 +2448,7 @@
   {
     "reference": "Ezr 4:18",
     "text": "The letter you sent us has been translated and read in my presence.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication of the plural **us** is that the king and his royal officials have received this letter. If it would be helpful to your readers, you could say that explicitly. Alternate translation: [the letter that you sent to the king and his royal officials]"
@@ -2466,7 +2466,7 @@
   {
     "reference": "Ezr 4:19",
     "text": "I issued a decree, and a search was conducted. It was discovered that this city has revolted against kings from ancient times, engaging in rebellion and sedition.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **so** indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [As a result, from me]"
@@ -2504,7 +2504,7 @@
   {
     "reference": "Ezr 4:20",
     "text": "And mighty kings have ruled over Jerusalem and exercised authority over the whole region west of the Euphrates; and tribute, duty, and toll were paid to them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "These kings are described here in a spatial metaphor as being higher than or above Jerusalem to indicate that this was the place in which and from which they ruled. Alternate translation: [And powerful kings ruled from Jerusalem]"
@@ -2530,7 +2530,7 @@
   {
     "reference": "Ezr 4:21",
     "text": "Now, therefore, issue an order for these men to stop, so that this city will not be rebuilt until I so order.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **Now** is similar to the expression “and now” in [4:10](../04/10.md), [4:11](../04/11.md), and [4:17](../04/17.md). As in [4:13](../04/13.md) and [4:14](../04/14.md), it introduces an important point within a letter. If your language has a comparable expression that it uses for this same purpose, you can use that in your translation."
@@ -2548,7 +2548,7 @@
   {
     "reference": "Ezr 4:22",
     "text": "See that you do not neglect this matter. Why allow this threat to increase and the royal interests to suffer?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-litotes",
         "note": "This means “Be sure to act concerning this.” This is a figure of speech that expresses a strong positive meaning by using two negative expressions: **be careful of**, that is, “avoid,” together with an expression that is the opposite of what is desired: **negligence of action**. Artaxerxes wants the officials to take action. Alternate translation: [Be sure to take action in response to this situation]"
@@ -2570,7 +2570,7 @@
   {
     "reference": "Ezr 4:23",
     "text": "When the text of the letter from King Artaxerxes was read to Rehum, Shimshai the scribe, and their associates, they went immediately to the Jews in Jerusalem and forcibly stopped them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **Then** indicates that the events the story will now relate came after the events it has just described. In your translation, you can use the expression in your language that would best indicate this relationship."
@@ -2620,7 +2620,7 @@
   {
     "reference": "Ezr 4:24",
     "text": "Thus the construction of the house of God in Jerusalem ceased, and it remained at a standstill until the second year of the reign of Darius king of Persia.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The book now returns to the point in the story where it left off at the end of [4:5](../04/05.md). (If it would be helpful, review the note to [4:6](../04/06.md). That note explains how the book tells of later events in [4:6–23](../04/06.md) to show that the Jews were wise not to trust the Samaritans when they offered to help rebuild the temple during the reign of Cyrus, since they demonstrated by their repeated future opposition that they really were the enemies of the Jews.) It might be useful to include a heading before this verse to alert the reader that there is a change of timeframe at this point, such as, “Building the Temple in the Time of Darius.” Also, if it would be helpful to your readers, you could say something explicitly here that would show how the book is returning to the time of Cyrus and his immediate successors. Alternate translation: [This is how the enemies of the Jews tried, under later kings, to stop them from rebuilding Jerusalem. They attempted the same thing under King Cyrus and his successors and they were able to stop the work on the temple for a time]"
@@ -2638,7 +2638,7 @@
   {
     "reference": "Ezr 5:1",
     "text": "Later, the prophets Haggai and Zechariah son of Iddo prophesied to the Jews in Judah and Jerusalem in the name of the God of Israel, who was over them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "Here, the word **Then** introduces a new event in the story. Use a natural method in your language to introduce a new event here."
@@ -2676,7 +2676,7 @@
   {
     "reference": "Ezr 5:2",
     "text": "Then Zerubbabel son of Shealtiel and Jeshua son of Jozadak rose up and began to rebuild the house of God in Jerusalem. And the prophets of God were with them, helping them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, **Then** indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [As a result]"
@@ -2702,7 +2702,7 @@
   {
     "reference": "Ezr 5:3",
     "text": "At that time Tattenai the governor of the region west of the Euphrates, Shethar-bozenai, and their associates went to the Jews and asked, “Who authorized you to rebuild this temple and restore this structure?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-simultaneous",
         "note": "The phrase **at that time** indicates that this event took place at the same time as the event that the story has just related. If it would be helpful in your language, you could show this relationship in this case by using a phrase such as “when they did this”"
@@ -2744,7 +2744,7 @@
   {
     "reference": "Ezr 5:4",
     "text": "They also asked, “What are the names of the men who are constructing this building?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "Here, the word **Then** is indicating that the enemies asked the question in this verse right after the question they asked in the previous verse. (The word is not indicating that the two questions were asked on separate occasions.) Alternate translation: [In addition]"
@@ -2762,7 +2762,7 @@
   {
     "reference": "Ezr 5:5",
     "text": "But the eye of their God was on the elders of the Jews, so that they were not stopped until a report was sent to Darius and written instructions about this matter were returned.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** indicates that the sentence it introduces draws a contrast between what Tattenai and his associates were trying to accomplish, which was an immediate end to the rebuilding of the temple, and what actually happened. You could begin the sentence with a word such as “however” to indicate this contrast."
@@ -2792,7 +2792,7 @@
   {
     "reference": "Ezr 5:6",
     "text": "This is the text of the letter that Tattenai the governor of the region west of the Euphrates, Shethar-bozenai, and their associates, the officials in the region, sent to King Darius.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of two men. See how you translated them in [5:3](../05/03.md)."
@@ -2806,7 +2806,7 @@
   {
     "reference": "Ezr 5:7",
     "text": "The report they sent him read as follows: To King Darius: All peace.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "Here the book begins to quote the letter that Tattenai and his associates sent to King Darius. It may be helpful to your readers to indicate this with an opening quotation mark or with whatever other punctuation or convention your language uses to indicate the beginning of a quotation."
@@ -2824,7 +2824,7 @@
   {
     "reference": "Ezr 5:8",
     "text": "Let it be known to the king that we went into the province of Judah, to the house of the great God. The people are rebuilding it with large stones and placing timbers in the walls. This work is being carried out diligently and is prospering in their hands.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "These officials address the king in the third person as a sign of respect. If it would be helpful in your language, you could indicate this respect by using an expression such as “O king.” Alternate translation: [We would like you to know, O king]"
@@ -2858,7 +2858,7 @@
   {
     "reference": "Ezr 5:9",
     "text": "So we questioned the elders and asked, “Who authorized you to rebuild this temple and restore this structure?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "This is a quotation within a quotation. That is, the book is quoting from the letter that Tattenai and his associates sent to King Darius, and within that letter, they are quoting what they asked the Jewish elders. It may be helpful to your readers to indicate this by setting off these words within secondary quotation marks or with whatever other punctuation or convention your language uses to indicate a quotation within a quotation."
@@ -2872,7 +2872,7 @@
   {
     "reference": "Ezr 5:10",
     "text": "We also asked for their names, so that we could write down the names of their leaders for your information.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be helpful in your language, you could put the reason before the result. (We do not know if Tattenai and his associates succeeded in writing down the list of names.) Alternate translation: [We wanted to write down the names of their leaders and to be prepared to let you know who they were, so we also asked them their names]"
@@ -2886,7 +2886,7 @@
   {
     "reference": "Ezr 5:11",
     "text": "And this is the answer they returned: “We are servants of the God of heaven and earth, and we are rebuilding the temple that was built many years ago, which a great king of Israel built and completed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The Jewish leaders describe themselves as **servants** of God because they are speaking of a superior with humility and respect. However, in this context, the expression is also an idiom that indicates that this is the God whom they worship. Alternate translation: [We worship the God who created heaven and earth]"
@@ -2912,7 +2912,7 @@
   {
     "reference": "Ezr 5:12",
     "text": "But since our fathers angered the God of heaven, He delivered them into the hand of Nebuchadnezzar king of Babylon, the Chaldean who destroyed this temple and carried away the people to Babylon.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "Starting here, and through [5:16](../05/16.md), there is another quotation within a quotation. The book is quoting from the letter that Tattenai and his associates sent to King Darius, and within that letter, they are quoting what the Jewish elders told them in response to their question. It may be helpful to your readers to indicate this with an opening secondary quotation mark or with whatever other punctuation or convention your language uses to indicate the beginning of a quotation within a quotation."
@@ -2954,7 +2954,7 @@
   {
     "reference": "Ezr 5:13",
     "text": "In the first year of his reign, however, Cyrus king of Babylon issued a decree to rebuild this house of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "Starting here, and through [5:16](../05/16.md), there is another quotation within a quotation. The book is quoting from the letter that Tattenai and his associates sent to King Darius, and within that letter, they are quoting what the Jewish elders told them in response to their question. It may be helpful to your readers to indicate this with an opening secondary quotation mark or with whatever other punctuation or convention your language uses to indicate the beginning of a quotation within a quotation."
@@ -2980,7 +2980,7 @@
   {
     "reference": "Ezr 5:14",
     "text": "He also removed from the temple of Babylon the gold and silver articles belonging to the house of God, which Nebuchadnezzar had taken and carried there from the temple in Jerusalem. King Cyrus gave these articles to a man named Sheshbazzar, whom he appointed governor",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "Starting here, and through [5:16](../05/16.md), there is another quotation within a quotation. The book is quoting from the letter that Tattenai and his associates sent to King Darius, and within that letter, they are quoting what the Jewish elders told them in response to their question. It may be helpful to your readers to indicate this with an opening secondary quotation mark or with whatever other punctuation or convention your language uses to indicate the beginning of a quotation within a quotation."
@@ -3010,7 +3010,7 @@
   {
     "reference": "Ezr 5:15",
     "text": "and instructed, ‘Take these articles, put them in the temple in Jerusalem, and let the house of God be rebuilt on its original site.’",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "Starting here, and through [5:16](../05/16.md), there is another quotation within a quotation. The book is quoting from the letter that Tattenai and his associates sent to King Darius, and within that letter, they are quoting what the Jewish elders told them in response to their question. It may be helpful to your readers to indicate this with an opening secondary quotation mark or with whatever other punctuation or convention your language uses to indicate the beginning of a quotation within a quotation."
@@ -3036,7 +3036,7 @@
   {
     "reference": "Ezr 5:16",
     "text": "So this Sheshbazzar came and laid the foundation of the house of God in Jerusalem, and from that time until now it has been under construction, but it has not yet been completed.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "Starting here, and through [5:16](../05/16.md), there is another quotation within a quotation. The book is quoting from the letter that Tattenai and his associates sent to King Darius, and within that letter, they are quoting what the Jewish elders told them in response to their question. It may be helpful to your readers to indicate this with an opening secondary quotation mark or with whatever other punctuation or convention your language uses to indicate the beginning of a quotation within a quotation."
@@ -3070,7 +3070,7 @@
   {
     "reference": "Ezr 5:17",
     "text": "Now, therefore, if it pleases the king, let a search be made of the royal archives in Babylon to see if King Cyrus did indeed issue a decree to rebuild the house of God in Jerusalem. Then let the king send us his decision in this matter.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "As in [4:10](../04/10.md) and [4:11](../04/11.md), **and now** translates an Aramaic expression that introduces the main business of a letter. In this case, it comes near the end of the letter. If your language has a comparable expression that it uses for this same purpose, you can use that in your translation."
@@ -3108,7 +3108,7 @@
   {
     "reference": "Ezr 6:1",
     "text": "Thus King Darius ordered a search of the archives stored in the treasury of Babylon.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, **Then** indicates that the sentence it introduces explains the results of what the previous sentences described. Alternate translation: [As a result]"
@@ -3138,7 +3138,7 @@
   {
     "reference": "Ezr 6:2",
     "text": "And a scroll was found in the fortress of Ecbatana, in the province of Media, with the following written on it: Memorandum:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, **And** indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [As a result they found one scroll]"
@@ -3164,7 +3164,7 @@
   {
     "reference": "Ezr 6:3",
     "text": "In the first year of King Cyrus, he issued a decree concerning the house of God in Jerusalem: Let the house be rebuilt as a place for offering sacrifices, and let its foundations be firmly laid. It is to be sixty cubits high and sixty cubits wide,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "Here the book begins to quote what was said on the scroll that the officials found in Ecbatana. It may be helpful to your readers to indicate this with an opening quotation mark or with whatever other punctuation or convention your language uses to indicate the beginning of a quotation."
@@ -3202,7 +3202,7 @@
   {
     "reference": "Ezr 6:4",
     "text": "with three layers of cut stones and one of timbers. The costs are to be paid from the royal treasury.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "It is no longer clear exactly what these building instructions mean. They could mean that the walls of the temple should be three layers of stone thick, with a facing of wood on the inside. They could also mean that the walls should be built with one layer of wood on top of every three layers of stone, or that the temple was to have four stories, the lower three of stone and the top one of wood. Whatever the specifics, the implication is that the temple is to be rebuilt in the same way that Solomon originally built it, since [1 Kings 6:36](../../1ki/06/36.md) says that he built its inner court, at least, “with three courses of hewn stone, and a course of cedar beams.” If it would be helpful to your readers, you could say that explicitly. Alternate translation: [and it is to be built of wood and stone just like the original one]"
@@ -3224,7 +3224,7 @@
   {
     "reference": "Ezr 6:5",
     "text": "Furthermore, the gold and silver articles of the house of God, which Nebuchadnezzar took from the temple in Jerusalem and carried to Babylon, must also be returned to the temple in Jerusalem and deposited in the house of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "See how you translated the very similar sentence in [5:14](../05/14.md). If it would be helpful in your language, you could put the verb first in this sentence. Alternate translation: [I hereby return to the Jews the gold and silver objects which Nebuchadnezzar took out of the temple in Jerusalem and brought to Babylon]"
@@ -3258,7 +3258,7 @@
   {
     "reference": "Ezr 6:6",
     "text": "Therefore Darius decreed: To Tattenai governor of the region west of the Euphrates, Shethar-bozenai, and your associates and officials in the region: You must stay away from that place!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the author assumes that readers will know about the information found in the scroll. Rather than repeating the same information from the scroll, but now as a letter to the officials, the author jumps right from the quotation from the scroll that was discovered at Ecbatana and into the letter that King Darius wrote to Tattenai and his associates in response to what the scroll said. You could say this explicitly if it would be helpful to your readers. Alternate translation: [When King Darius learned from the scroll that Cyrus had ordered the temple to be rebuilt, he sent Tattenai and his associates a letter in answer to their inquiry. He told them what he had learned from the scroll and then warned them, “Now Tattenai]"
@@ -3292,7 +3292,7 @@
   {
     "reference": "Ezr 6:7",
     "text": "Leave this work on the house of God alone. Let the governor and elders of the Jews rebuild this house of God on its original site.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "This sentence means basically the same thing as the last sentence in [6:6](../06/06.md). Darius says essentially the same thing twice for emphasis. If that would be confusing for your readers, you could combine the two sentences and express the emphasis in a different way. Alternate translation for both sentences: [do not interfere with the rebuilding of the temple in Jerusalem in any way] However, there is a slight difference in meaning, and you could also choose to bring that out in your translation. The second phrase is more specific. It says precisely what Darius wants these Samaritan officials to leave alone. Alternate translation: [Do not interfere with what is happening in Jerusalem. Do not disturb the work on the temple there!]"
@@ -3306,7 +3306,7 @@
   {
     "reference": "Ezr 6:8",
     "text": "I hereby decree what you must do for these elders of the Jews who are rebuilding this house of God: The cost is to be paid in full to these men from the royal treasury out of the taxes of the provinces west of the Euphrates, so that the work will not be hindered.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If it would be helpful in your language, you could say this with an active form. Alternate translation: [This is what I am commanding you to do to help the elders of the Jews rebuild that temple]"
@@ -3332,7 +3332,7 @@
   {
     "reference": "Ezr 6:9",
     "text": "Whatever is needed—young bulls, rams, and lambs for burnt offerings to the God of heaven, as well as wheat, salt, wine, and oil, as requested by the priests in Jerusalem—must be given to them daily without fail.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "This sentence, like the one in [5:14](../05/14.md), may be hard for readers to follow because the thing that receives the action comes first, and it consists of a very long phrase. This sentence continues into the next verse. If it would be helpful in your language, you could break it up into four sentences, three in this verse and the last one in verse [10](../06/10.md). You could also use active forms instead of the two passive forms and say who would do the action in each case. Alternate translation: [The priests who are in Jerusalem will tell you what they need. This may include young bulls, rams, and lambs for burnt offerings to the God of heaven, and wheat, salt, wine, and oil. I want you to give them everything that they need every single day]"
@@ -3362,7 +3362,7 @@
   {
     "reference": "Ezr 6:10",
     "text": "Then they will be able to offer sacrifices of a sweet aroma to the God of heaven and to pray for the lives of the king and his sons.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "In this phrase, Darius explains the purpose for which he is commanding the actions described in the previous part of this sentence, in [6:9](../06/09.md). If you decided to break that verse into three sentences, you can make this verse a fourth sentence of its own. If it would be natural in your language, introduce this sentence with a term to indicate that Darius is explaining his purpose here. Alternate translation: [that way, the priests can continually offer sweet-smelling sacrifices to the God who rules in heaven and pray that God will preserve my life and the life of my sons.]"
@@ -3392,7 +3392,7 @@
   {
     "reference": "Ezr 6:11",
     "text": "I also decree that if any man interferes with this directive, a beam is to be torn from his house and raised up, and he is to be impaled on it. And his own house shall be made a pile of rubble for this offense.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If it would be helpful in your language, you could say this with an active form. Alternate translation: [and I am commanding that]"
@@ -3426,7 +3426,7 @@
   {
     "reference": "Ezr 6:12",
     "text": "May God, who has caused His Name to dwell there, overthrow any king or people who lifts a hand to alter this decree or to destroy this house of God in Jerusalem. I, Darius, have issued the decree. Let it be carried out with diligence.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This is a curse formula. In addition to the threat of severe punishment in the previous verse, here Darius adds a curse from God to anyone who would disobey his order. Use a curse formula that is natural in your language."
@@ -3472,7 +3472,7 @@
   {
     "reference": "Ezr 6:13",
     "text": "In response, Tattenai the governor of the region west of the Euphrates, Shethar-bozenai, and their associates diligently carried out what King Darius had decreed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **Then** indicates that the sentence it introduces explains the result of what the previous sentences described. Alternate translation: [In response,]"
@@ -3494,7 +3494,7 @@
   {
     "reference": "Ezr 6:14",
     "text": "So the Jewish elders built and prospered through the prophesying of Haggai the prophet and Zechariah son of Iddo. They finished building according to the command of the God of Israel and the decrees of Cyrus, Darius, and Artaxerxes, kings of Persia.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **And** indicates that the sentence it introduces explains the result of what the previous sentence described. Alternate translation: [As a result … the leaders]"
@@ -3544,7 +3544,7 @@
   {
     "reference": "Ezr 6:15",
     "text": "And this temple was completed on the third day of the month of Adar, in the sixth year of the reign of King Darius.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **And** indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [As a result … they finished building]"
@@ -3578,7 +3578,7 @@
   {
     "reference": "Ezr 6:16",
     "text": "Then the people of Israel—the priests, the Levites, and the rest of the exiles—celebrated the dedication of the house of God with joy.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "Here, the word **And** indicates that the event the story will now relate came after the events it has just described. If it would be helpful in your language, you could show this relationship by using a word such as “Then.”"
@@ -3604,7 +3604,7 @@
   {
     "reference": "Ezr 6:17",
     "text": "For the dedication of the house of God they offered a hundred bulls, two hundred rams, four hundred lambs, and a sin offering for all Israel of twelve male goats, one for each tribe of Israel.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "As in the previous sentence, the abstract noun **dedication** refers to a special ceremony that the Israelites conducted. Once again you could translate the idea behind this word with a verb such as “dedicate” or “consecrate” Alternate translation: [As they dedicated this temple, they offered]"
@@ -3626,7 +3626,7 @@
   {
     "reference": "Ezr 6:18",
     "text": "They also appointed the priests by their divisions and the Levites by their groups to the service of God in Jerusalem, according to what is written in the Book of Moses.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "Here the word **And** indicates that the event the story will now relate came after the event it has just described. If it would be helpful in your language, you could show this relationship by using a word such as “Then.”"
@@ -3656,7 +3656,7 @@
   {
     "reference": "Ezr 6:19",
     "text": "On the fourteenth day of the first month, the exiles kept the Passover.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The phrase at the beginning of this sentence indicates that it explains the results of what the previous sentence described. (As [6:20](../06/20.md) explains, because the priests and Levites had been assigned to their duties, festivals like this could be observed again.) Alternate translation: [As a result, the Jews who had returned from exile were able to celebrate Passover]"
@@ -3690,7 +3690,7 @@
   {
     "reference": "Ezr 6:20",
     "text": "All the priests and Levites had purified themselves and were ceremonially clean. And the Levites slaughtered the Passover lamb for all the exiles, for their priestly brothers, and for themselves.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **for** indicates that the sentence it introduces explains the reason why the action described in the previous sentence was possible. Alternate translation: [They were able to do this because]"
@@ -3728,7 +3728,7 @@
   {
     "reference": "Ezr 6:21",
     "text": "The Israelites who had returned from exile ate it, together with all who had separated themselves from the uncleanness of the peoples of the land to seek the LORD, the God of Israel.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "**Sons** here means descendants. The book is envisioning all of the Israelites as descendants of the patriarch Jacob, who was also known as Israel. Alternate translation: [And the Israelites ate]"
@@ -3766,7 +3766,7 @@
   {
     "reference": "Ezr 6:22",
     "text": "For seven days they kept the Feast of Unleavened Bread with joy, because the LORD had made them joyful and turned the heart of the king of Assyria toward them to strengthen their hands in the work on the house of the God of Israel.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "This phrase indicates that the event the story will now relate came after the event it has just described. If it would be helpful in your language, you could show this relationship by using a phrase such as “After that.”"
@@ -3796,7 +3796,7 @@
   {
     "reference": "Ezr 7:1",
     "text": "Many years later, during the reign of Artaxerxes king of Persia, Ezra son of Seraiah, the son of Azariah, the son of Hilkiah,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This phrase, common in Hebrew storytelling, indicates that the book will now relate events that occurred some time after the events that it had been describing. The book had been describing the time when the Jews finished rebuilding the temple, [6:15](../06/15.md), which was the sixth year of the reign of Darius. Now it will describe events beginning during the seventh year of the reign of Artaxerxes, who was the grandson of Darius. So nearly sixty years went by between the end of [chapter 6](../06/01.md) and the beginning of chapter 7. If your language has a similar phrase that can indicate the passage of time like this, you can use that in your translation."
@@ -3822,7 +3822,7 @@
   {
     "reference": "Ezr 7:2",
     "text": "the son of Shallum, the son of Zadok, the son of Ahitub,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [the son of Shallum, the son of Zadok, the descendant of Ahitub]"
@@ -3836,7 +3836,7 @@
   {
     "reference": "Ezr 7:3",
     "text": "the son of Amariah, the son of Azariah, the son of Meraioth,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [the descendant of Amariah, the son of Azariah, the descendant of Meraioth]"
@@ -3850,7 +3850,7 @@
   {
     "reference": "Ezr 7:4",
     "text": "the son of Zerahiah, the son of Uzzi, the son of Bukki,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Even if you have decided to use plain terminology, unless you have chosen to use the term “descendant” throughout this list, you can say “son” in each case here because each of these men was the actual father of the man whose name precedes his. Alternate translation: [the son of Zerahiah, the son of Uzzi, the son of Bukki]"
@@ -3864,7 +3864,7 @@
   {
     "reference": "Ezr 7:5",
     "text": "the son of Abishua, the son of Phinehas, the son of Eleazar, the son of Aaron the chief priest—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Here again, unless you have chosen to use the term “descendant” throughout this list, you can say “son” in each case here because each of these men was the actual father of the man whose name precedes his. Alternate translation: [the son of Abishua, the son of Phinehas, the son of Eleazar, the son of Aaron]"
@@ -3890,7 +3890,7 @@
   {
     "reference": "Ezr 7:6",
     "text": "this Ezra came up from Babylon. He was a scribe skilled in the Law of Moses, which the LORD, the God of Israel, had given. The king had granted Ezra all his requests, for the hand of the LORD his God was upon him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The book says that Ezra **went up** because he needed to travel from a river valley up into the mountains in order to go from exile in Babylon to Jerusalem. Alternate translation: [this Ezra went from Babylon to Jerusalem]"
@@ -3912,7 +3912,7 @@
   {
     "reference": "Ezr 7:7",
     "text": "So in the seventh year of King Artaxerxes, he went up to Jerusalem with some of the Israelites, including priests, Levites, singers, gatekeepers, and temple servants.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-simultaneous",
         "note": "Here, **And** indicates that the event this sentence describes took place at the same time as the event the story has just related. If it would be helpful in your language, you could show this relationship in this case by using a phrase such as “At the same time … went up”"
@@ -3954,7 +3954,7 @@
   {
     "reference": "Ezr 7:8",
     "text": "Ezra arrived in Jerusalem in the fifth month of the seventh year of the king.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **he** refers to Ezra, but the statement also applies to all the others described in [7:7](../07/07.md) who were traveling with him. Alternate translation: [And they all arrived in Jerusalem]"
@@ -3976,7 +3976,7 @@
   {
     "reference": "Ezr 7:9",
     "text": "He had begun the journey from Babylon on the first day of the first month, and he arrived in Jerusalem on the first day of the fifth month, for the gracious hand of his God was upon him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-background",
         "note": "The word **for** indicates that the sentence it introduces will provide background information that will help readers appreciate what the book describes next. You can translate it with the word or phrase in your language that is most similar in meaning and significance. Alternate translation: [Now]"
@@ -4014,7 +4014,7 @@
   {
     "reference": "Ezr 7:10",
     "text": "For Ezra had set his heart to study the Law of the LORD, to practice it, and to teach its statutes and ordinances in Israel.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **For** indicates that the sentence it introduces explains the reasons for what the previous sentence described. If it would be helpful to your readers, you could express this in a fuller phrase. Alternate translation: [The reason why God blessed them was that]"
@@ -4040,7 +4040,7 @@
   {
     "reference": "Ezr 7:11",
     "text": "This is the text of the letter King Artaxerxes had given to Ezra the priest and scribe, an expert in the commandments and statutes of the LORD to Israel:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "The word **Now** introduces a new event in the story. Use an expression in your language that would be natural for introducing a new event or a change to something different."
@@ -4066,7 +4066,7 @@
   {
     "reference": "Ezr 7:12",
     "text": "Artaxerxes, king of kings. To Ezra the priest, the scribe of the Law of the God of heaven: Greetings.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "Here, the book begins to quote a letter of introduction and authorization that Artaxerxes gave to Ezra. It may be helpful to your readers to indicate this with an opening quotation mark or with whatever other punctuation or convention your language uses to indicate the beginning of a quotation."
@@ -4096,7 +4096,7 @@
   {
     "reference": "Ezr 7:13",
     "text": "I hereby decree that any volunteers among the Israelites in my kingdom, including the priests and Levites, may go up with you to Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If it would be helpful in your language, you could say this with an active form. Alternate translation: [I am issuing a decree that]"
@@ -4114,7 +4114,7 @@
   {
     "reference": "Ezr 7:14",
     "text": "You are sent by the king and his seven counselors to evaluate Judah and Jerusalem according to the Law of your God, which is in your hand.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "# Connecting Statement:\\n\\nVerses [7:14–17](../07/14.md) are one long sentence in Aramaic. The first part ([7:14–16](../07/14.md)) provides the reasons for the second part (in [7:17](../07/17.md)). If it would be helpful to your readers, you could break up that sentence into several smaller sentences. To begin with, you could make this verse a sentence of its own. To do that, you could leave off the word **Because** and express the meaning later in [verse 17](../07/17.md) with a word such as “so” or “therefore.” Alternate translation: [The king and his seven counselors are sending you to inquire about Judah and about Jerusalem by the law of your God which is in your hand.]"
@@ -4156,7 +4156,7 @@
   {
     "reference": "Ezr 7:15",
     "text": "Moreover, you are to take with you the silver and gold that the king and his counselors have freely offered to the God of Israel, whose dwelling is in Jerusalem,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Verses [7:14–17](../07/14.md) are one long sentence in Aramaic. If it would be helpful to your readers, you could break up that sentence into several parts. You could make [7:14](../07/14.md) a sentence of its own, and you could divide this verse into two sentences, with the reason first and the result second. Alternate translation: [My counselors and I have freely given silver and gold for the God of Israel who lives in Jerusalem. So I am also sending you to deliver those gifts to his temple there.]"
@@ -4174,7 +4174,7 @@
   {
     "reference": "Ezr 7:16",
     "text": "together with all the silver and gold you may find in all the province of Babylon, as well as the freewill offerings of the people and priests to the house of their God in Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "If it would be helpful to your readers, you could also divide this verse into two sentences. This phrase could be the first sentence. Here, **find** is an idiom that in this context means “can obtain.” Artaxerxes is giving Ezra permission to invite everyone in the province of Babylon to contribute. Alternate translation: [I also give you permission to ask everyone living in the province of Babylon to contribute silver and gold.]"
@@ -4204,7 +4204,7 @@
   {
     "reference": "Ezr 7:17",
     "text": "With this money, therefore, you are to buy as many bulls, rams, and lambs as needed, together with their grain offerings and drink offerings, and offer them on the altar at the house of your God in Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "# Connecting Statement:\\n\\nThe word **therefore** introduces the final part of the long sentence in [7:14–17](../07/14.md). It indicates the results of the reasons that the sentence has given so far. You can translate it with the word or phrase in your language that introduces the result of a list of reasons. However, if you have followed the suggestion to break up this long sentence into several shorter sentences, you may not need to represent that meaning here."
@@ -4238,7 +4238,7 @@
   {
     "reference": "Ezr 7:18",
     "text": "You and your brothers may do whatever seems best with the rest of the silver and gold, according to the will of your God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **brother** is a figurative way of saying “fellow Israelites,” and in context it likely refers to the other Jewish leaders who would decide with Ezra what to do with the extra money. Alternate translation: [You and your fellow Jewish leaders can decide what you think your God would like you to do with any silver and gold that is left over.]"
@@ -4260,7 +4260,7 @@
   {
     "reference": "Ezr 7:19",
     "text": "You must deliver to the God of Jerusalem all the articles given to you for the service of the house of your God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "# Connecting Statement:\\n\\nThis sentence may be introducing a contrast between what Ezra and the other Jewish leaders could do with gold and silver that people contributed in the form of money and what they had to do with gold and silver that people contributed in the form of bowls and other objects that could be used in the temple. You could begin the sentence with a word such as “however” to indicate this contrast."
@@ -4294,7 +4294,7 @@
   {
     "reference": "Ezr 7:20",
     "text": "And if anything else is needed for the house of your God that you may have occasion to supply, you may pay for it from the royal treasury.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The phrase **that falls to you to give** is an idiom that means “that you have responsibility to give,” in other words, “that you have to provide.” Alternate translation: [And anything else that you need to provide for the temple of your God]"
@@ -4320,7 +4320,7 @@
   {
     "reference": "Ezr 7:21",
     "text": "I, King Artaxerxes, decree to all the treasurers west of the Euphrates: Whatever Ezra the priest, the scribe of the Law of the God of heaven, may require of you, it must be provided promptly,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "# Connecting Statement:\\n\\nThis phrase indicates that the sentence it introduces explains the results of what the previous sentence described. Specifically, Artaxerxes has just said that Ezra may pay for additional expenses out of the royal treasury. Consequently, regarding providing funds to Ezra, he will now give instructions to the officials responsible for administering the royal revenue in the province where Jerusalem is located. Alternate translation: [Consequently, from me]"
@@ -4354,7 +4354,7 @@
   {
     "reference": "Ezr 7:22",
     "text": "up to a hundred talents of silver, a hundred cors of wheat, a hundred baths of wine, a hundred baths of olive oil, and salt without limit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Here, the king is speaking in an abbreviated, official way, and the connection to the previous verse may not be entirely clear for all readers. He is describing how much he is authorizing Ezra to ask for from the treasury in money and supplies. If it would be helpful to your readers, you could say that explicitly, and you could also make this verse a sentence of its own. Alternate translation: [I am authorizing Ezra to ask you treasurers for up to 100 kikkars of silver, 100 cors of wheat, 100 baths of wine, 100 baths of oil, and an unlimited amount of salt.]"
@@ -4380,7 +4380,7 @@
   {
     "reference": "Ezr 7:23",
     "text": "Whatever is commanded by the God of heaven must be done diligently for His house. For why should wrath fall on the realm of the king and his sons?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If it would be helpful in your language, you could say this with an active form, and you could say who would do the action. Alternate translation: [I want you to make sure that the Jewish leaders have the funds they need to do everything that the God who rules in heaven has commanded regarding worship in his temple]"
@@ -4422,7 +4422,7 @@
   {
     "reference": "Ezr 7:24",
     "text": "And be advised that you have no authority to impose tribute, duty, or toll on any of the priests, Levites, singers, doorkeepers, temple servants, or other servants of this house of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If it would be helpful in your language, you could say this with an active form, and you could say who is doing the action. Alternate translation: [I am also declaring to you]"
@@ -4456,7 +4456,7 @@
   {
     "reference": "Ezr 7:25",
     "text": "And you, Ezra, according to the wisdom of your God, which you possess, are to appoint magistrates and judges to judge all the people west of the Euphrates—all who know the laws of your God. And you are to teach these laws to anyone who does not know them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-you",
         "note": "# Connecting Statement:\\n\\nThe king now returns to address Ezra personally, so **you** refers to him here, and is singular, The three instances of **your** in this verse are also singular, as is the verb **appoint**. Only the phrase **you shall teach** is plural, referring to Ezra and to those whom he will appoint. If your language distinguishes between levels of social status, the form for a superior addressing a respected individual would be appropriate."
@@ -4490,7 +4490,7 @@
   {
     "reference": "Ezr 7:26",
     "text": "If anyone does not keep the law of your God and the law of the king, let a strict judgment be executed against him, whether death, banishment, confiscation of property, or imprisonment.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that the Jews in Judah and Jerusalem will still be governed by Persian law in addition to the law of Moses, but Artaxerxes is giving Ezra the authority to appoint judges who will administer and enforce both sets of laws. In this way, members of the Jewish community will have Jewish judges. Alternate translation: [The judges you appoint are diligently to punish anyone who refuses to obey the law of your God or my decrees]"
@@ -4516,7 +4516,7 @@
   {
     "reference": "Ezr 7:27",
     "text": "Blessed be the LORD, the God of our fathers, who has put into the heart of the king to so honor the house of the LORD in Jerusalem,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-participants",
         "note": "Previously in the book, Ezra has been a character in a story that someone else has been telling. Here he becomes the person telling the story, and he continues to tell it through to the end of [chapter 9](../09/01.md). In effect, the letter of introduction that King Artaxerxes wrote for him has been his introduction to us as well. The book does not say specifically that Ezra will now be the narrator, although one indication is that when Ezra is telling the story, he refers to himself as “I” and to the Jewish community as “us.” Another indication is that the book is now written in Hebrew again. But if it would be helpful to your readers, you could add a phrase to indicate this. Alternate translation: [When I, Ezra, received this letter from the king, I prayed, ‘Thank you, Yahweh, the God of our ancestors]"
@@ -4550,7 +4550,7 @@
   {
     "reference": "Ezr 7:28",
     "text": "and who has shown me favor before the king, his counselors, and all his powerful officials. And because the hand of the LORD my God was upon me, I took courage and gathered the leaders of Israel to return with me.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "Here, the abstract noun **faithfulness** refers to a person wanting to do everything that they can to help another person. As in [3:11](../03/11.md), **covenant faithfulness** refers specifically to Yahweh doing that for the people of Israel in order to keep the promises that he had made to them. If it would be helpful in your language, you could translate the idea behind this word with a verb such as **help**. Alternate translation: [and helped me get everything I needed from the king, as I was in his presence and in the presence of his counselors and mighty officials]"
@@ -4584,7 +4584,7 @@
   {
     "reference": "Ezr 8:1",
     "text": "These are the family heads and genealogical records of those who returned with me from Babylon during the reign of King Artaxerxes:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "The word **Now** introduces a new event in the story. Use a natural method in your language to introduce a new event here."
@@ -4610,7 +4610,7 @@
   {
     "reference": "Ezr 8:2",
     "text": "from the descendants of Phinehas, Gershom; from the descendants of Ithamar, Daniel; from the descendants of David, Hattush",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [From the descendants of Phinehas, Gershom]"
@@ -4640,7 +4640,7 @@
   {
     "reference": "Ezr 8:3",
     "text": "of the descendants of Shecaniah; from the descendants of Parosh, Zechariah, and with him were registered 150 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This could mean one of two things. (1) The phrase **from the sons of Shecaniah** probably applies to the end of the previous verse. [1 Chronicles 3:19–22](../../1ch/03/19.md) shows that Hattush was the grandson of Shecaniah, and that Shecaniah was either the grandson or a more distant descendant of Zerubbabel, who was a descendant of King David. (As several of the following verses show, further information like this may be provided about the clan leaders on this list.) So the end of [8:2](../08/02.md) and the beginning of [8:3](../08/03.md) could read: “From the descendants of King David, Hattush, one of the descendants of Shecaniah” or (2) It could mean that Zechariah was the clan leader of the descendants of Shecaniah, and that they were all descendants of a more remote ancestor named Parosh. Alternate translation: [From the descendants of Shecaniah, who were descendants of Parosh, Zechariah]"
@@ -4662,7 +4662,7 @@
   {
     "reference": "Ezr 8:4",
     "text": "from the descendants of Pahath-Moab, Eliehoenai son of Zerahiah, and with him 200 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants,” but **son** most likely means a biological son. Alternate translation: [From the descendants of Pahath-Moab, Eliehoenai the son of Zerahiah]"
@@ -4680,7 +4680,7 @@
   {
     "reference": "Ezr 8:5",
     "text": "from the descendants of Zattu, Shecaniah son of Jahaziel, and with him 300 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants,” but **son** most likely means a biological son. Alternate translation: [From the descendants of Shecaniah, the son of Jahaziel]"
@@ -4702,7 +4702,7 @@
   {
     "reference": "Ezr 8:6",
     "text": "from the descendants of Adin, Ebed son of Jonathan, and with him 50 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants,” but **son** most likely means a biological son. Alternate translation: [From the descendants of Adin, Ebed the son of Jonathan]"
@@ -4720,7 +4720,7 @@
   {
     "reference": "Ezr 8:7",
     "text": "from the descendants of Elam, Jeshaiah son of Athaliah, and with him 70 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants,” but **son** most likely means a biological son. Alternate translation: [From the descendants of Elam, Jeshaiah the son of Athaliah]"
@@ -4738,7 +4738,7 @@
   {
     "reference": "Ezr 8:8",
     "text": "from the descendants of Shephatiah, Zebadiah son of Michael, and with him 80 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants,” but **son** most likely means a biological son. Alternate translation: [From the descendants of Shephatiah, Zebadiah the son of Michael]"
@@ -4756,7 +4756,7 @@
   {
     "reference": "Ezr 8:9",
     "text": "from the descendants of Joab, Obadiah son of Jehiel, and with him 218 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants,” but **son** most likely means a biological son. Alternate translation: [From the descendants of Joab, Obadiah the son of Jehiel]"
@@ -4774,7 +4774,7 @@
   {
     "reference": "Ezr 8:10",
     "text": "from the descendants of Bani, Shelomith son of Josiphiah, and with him 160 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants”, but **son** most likely means a biological son. Alternate translation: [From the descendants of Shelomith, the son of Josiphiah]"
@@ -4796,7 +4796,7 @@
   {
     "reference": "Ezr 8:11",
     "text": "from the descendants of Bebai, Zechariah son of Bebai, and with him 28 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants,” but **son** most likely means a biological son. Alternate translation: [From the descendants of Bebai, Zechariah the son of Bebai]"
@@ -4814,7 +4814,7 @@
   {
     "reference": "Ezr 8:12",
     "text": "from the descendants of Azgad, Johanan son of Hakkatan, and with him 110 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants,” but **son** most likely means a biological son. Alternate translation: [From the descendants of Azgad, Johanan the son of Hakkatan]"
@@ -4832,7 +4832,7 @@
   {
     "reference": "Ezr 8:13",
     "text": "from the later descendants of Adonikam, these were their names: Eliphelet, Jeiel, and Shemaiah, and with them 60 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that some descendants of Adonikam had still remained in Babylon even after a large number of his descendants returned to Judah with Zerubbabel some time before this, as [2:13](../02/13.md) describes. The term **last** here indicates that these who had remained in Babylon now came with Ezra. Alternate translation: [And from the descendants of Adonikam who had remained in Babylon, the family leaders Eliphelet, Jeuel, and Shemaiah]"
@@ -4850,7 +4850,7 @@
   {
     "reference": "Ezr 8:14",
     "text": "and from the descendants of Bigvai, both Uthai and Zaccur, and with them 70 men.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "**Sons** here means “descendants.” Alternate translation: [From the descendants of Bigvai, Uthai and Zaccur]"
@@ -4864,7 +4864,7 @@
   {
     "reference": "Ezr 8:15",
     "text": "Now I assembled these exiles at the canal that flows to Ahava, and we camped there three days. And when I searched among the people and priests, I found no Levites there.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "**Them** means everyone listed in [8:2–14](../08/02.md), everyone who would be traveling with Ezra. The implication is that they all packed for the trip and set out from their homes, but then assembled at a location outside of the city of Babylon where Ezra could make sure the group was ready for the trip. If it would be helpful to your readers, you could say that explicitly. Alternate translation: [I had everyone who was going to be traveling with me assemble on the banks of the river that flows from Babylon to Ahava. We camped there for three days so that I could make sure that we had enough temple personnel with us and that we could transport the gold and silver safely]"
@@ -4894,7 +4894,7 @@
   {
     "reference": "Ezr 8:16",
     "text": "Then I summoned the leaders: Eliezer, Ariel, Shemaiah, Elnathan, Jarib, Elnathan, Nathan, Zechariah, and Meshullam, as well as the teachers Joiarib and Elnathan.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **then** indicates that the sentence it introduces explains what Ezra did as a result of what the previous sentence described. Alternate translation: [As a result]"
@@ -4920,7 +4920,7 @@
   {
     "reference": "Ezr 8:17",
     "text": "And I sent them to Iddo, the leader at Casiphia, with a message for him and his kinsmen, the temple servants at Casiphia, that they should bring to us ministers for the house of our God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication, since Ezra is trying to recruit Levites, is that Iddo was the leader of the Levites in that place. If it would be helpful to your readers, you could say that explicitly. Alternate translation: [them to speak to a man named Iddo, who was the leader of the Levites at a place called Kasiphia]"
@@ -4954,7 +4954,7 @@
   {
     "reference": "Ezr 8:18",
     "text": "And since the gracious hand of our God was upon us, they brought us Sherebiah—a man of insight from the descendants of Mahli son of Levi, the son of Israel—along with his sons and brothers, 18 men;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This word indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [As a result … they brought]"
@@ -4988,7 +4988,7 @@
   {
     "reference": "Ezr 8:19",
     "text": "also Hashabiah, together with Jeshaiah, from the descendants of Merari, and his brothers and their sons, 20 men.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [and they also sent us Hashabiah and Jeshaiah, from the descendants of Merari]"
@@ -5006,7 +5006,7 @@
   {
     "reference": "Ezr 8:20",
     "text": "They also brought 220 of the temple servants, all designated by name. David and the officials had appointed them to assist the Levites.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-background",
         "note": "Here Ezra provides some background information to help identify who these **temple servants** were. Alternate translation: [and they also brought 220 men who were from the families that David and his officials had assigned to help the Levites long ago]"
@@ -5020,7 +5020,7 @@
   {
     "reference": "Ezr 8:21",
     "text": "And there by the Ahava Canal I proclaimed a fast, so that we might humble ourselves before our God and ask Him for a safe journey for us and our children, with all our possessions.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **then** indicates that the event the story will now relate came after the event it has just described. In your translation, you can use the expression in your language that would best indicate this relationship."
@@ -5058,7 +5058,7 @@
   {
     "reference": "Ezr 8:22",
     "text": "For I was ashamed to ask the king for an escort of soldiers and horsemen to protect us from our enemies on the road, since we had told him, “The hand of our God is gracious to all who seek Him, but His great anger is against all who forsake Him.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **For** indicates that the sentence it introduces explains the reasons for what the previous sentence described. Alternate translation: [I did this because]"
@@ -5120,7 +5120,7 @@
   {
     "reference": "Ezr 8:23",
     "text": "So we fasted and petitioned our God about this, and He granted our request.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **So** indicates that the sentence it introduces explains the results of what the previous sentence described. Because Ezra was embarrassed to ask the king for protection, he and his fellow travelers earnestly prayed and fasted for God’s protection. Alternate translation: [For this reason, we fasted]"
@@ -5146,7 +5146,7 @@
   {
     "reference": "Ezr 8:24",
     "text": "Then I set apart twelve of the leading priests, together with Sherebiah, Hashabiah, and ten of their brothers,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **Then** indicates that the event the story will now relate came after the event it has just described. In your translation, you can use the expression in your language that would best indicate this relationship."
@@ -5172,7 +5172,7 @@
   {
     "reference": "Ezr 8:25",
     "text": "and I weighed out to them the contribution of silver and gold and the articles that the king, his counselors, his leaders, and all the Israelites there had offered for the house of our God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-bmoney",
         "note": "Ezra says he **weighed out** the money to the priests and Levites because ancient units of money such as the kikkar and the daric were actually units of the weight of precious metals. The value of the gold and silver objects would similarly have depended on their weight. Alternate translation: [I divided up the silver and gold and objects into 24 portions of equal value and gave one to each of the priests and Levites whom I had selected to transport them.]"
@@ -5206,7 +5206,7 @@
   {
     "reference": "Ezr 8:26",
     "text": "I weighed out into their hands 650 talents of silver, articles of silver weighing 100 talents, 100 talents of gold,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "While Ezra likely did literally place the money and the objects in the hands of the priests and Levites, **hand** here represents control and action. Alternate translation: [I entrusted to them for safe delivery]"
@@ -5224,7 +5224,7 @@
   {
     "reference": "Ezr 8:27",
     "text": "20 gold bowls valued at 1,000 darics, and two articles of fine polished bronze, as precious as gold.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-bmoney",
         "note": "1,000 darics was the total value of the 20 bowls, not the value of each one. Here again you could express the amount using the ancient measurement, the daric, and explain in a note that it was equivalent to about 8 or 8.5 grams, or about a quarter of an ounce. Alternatively, you could specify the weight of the gold in the text, as UST does. Alternate translation: [20 golden bowls worth a total of 1,000 darics]"
@@ -5234,7 +5234,7 @@
   {
     "reference": "Ezr 8:28",
     "text": "Then I told them, “You are holy to the LORD, and these articles are holy. The silver and gold are a freewill offering to the LORD, the God of your fathers.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "This phrase indicates that the event the story will now relate came after the event it has just described. Ezra first weighed out the silver and gold and objects to the Levites, then he spoke the following words to them. In your translation, you can use the expression in your language that would best indicate this time sequence."
@@ -5256,7 +5256,7 @@
   {
     "reference": "Ezr 8:29",
     "text": "Guard them carefully until you weigh them out in the chambers of the house of the LORD in Jerusalem before the leading priests, Levites, and heads of the Israelite families.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Here Ezra leaves out some of the words that a sentence would ordinarily need in order to be complete. He is describing what the priests and Levites must do with the objects, the silver, and the gold that were devoted to Yahweh. You could indicate that explicitly if it would be helpful to your readers. Alternate translation: [Take good care of those things]"
@@ -5290,7 +5290,7 @@
   {
     "reference": "Ezr 8:30",
     "text": "So the priests and Levites took charge of the silver and gold and sacred articles that had been weighed out to be taken to the house of our God in Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **So** indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [In keeping with what Ezra told them, the priests and the Levites took]"
@@ -5312,7 +5312,7 @@
   {
     "reference": "Ezr 8:31",
     "text": "On the twelfth day of the first month we set out from the Ahava Canal to go to Jerusalem, and the hand of our God was upon us to protect us from the hands of the enemies and bandits along the way.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "As Ezra tells his story, he uses **we** and **us** in the exclusive sense, that is, it excludes the reader. Alternate translation: [Then we started traveling]"
@@ -5354,7 +5354,7 @@
   {
     "reference": "Ezr 8:32",
     "text": "So we arrived at Jerusalem and rested there for three days.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **so** indicates that the sentence it introduces explains the results of what the previous sentence described. The group reached Jerusalem safely because God protected them. Alternate translation: [As a result, we came]"
@@ -5372,7 +5372,7 @@
   {
     "reference": "Ezr 8:33",
     "text": "On the fourth day, in the house of our God, we weighed out the silver and gold and sacred articles into the hand of Meremoth son of Uriah, the priest. Eleazar son of Phinehas was with him, along with the Levites Jozabad son of Jeshua and Noadiah son of Binnui.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If it would be helpful in your language, you could say this with an active form, and you could say who did the action. Alternate translation: [each of the priests and Levites weighed out the silver and gold and objects that they had transported]"
@@ -5406,7 +5406,7 @@
   {
     "reference": "Ezr 8:34",
     "text": "Everything was verified by number and weight, and the total weight was recorded at that time.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This means that the objects and the bars or coins of silver and gold were both counted and weighed. The implication is that this was a double confirmation of the honesty of the priests and Levites who had transported these donations. If it would be helpful to your readers, you could say that explicitly. Alternate translation: [everything was both counted and weighed as proof that the men who had carried it had not lost or stolen anything]"
@@ -5420,7 +5420,7 @@
   {
     "reference": "Ezr 8:35",
     "text": "Then the exiles who had returned from captivity sacrificed burnt offerings to the God of Israel: 12 bulls for all Israel, 96 rams, 77 lambs, and a sin offering of 12 male goats. All this was a burnt offering to the LORD.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two phrases mean the same thing. If saying the same thing twice might be confusing for your readers, you can combine the phrases into one. Alternate translation: [The Jews who had returned from exile]"
@@ -5446,7 +5446,7 @@
   {
     "reference": "Ezr 8:36",
     "text": "They also delivered the king’s edicts to the royal satraps and governors of the region west of the Euphrates, who proceeded to assist the people and the house of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **the laws of the king** seem to mean the decrees that Artaxerxes issued in the letter he gave to Ezra, and specifically the provisions that allowed Ezra to ask for support for the temple, exempted temple personnel from taxation, and allowed Ezra to appoint judges. If it would be helpful to your readers, you could say that explicitly. Alternate translation: [Ezra and the Jewish leaders informed the royal officials and governors in Beyond-the-River province of the decrees that Artaxerxes had issued in his letter to Ezra]"
@@ -5468,7 +5468,7 @@
   {
     "reference": "Ezr 9:1",
     "text": "After these things had been accomplished, the leaders approached me and said, “The people of Israel, including the priests and Levites, have not kept themselves separate from the surrounding peoples whose abominations are like those of the Canaanites, Hittites, Perizzites, Jebusites, Ammonites, Moabites, Egyptians, and Amorites.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "This phrase indicates that the events the story will now relate came right after the events it has just described. In your translation, you can use the expression in your language that would best indicate this relationship."
@@ -5506,7 +5506,7 @@
   {
     "reference": "Ezr 9:2",
     "text": "Indeed, the Israelites have taken some of their daughters as wives for themselves and their sons, so that the holy seed has been mixed with the people of the land. And the leaders and officials have taken the lead in this unfaithfulness!”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, **For** indicates that the sentence it introduces explains the reasons for the statement that the leaders make in the previous sentence. Alternate translation: [You see,]"
@@ -5556,7 +5556,7 @@
   {
     "reference": "Ezr 9:3",
     "text": "When I heard this report, I tore my tunic and cloak, pulled out some hair from my head and beard, and sat down in horror.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-symaction",
         "note": "By performing these actions, Ezra was demonstrating symbolically how serious a wrong the Israelites had committed. If it would be helpful to your readers, you could say this explicitly. Alternate translation: [to show how wrong it was for the Israelites to have married foreign women, I tore my tunic and my cloak, I pulled out some hair from my head and my beard, and I sat down stunned]"
@@ -5570,7 +5570,7 @@
   {
     "reference": "Ezr 9:4",
     "text": "Then everyone who trembled at the words of the God of Israel gathered around me because of the unfaithfulness of the exiles, while I sat there in horror until the evening offering.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If it would be helpful in your language, you could say this with an active form. Alternate translation: [Everyone came and joined me who was just as distressed as I was about the way the Jews who had returned from exile had disobeyed the commandments of the God of Israel]"
@@ -5600,7 +5600,7 @@
   {
     "reference": "Ezr 9:5",
     "text": "At the evening offering, I got up from my humiliation with my tunic and cloak torn, and I fell on my knees, spread out my hands to the LORD my God,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Even though Ezra had been sitting down and he now got up, in this context the word **arise** means more than that. As in [1:5](../01/05.md), [3:2](../03/02.md), and [5:2](../05/02.md), it means to take action to get an enterprise under way. Ezra had been sitting motionless to show how ashamed and upset he was. Now he began to take action to address the situation that the clan leaders had told him about. Alternate translation: [I stopped sitting motionless in my torn clothes and began to do something about the situation]"
@@ -5618,7 +5618,7 @@
   {
     "reference": "Ezr 9:6",
     "text": "and said: “O my God, I am ashamed and embarrassed to lift up my face to You, my God, because our iniquities are higher than our heads, and our guilt has reached the heavens.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "After this phrase Ezra begins to quote what he said out loud in prayer on this occasion. The quotation continues through [9:15](../09/15.md). It may be helpful to your readers to indicate this with an opening quotation mark or with whatever other punctuation or convention your language uses to indicate the beginning of a quotation."
@@ -5668,7 +5668,7 @@
   {
     "reference": "Ezr 9:7",
     "text": "From the days of our fathers to this day, our guilt has been great. Because of our iniquities, we and our kings and priests have been delivered into the hands of the kings of the earth and subjected to the sword and to captivity, to pillage and humiliation, as we are this day.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The term **days** is used here to refer a particular period of time. Alternate translation: [From the time when our ancestors lived]"
@@ -5738,7 +5738,7 @@
   {
     "reference": "Ezr 9:8",
     "text": "But now, for a brief moment, grace has come from the LORD our God to preserve for us a remnant and to give us a stake in His holy place. Even in our bondage, our God has given us new life and light to our eyes.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The phrase **But now** indicates that the sentence that it introduces draws a contrast between what the Israelites had been experiencing in the past and what God was now doing. Use a natural way in your language to indicate this contrast."
@@ -5804,7 +5804,7 @@
   {
     "reference": "Ezr 9:9",
     "text": "Though we are slaves, our God has not forsaken us in our bondage, but He has extended to us grace in the sight of the kings of Persia, giving us new life to rebuild the house of our God and repair its ruins, and giving us a wall of protection in Judah and Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hyperbole",
         "note": "Ezra describes the Jewish people as **slaves**, which is an exaggeration that he uses to express humility before God. It is true that their ancestors were taken as captives to Babylon where they were forced to serve the king, and that even now they must do as the king commands, but those who have returned to Judah are allowed to manage their own daily affairs. Alternate translation: [The Babylonians made our people to be slaves]"
@@ -5858,7 +5858,7 @@
   {
     "reference": "Ezr 9:10",
     "text": "And now, our God, what can we say after this? For we have forsaken the commandments",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Ezra is making a statement, not really asking a question. He does not expect God to tell him what excuses he can give for the disobedience of the Israelites. Instead, he is using the question form to emphasize that the Israelites really have no excuses. If it would be helpful in your language, you could translate these words as a statement. Alternate translation: [So now, our God, we really have no excuses, after all of this.]"
@@ -5876,7 +5876,7 @@
   {
     "reference": "Ezr 9:11",
     "text": "that You gave through Your servants the prophets, saying: ‘The land that you are entering to possess is a land polluted by the impurity of its peoples and the abominations with which they have filled it from end to end.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **hand** represents control and action. This expression means that God gave these commandments by having the prophets speak them to the people of Israel. Alternate translation: [which you told your servants, the prophets, to speak to us]"
@@ -5914,7 +5914,7 @@
   {
     "reference": "Ezr 9:12",
     "text": "Now, therefore, do not give your daughters in marriage to their sons or take their daughters for your sons. Never seek their peace or prosperity, so that you may be strong and may eat the good things of the land, leaving it as an inheritance to your sons forever.’",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "In this verse, Ezra continues quoting the prophets. The phrase **So now** introduces the results of what the previous sentence described. Use a connector in your language that can introduce a resulting action. Alternate translation: [Therefore] or [As a result]"
@@ -5960,7 +5960,7 @@
   {
     "reference": "Ezr 9:13",
     "text": "After all that has come upon us because of our evil deeds and our great guilt (though You, our God, have punished us less than our iniquities deserve and have given us such a remnant as this),",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase **all that has come upon us** refers to the punishments that Ezra mentioned in [9:7](../09/07.md). If it would be helpful in your language, you could make that information explicit. Alternate translation: [all of the things with which you punished us] or [everything that you allowed to happen to us]"
@@ -5982,7 +5982,7 @@
   {
     "reference": "Ezr 9:14",
     "text": "shall we again break Your commandments and intermarry with the peoples who commit these abominations? Would You not become so angry with us as to wipe us out, leaving no remnant or survivor?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Ezra is making a statement, not really asking a question. He does not expect God to tell him whether the people should once again disobey. Instead, he is using the question form to emphasize how important it is for them to stop intermarrying with the other people groups. If it would be helpful in your language, you could translate these words as a statement or as an exclamation. Alternate translation: [we certainly should not break your commandments again by intermarrying with peoples who do things that you cannot stand!]"
@@ -6008,7 +6008,7 @@
   {
     "reference": "Ezr 9:15",
     "text": "O LORD, God of Israel, You are righteous! For we remain this day as a remnant. Here we are before You in our guilt, though because of it no one can stand before You.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be helpful in your language, you could reverse the order of these phrases since the second phrase gives the reason for what the first phrase says. Alternate translation: [But you have ensured that a group of us would survive, just as we are right now, so we acknowledge that you, Yahweh, the God of Israel, are righteous]"
@@ -6038,7 +6038,7 @@
   {
     "reference": "Ezr 10:1",
     "text": "While Ezra prayed and made this confession, weeping and falling facedown before the house of God, a very large assembly of Israelites—men, women, and children—gathered around him, and the people wept bitterly as well.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-participants",
         "note": "Previously in the book, Ezra was a character in a story that someone else was telling. Then starting from [7:27](../07/27.md) he is the person telling the story, and he continues to tell it through to the end of [chapter 9](../09/01.md). Now from here to the end of the book, the story changes back to someone else talking about Ezra as a character in the story. If it would be helpful to your readers, you could continue to translate this chapter as though Ezra were telling it. Alternate translation: [And when I prayed]"
@@ -6068,7 +6068,7 @@
   {
     "reference": "Ezr 10:2",
     "text": "Then Shecaniah son of Jehiel, an Elamite, said to Ezra: “We have been unfaithful to our God by marrying foreign women from the people of the land, yet in spite of this, there is hope for Israel.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **then** indicates that the events the story will now relate came after the events it has just described. In your translation, you can use the expression in your language that would best indicate this relationship."
@@ -6126,7 +6126,7 @@
   {
     "reference": "Ezr 10:3",
     "text": "So now let us make a covenant before our God to send away all the foreign wives and their children, according to the counsel of my lord and of those who tremble at the command of our God. Let it be done according to the Law.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This is a Hebrew idiom that means “to make or enter into a covenant,” which is a solemn agreement between two parties. Alternate translation: [let us make a solemn agreement]"
@@ -6160,7 +6160,7 @@
   {
     "reference": "Ezr 10:4",
     "text": "Get up, for this matter is your responsibility, and we will support you. Be strong and take action!”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, as in several other places in the book, **arise** means to take action to get an enterprise under way. It could also mean to physically arise, since Ezra was lying prostrate on the ground. Alternate translation: [Get up and do something about this situation]"
@@ -6190,7 +6190,7 @@
   {
     "reference": "Ezr 10:5",
     "text": "So Ezra got up and made the leading priests, Levites, and all Israel take an oath to do what had been said. And they took the oath.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **And** indicates that the sentence it introduces explains the results of what the previous sentences described. Alternate translation: [As a result]"
@@ -6216,7 +6216,7 @@
   {
     "reference": "Ezr 10:6",
     "text": "Then Ezra withdrew from before the house of God and walked to the chamber of Jehohanan son of Eliashib. And while he stayed there, he ate no food and drank no water, because he was mourning over the unfaithfulness of the exiles.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "As in [10:1](../10/01.md), **face** here means the front of a place. Alternate translation: [from in front of the temple]"
@@ -6262,7 +6262,7 @@
   {
     "reference": "Ezr 10:7",
     "text": "And a proclamation was issued throughout Judah and Jerusalem that all the exiles should gather at Jerusalem.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "As in [1:1](../01/01.md), this **sound** is the voice of messengers who speak a message, and it represents the message that the messengers speak. Refer to whichever is natural in your language: the message, the messenger, or the messenger’s voice. Alternate translation: [They sent messengers throughout Judah and Jerusalem]"
@@ -6280,7 +6280,7 @@
   {
     "reference": "Ezr 10:8",
     "text": "Whoever failed to appear within three days would forfeit all his property, according to the counsel of the leaders and elders, and would himself be expelled from the assembly of the exiles.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [as the leaders and elders had specified that they must]"
@@ -6310,7 +6310,7 @@
   {
     "reference": "Ezr 10:9",
     "text": "So within the three days, all the men of Judah and Benjamin assembled in Jerusalem, and on the twentieth day of the ninth month, all the people sat in the square at the house of God, trembling regarding this matter and because of the heavy rain.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **so** indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [As a result … gathered]"
@@ -6348,7 +6348,7 @@
   {
     "reference": "Ezr 10:10",
     "text": "Then Ezra the priest stood up and said to them, “You have been unfaithful by marrying foreign women, adding to the guilt of Israel.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-symaction",
         "note": "By standing up in front of the assembly, Ezra was indicating that the meeting was starting and that he was leading it. Alternate translation: [Then Ezra stood up in front of the assembly as its leader and said to the people]"
@@ -6378,7 +6378,7 @@
   {
     "reference": "Ezr 10:11",
     "text": "Now, therefore, make a confession to the LORD, the God of your fathers, and do His will. Separate yourselves from the people of the land and from your foreign wives.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "In this context, **give praise** is an idiom that means “make confession.” The two ideas are closely related because, as one praises God for his holiness, at the same time one acknowledges one’s own lack of holiness. Alternate translation: [confess to Yahweh, the God of your ancestors, that you have sinned]"
@@ -6404,7 +6404,7 @@
   {
     "reference": "Ezr 10:12",
     "text": "And the whole assembly responded in a loud voice: “Truly we must do as you say!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hendiadys",
         "note": "See how you translated this expression in [10:2](../10/02.md). Alternate translation: [Then … responded]"
@@ -6422,7 +6422,7 @@
   {
     "reference": "Ezr 10:13",
     "text": "But there are many people here, and it is the rainy season. We are not able to stay out in the open. Nor is this the work of one or two days, for we have transgressed greatly in this matter.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The people were all shouting their agreement with Ezra in [verse 12](../10/12.md), but now in [verses 13](../10/13.md) and [14](../10/14.md) it seems that one person speaks on behalf of the group, rather than all of them shouting this together. If it would be helpful in your language, you could indicate this change of speaker, as in the UST. If you do this, you may need to add a mark that indicates a closing quotation at the end of [verse 12](../10/12.md) and another mark that indicates an opening quotation before this word."
@@ -6452,7 +6452,7 @@
   {
     "reference": "Ezr 10:14",
     "text": "Let our leaders represent the whole assembly. Then let everyone in our towns who has married a foreign woman come at an appointed time, together with the elders and judges of each town, until the fierce anger of our God in this matter is turned away from us.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **stand for** is an idiom that means “represent.” (In [10:16](../10/16.md) it explains specifically how the community arranged for its leaders to be its representatives.) Alternate translation: [Let our leaders represent all of us]"
@@ -6486,7 +6486,7 @@
   {
     "reference": "Ezr 10:15",
     "text": "(Only Jonathan son of Asahel and Jahzeiah son of Tikvah, supported by Meshullam and Shabbethai the Levite, opposed this plan.)",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-exceptions",
         "note": "The word **only** indicates that the sentence it introduces makes an exception from the larger group that was mentioned before. In [10:12](../10/12.md) it appeared that the whole group was in agreement, but now we find out that there were four men who did not agree. Use a natural way to indicate this contrast that makes it clear that there were two men who opposed the idea, then two more joined them in opposing the idea. Alternate translation: [But a few, namely,]"
@@ -6516,7 +6516,7 @@
   {
     "reference": "Ezr 10:16",
     "text": "So the exiles did as proposed. Ezra the priest selected men who were family heads, each of them identified by name, to represent their families. On the first day of the tenth month they launched the investigation,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "See how you translated the expression **the sons of the exile** in [10:7](../10/07.md). Alternate translation: [So the Jews who had returned to their homeland did what their assembly had decided]"
@@ -6558,7 +6558,7 @@
   {
     "reference": "Ezr 10:17",
     "text": "and by the first day of the first month they had dealt with all the men who had married foreign women.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "**Finished with** is an idiom here. Alternate translation: [they succeeded in identifying all the men]"
@@ -6584,7 +6584,7 @@
   {
     "reference": "Ezr 10:18",
     "text": "Among the descendants of the priests who had married foreign women were found these descendants of Jeshua son of Jozadak and his brothers: Maaseiah, Eliezer, Jarib, and Gedaliah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If it would be helpful in your language, you could say this with an active form, and you could say who did the action. Alternate translation: [The clan leaders identified some men from among]"
@@ -6610,7 +6610,7 @@
   {
     "reference": "Ezr 10:19",
     "text": "They pledged to send their wives away, and for their guilt they presented a ram from the flock as a guilt offering.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **So** indicates that the sentence it introduces explains the results of what the previous sentence described. Alternate translation: [As a result, they gave]"
@@ -6636,7 +6636,7 @@
   {
     "reference": "Ezr 10:20",
     "text": "From the descendants of Immer: Hanani and Zebadiah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [From the descendants of Immer]"
@@ -6650,7 +6650,7 @@
   {
     "reference": "Ezr 10:21",
     "text": "From the descendants of Harim: Maaseiah, Elijah, Shemaiah, Jehiel, and Uzziah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [And from the descendants of Harim]"
@@ -6664,7 +6664,7 @@
   {
     "reference": "Ezr 10:22",
     "text": "From the descendants of Pashhur: Elioenai, Maaseiah, Ishmael, Nethanel, Jozabad, and Elasah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [And from the descendants of Pashhur]"
@@ -6678,7 +6678,7 @@
   {
     "reference": "Ezr 10:23",
     "text": "Among the Levites: Jozabad, Shimei, Kelaiah (that is, Kelita), Pethahiah, Judah, and Eliezer.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "See how you translated **Levites** in [2:40](../02/40.md). Review the explanation in the note there if that would be helpful."
@@ -6692,7 +6692,7 @@
   {
     "reference": "Ezr 10:24",
     "text": "From the singers: Eliashib. From the gatekeepers: Shallum, Telem, and Uri.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "The term **singers** refers to the same occupational group as in [2:41](../02/41.md). Review the explanation in the note there if that would be helpful."
@@ -6714,7 +6714,7 @@
   {
     "reference": "Ezr 10:25",
     "text": "And among the other Israelites, from the descendants of Parosh: Ramiah, Izziah, Malchijah, Mijamin, Eleazar, Malchijah, and Benaiah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "All of the men in the lists in this chapter were Israelites. So the phrase **from Israel** refers to the other Israelite men who did not belong to the clans or groups mentioned in the previous lists. If it would be helpful for your readers, you could make this clear in your translation. Alternate translation: [These were from the rest of the Israelites]"
@@ -6732,7 +6732,7 @@
   {
     "reference": "Ezr 10:26",
     "text": "From the descendants of Elam: Mattaniah, Zechariah, Jehiel, Abdi, Jeremoth, and Elijah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [From the descendants of Elam]"
@@ -6746,7 +6746,7 @@
   {
     "reference": "Ezr 10:27",
     "text": "From the descendants of Zattu: Elioenai, Eliashib, Mattaniah, Jeremoth, Zabad, and Aziza.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [From the descendants of Zattu]"
@@ -6760,7 +6760,7 @@
   {
     "reference": "Ezr 10:28",
     "text": "From the descendants of Bebai: Jehohanan, Hananiah, Zabbai, and Athlai.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [from the descendants of Bebai]"
@@ -6774,7 +6774,7 @@
   {
     "reference": "Ezr 10:29",
     "text": "From the descendants of Bani: Meshullam, Malluch, Adaiah, Jashub, Sheal, and Jeremoth.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [From the descendants of Bani]"
@@ -6788,7 +6788,7 @@
   {
     "reference": "Ezr 10:30",
     "text": "From the descendants of Pahath-moab: Adna, Chelal, Benaiah, Maaseiah, Mattaniah, Bezalel, Binnui, and Manasseh.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [From the descendants of Pahath-Moab]"
@@ -6802,7 +6802,7 @@
   {
     "reference": "Ezr 10:31",
     "text": "From the descendants of Harim: Eliezer, Isshijah, Malchijah, Shemaiah, Shimeon,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [From the descendants of Harim]"
@@ -6816,7 +6816,7 @@
   {
     "reference": "Ezr 10:32",
     "text": "Benjamin, Malluch, and Shemariah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of three men."
@@ -6826,7 +6826,7 @@
   {
     "reference": "Ezr 10:33",
     "text": "From the descendants of Hashum: Mattenai, Mattattah, Zabad, Eliphelet, Jeremai, Manasseh, and Shimei.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [From the descendants of Hashum]"
@@ -6840,7 +6840,7 @@
   {
     "reference": "Ezr 10:34",
     "text": "From the descendants of Bani: Maadai, Amram, Uel,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [From the descendants of Bani]"
@@ -6854,7 +6854,7 @@
   {
     "reference": "Ezr 10:35",
     "text": "Benaiah, Bedeiah, Cheluhi,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of three men."
@@ -6864,7 +6864,7 @@
   {
     "reference": "Ezr 10:36",
     "text": "Vaniah, Meremoth, Eliashib,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of three men."
@@ -6874,7 +6874,7 @@
   {
     "reference": "Ezr 10:37",
     "text": "Mattaniah, Mattenai, and Jaasu.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of three men."
@@ -6884,7 +6884,7 @@
   {
     "reference": "Ezr 10:38",
     "text": "From the descendants of Binnui: Shimei,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of three men."
@@ -6898,7 +6898,7 @@
   {
     "reference": "Ezr 10:39",
     "text": "Shelemiah, Nathan, Adaiah,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of three men."
@@ -6908,7 +6908,7 @@
   {
     "reference": "Ezr 10:40",
     "text": "Machnadebai, Shashai, Sharai,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of three men."
@@ -6918,7 +6918,7 @@
   {
     "reference": "Ezr 10:41",
     "text": "Azarel, Shelemiah, Shemariah,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of three men."
@@ -6928,7 +6928,7 @@
   {
     "reference": "Ezr 10:42",
     "text": "Shallum, Amariah, and Joseph.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "These are the names of three men."
@@ -6938,7 +6938,7 @@
   {
     "reference": "Ezr 10:43",
     "text": "And from the descendants of Nebo: Jeiel, Mattithiah, Zabad, Zebina, Jaddai, Joel, and Benaiah.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **sons** means “descendants.” Alternate translation: [From the descendants of Nebo]"
@@ -6952,7 +6952,7 @@
   {
     "reference": "Ezr 10:44",
     "text": "All these men had married foreign women, and some of them had children by these wives.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "As in [9:2](../09/02.md), **lifted** is an idiom that means “married.” Alternate translation: [All of these men had married foreign women]"

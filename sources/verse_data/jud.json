@@ -2,7 +2,7 @@
   {
     "reference": "Jud 1:1",
     "text": "Jude, a servant of Jesus Christ and a brother of James, To those who are called, loved by God the Father, and kept in Jesus Christ:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "In this culture, letter writers would give their own names first, and they would refer to themselves in the third person. If that would be confusing in your language, you could use the first person. If your language has a particular way of introducing the author of a letter, you could also use that. Alternate translation: [I, Jude, am writing this letter] or [From Jude]"
@@ -44,7 +44,7 @@
   {
     "reference": "Jud 1:2",
     "text": "Mercy, peace, and love be multiplied to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "In this culture, letter writers would offer a good wish for the recipient before introducing the main business of the letter. Use a form in your language that makes it clear that this is a greeting and blessing. Alternate translation: [May God increase his mercy and peace and love to you]"
@@ -66,7 +66,7 @@
   {
     "reference": "Jud 1:3",
     "text": "Beloved, although I made every effort to write to you about the salvation we share, I felt it necessary to write and urge you to contend earnestly for the faith entrusted once for all to the saints.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "**Beloved ones** refers here to those to whom Jude is writing; it can be extended to all believers. If it would be helpful in your language, you could state this term explicitly. Alternate translation: [Beloved fellow believers]"
@@ -112,7 +112,7 @@
   {
     "reference": "Jud 1:4",
     "text": "For certain men have crept in among you unnoticed—ungodly ones who were designated long ago for condemnation. They turn the grace of our God into a license for immorality, and they deny our only Master and Lord, Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, **For** indicates that Jude is giving a reason for why he said in the previous verse that he wants his readers to “contend for the faith.” Alternate translation: [I want you do to this because]"
@@ -166,7 +166,7 @@
   {
     "reference": "Jud 1:5",
     "text": "Although you are fully aware of this, I want to remind you that after Jesus had delivered His people out of the land of Egypt, He destroyed those who did not believe.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "If it would be natural in your language, you could reverse the order of the first two clauses. Alternate translation: [you knowing all things once for all, I want to remind you]"
@@ -192,7 +192,7 @@
   {
     "reference": "Jud 1:6",
     "text": "And the angels who did not stay within their own domain but abandoned their proper dwelling—these He has kept in eternal chains under darkness, bound for judgment on that great day.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-distinguish",
         "note": "Jude uses this phrase to distinguish the **angels** who were kept by God for judgment from those who were not."
@@ -230,7 +230,7 @@
   {
     "reference": "Jud 1:7",
     "text": "In like manner, Sodom and Gomorrah and the cities around them, who indulged in sexual immorality and pursued strange flesh, are on display as an example of those who sustain the punishment of eternal fire.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **Sodom**, **Gomorrah**, and **cities** all refer to the people who lived in those cities. Alternate translation: [the people in the region of Sodom and Gomorrah]"
@@ -264,7 +264,7 @@
   {
     "reference": "Jud 1:8",
     "text": "Yet in the same way these dreamers defile their bodies, reject authority, and slander glorious beings.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **in the same way** refers back to the sexual immorality of the people of Sodom and Gomorrah referred to in the previous verse, and possibly the improper behavior of the wicked angels referred to in verse [6](../01/06.md). If it would be helpful in your language, you could state this connection explicitly. Alternate translation: [in the same way as these sexually immoral ones]"
@@ -294,7 +294,7 @@
   {
     "reference": "Jud 1:9",
     "text": "But even the archangel Michael, when he disputed with the devil over the body of Moses, did not presume to bring a slanderous charge against him, but said, “The Lord rebuke you!”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Jude speaks of **judgment** as if it were something someone can **bring** from one place to another. If it would be helpful in your language, you could state this metaphor plainly. Alternate translation: [to speak a judgment of slander against him]"
@@ -312,7 +312,7 @@
   {
     "reference": "Jud 1:10",
     "text": "These men, however, slander what they do not understand, and like irrational animals, they will be destroyed by the things they do instinctively.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **these ones** refers to the false teachers introduced in verse [4](../01/04.md). If it would be helpful in your language, you could state this phrase explicitly. Alternate translation: [these false teachers]"
@@ -338,7 +338,7 @@
   {
     "reference": "Jud 1:11",
     "text": "Woe to them! They have traveled the path of Cain; they have rushed headlong into the error of Balaam; they have perished in Korah’s rebellion.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The phrase **Woe to them** is the opposite of “blessed are you.” It indicates that bad things are going to happen to the people being addressed, because they have displeased God. Alternate translation: [How terrible it is for them] or [Trouble will come to them]"
@@ -372,7 +372,7 @@
   {
     "reference": "Jud 1:12",
     "text": "These men are hidden reefs in your love feasts, shamelessly feasting with you but shepherding only themselves. They are clouds without water, carried along by the wind; fruitless trees in autumn, twice dead after being uprooted.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **These ones** refers to the false teachers introduced in verse [4](../01/04.md). If it would be helpful in your language, you could state this phrase explicitly. Alternate translation: [These false teachers]"
@@ -422,7 +422,7 @@
   {
     "reference": "Jud 1:13",
     "text": "They are wild waves of the sea, foaming up their own shame; wandering stars, for whom blackest darkness has been reserved forever.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Jude speaks of the false teachers to describe their unrestrained and untamable behavior. He describes them as **wild waves** that thrash about in an uncontrollable manner. If it would be helpful in your language, you could express this metaphor by translating this plainly or turn the metaphor into a simile. Alternate translation: [they act in an unrestrained manner] or [they are unrestrained like wild waves]"
@@ -456,7 +456,7 @@
   {
     "reference": "Jud 1:14",
     "text": "Enoch, the seventh from Adam, also prophesied about them: “Behold, the Lord is coming with myriads of His holy ones",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Since **Adam** is considered to be the first generation of mankind, Enoch is the seventh generation."
@@ -494,7 +494,7 @@
   {
     "reference": "Jud 1:15",
     "text": "to execute judgment on everyone, and to convict all the ungodly of every ungodly act of wickedness and every harsh word spoken against Him by ungodly sinners.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Both of these instances of the word **to** indicate the purpose for which the Lord comes with his holy ones. Alternate translation: [for the purpose of judgment … and in order to rebuke]"
@@ -524,7 +524,7 @@
   {
     "reference": "Jud 1:16",
     "text": "These men are discontented grumblers, following after their own lusts; their mouths spew arrogance; they flatter others for their own advantage.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "**These ones** refers to the false teachers that Jude first introduced in verse [4](../01/04.md) and has discussed throughout the letter. Since Jude shifted in the previous verse to describing the judgment of everyone who does wicked deeds, it may be helpful for you to inform your readers that this verse returns to specifically focusing on the false teachers. Alternate translation: [These false teachers]"
@@ -566,7 +566,7 @@
   {
     "reference": "Jud 1:17",
     "text": "But you, beloved, remember what was foretold by the apostles of our Lord Jesus Christ",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **beloved ones** refers to those whom Jude is writing to, which can be extended to all believers. If it would be helpful in your language, you could state this term explicitly. See how you translated this in verse [3](../01/03.md). Alternate translation: [beloved fellow believers]"
@@ -588,7 +588,7 @@
   {
     "reference": "Jud 1:18",
     "text": "when they said to you, “In the last times there will be scoffers who will follow after their own ungodly desires.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This phrase indicates that this verse contains the content of the “words” spoken by the apostles, which Jude referred to in the previous verse."
@@ -610,7 +610,7 @@
   {
     "reference": "Jud 1:19",
     "text": "These are the ones who cause divisions, who are worldly and devoid of the Spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **These** refers to the mockers Jude referred to in the previous verse. If it would be helpful for your readers, you could express this explicitly. Alternate translation: [These who mock]"
@@ -636,7 +636,7 @@
   {
     "reference": "Jud 1:20",
     "text": "But you, beloved, by building yourselves up in your most holy faith and praying in the Holy Spirit,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **beloved ones** refers to those to whom Jude is writing, which can be extended to all believers. If it would be helpful in your language, you could express this explicitly. See how you translated this in verse [3](../01/03.md). Alternate translation: [beloved fellow believers]"
@@ -662,7 +662,7 @@
   {
     "reference": "Jud 1:21",
     "text": "keep yourselves in the love of God as you await the mercy of our Lord Jesus Christ to bring you eternal life.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-versebridge",
         "note": "If your language would put the command at the front of the sentence and before other modifying clauses, then you could create a verse bridge by moving this clause to the previous verse, placing it just before “building yourselves up in your most holy faith”. You would need to present the combined verses as 20–21."
@@ -696,7 +696,7 @@
   {
     "reference": "Jud 1:22",
     "text": "And indeed, have mercy on those who doubt;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **mercy** with an equivalent expression. Alternate translation: [act mercifully toward]"
@@ -710,7 +710,7 @@
   {
     "reference": "Jud 1:23",
     "text": "save others by snatching them from the fire; and to still others show mercy tempered with fear, hating even the clothing stained by the flesh.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "This clause indicates the means by which Jude wants his audience to save a certain group of people. If it would be helpful in your language, you could state this connection explicitly. Alternate translation: [by means of snatching from fire]"
@@ -736,7 +736,7 @@
   {
     "reference": "Jud 1:24",
     "text": "Now to Him who is able to keep you from stumbling and to present you unblemished in His glorious presence, with great joy—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **the one** refers to God. If it would be helpful in your language, you could express this explicitly. Alternate translation: [to God, who is able to keep]"
@@ -758,7 +758,7 @@
   {
     "reference": "Jud 1:25",
     "text": "to the only God our Savior be glory, majesty, dominion, and authority through Jesus Christ our Lord before all time, and now, and for all eternity. Amen.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **our Savior** refers to God. It does not refer to Jesus. This phrase emphasizes that God the Father, as well as the Son, is the Savior. If it would be helpful in your language, you could state this phrase explicitly. Alternate translation: [to the only God, who is our Savior]"

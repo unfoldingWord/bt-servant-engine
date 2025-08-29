@@ -2,7 +2,7 @@
   {
     "reference": "2Co 1:1",
     "text": "Paul, an apostle of Christ Jesus by the will of God, and Timothy our brother, To the church of God in Corinth, together with all the saints throughout Achaia:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Your language may have a particular way of introducing the author of a letter and its intended audience. For example, you may want to indicate that this is a letter. Alternate translation: [I, Paul … wrote this letter to you, the church of God that is in Corinth]"
@@ -20,7 +20,7 @@
   {
     "reference": "2Co 1:2",
     "text": "Grace and peace to you from God our Father and the Lord Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "After stating his name and the people to whom he is writing, Paul adds a blessing. Use a form that people would recognize as a blessing in your language. Alternate translation: [May you experience kindness and peace within you from] or [I pray that you will have grace and peace from]"
@@ -34,7 +34,7 @@
   {
     "reference": "2Co 1:3",
     "text": "Blessed be the God and Father of our Lord Jesus Christ, the Father of compassion and the God of all comfort,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could state this in active form or in another way that is natural in your language. Alternate translation: [May we always praise the God and Father of our Lord Jesus Christ]"
@@ -64,7 +64,7 @@
   {
     "reference": "2Co 1:4",
     "text": "who comforts us in all our troubles, so that we can comfort those in any trouble with the comfort we ourselves have received from God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Here and continuing through [verse 5](../01/05.md), the pronouns **us**, **our**, and **we** probably include the Corinthian believers."
@@ -94,7 +94,7 @@
   {
     "reference": "2Co 1:5",
     "text": "For just as the sufferings of Christ overflow to us, so also through Christ our comfort overflows.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks of the **sufferings of Christ** as if they were objects that could increase and move toward him. If it would be helpful in your language, you could express this with a different metaphor or state the meaning plainly. Alternate translation: [For just as people made Christ suffer, and they are now making us suffer]"
@@ -108,7 +108,7 @@
   {
     "reference": "2Co 1:6",
     "text": "If we are afflicted, it is for your comfort and salvation; if we are comforted, it is for your comfort, which accomplishes in you patient endurance of the same sufferings we experience.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Here and through the first half of [verse 21](../01/21.md), the word **we** and other first-person pronouns refer to Paul and Timothy, but not to the Corinthians."
@@ -150,7 +150,7 @@
   {
     "reference": "2Co 1:7",
     "text": "And our hope for you is sure, because we know that just as you share in our sufferings, so also you will share in our comfort.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [Because we know that you share in God’s comfort just as much as in the suffering, our hope concerning you is firm]"
@@ -176,7 +176,7 @@
   {
     "reference": "2Co 1:8",
     "text": "We do not want you to be unaware, brothers, of the hardships we encountered in the province of Asia. We were under a burden far beyond our ability to endure, so that we despaired even of life.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublenegatives",
         "note": "If it would be clearer in your language, you could use a positive expression to translate this double negative that consists of the negative particle **not** and the negative word **ignorant**. Alternate translation: [we want you to know]"
@@ -202,7 +202,7 @@
   {
     "reference": "2Co 1:9",
     "text": "Indeed, we felt we were under the sentence of death, in order that we would not trust in ourselves, but in God, who raises the dead.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul is comparing the certainty of death that they experienced to that of someone who receives a **sentence of death**, that is, an order from a judge that he must be executed. Alternate translation: [we were as sure of our own deaths as someone is who is condemned to die]"
@@ -224,7 +224,7 @@
   {
     "reference": "2Co 1:10",
     "text": "He has delivered us from such a deadly peril, and He will deliver us. In Him we have placed our hope that He will yet again deliver us,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **so great a death** represents the terrible persecution that Paul and his companions were experiencing and that they were convinced would end in death. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [the jaws of death] or [such a deadly danger]"
@@ -242,7 +242,7 @@
   {
     "reference": "2Co 1:11",
     "text": "as you help us by your prayers. Then many will give thanks on our behalf for the favor shown us in answer to their prayers.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **supplication**, you could express the same idea in another way. Alternate translation: [by praying to God for us]"
@@ -272,7 +272,7 @@
   {
     "reference": "2Co 1:12",
     "text": "For this is our boast: Our conscience testifies that we have conducted ourselves in the world, and especially in relation to you, in the holiness and sincerity that are from God—not in worldly wisdom, but in the grace of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "In these verses Paul uses the words **our**, **we**, and **ourselves** to refer to himself and Timothy and possibly others who serve with them. These words do not include the people to whom he is writing."
@@ -318,7 +318,7 @@
   {
     "reference": "2Co 1:13",
     "text": "For we do not write you anything that is beyond your ability to read and understand. And I hope that you will understand us completely,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word translated as **For** here connects this verse to the previous one as evidence that supports the claim that Paul made in the previous verse. Use a natural form in your language for connecting this evidence to the previous statement. Alternate translation: [You see,] or [As you know,]"
@@ -340,7 +340,7 @@
   {
     "reference": "2Co 1:14",
     "text": "as you have already understood us in part, that you may boast of us just as we will boast of you in the day of our Lord Jesus.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that the word **boasting** here is used in the positive sense of wanting to tell others your feeling of great satisfaction and joy in something good. You could include this information if that would be helpful to your readers. See how you translated this in [verse 12](../01/12.md). Alternate translation: [your source of joy] or [your source of pride]"
@@ -358,7 +358,7 @@
   {
     "reference": "2Co 1:15",
     "text": "Confident of this, I planned to visit you first, so that you might receive a double blessing.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The word **this** refers to what Paul has just said in [verses 13](../01/13.md) and [14](../01/14.md). Paul was confident that the Corinthians would understand him and that they would be proud of him (very pleased with him). If it would be helpful in your language, you could make the reference clear. Alternate translation: [being confident that you were proud of me]"
@@ -384,7 +384,7 @@
   {
     "reference": "2Co 1:16",
     "text": "I wanted to visit you on my way to Macedonia, and to return to you from Macedonia, and then to have you help me on my way to Judea.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **you** represents the place where the Corinthians live. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [to pass through your city] or [to visit you and then go]"
@@ -402,7 +402,7 @@
   {
     "reference": "2Co 1:17",
     "text": "When I planned this, did I do it carelessly? Or do I make my plans by human standards, so as to say “Yes, yes” and also “No, no”?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **this** refers to Paul’s plan to visit the Corinthians two times. If that is not clear for your readers, you could include this information. Alternate translation: [to visit you twice]"
@@ -432,7 +432,7 @@
   {
     "reference": "2Co 1:18",
     "text": "But as surely as God is faithful, our message to you is not “Yes” and “No.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The connecting words here could indicate: (1) a comparison. Paul may be comparing the faithfulness of God to his own commitment to speak truthfully to the Corinthian believers. Alternate translation: [and in the same way,]; (2) a result. Paul may be saying that he is faithful in his speaking because he is following God’s example to be faithful. Alternate translation: [so, because of that,]"
@@ -450,7 +450,7 @@
   {
     "reference": "2Co 1:19",
     "text": "For the Son of God, Jesus Christ, who was proclaimed among you by me and Silvanus and Timothy, was not “Yes” and “No,” but in Him it has always been “Yes.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word translated **For** connects this verse to the one before it as an explanation. If the connection between this statement and the previous one is not clear, you may want to use a similar connecting word here. Alternate translation: [You see,]"
@@ -480,7 +480,7 @@
   {
     "reference": "2Co 1:20",
     "text": "For all the promises of God are “Yes” in Christ. And so through Him, our “Amen” is spoken to the glory of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This means that Jesus makes all of the **promises of God** come to pass. He guarantees them. Alternate translation: [Jesus fulfills all of the promises of God]"
@@ -510,7 +510,7 @@
   {
     "reference": "2Co 1:21",
     "text": "Now it is God who establishes both us and you in Christ. He anointed us,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, Paul is speaking of the relationship of believers to Christ as if they were located **in Christ**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [in close relationship with Christ]"
@@ -528,7 +528,7 @@
   {
     "reference": "2Co 1:22",
     "text": "placed His seal on us, and put His Spirit in our hearts as a pledge of what is to come.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of God showing that we belong to him as if God had put a visible mark of ownership on us. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [having claimed us as his own] or [having shown that we belong to him]"
@@ -550,7 +550,7 @@
   {
     "reference": "2Co 1:23",
     "text": "I call God as my witness that it was in order to spare you that I did not return to Corinth.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-oathformula",
         "note": "The phrase **I invoke God as a witness upon my soul** could be: (1) an oath formula. Use a natural way in your language to express an oath. Alternate translation: [Now I swear to God upon my soul]; (2) simply a statement that God knows Paul’s motives. Alternate translation: [Now I call upon God as a witness to my intentions]"
@@ -572,7 +572,7 @@
   {
     "reference": "2Co 1:24",
     "text": "Not that we lord it over your faith, but we are fellow workers with you for your joy, because it is by faith that you stand firm.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Paul is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words if it would be clearer in your language. Alternate translation: [I do not mean that] or [I do not say that because]"
@@ -610,7 +610,7 @@
   {
     "reference": "2Co 2:1",
     "text": "So I made up my mind not to make another painful visit to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces an explanation of what Paul said in [1:23](../01/23.md) about the reason why he did not visit Corinth, which was to spare them. If it would be helpful in your language, you could use a different word or phrase that introduces an explanation. Alternate translation: [Here is why I have not come to Corinth:] or [So]"
@@ -644,7 +644,7 @@
   {
     "reference": "2Co 2:2",
     "text": "For if I grieve you, who is left to cheer me but those whom I have grieved?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a reason why Paul is avoiding the “sorrow” he mentioned in [2:1](../02/01.md). If it would be helpful in your language, you could use a word or phrase that introduces a reason. Alternate translation: [I decided that because] or [Indeed,]"
@@ -678,7 +678,7 @@
   {
     "reference": "2Co 2:3",
     "text": "I wrote as I did so that on my arrival I would not be grieved by those who ought to make me rejoice. I had confidence in all of you, that you would share my joy.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul refers to a letter he had already written to the Corinthians. Most likely, he wrote this letter sometime between when he wrote 1 Corinthians and 2 Corinthians, but we do not have the letter, so we do not know for sure. If it would be helpful in your language, you could make it clearer that Paul is referring to a letter that he already sent to the Corinthians. Alternate translation: [I wrote in my last letter] or [I sent you the previous letter, which that said]"
@@ -720,7 +720,7 @@
   {
     "reference": "2Co 2:4",
     "text": "For through many tears I wrote you out of great distress and anguish of heart, not to grieve you but to let you know how much I love you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation about the letter that Paul **wrote** to them. If it would be helpful in your language, you could use a word or phrase that introduces an explanation, or you could leave **For** untranslated. Alternate translation: [Indeed,] or [As it is,]"
@@ -762,7 +762,7 @@
   {
     "reference": "2Co 2:5",
     "text": "Now if anyone has caused grief, he has not grieved me but all of you—to some degree, not to overstate it.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** introduces a contrast with how Paul did not want to “grieve” them. Here he addresses how someone has **caused grief**. If it would be helpful in your language, you could use a word or phrase that introduces a contrast. Alternate translation: [However,]"
@@ -800,7 +800,7 @@
   {
     "reference": "2Co 2:6",
     "text": "The punishment imposed on him by the majority is sufficient for him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-extrainfo",
         "note": "Here, the word **This** indicates that both Paul and the Corinthians knew what the **punishment** was. However, Paul never states exactly what the punishment was. You should use a word or phrase that is as general as what Paul used. Alternate translation: [That punishment] or [The punishment]"
@@ -822,7 +822,7 @@
   {
     "reference": "2Co 2:7",
     "text": "So instead, you ought to forgive and comfort him, so that he will not be overwhelmed by excessive sorrow.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the words **on the contrary** and **rather** indicate that Paul wishes the Corinthians to do now the opposite of what they were doing. Instead of “punishing” the person, Paul wants them now to **forgive and comfort** the person. If it would be helpful in your language, you could use words that naturally indicate such a change in behavior. Alternate translation: [in contrast, you should instead forgive] or [instead of doing that, you should change your behavior and forgive]"
@@ -852,7 +852,7 @@
   {
     "reference": "2Co 2:8",
     "text": "Therefore I urge you to reaffirm your love for him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **So** introduces an exhortation that is based on what Paul said in the previous verse about “forgiving” and “comforting” the person. If it would be helpful in your language, you could use a word or phrase that introduces an exhortation or inference. Alternate translation: [Because of that,] or [So then,]"
@@ -874,7 +874,7 @@
   {
     "reference": "2Co 2:9",
     "text": "My purpose in writing you was to see if you would stand the test and be obedient in everything.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Indeed** introduces more information about the letter that Paul wrote to them (See: [2:3–4](../02/03.md)). It does not identify a close link with the previous verse. If it would be helpful in your language, you could use a different word or phrase that introduces further explanation, or you could leave **Indeed** untranslated. Alternate translation: [In fact] or [As a matter of fact]"
@@ -908,7 +908,7 @@
   {
     "reference": "2Co 2:10",
     "text": "If you forgive anyone, I also forgive him. And if I have forgiven anything, I have forgiven it in the presence of Christ for your sake,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a development in Paul’s argument. In this case, Paul is concluding his discussion about the previous letter. If it would be helpful in your language, you could use a word or phrase that introduces a development or a conclusion, or you could leave **Now** untranslated. Alternate translation: [Finally,]"
@@ -946,7 +946,7 @@
   {
     "reference": "2Co 2:11",
     "text": "in order that Satan should not outwit us. For we are not unaware of his schemes.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the phrase **so that** introduces the purpose for which Paul and Corinthians should “forgive” others (See: [2:10](../02/10.md)). If it would be helpful in your language, you could use a word or phrase that introduces a purpose. Alternate translation: [in order that]"
@@ -968,7 +968,7 @@
   {
     "reference": "2Co 2:12",
     "text": "Now when I went to Troas to preach the gospel of Christ and a door stood open for me in the Lord,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a new section. Paul has finished speaking about the person that he and the Corinthians should forgive. He now returns to the topic of his travel plans and why he has not visited the Corinthians (See: [1:8–23](../01/08.md)). If it would be helpful in your language, you could use a word or phrase that introduces a new topic or section, or you could leave **Now** untranslated. Alternate translation: [Moving on,] or [I wish to speak again about my journeys:]"
@@ -1006,7 +1006,7 @@
   {
     "reference": "2Co 2:13",
     "text": "I had no peace in my spirit, because I did not find my brother Titus there. So I said goodbye to them and went on to Macedonia.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, the clause **I had no relief in my spirit** indicates that Paul was anxious or concerned. If it would be helpful in your language, you could use a comparable form or plain language. Alternate translation: [My mind could not rest] or [I was concerned]"
@@ -1040,7 +1040,7 @@
   {
     "reference": "2Co 2:14",
     "text": "But thanks be to God, who always leads us triumphantly as captives in Christ and through us spreads everywhere the fragrance of the knowledge of Him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **But** introduces a new section. Paul will not speak again about Titus and his travel plans until [7:5](../07/05.md). If it would be helpful in your language, you could use a word or phrase that introduces a new section or topic, or you could leave **But** untranslated. Alternate translation: [But now,]"
@@ -1086,7 +1086,7 @@
   {
     "reference": "2Co 2:15",
     "text": "For we are to God the sweet aroma of Christ among those who are being saved and those who are perishing.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces an explanation of what Paul said in the previous verse about “the aroma” ([2:14](../02/14.md)). If it would be helpful in your language, you could use a word or phrase that introduces further explanation. Alternate translation: [Indeed,] or [Here is what I mean:]"
@@ -1116,7 +1116,7 @@
   {
     "reference": "2Co 2:16",
     "text": "To the one we are an odor that brings death, to the other a fragrance that brings life. And who is qualified for such a task?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word translated as **indeed** indicates that the author is introducing the first of two parts. The word **but** introduces the second part. The author uses this form to contrast “the ones perishing” and “the ones being saved” (See: [2:15](../02/15.md)). If it would be helpful in your language, you could use a form that naturally contrasts two groups of people. Alternate translation: [on one hand, to the ones … but on the other hand, to the others] or [to the ones … but to the others]"
@@ -1154,7 +1154,7 @@
   {
     "reference": "2Co 2:17",
     "text": "For we are not like so many others, who peddle the word of God for profit. On the contrary, in Christ we speak before God with sincerity, as men sent from God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** could introduce: (1) an explanation of the implied answer to the previous question, which is that Paul and his fellow workers are “sufficient” since God works through them. Alternate translation: [But we are sufficient, because]; (2) an explanation of why Paul and his fellow workers are like an aroma of life or death (See: [2:16](../02/16.md)). Alternate translation: [We are an aroma of life or death because]"
@@ -1208,7 +1208,7 @@
   {
     "reference": "2Co 3:1",
     "text": "Are we beginning to commend ourselves again? Or do we need, like some people, letters of recommendation to you or from you?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Here, just as in [2:14–15](../02/14.md), [17](../02/17.md), the word **we** does not include the Corinthians. It could refer to: (1) Paul and those who proclaim the gospel with him. Alternate translation: [Are we who preach beginning … ourselves … we do not need … do we]; (2) just Paul. Alternate translation: [Am I beginning … myself … I do not need … do I]"
@@ -1246,7 +1246,7 @@
   {
     "reference": "2Co 3:2",
     "text": "You yourselves are our letter, inscribed on our hearts, known and read by everyone.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul continues to speak about “letters,” but now he tells the Corinthians that they themselves are the **letter** of recommendation for Paul and his fellow workers. This **letter** is not a physical document, but is **written** in their **hearts**, and **all men** can **read** it. Paul speaks in this way to indicate that the recommendation he relies on is the Corinthian believers. In other words, the fact that they believe and that they are close with Paul (**in our hearts**) shows that Paul is trustworthy and a true apostle. If it would be helpful in your language, you could express the idea with a simile or in some other natural way. Alternate translation: [You yourselves are like our letter of recommendation, which you wrote on us and that is known and read by all men] or [We do not need a letter of recommendation because you yourselves are the recommendation that is in our hearts and that is known and understood by all men]"
@@ -1288,7 +1288,7 @@
   {
     "reference": "2Co 3:3",
     "text": "It is clear that you are a letter from Christ, the result of our ministry, written not with ink but with the Spirit of the living God, not on tablets of stone but on tablets of human hearts.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **making known** could: (1) indicate that something is well-known or obvious to people. Alternate translation: [being clear] or [so it is evident]; (2) state that the Corinthians show or reveal something to others. Alternate translation: [you making it clear] or [you revealing]"
@@ -1354,7 +1354,7 @@
   {
     "reference": "2Co 3:4",
     "text": "Such confidence before God is ours through Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a development in the argument. Here it indicates that Paul is moving on to a slightly different topic. If it would be helpful in your language, you could use a word that introduces a development in the argument, or you could leave **Now** untranslated. Alternate translation: [Indeed,]"
@@ -1380,7 +1380,7 @@
   {
     "reference": "2Co 3:5",
     "text": "Not that we are competent in ourselves to claim that anything comes from us, but our competence comes from God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **Not** introduces a contrast with what Paul said in the previous verse about **confidence** (See: [3:4](../03/04.md)). He wishes to clarify that the **confidence** is not based on human abilities but on **God**. If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast. Alternate translation: [But it is not] or [However, it is not]"
@@ -1410,7 +1410,7 @@
   {
     "reference": "2Co 3:6",
     "text": "And He has qualified us as ministers of a new covenant, not of the letter but of the Spirit; for the letter kills, but the Spirit gives life.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Here, just as in [3:1–5](../03/01.md), the word **us** does not include the Corinthians. It could refer to: (1) Paul and those who proclaim the gospel with him. Alternate translation: [us, who preach the gospel, … as servants]; (2) just Paul. Alternate translation: [me … as a servant]"
@@ -1448,7 +1448,7 @@
   {
     "reference": "2Co 3:7",
     "text": "Now if the ministry of death, which was engraved in letters on stone, came with such glory that the Israelites could not gaze at the face of Moses because of its fleeting glory,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a development of the ideas from the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces a development, or you could leave **Now** untranslated. Alternate translation: [Indeed,]"
@@ -1510,7 +1510,7 @@
   {
     "reference": "2Co 3:8",
     "text": "will not the ministry of the Spirit be even more glorious?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul does not ask this question because he is looking for information. Rather, he asks it to involve the Corinthians in what he is arguing. The question implies that the answer is “yes, it has much more glory.” If it would be helpful in your language, you could express the idea by using a strong affirmation. Alternate translation: [then the ministry of the Spirit will certainly be with much more glory.]"
@@ -1540,7 +1540,7 @@
   {
     "reference": "2Co 3:9",
     "text": "For if the ministry of condemnation was glorious, how much more glorious is the ministry of righteousness!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces further explanation of what Paul has said about the two ministries in [3:7–8](../03/07.md). If it would be helpful in your language, you could use a different word or phrase that introduces further explanation. Alternate translation: [Further,] or [Even more,]"
@@ -1578,7 +1578,7 @@
   {
     "reference": "2Co 3:10",
     "text": "Indeed, what was once glorious has no glory now in comparison to the glory that surpasses it.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the phrase **For indeed** indicates that Paul is adding more information that supports what he said about **glory** in [3:7–9](../03/07.md). If it would be helpful in your language, you could use words that introduce added information that supports a previous statement. Alternate translation: [Further,] or [And in fact,]"
@@ -1616,7 +1616,7 @@
   {
     "reference": "2Co 3:11",
     "text": "For if what was fading away came with glory, how much greater is the glory of that which endures!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of the comparison between the two covenants and their **glory**. If it would be helpful in your language, you could use a different word or phrase that introduces further explanation, or you could leave **For** untranslated. Alternate translation: [Further,] or [As it is,]"
@@ -1650,7 +1650,7 @@
   {
     "reference": "2Co 3:12",
     "text": "Therefore, since we have such a hope, we are very bold.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces an inference from what Paul has already said, especially what he has said about the ministry of “glory” in [3:4–11](../03/04.md). If it would be helpful in your language, you could use a word or phrase that introduces an inference from a previous section. Alternate translation: [Because of that] or [Because of this ministry of glory]"
@@ -1684,7 +1684,7 @@
   {
     "reference": "2Co 3:13",
     "text": "We are not like Moses, who would put a veil over his face to keep the Israelites from gazing at the end of what was fading away.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul contrasts the **boldness** that he and his fellow workers show with how **Moses** could not show God’s glory openly. In other words, Paul and his fellow workers can reveal God’s glory openly, in contrast to Moses, who could not. If it would be helpful in your language, you could make this contrast more explicit. Alternate translation: [and without hiding the glory, like Moses]"
@@ -1718,7 +1718,7 @@
   {
     "reference": "2Co 3:14",
     "text": "But their minds were closed. For to this day the same veil remains at the reading of the old covenant. It has not been lifted, because only in Christ can it be removed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** could introduce a contrast between: (1) being able to “look intently” and having **hardened** minds. Alternate translation: [But instead of looking intently,]; (2) what Moses did (veiling his face) and what the Israelites did (have **hardened** minds). Alternate translation: [In contrast to Moses,]"
@@ -1784,7 +1784,7 @@
   {
     "reference": "2Co 3:15",
     "text": "And even to this day when Moses is read, a veil covers their hearts.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** introduces a contrast with what Paul said in the previous verse about the veil “fading away” in Christ ([3:14](../03/14.md)). What Paul says in the rest of the verse repeats many of the ideas from the first parts of [3:14](../03/14.md). Consider whether a contrast word or a connecting word expresses the idea most clearly. Alternate translation: [However,] or [In fact,]"
@@ -1818,7 +1818,7 @@
   {
     "reference": "2Co 3:16",
     "text": "But whenever anyone turns to the Lord, the veil is taken away.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, the phrase **turn to the Lord** refers to a how people stop doing whatever they want and instead begin to trust and obey God. If it would be helpful in your language, you could use a comparable figure of speech or express the idea plainly. Alternate translation: [one begins to serve the Lord] or [one begins to believe in the Lord]"
@@ -1844,7 +1844,7 @@
   {
     "reference": "2Co 3:17",
     "text": "Now the Lord is the Spirit, and where the Spirit of the Lord is, there is freedom.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a development of the ideas from the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces a development, or you could leave **Now** untranslated. Alternate translation: [Indeed,] or [In fact,]"
@@ -1882,7 +1882,7 @@
   {
     "reference": "2Co 3:18",
     "text": "And we, who with unveiled faces all reflect the glory of the Lord, are being transformed into His image with intensifying glory, which comes from the Lord, who is the Spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a development of the ideas from the previous section. In this case, Paul is concluding his discussion about Moses and the veil in [3:12–17](../03/12.md). If it would be helpful in your language, you could use a word or phrase that introduces a final development, or you could leave **Now** untranslated. Alternate translation: [In the end,] or [Finally,]"
@@ -1936,7 +1936,7 @@
   {
     "reference": "2Co 4:1",
     "text": "Therefore, since God in His mercy has given us this ministry, we do not lose heart.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces a conclusion based on what Paul has said, particularly what he said in [3:4–18](../03/04.md). If it would be helpful in your language, you could use a word or phrase that introduces a conclusion based on what has been said. Alternate translation: [So then] or [Because of that]"
@@ -1962,7 +1962,7 @@
   {
     "reference": "2Co 4:2",
     "text": "Instead, we have renounced secret and shameful ways. We do not practice deceit, nor do we distort the word of God. On the contrary, by open proclamation of the truth, we commend ourselves to every man’s conscience in the sight of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **Instead** introduces a contrast with “becoming discouraged” in the previous verse ([4:1](../04/01.md)). If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast. Alternate translation: [Instead of that] or [On the other hand]"
@@ -2008,7 +2008,7 @@
   {
     "reference": "2Co 4:3",
     "text": "And even if our gospel is veiled, it is veiled to those who are perishing.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **But** introduces a development from what Paul said in the previous verse ([4:2](../04/02.md)). In this verse, he explains that, although they reveal “the truth,” it may be **veiled** to some people. If it would be helpful in your language, you could use a word or phrase that introduces this kind of development. Alternate translation: [Now] or [However,]"
@@ -2034,7 +2034,7 @@
   {
     "reference": "2Co 4:4",
     "text": "The god of this age has blinded the minds of unbelievers, so they cannot see the light of the gospel of the glory of Christ, who is the image of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **the god of this age** refers to Satan, or the devil. Paul describes him in this way because God has allowed Satan to have some control or power in **this age**, which refers to the world as it is right now. If it would be helpful in your language, you could make the idea more explicit. Alternate translation: [the god of this age, Satan,] or [the devil, who rules over this age]"
@@ -2072,7 +2072,7 @@
   {
     "reference": "2Co 4:5",
     "text": "For we do not proclaim ourselves, but Jesus Christ as Lord, and ourselves as your servants for Jesus’ sake.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said about “the gospel of the glory of Christ” in [4:4](../04/04.md). If it would be helpful in your language, you could use a word or phrase that introduces further explanation, or you could leave **For** untranslated. Alternate translation: [As you can see,] or [Indeed,]"
@@ -2094,7 +2094,7 @@
   {
     "reference": "2Co 4:6",
     "text": "For God, who said, “Let light shine out of darkness,” made His light shine in our hearts to give us the light of the knowledge of the glory of God in the face of Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces the reason why Paul and his fellow workers do not proclaim themselves but. rather, Jesus. If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis. Alternate translation: [That is because]"
@@ -2140,7 +2140,7 @@
   {
     "reference": "2Co 4:7",
     "text": "Now we have this treasure in jars of clay to show that this surpassingly great power is from God and not from us.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** contrasts the “glory of God” from the previous verse with how Paul and his fellow workers are **clay jars**. If it would be helpful in your language, you could use a word or phrase that introduces a contrast, or you could leave **But** untranslated. Alternate translation: [However,]"
@@ -2170,7 +2170,7 @@
   {
     "reference": "2Co 4:8",
     "text": "We are hard pressed on all sides, but not crushed; perplexed, but not in despair;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could express the idea in active form or in another way that is natural in your language. If you must state who does the actions, you could use indefinite subjects. Alternate translation: [in every side someone pressing us in, but not crushing us; feeling perplexed]"
@@ -2192,7 +2192,7 @@
   {
     "reference": "2Co 4:9",
     "text": "persecuted, but not forsaken; struck down, but not destroyed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could express the idea in active form or in another way that is natural in your language. If you must state who does the actions, you could use indefinite subjects for **persecuted** and **thrown down**, or you could indicate that God is the one who does not “forsake.” Alternate translation: [someone persecuting us, but God not forsaking us; someone throwing us down, but we not perishing]"
@@ -2206,7 +2206,7 @@
   {
     "reference": "2Co 4:10",
     "text": "We always carry around in our body the death of Jesus, so that the life of Jesus may also be revealed in our body.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks as if **the dying of Jesus** were an object that he and his fellow workers could carry around. He could speak in this way to indicate that: (1) he experiences suffering and pain that are like the **dying of Jesus**. Alternate translation: [experiencing in the body dying that is like the dying of Jesus]; (2) he and his fellow workers proclaim the **dying of Jesus** both by what they say and what they do (**in the body**). Alternate translation: [proclaiming in the body the dying of Jesus]"
@@ -2240,7 +2240,7 @@
   {
     "reference": "2Co 4:11",
     "text": "For we who are alive are always consigned to death for Jesus’ sake, so that the life of Jesus may also be revealed in our mortal body.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **for** introduces a clarification of what Paul said in [4:10](../04/10.md). If it would be helpful in your language, you could use a word or phrase that introduces a clarification. Alternate translation: [in fact,] or [in other words,]"
@@ -2286,7 +2286,7 @@
   {
     "reference": "2Co 4:12",
     "text": "So then, death is at work in us, but life is at work in you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the phrase **So then** introduces a conclusion that is based on [4:7–11](../04/07.md). If it would be helpful in your language, you could use a word or phrase that introduces the conclusion to a section. Alternate translation: [Therefore] or [In the end]"
@@ -2316,7 +2316,7 @@
   {
     "reference": "2Co 4:13",
     "text": "And in keeping with what is written, “I believed, therefore I have spoken,” we who have the same spirit of faith also believe and therefore speak,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **But** could introduce: (1) a development or new idea. Alternate translation: [Further,]; (2) a contrast with the “death” that works in them. Alternate translation: [On the other hand,]"
@@ -2354,7 +2354,7 @@
   {
     "reference": "2Co 4:14",
     "text": "knowing that the One who raised the Lord Jesus will also raise us with Jesus and present us with you in His presence.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **knowing** introduces a reason for what Paul said that he and his fellow workers do (See: [4:13](../04/13.md)). If it would be helpful in your language, you could make this relationship more explicit. Alternate translation: [since we know]"
@@ -2376,7 +2376,7 @@
   {
     "reference": "2Co 4:15",
     "text": "All this is for your benefit, so that the grace that is extending to more and more people may cause thanksgiving to overflow, to the glory of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces an explanation of what Paul has said in [4:7–14](../04/07.md). If it would be helpful in your language, you could use a word or phrase that introduces an explanation, or you could leave **For** untranslated. Alternate translation: [Indeed,] or [In fact,]"
@@ -2410,7 +2410,7 @@
   {
     "reference": "2Co 4:16",
     "text": "Therefore we do not lose heart. Though our outer self is wasting away, yet our inner self is being renewed day by day.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **So** introduces an inference or conclusion based on what Paul has said, probably focusing on what he said in [4:7–15](../04/07.md). If it would be helpful in your language, you could use a word or phrase that introduces an inference or conclusion from a previous section. Alternate translation: [So then,] or [Because of all that,]"
@@ -2452,7 +2452,7 @@
   {
     "reference": "2Co 4:17",
     "text": "For our light and momentary affliction is producing for us an eternal weight of glory that is far beyond comparison.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a reason why Paul and his fellow workers do not become discouraged (See: [4:16](../04/16.md)). If it would be helpful in your language, you could use a word or phrase that introduces a reason for a previous statement. Alternate translation: [We do not become discouraged because] or [We do that because]"
@@ -2486,7 +2486,7 @@
   {
     "reference": "2Co 4:18",
     "text": "So we fix our eyes not on what is seen, but on what is unseen. For what is seen is temporary, but what is unseen is eternal.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the phrase **We are not watching** could introduce: (1) a result or inference from what Paul said about “affliction” and “glory” in [4:17](../04/17.md). Alternate translation: [Therefore, we are not watching]; (2) what Paul does while he experiences the “affliction” he mentions in [4:17](../04/17.md). Alternate translation: [That is true while we are not watching]; (3) the reason why the “affliction” leads to “glory” in [4:17](../04/17.md). Alternate translation: [That is true because we are not watching]"
@@ -2516,7 +2516,7 @@
   {
     "reference": "2Co 5:1",
     "text": "For we know that if the earthly tent we live in is dismantled, we have a building from God, an eternal house in heaven, not built by human hands.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** could introduce: (1) an explanation of what Paul said in [4:18](../04/18.md). Alternate translation: [In fact,]; (2) an example or illustration of what Paul said in [4:18](../04/18.md). Alternate translation: [For example,]; (3) a basis for what Paul said in [4:18](../04/18.md). Alternate translation: [That is because]"
@@ -2562,7 +2562,7 @@
   {
     "reference": "2Co 5:2",
     "text": "For in this tent we groan, longing to be clothed with our heavenly dwelling,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the phrase **For indeed** indicates that Paul is adding more information (**indeed**) that supports what he said in the previous verse (**For**). If it would be helpful in your language, you could use words that introduce added information that supports a previous statement. Alternate translation: [Further] or [And in fact]"
@@ -2584,7 +2584,7 @@
   {
     "reference": "2Co 5:3",
     "text": "because when we are clothed, we will not be found naked.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exmetaphor",
         "note": "Here Paul continues to speak of bodies as if they were clothing. You should express the idea as you did in [5:2](../05/02.md). Alternate translation: [we have a house to live in, we will not be found homeless] or [having a new body that is like clothing, we will not be found naked, that is, without a body]"
@@ -2606,7 +2606,7 @@
   {
     "reference": "2Co 5:4",
     "text": "For while we are in this tent, we groan under our burdens, because we do not wish to be unclothed but clothed, so that our mortality may be swallowed up by life.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the phrase **For indeed** indicates that Paul is adding more information (**indeed**) that supports what he said in the previous two verses (**For**). If it would be helpful in your language, you could use words that introduce added information that supports a previous statement. Alternate translation: [Further] or [And in fact]"
@@ -2652,7 +2652,7 @@
   {
     "reference": "2Co 5:5",
     "text": "And it is God who has prepared us for this very purpose and has given us the Spirit as a pledge of what is to come.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces development of the ideas from the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces the development, or you could leave **Now** untranslated. Alternate translation: [Further,]"
@@ -2682,7 +2682,7 @@
   {
     "reference": "2Co 5:6",
     "text": "Therefore we are always confident, although we know that while we are at home in the body, we are away from the Lord.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces a conclusion or inference from what Paul has said in [5:1–6](../05/01.md). If it would be helpful in your language, you could use a word or phrase that introduces a conclusion or inference. Alternate translation: [Because of that] or [So]"
@@ -2708,7 +2708,7 @@
   {
     "reference": "2Co 5:7",
     "text": "For we walk by faith, not by sight.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **for** introduces an explanation of what it means to be “away from the Lord” (See: [5:6](../05/06.md)). If it would be helpful in your language, you could use a word or phrase that introduces an explanation of a previous statement. Alternate translation: [that means that] or [thus,]"
@@ -2730,7 +2730,7 @@
   {
     "reference": "2Co 5:8",
     "text": "We are confident, then, and would prefer to be away from the body and at home with the Lord.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces again what Paul started speaking about in [5:16](../05/16.md). If it would be helpful in your language, you could use a word or phrase that resumes an earlier idea or thought. Alternate translation: [Again,]"
@@ -2756,7 +2756,7 @@
   {
     "reference": "2Co 5:9",
     "text": "So we aspire to please Him, whether we are at home in this body or away from it.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the phrase **And therefore** introduces an inference or conclusion based on what Paul has already said, particularly in [5:6–8](../05/06.md). If it would be helpful in your language, you could use a word or phrase that introduces an inference or conclusion based on what has been said. Alternate translation: [Because of that,] or [And so]"
@@ -2778,7 +2778,7 @@
   {
     "reference": "2Co 5:10",
     "text": "For we must all appear before the judgment seat of Christ, that each one may receive his due for the things done in the body, whether good or bad.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a reason why Paul and those with him “aspire to be well-pleasing” to Jesus. If it would be helpful in your language, you could use a different word or phrase that introduces a reason for a previous statement. Alternate translation: [We aspire to that because] or [After all,]"
@@ -2824,7 +2824,7 @@
   {
     "reference": "2Co 5:11",
     "text": "Therefore, since we know what it means to fear the Lord, we try to persuade men. What we are is clear to God, and I hope it is clear to your conscience as well.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces a conclusion or inference from what Paul has said in [5:10](../05/10.md). If it would be helpful in your language, you could use a word or phrase that introduces a conclusion or inference. Alternate translation: [Because of that] or [So]"
@@ -2862,7 +2862,7 @@
   {
     "reference": "2Co 5:12",
     "text": "We are not commending ourselves to you again. Instead, we are giving you an occasion to be proud of us, so that you can answer those who take pride in appearances rather than in the heart.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "If your language would not naturally put the negative statement before the positive statement, you could reverse the order of the elements here. Alternate translation: [We are giving you an opportunity of boasting on our behalf, so that you may have an answer for the ones boasting in appearance and not in heart. It is not that we are again commending ourselves to you]"
@@ -2892,7 +2892,7 @@
   {
     "reference": "2Co 5:13",
     "text": "If we are out of our mind, it is for God; if we are of sound mind, it is for you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said about boasting in the previous verse. In this verse, he indicates that he acts in certain ways **for** the Corinthians, even if he acts in other ways **for God**. If it would be helpful in your language, you could use a word or phrase that introduces further explanation, or you could leave **For** untranslated. Alternate translation: [Further,] or [In fact,]"
@@ -2914,7 +2914,7 @@
   {
     "reference": "2Co 5:14",
     "text": "For Christ’s love compels us, because we are convinced that One died for all, therefore all died.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **For** introduces a reason why Paul acts in the ways that he does (See: [5:13](../05/13.md)). If it would be helpful in your language, you could use a different word or phrase that introduces a reason. Alternate translation: [We do those things because] or [We act in those ways because]"
@@ -2960,7 +2960,7 @@
   {
     "reference": "2Co 5:15",
     "text": "And He died for all, that those who live should no longer live for themselves, but for Him who died for them and was raised again.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, much as in [5:14](../05/14.md), the word **for** could indicate that Jesus **died**: (1) to benefit or help others. Alternate translation: [to save … to save] or [for the benefit of … for the benefit of]; (2) instead of or in place of others. Alternate translation: [in place of … in place of] or [instead of … instead of]"
@@ -3002,7 +3002,7 @@
   {
     "reference": "2Co 5:16",
     "text": "So from now on we regard no one according to the flesh. Although we once regarded Christ in this way, we do so no longer.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces an inference conclusion from what Paul has said, especially referring back to [5:14–15](../05/14.md). If it would be helpful in your language, you could use a word or phrase that introduces an inference from previous claims. Alternate translation: [So then]"
@@ -3024,7 +3024,7 @@
   {
     "reference": "2Co 5:17",
     "text": "Therefore if anyone is in Christ, he is a new creation. The old has passed away. Behold, the new has come!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** could introduce an inference from: (1) [5:16](../05/16.md). In this case, Paul is saying that “regarding” Christ in a new way indicates that a person is also a **new creation**. Alternate translation: [Regarding Christ in this new way shows that]; (2) [5:14–15](../05/14.md). In this case, Paul is saying that how Christ died for people causes them to be a **new creation**. Alternate translation: [Because Christ died for people]"
@@ -3070,7 +3070,7 @@
   {
     "reference": "2Co 5:18",
     "text": "All this is from God, who reconciled us to Himself through Christ and gave us the ministry of reconciliation:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces the development of the ideas from the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces a development, or you could leave **Now** untranslated. Alternate translation: [In fact,]"
@@ -3096,7 +3096,7 @@
   {
     "reference": "2Co 5:19",
     "text": "that God was reconciling the world to Himself in Christ, not counting men’s trespasses against them. And He has committed to us the message of reconciliation.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the phrase **namely, that** introduces more information about the “ministry of this reconciliation” that Paul mentioned in [5:18](../05/18.md). If it would be helpful in your language, you could use a word or phrase that introduces more information or further explanation. Alternate translation: [that is, that] or [and by this I mean that]"
@@ -3146,7 +3146,7 @@
   {
     "reference": "2Co 5:20",
     "text": "Therefore we are ambassadors for Christ, as though God were making His appeal through us. We implore you on behalf of Christ: Be reconciled to God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces an inference from what Paul said in the previous verse about how God “placed in us the word of reconciliation” (See: [5:19](../05/19.md)). If it would be helpful in your language, you could use a word or phrase that introduces an inference or conclusion. Alternate translation: [Because of that] or [So then]"
@@ -3184,7 +3184,7 @@
   {
     "reference": "2Co 5:21",
     "text": "God made Him who knew no sin to be sin on our behalf, so that in Him we might become the righteousness of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, the words **one** and **him** refer to Jesus the Messiah. The word **he** refers to God the Father. If it would be helpful in your language, you could make explicit to whom these pronouns refer. Alternate translation: [Jesus, who did not know sin, God made … in Jesus]"
@@ -3222,7 +3222,7 @@
   {
     "reference": "2Co 6:1",
     "text": "As God’s fellow workers, then, we urge you not to receive God’s grace in vain.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces his development of the ideas from the previous verses, especially from [5:20–21](../05/20.md). If it would be helpful in your language, you could use a word or phrase that introduces a development, or you could leave **Now** untranslated. Alternate translation: [Further,]"
@@ -3252,7 +3252,7 @@
   {
     "reference": "2Co 6:2",
     "text": "For He says: “In the time of favor I heard you, and in the day of salvation I helped you.” Behold, now is the time of favor; now is the day of salvation!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **for** introduces a reason why the Corinthians should “receive the grace of God” (See: [6:1](../06/01.md)). If it would be helpful in your language, you could use a different word or phrase that introduces reason for an exhortation. Alternate translation: [because] or [since]"
@@ -3298,7 +3298,7 @@
   {
     "reference": "2Co 6:3",
     "text": "We put no obstacle in anyone’s way, so that no one can discredit our ministry.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "Here, the word **giving** goes with the clause “we also urge you” in [6:1](../06/01.md). It introduces an explanation of how Paul and his fellow workers serve God. In most languages, it is best to begin a new sentence with this verse. If it would be helpful in your language, you could use a word or phrase that clearly links back to “we also urge” from [6:1](../06/01.md). If you use the following alternate translation, you will need to end the previous verse with a period. Alternate translation: [As we urge you to receive the grace God, we give] or [As we serve God, we give]"
@@ -3320,7 +3320,7 @@
   {
     "reference": "2Co 6:4",
     "text": "Rather, as servants of God we commend ourselves in every way: in great endurance; in troubles, hardships, and calamities;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here the word **as** could introduce: (1) who they are (**servants of God**) while they **commend** themselves. Alternate translation: [we who are servants of God commend ourselves in everything]; (2) what it is that they must **commend** themselves to be. Alternate translation: [we commend ourselves in everything, proving that we are servants of God]"
@@ -3346,7 +3346,7 @@
   {
     "reference": "2Co 6:5",
     "text": "in beatings, imprisonments, and riots; in labor, sleepless nights, and hunger;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not express some of these ideas with nouns, you could express the ideas by using verbal phrases or in another natural way. Alternate translation: [in being beaten, in being imprisoned, in being mobbed, in working hard, in sleeping little, in being hungry]"
@@ -3356,7 +3356,7 @@
   {
     "reference": "2Co 6:6",
     "text": "in purity, knowledge, patience, and kindness; in the Holy Spirit and in sincere love;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for these ideas, you could express the ideas by using verbal phrases or adjectives. Alternate translation: [we are pure, knowledgeable, patient, kind, filled with the Holy Spirit, sincerely loving]"
@@ -3370,7 +3370,7 @@
   {
     "reference": "2Co 6:7",
     "text": "in truthful speech and in the power of God; with the weapons of righteousness in the right hand and in the left;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas of **truth** and **power**, you could express the ideas in another way. Alternate translation: [in the word about what is true, in God empowering us]"
@@ -3408,7 +3408,7 @@
   {
     "reference": "2Co 6:8",
     "text": "through glory and dishonor, slander and praise; viewed as imposters, yet genuine;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "In these two statements, Paul indicates that he and his fellow workers persevere in serving God whether people think and say good things or bad things about them. If it would be helpful in your language, you could use a form that clearly expresses this idea. Alternate translation: [whether we receive honor or dishonor, whether there are bad reports or good reports about us]"
@@ -3430,7 +3430,7 @@
   {
     "reference": "2Co 6:9",
     "text": "unknown, yet well-known; dying, and yet we live on; punished, yet not killed;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here and in the following verse Paul uses **as** to introduce what other people think about him and his fellow workers, and then he uses **yet** to introduce what is really true about them. If it would be helpful in your language, you could use a form that naturally expresses a contrast between what people think and what is actually true. Alternate translation: [considered to be unknown, but actually well known; considered to be dying, but actually—behold!—living; considered to be being disciplined, but actually not being put to death]"
@@ -3456,7 +3456,7 @@
   {
     "reference": "2Co 6:10",
     "text": "sorrowful, yet always rejoicing; poor, yet making many rich; having nothing, and yet possessing everything.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, just as in the previous verse, Paul uses **as** to introduce what other people think about him and his fellow workers and then **yet** or **but** to introduce what is really true about them. If it would be helpful in your language, you could use a form that naturally expresses a contrast between what people think and what is actually true. Alternate translation: [considered to be sorrowful, but actually always rejoicing; considered to be poor, but actually making many rich; considered to have nothing, but actually possessing all things]"
@@ -3478,7 +3478,7 @@
   {
     "reference": "2Co 6:11",
     "text": "We have spoken freely to you, Corinthians. Our hearts are open wide.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could express the idea in active form or in another way that is natural in your language. If you must state who did the actions, Paul implies that he and his fellow workers did them. Alternate translation: [We have opened our mouth toward you, Corinthians; we have opened our heart wide]"
@@ -3504,7 +3504,7 @@
   {
     "reference": "2Co 6:12",
     "text": "It is not our affection, but yours, that is restrained.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks about loving others as if it were about having space in one’s insides. When people have space for other people inside them (**not restricted**), they are loving and caring for others. If it would be helpful in your language, you could use a similar figure of speech or state the meaning plainly. Alternate translation: [There is space for you in our hearts, but you do not have space for us in your hearts] or [You are being loved by us, but you are not fully loving us]"
@@ -3522,7 +3522,7 @@
   {
     "reference": "2Co 6:13",
     "text": "As a fair exchange—I speak as to my children—open wide your hearts also.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "Here, the clause **I speak as to children** is a parenthetical statement that breaks up the sentence to give more information about how Paul is speaking. If it would be helpful in your language, you could move the clause to wherever it is most natural to put a statement about how one is speaking. Alternate translation: [and—I speak as to children—in the same exchange, open yourselves wide also] or [and in the same exchange, open yourselves wide also—I speak as to children]"
@@ -3544,7 +3544,7 @@
   {
     "reference": "2Co 6:14",
     "text": "Do not be unequally yoked with unbelievers. For what partnership can righteousness have with wickedness? Or what fellowship does light have with darkness?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul refers to a farming practice in which two or more animals were **yoked together** with a piece of wood that was then connected to a plow or cart. In this way, the animals together pulled the plow or cart. Paul applies this farming practice to people to indicate that believers should not try to accomplish what God wants them to do by working with **unbelievers**. If it would be helpful in your language, you could use a similar figure of speech or state the meaning plainly. Alternate translation: [Do not team up with unbelievers] or [Do not have a close relationship with unbelievers]"
@@ -3578,7 +3578,7 @@
   {
     "reference": "2Co 6:15",
     "text": "What harmony is there between Christ and Belial? Or what does a believer have in common with an unbeliever?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Here, just as in [6:14](../06/14.md), Paul is using the question form to deny that something could be true. If you would not use the question form for this purpose in your language, you could express the idea by using strong negations. Alternate translation: [And Christ has no harmony with Beliar! Nor does a believer have a share with an unbeliever!]"
@@ -3600,7 +3600,7 @@
   {
     "reference": "2Co 6:16",
     "text": "What agreement can exist between the temple of God and idols? For we are the temple of the living God. As God has said: “I will dwell with them and walk among them, and I will be their God, and they will be My people.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Here, just as in [6:14–15](../06/14.md), Paul is using the question form to deny that something could be true. If you would not use the question form for this purpose in your language, you could express the idea by using a strong negation. Alternate translation: [And the temple of God has no agreement with idols!]"
@@ -3646,7 +3646,7 @@
   {
     "reference": "2Co 6:17",
     "text": "“Therefore come out from among them and be separate, says the Lord. Touch no unclean thing, and I will receive you.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "Paul uses the words **Therefore** and **says the Lord** to introduce a quotation that provides a result or inference from what Paul said in the previous verse. Most of the quotation is from [Isaiah 52:11](../../isa/52/11.md), but the phrase **and I will welcome you** is from a Greek translation of [Ezekiel 20:34](../../ezk/20/34.md). The ULT indicates that the quote is from two different passages by using new quotation marks with the last line. However, it is recommended that you treat the whole verse as one quote in your translation. If it would be helpful in your language, you could introduce the quote in a natural way which shows that it comes from the Old Testament. It may be more natural to move **says the Lord** to the beginning of the verse, as the UST does. Alternate translation: [Because of that, the Lord says {through the prophets}, “Come out from the midst of them, and be separate, and]"
@@ -3672,7 +3672,7 @@
   {
     "reference": "2Co 6:18",
     "text": "And: “I will be a Father to you, and you will be My sons and daughters, says the Lord Almighty.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "Paul uses the word **And** to introduce another quote from the Old Testament, specifically from [2 Samuel 7:8](../../2sa/07/08.md) and [2 Samuel 7:14](../../2sa/07/14.md). If it would be helpful in your language, you could use a word or phrase that clarifies that Paul is quoting from the Old Testament. Alternate translation: [Again, as you can read in the Scriptures,] or [Even more, as it is written,]"
@@ -3686,7 +3686,7 @@
   {
     "reference": "2Co 7:1",
     "text": "Therefore, beloved, since we have these promises, let us cleanse ourselves from everything that defiles body and spirit, perfecting holiness in the fear of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces an inference from what Paul has already said, especially what he said in [6:16–18](../06/16.md) about being God’s temple and family. If it would be helpful in your language, you could use a word or phrase that introduces an inference from a previous section. Alternate translation: [Because of that] or [On account of those things]"
@@ -3736,7 +3736,7 @@
   {
     "reference": "2Co 7:2",
     "text": "Make room for us in your hearts. We have wronged no one, we have corrupted no one, we have exploited no one.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Here and in the rest of this chapter, by **us** and **we** Paul means himself and his fellow workers but not the Corinthians, so use the exclusive form of that word in your translation if your language marks that distinction."
@@ -3754,7 +3754,7 @@
   {
     "reference": "2Co 7:3",
     "text": "I do not say this to condemn you. I have said before that you so occupy our hearts that we live and die together with you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul refers to what he said in the previous verse about how he and his fellow workers did not hurt anyone ([7:2](../07/02.md)). Here he wishes to clarify that he does not mean that it was the Corinthians who hurt people. If it would be helpful in your language, you could make this relationship more explicit. Alternate translation: [I did not speak what I just spoke] or [I did not write that]"
@@ -3780,7 +3780,7 @@
   {
     "reference": "2Co 7:4",
     "text": "Great is my confidence in you; great is my pride in you; I am filled with encouragement; in all our troubles my joy overflows.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas of **confidence** and **boasting**, you could express the ideas in another way. Alternate translation: [I am very confident about you; I boast greatly on your behalf]"
@@ -3810,7 +3810,7 @@
   {
     "reference": "2Co 7:5",
     "text": "For when we arrived in Macedonia, our bodies had no rest, but we were pressed from every direction—conflicts on the outside, fears within.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the phrase **For even** introduces further explanation of the “afflictions” that Paul mentioned in [7:4](../07/04.md). However, Paul is also speaking again about what he said in [2:13](../02/13.md) about traveling to Macedonia. Consider a natural way to reintroduce Paul’s travel plans, and if possible, use a word or phrase that introduces an explanation of the afflictions. Alternate translation: [Speaking of afflictions, I will tell you more about my journeys:] or [Now as for the travels I have spoken about,]"
@@ -3848,7 +3848,7 @@
   {
     "reference": "2Co 7:6",
     "text": "But God, who comforts the downcast, comforted us by the arrival of Titus,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** introduces a contrast with the “conflicts” and “fears” that Paul described in the previous verse ([7:5](../07/05.md)). If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast. Alternate translation: [In spite of that,]"
@@ -3870,7 +3870,7 @@
   {
     "reference": "2Co 7:7",
     "text": "and not only by his arrival, but also by the comfort he had received from you. He told us about your longing, your mourning, and your zeal for me, so that I rejoiced all the more.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **comfort**, you could express the idea in another way. Alternate translation: [by how] or [by what you did so that]"
@@ -3904,7 +3904,7 @@
   {
     "reference": "2Co 7:8",
     "text": "Even if I caused you sorrow by my letter, I do not regret it. Although I did regret it—for I see that my letter caused you sorrow, but only for a short time—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces Paul’s explanation of why he “rejoices even more” (See: [7:7](../07/07.md)). This explanation continues in [7:9](../07/09.md). If it would be helpful in your language, you could use a word or phrase that introduces an explanation. Alternate translation: [Here is why I rejoice even more:] or [That is because,]"
@@ -3946,7 +3946,7 @@
   {
     "reference": "2Co 7:9",
     "text": "yet now I rejoice, not because you were made sorrowful, but because your sorrow led you to repentance. For you felt the sorrow that God had intended, and so were not harmed in any way by us.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "If your language would not naturally put the negative statement before the positive statement, you could reverse the two clauses here. Alternate translation: [that you were grieved to the point of repentance, not that you were grieved]"
@@ -3976,7 +3976,7 @@
   {
     "reference": "2Co 7:10",
     "text": "Godly sorrow brings repentance that leads to salvation without regret, but worldly sorrow brings death.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verse ([7:9](../07/09.md)) about “grief with respect to God” and how it does not lead to “suffering loss.” If it would be helpful in your language, you could use a different word or phrase that introduces further explanation. Alternate translation: [In fact,] or [Indeed,]"
@@ -4014,7 +4014,7 @@
   {
     "reference": "2Co 7:11",
     "text": "Consider what this godly sorrow has produced in you: what earnestness, what eagerness to clear yourselves, what indignation, what alarm, what longing, what zeal, what vindication! In every way you have proved yourselves to be innocent in this matter.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a specific example of what Paul said in the previous verse about how “sorrow with respect to God works repentance towards salvation” ([7:10](../07/10.md)). If it would be helpful in your language, you could use a different word or phrase that introduces a specific example, or you could leave **For** untranslated. Alternate translation: [In fact,] or [In your case,]"
@@ -4052,7 +4052,7 @@
   {
     "reference": "2Co 7:12",
     "text": "So even though I wrote to you, it was not on account of the one who did wrong or the one who was harmed, but rather that your earnestness on our behalf would be made clear to you in the sight of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **So** introduces an inference or conclusion from what Paul said in [7:8–11](../07/08.md) about the letter and its results. If it would be helpful in your language, you could use a word or phrase that introduces an inference or conclusion. Alternate translation: [Therefore,] or [As you can see,]"
@@ -4082,7 +4082,7 @@
   {
     "reference": "2Co 7:13",
     "text": "On account of this, we are encouraged. In addition to our own encouragement, we were even more delighted by the joy of Titus. For his spirit has been refreshed by all of you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, the word **this** refers to what Paul has said in [7:6–12](../07/06.md) about how the Corinthians treated Titus and how they responded to Paul’s letter. If it would be helpful in your language, you make the referent of **this** more explicit. Alternate translation: [Because of those things] or [Because you responded in those ways,]"
@@ -4116,7 +4116,7 @@
   {
     "reference": "2Co 7:14",
     "text": "Indeed, I was not embarrassed by anything I had boasted to him about you. But just as everything we said to you was true, so our boasting to Titus has proved to be true as well.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces another reason why Paul and his fellow workers rejoiced even more abundantly ([7:13](../07/13.md)). If it would be helpful in your language, you could use a different word or phrase that introduces a reason. Alternate translation: [Also, we rejoiced since,] or [Further,]"
@@ -4146,7 +4146,7 @@
   {
     "reference": "2Co 7:15",
     "text": "And his affection for you is even greater when he remembers that you were all obedient as you welcomed him with fear and trembling.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **affections**, you could express the same idea in another way. Alternate translation: [he loves you more abundantly]"
@@ -4180,7 +4180,7 @@
   {
     "reference": "2Co 7:16",
     "text": "I rejoice that I can have complete confidence in you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that Paul is **confident** that the Corinthians are doing what is right or proper. You could include this information if that would be helpful to your readers. Alternate translation: [I am confident that you do what is proper]"
@@ -4190,7 +4190,7 @@
   {
     "reference": "2Co 8:1",
     "text": "Now, brothers, we want you to know about the grace that God has given the churches of Macedonia.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a new topic. If it would be helpful in your language, you could use a word or phrase that introduces a new topic, or you could leave **Now** untranslated. Alternate translation: [Next,]"
@@ -4224,7 +4224,7 @@
   {
     "reference": "2Co 8:2",
     "text": "In the terrible ordeal they suffered, their abundant joy and deep poverty overflowed into rich generosity.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **that** could introduce: (1) an explanation or definition of the “grace of God” in [8:1](../08/01.md). Alternate translation: [that is, that]; (2) a reason or support for what Paul said in [8:1](../08/01.md). Alternate translation: [which we know to be true because,]"
@@ -4258,7 +4258,7 @@
   {
     "reference": "2Co 8:3",
     "text": "For I testify that they gave according to their ability and even beyond it. Of their own accord,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a support for what Paul said in the previous verse ([8:2](../08/02.md)) about the “riches of their generosity.” If it would be helpful in your language, you could use a different word or phrase that introduces support for a claim. Alternate translation: [Indeed,] or [As a matter of fact,]"
@@ -4280,7 +4280,7 @@
   {
     "reference": "2Co 8:4",
     "text": "they earnestly pleaded with us for the privilege of sharing in this service to the saints.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas of **favor** and **fellowship**, you could express the same ideas in another way. Alternate translation: [they pleaded with us to favor them and allow them to take part in this ministry that is]"
@@ -4298,7 +4298,7 @@
   {
     "reference": "2Co 8:5",
     "text": "And not only did they do as we expected, but they gave themselves first to the Lord and then to us, through the will of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul is implying that the Macedonians did more than Paul and his fellow workers had **hoped**, not that they did less. If this clause would imply that the Macedonians did less, you could use a form that implies that they did more. Alternate translation: [while we had hoped for something, they did more:] or [doing more than we had hoped,]"
@@ -4332,7 +4332,7 @@
   {
     "reference": "2Co 8:6",
     "text": "So we urged Titus to help complete your act of grace, just as he had started it.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul could be implying that Titus already **began**: (1) the **grace**, which is collecting money for the believers in Jerusalem. Alternate translation: [just as he began this grace]; (2) to work for the sake of the Corinthians in general. Alternate translation: [just as he began to serve you]"
@@ -4350,7 +4350,7 @@
   {
     "reference": "2Co 8:7",
     "text": "But just as you excel in everything—in faith, in speech, in knowledge, in complete earnestness, and in the love we inspired in you—see that you also excel in this grace of giving.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **But** introduces a new section. It is does not primarily contrast with what Paul has already said, although it does introduce a change in focus from the Macedonians and Titus to the Corinthians. If it would be helpful in your language, you could use a word or phrase that introduces a new section or a change in focus. Alternate translation: [Now] or [In your case,]"
@@ -4384,7 +4384,7 @@
   {
     "reference": "2Co 8:8",
     "text": "I am not giving a command, but I am testing the sincerity of your love through the earnestness of others.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **this** refers to what Paul said in the previous verse about how the Corinthians “should abound in this act of grace” ([8:7](../08/07.md)). If this is not clear for your readers, you could more clearly refer to that exhortation. Alternate translation: [I say what I just did] or [I say that you should abound in this way]"
@@ -4406,7 +4406,7 @@
   {
     "reference": "2Co 8:9",
     "text": "For you know the grace of our Lord Jesus Christ, that though He was rich, yet for your sake He became poor, so that you through His poverty might become rich.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a reason why the Corinthians should give money to help fellow believers. If it would be helpful in your language, you could use a different word or phrase that introduces a reason. Alternate translation: [That is because,] or [Now you should abound in giving because]"
@@ -4428,7 +4428,7 @@
   {
     "reference": "2Co 8:10",
     "text": "And this is my opinion about what is helpful for you in this matter: Last year you were the first not only to give, but even to have such a desire.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, the word **this** could refer to: (1) the issue that Paul is speaking about, which is the Corinthians collecting money for believers in Jerusalem. Alternate translation: [about this grace of giving] or [about collecting money]; (2) what Paul is about to say. Alternate translation: [in what follows] or [in what I am about to say]"
@@ -4454,7 +4454,7 @@
   {
     "reference": "2Co 8:11",
     "text": "Now finish the work, so that you may complete it with the same eager desire, according to your means.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the phrase **But now** introduces an exhortation for what to do in the present time as opposed to what they already did “a year ago” (See: [8:10](../08/10.md)). If it would be helpful in your language, you could use a word or phrase that transitions from the past to the present. Alternate translation: [So at this present time,] or [At this time,]"
@@ -4476,7 +4476,7 @@
   {
     "reference": "2Co 8:12",
     "text": "For if the eagerness is there, the gift is acceptable according to what one has, not according to what he does not have.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verse ([8:11](../08/11.md)) about giving “from what you have.” If it would be helpful in your language, you could use a different word or phrase that introduces further explanation. Alternate translation: [Indeed,] or [I say that you should give from what you have, because,]"
@@ -4502,7 +4502,7 @@
   {
     "reference": "2Co 8:13",
     "text": "It is not our intention that others may be relieved while you are burdened, but that there may be equality.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verse ([8:13](../08/13.md)) about giving “according to whatever one might have.” If it would be helpful in your language, you could use a different word or phrase that introduces further explanation. Alternate translation: [As you can see, I want you to give not] or [I say that because my goal is not]"
@@ -4536,7 +4536,7 @@
   {
     "reference": "2Co 8:14",
     "text": "At the present time, your surplus will meet their need, so that in turn their surplus will meet your need. This way there will be equality.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **At the present time** could refer to: (1) how things were when Paul wrote this letter. In this case, Paul is telling the Corinthians that they have more than the Jerusalem believers do, and so they should help. In the future, if the Jerusalem believers have more than the Corinthians, they will help the Corinthians. Alternate translation: [At this time, your abundance of money is for the lack of those ones, so that also the abundance of money of those ones may be for your need in the future]; (2) the time between Christ’s first and second comings. In this case, Paul is telling the Corinthians that they should help the Jerusalem believers financially, and the Jerusalem believers will help them spiritually. Alternate translation: [In this new age, your abundance of money is for the lack of those ones, so that also the spiritual abundance of those ones may be for your need]"
@@ -4558,7 +4558,7 @@
   {
     "reference": "2Co 8:15",
     "text": "As it is written: “He who gathered much had no excess, and he who gathered little had no shortfall.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "Paul quotes from the Old Testament Scriptures, specifically from [Exodus 16:18](../../exo/16/18.md). If it would be helpful to your readers, you could format these words in a different way, or you could include this information in a footnote. Alternate translation: [just as it is written in the Scriptures] or [just as you can read in Exodus]"
@@ -4580,7 +4580,7 @@
   {
     "reference": "2Co 8:16",
     "text": "But thanks be to God, who put into the heart of Titus the same devotion I have for you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **But** introduces a new section. Paul is again speaking about **Titus**, whom he last mentioned in [8:6](../08/06.md). If it would be helpful in your language, you could use a word or phrase that introduces a new section, or you could leave **Now** untranslated. Alternate translation: [Now] or [Next,]"
@@ -4614,7 +4614,7 @@
   {
     "reference": "2Co 8:17",
     "text": "For not only did he welcome our appeal, but he is eagerly coming to you of his own volition.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces an explanation of one way in which Titus showed the “earnestness” that Paul referred to in the previous verse ([8:16](../08/16.md)). If it would be helpful in your language, you could use a word or phrase that introduces an explanation or basis for a previous statement. Alternate translation: [In fact,] or [For example,]"
@@ -4640,7 +4640,7 @@
   {
     "reference": "2Co 8:18",
     "text": "Along with Titus we are sending the brother who is praised by all the churches for his work in the gospel.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a development of the ideas from the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces a development, or you could leave **Now** untranslated. Alternate translation: [Further,] or [Also,]"
@@ -4662,7 +4662,7 @@
   {
     "reference": "2Co 8:19",
     "text": "More than that, this brother was chosen by the churches to accompany us with the gracious offering we administer to honor the Lord Himself and to show our eagerness to help.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **not only this** refers to how this “brother” received praise from all the churches. Paul uses this phrase to introduce something he thinks is even more important about this “brother.” If it would be helpful in your language, you could use a word or phrase that introduces something even more important. Alternate translation: [even more,] or [more importantly,]"
@@ -4704,7 +4704,7 @@
   {
     "reference": "2Co 8:20",
     "text": "We want to avoid any criticism of the way we administer this generous gift.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **avoiding** introduces Paul’s reason for including this fellow believer in the process of collecting and distributing money. If it would be helpful in your language, you could use a word or phrase here that introduces a reason for doing something. Alternate translation: [we included him to avoid] or [our goal was to avoid]"
@@ -4730,7 +4730,7 @@
   {
     "reference": "2Co 8:21",
     "text": "For we are taking great care to do what is right, not only in the eyes of the Lord, but also in the eyes of men.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verse ([8:20](../08/20.md)) about avoiding blame from others. If it would be helpful in your language, you could use a different word or phrase that introduces further explanation, or you could leave **For** untranslated. Alternate translation: [Indeed,]"
@@ -4748,7 +4748,7 @@
   {
     "reference": "2Co 8:22",
     "text": "And we are sending along with them our brother who has proven his earnestness to us many times and in many ways, and now even more so by his great confidence in you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a new idea, which is that Paul is sending one more person with Titus. If it would be helpful in your language, you could use a word or phrase that introduces a new idea, or you could leave **Now** untranslated. Alternate translation: [Further,]"
@@ -4790,7 +4790,7 @@
   {
     "reference": "2Co 8:23",
     "text": "As for Titus, he is my partner and fellow worker among you. As for our brothers, they are messengers of the churches, the glory of Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "The terms **partner** and **fellow worker** mean similar things. Paul is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [he is my partner in working for you] or [he is my fellow worker for you]"
@@ -4824,7 +4824,7 @@
   {
     "reference": "2Co 8:24",
     "text": "In full view of the churches, then, show these men the proof of your love and the reason for our boasting about you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **Therefore** introduces an exhortation based on what Paul has said in the previous verses. If it would be helpful in your language, you could use a different word or phrase that introduces this kind of exhortation. Alternate translation: [Because of that] or [Since that is who they are]"
@@ -4846,7 +4846,7 @@
   {
     "reference": "2Co 9:1",
     "text": "Now about the service to the saints, there is no need for me to write to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation concerning why Paul and his fellow workers boast about the Corinthians (See: [8:24](../08/24.md)). If it would be helpful in your language, you could use a word or phrase that introduces a further explanation, or you could leave **For** untranslated. Alternate translation: [Now,] or [Indeed,]"
@@ -4864,7 +4864,7 @@
   {
     "reference": "2Co 9:2",
     "text": "For I know your eagerness to help, and I have been boasting to the Macedonians that since last year you in Achaia were prepared to give. And your zeal has stirred most of them to do likewise.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces the reason why it is “excessive” for Paul to write to the Corinthians about the collection. If it would be helpful in your language, you could use a word or phrase that introduces a reason. Alternate translation: [It is excessive since] or [Indeed,]"
@@ -4902,7 +4902,7 @@
   {
     "reference": "2Co 9:3",
     "text": "But I am sending the brothers in order that our boasting about you in this matter should not prove empty, but that you will be prepared, just as I said.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** introduces a contrast with what Paul has said in [9:1–2](../09/01.md) about how eager the Corinthians are. If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast. Alternate translation: [On the other hand,] or [Despite that,]"
@@ -4936,7 +4936,7 @@
   {
     "reference": "2Co 9:4",
     "text": "Otherwise, if any Macedonians come with me and find you unprepared, we—to say nothing of you—would be ashamed of having been so confident.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **Otherwise** introduces a possible situation in which the Corinthians would be **unprepared**, in contrast to what Paul said in the previous verse about them being ready. If it would be helpful in your language, you could use a word or phrase that introduces a contrasting situation. Alternate translation: [However] or [But if that did not happen]"
@@ -4970,7 +4970,7 @@
   {
     "reference": "2Co 9:5",
     "text": "So I thought it necessary to urge the brothers to visit you beforehand and make arrangements for the generous gift you had promised. This way, your gift will be prepared generously and not begrudgingly.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **So** introduces an inference or conclusion from what Paul said in the previous verse (See: [9:5](../09/05.md)). If it would be helpful in your language, you could use a word or phrase that introduces an inference or conclusion. Alternate translation: [Therefore,] or [So then,]"
@@ -5008,7 +5008,7 @@
   {
     "reference": "2Co 9:6",
     "text": "Remember this: Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a new section. In this section, Paul gives the Corinthians more reasons why they should give generously. If it would be helpful in your language, you could use a word or phrase that introduces a new section, or you could leave **Now** untranslated. Alternate translation: [Next,]"
@@ -5030,7 +5030,7 @@
   {
     "reference": "2Co 9:7",
     "text": "Each one should give what he has decided in his heart to give, not out of regret or compulsion. For God loves a cheerful giver.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "Although the words **he** and **his** are masculine, Paul is using the words in a generic sense that includes both men and women. If it would be helpful in your language, you could use a phrase that makes this clear. Alternate translation: [he or she has decided beforehand in his or her heart]"
@@ -5052,7 +5052,7 @@
   {
     "reference": "2Co 9:8",
     "text": "And God is able to make all grace abound to you, so that in all things, at all times, having all that you need, you will abound in every good work.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the word **grace** refers primarily to good things that God has given to the Corinthians, including money and possessions. If it would be helpful in your language, you could use a word or phrase that refers to these things. Alternate translation: [every good thing] or [every blessing]"
@@ -5078,7 +5078,7 @@
   {
     "reference": "2Co 9:9",
     "text": "As it is written: “He has scattered abroad His gifts to the poor; His righteousness endures forever.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "Paul quotes from the Old Testament Scriptures, specifically from [Psalm 112:9](../../psa/112/009.md), to support the claim he made in the previous verse. If it would be helpful to your readers, you could format these words in a different way and include this information in a footnote. Alternate translation: [In fact, it is written in a psalm] or [You can read just that in the Scriptures]"
@@ -5120,7 +5120,7 @@
   {
     "reference": "2Co 9:10",
     "text": "Now He who supplies seed to the sower and bread for food will supply and multiply your store of seed and will increase the harvest of your righteousness.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a development of the ideas from the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces a development, or you could leave **Now** untranslated. Alternate translation: [So,]"
@@ -5150,7 +5150,7 @@
   {
     "reference": "2Co 9:11",
     "text": "You will be enriched in every way to be generous on every occasion, and through us your generosity will produce thanksgiving to God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **being enriched** does indicate that the Corinthians have more than enough money and possessions. Paul’s point is that God gives them more than they need so that they can share it with others. If it would be helpful in your language, you could use a word or phrase that refers to people having more than they need or being wealthy. Alternate translation: [being made wealthy] or [being given more than enough]"
@@ -5180,7 +5180,7 @@
   {
     "reference": "2Co 9:12",
     "text": "For this ministry of service is not only supplying the needs of the saints but is also overflowing in many expressions of thanksgiving to God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-possession",
         "note": "Here, Paul is using the possessive form to describe a **ministry** that is accomplished by performing **this service**. If this is not clear in your language, you could express the idea in another way. Alternate translation: [accomplishing this service] or [the ministry of performing this service]"
@@ -5198,7 +5198,7 @@
   {
     "reference": "2Co 9:13",
     "text": "Because of the proof this ministry provides, the saints will glorify God for your obedient confession of the gospel of Christ, and for the generosity of your contribution to them and to all the others.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-possession",
         "note": "Here Paul uses the possessive to indicate that participating in the **ministry** proves what Paul says in the rest of this verse, that is, that they have **obedience** and **generosity**. If it would be helpful in your language, you could use a form that clearly expresses this idea. Alternate translation: [of what this ministry proves] or [of what you prove by performing this ministry]"
@@ -5244,7 +5244,7 @@
   {
     "reference": "2Co 9:14",
     "text": "And their prayers for you will express their affection for you, because of the surpassing grace God has given you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "Here, the phrase **in their prayer on your behalf** could go with: (1) **longing**. In this case, the word **longing** describes another thing that the Jerusalem believers do, besides “glorifying God” (See: [9:13](../09/13.md)). Alternate translation: [and they are longing for you in their prayer on your behalf,]; (2) the phrase “because of” in the previous verse (See: [9:13](../09/13.md)). In this case, **their prayer on your behalf** is another reason why God receives glory. Alternate translation: [and because of their prayer on your behalf, in which they long for you]"
@@ -5266,7 +5266,7 @@
   {
     "reference": "2Co 9:15",
     "text": "Thanks be to God for His indescribable gift!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "Here, **Thanks {be} to God** is an exclamatory phrase that communicates Paul’s thankfulness. Use an exclamation form that is natural in your language for communicating thanks. See how you translated the similar phrase in [8:16](../08/16.md). Alternate translation: [we give thanks to God]"
@@ -5280,7 +5280,7 @@
   {
     "reference": "2Co 10:1",
     "text": "Now by the mildness and gentleness of Christ, I appeal to you—I, Paul, who am humble when face to face with you, but bold when away.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a new topic, which Paul introduces with several strong words. This new topic concerns Paul himself and his ministry. If it would be helpful in your language, you could use a form that introduces a new topic and focuses on Paul himself. Alternate translation: [As for me, Paul, I] or [Concerning me, Paul, I]"
@@ -5310,7 +5310,7 @@
   {
     "reference": "2Co 10:2",
     "text": "I beg you that when I come I may not need to be as bold as I expect toward those who presume that we live according to the flesh.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a development of the ideas from the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces a development, or you could leave **Now** untranslated. Alternate translation: [Yes,] or [In fact,]"
@@ -5344,7 +5344,7 @@
   {
     "reference": "2Co 10:3",
     "text": "For though we live in the flesh, we do not wage war according to the flesh.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verse ([10:2](../10/02.md)) about how some people think that he and his fellow workers walk according to the flesh. If it would be helpful in your language, you could use a different word or phrase that introduces further explanation. Alternate translation: [Indeed, though]"
@@ -5370,7 +5370,7 @@
   {
     "reference": "2Co 10:4",
     "text": "The weapons of our warfare are not the weapons of the flesh. Instead, they have divine power to demolish strongholds.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verse ([10:3](../10/03.md)) about waging war not according to the flesh. If it would be helpful in your language, you could use a different word or phrase that introduces further explanation, or you could leave **For** untranslated. Alternate translation: [Indeed,]"
@@ -5404,7 +5404,7 @@
   {
     "reference": "2Co 10:5",
     "text": "We demolish arguments and every presumption set up against the knowledge of God; and we take captive every thought to make it obedient to Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exmetaphor",
         "note": "Here, just as in [10:3–4](../10/03.md), Paul speaks as if he and his fellow workers were involved in a war. In this verse, he speaks about **every high thing**, which are fortifications or walls. He means that he and his fellow workers defeat or discredit anything that claims to be as great or important as **the knowledge of God**. Paul also speaks about taking thoughts **captive**. Just as the victor in a war takes the conquered people **captive**, so Paul and his fellow workers wish to take peoples’ thoughts **captive** so that these people are obedient to Christ. If possible, preserve the metaphor or express the idea with a simile. Alternate translation: [and anything that is like a high fortress that raises itself against the knowledge of God, and we control every thought like we we were taking it captive into the obedience of Christ] or [and anything that proudly claims to be more important than the knowledge of God, and we take control of every thought into the obedience of Christ]"
@@ -5434,7 +5434,7 @@
   {
     "reference": "2Co 10:6",
     "text": "And we will be ready to punish every act of disobedience, as soon as your obedience is complete.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exmetaphor",
         "note": "Here Paul finishes speaking as if he and his fellow workers were involved in a war. Here he says that they are **in readiness**, like soldiers ready to attack. When they attack, they will **avenge every act of disobedience**. What he means is that, once people are captive to the “obedience of Christ,” he and his fellow workers will punish them if they go back to being disobedient. If possible, preserve the metaphor or express the idea with a simile. Alternate translation: [and being like soldiers who are ready to avenge every act of disobedience, when your obedience would be complete] or [and being prepared to punish everyone who disobeys, when your obedience would be complete]"
@@ -5460,7 +5460,7 @@
   {
     "reference": "2Co 10:7",
     "text": "You are looking at outward appearances. If anyone is confident that he belongs to Christ, he should remind himself that we belong to Christ just as much as he does.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "This sentence could be: (1) a command to look at what is obvious. Alternate translation: [You should look at the things according to appearance]; (2) a rebuke concerning how they only look at how things appear. Alternate translation: [You are looking at the things according to appearance]"
@@ -5502,7 +5502,7 @@
   {
     "reference": "2Co 10:8",
     "text": "For even if I boast somewhat excessively about the authority the Lord gave us for building you up rather than tearing you down, I will not be ashamed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of Paul’s claim that he and his fellow workers are of Christ (See: [10:7](../10/07.md)). If it would be helpful in your language, you could use a different word or phrase that introduces further explanation. Alternate translation: [In fact,] or [I say that because,]"
@@ -5532,7 +5532,7 @@
   {
     "reference": "2Co 10:9",
     "text": "I do not want to seem to be trying to frighten you by my letters.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Here, the phrase **so that** could introduce: (1) a general inference or result based on what Paul has already said. Alternate translation: [and so]; (2) the purpose for which the Lord gave authority to Paul (See: [10:8](../10/08.md)). Alternate translation: [and he gave me authority so that]; (3) the purpose for what Paul says in [10:11](../10/11.md). If you use the following alternate translation, you will need to end the previous verse with a period. Alternate translation: [Let people consider what I am about to say so that]"
@@ -5546,7 +5546,7 @@
   {
     "reference": "2Co 10:10",
     "text": "For some say, “His letters are weighty and forceful, but his physical presence is unimpressive, and his speaking is of no account.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces an explanation or reason why the Corinthians might think that Paul is trying to terrify them with his letters (See: [10:9](../10/09.md)). If it would be helpful in your language, you could use a word or phrase that introduces an explanation or reason. Alternate translation: [I mention that since]"
@@ -5580,7 +5580,7 @@
   {
     "reference": "2Co 10:11",
     "text": "Such people should consider that what we are in our letters when absent, we will be in our actions when present.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-imperative3p",
         "note": "Here Paul uses a third-person imperative. If you have third-person imperatives in your language, you could use one here. If you do not have third-person imperatives, you could express the idea using a word such as “should.” Alternate translation: [Such a person should consider]"
@@ -5610,7 +5610,7 @@
   {
     "reference": "2Co 10:12",
     "text": "We do not dare to classify or compare ourselves with some who commend themselves. When they measure themselves by themselves and compare themselves with themselves, they show their ignorance.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verses ([10:10–11](../10/10.md)) in response to what some people say about him. If it would be helpful in your language, you could use a different word or phrase that introduces further explanation, or you could leave **For** untranslated. Alternate translation: [Indeed,] or [In fact,]"
@@ -5640,7 +5640,7 @@
   {
     "reference": "2Co 10:13",
     "text": "We, however, will not boast beyond our limits, but only within the field of influence that God has assigned to us—a field that reaches even to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **to the immeasurable things** could refer to: (1) how Paul and his fellow workers are not boasting beyond what God has “measured” to them. Alternate translation: [about what is not measured to us]; (2) how Paul and those with him do not boast without any real standard. Alternate translation: [in unmeasured ways] or [without any standards]"
@@ -5666,7 +5666,7 @@
   {
     "reference": "2Co 10:14",
     "text": "We are not overstepping our bounds, as if we had not come to you. Indeed, we were the first to reach you with the gospel of Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces Paul’s proof that the “limit” he mentioned in the previous verse does reach as far as the Corinthians (See: [10:13](../10/13.md)). If it would be helpful in your language, you could use a word or phrase that introduces proof for a previous statement. Alternate translation: [You can tell that is true because] or [Indeed,]"
@@ -5692,7 +5692,7 @@
   {
     "reference": "2Co 10:15",
     "text": "Neither do we boast beyond our limits in the labors of others. But we hope that as your faith increases, our area of influence among you will greatly increase as well,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "See how you translated the similar phrase in [10:13](../10/13.md). Alternate translation: [in unmeasured ways] or [without any standards]"
@@ -5722,7 +5722,7 @@
   {
     "reference": "2Co 10:16",
     "text": "so that we can preach the gospel in the regions beyond you. Then we will not be boasting in the work already done in another man’s territory.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **the {places} beyond you** refers to the areas and people who lived to the west of Corinth. If it would be helpful in your language, you could use a phrase that identifies these areas and people more explicitly. Alternate translation: [the places west of you] or [the places I would go if I traveled through your town]"
@@ -5740,7 +5740,7 @@
   {
     "reference": "2Co 10:17",
     "text": "Rather, “Let him who boasts boast in the Lord.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "Paul quotes from the Old Testament Scriptures, specifically from [Jeremiah 9:24](../../jer/09/24.md). If it would be helpful to your readers, you could format these words in a different way and include this information in a footnote. Alternate translation: [But as Jeremiah wrote in the Scriptures,] or [But as you can read in the Scriptures,]"
@@ -5754,7 +5754,7 @@
   {
     "reference": "2Co 10:18",
     "text": "For it is not the one who commends himself who is approved, but the one whom the Lord commends.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verse ([10:17](../10/17.md)) about how people should boast. If it would be helpful in your language, you could use a different word or phrase that introduces further explanation. Alternate translation: [As you can see,]"
@@ -5780,7 +5780,7 @@
   {
     "reference": "2Co 11:1",
     "text": "I hope you will put up with a little of my foolishness, but you are already doing that.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **foolishness**, you could express the same idea in another way. Alternate translation: [as I act a little foolishly] or [as I now say what is foolish]"
@@ -5798,7 +5798,7 @@
   {
     "reference": "2Co 11:2",
     "text": "I am jealous for you with a godly jealousy. For I promised you to one husband, to present you as a pure virgin to Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** could introduce: (1) the reason why Paul will be a little foolish. Alternate translation: [I will be a little bit foolish since]; (2) the reason why the Corinthians should bear with Paul. Alternate translation: [I want you to bear with me because]"
@@ -5820,7 +5820,7 @@
   {
     "reference": "2Co 11:3",
     "text": "I am afraid, however, that just as Eve was deceived by the serpent’s cunning, your minds may be led astray from your simple and pure devotion to Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul refers to a story in [Genesis 3:1–7](../../gen/03/01.md). In this story, a **serpent**, whom Paul would have identified as Satan, deceives **Eve**, the first woman, into eating a fruit that God told her not to eat. If it would be helpful in your language, you could make this idea more explicit or include a footnote that explains the story. Alternate translation: [as the serpent, Satan, by his craftiness deceived the first woman, Eve, into disobeying God]"
@@ -5850,7 +5850,7 @@
   {
     "reference": "2Co 11:4",
     "text": "For if someone comes and proclaims a Jesus other than the One we proclaimed, or if you receive a different spirit than the One you received, or a different gospel than the one you accepted, you put up with it very easily.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** could introduce a reason why: (1) Paul is afraid that someone will corrupt the Corinthians (See: [11:3](../11/03.md)). Alternate translation: [I am afraid of that because]; (2) the Corinthians should “bear with” Paul (See: [11:1](../11/01.md)), which is that they “bear with” these false teachers. Alternate translation: [You should bear with me because]"
@@ -5876,7 +5876,7 @@
   {
     "reference": "2Co 11:5",
     "text": "I consider myself in no way inferior to those “super-apostles.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** could introduce: (1) a reason why what Paul told them about Jesus, the Spirit, and the gospel (See: [11:4](../11/04.md)) takes priority over what anyone else tells them. Alternate translation: [So, what I taught you has priority, since]; (2) a reason why they should “bear with” Paul (See: [11:1](../11/01.md)). Alternate translation: [Further, I want you to bear with me because]"
@@ -5894,7 +5894,7 @@
   {
     "reference": "2Co 11:6",
     "text": "Although I am not a polished speaker, I am certainly not lacking in knowledge. We have made this clear to you in every way possible.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **But** introduces a development of the ideas from the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces a development, or you could leave **But** untranslated. Alternate translation: [Indeed,]"
@@ -5928,7 +5928,7 @@
   {
     "reference": "2Co 11:7",
     "text": "Was it a sin for me to humble myself in order to exalt you, because I preached the gospel of God to you free of charge?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The word **Or** introduces an alternate to what Paul said in the previous verse, where he stated that he has “knowledge” (See: [11:6](../11/06.md)). With **Or**, then, Paul introduces a question that raises another possible objection to his authority as an apostle: he did not charge them money for teaching them. If it would be helpful in your language, you could express **Or** with a word that signifies a contrast or gives an alternative. Alternate translation: [But] or [However,]"
@@ -5958,7 +5958,7 @@
   {
     "reference": "2Co 11:8",
     "text": "I robbed other churches by accepting their support in order to serve you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-irony",
         "note": "Here Paul refers to receiving money from **other churches** to support himself as he served the Corinthians as if it were robbery. He means that he received money from these churches and did not give them anything in return, which some people would consider robbery. He uses this strong language to indicate how much he and the **other churches** sacrificed to help the Corinthians. If it would be helpful in your language, you could use a form that clearly indicates that Paul is speaking from another person’s perspective and overstating what he means. Alternate translation: [It was as if I robbed other churches] or [Some might say that I robbed other churches]"
@@ -5972,7 +5972,7 @@
   {
     "reference": "2Co 11:9",
     "text": "And when I was with you and in need, I was not a burden to anyone; for the brothers who came from Macedonia supplied my needs. I have refrained from being a burden to you in any way, and I will continue to do so.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul implies that he **lacked** or did not have enough of what he needed to live, including things like food and clothes. If it would be helpful in your language, you could make the idea more explicit. Alternate translation: [having lacked what is necessary for life] or [having lacked basic necessities]"
@@ -6002,7 +6002,7 @@
   {
     "reference": "2Co 11:10",
     "text": "As surely as the truth of Christ is in me, this boasting of mine will not be silenced in the regions of Achaia.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-oathformula",
         "note": "The phrase **The truth of Christ is in me** is an oath formula that Paul uses to show that what he is about to say is true. Use a natural way in your language to express an oath. Alternate translation: [As the truth of Christ is in me,]"
@@ -6036,7 +6036,7 @@
   {
     "reference": "2Co 11:11",
     "text": "Why? Because I do not love you? God knows I do!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul asks for the reason why he does not “burden” the Corinthians (See: [11:9](../11/09.md)). If it would be helpful in your language, you could make this connection more explicit. Alternate translation: [Why do I not burden you]"
@@ -6054,7 +6054,7 @@
   {
     "reference": "2Co 11:12",
     "text": "But I will keep on doing what I am doing, in order to undercut those who want an opportunity to be regarded as our equals in the things of which they boast.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** introduces the real reason why Paul does not burden the Corinthians, in contrast to the false reason he denied in the previous verse (See: [11:11](../11/11.md)). If it would be helpful in your language, you could use a word or phrase that introduces a contrast. Alternate translation: [In contrast,]"
@@ -6088,7 +6088,7 @@
   {
     "reference": "2Co 11:13",
     "text": "For such men are false apostles, deceitful workers, masquerading as apostles of Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verse ([9:15](../09/15.md)) about people who desire to be equal in boasting with him. If it would be helpful in your language, you could use a different word or phrase that introduces further explanation, or you could leave **For** untranslated. Alternate translation: [Indeed,]"
@@ -6106,7 +6106,7 @@
   {
     "reference": "2Co 11:14",
     "text": "And no wonder, for Satan himself masquerades as an angel of light.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, the phrase **no wonder** indicates that what Paul just said about people pretending to be apostles should not be surprising. Use a form that expresses this idea clearly. Alternate translation: [that is no surprise] or [we should not be astonished]"
@@ -6132,7 +6132,7 @@
   {
     "reference": "2Co 11:15",
     "text": "It is not surprising, then, if his servants masquerade as servants of righteousness. Their end will correspond to their actions.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, the clause **{it is} no great thing** indicates that what follows is not surprising or shocking but should be expected. If it would be helpful in your language, you could use a different clause that expresses this idea. Alternate translation: [it should be no shock if]"
@@ -6166,7 +6166,7 @@
   {
     "reference": "2Co 11:16",
     "text": "I repeat: Let no one take me for a fool. But if you do, then receive me as a fool, so that I too may boast a little.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul could be using the word **again** to refer to: (1) what he said in [11:1](../11/01.md) about how he wanted the Corinthians to bear with his foolishness. Alternate translation: [what I have already said]; (2) what he said in [11:13–15](../11/13.md) about how he is different from his foolish opponents. Alternate translation: [again what I just said]"
@@ -6188,7 +6188,7 @@
   {
     "reference": "2Co 11:17",
     "text": "In this confident boasting of mine, I am not speaking as the Lord would, but as a fool.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul refers to what he is about to say in the rest of this chapter and in the following chapter. If it would be helpful in your language, you could use a form that refers to what a person is about to say. Alternate translation: [What I am going to say]"
@@ -6218,7 +6218,7 @@
   {
     "reference": "2Co 11:18",
     "text": "Since many are boasting according to the flesh, I too will boast.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-nominaladj",
         "note": "Paul is using the adjective **many** as a noun in order to refer **many** people. Your language may use adjectives in the same way. If not, you could translate this one with a noun phrase. Alternate translation: [many people]"
@@ -6232,7 +6232,7 @@
   {
     "reference": "2Co 11:19",
     "text": "For you gladly put up with fools, since you are so wise.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verses ([11:16–18](../11/16.md)) about how he wants the Corinthians to listen to him even if they think he is foolish. If it would be helpful in your language, you could use a different word or phrase that introduces further explanation. Alternate translation: [Indeed,] or [You can listen to me since]"
@@ -6254,7 +6254,7 @@
   {
     "reference": "2Co 11:20",
     "text": "In fact, you even put up with anyone who enslaves you or exploits you or takes advantage of you or exalts himself or strikes you in the face.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces examples of what Paul said in the previous verse ([11:19](../11/19.md)) about how the Corinthians “bear with the foolish.” If it would be helpful in your language, you could use a different word or phrase that introduces examples. Alternate translation: [For example,]"
@@ -6288,7 +6288,7 @@
   {
     "reference": "2Co 11:21",
     "text": "To my shame I concede that we were too weak for that! Speaking as a fool, however, I can match what anyone else dares to boast about.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-irony",
         "note": "Here Paul speaks from the perspective of someone who thinks that what Paul spoke about in the previous verse is the right way to show honor and power. What he means is that if his opponents are correct, the way he treated the Corinthians should lead to **dishonor** and show that he is **weak**. If it would be helpful in your language, you could make it more explicit that Paul is speaking from someone else’s point of view. Alternate translation: [According to those people, I would have to speak according to dishonor, namely that we ourselves have been weak] or [They might say that according to dishonor we ourselves have been weak]"
@@ -6326,7 +6326,7 @@
   {
     "reference": "2Co 11:22",
     "text": "Are they Hebrews? So am I. Are they Israelites? So am I. Are they descendants of Abraham? So am I.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is using the question form to compare himself to what his opponents claim to be. If you would not use the question form for this purpose in your language, you could translate these questions as comparisons or statements. Alternate translation: [If they are Hebrews, I am also. If they are Israelites, I am also. If they are offspring of Abraham, I am also.] or [When they claim to be Hebrews, so do I. When they claim to be Israelites, so do I. When they claim to be offspring of Abraham, so do I.]"
@@ -6340,7 +6340,7 @@
   {
     "reference": "2Co 11:23",
     "text": "Are they servants of Christ? (I am speaking as if I were out of my mind.) I am so much more: in harder labor, in more imprisonments, in worse beatings, in frequent danger of death.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Just as in [11:22](../11/22.md), Paul is using the question form to compare himself to what his opponents claim to be. If you would not use the question form for this purpose in your language, you could translate these questions as comparisons or statements. Alternate translation: [If they are servants of Christ, (I speak as being insane) I am also.] or [When they claim to be servants of Christ, (I speak as being insane) so do I.]"
@@ -6374,7 +6374,7 @@
   {
     "reference": "2Co 11:24",
     "text": "Five times I received from the Jews the forty lashes minus one.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This phrase refers to how in Jewish law a person could be whipped at most 40 times (See: [Deuteronomy 25:3](../../deu/25/03.md)). Often people would whip a person only 39 times to be sure that they did not go over 40. If it would be helpful in your language, you could make this information more explicit or use a footnote to explain the phrase. Alternate translation: [39 lashes, the most they allow]"
@@ -6384,7 +6384,7 @@
   {
     "reference": "2Co 11:25",
     "text": "Three times I was beaten with rods, once I was stoned, three times I was shipwrecked. I spent a night and a day in the open sea.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "Here Paul refers to how the Roman authorities would sometimes punish people. They would have someone hit the person they wished to punish with a wooden stick multiple times. If it would be helpful in your language, you could use a word or phrase that refers to that kind of punishment. Alternate translation: [people struck me with wooden sticks] or [Roman leaders punished me by having people hit me with canes]"
@@ -6418,7 +6418,7 @@
   {
     "reference": "2Co 11:26",
     "text": "In my frequent journeys, I have been in danger from rivers and from bandits, in danger from my countrymen and from the Gentiles, in danger in the city and in the country, in danger on the sea and among false brothers,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **often in journeys** could: (1) give the situation in which all the other **dangers** occur. Alternate translation: [during my frequent journeys I have been in dangers]; (2) be one of the dangerous things Paul is talking about. Alternate translation: [in frequent journeys]"
@@ -6448,7 +6448,7 @@
   {
     "reference": "2Co 11:27",
     "text": "in labor and toil and often without sleep, in hunger and thirst and often without food, in cold and exposure.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas in this verse, you could express the same ideas in another way. Alternate translation: [I labor and toil, often sleep little, am hungry and thirsty, often fast, and am often cold and naked]"
@@ -6466,7 +6466,7 @@
   {
     "reference": "2Co 11:28",
     "text": "Apart from these external trials, I face daily the pressure of my concern for all the churches.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **apart from the other things** could be referring to: (1) many other hardships that Paul does not mention. This would mean that he is now going to mention one last hardship. Alternate translation: [besides everything else I suffer] or [beyond any other hardships]; (2) the hardships he has already mentioned, which are external. This would mean that he is now going to mention internal hardships. Alternate translation: [apart from those external things]"
@@ -6488,7 +6488,7 @@
   {
     "reference": "2Co 11:29",
     "text": "Who is weak, and I am not weak? Who is led into sin, and I do not burn with grief?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is using the question form to show that he is **weak** when other believers are **weak**. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [If anyone is weak, I too am weak!] or [I am weak when others are weak!]"
@@ -6518,7 +6518,7 @@
   {
     "reference": "2Co 11:30",
     "text": "If I must boast, I will boast of the things that show my weakness.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "Paul speaks as if this were a hypothetical situation, but he means that it is true. If your language does not state something as a condition if it is certain or true, and if your readers might think that what Paul is saying is uncertain, then you could translate his words as an affirmative statement. Alternate translation: [When] or [Because]"
@@ -6536,7 +6536,7 @@
   {
     "reference": "2Co 11:31",
     "text": "The God and Father of the Lord Jesus, who is forever worthy of praise, knows that I am not lying.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/guidelines-sonofgodprinciples",
         "note": "**Father** is an important title for God. Both **God** and **Father** refer to God. This phrase could mean that: (1) God is both **God** and **Father** to our Lord Jesus. Alternate translation: [The God of the Lord Jesus, who is the Father]; (2) **God** is **Father** to our Lord Jesus. Alternate translation: [God, who is the Father]"
@@ -6570,7 +6570,7 @@
   {
     "reference": "2Co 11:32",
     "text": "In Damascus, the governor under King Aretas secured the city of the Damascenes in order to arrest me.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "Here, the word **Aretas** is the name of a man who was a king. He obeyed what the Roman leaders required, and they let him be king over an area that included the city of **Damascus**."
@@ -6592,7 +6592,7 @@
   {
     "reference": "2Co 11:33",
     "text": "But I was lowered in a basket through a window in the wall and escaped his grasp.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul describes how he **escaped** from the city of Damascus (See: [Acts 9:23–25](../../act/09/23.md)). His friends put him in a **basket**, a large bowl most likely made out of woven rope or plant stems. They attached a rope to the **basket** and **lowered** Paul out a **window** or opening that was in the **wall**. If it would be helpful in your language, you could more explicitly explain how this action was done. Alternate translation: [I was put in a basket and lowered by rope through a window that was in the wall]"
@@ -6614,7 +6614,7 @@
   {
     "reference": "2Co 12:1",
     "text": "I must go on boasting. Although there is nothing to gain, I will go on to visions and revelations from the Lord.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "Here, the phrase **not profitable** could go with: (1) **I will go on to visions and revelations of the Lord**. Alternate translation: [to boast: even though it is not profitable,]; (2) **It is necessary to boast**. Alternate translation: [to boast, though it is not profitable. But]"
@@ -6636,7 +6636,7 @@
   {
     "reference": "2Co 12:2",
     "text": "I know a man in Christ who fourteen years ago was caught up to the third heaven. Whether it was in the body or out of it I do not know, but God knows.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "Here, the clauses **whether in the body, I do not know, or out of the body, I do not know, God knows** interrupt the sentence to indicate that Paul does not know exactly what form the ascent into heaven took. If it would be helpful in your language, you could move these clauses to wherever they would naturally appear in your language. Alternate translation: [Whether this happened in the body, I do not know, or out of the body, I do not know, God knows. However it happened, I know about a man in Christ who was caught up to the third heaven 14 years ago]"
@@ -6670,7 +6670,7 @@
   {
     "reference": "2Co 12:3",
     "text": "And I know that this man—whether in the body or out of it I do not know, but God knows—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **And** introduces a restatement of the previous verse with some new information. If it would be helpful in your language, you could use a word or phrase that introduces a restatement. Alternate translation: [I repeat,] or [Indeed,]"
@@ -6692,7 +6692,7 @@
   {
     "reference": "2Co 12:4",
     "text": "was caught up to Paradise. The things he heard were inexpressible, things that man is not permitted to tell.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "Here Paul continues to speak about himself in the third person. Make sure that your translation fits with how you chose to translate [12:2–3](../12/02.md). Alternate translation: [he, by which I mean I, was caught up into Paradise and heard inexpressible words which are not permitted for a man to speak] or [he was caught up into Paradise and heard inexpressible words which are not permitted for a man to speak. Again, that man is me]"
@@ -6722,7 +6722,7 @@
   {
     "reference": "2Co 12:5",
     "text": "I will boast about such a man, but I will not boast about myself, except in my weaknesses.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "Here Paul finishes talking about himself in the third person. It is clear here that he does so in order to avoid boasting about himself. Make sure that your translation fits with how you translated [12:2–4](../12/02.md). If you have not yet revealed that Paul is speaking about himself, this verse may be a good time to do so. Alternate translation: [On behalf of such a man, who is really myself, I will boast. But on behalf of myself I will not directly boast] or [Since I am that man, I could boast about myself. However, I will not boast about myself]"
@@ -6740,7 +6740,7 @@
   {
     "reference": "2Co 12:6",
     "text": "Even if I wanted to boast, I would not be a fool, because I would be speaking the truth. But I refrain, so no one will credit me with more than he sees in me or hears from me,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces a further explanation of what Paul said in the previous verse ([12:5](../12/05.md)). He wishes to say that he could properly boast about the man who ascended to heaven, since that man is himself. If it would be helpful in your language, you could use a different word or phrase that introduces further explanation. Alternate translation: [Now] or [Indeed,]"
@@ -6774,7 +6774,7 @@
   {
     "reference": "2Co 12:7",
     "text": "or because of these surpassingly great revelations. So to keep me from becoming conceited, I was given a thorn in my flesh, a messenger of Satan, to torment me.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "Here, the phrase **because of the surpassing {nature} of the revelations** could go with: (1) this verse. In this case, the word **therefore** is in an unusual position in the middle of the sentence, and you may need to move it to the beginning of the sentence. Alternate translation: [Therefore, because of the surpassing nature of revelations, so that I would not become super arrogant]; (2) the end of the previous verse. If you follow this interpretation, you will need to end the previous verse with no punctuation. Alternate translation: [and also because of the surpassing nature of the revelations. Therefore, so that I would not become super arrogant]"
@@ -6808,7 +6808,7 @@
   {
     "reference": "2Co 12:8",
     "text": "Three times I pleaded with the Lord to take it away from me.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, the word **this** could refer: (1) generally to what Paul described in the previous verse. Alternate translation: [this situation]; (2) to the “messenger of Satan.” Alternate translation: [this messenger of Satan] (3) to the “thorn in the flesh.” Alternate translation: [this thorn]"
@@ -6826,7 +6826,7 @@
   {
     "reference": "2Co 12:9",
     "text": "But He said to me, “My grace is sufficient for you, for My power is perfected in weakness.” Therefore I will boast all the more gladly in my weaknesses, so that the power of Christ may rest on me.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "Paul repeats what the Lord said in response to his prayer that the thorn and its suffering be taken away. If it would be helpful in your language, you could use a form that introduces the answer to a question or prayer. Alternate translation: [he has answered me]"
@@ -6868,7 +6868,7 @@
   {
     "reference": "2Co 12:10",
     "text": "That is why, for the sake of Christ, I delight in weaknesses, in insults, in hardships, in persecutions, in difficulties. For when I am weak, then I am strong.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul means that he is content with these bad experiences and is even happy that he experiences them, because Christ works through him when these bad things happen. He does not mean that he enjoys the bad experiences themselves. If it would be helpful in your language, you could use a phrase that makes this idea more explicit. Alternate translation: [I rejoice when I live] or [I am content to suffer]"
@@ -6890,7 +6890,7 @@
   {
     "reference": "2Co 12:11",
     "text": "I have become a fool, but you drove me to it. In fact, you should have commended me, since I am in no way inferior to those “super-apostles,” even though I am nothing.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul means that he has spoken in **foolish** ways in the previous several chapters. He does not mean that he is always a **foolish** person. If it would be helpful in your language, you could make this idea more explicit. Alternate translation: [I have been talking in foolish ways]"
@@ -6936,7 +6936,7 @@
   {
     "reference": "2Co 12:12",
     "text": "The marks of a true apostle—signs, wonders, and miracles—were performed among you with great perseverance.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word translated **Indeed** could: (1) connect this sentence to the previous claim that Paul is equal to the “super-apostles.” You could use a word or phrase that links two statements, or you could leave **Indeed** untranslated. Alternate translation: [In fact]; (2) introduce the first part of a contrast. In this case, Paul does not directly state the second half of the contrast. He would be implying that they did not pay attention to these **signs**. Alternate translation: [Although you did not pay attention to them]"
@@ -6966,7 +6966,7 @@
   {
     "reference": "2Co 12:13",
     "text": "In what way were you inferior to the other churches, except that I was not a burden to you? Forgive me this wrong!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** introduces another reason why the Corinthians should consider Paul to be trustworthy. If it would be helpful in your language, you could use a word or phrase that introduces another reason, or you could leave **For** untranslated. Alternate translation: [Even more,]"
@@ -7008,7 +7008,7 @@
   {
     "reference": "2Co 12:14",
     "text": "See, I am ready to come to you a third time, and I will not be a burden, because I am not seeking your possessions, but you. For children should not have to save up for their parents, but parents for their children.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "Here, the word **Behold** draws the attention of the audience and asks them to listen carefully. If it would be helpful in your language, you could express the idea with a word or phrase that asks the audience to listen, or you could use another form that draws the audience’s attention to the statement that follows. Alternate translation: [Listen to this] or [Hear this]"
@@ -7050,7 +7050,7 @@
   {
     "reference": "2Co 12:15",
     "text": "And for the sake of your souls, I will most gladly spend my money and myself. If I love you more, will you love me less?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** introduces a development of the ideas from the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces a development, or you could leave **Now** untranslated. Alternate translation: [Indeed,]"
@@ -7092,7 +7092,7 @@
   {
     "reference": "2Co 12:16",
     "text": "Be that as it may, I was not a burden to you; but crafty as I am, I caught you by trickery.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **But let it be {so}** indicates that something is agreed upon or certainly true. Paul could be referring to: (1) what he is about to say about not being a **burden** to the Corinthians. He means that he and the Corinthians can agree about that. Alternate translation: [But here is what we can agree on: I myself did not burden you. However]; (2) what he said in the previous verse about loving the Corinthians, although he may be loved less. He means that even if that is true, he will still not **burden** the Corinthians. Alternate translation: [Besides all that, I myself did not burden you. However,] or [Even if that has happened, I myself did not burden you. However,]"
@@ -7122,7 +7122,7 @@
   {
     "reference": "2Co 12:17",
     "text": "Did I exploit you by anyone I sent you?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is using the question form to deny that any person he has sent to the Corinthians has cheated them. If you would not use the question form for this purpose in your language, you could translate this as a negation or an exclamation. Alternate translation: [I have not taken advantage of you through anyone whom I have sent to you!] or [There is no one whom I have sent to you through whom I took advantage of you.]"
@@ -7136,7 +7136,7 @@
   {
     "reference": "2Co 12:18",
     "text": "I urged Titus to visit you, and I sent our brother with him. Did Titus exploit you in any way? Did we not walk in the same Spirit and follow in the same footsteps?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul refers to a trip Titus took previously to visit the Corinthians. He is probably referring to the visit he mentions in [8:6](../08/06.md). If it would be helpful in your language, you could use a form that refers to a trip that has already been completed. Alternate translation: [I urged Titus to go to you previously, and I sent the other brother with him]"
@@ -7178,7 +7178,7 @@
   {
     "reference": "2Co 12:19",
     "text": "Have you been thinking all along that we were making a defense to you? We speak before God in Christ, and all of this, beloved, is to build you up.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is using the question form to deny that what he has said is primarily for the purpose of **defending ourselves**. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [Do not think that all of this time we have been defending ourselves to you!] or [I want you to realize that all of this time we have not been defending ourselves to you.]"
@@ -7212,7 +7212,7 @@
   {
     "reference": "2Co 12:20",
     "text": "For I am afraid that when I come, I may not find you as I wish, and you may not find me as you wish. I fear that there may be quarreling, jealousy, rage, rivalry, slander, gossip, arrogance, and disorder.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** could introduce: (1) a reason why Paul has written what he has in this letter. Alternate translation: [I have written these things because]; (2) a reason why Paul wants to build them up. Alternate translation: [I want to build you up because]"
@@ -7238,7 +7238,7 @@
   {
     "reference": "2Co 12:21",
     "text": "I am afraid that when I come again, my God will humble me before you, and I will be grieved over many who have sinned earlier and have not repented of their acts of impurity, sexual immorality, and debauchery.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Paul is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the previous verse if it would be clearer in your language (See: [12:20](../12/20.md)). Alternate translation: [and I fear that]"
@@ -7268,7 +7268,7 @@
   {
     "reference": "2Co 13:1",
     "text": "This is the third time I am coming to you. “Every matter must be established by the testimony of two or three witnesses.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could state this in active form or in another way that is natural in your language. Alternate translation: [Only if two or three people have said the same thing about another person should God’s people believe that it is true]"
@@ -7286,7 +7286,7 @@
   {
     "reference": "2Co 13:2",
     "text": "I already warned you the second time I was with you. So now in my absence I warn those who sinned earlier and everyone else: If I return, I will not spare anyone,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [to all of you other believers]"
@@ -7308,7 +7308,7 @@
   {
     "reference": "2Co 13:3",
     "text": "since you are demanding proof that Christ is speaking through me. He is not weak in dealing with you but is powerful among you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **proof**, you could express the same idea in another way. Alternate translation: [you want me to prove that Christ speaks through me]"
@@ -7330,7 +7330,7 @@
   {
     "reference": "2Co 13:4",
     "text": "For He was indeed crucified in weakness, yet He lives by God’s power. For we are also weak in Him, yet by God’s power we will live with Him concerning you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could state this in active form or in another way that is natural in your language. Alternate translation: [they crucified him]"
@@ -7352,7 +7352,7 @@
   {
     "reference": "2Co 13:5",
     "text": "Examine yourselves to see whether you are in the faith; test yourselves. Do you not realize that Jesus Christ is in you—unless you fail the test?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two phrases mean the same thing. The second emphasizes the meaning of the first by repeating the same idea with different words. If your language does not have two ways to say this, you could repeat the same phrase and provide emphasis in another way. Alternate translation: [Test yourselves … Indeed, you must test yourselves]"
@@ -7378,7 +7378,7 @@
   {
     "reference": "2Co 13:6",
     "text": "And I hope you will realize that we have not failed the test.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "Paul speaks as if he were uncertain about whether or not the Corinthian believers would understand that he is a true follower or apostle of Christ. He does this in order to convey modesty, but he is actually sure that they know that he is a true follower of Christ. If your language does not state something as uncertain if it is certain or true, and if your readers might think that what Paul is saying here is uncertain, then you could translate his words as an affirmative statement. Alternate translation: [I am sure]"
@@ -7404,7 +7404,7 @@
   {
     "reference": "2Co 13:7",
     "text": "Now we pray to God that you will not do anything wrong—not that we will appear to have stood the test, but that you will do what is right, even if we appear to have failed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "Paul is using the word translated **Now** to introduce a slightly new topic. Use a word, phrase, or other method in your language that is natural for this, or it may be more natural to leave it out. Alternate translation: [Also,]"
@@ -7434,7 +7434,7 @@
   {
     "reference": "2Co 13:8",
     "text": "For we cannot do anything against the truth, but only for the truth.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word translated as **For** indicates that what follows is a reason for what came before. Use a connector in your language that makes it clear that what follows is a reason for what came before. Alternate translation: [This is because]"
@@ -7448,7 +7448,7 @@
   {
     "reference": "2Co 13:9",
     "text": "In fact, we rejoice when we are weak but you are strong, and our prayer is for your perfection.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [that you may become spiritually mature]"
@@ -7470,7 +7470,7 @@
   {
     "reference": "2Co 13:10",
     "text": "This is why I write these things while absent, so that when I am present I will not need to be severe in my use of the authority that the Lord gave me for building you up, not for tearing you down.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **this** refers to what Paul has just written in [verse 9](../13/09.md), that he wants the Corinthian believers to be restored to a right relationship with God. If this is not clear for your readers, you could repeat that information here. Alternate translation: [Because I want you to be restored to God]"
@@ -7492,7 +7492,7 @@
   {
     "reference": "2Co 13:11",
     "text": "Finally, brothers, rejoice! Aim for perfect harmony, encourage one another, be of one mind, live in peace. And the God of love and peace will be with you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "Although the term **brothers** is masculine, Paul is using the word in a generic sense that includes both men and women. If you retain the metaphor in your translation, and if it would be helpful in your language, you could say “brothers and sisters” to indicate this."
@@ -7526,7 +7526,7 @@
   {
     "reference": "2Co 13:12",
     "text": "Greet one another with a holy kiss.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-symaction",
         "note": "A **holy kiss** was a symbolic action to show familial love between believers. In some cultures, a kiss as a greeting is appropriate, but in other cultures it is not appropriate. The idea of a **holy kiss** is that it be a greeting that is appropriate in the culture, whether it be a kiss, a hug, a handshake, or something else, and also that it be **holy**, that is, appropriate between God’s people. If this would not be clear to your readers, you can explain the significance of this action in the text or in a footnote. Alternate translation: [warmly, as fellow believers]"
@@ -7540,7 +7540,7 @@
   {
     "reference": "2Co 13:13",
     "text": "All the saints send you greetings.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Paul ends his letter with this blessing. You can express this as either a blessing or a prayer, in whichever way is more natural in your language. Alternate translation: [I pray for all of you that the Lord Jesus Christ will give you his grace, that God will give you his love, and that the Holy Spirit will give you his fellowship.]"
@@ -7554,6 +7554,6 @@
   {
     "reference": "2Co 13:14",
     "text": "The grace of the Lord Jesus Christ, and the love of God, and the fellowship of the Holy Spirit be with all of you.",
-    "translation_challenges": []
+    "note_data": []
   }
 ]

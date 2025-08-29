@@ -2,7 +2,7 @@
   {
     "reference": "1Pe 1:1",
     "text": "Peter, an apostle of Jesus Christ, To the elect who are exiles of the Dispersion throughout Pontus, Galatia, Cappadocia, Asia, and Bithynia, chosen",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "In this culture, letter writers would give their own names first, and they would refer to themselves in the third person. If that would be confusing in your language, you could use the first person. If your language has a particular way of introducing the author of a letter, you could also use that. Alternate translation: [I, Peter, am writing this letter] or [From Peter]"
@@ -36,7 +36,7 @@
   {
     "reference": "1Pe 1:2",
     "text": "according to the foreknowledge of God the Father and sanctified by the Spirit for obedience to Jesus Christ and sprinkling by His blood: Grace and peace be yours in abundance.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **foreknowledge**, you can express the same idea with a verbal phrase. Alternate translation: [what God the Father foreknew]"
@@ -98,7 +98,7 @@
   {
     "reference": "1Pe 1:3",
     "text": "Blessed be the God and Father of our Lord Jesus Christ! By His great mercy He has given us new birth into a living hope through the resurrection of Jesus Christ from the dead,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# General Information:\\n\\nPeter begins to talk about the believers’ salvation and faith. [1:3–5](../01/03.md) are one sentence, but you may need to divide them into shorter sentences in your language."
@@ -148,7 +148,7 @@
   {
     "reference": "1Pe 1:4",
     "text": "and into an inheritance that is imperishable, undefiled, and unfading, reserved in heaven for you,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# General Information:\\n\\nPeter begins to talk about the believers’ salvation and faith. [1:3–5](../01/03.md) are one sentence, but you may need to divide them into shorter sentences in your language."
@@ -174,7 +174,7 @@
   {
     "reference": "1Pe 1:5",
     "text": "who through faith are shielded by God’s power for the salvation that is ready to be revealed in the last time.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# General Information:\\n\\nPeter begins to talk about the believers’ salvation and faith. [1:3–5](../01/03.md) are one sentence, but you may need to divide them into shorter sentences in your language."
@@ -208,7 +208,7 @@
   {
     "reference": "1Pe 1:6",
     "text": "In this you greatly rejoice, though now for a little while you may have had to suffer grief in various trials",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **this** could refer to: (1) the “last time” referred to at the end of the previous verse. Alternate translation: [About this last time]; (2) everything described in [1:3–5](../01/03.md). Alternate translation: [In all of this that I have said]"
@@ -230,7 +230,7 @@
   {
     "reference": "1Pe 1:7",
     "text": "so that the proven character of your faith—more precious than gold, which perishes even though refined by fire—may result in praise, glory, and honor at the revelation of Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Peter speaks of **faith**, as if it were gold that is refined by passing it through **fire**. He also uses **fire** to refer to the hardships that test how well believers trust in Christ. If this might confuse your readers, you could express the meaning plainly or use a simile. Alternate translation: [the genuineness of your faith … but being tested by hardships the way fire tests gold]"
@@ -264,7 +264,7 @@
   {
     "reference": "1Pe 1:8",
     "text": "Though you have not seen Him, you love Him; and though you do not see Him now, you believe in Him and rejoice with an inexpressible and glorious joy,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "Here, **inexpressible** and **filled with glory** mean basically the same thing. The repetition is used to emphasize how great the joy is. If your language does not use repetition to do this, you can use one phrase and provide emphasis in another way. Alternate translation: [with joy so great that words cannot describe it]"
@@ -274,7 +274,7 @@
   {
     "reference": "1Pe 1:9",
     "text": "now that you are receiving the goal of your faith, the salvation of your souls.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Peter speaks of **salvation** as if it were an object that someone could receive. If this would confuse your readers, you could express the meaning plainly. Alternate translation: [experiencing … the salvation]"
@@ -296,7 +296,7 @@
   {
     "reference": "1Pe 1:10",
     "text": "Concerning this salvation, the prophets who foretold the grace to come to you searched and investigated carefully,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "The phrases **searched** and **inquired carefully** mean basically the same thing. The repetition is used to emphasize how hard the prophets tried to understand this salvation. If your language does not use repetition to do this, you can use one phrase and provide emphasis in another way. Alternate translation: [examined very carefully]"
@@ -314,7 +314,7 @@
   {
     "reference": "1Pe 1:11",
     "text": "trying to determine the time and setting to which the Spirit of Christ in them was pointing when He predicted the sufferings of Christ and the glories to follow.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The word translated **whom** could also be translated “what.” In that case, “what” would refer to the time when salvation would take place and **what time** would then refer to the specific circumstances. However, most translations agree with the ULT’s use of **whom**. Alternate translation: [into what time or what circumstances]"
@@ -336,7 +336,7 @@
   {
     "reference": "1Pe 1:12",
     "text": "It was revealed to them that they were not serving themselves, but you, when they foretold the things now announced by those who preached the gospel to you by the Holy Spirit sent from heaven. Even angels long to look into these things.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [God revealed to them]"
@@ -366,7 +366,7 @@
   {
     "reference": "1Pe 1:13",
     "text": "Therefore prepare your minds for action. Be sober-minded. Set your hope fully on the grace to be given you at the revelation of Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "**Therefore** here refers back to everything that Peter has written in [1:1–12](../01/01.md). If it might be helpful to your readers, you could state this concisely. Alternate translation: [Since all these things I have just written are true]"
@@ -404,7 +404,7 @@
   {
     "reference": "1Pe 1:14",
     "text": "As obedient children, do not conform to the passions of your former ignorance.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Peter uses **children** to refer to people who love and obey God. The relationship between God and those who love him is like the relationship between a father and his children. Because this is an important concept in the Bible, you should not express the meaning plainly here, but you may use a simile. Alternate translation: [Like children of obedience]"
@@ -430,7 +430,7 @@
   {
     "reference": "1Pe 1:15",
     "text": "But just as He who called you is holy, so be holy in all you do,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This phrase refers to God. If it would be helpful in your language, you could express the meaning explicitly. Alternate translation: [God who called you]"
@@ -444,7 +444,7 @@
   {
     "reference": "1Pe 1:16",
     "text": "for it is written: “Be holy, because I am holy.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you can express the idea in active form or in another way that is natural in your language. If you must state who did the action, Moses was the author of the quotation that follows. Alternate translation: [Moses had written]"
@@ -466,7 +466,7 @@
   {
     "reference": "1Pe 1:17",
     "text": "Since you call on a Father who judges each one’s work impartially, conduct yourselves in reverent fear during your stay as foreigners.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "Peter is speaking as if this were a hypothetical possibility, but he means that it is actually true. If your language does not state something as a condition if it is certain or true, and if your readers might think that what Peter is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [because you call]"
@@ -484,7 +484,7 @@
   {
     "reference": "1Pe 1:18",
     "text": "For you know that it was not with perishable things such as silver or gold that you were redeemed from the empty way of life you inherited from your forefathers,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "If it would be more natural in your language, you could change the order of these phrases. Alternate translation: [you have been redeemed from your futile behavior handed down from your fathers, not with perishable things, with silver or with gold]"
@@ -510,7 +510,7 @@
   {
     "reference": "1Pe 1:19",
     "text": "but with the precious blood of Christ, a lamb without blemish or spot.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Peter uses **the precious blood of Christ** to refer to Jesus’ death. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [with Christ’s precious death]"
@@ -528,7 +528,7 @@
   {
     "reference": "1Pe 1:20",
     "text": "He was known before the foundation of the world, but was revealed in the last times for your sake.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [God having foreknown him]"
@@ -558,7 +558,7 @@
   {
     "reference": "1Pe 1:21",
     "text": "Through Him you believe in God, who raised Him from the dead and glorified Him; and so your faith and hope are in God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, to **raise him** is an idiom for causing someone who has died to become alive again. If it would be helpful in your language, you could express this explicitly. Alternate translation: [who caused him to live again so that he was no longer among the dead people]"
@@ -576,7 +576,7 @@
   {
     "reference": "1Pe 1:22",
     "text": "Since you have purified your souls by obedience to the truth so that you have a genuine love for your brothers, love one another deeply, from a pure heart.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "**Having purified** refers to being forgiven for sins. In the Bible, sin is often referred to as something that makes people dirty, and the forgiveness for sin is referred to as the removal of that dirt. God is the one who forgives sins and **purifies** those who believe in Jesus. However, here Peter is referring to his readers’ responsibility in their salvation, which is the responsibility to repent and believe that the gospel is true. Alternate translation: [Having made your souls spiritually pure] or [Having cleansed your souls from sin]"
@@ -606,7 +606,7 @@
   {
     "reference": "1Pe 1:23",
     "text": "For you have been born again, not of perishable seed, but of imperishable, through the living and enduring word of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See how you translated **born again** in [1:3](../01/03.md)."
@@ -632,7 +632,7 @@
   {
     "reference": "1Pe 1:24",
     "text": "For, “All flesh is like grass, and all its glory like the flowers of the field; the grass withers and the flowers fall,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "**For** here introduces a quotation of some phrases from an Old Testament book ([Isaiah 40:6–8](../../isa/40/06.md)). If it would be helpful in your language, you could use a comparable phrase that indicates that Peter is quoting from an important text. Alternate translation: [It is as Isaiah wrote in the scriptures]"
@@ -670,7 +670,7 @@
   {
     "reference": "1Pe 1:25",
     "text": "but the word of the Lord stands forever.” And this is the word that was proclaimed to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "This clause completes Peters quotation of [Isaiah 40:6–8](../../isa/40/06.md) that began in the previous verse. It may be helpful to your readers to indicate this ending by setting off all of this material with quotation marks or with whatever punctuation or convention your language uses to indicate the end of a quotation."
@@ -692,7 +692,7 @@
   {
     "reference": "1Pe 2:1",
     "text": "Rid yourselves, therefore, of all malice, deceit, hypocrisy, envy, and slander.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**Therefore** here refers back to everything that Peter has said in the previous paragraph ([1:22–25](../01/22.md))."
@@ -714,7 +714,7 @@
   {
     "reference": "1Pe 2:2",
     "text": "Like newborn babies, crave pure spiritual milk, so that by it you may grow up in your salvation,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-simile",
         "note": "The point of this comparison is that Peter wanted his readers to desire knowledge of God’s word just as **newborn babies** desire milk. If it would be helpful in your language, you could use an equivalent comparison or express this meaning plainly. Alternate translation: [Just as babies long for their mother’s milk, so you must long for the pure rational milk]"
@@ -744,7 +744,7 @@
   {
     "reference": "1Pe 2:3",
     "text": "now that you have tasted that the Lord is good.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "Peter is speaking as if this were a hypothetical possibility, but he means that it is actually true. If your language does not state something as a condition if it is certain or true, and if your readers might think that what Peter is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [since you have tasted]"
@@ -762,7 +762,7 @@
   {
     "reference": "1Pe 2:4",
     "text": "As you come to Him, the living stone, rejected by men but chosen and precious in God’s sight,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **coming** could indicate: (1) a factual statement, as in the UST. (2) a command, in which case “being built up” in the next verse would also be a command. Alternate translation: [Come to him]"
@@ -796,7 +796,7 @@
   {
     "reference": "1Pe 2:5",
     "text": "you also, like living stones, are being built into a spiritual house to be a holy priesthood, offering spiritual sacrifices acceptable to God through Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Peter uses **stones** to refer to his readers, people who believe in Jesus. Just as people in the Old Testament used **stones** to build the temple that God dwelled in, God is using believers to bring together a group of people in whom he will dwell. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [you, like stones that are put together and built into a house, are living stones that are being brought together into a spiritual community in which God dwells]"
@@ -830,7 +830,7 @@
   {
     "reference": "1Pe 2:6",
     "text": "For it stands in Scripture: “See, I lay in Zion a stone, a chosen and precious cornerstone; and the one who believes in Him will never be put to shame.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Here the quotation of **scripture** that occurs next in the verse is spoken of as if it were a person who **stands**. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [it is written in scripture]"
@@ -868,7 +868,7 @@
   {
     "reference": "1Pe 2:7",
     "text": "To you who believe, then, this stone is precious. But to those who do not believe, “The stone the builders rejected has become the cornerstone,”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **the honor** refers to the statement in the previous verse that people who believe in Jesus will “certainly not be ashamed.” If this might confuse your readers, you could express this explicitly. Alternate translation: [this honor of never being ashamed is]"
@@ -898,7 +898,7 @@
   {
     "reference": "1Pe 2:8",
     "text": "and, “A stone of stumbling and a rock of offense.” They stumble because they disobey the word—and to this they were appointed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "Here, **and** introduces a quotation of an Old Testament book ([Isaiah 8:14](../../isa/08/14.md)). If it would be helpful in your language, you could use a comparable phrase that indicates that Peter is quoting from an important text. Alternate translation: [and Isaiah wrote in the scriptures]"
@@ -948,7 +948,7 @@
   {
     "reference": "1Pe 2:9",
     "text": "But you are a chosen people, a royal priesthood, a holy nation, a people for God’s own possession, to proclaim the virtues of Him who called you out of darkness into His marvelous light.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "All four of these phrases are quotations from the Old Testament. The phrase **a chosen people** is from [Isaiah 43:20](../../isa/43/20.md), **a royal priesthood** and **a holy nation** are from [Exodus 19:6](../../exo/19/06.md), and **a people for possession** is from [Isaiah 43:21](../../isa/43/21.md). It may be helpful for your readers to indicate these quotations with quotation marks or with whatever punctuation or convention your language uses to indicate quotations."
@@ -982,7 +982,7 @@
   {
     "reference": "1Pe 2:10",
     "text": "Once you were not a people, but now you are the people of God; once you had not received mercy, but now you have received mercy.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "All four of these phrases are quotations from the Old Testament ([Hosea 1:6–10](../../hos/01/06.md)). It may be helpful to your readers to indicate these quotations with quotation marks or with whatever punctuation or convention your language uses to indicate quotations."
@@ -992,7 +992,7 @@
   {
     "reference": "1Pe 2:11",
     "text": "Beloved, I urge you, as foreigners and exiles, to abstain from the desires of the flesh, which war against your soul.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# General Information:\\n\\nPeter begins to tell his readers how to live Christian lives."
@@ -1026,7 +1026,7 @@
   {
     "reference": "1Pe 2:12",
     "text": "Conduct yourselves with such honor among the Gentiles that, though they slander you as evildoers, they may see your good deeds and glorify God on the day He visits us.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-declarative",
         "note": "Peter is using a statement to give a command. If this is confusing in your language, you can use a more natural form for command, starting a new sentence. Alternate translation: [Keep your behavior among the Gentiles good]"
@@ -1060,7 +1060,7 @@
   {
     "reference": "1Pe 2:13",
     "text": "Submit yourselves for the Lord’s sake to every human institution, whether to the king as the supreme authority,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **the Lord** refers to Jesus. This phrase could mean: (1) we should do this to follow the example of Jesus, who also obeyed human authorities. Alternate translation: [in order to follow the Lord’s example]; (2) we should do this to honor Jesus. Alternate translation: [in order to honor the Lord]"
@@ -1074,7 +1074,7 @@
   {
     "reference": "1Pe 2:14",
     "text": "or to governors as those sent by him to punish those who do wrong and to praise those who do right.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [to governors, who have been sent through him]"
@@ -1096,7 +1096,7 @@
   {
     "reference": "1Pe 2:15",
     "text": "For it is God’s will that by doing good you should silence the ignorance of foolish men.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "If it would be more natural in your language, you could reverse the order of these phrases. Alternate translation: [to silence the ignorance of foolish people by doing good]"
@@ -1110,7 +1110,7 @@
   {
     "reference": "1Pe 2:16",
     "text": "Live in freedom, but do not use your freedom as a cover-up for evil; live as servants of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Peter is leaving out some of the words that a sentence would need in many languages to be complete. If it would be helpful in your language, you could supply these words from the context. These words could be: (1) the command to submit to authorities stated in [2:13](../02/13.md). Alternate translation: [submit as free people]; (2) an implied imperative verb. Alternate translation: [act as free people] or [live as free people]"
@@ -1124,7 +1124,7 @@
   {
     "reference": "1Pe 2:17",
     "text": "Treat everyone with high regard: Love the brotherhood of believers, fear God, honor the king.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **brotherhood** refers to all Christian believers. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [the community of believers]"
@@ -1134,7 +1134,7 @@
   {
     "reference": "1Pe 2:18",
     "text": "Servants, submit yourselves to your masters with all respect, not only to those who are good and gentle, but even to those who are unreasonable.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# General Information:\\n\\nPeter begins to speak specifically to people who were slaves who worked in people’s houses."
@@ -1152,7 +1152,7 @@
   {
     "reference": "1Pe 2:19",
     "text": "For if anyone endures the pain of unjust suffering because he is conscious of God, this is to be commended.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Peter assumes that his readers will know that he is referring to finding **favor** with God, which is what he states in the next verse. If it would be helpful to your readers, you could indicate that explicitly. Alternate translation: [this is deserving of God’s favor] or [this is pleasing to God]"
@@ -1174,7 +1174,7 @@
   {
     "reference": "1Pe 2:20",
     "text": "How is it to your credit if you are beaten for doing wrong and you endure it? But if you suffer for doing good and you endure it, this is commendable before God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Peter is not asking for information, but is using the question form here to emphasize that there is nothing praiseworthy about suffering for doing something wrong. If you would not use a rhetorical question for this purpose in your language, you could translate this sentence as a statement or an exclamation and communicate the emphasis in another way. Alternate translation: [For there is no credit if, sinning and being beaten, you will endure.]"
@@ -1196,7 +1196,7 @@
   {
     "reference": "1Pe 2:21",
     "text": "For to this you were called, because Christ also suffered for you, leaving you an example, that you should follow in His footsteps:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **this** refers back to what Peter stated at the end of the previous verse. Believers are called by God to endure suffering while doing what is good. If this might confuse your readers, you could express the meaning explicitly. Alternate translation: [to endure suffering when you have done what is good]"
@@ -1214,7 +1214,7 @@
   {
     "reference": "1Pe 2:22",
     "text": "“He committed no sin, and no deceit was found in His mouth.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "This verse is a quotation from [Isaiah 53:9](../../isa/53/09.md). It may be helpful to your readers to indicate this by setting off all of this material with quotation marks or with whatever punctuation or convention your language uses to indicate a quotation."
@@ -1236,7 +1236,7 @@
   {
     "reference": "1Pe 2:23",
     "text": "When they heaped abuse on Him, He did not retaliate; when He suffered, He made no threats, but entrusted Himself to Him who judges justly.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [whom people reviled, did not revile them back]"
@@ -1250,7 +1250,7 @@
   {
     "reference": "1Pe 2:24",
     "text": "He Himself bore our sins in His body on the tree, so that we might die to sin and live to righteousness. “By His stripes you are healed.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rpronouns",
         "note": "Peter uses the word **himself** here to emphasize that Jesus alone is the one who bore our sins. Use a way that is natural in your language to indicate this emphasis. Alternate translation: [none other than Jesus bore our sins] or [Jesus, that very person, bore our sins]"
@@ -1296,7 +1296,7 @@
   {
     "reference": "1Pe 2:25",
     "text": "For “you were like sheep going astray,” but now you have returned to the Shepherd and Overseer of your souls.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-simile",
         "note": "Peter speaks about his readers before they believed in Christ as if they had been similar to lost sheep that were wandering around aimlessly. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [you were living aimlessly without knowing God]"
@@ -1318,7 +1318,7 @@
   {
     "reference": "1Pe 3:1",
     "text": "Wives, in the same way, submit yourselves to your husbands, so that even if they refuse to believe the word, they will be won over without words by the behavior of their wives",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# General Information:\\n\\nIn [3:1–6](../03/01.md) Peter gives instructions specifically to women who are wives."
@@ -1348,7 +1348,7 @@
   {
     "reference": "1Pe 3:2",
     "text": "when they see your pure and reverent demeanor.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This phrase indicates the reason why the unbelieving husbands would become believers in Jesus. These husbands became believers because they **observed** how their wives behaved. If it would be helpful in your language, you could express the meaning explicitly. Alternate translation: [because they observed]"
@@ -1366,7 +1366,7 @@
   {
     "reference": "1Pe 3:3",
     "text": "Your beauty should not come from outward adornment, such as braided hair or gold jewelry or fine clothes,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **whose** refers to the Christian wives to whom Peter is speaking. If this might confuse your readers, you could express the meaning explicitly. Alternate translation: [your]"
@@ -1380,7 +1380,7 @@
   {
     "reference": "1Pe 3:4",
     "text": "but from the inner disposition of your heart, the unfading beauty of a gentle and quiet spirit, which is precious in God’s sight.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "If it would be helpful in your language, you could begin this verse as a new sentence. If you do so, then you will need to repeat the subject and verb from the previous verse. Alternate translation: [Rather, let your adornment be the inner man of the heart]"
@@ -1414,7 +1414,7 @@
   {
     "reference": "1Pe 3:5",
     "text": "For this is how the holy women of the past adorned themselves. They put their hope in God and were submissive to their husbands,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Peter speaks of the attitude of the holy women as if it were something with which they **adorned themselves**. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [made themselves beautiful]"
@@ -1428,7 +1428,7 @@
   {
     "reference": "1Pe 3:6",
     "text": "just as Sarah obeyed Abraham and called him lord. And you are her children if you do what is right and refuse to give way to fear.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Peter uses a Hebrew idiom here in which people are said to be the **children** of someone who has qualities similar to theirs. Women who believe and who act like Sarah acted are thought of as if they were her actual **children**. If this might confuse your readers, you could express the meaning plainly or use a simile. Alternate translation: [who resemble her as if you were her children]"
@@ -1442,7 +1442,7 @@
   {
     "reference": "1Pe 3:7",
     "text": "Husbands, in the same way, treat your wives with consideration as a delicate vessel, and with honor as fellow heirs of the gracious gift of life, so that your prayers will not be hindered.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# General Information:\\n\\nIn this verse Peter gives instructions specifically to men who are husbands."
@@ -1480,7 +1480,7 @@
   {
     "reference": "1Pe 3:8",
     "text": "Finally, all of you, be like-minded and sympathetic, love as brothers, be tenderhearted and humble.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# General Information:\\n\\nIn [3:8–12](../03/08.md) Peter writes instructions to all believers."
@@ -1498,7 +1498,7 @@
   {
     "reference": "1Pe 3:9",
     "text": "Do not repay evil with evil or insult with insult, but with blessing, because to this you were called so that you may inherit a blessing.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Peter uses **paying back** to refer to responding to the actions of another person as if one was returning money to that person for those actions. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [not doing evil to someone who does evil to you or insulting someone who insults you]"
@@ -1524,7 +1524,7 @@
   {
     "reference": "1Pe 3:10",
     "text": "For, “Whoever would love life and see good days must keep his tongue from evil and his lips from deceitful speech.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "**For** here introduces a quotation from the Old Testament ([Psalm 34:12–16](../../psa/034/012.md)). If it would be helpful in your language, you could use a comparable phrase that indicates that Peter is quoting from an important text. Alternate translation: [It is as David wrote in the scriptures]"
@@ -1554,7 +1554,7 @@
   {
     "reference": "1Pe 3:11",
     "text": "He must turn from evil and do good; he must seek peace and pursue it.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **turn away from** is a metaphor that means to avoid doing something. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [let him avoid doing evil]"
@@ -1572,7 +1572,7 @@
   {
     "reference": "1Pe 3:12",
     "text": "For the eyes of the Lord are on the righteous, and His ears are inclined to their prayer. But the face of the Lord is against those who do evil.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **eyes** being **on** someone is an idiom that refers to God acting favorably toward someone by taking care of that person. If this might confuse your readers, you could express the meaning plainly or use a similar idiom in your language. Alternate translation: [The Lord lovingly takes care of the righteous ones]"
@@ -1606,7 +1606,7 @@
   {
     "reference": "1Pe 3:13",
     "text": "Who can harm you if you are zealous for what is good?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# Connecting Statement:\\n\\nIn [3:13–22](../03/13.md) Peter teaches the believers how to behave when unbelievers persecute them."
@@ -1624,7 +1624,7 @@
   {
     "reference": "1Pe 3:14",
     "text": "But even if you should suffer for what is right, you are blessed. “Do not fear what they fear; do not be shaken.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **righteousness**, you can express the same idea in another way. Alternate translation: [you might suffer because you do what is right]"
@@ -1650,7 +1650,7 @@
   {
     "reference": "1Pe 3:15",
     "text": "But in your hearts sanctify Christ as Lord. Always be prepared to give a defense to everyone who asks you the reason for the hope that is in you. But respond with gentleness and respect,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Peter uses **sanctify the Lord Christ** to refer to acknowledging Christ’s holiness. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [acknowledge in your hearts that the Lord Christ is holy]"
@@ -1676,7 +1676,7 @@
   {
     "reference": "1Pe 3:16",
     "text": "keeping a clear conscience, so that those who slander you may be put to shame by your good behavior in Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas of **meekness** and **fear**, you can express the same ideas in another way. Alternate translation: [by being meek and fearful]"
@@ -1706,7 +1706,7 @@
   {
     "reference": "1Pe 3:17",
     "text": "For it is better, if it is God’s will, to suffer for doing good than for doing evil.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "These two phrases indicate two different reasons for suffering. If it would be helpful to your readers, you could express this explicitly. Alternate translation: [because of doing good … because of doing evil]"
@@ -1720,7 +1720,7 @@
   {
     "reference": "1Pe 3:18",
     "text": "For Christ also suffered for sins once for all, the righteous for the unrighteous, to bring you to God. He was put to death in the body but made alive in the Spirit,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **sins** implies the **sins** of people other than Jesus, because Jesus never sinned. If it would be helpful to your readers, you could express this explicitly. Alternate translation: [for the sake of the sins of others]"
@@ -1746,7 +1746,7 @@
   {
     "reference": "1Pe 3:19",
     "text": "in whom He also went and preached to the spirits in prison",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **which** refers to “spirit” in the previous verse. As in the previous verse, this could refer to: (1) the Holy Spirit. Alternate translation: [by means of the Spirit]; (2) Jesus’ spiritual existence. Alternate translation: [in the spiritual realm]"
@@ -1768,7 +1768,7 @@
   {
     "reference": "1Pe 3:20",
     "text": "who disobeyed long ago when God waited patiently in the days of Noah while the ark was being built. In the ark a few people, only eight souls, were saved through water.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Peter is leaving out a word that a clause would need in many languages to be complete. If it would be helpful in your language, you could supply the word from the context. Alternate translation: [having disobeyed God]"
@@ -1790,7 +1790,7 @@
   {
     "reference": "1Pe 3:21",
     "text": "And this water symbolizes the baptism that now saves you also—not the removal of dirt from the body, but the pledge of a clear conscience toward God—through the resurrection of Jesus Christ,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **which** refers back to the “water” mentioned at the end of the last verse. If this might confuse your readers, you could express this explicitly, as in the UST."
@@ -1832,7 +1832,7 @@
   {
     "reference": "1Pe 3:22",
     "text": "who has gone into heaven and is at the right hand of God, with angels, authorities, and powers subject to Him.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "The phrases **having gone** and **having been subjected** indicate that those two clauses describe events that occurred before the event in the first clause in this verse. If it would be more natural in your language, you could change the order of these phrases so that they appear in chronological order. Alternate translation: [after having gone into heaven, with angels and authorities and powers having been subjected to him, he is at the right hand of God]"
@@ -1858,7 +1858,7 @@
   {
     "reference": "1Pe 4:1",
     "text": "Therefore, since Christ suffered in His body, arm yourselves with the same resolve, because anyone who has suffered in his body is done with sin.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "**Therefore** here refers back to what Peter has said about Jesus’ suffering in [3:18](../03/18.md). If it might help your readers, you could express this explicitly. Alternate translation: [Considering what I have written about Christ’s suffering]"
@@ -1884,7 +1884,7 @@
   {
     "reference": "1Pe 4:2",
     "text": "Consequently, he does not live out his remaining time on earth for human passions, but for the will of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Here, **in order to** introduces a purpose clause. This could mean: (1) this verse states the purpose for ceasing from sin mentioned at the end of the previous verse. Alternate translation (without a comma preceding): [so that he will]; (2) this verse states the purpose for the command to “arm yourselves” in the previous verse. Alternate translation (starting a new sentence): [Arm yourselves in order to]"
@@ -1906,7 +1906,7 @@
   {
     "reference": "1Pe 4:3",
     "text": "For you have spent enough time in the past carrying out the same desires as the Gentiles: living in debauchery, lust, drunkenness, orgies, carousing, and detestable idolatry.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [enough time has passed]"
@@ -1928,7 +1928,7 @@
   {
     "reference": "1Pe 4:4",
     "text": "Because of this, they consider it strange of you not to plunge with them into the same flood of reckless indiscretion, and they heap abuse on you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Peter uses **running into** to refer to being eager to participate in sinful acts with unbelievers. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [you are not eagerly joining them to participate in the same outpouring of recklessness]"
@@ -1946,7 +1946,7 @@
   {
     "reference": "1Pe 4:5",
     "text": "But they will have to give an account to Him who is ready to judge the living and the dead.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Peter uses **give** to refer to speaking something. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [they will speak a word]"
@@ -1968,7 +1968,7 @@
   {
     "reference": "1Pe 4:6",
     "text": "That is why the gospel was preached even to those who are now dead, so that they might be judged as men in the flesh, but live according to God in the spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **dead ones** refers to people who heard the gospel while they were alive but had died by the time Peter wrote this letter. Some people believe that this clause means that Jesus went to hell and preached the gospel to people who had died before Jesus himself died on the cross. However, that idea would contradict the statement in [Hebrews 9:27](../../heb/09/27.md) that “men are appointed to die once, and after that, the judgment.” The Bible does not state that God gave anyone a second chance to believe in Jesus after they had already died. If this use of **dead ones** might confuse your readers, you could express the meaning explicitly. Alternate translation: [the gospel was preached also to those who have since died]"
@@ -2002,7 +2002,7 @@
   {
     "reference": "1Pe 4:7",
     "text": "The end of all things is near. Therefore be clear-minded and sober, so that you can pray.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **the end of all things** refers to the end of the world, when Jesus returns and judges everyone. If this might confuse your readers, you could express this explicitly. Alternate translation: [the end of the world, when Jesus returns,]"
@@ -2028,7 +2028,7 @@
   {
     "reference": "1Pe 4:8",
     "text": "Above all, love one another deeply, because love covers over a multitude of sins.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Peter describes **love** as if it were a person who could cover something up, and he describes **sins** as if they were objects that could be covered up. This clause, **covers up**, means that people who love others will forgive them for the sins that they commit against them. If this might confuse your readers, you could express the meaning plainly or use similes. Alternate translation: [for those who love forgive the many sins committed against them by others]"
@@ -2038,7 +2038,7 @@
   {
     "reference": "1Pe 4:9",
     "text": "Show hospitality to one another without complaining.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The word **hospitable** refers to showing kindness to and providing for the needs of guests and travelers. This was especially important in Peter’s time because inns were dangerous places where people did many immoral activities, so Christians could not stay in them. If it might be helpful to your readers, you could express the meaning explicitly. Alternate translation: [be those who provide food and a sleeping place] or [be those who provide room and board]"
@@ -2052,7 +2052,7 @@
   {
     "reference": "1Pe 4:10",
     "text": "As good stewards of the manifold grace of God, each of you should use whatever gift he has received to serve one another.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **gift** refers to special spiritual abilities that God gives to believers. If this might confuse your readers, you could express the meaning explicitly. Alternate translation: [just as each one has received a special spiritual ability from God]"
@@ -2070,7 +2070,7 @@
   {
     "reference": "1Pe 4:11",
     "text": "If anyone speaks, he should speak as one conveying the words of God. If anyone serves, he should serve with the strength God provides, so that in all things God may be glorified through Jesus Christ, to whom be the glory and the power forever and ever. Amen.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Peter is leaving out some of the words that a clause would need in many languages to be complete. If it would be helpful in your language, you could supply these words from the context. Alternate translation: [if anyone speaks, let him speak as if he is speaking the words of God]"
@@ -2092,7 +2092,7 @@
   {
     "reference": "1Pe 4:12",
     "text": "Beloved, do not be surprised at the fiery trial that has come upon you, as though something strange were happening to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Peter refers to suffering Christians as if they were gold being refined by being passed through a fire. In the same way that fire refines gold, trials test and strengthen a Christian’s faith. If this might confuse your readers, you could express the meaning plainly or with a simile. Alternate translation: [the trial you are experiencing that is refining you like gold is refined in fire]"
@@ -2102,7 +2102,7 @@
   {
     "reference": "1Pe 4:13",
     "text": "But rejoice that you share in the sufferings of Christ, so that you may be overjoyed at the revelation of His glory.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas of **revelation** and **glory**, you can express the same ideas in another way. This phrase could mean: (1) Christ will reveal his own glory. Alternate translation: [when he reveals how glorious he is]; (2) God will reveal Christ’s glory. Alternate translation: [when God reveals how glorious Christ is]"
@@ -2120,7 +2120,7 @@
   {
     "reference": "1Pe 4:14",
     "text": "If you are insulted for the name of Christ, you are blessed, because the Spirit of glory and of God rests on you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [If people revile you]"
@@ -2146,7 +2146,7 @@
   {
     "reference": "1Pe 4:15",
     "text": "Indeed, none of you should suffer as a murderer or thief or wrongdoer, or even as a meddler.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas of **murderer**, **thief**, **evildoer**, and **meddler**, you can express the same ideas in another way. Alternate translation: [as someone who murders, steals, does evil, or as someone who meddles]"
@@ -2160,7 +2160,7 @@
   {
     "reference": "1Pe 4:16",
     "text": "But if you suffer as a Christian, do not be ashamed, but glorify God that you bear that name.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "Peter is addressing his readers indirectly by using the third person. If this might be confusing in your language, you could use the second person, as the previous verse does. See the discussion of this in the introduction for this chapter. Alternate translation: [do not be ashamed, but glorify God]"
@@ -2174,7 +2174,7 @@
   {
     "reference": "1Pe 4:17",
     "text": "For it is time for judgment to begin with the family of God; and if it begins with us, what will the outcome be for those who disobey the gospel of God?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **judgment**, you can express the same idea in another way. Alternate translation: [it is time for God to begin judging the household of God]"
@@ -2212,7 +2212,7 @@
   {
     "reference": "1Pe 4:18",
     "text": "And, “If it is hard for the righteous to be saved, what will become of the ungodly and the sinner?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "**And** here introduces a quotation from an Old Testament book ([Proverbs 11:31](../../pro/11/31.md)). If it would be helpful in your language, you could use a comparable phrase that indicates that Peter is quoting from an important text. Alternate translation: [And Solomon wrote in the Scriptures]"
@@ -2246,7 +2246,7 @@
   {
     "reference": "1Pe 4:19",
     "text": "So then, those who suffer according to God’s will should entrust their souls to their faithful Creator and continue to do good.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "See how you translated **souls** in [1:9](../01/09.md)."
@@ -2260,7 +2260,7 @@
   {
     "reference": "1Pe 5:1",
     "text": "As a fellow elder, a witness of Christ’s sufferings, and a partaker of the glory to be revealed, I appeal to the elders among you:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# General Information:\\n\\nIn [5:1–4](../05/01.md) Peter speaks directly to men who are leaders in the churches."
@@ -2290,7 +2290,7 @@
   {
     "reference": "1Pe 5:2",
     "text": "Be shepherds of God’s flock that is among you, watching over them not out of compulsion, but willingly, as God would have you; not out of greed, but out of eagerness;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Peter uses **Shepherd** to refer to leading and taking care of believers, and he uses **flock** to refer to those believers. Elders who lead assemblies of believers should take care of those believers like shepherds take care of their sheep. Since the shepherd and sheep metaphors are important metaphors in the Bible, you should keep the metaphors in your translation or use similes. Alternate translation: [Take care of God’s people as if they were a flock of sheep]"
@@ -2320,7 +2320,7 @@
   {
     "reference": "1Pe 5:3",
     "text": "not lording it over those entrusted to you, but being examples to the flock.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Peter uses **lording it over** to refer to acting toward people in a harsh and controlling manner, as if someone were a harsh master who abuses his servants. If this might confuse your readers, you could express the meaning plainly or use a simile. Alternate translation: [harshly controlling] or [acting like harsh masters over]"
@@ -2342,7 +2342,7 @@
   {
     "reference": "1Pe 5:4",
     "text": "And when the Chief Shepherd appears, you will receive the crown of glory that will never fade away.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**And** here indicates that what follows is the result of obeying the commands that Peter gave in [5:2–3](../05/02.md). Use a natural way in your language for introducing a result clause. Alternate translation: [As a result of doing these things]"
@@ -2372,7 +2372,7 @@
   {
     "reference": "1Pe 5:5",
     "text": "Young men, in the same way, submit yourselves to your elders. And all of you, clothe yourselves with humility toward one another, because, “God opposes the proud, but gives grace to the humble.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "# General Information:\\n\\nIn this verse Peter first instructs younger men specifically and then continues to instruct all of the believers."
@@ -2414,7 +2414,7 @@
   {
     "reference": "1Pe 5:6",
     "text": "Humble yourselves, therefore, under God’s mighty hand, so that in due time He may exalt you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Peter uses **hand** to refer to God’s power to save humble people and punish proud people. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [under God’s great power]"
@@ -2428,7 +2428,7 @@
   {
     "reference": "1Pe 5:7",
     "text": "Cast all your anxiety on Him, because He cares for you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Peter speaks of **anxiety** as if it were a heavy burden that a person can take off of his back and **cast** onto God. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [trusting him with everything that worries you] or [letting him take care of all the things that trouble you]"
@@ -2438,7 +2438,7 @@
   {
     "reference": "1Pe 5:8",
     "text": "Be sober-minded and alert. Your adversary the devil prowls around like a roaring lion, seeking someone to devour.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "The words translated as **sober** and **watchful** mean basically the same thing. Peter uses them to emphasize that believers need to be alert since the devil wants to destroy them. If your language does not use repetition to do this, you can use one phrase and provide emphasis in another way. Alternate translation: [Be completely alert]"
@@ -2456,7 +2456,7 @@
   {
     "reference": "1Pe 5:9",
     "text": "Resist him, standing firm in your faith and in the knowledge that your brothers throughout the world are undergoing the same kinds of suffering.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Peter is leaving out some of the words that a clause would need in many languages to be complete. If it would be helpful in your language, you could supply these words from the context. Alternate translation: [being firm in the faith]"
@@ -2486,7 +2486,7 @@
   {
     "reference": "1Pe 5:10",
     "text": "And after you have suffered for a little while, the God of all grace, who has called you to His eternal glory in Christ, will Himself restore you, secure you, strengthen you, and establish you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "If it would be more natural in your language, you could change the order of these clauses so that they appear in chronological order. Alternate translation: [But after having suffered for a little while, the God of all grace, the one who has called you to his eternal glory in Christ]"
@@ -2516,7 +2516,7 @@
   {
     "reference": "1Pe 5:11",
     "text": "To Him be the power forever and ever. Amen.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **power**, you can express the same idea in another way. Alternate translation: [May he rule powerfully]"
@@ -2526,7 +2526,7 @@
   {
     "reference": "1Pe 5:12",
     "text": "Through Silvanus, whom I regard as a faithful brother, I have written to you briefly, encouraging you and testifying that this is the true grace of God. Stand firm in it.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "**Through Silvanus** means that Silvanus wrote down the words that Peter told him to write in this letter. In ancient times it was common for people to use scribes to write down letters for them. If this might confuse your readers, you could express it explicitly. Alternate translation: [I wrote to you briefly by means of Silvanus, the faithful brother, as I regard him, who wrote down what I told him to write]"
@@ -2556,7 +2556,7 @@
   {
     "reference": "1Pe 5:13",
     "text": "The church in Babylon, chosen together with you, sends you greetings, as does my son Mark.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-symlanguage",
         "note": "**She** and **fellow-elect one** here both refer to the group of believers who were with Peter when he wrote this letter. If this might confuse your readers, you could express the meaning plainly. Alternate translation: [This group of believers in Babylon, who are fellow-elect ones]"
@@ -2582,7 +2582,7 @@
   {
     "reference": "1Pe 5:14",
     "text": "Greet one another with a kiss of love. Peace to all of you who are in Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-imperative",
         "note": "**Greet** here is an imperative, but it communicates a polite request rather than a command. Use a form in your language that communicates a polite request. Alternate translation: [Make it your habit to greet] or [Make it your practice to greet]"

@@ -7,7 +7,7 @@ Phase 1 data prep for get-passage-translation-challenges intent:
 - Reads TSVs from the external dataset repo and maps notes to verse entries.
 
 For each verse object in sources/verse_data/<stem>.json, ensures a
-`translation_challenges` array exists and appends objects of shape:
+`note_data` array exists and appends objects of shape:
   { "issue_type": <SupportReference>, "note": <Note> }
 
 Mapping strategy:
@@ -162,11 +162,13 @@ def enrich_book(tsv_path: Path, book_name: str) -> None:
     entries = _load_json(json_path)
     idx = _build_entry_index(entries)
 
-    # Reset `translation_challenges` and drop old key if present
+    # Reset `note_data` and drop old keys if present
     for e in entries:
         if "translation_challanges" in e:
             e.pop("translation_challanges", None)
-        e["translation_challenges"] = []
+        if "translation_challenges" in e:
+            e.pop("translation_challenges", None)
+        e["note_data"] = []
 
     with tsv_path.open("r", encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter="\t")
@@ -186,14 +188,14 @@ def enrich_book(tsv_path: Path, book_name: str) -> None:
                 e = idx.get(key)
                 if e is None:
                     continue
-                e.setdefault("translation_challenges", [])
-                e["translation_challenges"].append({
+                e.setdefault("note_data", [])
+                e["note_data"].append({
                     "issue_type": issue_type,
                     "note": note,
                 })
 
     _save_json(json_path, entries)
-    print(f"[OK] Enriched {book_name} -> {json_path}")
+    print(f"[OK] Enriched {book_name} -> {json_path} (note_data)")
 
 
 def main() -> None:

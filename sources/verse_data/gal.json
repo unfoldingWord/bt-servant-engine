@@ -2,7 +2,7 @@
   {
     "reference": "Gal 1:1",
     "text": "Paul, an apostle—sent not from men nor by man, but by Jesus Christ and God the Father, who raised Him from the dead—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Here, Paul is introducing himself as the author of this letter. Your language may have a particular way of introducing the author of a letter. Use that here. Alternate translation: [This letter is from me, Paul]"
@@ -52,7 +52,7 @@
   {
     "reference": "Gal 1:2",
     "text": "and all the brothers with me, To the churches of Galatia:",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "Here, although the term **brothers** is masculine, Paul is using it in a generic sense to refer to fellow Christians, both men and women. Paul views all those who believe in Jesus as members of one spiritual family with God as their heavenly Father. If it would be helpful in your language, you could indicate explicitly what it means. Alternate translation: [brothers and sisters]"
@@ -70,7 +70,7 @@
   {
     "reference": "Gal 1:3",
     "text": "Grace and peace to you from God our Father and the Lord Jesus Christ,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "This is a common blessing that Paul often uses in the beginning of his letters. Use a form that people would recognize as a blessing in your language. Alternate translation: [May God our Father and the Lord Jesus Christ give you grace and peace]"
@@ -96,7 +96,7 @@
   {
     "reference": "Gal 1:4",
     "text": "who gave Himself for our sins to rescue us from the present evil age, according to the will of our God and Father,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-distinguish",
         "note": "The phrase **the one having given himself for our sins so that he might deliver us from the present evil age** gives us further information about “our Lord Jesus Christ” mentioned at the end of [1:3](../01/03.md). It is not making a distinction. If it would be helpful in your language, you could make the relationship between these phrases clearer. Alternate translation: [who is the one having given himself for our sins so that he might deliver us from the present evil age]"
@@ -130,7 +130,7 @@
   {
     "reference": "Gal 1:5",
     "text": "to whom be glory forever and ever. Amen.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "The phrase **be the glory** is an expression of praise. If your language does not use an abstract noun for the idea of **glory**, you could express the same idea with a verbal form such as “praise,” or you could express the meaning in some other way that is natural in your language."
@@ -144,7 +144,7 @@
   {
     "reference": "Gal 1:6",
     "text": "I am amazed how quickly you are deserting the One who called you by the grace of Christ and are turning to a different gospel—",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [I am surprised] or [I am shocked]"
@@ -182,7 +182,7 @@
   {
     "reference": "Gal 1:7",
     "text": "which is not even a gospel. Evidently some people are troubling you and trying to distort the gospel of Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Paul is leaving out some of the words that a sentence would need in many languages to be complete. If it would be helpful in your language, you could supply these words from the context. Alternate translation: [another gospel]"
@@ -212,7 +212,7 @@
   {
     "reference": "Gal 1:8",
     "text": "But even if we or an angel from heaven should preach a gospel contrary to the one we preached to you, let him be under a curse!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-hypothetical",
         "note": "The word **if** introduces a hypothetical situation. Paul uses a hypothetical situation to warn the Galatians against any teaching that is contrary to the original gospel message which he taught them. Use a natural form in your language for introducing a hypothetical situation. Alternate translation: [if it were to happen that we or an angel from heaven might proclaim to you a gospel other than the one we proclaimed to you, let whoever would do that be cursed] or [suppose it were to happen that we or an angel from heaven might proclaim to you a gospel other than the one we proclaimed to you. Let whoever would do that be cursed]"
@@ -254,7 +254,7 @@
   {
     "reference": "Gal 1:9",
     "text": "As we have said before, so now I say again: If anyone is preaching to you a gospel contrary to the one you received, let him be under a curse!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "When Paul says **we**, he is not including the Galatians, so **we** would be exclusive. Your language may require you to mark these forms."
@@ -280,7 +280,7 @@
   {
     "reference": "Gal 1:10",
     "text": "Am I now seeking the approval of men, or of God? Or am I striving to please men? If I were still trying to please men, I would not be a servant of Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the word **For** is being used to introduce Paul’s argument against an implied assertion that he altered the content of his gospel message in order to make it more acceptable to people. If it would help your readers, you could express the implied assertion explicitly. Alternate translation: [Despite their charges,]"
@@ -302,7 +302,7 @@
   {
     "reference": "Gal 1:11",
     "text": "For I want you to know, brothers, that the gospel I preached was not devised by man.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** is used to introduce a supporting statement that further supports and gives reason for Paul’s prior statement. Use a form that would be natural in your language for introducing a statement that supports a prior statement."
@@ -324,7 +324,7 @@
   {
     "reference": "Gal 1:12",
     "text": "I did not receive it from any man, nor was I taught it; rather, I received it by revelation from Jesus Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** could be being used to introduce: (1) the grounds or basis for Paul’s assertion in [1:11](../01/11.md), in which case what follows the word **For** is being used as support for what Paul said in [1:11](../01/11.md). Use a form that would be natural for introducing a statement which gives supporting evidence. Alternate translation: [In support of my claim that the gospel I proclaimed is not according to man, I want you to know that]; (2) a statement which explains and builds on Paul’s assertion in [1:11](../01/11.md). Use a form that would be natural for introducing a statement which further clarifies and explains a prior statement. Alternate translation: [To explain further, I want you to know] or [That is]"
@@ -374,7 +374,7 @@
   {
     "reference": "Gal 1:13",
     "text": "For you have heard of my former way of life in Judaism, how severely I persecuted the church of God and tried to destroy it.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas of **manner** and **life**, you could express the same idea with a verbal phrase such as “how I formerly lived,” or you could express the meaning in some other way that is natural in your language. Alternate translation: [how I formerly lived] or [how I formerly conducted myself] or [how I formerly behaved]"
@@ -392,7 +392,7 @@
   {
     "reference": "Gal 1:14",
     "text": "I was advancing in Judaism beyond many of my contemporaries and was extremely zealous for the traditions of my fathers.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "See how you translated the phrase **in Judaism** in [1:13](../01/13.md) where it is used with a similar meaning. Alternate translation: [in the Jewish religion]"
@@ -414,7 +414,7 @@
   {
     "reference": "Gal 1:15",
     "text": "But when God, who set me apart from my mother’s womb and called me by His grace, was pleased",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "What follows the word **But** here is in contrast to what was expected. What would be expected is that Paul would continue thinking and acting according to the way he formerly did, as he described in [1:14](../01/14.md). Instead, God **called** Paul, and as the next verse says, God revealed Jesus to him so that he might teach the Gentiles about Jesus. Use a natural way in your language for introducing a contrast. Alternate translation: [But then]"
@@ -444,7 +444,7 @@
   {
     "reference": "Gal 1:16",
     "text": "to reveal His Son in me so that I might preach Him among the Gentiles, I did not rush to consult with flesh and blood,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase **reveal his Son in me** could mean: (1) that God revealed his Son to Paul, revealing to Paul who Jesus was so that Paul had an inward knowledge of who Jesus really was. Alternate translation: [to reveal to me his Son] or [to reveal to me who his Son really is]; (2) that God revealed his Son to others through Paul. Alternate translation: [to reveal his Son to others through me] or [to reveal his Son to others by me]"
@@ -466,7 +466,7 @@
   {
     "reference": "Gal 1:17",
     "text": "nor did I go up to Jerusalem to the apostles who came before me, but I went into Arabia and later returned to Damascus.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-go",
         "note": "**Jerusalem** was higher than almost any other place in Israel, so it was normal for people to speak of going **up** to Jerusalem and going down from it. Your language may say “come” rather than **go** in contexts such as this. Use whichever is more natural. Alternate translation: [did I come up to Jerusalem]"
@@ -484,7 +484,7 @@
   {
     "reference": "Gal 1:18",
     "text": "Only after three years did I go up to Jerusalem to confer with Cephas, and I stayed with him fifteen days.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **Then** indicates that the events Paul will now relate came after the events just described. Use a natural form in your language for indicating this."
@@ -498,7 +498,7 @@
   {
     "reference": "Gal 1:19",
     "text": "But I saw none of the other apostles except James, the Lord’s brother.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-exceptions",
         "note": "If it would appear in your language that Paul was making a statement here and then contradicting it, you could reword this to avoid using an exception clause. Alternate translation: [the only other apostle I saw was James]"
@@ -508,7 +508,7 @@
   {
     "reference": "Gal 1:20",
     "text": "I assure you before God that what I am writing to you is no lie.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "The word **behold** is an exclamation word which is used to draw attention to the words that follow. Use an exclamation that would be natural, in your language, to use in this context. Alternate translation: [observe]"
@@ -526,7 +526,7 @@
   {
     "reference": "Gal 1:21",
     "text": "Later I went to the regions of Syria and Cilicia.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **Then** indicates that the events Paul will now relate came after the events Paul has described in [1:18–19](../01/18.md). If it would be helpful to your readers, you could show this relationship by using a fuller phrase or by expressing the meaning in some other way that is natural to your readers. Alternate translation: [After I left Jerusalem I went to] or [After that I went to] or [Afterward I went to]"
@@ -536,7 +536,7 @@
   {
     "reference": "Gal 1:22",
     "text": "I was personally unknown, however, to the churches of Judea that are in Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could state this in active form or in another way that is natural in your language. Alternate translation: [none of the people in the churches of Judea that are in Christ had ever met me]"
@@ -554,7 +554,7 @@
   {
     "reference": "Gal 1:23",
     "text": "They only heard the account: “The man who formerly persecuted us is now preaching the faith he once tried to destroy.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** is introducing a contrast between what the Judean believers did know about Paul (they were **hearing** that he was **now proclaiming the faith**) and what they did not know about Paul (how he looked, [1:22](../01/22.md)). Use a natural way in your language for introducing a contrast. Alternate translation: [Rather,]"
@@ -584,7 +584,7 @@
   {
     "reference": "Gal 1:24",
     "text": "And they glorified God because of me.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the phrase **in me** means “because of me” and is giving the reason why the Judean believers were praising God, namely because of Paul’s conversion and work of proclaiming the gospel. If it would help your readers, you could express that explicitly. Alternate translation: [because of me] or [because of what God was doing with me]"
@@ -594,7 +594,7 @@
   {
     "reference": "Gal 2:1",
     "text": "Fourteen years later I went up again to Jerusalem, accompanied by Barnabas. I took Titus along also.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **Then** indicates that the events Paul will now relate came after the events just described. See how you translated the word **Then** in [1:18](../01/18.md) where it is used with the same meaning."
@@ -612,7 +612,7 @@
   {
     "reference": "Gal 2:2",
     "text": "I went in response to a revelation and set before them the gospel that I preach among the Gentiles. But I spoke privately to those recognized as leaders, for fear that I was running or had already run in vain.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-background",
         "note": "Here, the word **Now** introduces background information. Use a natural way in your language for introducing background information."
@@ -666,7 +666,7 @@
   {
     "reference": "Gal 2:3",
     "text": "Yet not even Titus, who was with me, was compelled to be circumcised, even though he was a Greek.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** is introducing an idea that is in contrast to an idea that was presented in [2:2](../02/02.md). Paul is probably presenting the fact that **not even Titus … was forced to be circumcised** as being in contrast to the idea in [2:2](../02/02.md) that he might have “run in vain” (labored in vain). Use a natural way in your language for introducing a contrast. Alternate translation: [On the contrary,] ("
@@ -684,7 +684,7 @@
   {
     "reference": "Gal 2:4",
     "text": "This issue arose because some false brothers had come in under false pretenses to spy on our freedom in Christ Jesus, in order to enslave us.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The word **But** could: (1) be connected to [2:3](../02/03.md) and be giving the reason why some people were demanding that Titus be circumcised. Alternate translation: [But this issue occurred because of]; (2) be connected to [2:1–2](../02/01.md) and be giving the reason why Paul “went up again to Jerusalem” and privately “set before” (communicated to) the church leaders in Jerusalem the gospel that he proclaimed among the Gentiles. Alternate translation: [But I talked to them privately because of] or [But we went to Jerusalem because of]"
@@ -718,7 +718,7 @@
   {
     "reference": "Gal 2:5",
     "text": "We did not give in to them for a moment, so that the truth of the gospel would remain with you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "When Paul says **we**, he is not including the Galatian believers, so **we** would be exclusive. Your language may require you to mark these forms."
@@ -752,7 +752,7 @@
   {
     "reference": "Gal 2:6",
     "text": "But as for the highly esteemed—whatever they were makes no difference to me; God does not show favoritism—those leaders added nothing to me.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, Paul uses the word **But** to introduce something that is in contrast to what the false brothers in [2:4](../02/04.md) wanted to do. The false brothers wanted to enslave the believers by adding the requirement of circumcision to the gospel message. Beginning in this verse and continuing in [2:6–10](../02/06.md), Paul explains that, in contrast to the actions of the false brothers, the leaders of the church in Jerusalem did not require that Paul add anything to the content of his gospel message. Use a natural way in your language for introducing a contrast. Alternate translation: [Rather] ("
@@ -794,7 +794,7 @@
   {
     "reference": "Gal 2:7",
     "text": "On the contrary, they saw that I had been entrusted to preach the gospel to the uncircumcised, just as Peter had been to the circumcised.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Paul uses the phrase **But on the contrary** to introduce a further contrast to the idea that the leaders in Jerusalem might have added anything to the content of his message. Use a natural way in your language for introducing a contrast. Alternate translation: [Rather]"
@@ -816,7 +816,7 @@
   {
     "reference": "Gal 2:8",
     "text": "For the One who was at work in Peter’s apostleship to the circumcised was also at work in my apostleship to the Gentiles.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "This entire verse is a parenthetical statement. In this verse Paul gives the reason why the leaders of the church in Jerusalem determined that Paul was authorized and commissioned by God to bring the gospel to non-Jews. Use a natural form in your language for introducing and/or expressing a parenthetical statement."
@@ -838,7 +838,7 @@
   {
     "reference": "Gal 2:9",
     "text": "And recognizing the grace that I had been given, James, Cephas, and John—those reputed to be pillars—gave me and Barnabas the right hand of fellowship, so that we should go to the Gentiles, and they to the circumcised.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "The abstract noun **grace** refers to God graciously giving Paul the task of proclaiming the gospel to non-Jews. If your language does not use an abstract noun for the idea of **grace**, you could express the same idea with an adverb such as “graciously” or “kindly,” or you could express the meaning in some other way that is natural in your language. Alternate translation: [having understood the task that God had graciously given to me]"
@@ -880,7 +880,7 @@
   {
     "reference": "Gal 2:10",
     "text": "They only asked us to remember the poor, the very thing I was eager to do.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-exceptions",
         "note": "Here, the word **only** introduces an exception clause that qualifies Paul’s statement at the end of [2:6](../02/06.md) where Paul said that the leaders in Jerusalem added nothing to his message (meaning they did not require him to do or teach anything else). Use an appropriate form in your language so that it does not appear that Paul is making a statement here that contradicts his statement at the end of [2:6](../02/06.md)."
@@ -902,7 +902,7 @@
   {
     "reference": "Gal 2:11",
     "text": "When Cephas came to Antioch, however, I opposed him to his face, because he stood condemned.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** introduces a contrast. The actions that Paul will describe in [2:11–13](../02/11.md) are in contrast to the decision that was made in [2:1–10](../02/01.md). Use a natural way in your language for introducing a contrast."
@@ -928,7 +928,7 @@
   {
     "reference": "Gal 2:12",
     "text": "For before certain men came from James, he used to eat with the Gentiles. But when they arrived, he began to draw back and separate himself, for fear of those in the circumcision group.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** introduces Paul’s reason for why he opposed Cephas to his face (See: [2:11](../02/11.md)) and for why Paul claimed in [2:11](../02/11.md) that Cephas stood condemned. Use a natural way in your language for introducing a reason. If it would be more natural in your language to state the reason for an action before giving the result, see the note for [2:11](../02/11.md) on creating a verse bridge. Alternate translation: [The reason is that] or [The reason that Peter stood condemned is that]"
@@ -958,7 +958,7 @@
   {
     "reference": "Gal 2:13",
     "text": "The other Jews joined him in his hypocrisy, so that by their hypocrisy even Barnabas was led astray.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **the rest of the Jews** refers only to the other Jewish believers who were in Antioch. If it would be helpful to your readers, you could indicate that explicitly."
@@ -984,7 +984,7 @@
   {
     "reference": "Gal 2:14",
     "text": "When I saw that they were not walking in line with the truth of the gospel, I said to Cephas in front of them all, “If you, who are a Jew, live like a Gentile and not like a Jew, how can you compel the Gentiles to live like Jews?”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, Paul uses the word **But** to introduce a contrast between his actions and the wrong actions of Cephas, Barnabas, and the other Jewish believers that he described in [2:12–13](../02/12.md). Use a natural way in your language for introducing a contrast."
@@ -1018,7 +1018,7 @@
   {
     "reference": "Gal 2:15",
     "text": "We who are Jews by birth and not Gentile “sinners”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "When Paul says **We**, it could be: (1) inclusive if Paul is still addressing Peter. If you decide that this verse is a continuation of the quotation that began in [2:14](../02/14.md), then **We** is inclusive because Paul is still addressing Peter and would be including Peter and the Jewish Christians in Antioch. Your language may require you to mark these forms. (2) exclusive if you decide that Paul’s quotation of his words to Peter ended at the end [2:14](../02/14.md)."
@@ -1036,7 +1036,7 @@
   {
     "reference": "Gal 2:16",
     "text": "know that a man is not justified by works of the law, but by faith in Jesus Christ. So we, too, have believed in Christ Jesus, that we may be justified by faith in Christ and not by works of the law, because by works of the law no one will be justified.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "What follows the word **but** here is in contrast to what would be naturally be expected by a Jewish person in view of [2:15](../02/15.md). Use a natural way in your language for introducing a contrast. Alternate translation: [nevertheless]"
@@ -1094,7 +1094,7 @@
   {
     "reference": "Gal 2:17",
     "text": "But if, while we seek to be justified in Christ, we ourselves are found to be sinners, does that make Christ a minister of sin? Certainly not!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here Paul uses the word **But** to introduce new information into his ongoing explanation of why justification is through faith in Christ and not through obeying the law of Moses. Here, Paul is anticipating and answering a possible objection to justification by faith. The word **But** introduces this. Use a natural form in your language for doing this."
@@ -1140,7 +1140,7 @@
   {
     "reference": "Gal 2:18",
     "text": "If I rebuild what I have already torn down, I prove myself to be a lawbreaker.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of no longer thinking it is necessary to obey all the laws of Moses as if he were destroying the law of Moses. When he speaks of rebuilding **those things**, he is referring to going back again to acting like and teaching that it is necessary to keep the laws of Moses. Paul is saying in this verse that he would be sinning if he **again** tried to go back to living as if it were necessary to obey the laws of Moses after becoming convinced that it was not necessary to obey them in order to please God. If it would be helpful in your language, you could use an equivalent metaphor from your culture. Alternatively, you could express the meaning plainly, or you could use a simile."
@@ -1154,7 +1154,7 @@
   {
     "reference": "Gal 2:19",
     "text": "For through the law I died to the law so that I might live to God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** is introducing the reason that Paul said “May it never be” in [2:17](../02/17.md) and is also introducing information which gives support for what he said in [2:18](../02/18.md). Use a natural form for introducing a reason for something had been said."
@@ -1196,7 +1196,7 @@
   {
     "reference": "Gal 2:20",
     "text": "I have been crucified with Christ, and I no longer live, but Christ lives in me. The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, the phrase **I no longer live, but Christ lives in me** is a metaphor which means that Paul no longer lives for himself and his own self-motivated purposes and desires, but rather, he now lets Christ’s will direct his actions. If it would be helpful in your language, you could use a simile or you could express the meaning plainly."
@@ -1238,7 +1238,7 @@
   {
     "reference": "Gal 2:21",
     "text": "I do not set aside the grace of God. For if righteousness comes through the law, then Christ died for nothing.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-litotes",
         "note": "Here, Paul expresses a strong positive meaning by using a negative phrase, **do not**, together with a phrase, **set aside** that is the opposite of the intended meaning. If it would be helpful in your language, you could express the meaning positively. Alternate translation: [I strongly affirm] or [I do uphold]"
@@ -1284,7 +1284,7 @@
   {
     "reference": "Gal 3:1",
     "text": "O foolish Galatians! Who has bewitched you? Before your very eyes Jesus Christ was clearly portrayed as crucified.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "**O** is an exclamation word. Use an exclamation that would be natural to use in this context. Alternate translation: [Oh]"
@@ -1314,7 +1314,7 @@
   {
     "reference": "Gal 3:2",
     "text": "I would like to learn just one thing from you: Did you receive the Spirit by works of the law, or by hearing with faith?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is not asking for information, but is using the question form to rebuke the Galatian believers. If you would not use a rhetorical question for this purpose in your language, you could translate his words as a statement or an exclamation and communicate the emphasis in another way. Alternate translation: [You received the Spirit not by doing what the law says, but by believing what you heard.]"
@@ -1340,7 +1340,7 @@
   {
     "reference": "Gal 3:3",
     "text": "Are you so foolish? After starting in the Spirit, are you now finishing in the flesh?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is not asking for information, but is using the question form to emphatically express his surprise. If you would not use a rhetorical question for this purpose in your language, you could translate his words as a statement or an exclamation and communicate the emphasis in another way. Alternate translation: [You are very foolish!] or [Don’t be so foolish!] or [Surely you cannot be so foolish!]"
@@ -1362,7 +1362,7 @@
   {
     "reference": "Gal 3:4",
     "text": "Have you suffered so much for nothing, if it really was for nothing?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is not asking for information, but is using the question form in order to try to make the Galatian believers think about the implications of believing and following the false teachers. If you would not use a rhetorical question for this purpose in your language, you could translate his words as a statement or an exclamation and communicate the emphasis in another way."
@@ -1392,7 +1392,7 @@
   {
     "reference": "Gal 3:5",
     "text": "Does God lavish His Spirit on you and work miracles among you because you practice the law, or because you hear and believe?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "This entire verse is a rhetorical question. Paul is using the question form here to teach the Galatians a truth by engaging their reasoning. If you would not use a rhetorical question for this purpose in your language, you could translate his words as a statement or an exclamation and communicate the emphasis in another way. Alternate translation: [God who gives you his Spirit and does miracles among you does not do these things because you obey the law of Moses. Surely you must know that God gives you these blessings because you believed the good news about the Messiah when you heard it]"
@@ -1426,7 +1426,7 @@
   {
     "reference": "Gal 3:6",
     "text": "So also, “Abraham believed God, and it was credited to him as righteousness.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the phrase **Just as** indicates that what follows is connected to what preceded it, specifically [3:1–5](../03/01.md). The phrase **Just as** is also introducing new information. The new information that this phrase is introducing is the biblical example of Abraham. Use a form that would be appropriate in this context. Alternate translation: [Even as]"
@@ -1452,7 +1452,7 @@
   {
     "reference": "Gal 3:7",
     "text": "Understand, then, that those who have faith are sons of Abraham.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **faith**, you could express the same idea with a verb such as “trust,” or you could express the meaning in some other way that is natural in your language. Alternate translation: [those who believe]"
@@ -1474,7 +1474,7 @@
   {
     "reference": "Gal 3:8",
     "text": "The Scripture foresaw that God would justify the Gentiles by faith, and foretold the gospel to Abraham: “All nations will be blessed through you.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Here, **the Scripture** is spoken of as though it were a person who could foresee **that God would justify the Gentiles by faith** and **preach the gospel**. If it would be helpful in your language, you could express this meaning plainly."
@@ -1504,7 +1504,7 @@
   {
     "reference": "Gal 3:9",
     "text": "So those who have faith are blessed along with Abraham, the man of faith.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Therefore] or [Consequently]"
@@ -1522,7 +1522,7 @@
   {
     "reference": "Gal 3:10",
     "text": "All who rely on works of the law are under a curse. For it is written: “Cursed is everyone who does not continue to do everything written in the Book of the Law.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [All people who follow the law] or [All those who seek to be justified through obeying the law]"
@@ -1564,7 +1564,7 @@
   {
     "reference": "Gal 3:11",
     "text": "Now it is clear that no one is justified before God by the law, because, “The righteous will live by faith.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could state this in active form or in another way that is natural in your language. Alternate translation: [God justifies no one by the law] or [God justifies no one as a result of them seeking to obey the law of Moses]"
@@ -1606,7 +1606,7 @@
   {
     "reference": "Gal 3:12",
     "text": "The law, however, is not based on faith; on the contrary, “The man who does these things will live by them.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **Now** indicates that Paul is introducing new information into his argument and it also indicates that Paul is introducing information that will be in contrast with his statement in [3:11](../03/11.md), that the law is not able to justify a person. Use a natural form in your language for indicating these things. Alternate translation: [And]"
@@ -1644,7 +1644,7 @@
   {
     "reference": "Gal 3:13",
     "text": "Christ redeemed us from the curse of the law by becoming a curse for us. For it is written: “Cursed is everyone who is hung on a tree.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul uses the metaphor of a person buying back lost property or buying the freedom of a slave to illustrate the meaning of God sending Jesus to pay for people’s sins by dying on the cross. If it would be helpful in your language, you could use an equivalent metaphor from your culture. Alternatively, you could express the meaning plainly."
@@ -1686,7 +1686,7 @@
   {
     "reference": "Gal 3:14",
     "text": "He redeemed us in order that the blessing promised to Abraham would come to the Gentiles in Christ Jesus, so that by faith we might receive the promise of the Spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The phrase **so that** introduces a purpose clause. Paul is stating the purpose for Christ’s death (which he discussed in the previous verse). Use a natural way in your language for introducing a purpose clause. Alternate translation: [in order that]"
@@ -1736,7 +1736,7 @@
   {
     "reference": "Gal 3:15",
     "text": "Brothers, let me put this in human terms. Even a human covenant, once it is ratified, cannot be canceled or amended.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, Paul uses the phrase **according to man** to mean that he is speaking in accord with the manner of human practice. If it would be helpful to your readers, you could indicate that explicitly. Alternate translation: [according to human practice] or [with a human analogy from human legal practice] or [using an analogy from standard daily life]"
@@ -1766,7 +1766,7 @@
   {
     "reference": "Gal 3:16",
     "text": "The promises were spoken to Abraham and to his seed. The Scripture does not say, “and to seeds,” meaning many, but “and to your seed,” meaning One, who is Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **Now** could indicate: (1) that Paul is introducing additional information into his ongoing argument. Alternate translation: [Furthermore]; (2) a transition. Alternate translation: [But note that]"
@@ -1796,7 +1796,7 @@
   {
     "reference": "Gal 3:17",
     "text": "What I mean is this: The law that came 430 years later does not revoke the covenant previously established by God, so as to nullify the promise.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [And]"
@@ -1822,7 +1822,7 @@
   {
     "reference": "Gal 3:18",
     "text": "For if the inheritance depends on the law, then it no longer depends on a promise; but God freely granted it to Abraham through a promise.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [if the inheritance is from … then it is no longer from]"
@@ -1856,7 +1856,7 @@
   {
     "reference": "Gal 3:19",
     "text": "Why then was the law given? It was added because of transgressions, until the arrival of the seed to whom the promise referred. It was administered through angels by a mediator.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is not asking for information, but is using the question form to anticipate a question that the Galatian believers might have regarding the purpose of the law and to introduce his answer to this anticipated question. If it would help your readers, you could translate his words as a statement. Alternate translation: [I will tell you what the purpose of the law is] or [Let me tell you why God added the law to the covenant]"
@@ -1906,7 +1906,7 @@
   {
     "reference": "Gal 3:20",
     "text": "A mediator is unnecessary, however, for only one party; but God is one.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-extrainfo",
         "note": "In this verse Paul is proving to the Galatian believers that God’s promise to Abraham is superior to the law that he gave Moses. What Paul means by saying **a mediator is not for one** is that a mediator is not needed when one person is speaking with another person directly. Paul is implicitly expressing to the Galatian believers that the promise to Abraham is superior to the law because it was not given through a mediator but, rather, God gave the promise directly to Abraham. If it would help your readers and if you are using footnotes, you could indicate that information in a footnote."
@@ -1932,7 +1932,7 @@
   {
     "reference": "Gal 3:21",
     "text": "Is the law, then, opposed to the promises of God? Certainly not! For if a law had been given that could impart life, then righteousness would certainly have come from the law.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is not asking for information, but is using the question form to anticipate a question that the Galatian believers might have. He introduces his answer to the question which begins with the phrase **For if a law was given being able to make alive**. If it would help your readers, you could translate his words as a statement. Alternate translation: [you might think that the law is against the promises] or [you might think that the law is opposed to the promises]"
@@ -1974,7 +1974,7 @@
   {
     "reference": "Gal 3:22",
     "text": "But the Scripture pronounces all things confined by sin, so that by faith in Jesus Christ the promise might be given to those who believe.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here Paul uses the word **But** to indicate a strong contrast between the hypothetical and false possibility that the law could make a person righteous and to introduce his explanation of what the law actually does. Use a natural way in your language for introducing a contrast. Alternate translation: [But rather,]"
@@ -2024,7 +2024,7 @@
   {
     "reference": "Gal 3:23",
     "text": "Before this faith came, we were held in custody under the law, locked up until faith should be revealed.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **faith**, you could express the same idea with a verb such as “trust” or “believe,” or you could express the meaning in some other way that is natural in your language."
@@ -2074,7 +2074,7 @@
   {
     "reference": "Gal 3:24",
     "text": "So the law became our guardian to lead us to Christ, that we might be justified by faith.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the phrase **So** is introducing a result. Use a natural form for introducing a result. Alternate translation: [Thus,] or [Therefore,]"
@@ -2128,7 +2128,7 @@
   {
     "reference": "Gal 3:25",
     "text": "Now that faith has come, we are no longer under a guardian.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** is introducing a contrast. What follows the word **But** is in contrast to the way things were in the period of time before Christ came. Use a natural way in your language for introducing a contrast. Alternate translation: [But now]"
@@ -2162,7 +2162,7 @@
   {
     "reference": "Gal 3:26",
     "text": "You are all sons of God through faith in Christ Jesus.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "Although the term **sons** is masculine, Paul is using the word here in a generic sense that includes both men and women who have **faith in Christ Jesus**. Alternate translation: [sons and daughters] or [children]"
@@ -2184,7 +2184,7 @@
   {
     "reference": "Gal 3:27",
     "text": "For all of you who were baptized into Christ have clothed yourselves with Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **For** indicates that what follows is giving the reason why Paul said “you are all sons of God” in [3:26](../03/26.md). Use a natural form in your language for introducing information which proves and/or explains a prior statement. Alternate translation: [Because]"
@@ -2218,7 +2218,7 @@
   {
     "reference": "Gal 3:28",
     "text": "There is neither Jew nor Greek, slave nor free, male nor female, for you are all one in Christ Jesus.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **for** introduces the reason for why, if someone is a believer in Christ, it is as if there is no longer **Jew nor Greek** or **slave** or **free** or **male** or **female**. If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase, which follows the word **for**, gives the reason for the result that the first part of this verse describes. Alternate translation: [Because you are all one in Christ Jesus, there is neither Jew nor Greek, there is neither slave nor free, there is neither male nor female]"
@@ -2256,7 +2256,7 @@
   {
     "reference": "Gal 3:29",
     "text": "And if you belong to Christ, then you are Abraham’s seed and heirs according to the promise.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here Paul is using the word **Now** to introduce new information. Use a natural form for introducing new information. Alternate translation: [And]"
@@ -2294,7 +2294,7 @@
   {
     "reference": "Gal 4:1",
     "text": "What I am saying is that as long as the heir is a child, he is no different from a slave, although he is the owner of everything.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [though being master of all things] or [even though he is master of all things]"
@@ -2304,7 +2304,7 @@
   {
     "reference": "Gal 4:2",
     "text": "He is subject to guardians and trustees until the date set by his father.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** is introducing a contrast and indicating that what follows is in contrast to what came before it. Use a natural way in your language for introducing a contrast. Alternate translation: [Rather,]"
@@ -2338,7 +2338,7 @@
   {
     "reference": "Gal 4:3",
     "text": "So also, when we were children, we were enslaved under the basic principles of the world.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **So** indicates that what follows is comparable to, and similar in some way to what has just been described in [4:1–2](../04/01.md). Use a natural form in your language for introducing something that corresponds to something that was introduced previously. Alternate translation: [In a similar way]"
@@ -2376,7 +2376,7 @@
   {
     "reference": "Gal 4:4",
     "text": "But when the time had fully come, God sent His Son, born of a woman, born under the law,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The word **But** is introducing a contrast between the time prior to **when the fullness of time came**, which Paul described before this verse, and the time after **the fullness of time came**, which Paul describes in this verse. Use a natural way in your language for introducing a contrast. Alternate translation: [Instead,]"
@@ -2402,7 +2402,7 @@
   {
     "reference": "Gal 4:5",
     "text": "to redeem those under the law, that we might receive our adoption as sons.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The phrase **in order that** introduces a purpose clause. Paul is stating the purpose for which God sent forth his Son. Use a natural way in your language for introducing a purpose clause. Alternate translation: [so that] or [with the purpose that]"
@@ -2444,7 +2444,7 @@
   {
     "reference": "Gal 4:6",
     "text": "And because you are sons, God sent the Spirit of His Son into our hearts, crying out, “Abba, Father!”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, Paul is using the word **And** to introduce new information into his ongoing argument. Use a natural form for introducing new information. Alternate translation: [Now]"
@@ -2478,7 +2478,7 @@
   {
     "reference": "Gal 4:7",
     "text": "So you are no longer a slave, but a son; and since you are a son, you are also an heir through God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The phrase **So then** introduces the result of what Paul explained in [4:6](../04/06.md). Use a natural form for introducing a result. Alternate translation: [As a result]"
@@ -2516,7 +2516,7 @@
   {
     "reference": "Gal 4:8",
     "text": "Formerly, when you did not know God, you were slaves to those who by nature are not gods.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The word **But** is introducing a contrast. Paul is contrasting the life of the Galatian believers before they believed in Christ with their life after they believed in Christ and as a result became God’s sons (which he explained in [4:1–7](../04/01.md)). Use a natural form in your language for introducing a contrast."
@@ -2538,7 +2538,7 @@
   {
     "reference": "Gal 4:9",
     "text": "But now that you know God, or rather are known by God, how is it that you are turning back to those weak and worthless principles? Do you wish to be enslaved by them all over again?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** is introducing a contrast. Use a natural form in your language for introducing a contrast. Alternate translation: [So]"
@@ -2576,7 +2576,7 @@
   {
     "reference": "Gal 4:10",
     "text": "You are observing special days and months and seasons and years!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the word **observe** refers to observing something for religious purposes in order to gain God’s favor and approval. If it would be helpful to your readers, you could indicate that explicitly. Alternate translation: [For religious purposes you observe]"
@@ -2594,7 +2594,7 @@
   {
     "reference": "Gal 4:11",
     "text": "I fear for you, that my efforts for you may have been in vain.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **I am afraid** means “I am concerned about.” If it would be helpful to your readers, you could indicate that explicitly."
@@ -2616,7 +2616,7 @@
   {
     "reference": "Gal 4:12",
     "text": "I beg you, brothers, become like me, for I became like you. You have done me no wrong.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "See how you translated the word **brothers** in [1:2](../01/02.md) where it is used with the same meaning. Alternate translation: [brothers and sisters]"
@@ -2642,7 +2642,7 @@
   {
     "reference": "Gal 4:13",
     "text": "You know that it was because of an illness that I first preached the gospel to you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-background",
         "note": "Paul is using the word **Now** to introduce background information. Use a natural way in your language for introducing background information. Alternate translation: [And]"
@@ -2672,7 +2672,7 @@
   {
     "reference": "Gal 4:14",
     "text": "And although my illness was a trial to you, you did not despise or reject me. Instead, you welcomed me as if I were an angel of God, as if I were Christ Jesus Himself.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-extrainfo",
         "note": "The phrase **your trial in my flesh** means that Paul had some physical problem or malady that either itself caused difficulty (a **trial**) for the Galatians or caused difficulty (a **trial**) for them because they had to care for or help him as a result of his physical problem. Because Paul does not reveal specifically how his physical malady created a **trial** for the Galatians, it is best to translate this phrase with a general phrase which leaves room for either possibility."
@@ -2702,7 +2702,7 @@
   {
     "reference": "Gal 4:15",
     "text": "What then has become of your blessing? For I can testify that, if it were possible, you would have torn out your eyes and given them to me.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is not asking for information, but is using the question form in order to express his disappointment to the Galatian believers and to cause them to think about what he is saying. If you would not use a rhetorical question for this purpose in your language, you could translate his words as a statement or an exclamation and communicate the emphasis in another way."
@@ -2732,7 +2732,7 @@
   {
     "reference": "Gal 4:16",
     "text": "Have I now become your enemy by telling you the truth?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Paul is using the phrase **So then** to introduce a reason-result clause in which **speaking truth** to the Galatians is the reason, and them acting as if Paul was their **enemy** is the result. Use a natural way in your language for introducing a reason-result clause. Alternate translation: [Therefore] or [Therefore, as a result of] or [So then, as a result of]"
@@ -2750,7 +2750,7 @@
   {
     "reference": "Gal 4:17",
     "text": "Those people are zealous for you, but not in a good way. Instead, they want to isolate you from us, so that you may be zealous for them.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "In this verse, the pronouns **They** and **they** both refer to the false teachers who were Judaizers and were teaching the Galatians false things. If it would be helpful to your readers, you could indicate that explicitly. Alternate translation: [The false teachers are zealous … these false teachers desire]"
@@ -2780,7 +2780,7 @@
   {
     "reference": "Gal 4:18",
     "text": "Nevertheless, it is good to be zealous if it serves a noble purpose—at any time, and not only when I am with you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Now]"
@@ -2794,7 +2794,7 @@
   {
     "reference": "Gal 4:19",
     "text": "My children, for whom I am again in the pains of childbirth until Christ is formed in you,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of the Galatian believers as if they were his **children** and he was their parent. The Galatian believers experienced their spiritual birth as a result of Paul’s work of proclaiming the gospel to them, so he was their spiritual parent and they were his spiritual **children**. If it would be helpful in your language, you could express the meaning in plain language. Alternate translation: [You who believed the message about Jesus that I proclaimed to you] or [My spiritual children]"
@@ -2816,7 +2816,7 @@
   {
     "reference": "Gal 4:20",
     "text": "how I wish I could be with you now and change my tone, because I am perplexed about you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [and]"
@@ -2834,7 +2834,7 @@
   {
     "reference": "Gal 4:21",
     "text": "Tell me, you who want to be under the law, do you not understand what the law says?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Say to me] or [Answer me]"
@@ -2864,7 +2864,7 @@
   {
     "reference": "Gal 4:22",
     "text": "For it is written that Abraham had two sons, one by the slave woman and the other by the free woman.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, Paul uses **it is written** to mean that it is written in the Old Testament Scriptures. Paul assumes that his readers will understand this. If it would be helpful in your language, you could use a comparable phrase that indicates that Paul is referring to an important text. Alternate translation: [it has been written in the Scriptures]"
@@ -2886,7 +2886,7 @@
   {
     "reference": "Gal 4:23",
     "text": "His son by the slave woman was born according to the flesh, but his son by the free woman was born through the promise.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, Paul is using the word **And** to introduce additional information regarding the two sons mentioned in [4:22](../04/22.md). In the remainder of this verse, Paul contrasts the way in which the two sons were born. Alternate translation: [Now]"
@@ -2912,7 +2912,7 @@
   {
     "reference": "Gal 4:24",
     "text": "These things serve as illustrations, for the women represent two covenants. One covenant is from Mount Sinai and bears children into slavery: This is Hagar.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "**These things** refers to the **things** Paul has just described in [4:22–23](../04/22.md) regarding Abraham, his two sons, and Hagar and Sarah. If it would be helpful to your readers, you could indicate that explicitly. Alternate translation: [These events I have just described to you] or [These things I have just told to you]"
@@ -2950,7 +2950,7 @@
   {
     "reference": "Gal 4:25",
     "text": "Now Hagar stands for Mount Sinai in Arabia and corresponds to the present-day Jerusalem, because she is in slavery with her children.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "**Hagar is Mount Sinai** means that Hagar symbolizes Mount Sinai. Here, Paul begins to explain the meaning of the allegory which he began in [4:22](../04/22.md). If it would help your readers, you could indicate explicitly what the phrase **Hagar is Mount Sinai** means. Alternate translation: [Hagar represents Mount Sinai]"
@@ -2984,7 +2984,7 @@
   {
     "reference": "Gal 4:26",
     "text": "But the Jerusalem above is free, and she is our mother.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word **But** is introducing a contrast between the present Jerusalem mentioned in [4:25](../04/25.md) and **the Jerusalem above** in this verse. Use a natural form in your language for introducing a contrast. Alternate translation: [On the other hand,]"
@@ -3018,7 +3018,7 @@
   {
     "reference": "Gal 4:27",
     "text": "For it is written: “Rejoice, O barren woman, who bears no children; break forth and cry aloud, you who have never travailed; because more are the children of the desolate woman than of her who has a husband.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, Paul uses the word **For** to indicate that he is introducing material which supports what he said in [4:26](../04/26.md). Use a natural form in your language for introducing information which supports a prior claim."
@@ -3064,7 +3064,7 @@
   {
     "reference": "Gal 4:28",
     "text": "Now you, brothers, like Isaac, are children of promise.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, Paul uses the word **Now** to indicate that what he writes next is connected to what he wrote immediately before this and that he is continuing his line of thought. Use a natural form in your language to indicate that what follows is in continuity with what precedes it. Alternate translation: [And]"
@@ -3094,7 +3094,7 @@
   {
     "reference": "Gal 4:29",
     "text": "At that time, however, the son born by the flesh persecuted the son born by the Spirit. It is the same now.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **But** could be: (1) introducing a contrast. Use a natural form in your language for introducing a contrast. (2) indicating a transition. Alternate translation: [And]"
@@ -3128,7 +3128,7 @@
   {
     "reference": "Gal 4:30",
     "text": "But what does the Scripture say? “Expel the slave woman and her son, for the slave woman’s son will never share in the inheritance with the free woman’s son.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is not asking for information, but is using the question form to get the Galatian believers to think about the scripture verse he cites next. If you would not use a rhetorical question for this purpose in your language, you could translate his words as a statement or an exclamation and communicate the emphasis in another way. Alternate translation: [the scripture says,]"
@@ -3154,7 +3154,7 @@
   {
     "reference": "Gal 4:31",
     "text": "Therefore, brothers, we are not children of the slave woman, but of the free woman.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **Therefore** is introducing Paul’s conclusion to what he explained immediately prior to this verse. Use a natural form for introducing a concluding statement. Alternate translation: [So then]"
@@ -3184,7 +3184,7 @@
   {
     "reference": "Gal 5:1",
     "text": "It is for freedom that Christ has set us free. Stand firm, then, and do not be encumbered once more by a yoke of slavery.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "**For freedom Christ set us free** implies that Christ **set** believers **free** from being required to obey the laws God gave the Jews. If it would be helpful in your language, you could state this explicitly. Alternate translation: [Christ has set us free from the law]"
@@ -3222,7 +3222,7 @@
   {
     "reference": "Gal 5:2",
     "text": "Take notice: I, Paul, tell you that if you let yourselves be circumcised, Christ will be of no value to you at all.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul uses the term **Behold** to focus his audience’s attention on what he is about to say. Your language may have a comparable expression that you can use in your translation. Alternate translation: [Understand this!]"
@@ -3240,7 +3240,7 @@
   {
     "reference": "Gal 5:3",
     "text": "Again I testify to every man who gets himself circumcised that he is obligated to obey the whole law.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could state this in active form or in another way that is natural in your language. Alternate translation: [who has someone circumcise him]"
@@ -3258,7 +3258,7 @@
   {
     "reference": "Gal 5:4",
     "text": "You who are trying to be justified by the law have been severed from Christ; you have fallen away from grace.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "**You** here refers to **whoever is being justified by the law**. If it would be helpful in your language, you could make this more explicit. Alternate translation: [You who are being justified by the law were cut off from Christ]"
@@ -3288,7 +3288,7 @@
   {
     "reference": "Gal 5:5",
     "text": "But by faith we eagerly await through the Spirit the hope of righteousness.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**For** here indicates that what follows is the reason why what Paul stated in the previous verse is true. Use a natural way in your language for indicating a reason. Alternate translation: [This is due to the fact that]"
@@ -3318,7 +3318,7 @@
   {
     "reference": "Gal 5:6",
     "text": "For in Christ Jesus neither circumcision nor uncircumcision has any value. What matters is faith expressing itself through love.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**For** here indicates that what follows is a reason why what Paul said in the previous verse is true. Use a natural way in your language for indicating a reason. Alternate translation: [This is due to the fact that]"
@@ -3344,7 +3344,7 @@
   {
     "reference": "Gal 5:7",
     "text": "You were running so well. Who has obstructed you from obeying the truth?",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul refers to becoming more spiritually mature as if someone were **running** a race. If it would be helpful in your language, you could express the meaning plainly. Alternate translation: [You were making excellent progress in your faith] or [You were doing so well]"
@@ -3374,7 +3374,7 @@
   {
     "reference": "Gal 5:8",
     "text": "Such persuasion does not come from the One who calls you.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **persuasion** refers to some Galatians being persuaded to obey the laws God gave the Jews instead of trusting solely in Jesus to save them. If it would be helpful in your language, you could state this explicitly. Alternate translation: [You being persuaded to stop trusting in the Messiah]"
@@ -3388,7 +3388,7 @@
   {
     "reference": "Gal 5:9",
     "text": "A little leaven works through the whole batch of dough.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-proverbs",
         "note": "Here Paul quotes or creates a proverb, which is a short saying about something that is generally true in life. This proverb gives a comparison: Just as a small amount of **leaven** **leavens** a whole **lump** of dough, so a small amount of false teaching can deceive many people in a church. If it would be helpful in your language, you could translate the proverb in a way that will be recognized as a proverb and be meaningful in your language and culture. Alternate translation: [It has been said that a little leaven causes a whole lump of dough to be leavened]"
@@ -3402,7 +3402,7 @@
   {
     "reference": "Gal 5:10",
     "text": "I am confident in the Lord that you will take no other view. The one who is troubling you will bear the judgment, whoever he may be.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **in the Lord** indicates the basis or cause for which Paul was **confident in** the Galatian believers, and **the Lord** refers to Jesus. If it would be helpful in your language, you could express the meaning plainly. See how you translated the similar expression “in Christ” in [1:22](../01/22.md). Alternate translation: [on the basis of us being in union with the Lord Jesus]"
@@ -3424,7 +3424,7 @@
   {
     "reference": "Gal 5:11",
     "text": "Now, brothers, if I am still preaching circumcision, why am I still being persecuted? In that case the offense of the cross has been abolished.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "See how you translated the same use of **brothers** in [1:2](../01/02.md). Alternate translation: [brothers and sisters]"
@@ -3470,7 +3470,7 @@
   {
     "reference": "Gal 5:12",
     "text": "As for those who are agitating you, I wish they would proceed to emasculate themselves!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "This could mean: (1) Paul wished that the false teachers who wanted to circumcise the Galatian believers would cut off their male organs, as stated literally in the ULT. (2) Paul wished that the false teachers would leave the Christian community. Alternate translation: [will even remove themselves from among you]"
@@ -3480,7 +3480,7 @@
   {
     "reference": "Gal 5:13",
     "text": "For you, brothers, were called to freedom; but do not use your freedom as an opportunity for the flesh. Rather, serve one another in love.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "**For** here could indicate: (1) Paul is transitioning back to the topic he introduced in [5:1](../05/01.md). Alternate translation: [Indeed,]; (2) the reason for the harsh words Paul said in the previous verse. Alternate translation: [I wish they would do so because]"
@@ -3526,7 +3526,7 @@
   {
     "reference": "Gal 5:14",
     "text": "The entire law is fulfilled in a single decree: “Love your neighbor as yourself.”",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**For** here indicates that what follows is the reason why Paul’s readers should obey the command he gave in the previous verse. Use a natural form in your language for introducing a reason. Alternate translation: [You must do this for one another because]"
@@ -3556,7 +3556,7 @@
   {
     "reference": "Gal 5:15",
     "text": "But if you keep on biting and devouring one another, watch out, or you will be consumed by one another.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-hypothetical",
         "note": "Paul is using a hypothetical situation to teach the Galatians what the results will be if they fight with each other. The result of consuming each other will happen if they fulfill the condition of **biting and devouring one another**. The word “then” is implied before the phrase **watch out**. If it would help your readers, you could supply this word in your translation. Alternate translation: [if you are biting and devouring one another, then watch out that you might not be consumed by one another]"
@@ -3578,7 +3578,7 @@
   {
     "reference": "Gal 5:16",
     "text": "So I say, walk by the Spirit, and you will not gratify the desires of the flesh.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul uses **walk** to refer to how a person lives and behaves. If it would be helpful in your language, you could express the meaning plainly. Alternate translation: [act by the Spirit]"
@@ -3612,7 +3612,7 @@
   {
     "reference": "Gal 5:17",
     "text": "For the flesh craves what is contrary to the Spirit, and the Spirit what is contrary to the flesh. They are opposed to each other, so that you do not do what you want.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, the word **For** indicates that what follows is the reason why Paul commanded his readers to walk by the Spirit in the previous verse. Use a natural form in your language for introducing a reason. Alternate translation: [I say this to you because]"
@@ -3654,7 +3654,7 @@
   {
     "reference": "Gal 5:18",
     "text": "But if you are led by the Spirit, you are not under the law.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could state this in active form or in another way that is natural in your language. Alternate translation: [the Spirit leads you]"
@@ -3672,7 +3672,7 @@
   {
     "reference": "Gal 5:19",
     "text": "The acts of the flesh are obvious: sexual immorality, impurity, and debauchery;",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **impurity** you could express the same idea in another way. Alternate translation: [behaves impurely]"
@@ -3690,7 +3690,7 @@
   {
     "reference": "Gal 5:20",
     "text": "idolatry and sorcery; hatred, discord, jealousy, and rage; rivalries, divisions, factions,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "",
         "note": "Alternate translation: [worshiping idols, practicing witchcraft, being hostile, striving with others, being jealous, angrily bursting out, causing people to divide, making factious groups]"
@@ -3700,7 +3700,7 @@
   {
     "reference": "Gal 5:21",
     "text": "and envy; drunkenness, orgies, and the like. I warn you, as I did before, that those who practice such things will not inherit the kingdom of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas of **envy**, **drunkenness**, and **drunken celebrations**, you could express the same ideas in another way. Alternate translation: [being envious, being drunk, being drunk while celebrating]"
@@ -3714,7 +3714,7 @@
   {
     "reference": "Gal 5:22",
     "text": "But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness,",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-possession",
         "note": "Paul is using the possessive form to describe **the fruit** that **the Spirit** gives to believers. If it would be helpful in your language, you could state this explicitly. Alternate translation: [the fruit that the Spirit gives]"
@@ -3736,7 +3736,7 @@
   {
     "reference": "Gal 5:23",
     "text": "gentleness, and self-control. Against such things there is no law.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas of **gentleness**, and **self-control**, you could express the same ideas in another way. Alternate translation: [acting gently, and controlling oneself]"
@@ -3746,7 +3746,7 @@
   {
     "reference": "Gal 5:24",
     "text": "Those who belong to Christ Jesus have crucified the flesh with its passions and desires.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Here Paul speaks of **the flesh** as if it were a person that believers **have crucified**. He means that Christians refuse to live according to their sinful natures. If it would be helpful in your language, you could express the meaning plainly. Alternate translation: [refuse to live according to their sinful natures]"
@@ -3768,7 +3768,7 @@
   {
     "reference": "Gal 5:25",
     "text": "Since we live by the Spirit, let us walk in step with the Spirit.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "Paul is speaking as if this were a hypothetical possibility, but he means that it is actually true. If your language does not state something as a condition if it is certain or true, and if your readers might misunderstand and think that what Paul is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [Because]"
@@ -3790,12 +3790,12 @@
   {
     "reference": "Gal 5:26",
     "text": "Let us not become conceited, provoking and envying one another.",
-    "translation_challenges": []
+    "note_data": []
   },
   {
     "reference": "Gal 6:1",
     "text": "Brothers, if someone is caught in a trespass, you who are spiritual should restore him with a spirit of gentleness. But watch yourself, or you also may be tempted.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "See how you translated the same use of **Brothers** in [1:2](../01/02.md). Alternate translation: [brothers and sisters]"
@@ -3841,7 +3841,7 @@
   {
     "reference": "Gal 6:2",
     "text": "Carry one another’s burdens, and in this way you will fulfill the law of Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of the spiritual struggles of immature believers as if they were **burdens** that a person could **carry**. He means that mature Christians should patiently help spiritually weak Christians. If it would be helpful in your language, you could express the meaning plainly. Alternate translation: [help one another overcome spiritual weakness]"
@@ -3863,7 +3863,7 @@
   {
     "reference": "Gal 6:3",
     "text": "If anyone thinks he is something when he is nothing, he deceives himself.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**For** here indicates that what follows is the reason why Paul wants his readers to obey what he commanded in the previous verse. Use a natural way in your language for indicating a reason. Alternate translation: [Do this because]"
@@ -3885,7 +3885,7 @@
   {
     "reference": "Gal 6:4",
     "text": "Each one should test his own work. Then he will have reason to boast in himself alone, and not in someone else.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "In this verse Paul is addressing his readers in the third person. If it would be helpful in your language, you could use the second person instead. Alternate translation: [let each one of you examine your own work, and then you will have reason to boast in yourself and not in someone else]"
@@ -3907,7 +3907,7 @@
   {
     "reference": "Gal 6:5",
     "text": "For each one should carry his own load.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**For** here indicates that what follows is the reason why Paul wants his readers to obey what he commanded in the previous verse. Use a natural way in your language for indicating a reason. Alternate translation: [Do this because]"
@@ -3925,7 +3925,7 @@
   {
     "reference": "Gal 6:6",
     "text": "Nevertheless, the one who receives instruction in the word must share in all good things with his instructor.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "In this verse Paul is addressing his readers in the third person. If it would be helpful in your language, you could use the second person instead. Alternate translation: [let you who are being taught the word share in all good things with the one teaching you]"
@@ -3947,7 +3947,7 @@
   {
     "reference": "Gal 6:7",
     "text": "Do not be deceived: God is not to be mocked. Whatever a man sows, he will reap in return.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you could state this in active form or in another way that is natural in your language. Alternate translation: [Do not deceive yourselves. No one can mock God]"
@@ -3969,7 +3969,7 @@
   {
     "reference": "Gal 6:8",
     "text": "The one who sows to please his flesh, from the flesh will reap destruction; but the one who sows to please the Spirit, from the Spirit will reap eternal life.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exmetaphor",
         "note": "Paul continues the metaphor from the previous verse of a farmer **sowing** seeds and harvesting crops. The word **sowing** refers to doing deeds, which will have consequences. Here, **sowing to his own flesh** refers to a person doing sinful actions in order to satisfy his sinful nature, and **sowing to the Spirit** refers to a person doing good actions in order to please the Holy **Spirit**. If it would be helpful in your language, you could express the meaning plainly. Alternate translation: [doings things to satisfy his sinful nature … doing things to please the Holy Spirit]"
@@ -3995,7 +3995,7 @@
   {
     "reference": "Gal 6:9",
     "text": "Let us not grow weary in well-doing, for in due time we will reap a harvest if we do not give up.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "When Paul says **we**, he is speaking of himself and the Galatian believers, so **we** would be inclusive here. Your language may require you to mark these forms."
@@ -4021,7 +4021,7 @@
   {
     "reference": "Gal 6:10",
     "text": "Therefore, as we have opportunity, let us do good to everyone, and especially to the family of faith.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**So then** indicates that what follows in this verse is the concluding result of what Paul has said in [6:1–9](../06/01.md). If it would be helpful in your language, you could use a different expression. Alternate translation: [Because all these things are true]"
@@ -4051,7 +4051,7 @@
   {
     "reference": "Gal 6:11",
     "text": "See what large letters I am using to write to you with my own hand!",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-imperative",
         "note": "**See** here is an imperative, but it communicates a polite request rather than a command. Use a form in your language that communicates a polite request. It may be helpful to add an expression such as “please” to make this clear. Alternate translation: [Please observe]"
@@ -4065,7 +4065,7 @@
   {
     "reference": "Gal 6:12",
     "text": "Those who want to make a good impression outwardly are trying to compel you to be circumcised. They only do this to avoid persecution for the cross of Christ.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Paul’s readers would have understood that he was referring to making **a good impression** on legalistic Jews who did not believe in Jesus. If it would be helpful in your language, you could state this explicitly. Alternate translation: [to make a good impression on the Jews]"
@@ -4091,7 +4091,7 @@
   {
     "reference": "Gal 6:13",
     "text": "For the circumcised do not even keep the law themselves, yet they want you to be circumcised that they may boast in your flesh.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**For** here indicates that what follows is the reason why what Paul said in the previous verse is true. Use a natural way in your language for indicating a reason. Alternate translation: [This is due to the fact that]"
@@ -4113,7 +4113,7 @@
   {
     "reference": "Gal 6:14",
     "text": "But as for me, may I never boast, except in the cross of our Lord Jesus Christ, through which the world has been crucified to me, and I to the world.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "The phrase **may it never be** is an exclamation that communicates a strong desire against doing something. Use an exclamation that is natural in your language for communicating this meaning. Alternate translation: [may I absolutely never boast] or [may I certainly never boast]"
@@ -4155,7 +4155,7 @@
   {
     "reference": "Gal 6:15",
     "text": "For neither circumcision nor uncircumcision means anything. What counts is a new creation.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**For** here indicates that what follows is the reason why Paul only boasts “in the cross of our Lord Jesus Christ,” as stated in the previous verse. Use a natural way in your language for indicating a reason. Alternate translation: [I may boast in the cross because]"
@@ -4177,7 +4177,7 @@
   {
     "reference": "Gal 6:16",
     "text": "Peace and mercy to all who walk by this rule, even to the Israel of God.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See how you translated the similar use of **walk** in [5:16](../05/16.md)."
@@ -4203,7 +4203,7 @@
   {
     "reference": "Gal 6:17",
     "text": "From now on let no one cause me trouble, for I bear on my body the marks of Jesus.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be more natural in your language, you could reverse the order of these clauses, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [Because I carry in my body the marks of Jesus, from now on let no one cause me trouble]"
@@ -4229,7 +4229,7 @@
   {
     "reference": "Gal 6:18",
     "text": "The grace of our Lord Jesus Christ be with your spirit, brothers. Amen.",
-    "translation_challenges": [
+    "note_data": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "As was customary in his culture, Paul closes his letter with a blessing for the Galatian believers. Use a form that people would recognize as a blessing in your language. Alternate translation: [May your spirit experience kindness from our Lord Jesus Christ] or [I pray that your spirit will have grace from our Lord Jesus Christ]"

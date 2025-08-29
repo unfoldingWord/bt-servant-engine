@@ -193,8 +193,8 @@ def select_translation_challenges(
 ) -> List[Tuple[str, List[Dict[str, str]]]]:
     """Select translation challenges for a canonical book given a set of ranges.
 
-    Returns a list of (reference, translation_challenges[]) for each verse in range order.
-    If a verse has no challenges, its list will be empty.
+    Returns a list of (reference, note_data[]) for each verse in range order.
+    If a verse has no notes, its list will be empty.
     """
     mapping = BOOK_MAP[canonical_book]
     entries = load_book_json(data_root, mapping["file_stem"])  # cached
@@ -224,10 +224,10 @@ def select_translation_challenges(
                 break
             entry = idx_cv_to_entry[(ch, vs)]
             ref = entry.get("reference", "")
-            challenges = entry.get("translation_challenges", [])
+            notes = entry.get("note_data", [])
             # Ensure a list to avoid None
-            challenge_list: List[Dict[str, str]] = challenges if isinstance(challenges, list) else []
-            result.append((ref, challenge_list))
+            notes_list: List[Dict[str, str]] = notes if isinstance(notes, list) else []
+            result.append((ref, notes_list))
     return result
 
 

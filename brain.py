@@ -1309,7 +1309,7 @@ def handle_get_passage_summary(state: Any) -> dict:
 def handle_get_passage_translation_challenges(state: Any) -> dict:
     """Handle get-passage-translation-challenges: extract refs, gather notes, and synthesize challenges.
 
-    Mirrors the passage summary flow, but retrieves the `translation_challenges` arrays for all selected verses
+    Mirrors the passage summary flow, but retrieves the `note_data` arrays for all selected verses
     within a single canonical book and asks the LLM to synthesize a practical checklist for translators.
     """
     s = cast(BrainState, state)
@@ -1410,9 +1410,9 @@ def handle_get_passage_translation_challenges(state: Any) -> dict:
     ref_label = label_ranges(canonical_book, ranges)
     logger.info("[passage-challenges] label=%s", ref_label)
     payload = [
-        {"reference": ref, "translation_challenges": challenges}
-        for ref, challenges in items
-        if challenges
+        {"reference": ref, "note_data": notes}
+        for ref, notes in items
+        if notes
     ]
     if not payload:
         msg = (
@@ -1421,12 +1421,12 @@ def handle_get_passage_translation_challenges(state: Any) -> dict:
         logger.info("[passage-challenges] empty challenges payload after filtering")
         return {"responses": [{"intent": IntentType.GET_PASSAGE_TRANSLATION_CHALLENGES, "response": msg}]}
 
-    challenges_json = json.dumps(payload, ensure_ascii=False, indent=2)
+    note_json = json.dumps(payload, ensure_ascii=False, indent=2)
 
     # Synthesize with LLM
     sum_messages: list[EasyInputMessageParam] = [
         {"role": "developer", "content": f"Passage reference: {ref_label}"},
-        {"role": "developer", "content": f"Translation notes (use only this content):\n{challenges_json}"},
+        {"role": "developer", "content": f"Translation notes (use only this content):\n{note_json}"},
         {"role": "user", "content": "List the translation challenges a translator should watch out for."},
     ]
     logger.info("[passage-challenges] synthesizing challenges from %d verse entries", len(payload))
