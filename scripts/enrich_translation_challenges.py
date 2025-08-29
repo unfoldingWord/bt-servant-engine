@@ -8,7 +8,8 @@ Phase 1 data prep for get-passage-translation-challenges intent:
 
 For each verse object in sources/verse_data/<stem>.json, ensures a
 `note_data` array exists and appends objects of shape:
-  { "issue_type": <SupportReference>, "note": <Note> }
+  { "note": <Note>, "issue_type"?: <SupportReference> }
+The `issue_type` field is optional and omitted when empty in the source.
 
 Mapping strategy:
 - Determine book from TSV filename (e.g., tn_JHN.tsv -> John).
@@ -195,10 +196,10 @@ def enrich_book(tsv_path: Path, book_name: str) -> None:
                 if e is None:
                     continue
                 e.setdefault("note_data", [])
-                e["note_data"].append({
-                    "issue_type": issue_type,
-                    "note": note,
-                })
+                item = {"note": note}
+                if issue_type:
+                    item["issue_type"] = issue_type
+                e["note_data"].append(item)
 
     _save_json(json_path, entries)
     print(f"[OK] Enriched {book_name} -> {json_path} (note_data)")

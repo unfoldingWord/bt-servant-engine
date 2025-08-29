@@ -4,20 +4,20 @@
     "text": "Paul, Silvanus, and Timothy, To the church of the Thessalonians in God our Father and the Lord Jesus Christ:",
     "note_data": [
       {
-        "issue_type": "translate-names",
-        "note": "**Silvanus** is the Latin form of “Silas.” **Silvanus** is the name of a man, the same person listed in the book of Acts as Paul’s fellow traveler. If your readers may not know that these two are the same person, you could use the name “Silas” in the text and “Silvanus” in the footnote."
+        "note": "**Silvanus** is the Latin form of “Silas.” **Silvanus** is the name of a man, the same person listed in the book of Acts as Paul’s fellow traveler. If your readers may not know that these two are the same person, you could use the name “Silas” in the text and “Silvanus” in the footnote.",
+        "issue_type": "translate-names"
       },
       {
-        "issue_type": "figs-ellipsis",
-        "note": "You may want to fill in the words necessary to make this a complete sentence. Alternate translation: [Paul, Silvanus, and Timothy send this letter to the church]"
+        "note": "You may want to fill in the words necessary to make this a complete sentence. Alternate translation: [Paul, Silvanus, and Timothy send this letter to the church]",
+        "issue_type": "figs-ellipsis"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "Although **Paul** wrote this letter, he identifies **Silvanus and Timothy** as also sending it. This means that they were with him and were in agreement with it. If it would be helpful to your readers, you could make that clear, as in the UST."
+        "note": "Although **Paul** wrote this letter, he identifies **Silvanus and Timothy** as also sending it. This means that they were with him and were in agreement with it. If it would be helpful to your readers, you could make that clear, as in the UST.",
+        "issue_type": "figs-explicit"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "Here Paul speaks of the believers as though they were occupying space inside of God and Jesus. This metaphor expresses the idea that believers are spiritually united to God and Jesus. If this might be misunderstood in your language, you could express the meaning plainly. Alternate translation: [united to God the Father and the Lord Jesus Christ] or [sharing life with God the Father and the Lord Jesus Christ]"
+        "note": "Here Paul speaks of the believers as though they were occupying space inside of God and Jesus. This metaphor expresses the idea that believers are spiritually united to God and Jesus. If this might be misunderstood in your language, you could express the meaning plainly. Alternate translation: [united to God the Father and the Lord Jesus Christ] or [sharing life with God the Father and the Lord Jesus Christ]",
+        "issue_type": "figs-metaphor"
       }
     ]
   },
@@ -26,12 +26,12 @@
     "text": "Grace and peace to you from God our Father and the Lord Jesus Christ.",
     "note_data": [
       {
-        "issue_type": "translate-blessing",
-        "note": "Many languages have different ways to offer good wishes as they greet. Paul greeted his letter recipients with a blessing. Use a form that would be a good wish or blessing in your language. Alternate translation: [We pray that God the Father and the Lord Jesus Christ give you grace and peace] or [I wish you grace and peace from God the Father and the Lord Jesus Christ] or [May the grace and peace of God the Father and the Lord Jesus Christ be your portion] or [May God the Father and the Lord Jesus Christ show grace and give peace to your hearts]"
+        "note": "Many languages have different ways to offer good wishes as they greet. Paul greeted his letter recipients with a blessing. Use a form that would be a good wish or blessing in your language. Alternate translation: [We pray that God the Father and the Lord Jesus Christ give you grace and peace] or [I wish you grace and peace from God the Father and the Lord Jesus Christ] or [May the grace and peace of God the Father and the Lord Jesus Christ be your portion] or [May God the Father and the Lord Jesus Christ show grace and give peace to your hearts]",
+        "issue_type": "translate-blessing"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use abstract nouns for the ideas behind **Grace** and **peace**, you can express these ideas as verbs or in another way. Alternate translation: [May God the Father and the Lord Jesus Christ be gracious to you and give rest to your inner being] or [be favorable to you and make you at ease] or [be kind to you and set your heart at rest]"
+        "note": "If your language does not use abstract nouns for the ideas behind **Grace** and **peace**, you can express these ideas as verbs or in another way. Alternate translation: [May God the Father and the Lord Jesus Christ be gracious to you and give rest to your inner being] or [be favorable to you and make you at ease] or [be kind to you and set your heart at rest]",
+        "issue_type": "figs-abstractnouns"
       }
     ]
   },
@@ -40,40 +40,39 @@
     "text": "We are obligated to thank God for you all the time, brothers, as is fitting, because your faith is growing more and more, and your love for one another is increasing.",
     "note_data": [
       {
-        "issue_type": "rc://*/ta/man/checking/headings",
-        "note": "# General Information:\\n\\nIn [verses 3–12](../01/03.md), Paul gives thanks for the believers in Thessalonica and prays for them. A heading for this section might be, “Thanks and Prayers.”"
+        "note": "# General Information:\\n\\nIn [verses 3–12](../01/03.md), Paul gives thanks for the believers in Thessalonica and prays for them. A heading for this section might be, “Thanks and Prayers.”",
+        "issue_type": "rc://*/ta/man/checking/headings"
       },
       {
-        "issue_type": "",
         "note": "Paul here uses the word **ought** to express that he has a moral obligation to God to **give thanks** for the believers in Thessalonica. Use a natural expression for this in your language. Alternate translation: [We are bound always to thank] or [We can do no other than to thank] or [We must give thanks continually to]"
       },
       {
-        "issue_type": "figs-hyperbole",
-        "note": "Paul uses **always** as a generalization meaning “often” or “regularly.” Alternate translation: [We should often give thanks to God]"
+        "note": "Paul uses **always** as a generalization meaning “often” or “regularly.” Alternate translation: [We should often give thanks to God]",
+        "issue_type": "figs-hyperbole"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "If your readers might think that Paul is expressing an obligation only and that he does not actually pray for the Thessalonians, you could express the reality explicitly. Alternate translation: [We always thank God for you, brothers, as we ought]"
+        "note": "If your readers might think that Paul is expressing an obligation only and that he does not actually pray for the Thessalonians, you could express the reality explicitly. Alternate translation: [We always thank God for you, brothers, as we ought]",
+        "issue_type": "figs-explicit"
       },
       {
-        "issue_type": "figs-gendernotations",
-        "note": "Here, **brothers** means fellow Christians, including both men and women. If your readers understand that it is addressed only to men, you may need to use both the masculine and the feminine forms of that word in your language. If you use a nonfigurative word such as “believers”, see that both the genders are addressed. Alternate translation: [brothers and sisters]"
+        "note": "Here, **brothers** means fellow Christians, including both men and women. If your readers understand that it is addressed only to men, you may need to use both the masculine and the feminine forms of that word in your language. If you use a nonfigurative word such as “believers”, see that both the genders are addressed. Alternate translation: [brothers and sisters]",
+        "issue_type": "figs-gendernotations"
       },
       {
-        "issue_type": "writing-pronouns",
-        "note": "If it is difficult to express **just as it is fitting** in your language or if it is unclear what **it** refers to, consider starting a new sentence here to state it clearly. Alternate translation: [When we give thanks for you we are doing the right thing] or [Giving thanks for you is right for us to be doing] or [is the right thing to do]"
+        "note": "If it is difficult to express **just as it is fitting** in your language or if it is unclear what **it** refers to, consider starting a new sentence here to state it clearly. Alternate translation: [When we give thanks for you we are doing the right thing] or [Giving thanks for you is right for us to be doing] or [is the right thing to do]",
+        "issue_type": "writing-pronouns"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea behind **faith**, you can express this idea as a verb. Alternate translation: [you believe in Christ more and more] or [you increasingly trust in Christ] or [you rely on Christ more each day]"
+        "note": "If your language does not use an abstract noun for the idea behind **faith**, you can express this idea as a verb. Alternate translation: [you believe in Christ more and more] or [you increasingly trust in Christ] or [you rely on Christ more each day]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea behind **love**, you can express this idea as a verb. Alternate translation: [each of you sincerely loves one another more and more]"
+        "note": "If your language does not use an abstract noun for the idea behind **love**, you can express this idea as a verb. Alternate translation: [each of you sincerely loves one another more and more]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-rpronouns",
-        "note": "Here, **one another** means fellow believers. Alternate translation: [each other] or [each believer]"
+        "note": "Here, **one another** means fellow believers. Alternate translation: [each other] or [each believer]",
+        "issue_type": "figs-rpronouns"
       }
     ]
   },
@@ -82,20 +81,20 @@
     "text": "That is why we boast among God’s churches about your perseverance and faith in the face of all the persecution and affliction you are enduring.",
     "note_data": [
       {
-        "issue_type": "figs-rpronouns",
-        "note": "Here, **ourselves** is added to **we** to emphasize that even the apostle Paul and his associates are boasting about the Thessalonian believers. Alternate translation: [even we] or [we are the ones who]"
+        "note": "Here, **ourselves** is added to **we** to emphasize that even the apostle Paul and his associates are boasting about the Thessalonian believers. Alternate translation: [even we] or [we are the ones who]",
+        "issue_type": "figs-rpronouns"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use abstract nouns for the ideas of **endurance** and **faith** or if it is unclear how these two terms relate, you can express these same ideas in another way. Alternate translation: [how you patiently continue to trust in Jesus] or [how you persevere in believing in the Lord]"
+        "note": "If your language does not use abstract nouns for the ideas of **endurance** and **faith** or if it is unclear how these two terms relate, you can express these same ideas in another way. Alternate translation: [how you patiently continue to trust in Jesus] or [how you persevere in believing in the Lord]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-doublet",
-        "note": "The two words **persecutions** and **afflictions** are saying very similar things. The repetition is used to emphasize how difficult life has been for the Thessalonian believers. If two words are difficult to find in your language or if your language does not use repetition in this way, you can use one word with this meaning and make the emphasis in another way. Alternate translation: [as you have been going through all these very difficult times] or [as people make you suffer in all the ways]"
+        "note": "The two words **persecutions** and **afflictions** are saying very similar things. The repetition is used to emphasize how difficult life has been for the Thessalonian believers. If two words are difficult to find in your language or if your language does not use repetition in this way, you can use one word with this meaning and make the emphasis in another way. Alternate translation: [as you have been going through all these very difficult times] or [as people make you suffer in all the ways]",
+        "issue_type": "figs-doublet"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "Here, **faith in all your persecutions** does not mean to believe in or trust in persecutions. If your readers might be confused by that, you could express it more clearly. Alternate translation: [faith in Jesus Christ during all the times you are persecuted]"
+        "note": "Here, **faith in all your persecutions** does not mean to believe in or trust in persecutions. If your readers might be confused by that, you could express it more clearly. Alternate translation: [faith in Jesus Christ during all the times you are persecuted]",
+        "issue_type": "figs-explicit"
       }
     ]
   },
@@ -104,16 +103,16 @@
     "text": "All this is clear evidence of God’s righteous judgment. And so you will be counted worthy of the kingdom of God, for which you are suffering.",
     "note_data": [
       {
-        "issue_type": "figs-explicit",
-        "note": "The **evidence** that Paul is referring to here is the faithful endurance of the Thessalonian believers while suffering persecution, which he mentioned in [verse 4](../01/04.md). If it would be helpful to your readers, you could state that explicitly. It may also be helpful to start a new sentence here. Alternate translation: [Your endurance while suffering is a clear indication of God’s righteous judgment, that he considers you worthy] or [Your faithfulness through persecution shows that God is just and right to consider you worthy]"
+        "note": "The **evidence** that Paul is referring to here is the faithful endurance of the Thessalonian believers while suffering persecution, which he mentioned in [verse 4](../01/04.md). If it would be helpful to your readers, you could state that explicitly. It may also be helpful to start a new sentence here. Alternate translation: [Your endurance while suffering is a clear indication of God’s righteous judgment, that he considers you worthy] or [Your faithfulness through persecution shows that God is just and right to consider you worthy]",
+        "issue_type": "figs-explicit"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "You can state this in active form. Alternate translation: [that God will consider you worthy to be part of his kingdom]"
+        "note": "You can state this in active form. Alternate translation: [that God will consider you worthy to be part of his kingdom]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "Here, **also** could mean: (1) the Thessalonian believers are suffering for the kingdom of God as well as being counted worthy of it. Alternate translation: [being a part of which is also the reason that you are suffering]; (2) the Thessalonian believers are suffering along with other believers. Alternate translation: [which is why you are going through sufferings along with many others]"
+        "note": "Here, **also** could mean: (1) the Thessalonian believers are suffering for the kingdom of God as well as being counted worthy of it. Alternate translation: [being a part of which is also the reason that you are suffering]; (2) the Thessalonian believers are suffering along with other believers. Alternate translation: [which is why you are going through sufferings along with many others]",
+        "issue_type": "figs-explicit"
       }
     ]
   },
@@ -122,16 +121,16 @@
     "text": "After all, it is only right for God to repay with affliction those who afflict you,",
     "note_data": [
       {
-        "issue_type": "grammar-connect-condition-fact",
-        "note": "Paul is speaking as if this were a hypothetical possibility, but he means that it is actually true. If your language does not state something as a condition if it is certain or true, and if your readers might think that what Paul is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [Since you know that God is just] or [for God is certainly right]"
+        "note": "Paul is speaking as if this were a hypothetical possibility, but he means that it is actually true. If your language does not state something as a condition if it is certain or true, and if your readers might think that what Paul is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [Since you know that God is just] or [for God is certainly right]",
+        "issue_type": "grammar-connect-condition-fact"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "Here, **to return** means to cause someone to experience the same thing that they did to someone else as though the same action were bouncing back onto the people who did that action. Use a natural expression for this kind of reciprocal action. Alternate translation: [for God to afflict those who are afflicting you] or [for God to pay back those who are afflicting you] or [for God to do the same to those who are afflicting you]"
+        "note": "Here, **to return** means to cause someone to experience the same thing that they did to someone else as though the same action were bouncing back onto the people who did that action. Use a natural expression for this kind of reciprocal action. Alternate translation: [for God to afflict those who are afflicting you] or [for God to pay back those who are afflicting you] or [for God to do the same to those who are afflicting you]",
+        "issue_type": "figs-metaphor"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea of **affliction**, you can express the same idea in another way. Alternate translation: [to afflict those who are afflicting you] or [to trouble those who are troubling you]"
+        "note": "If your language does not use an abstract noun for the idea of **affliction**, you can express the same idea in another way. Alternate translation: [to afflict those who are afflicting you] or [to trouble those who are troubling you]",
+        "issue_type": "figs-abstractnouns"
       }
     ]
   },
@@ -140,24 +139,24 @@
     "text": "and to grant relief to you who are oppressed and to us as well. This will take place when the Lord Jesus is revealed from heaven with His mighty angels",
     "note_data": [
       {
-        "issue_type": "figs-ellipsis",
-        "note": "The words **and relief to you** continue the description of what God is right “to return” to people ([verse 6](../01/06.md)). If this would not be understood in your language, you could supply these words from the context. Alternate translation: [and it is righteous for God to give relief to you]"
+        "note": "The words **and relief to you** continue the description of what God is right “to return” to people ([verse 6](../01/06.md)). If this would not be understood in your language, you could supply these words from the context. Alternate translation: [and it is righteous for God to give relief to you]",
+        "issue_type": "figs-ellipsis"
       },
       {
-        "issue_type": "writing-pronouns",
-        "note": "Here, **you who are being afflicted** refers to the Thessalonian believers, and **us** refers to Paul and his associates. Other people are afflicting both groups because of their faith in Jesus. Alternate translation: [and relief to you who are being afflicted just as we are being afflicted]"
+        "note": "Here, **you who are being afflicted** refers to the Thessalonian believers, and **us** refers to Paul and his associates. Other people are afflicting both groups because of their faith in Jesus. Alternate translation: [and relief to you who are being afflicted just as we are being afflicted]",
+        "issue_type": "writing-pronouns"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea behind **relief**, you can express this idea with a verb or in another way. Alternate translation: [to relieve you] or [to rescue you]"
+        "note": "If your language does not use an abstract noun for the idea behind **relief**, you can express this idea with a verb or in another way. Alternate translation: [to relieve you] or [to rescue you]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [whom other people are afflicting] or [from the affliction that others are causing you]"
+        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [whom other people are afflicting] or [from the affliction that others are causing you]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "Here, **at the revealing** is an indication of the time when the suffering believers will have relief from their suffering. Alternate translation: [at the time when the Lord Jesus is revealed] or [when everyone sees the Lord Jesus coming]"
+        "note": "Here, **at the revealing** is an indication of the time when the suffering believers will have relief from their suffering. Alternate translation: [at the time when the Lord Jesus is revealed] or [when everyone sees the Lord Jesus coming]",
+        "issue_type": "figs-explicit"
       }
     ]
   },
@@ -166,24 +165,24 @@
     "text": "in blazing fire, inflicting vengeance on those who do not know God and do not obey the gospel of our Lord Jesus.",
     "note_data": [
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea behind **vengeance**, you can express this idea in another way. Since this is part of God’s justice, do not use a word that implies that God is doing something illegal or inappropriate. Alternate translation: [punishing the people] or [judging the ones]"
+        "note": "If your language does not use an abstract noun for the idea behind **vengeance**, you can express this idea in another way. Since this is part of God’s justice, do not use a word that implies that God is doing something illegal or inappropriate. Alternate translation: [punishing the people] or [judging the ones]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "Here, **the ones not having known God** refers to those who have refused the relationship with God that he had offered to them. Alternate translation: [on those who did not want to know God] or [on those who have rejected God]"
+        "note": "Here, **the ones not having known God** refers to those who have refused the relationship with God that he had offered to them. Alternate translation: [on those who did not want to know God] or [on those who have rejected God]",
+        "issue_type": "figs-explicit"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "The phrase, **not obeying the gospel** could refer to: (1) the same people as **those not having known God**. Alternate translation: [and who are not obeying the gospel]; (2) a separate group. Alternate translation: [and also on those who are not obeying the gospel]"
+        "note": "The phrase, **not obeying the gospel** could refer to: (1) the same people as **those not having known God**. Alternate translation: [and who are not obeying the gospel]; (2) a separate group. Alternate translation: [and also on those who are not obeying the gospel]",
+        "issue_type": "figs-explicit"
       },
       {
-        "issue_type": "figs-idiom",
-        "note": "The phrase, **obeying the gospel** is an idiom that means to live according to everything that God tells us in the gospel message. Alternate translation: [living according to the message of the gospel] or [heeding the admonitions that are part of the gospel message]"
+        "note": "The phrase, **obeying the gospel** is an idiom that means to live according to everything that God tells us in the gospel message. Alternate translation: [living according to the message of the gospel] or [heeding the admonitions that are part of the gospel message]",
+        "issue_type": "figs-idiom"
       },
       {
-        "issue_type": "figs-possession",
-        "note": "Here, Paul is using the general possessive form **of our Lord Jesus** to describe **the gospel**. The specific meaning here is that the gospel is about Jesus. Alternate translation: [the gospel that is about our Lord Jesus] or [the gospel message that tells us about our Lord Jesus]"
+        "note": "Here, Paul is using the general possessive form **of our Lord Jesus** to describe **the gospel**. The specific meaning here is that the gospel is about Jesus. Alternate translation: [the gospel that is about our Lord Jesus] or [the gospel message that tells us about our Lord Jesus]",
+        "issue_type": "figs-possession"
       }
     ]
   },
@@ -192,32 +191,32 @@
     "text": "They will suffer the penalty of eternal destruction, separated from the presence of the Lord and the glory of His might,",
     "note_data": [
       {
-        "issue_type": "writing-pronouns",
-        "note": "Here, **who** refers to the people who are not obeying the gospel, not to the Lord Jesus. You may prefer to start a new sentence here. Alternate translation: [Those people will pay the penalty]"
+        "note": "Here, **who** refers to the people who are not obeying the gospel, not to the Lord Jesus. You may prefer to start a new sentence here. Alternate translation: [Those people will pay the penalty]",
+        "issue_type": "writing-pronouns"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea of the word **penalty**, you can express the same idea in another way. Alternate translation: [who will be punished by God] or [whom God will punish]"
+        "note": "If your language does not use an abstract noun for the idea of the word **penalty**, you can express the same idea in another way. Alternate translation: [who will be punished by God] or [whom God will punish]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-idiom",
-        "note": "Here, the phrase **pay the penalty** is an idiom meaning to suffer the consequences of doing something bad. If your readers would not understand this, you could use an equivalent idiom or use plain language. Alternate translation: [will suffer the consequences] or [will undergo the retribution]"
+        "note": "Here, the phrase **pay the penalty** is an idiom meaning to suffer the consequences of doing something bad. If your readers would not understand this, you could use an equivalent idiom or use plain language. Alternate translation: [will suffer the consequences] or [will undergo the retribution]",
+        "issue_type": "figs-idiom"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "Here, **eternal destruction** further describes the **penalty** that people will experience if they refuse to “obey the gospel.” The **destruction** that these people will experience is **eternal**, that is, it never ends. Therefore, do not translate with the meaning that these people will cease to exist. They will continue to exist, but continually experience the ruin of their lives. If necessary, put this information in a footnote. Alternate translation: [God will punish them eternally]"
+        "note": "Here, **eternal destruction** further describes the **penalty** that people will experience if they refuse to “obey the gospel.” The **destruction** that these people will experience is **eternal**, that is, it never ends. Therefore, do not translate with the meaning that these people will cease to exist. They will continue to exist, but continually experience the ruin of their lives. If necessary, put this information in a footnote. Alternate translation: [God will punish them eternally]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-idiom",
-        "note": "Here, **the face of the Lord** is an idiom meaning the presence of the Lord. Alternate translation: [away from our Lord Jesus] or [separated from the presence of the Lord Jesus]"
+        "note": "Here, **the face of the Lord** is an idiom meaning the presence of the Lord. Alternate translation: [away from our Lord Jesus] or [separated from the presence of the Lord Jesus]",
+        "issue_type": "figs-idiom"
       },
       {
-        "issue_type": "figs-possession",
-        "note": "Here, the possessive form is describing **power** that has **glory**. If this is not clear in your language, you could use the adjective “glorious” to describe the **power**. Alternate translation: [his glorious power]"
+        "note": "Here, the possessive form is describing **power** that has **glory**. If this is not clear in your language, you could use the adjective “glorious” to describe the **power**. Alternate translation: [his glorious power]",
+        "issue_type": "figs-possession"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the ideas of **glory** and **power**, you can express the same ideas in another way. Alternate translation: [experiencing how magnificent and powerful he is]"
+        "note": "If your language does not use an abstract noun for the ideas of **glory** and **power**, you can express the same ideas in another way. Alternate translation: [experiencing how magnificent and powerful he is]",
+        "issue_type": "figs-abstractnouns"
       }
     ]
   },
@@ -226,24 +225,23 @@
     "text": "on the day He comes to be glorified in His saints and regarded with wonder by all who have believed, including you who have believed our testimony.",
     "note_data": [
       {
-        "issue_type": "figs-explicit",
-        "note": "Here, **that day** is the day when Jesus will return to the world. If it would be helpful to your readers, you could express that explicitly. Alternate translation: [on the day when Jesus returns to the world]"
+        "note": "Here, **that day** is the day when Jesus will return to the world. If it would be helpful to your readers, you could express that explicitly. Alternate translation: [on the day when Jesus returns to the world]",
+        "issue_type": "figs-explicit"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [as his saints glorify him and all those who have believed marvel at him]"
+        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [as his saints glorify him and all those who have believed marvel at him]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "grammar-connect-logic-result",
-        "note": "Here, the two verbs **to be glorified** and **to be marveled at** indicate the result of Jesus’ coming, not the purpose. Use a connector here that indicates result. Alternate translation: [as his saints glorify him and all those who have believed marvel at him] or [with the result that his saints will glorify him and all those who have believed will marvel at him]"
+        "note": "Here, the two verbs **to be glorified** and **to be marveled at** indicate the result of Jesus’ coming, not the purpose. Use a connector here that indicates result. Alternate translation: [as his saints glorify him and all those who have believed marvel at him] or [with the result that his saints will glorify him and all those who have believed will marvel at him]",
+        "issue_type": "grammar-connect-logic-result"
       },
       {
-        "issue_type": "",
         "note": "The **saints** and **the ones having believed** are one group of people, not two. If your readers might be confused by this, you could combine these into one phrase. Alternate translation: [with the result that all of his saints, that is, the believers, will glorify him and marvel at him] or [as all of his people glorify him and marvel at him]"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [you have believed our witness when we shared it with you] or [when we testified about the saving power of Jesus Christ, you believed what we said]"
+        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [you have believed our witness when we shared it with you] or [when we testified about the saving power of Jesus Christ, you believed what we said]",
+        "issue_type": "figs-activepassive"
       }
     ]
   },
@@ -252,24 +250,24 @@
     "text": "To this end, we always pray for you, that our God will count you worthy of His calling, and that He will powerfully fulfill your every good desire and work of faith,",
     "note_data": [
       {
-        "issue_type": "grammar-connect-logic-goal",
-        "note": "Here, **For this** connects [verse 11](../01/11.md) to [verse 10](../01/10.md), so that [verse 11](../01/11.md) gives the means or method (prayer for the Thessalonian believers) for reaching the purpose that [verse 10](../01/10.md) has just described (for Jesus to “be glorified … and marveled at”). Use a natural way in your language for introducing this relationship. Alternate translation: [This is why] or [To this end]"
+        "note": "Here, **For this** connects [verse 11](../01/11.md) to [verse 10](../01/10.md), so that [verse 11](../01/11.md) gives the means or method (prayer for the Thessalonian believers) for reaching the purpose that [verse 10](../01/10.md) has just described (for Jesus to “be glorified … and marveled at”). Use a natural way in your language for introducing this relationship. Alternate translation: [This is why] or [To this end]",
+        "issue_type": "grammar-connect-logic-goal"
       },
       {
-        "issue_type": "figs-hyperbole",
-        "note": "Paul is using **always** as an exaggeration in order to emphasize how often he prays for them. If it would be helpful in your language, you could use an equivalent expression from your language. Alternate translation: [we also pray regularly for you] or [we continue to pray for you]"
+        "note": "Paul is using **always** as an exaggeration in order to emphasize how often he prays for them. If it would be helpful in your language, you could use an equivalent expression from your language. Alternate translation: [we also pray regularly for you] or [we continue to pray for you]",
+        "issue_type": "figs-hyperbole"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "Here, **calling** refers to God appointing or choosing people to belong to him and to proclaim his message of salvation through Jesus. Alternate translation: [to appoint you to belong to him]"
+        "note": "Here, **calling** refers to God appointing or choosing people to belong to him and to proclaim his message of salvation through Jesus. Alternate translation: [to appoint you to belong to him]",
+        "issue_type": "figs-explicit"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use abstract nouns for the ideas behind **desire**, **goodness**, **faith**, and **power**, you can express these ideas in another way. Alternate translation: [he may make you able to do all of the good things that you want to do because you trust in Jesus and because God is powerful] or [he may empower you to act on what you believe in order to do good things in every way that you desire, because God is powerful]"
+        "note": "If your language does not use abstract nouns for the ideas behind **desire**, **goodness**, **faith**, and **power**, you can express these ideas in another way. Alternate translation: [he may make you able to do all of the good things that you want to do because you trust in Jesus and because God is powerful] or [he may empower you to act on what you believe in order to do good things in every way that you desire, because God is powerful]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-ellipsis",
-        "note": "Here, **and he may fulfill** adds another reason why Paul and his associates **pray always** for the Thessalonian believers. This part of the sentence assumes some of the words from earlier in the sentence. If this would be misunderstood in your language, you could supply these words from the earlier part of the sentence. Alternate translation: [and we also pray so that he may fulfill]"
+        "note": "Here, **and he may fulfill** adds another reason why Paul and his associates **pray always** for the Thessalonian believers. This part of the sentence assumes some of the words from earlier in the sentence. If this would be misunderstood in your language, you could supply these words from the earlier part of the sentence. Alternate translation: [and we also pray so that he may fulfill]",
+        "issue_type": "figs-ellipsis"
       }
     ]
   },
@@ -278,31 +276,30 @@
     "text": "so that the name of our Lord Jesus will be glorified in you, and you in Him, according to the grace of our God and of the Lord Jesus Christ.",
     "note_data": [
       {
-        "issue_type": "grammar-connect-logic-goal",
-        "note": "Here, **so that** introduces the purpose for which Paul and his associates pray all of the things mentioned in [verse 11](../01/11.md). It is a repetition of the same purpose that was given in [verse 10](../01/10.md), using similar words. Alternate translation: [and we also pray so that]"
+        "note": "Here, **so that** introduces the purpose for which Paul and his associates pray all of the things mentioned in [verse 11](../01/11.md). It is a repetition of the same purpose that was given in [verse 10](../01/10.md), using similar words. Alternate translation: [and we also pray so that]",
+        "issue_type": "grammar-connect-logic-goal"
       },
       {
-        "issue_type": "figs-metonymy",
-        "note": "Here, **the name of our Lord Jesus** stands for the person of the Lord Jesus. If your readers would not understand this, you could use an equivalent expression or plain language. Alternate translation: [the reputation of our Lord Jesus] or [our Lord Jesus]"
+        "note": "Here, **the name of our Lord Jesus** stands for the person of the Lord Jesus. If your readers would not understand this, you could use an equivalent expression or plain language. Alternate translation: [the reputation of our Lord Jesus] or [our Lord Jesus]",
+        "issue_type": "figs-metonymy"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. This could mean: (1) the Thessalonian believers will glorify Jesus. Alternate translation: [so that you would glorify the name of our Lord Jesus]; (2) others will glorify Jesus because of what he has done for the Thessalonian believers. Alternate translation: [so that people would glorify the name of our Lord Jesus because of you]"
+        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. This could mean: (1) the Thessalonian believers will glorify Jesus. Alternate translation: [so that you would glorify the name of our Lord Jesus]; (2) others will glorify Jesus because of what he has done for the Thessalonian believers. Alternate translation: [so that people would glorify the name of our Lord Jesus because of you]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [and Jesus might glorify you]"
+        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [and Jesus might glorify you]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-ellipsis",
-        "note": "The phrase **and you in him** leaves out some of the words that a sentence would need in many languages to be complete. If this would be misunderstood in your language, you could make a complete sentence by supplying these words from earlier in the sentence. Alternate translation: [and so that you might be glorified in him] or [and so that he might glorify you]"
+        "note": "The phrase **and you in him** leaves out some of the words that a sentence would need in many languages to be complete. If this would be misunderstood in your language, you could make a complete sentence by supplying these words from earlier in the sentence. Alternate translation: [and so that you might be glorified in him] or [and so that he might glorify you]",
+        "issue_type": "figs-ellipsis"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea of **grace**, you can express the same idea in another way. Alternate translation: [according to how exceedingly kind our God and the Lord Jesus Christ are to you] or [as our God and the Lord Jesus Christ continue to abundantly bless you]"
+        "note": "If your language does not use an abstract noun for the idea of **grace**, you can express the same idea in another way. Alternate translation: [according to how exceedingly kind our God and the Lord Jesus Christ are to you] or [as our God and the Lord Jesus Christ continue to abundantly bless you]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "",
         "note": "The phrase translated as **our God and the Lord Jesus Christ** could refer to: (1) two persons of the Trinity, God the Father and Jesus the Son. (2) one person, Jesus, who is both God and Lord. Alternate translation: [of our God and Lord, Jesus Christ]"
       }
     ]
@@ -312,24 +309,24 @@
     "text": "Now concerning the coming of our Lord Jesus Christ and our being gathered together to Him, we ask you, brothers,",
     "note_data": [
       {
-        "issue_type": "rc://*/ta/man/checking/headings",
-        "note": "# General Information:\\n\\nIn [verses 1–12](../02/01.md), Paul exhorts believers not to be deceived about the day Jesus will come back and warns them about the coming man of lawlessness. A heading for this section might be, “The Man of Lawlessness” or “The Deception before Jesus Returns.”"
+        "note": "# General Information:\\n\\nIn [verses 1–12](../02/01.md), Paul exhorts believers not to be deceived about the day Jesus will come back and warns them about the coming man of lawlessness. A heading for this section might be, “The Man of Lawlessness” or “The Deception before Jesus Returns.”",
+        "issue_type": "rc://*/ta/man/checking/headings"
       },
       {
-        "issue_type": "grammar-connect-words-phrases",
-        "note": "The word translated **Now** marks a change in topic. You can use a natural way in your language to show that this is a new section with a different topic than the previous section."
+        "note": "The word translated **Now** marks a change in topic. You can use a natural way in your language to show that this is a new section with a different topic than the previous section.",
+        "issue_type": "grammar-connect-words-phrases"
       },
       {
-        "issue_type": "grammar-connect-time-simultaneous",
-        "note": "The **coming of our Lord Jesus Christ** and **our gathering to him** are two actions that happen at the same time. You can make this clear in your translation with an appropriate connecting word or phrase. Alternate translation: [regarding the time of our Lord Jesus coming when we will be gathered together unto him]"
+        "note": "The **coming of our Lord Jesus Christ** and **our gathering to him** are two actions that happen at the same time. You can make this clear in your translation with an appropriate connecting word or phrase. Alternate translation: [regarding the time of our Lord Jesus coming when we will be gathered together unto him]",
+        "issue_type": "grammar-connect-time-simultaneous"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If it is more natural in your language, you could use active verbs for the events of **coming** and **gathering**. Alternate translation: [about the time when our Lord Jesus will come and gather us to himself]"
+        "note": "If it is more natural in your language, you could use active verbs for the events of **coming** and **gathering**. Alternate translation: [about the time when our Lord Jesus will come and gather us to himself]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-gendernotations",
-        "note": "Here, **brothers** means fellow Christians, including both men and women. Alternate translation: [brothers and sisters]"
+        "note": "Here, **brothers** means fellow Christians, including both men and women. Alternate translation: [brothers and sisters]",
+        "issue_type": "figs-gendernotations"
       }
     ]
   },
@@ -338,27 +335,26 @@
     "text": "not to be easily disconcerted or alarmed by any spirit or message or letter seeming to be from us, alleging that the Day of the Lord has already come.",
     "note_data": [
       {
-        "issue_type": "figs-doublenegatives",
-        "note": "The phrase **shaken in your mind** refers to a person’s thoughts being unsettled. You could also express this positively. Alternate translation: [for you to remain firm in your thinking]"
+        "note": "The phrase **shaken in your mind** refers to a person’s thoughts being unsettled. You could also express this positively. Alternate translation: [for you to remain firm in your thinking]",
+        "issue_type": "figs-doublenegatives"
       },
       {
-        "issue_type": "figs-doublenegatives",
-        "note": "The phrase **to be troubled** refers to a person’s emotions being unsettled. You could also express this positively. Alternate translation: [and remain peaceful when a message comes] or [and keep calm when you hear something]"
+        "note": "The phrase **to be troubled** refers to a person’s emotions being unsettled. You could also express this positively. Alternate translation: [and remain peaceful when a message comes] or [and keep calm when you hear something]",
+        "issue_type": "figs-doublenegatives"
       },
       {
-        "issue_type": "figs-ellipsis",
-        "note": "Paul is leaving out some words here that might be necessary in your language. If it is helpful, you could supply these words. Alternate translation: [when you receive a message either by means of a spirit or by means of a spoken word or by means of a written letter that pretends to be coming from us]"
+        "note": "Paul is leaving out some words here that might be necessary in your language. If it is helpful, you could supply these words. Alternate translation: [when you receive a message either by means of a spirit or by means of a spoken word or by means of a written letter that pretends to be coming from us]",
+        "issue_type": "figs-ellipsis"
       },
       {
-        "issue_type": "figs-ellipsis",
-        "note": "Paul is leaving out some words here that might be necessary in your language. If it is helpful, you could supply these words. Alternate translation: [that claims to have come from us] or [trying to deceive you that it is from us]"
+        "note": "Paul is leaving out some words here that might be necessary in your language. If it is helpful, you could supply these words. Alternate translation: [that claims to have come from us] or [trying to deceive you that it is from us]",
+        "issue_type": "figs-ellipsis"
       },
       {
-        "issue_type": "figs-ellipsis",
-        "note": "Paul is leaving out some words here that might be necessary in your language. If it is helpful, you could supply these words. Alternate translation: [that talks as if] or [that falsely claims that]"
+        "note": "Paul is leaving out some words here that might be necessary in your language. If it is helpful, you could supply these words. Alternate translation: [that talks as if] or [that falsely claims that]",
+        "issue_type": "figs-ellipsis"
       },
       {
-        "issue_type": "",
         "note": "Here, **the day of the Lord** refers to the time when Jesus will come back to the earth for all believers."
       }
     ]
@@ -368,32 +364,31 @@
     "text": "Let no one deceive you in any way, for it will not come until the rebellion occurs and the man of lawlessness—the son of destruction—is revealed.",
     "note_data": [
       {
-        "issue_type": "",
         "note": "Alternate translation: [Do not permit anyone to fool you] or [Do not believe at all the wrong words that people are telling you about this]"
       },
       {
-        "issue_type": "figs-ellipsis",
-        "note": "Here, Paul is leaving out some of the words that a sentence would need in many languages to be complete. If it would be helpful in your language, you could supply these words from the previous verse. Alternate translation: [for the day of the Lord will not come unless the apostacy comes first]"
+        "note": "Here, Paul is leaving out some of the words that a sentence would need in many languages to be complete. If it would be helpful in your language, you could supply these words from the previous verse. Alternate translation: [for the day of the Lord will not come unless the apostacy comes first]",
+        "issue_type": "figs-ellipsis"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "Here, **the apostacy** refers to a future time when many people will turn away from God. If your language does not use an abstract noun for this idea, you can express it in another way. Alternate translation: [the time when many people will rebel against God]"
+        "note": "Here, **the apostacy** refers to a future time when many people will turn away from God. If your language does not use an abstract noun for this idea, you can express it in another way. Alternate translation: [the time when many people will rebel against God]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can express the idea in active form or in another way that is natural in your language. Alternate translation: [the man of lawlessness arrives] or [the man of lawlessness makes himself known]"
+        "note": "If your language does not use the passive form in this way, you can express the idea in active form or in another way that is natural in your language. Alternate translation: [the man of lawlessness arrives] or [the man of lawlessness makes himself known]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-possession",
-        "note": "Paul is using the possessive form to describe a **man** who is characterized by **lawlessness**. By this Paul means that this man will oppose all of God’s commandments and instructions. If this is not clear in your language, you could express this another way. Alternate translation: [the lawless man] or [the man who opposes God’s rule]"
+        "note": "Paul is using the possessive form to describe a **man** who is characterized by **lawlessness**. By this Paul means that this man will oppose all of God’s commandments and instructions. If this is not clear in your language, you could express this another way. Alternate translation: [the lawless man] or [the man who opposes God’s rule]",
+        "issue_type": "figs-possession"
       },
       {
-        "issue_type": "figs-idiom",
-        "note": "Here, **son of destruction** is an idiom meaning a person who is destined for destruction. Alternate translation: [the one who will be destroyed] or [the one whom God will destroy]"
+        "note": "Here, **son of destruction** is an idiom meaning a person who is destined for destruction. Alternate translation: [the one who will be destroyed] or [the one whom God will destroy]",
+        "issue_type": "figs-idiom"
       },
       {
-        "issue_type": "figs-events",
-        "note": "God will destroy this person some time after the events of [verse 4](../02/04.md). If it would be helpful in your language, consider moving this phrase to the end of [verse 4](../02/04.md)."
+        "note": "God will destroy this person some time after the events of [verse 4](../02/04.md). If it would be helpful in your language, consider moving this phrase to the end of [verse 4](../02/04.md).",
+        "issue_type": "figs-events"
       }
     ]
   },
@@ -402,15 +397,14 @@
     "text": "He will oppose and exalt himself above every so-called god or object of worship. So he will seat himself in the temple of God, proclaiming himself to be God.",
     "note_data": [
       {
-        "issue_type": "figs-activepassive",
-        "note": "You can state this in active form. Alternate translation: [everything that people call God or whatever they worship]"
+        "note": "You can state this in active form. Alternate translation: [everything that people call God or whatever they worship]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-pastforfuture",
-        "note": "Here, **he himself sits** is part of a description of the kinds of things that this person does. If it is confusing in your language to use the present tense for this, you could use the future tense, since this will happen in the future. Alternate translation: [he himself will sit]"
+        "note": "Here, **he himself sits** is part of a description of the kinds of things that this person does. If it is confusing in your language to use the present tense for this, you could use the future tense, since this will happen in the future. Alternate translation: [he himself will sit]",
+        "issue_type": "figs-pastforfuture"
       },
       {
-        "issue_type": "",
         "note": "Here, **showing that he himself is God** does not mean that this man is God, but only that he is displaying himself to the world as though he were God. Alternate translation: [showing himself as God] or [attempting to demonstrate to people that he himself is God]"
       }
     ]
@@ -420,12 +414,12 @@
     "text": "Do you not remember that I told you these things while I was still with you?",
     "note_data": [
       {
-        "issue_type": "figs-rquestion",
-        "note": "Paul is not asking for information here, but is using the question form to remind the Thessalonians of what he taught when he was with them previously. If you would not use a rhetorical question for this purpose in your language, you could translate his words as a statement. See the UST."
+        "note": "Paul is not asking for information here, but is using the question form to remind the Thessalonians of what he taught when he was with them previously. If you would not use a rhetorical question for this purpose in your language, you could translate his words as a statement. See the UST.",
+        "issue_type": "figs-rquestion"
       },
       {
-        "issue_type": "writing-pronouns",
-        "note": "Here, **these things** refers to the topics that Paul mentioned in [verses 3](../02/03.md) and [4](../02/04.md), including the rebellion against God, the man of lawlessness, and the return of Jesus on the day of the Lord."
+        "note": "Here, **these things** refers to the topics that Paul mentioned in [verses 3](../02/03.md) and [4](../02/04.md), including the rebellion against God, the man of lawlessness, and the return of Jesus on the day of the Lord.",
+        "issue_type": "writing-pronouns"
       }
     ]
   },
@@ -434,12 +428,11 @@
     "text": "And you know what is now restraining him, so that he may be revealed at the proper time.",
     "note_data": [
       {
-        "issue_type": "",
         "note": "There are two possibilities for understanding the function of the word **now** here. (1) It goes with **the one restraining {him}**. Alternate translation: [And you know what is restraining him now] or (2) it goes with **you know**. Alternate translation: [And now you know what is restraining him]"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can express the idea in active form or in another way that is natural in your language. Alternate translation: [the proper time, when God will allow him to reveal himself]"
+        "note": "If your language does not use the passive form in this way, you can express the idea in active form or in another way that is natural in your language. Alternate translation: [the proper time, when God will allow him to reveal himself]",
+        "issue_type": "figs-activepassive"
       }
     ]
   },
@@ -448,24 +441,23 @@
     "text": "For the mystery of lawlessness is already at work, but the one who now restrains it will continue until he is taken out of the way.",
     "note_data": [
       {
-        "issue_type": "grammar-connect-logic-contrast",
-        "note": "Here, the word translated **For** serves to connect this sentence as a contrast to what Paul has said about **lawlessness**, starting in [verse 3](../02/03.md). Until here, Paul was talking about lawlessness in the future, but now he wants to clarify that people are already being lawless.Use a natural way in your language for introducing this contrast. Alternate translation: [Now] or [Actually,]"
+        "note": "Here, the word translated **For** serves to connect this sentence as a contrast to what Paul has said about **lawlessness**, starting in [verse 3](../02/03.md). Until here, Paul was talking about lawlessness in the future, but now he wants to clarify that people are already being lawless.Use a natural way in your language for introducing this contrast. Alternate translation: [Now] or [Actually,]",
+        "issue_type": "grammar-connect-logic-contrast"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "Here, **lawlessness** is characterized as a **mystery** because we cannot understand why people rebel against God’s wise instructions unless we understand the spiritual forces at work, which Paul explains here. If your language does not use abstract nouns for these ideas, you can express them in another way. Alternate translation: [people are already mysteriously rebelling against God] or [Satan is already secretly leading people to reject God’s laws, as this man will do]"
+        "note": "Here, **lawlessness** is characterized as a **mystery** because we cannot understand why people rebel against God’s wise instructions unless we understand the spiritual forces at work, which Paul explains here. If your language does not use abstract nouns for these ideas, you can express them in another way. Alternate translation: [people are already mysteriously rebelling against God] or [Satan is already secretly leading people to reject God’s laws, as this man will do]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "",
         "note": "To restrain someone is to hold him back or to keep him from doing what he wants to do. Alternate translation: [the one who has been holding him back]"
       },
       {
-        "issue_type": "writing-pronouns",
-        "note": "Here, **he** refers to the one who is restraining the man of lawlessness. If this is not clear to your readers, you could state this explicitly. Alternate translation: [the one who restrains the man of lawlessness moves]"
+        "note": "Here, **he** refers to the one who is restraining the man of lawlessness. If this is not clear to your readers, you could state this explicitly. Alternate translation: [the one who restrains the man of lawlessness moves]",
+        "issue_type": "writing-pronouns"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "Here Paul speaks of the person who is restraining the man of lawlessness as though he were standing in front of him and blocking his path. If this does not make sense in your language, you could use an equivalent metaphor or you could express the meaning in a nonfigurative way. Alternate translation: [he stops restraining him]"
+        "note": "Here Paul speaks of the person who is restraining the man of lawlessness as though he were standing in front of him and blocking his path. If this does not make sense in your language, you could use an equivalent metaphor or you could express the meaning in a nonfigurative way. Alternate translation: [he stops restraining him]",
+        "issue_type": "figs-metaphor"
       }
     ]
   },
@@ -474,16 +466,16 @@
     "text": "And then the lawless one will be revealed, whom the Lord Jesus will slay with the breath of His mouth and annihilate by the majesty of His arrival.",
     "note_data": [
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [and then God will allow the lawless one to show himself]"
+        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [and then God will allow the lawless one to show himself]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-metonymy",
-        "note": "In this figure of speech, **breath** represents the power of God and **mouth** represents the spoken word of Jesus. If your readers would not understand this, you could use an equivalent expression or plain language. Alternate translation: [by the power of his spoken word]"
+        "note": "In this figure of speech, **breath** represents the power of God and **mouth** represents the spoken word of Jesus. If your readers would not understand this, you could use an equivalent expression or plain language. Alternate translation: [by the power of his spoken word]",
+        "issue_type": "figs-metonymy"
       },
       {
-        "issue_type": "figs-parallelism",
-        "note": "These two phrases describe the same event. Paul says the same thing twice, in slightly different ways, to emphasize how much more powerful Jesus is than the man of lawlessness. If it is confusing for your readers to talk about killing someone and then bringing him to nothing, you could reverse the order of the phrases, as in the UST, or you can combine the phrases into one. Alternate translation: [will destroy by his glorious appearance and with the breath of his mouth]"
+        "note": "These two phrases describe the same event. Paul says the same thing twice, in slightly different ways, to emphasize how much more powerful Jesus is than the man of lawlessness. If it is confusing for your readers to talk about killing someone and then bringing him to nothing, you could reverse the order of the phrases, as in the UST, or you can combine the phrases into one. Alternate translation: [will destroy by his glorious appearance and with the breath of his mouth]",
+        "issue_type": "figs-parallelism"
       }
     ]
   },
@@ -492,24 +484,23 @@
     "text": "The coming of the lawless one will be accompanied by the working of Satan, with every kind of power, sign, and false wonder,",
     "note_data": [
       {
-        "issue_type": "figs-possession",
-        "note": "Here, Paul is using the possessive form to describe **work** that **Satan** does. If this is not clear in your language, you could state this explicitly. Alternate translation: [Satan will bring this man and will work through him]"
+        "note": "Here, Paul is using the possessive form to describe **work** that **Satan** does. If this is not clear in your language, you could state this explicitly. Alternate translation: [Satan will bring this man and will work through him]",
+        "issue_type": "figs-possession"
       },
       {
-        "issue_type": "",
         "note": "Here, **whom** refers back to the man of lawlessness. Alternate translation: [of the man of lawlessness]"
       },
       {
-        "issue_type": "figs-hyperbole",
-        "note": "Here, **all** is hyperbole. It can apply to: (1) only **power**, with the meaning “much” or “great.” Alternate translation: [with great power to do signs and false wonders] or (2) **power**, **signs**, and **wonders**, with the meaning [many kinds of.] Alternate translation: [with many kinds of power, signs, and false wonders] or (3) a combination of the two. Alternate translation: [with much power to do all kinds of signs and false wonders]"
+        "note": "Here, **all** is hyperbole. It can apply to: (1) only **power**, with the meaning “much” or “great.” Alternate translation: [with great power to do signs and false wonders] or (2) **power**, **signs**, and **wonders**, with the meaning [many kinds of.] Alternate translation: [with many kinds of power, signs, and false wonders] or (3) a combination of the two. Alternate translation: [with much power to do all kinds of signs and false wonders]",
+        "issue_type": "figs-hyperbole"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea of **power**, you can express the same idea in another way. Alternate translation: [with very powerful signs and false wonders] or [who made him very powerful to do signs and false wonders]"
+        "note": "If your language does not use an abstract noun for the idea of **power**, you can express the same idea in another way. Alternate translation: [with very powerful signs and false wonders] or [who made him very powerful to do signs and false wonders]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-doublet",
-        "note": "The words **signs** and **wonders** often occur together and mean basically the same thing. The repetition is used to emphasize how amazing they are. If your language does not have two words for this or does not use repetition to do this, you can use one word and provide emphasis in another way. Alternate translation: [and amazing false miracles]"
+        "note": "The words **signs** and **wonders** often occur together and mean basically the same thing. The repetition is used to emphasize how amazing they are. If your language does not have two words for this or does not use repetition to do this, you can use one word and provide emphasis in another way. Alternate translation: [and amazing false miracles]",
+        "issue_type": "figs-doublet"
       }
     ]
   },
@@ -518,32 +509,32 @@
     "text": "and with every wicked deception directed against those who are perishing, because they refused the love of the truth that would have saved them.",
     "note_data": [
       {
-        "issue_type": "figs-hyperbole",
-        "note": "Here, **all** is hyperbole and could mean: (1) “a high degree of” or (2) “many kinds of”"
+        "note": "Here, **all** is hyperbole and could mean: (1) “a high degree of” or (2) “many kinds of”",
+        "issue_type": "figs-hyperbole"
       },
       {
-        "issue_type": "figs-possession",
-        "note": "Here Paul uses the possessive form to describe **deceit** that results from **unrighteousness**. If the relationship of the words is not clear in your language, you could express it more explicitly. Alternate translation: [because he is so unrighteous, he will be very deceptive]"
+        "note": "Here Paul uses the possessive form to describe **deceit** that results from **unrighteousness**. If the relationship of the words is not clear in your language, you could express it more explicitly. Alternate translation: [because he is so unrighteous, he will be very deceptive]",
+        "issue_type": "figs-possession"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use abstract nouns for the ideas of **deceit** and **unrighteousness**, you can express the same ideas in another way. Alternate translation: [because he is so unrighteous, he will completely deceive those who are perishing]"
+        "note": "If your language does not use abstract nouns for the ideas of **deceit** and **unrighteousness**, you can express the same ideas in another way. Alternate translation: [because he is so unrighteous, he will completely deceive those who are perishing]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "grammar-connect-logic-result",
-        "note": "What follows this phrase is the reason that the people are perishing. Use a natural way in your language for introducing a reason. You may want to start a new sentence here and end what came before it with a period. Alternate translation: [They are perishing because]"
+        "note": "What follows this phrase is the reason that the people are perishing. Use a natural way in your language for introducing a reason. You may want to start a new sentence here and end what came before it with a period. Alternate translation: [They are perishing because]",
+        "issue_type": "grammar-connect-logic-result"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use abstract nouns for the ideas of **love** and **truth**, you can express the same ideas in another way. Also, your language might prefer an expression other than **love** for something as impersonal as **truth**. Alternate translation: [they did not want to consider the true message about Jesus to be important]"
+        "note": "If your language does not use abstract nouns for the ideas of **love** and **truth**, you can express the same ideas in another way. Also, your language might prefer an expression other than **love** for something as impersonal as **truth**. Alternate translation: [they did not want to consider the true message about Jesus to be important]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "grammar-connect-logic-result",
-        "note": "This phrase could express: (1) the result of receiving the love of the truth. Alternate translation: [and thus be saved] or (2) the purpose of loving the truth. Alternate translation: [so that they could be saved]"
+        "note": "This phrase could express: (1) the result of receiving the love of the truth. Alternate translation: [and thus be saved] or (2) the purpose of loving the truth. Alternate translation: [so that they could be saved]",
+        "issue_type": "grammar-connect-logic-result"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can express the idea in active form or in another way that is natural in your language. If you must state who does the action, that would be God. Alternate translation: [for God to save them] or [so that God would save them]"
+        "note": "If your language does not use the passive form in this way, you can express the idea in active form or in another way that is natural in your language. If you must state who does the action, that would be God. Alternate translation: [for God to save them] or [so that God would save them]",
+        "issue_type": "figs-activepassive"
       }
     ]
   },
@@ -552,24 +543,24 @@
     "text": "For this reason God will send them a powerful delusion so that they believe the lie,",
     "note_data": [
       {
-        "issue_type": "grammar-connect-logic-result",
-        "note": "What follows **because of this** is the result of the action of the people who “did not receive the love of the truth” in [verse 10](../02/10.md). Use a connector that shows that what the people did in [verse 10](../02/10.md) is the reason for what follows in this verse. Alternate translation: [for this reason] or [because the people did not receive the love of the truth]"
+        "note": "What follows **because of this** is the result of the action of the people who “did not receive the love of the truth” in [verse 10](../02/10.md). Use a connector that shows that what the people did in [verse 10](../02/10.md) is the reason for what follows in this verse. Alternate translation: [for this reason] or [because the people did not receive the love of the truth]",
+        "issue_type": "grammar-connect-logic-result"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "Paul is speaking of **God** allowing something to happen to people as if he is **sending** something to them. Alternate translation: [God is allowing them to think wrongly so that they believe the lies of the man of lawlessness]"
+        "note": "Paul is speaking of **God** allowing something to happen to people as if he is **sending** something to them. Alternate translation: [God is allowing them to think wrongly so that they believe the lies of the man of lawlessness]",
+        "issue_type": "figs-metaphor"
       },
       {
-        "issue_type": "figs-possession",
-        "note": "Paul is using the possessive form to describe a **working** that is characterized by **error**. This means something that works to produce error in them. Alternate translation: [the ability to think in a wrong way]"
+        "note": "Paul is using the possessive form to describe a **working** that is characterized by **error**. This means something that works to produce error in them. Alternate translation: [the ability to think in a wrong way]",
+        "issue_type": "figs-possession"
       },
       {
-        "issue_type": "grammar-connect-logic-goal",
-        "note": "Here, **for** introduces a purpose clause. Paul is stating the purpose for which God sends the **working of error**. Use a natural way in your language for introducing a purpose clause. Alternate translation: [so that they may believe]"
+        "note": "Here, **for** introduces a purpose clause. Paul is stating the purpose for which God sends the **working of error**. Use a natural way in your language for introducing a purpose clause. Alternate translation: [so that they may believe]",
+        "issue_type": "grammar-connect-logic-goal"
       },
       {
-        "issue_type": "writing-pronouns",
-        "note": "Here, **them** refers to the people who “did not receive the love of the truth” in [verse 10](../02/10.md). If this might confuse your readers, you could express the meaning explicitly. Alternate translation: [so that these people may believe] or [in order that the people who did not receive the love of the truth may believe]"
+        "note": "Here, **them** refers to the people who “did not receive the love of the truth” in [verse 10](../02/10.md). If this might confuse your readers, you could express the meaning explicitly. Alternate translation: [so that these people may believe] or [in order that the people who did not receive the love of the truth may believe]",
+        "issue_type": "writing-pronouns"
       }
     ]
   },
@@ -578,20 +569,20 @@
     "text": "in order that judgment may come upon all who have disbelieved the truth and delighted in wickedness.",
     "note_data": [
       {
-        "issue_type": "grammar-connect-logic-goal",
-        "note": "This phrase introduces a purpose clause. This follows the purpose clause of [verse 11](../02/11.md), so you may want to link them together. Alternate translation: [and furthermore, so that] or [and therefore]"
+        "note": "This phrase introduces a purpose clause. This follows the purpose clause of [verse 11](../02/11.md), so you may want to link them together. Alternate translation: [and furthermore, so that] or [and therefore]",
+        "issue_type": "grammar-connect-logic-goal"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can express the idea in active form or in another way that is natural in your language. If you must state who did the action, that would be God. Alternate translation: [God may judge all of them]"
+        "note": "If your language does not use the passive form in this way, you can express the idea in active form or in another way that is natural in your language. If you must state who did the action, that would be God. Alternate translation: [God may judge all of them]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "writing-pronouns",
-        "note": "Here, **the ones** refers back to the people that Paul has described with similar terms in [verse 10](../02/10.md). These are the same people who “did not receive the love of the truth” and instead accepted the “deceit of unrighteousness.” You may want to start a new sentence here and end what came before with a period. Alternate translation: [Those are the people]"
+        "note": "Here, **the ones** refers back to the people that Paul has described with similar terms in [verse 10](../02/10.md). These are the same people who “did not receive the love of the truth” and instead accepted the “deceit of unrighteousness.” You may want to start a new sentence here and end what came before with a period. Alternate translation: [Those are the people]",
+        "issue_type": "writing-pronouns"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use abstract nouns for the ideas of **truth** and **unrighteousness**, you can express the same ideas in another way. Alternate translation: [those who have not believed the true message but have enjoyed doing sinful things] or [those people who have rejected the true message about the Lord and instead have chosen to do what is wrong]"
+        "note": "If your language does not use abstract nouns for the ideas of **truth** and **unrighteousness**, you can express the same ideas in another way. Alternate translation: [those who have not believed the true message but have enjoyed doing sinful things] or [those people who have rejected the true message about the Lord and instead have chosen to do what is wrong]",
+        "issue_type": "figs-abstractnouns"
       }
     ]
   },
@@ -600,36 +591,35 @@
     "text": "But we should always thank God for you, brothers who are loved by the Lord, because God chose you from the beginning to be saved by the sanctification of the Spirit and by faith in the truth.",
     "note_data": [
       {
-        "issue_type": "rc://*/ta/man/checking/headings",
-        "note": "# General Information:\\n\\nPaul now changes topics. If you are using section headings, you could put one here before [verse 13](../02/13.md). Suggested heading: “Paul gives thanks to God for the believers and encourages them.”"
+        "note": "# General Information:\\n\\nPaul now changes topics. If you are using section headings, you could put one here before [verse 13](../02/13.md). Suggested heading: “Paul gives thanks to God for the believers and encourages them.”",
+        "issue_type": "rc://*/ta/man/checking/headings"
       },
       {
-        "issue_type": "",
         "note": "The word translated **Now** marks a change in topic. You can use a natural way in your language to indicate/show that this is a new section with a different topic than the previous section."
       },
       {
-        "issue_type": "figs-hyperbole",
-        "note": "The word **always** is a generalization. This is used to emphasize the importance of the action. If this is not natural in your language, you could use the alternative renderings given. Alternate translation: [we should continually give thanks] or [we must thank God at all times]"
+        "note": "The word **always** is a generalization. This is used to emphasize the importance of the action. If this is not natural in your language, you could use the alternative renderings given. Alternate translation: [we should continually give thanks] or [we must thank God at all times]",
+        "issue_type": "figs-hyperbole"
       },
       {
-        "issue_type": "figs-exclusive",
-        "note": "Here, **we** refers to three men, Paul, Silvanus, and Timothy. If you have exclusive and inclusive first-person pronouns in your language, this should be an exclusive pronoun."
+        "note": "Here, **we** refers to three men, Paul, Silvanus, and Timothy. If you have exclusive and inclusive first-person pronouns in your language, this should be an exclusive pronoun.",
+        "issue_type": "figs-exclusive"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can say this with an active form. Alternate translation: [for the Lord loves you, brothers]"
+        "note": "If your language does not use the passive form in this way, you can say this with an active form. Alternate translation: [for the Lord loves you, brothers]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-gendernotations",
-        "note": "Here, **brothers** means fellow Christians, including both men and women. If your readers understand that it is addressed only to men, you may need to use both the masculine and the feminine forms of that word in your language. If you use a nonfigurative word such as “believers”, see that both the genders are addressed. Alternate translation: [brothers and sisters]"
+        "note": "Here, **brothers** means fellow Christians, including both men and women. If your readers understand that it is addressed only to men, you may need to use both the masculine and the feminine forms of that word in your language. If you use a nonfigurative word such as “believers”, see that both the genders are addressed. Alternate translation: [brothers and sisters]",
+        "issue_type": "figs-gendernotations"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "Being among the first people to be saved is spoken of as if the Thessalonian believers were **firstfruits**. Alternate translation: [to be among the first people who believe] or [to be some of the first people whom God was saving]"
+        "note": "Being among the first people to be saved is spoken of as if the Thessalonian believers were **firstfruits**. Alternate translation: [to be among the first people who believe] or [to be some of the first people whom God was saving]",
+        "issue_type": "figs-metaphor"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If it would be helpful in your language, you could change the abstract nouns **salvation**, **sanctification**, **belief**, and **truth** into verbal forms. Alternate translation: [to be among the first people who believe what is true, and whom God has saved and set apart for himself by his Spirit]"
+        "note": "If it would be helpful in your language, you could change the abstract nouns **salvation**, **sanctification**, **belief**, and **truth** into verbal forms. Alternate translation: [to be among the first people who believe what is true, and whom God has saved and set apart for himself by his Spirit]",
+        "issue_type": "figs-abstractnouns"
       }
     ]
   },
@@ -638,16 +628,16 @@
     "text": "To this He called you through our gospel, so that you may share in the glory of our Lord Jesus Christ.",
     "note_data": [
       {
-        "issue_type": "figs-ellipsis",
-        "note": "Here, the phrase **through our gospel** does not mean that the gospel belongs to Paul and his companions. It refers to the gospel about Jesus that Paul and his companions preached. Alternate translation: [through the gospel that we preached to you]"
+        "note": "Here, the phrase **through our gospel** does not mean that the gospel belongs to Paul and his companions. It refers to the gospel about Jesus that Paul and his companions preached. Alternate translation: [through the gospel that we preached to you]",
+        "issue_type": "figs-ellipsis"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "The phrase **to the acquiring of the glory of our Lord Jesus Christ** does not mean that we will take over or divide up the glory of Jesus Christ. It means that the believers will share in Christ’s glory. Alternate translation: [so that you might share in the glory of our Lord Jesus Christ] or [in order that you might receive glory like our Lord Jesus Christ]"
+        "note": "The phrase **to the acquiring of the glory of our Lord Jesus Christ** does not mean that we will take over or divide up the glory of Jesus Christ. It means that the believers will share in Christ’s glory. Alternate translation: [so that you might share in the glory of our Lord Jesus Christ] or [in order that you might receive glory like our Lord Jesus Christ]",
+        "issue_type": "figs-explicit"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea of **glory**, you can express the same idea with a different form. Alternate translation: [so that you might become glorious like our Lord]"
+        "note": "If your language does not use an abstract noun for the idea of **glory**, you can express the same idea with a different form. Alternate translation: [so that you might become glorious like our Lord]",
+        "issue_type": "figs-abstractnouns"
       }
     ]
   },
@@ -656,36 +646,36 @@
     "text": "Therefore, brothers, stand firm and cling to the traditions we taught you, whether by speech or by letter.",
     "note_data": [
       {
-        "issue_type": "grammar-connect-logic-result",
-        "note": "The words **So then** connect this verse with [verses 13](../02/13.md) and [14](../02/14.md) as their logical conclusion. Because God did the wonderful things in those verses, the Thessalonians should do what [verse 15](../02/15.md) says. Use a natural way to introduce a conclusion in your language. Alternate translation: [Therefore] or [Because God did all of that for you]"
+        "note": "The words **So then** connect this verse with [verses 13](../02/13.md) and [14](../02/14.md) as their logical conclusion. Because God did the wonderful things in those verses, the Thessalonians should do what [verse 15](../02/15.md) says. Use a natural way to introduce a conclusion in your language. Alternate translation: [Therefore] or [Because God did all of that for you]",
+        "issue_type": "grammar-connect-logic-result"
       },
       {
-        "issue_type": "figs-gendernotations",
-        "note": "Here, **brothers** means fellow believers in Jesus, including both men and women. Alternate translation: [brothers and sisters]"
+        "note": "Here, **brothers** means fellow believers in Jesus, including both men and women. Alternate translation: [brothers and sisters]",
+        "issue_type": "figs-gendernotations"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "Here, the phrase **stand firm** is used to mean to not change one’s beliefs but, rather, to remain steadfast in what one believes. If this would be unclear in your language, consider using an equivalent expression, or use plain language. Alternate translation: [continue to believe the truth] or [do not give up your faith]"
+        "note": "Here, the phrase **stand firm** is used to mean to not change one’s beliefs but, rather, to remain steadfast in what one believes. If this would be unclear in your language, consider using an equivalent expression, or use plain language. Alternate translation: [continue to believe the truth] or [do not give up your faith]",
+        "issue_type": "figs-metaphor"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "Here, **traditions** refers to the truths about Christ that Paul and the other apostles taught. Paul speaks of them as if his readers could hold on to them with their hands. Alternate translation: [do not give up believing those truths] or [continue to believe the true teachings]"
+        "note": "Here, **traditions** refers to the truths about Christ that Paul and the other apostles taught. Paul speaks of them as if his readers could hold on to them with their hands. Alternate translation: [do not give up believing those truths] or [continue to believe the true teachings]",
+        "issue_type": "figs-metaphor"
       },
       {
-        "issue_type": "figs-doublet",
-        "note": "These two phrases mean basically the same thing. The repetition is used to emphasize the importance of doing this. If your language does not use repetition to do this, you can use one phrase and provide emphasis in another way. Alternate translation: [keep on firmly believing] or [do not allow anyone to change your mind in any way about]"
+        "note": "These two phrases mean basically the same thing. The repetition is used to emphasize the importance of doing this. If your language does not use repetition to do this, you can use one phrase and provide emphasis in another way. Alternate translation: [keep on firmly believing] or [do not allow anyone to change your mind in any way about]",
+        "issue_type": "figs-doublet"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "If your language does not use the passive form in this way, you can say this with an active form. Alternate translation: [we have taught you]"
+        "note": "If your language does not use the passive form in this way, you can say this with an active form. Alternate translation: [we have taught you]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-synecdoche",
-        "note": "Here, **by word** is an expression that means that Paul had been present with them and taught them personally. Alternate translation: [by what we said to you in person] or [when we were talking to you.]"
+        "note": "Here, **by word** is an expression that means that Paul had been present with them and taught them personally. Alternate translation: [by what we said to you in person] or [when we were talking to you.]",
+        "issue_type": "figs-synecdoche"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "You can make clear the implicit information that **by our letter** refers to what Paul taught to the Thessalonians in an earlier letter (probably 1 Thessalonians). Alternate translation: [by what we wrote to you in a letter]"
+        "note": "You can make clear the implicit information that **by our letter** refers to what Paul taught to the Thessalonians in an earlier letter (probably 1 Thessalonians). Alternate translation: [by what we wrote to you in a letter]",
+        "issue_type": "figs-explicit"
       }
     ]
   },
@@ -694,28 +684,28 @@
     "text": "Now may our Lord Jesus Christ Himself and God our Father, who by grace has loved us and given us eternal comfort and good hope,",
     "note_data": [
       {
-        "issue_type": "grammar-connect-words-phrases",
-        "note": "The word translated **Now** marks a change in topic. You can use a natural way in your language to show that this is a new section with a different topic than the previous section."
+        "note": "The word translated **Now** marks a change in topic. You can use a natural way in your language to show that this is a new section with a different topic than the previous section.",
+        "issue_type": "grammar-connect-words-phrases"
       },
       {
-        "issue_type": "translate-blessing",
-        "note": "# Connecting Statement:\\n\\nPaul ends this section with a blessing. Use a form that people would recognize as a blessing in your language. Alternate translation: [Now may our Lord Jesus Christ himself, and God our Father] or [We pray that our Lord Jesus Christ himself, and God our Father]"
+        "note": "# Connecting Statement:\\n\\nPaul ends this section with a blessing. Use a form that people would recognize as a blessing in your language. Alternate translation: [Now may our Lord Jesus Christ himself, and God our Father] or [We pray that our Lord Jesus Christ himself, and God our Father]",
+        "issue_type": "translate-blessing"
       },
       {
-        "issue_type": "figs-exclusive",
-        "note": "The words **our** and **us** refer to all believers including the writers. If you have exclusive and inclusive first-person plural pronouns in your language, these should be inclusive pronouns."
+        "note": "The words **our** and **us** refer to all believers including the writers. If you have exclusive and inclusive first-person plural pronouns in your language, these should be inclusive pronouns.",
+        "issue_type": "figs-exclusive"
       },
       {
-        "issue_type": "figs-rpronouns",
-        "note": "Here, **himself** gives additional emphasis to the phrase **Lord Jesus Christ**. Use a way that is natural in your language to indicate this emphasis. Alternate translation: [our Lord Jesus Christ, the very one]"
+        "note": "Here, **himself** gives additional emphasis to the phrase **Lord Jesus Christ**. Use a way that is natural in your language to indicate this emphasis. Alternate translation: [our Lord Jesus Christ, the very one]",
+        "issue_type": "figs-rpronouns"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use abstract nouns for the ideas of **comfort** and **hope**, you can express the same ideas in another way. Alternate translation: [always comforts us and has given us good things to hope for]"
+        "note": "If your language does not use abstract nouns for the ideas of **comfort** and **hope**, you can express the same ideas in another way. Alternate translation: [always comforts us and has given us good things to hope for]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea of **grace**, you can express the same idea in another way. Alternate translation: [because of how gracious he is to us]"
+        "note": "If your language does not use an abstract noun for the idea of **grace**, you can express the same idea in another way. Alternate translation: [because of how gracious he is to us]",
+        "issue_type": "figs-abstractnouns"
       }
     ]
   },
@@ -724,12 +714,12 @@
     "text": "encourage your hearts and strengthen you in every good word and deed.",
     "note_data": [
       {
-        "issue_type": "figs-metonymy",
-        "note": "Here, the word **hearts** represents both the emotion and will of a person. If **hearts** does not mean this in your language, you could use an equivalent expression or plain language. Alternate translation: [may he give comfort and strength to your livers] or [may he comfort you and strengthen you]"
+        "note": "Here, the word **hearts** represents both the emotion and will of a person. If **hearts** does not mean this in your language, you could use an equivalent expression or plain language. Alternate translation: [may he give comfort and strength to your livers] or [may he comfort you and strengthen you]",
+        "issue_type": "figs-metonymy"
       },
       {
-        "issue_type": "figs-synecdoche",
-        "note": "If it would be helpful in your language, you could express the phrase **work and word** with verbs. Alternate translation: [in every good thing that you do and say] or [so that you could do and say everything that is good.]"
+        "note": "If it would be helpful in your language, you could express the phrase **work and word** with verbs. Alternate translation: [in every good thing that you do and say] or [so that you could do and say everything that is good.]",
+        "issue_type": "figs-synecdoche"
       }
     ]
   },
@@ -738,32 +728,32 @@
     "text": "Finally, brothers, pray for us, that the word of the Lord may spread quickly and be held in honor, just as it was with you.",
     "note_data": [
       {
-        "issue_type": "rc://*/ta/man/checking/headings",
-        "note": "# General Information:\\n\\nIn [verses 1–5](../03/01.md), Paul asks the believers to pray for him and his companions and encourages them. A heading for this section might be, “Pray for Us.”"
+        "note": "# General Information:\\n\\nIn [verses 1–5](../03/01.md), Paul asks the believers to pray for him and his companions and encourages them. A heading for this section might be, “Pray for Us.”",
+        "issue_type": "rc://*/ta/man/checking/headings"
       },
       {
-        "issue_type": "grammar-connect-words-phrases",
-        "note": "Here, the word **Finally** marks a change in topic. To **pray** is not the final instruction that Paul gives but it is how Paul opens the last section of his letter where he will discuss a few remaining matters. Alternate translation: [One more thing] or [So, continuing on]"
+        "note": "Here, the word **Finally** marks a change in topic. To **pray** is not the final instruction that Paul gives but it is how Paul opens the last section of his letter where he will discuss a few remaining matters. Alternate translation: [One more thing] or [So, continuing on]",
+        "issue_type": "grammar-connect-words-phrases"
       },
       {
-        "issue_type": "figs-gendernotations",
-        "note": "Here, **brothers** means fellow Christians, including both men and women. Alternate translation: [brothers and sisters]"
+        "note": "Here, **brothers** means fellow Christians, including both men and women. Alternate translation: [brothers and sisters]",
+        "issue_type": "figs-gendernotations"
       },
       {
-        "issue_type": "figs-exclusive",
-        "note": "The pronoun **us** refers to Paul and his companions. If you have exclusive and inclusive first person pronouns in your language, this should be an exclusive pronoun."
+        "note": "The pronoun **us** refers to Paul and his companions. If you have exclusive and inclusive first person pronouns in your language, this should be an exclusive pronoun.",
+        "issue_type": "figs-exclusive"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "Paul speaks of God’s **word** spreading as if it were running from place to place. He is comparing the rapid spread of God’s word to a person who takes good news to others. Alternate translation: [might spread rapidly] or [might be heard by many people]"
+        "note": "Paul speaks of God’s **word** spreading as if it were running from place to place. He is comparing the rapid spread of God’s word to a person who takes good news to others. Alternate translation: [might spread rapidly] or [might be heard by many people]",
+        "issue_type": "figs-metaphor"
       },
       {
-        "issue_type": "figs-activepassive",
-        "note": "You can state this in active form, if the passive construction is not natural in your language. Alternate translation: [and that many people would honor it]"
+        "note": "You can state this in active form, if the passive construction is not natural in your language. Alternate translation: [and that many people would honor it]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-ellipsis",
-        "note": "This phrase leaves out some words that many languages might need to be complete. If it would be helpful in your language, you could supply these words from the context. Alternate translation: [just as also happened with you] or [which is exactly what you did]"
+        "note": "This phrase leaves out some words that many languages might need to be complete. If it would be helpful in your language, you could supply these words from the context. Alternate translation: [just as also happened with you] or [which is exactly what you did]",
+        "issue_type": "figs-ellipsis"
       }
     ]
   },
@@ -772,20 +762,20 @@
     "text": "And pray that we may be delivered from wicked and evil men; for not everyone holds to the faith.",
     "note_data": [
       {
-        "issue_type": "figs-activepassive",
-        "note": "You can state this in active form. Alternate translation: [God may save us] or [God may rescue us]"
+        "note": "You can state this in active form. Alternate translation: [God may save us] or [God may rescue us]",
+        "issue_type": "figs-activepassive"
       },
       {
-        "issue_type": "figs-doublet",
-        "note": "The two terms **perverse** and **evil** mean basically the same thing and are used together to emphasize the amount of evil. If your language does not use repetition to do this or if you do not have two words for these attributes, you can use one phrase and provide emphasis in another way. Alternate translation: [very wicked men] or [many wicked men]"
+        "note": "The two terms **perverse** and **evil** mean basically the same thing and are used together to emphasize the amount of evil. If your language does not use repetition to do this or if you do not have two words for these attributes, you can use one phrase and provide emphasis in another way. Alternate translation: [very wicked men] or [many wicked men]",
+        "issue_type": "figs-doublet"
       },
       {
-        "issue_type": "figs-litotes",
-        "note": "The phrase **not everyone** is a negative understatement that emphasizes how rare faith is. If this is confusing in your language, you can express the meaning positively. Alternate translation: [for only some people believe in the Lord] or [for people who believe in Jesus are few]"
+        "note": "The phrase **not everyone** is a negative understatement that emphasizes how rare faith is. If this is confusing in your language, you can express the meaning positively. Alternate translation: [for only some people believe in the Lord] or [for people who believe in Jesus are few]",
+        "issue_type": "figs-litotes"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea of **faith**, you can express the same idea in another way. Alternate translation: [believes in Jesus]"
+        "note": "If your language does not use an abstract noun for the idea of **faith**, you can express the same idea in another way. Alternate translation: [believes in Jesus]",
+        "issue_type": "figs-abstractnouns"
       }
     ]
   },
@@ -794,11 +784,10 @@
     "text": "But the Lord is faithful, and He will strengthen you and guard you from the evil one.",
     "note_data": [
       {
-        "issue_type": "figs-explicit",
-        "note": "The word **strengthen** here refers to spiritual strength, not physical strength. If it would be helpful in your language, you could make this clear in your translation. Alternate translation: [who will strengthen you spiritually] or [who will make you inwardly strong]"
+        "note": "The word **strengthen** here refers to spiritual strength, not physical strength. If it would be helpful in your language, you could make this clear in your translation. Alternate translation: [who will strengthen you spiritually] or [who will make you inwardly strong]",
+        "issue_type": "figs-explicit"
       },
       {
-        "issue_type": "",
         "note": "This could mean: (1) the evil being Satan. Alternate translation: [Satan] or (2) evil in general. Alternate translation: [evil]"
       }
     ]
@@ -808,12 +797,12 @@
     "text": "And we have confidence in the Lord that you are doing and will continue to do what we command.",
     "note_data": [
       {
-        "issue_type": "figs-nominaladj",
-        "note": "The phrase **We are also confident** may be confusing in some languages. If that is the case in your language, you could translate this as a noun phrase. Alternate translation: [We also have faith] or [We also trust]"
+        "note": "The phrase **We are also confident** may be confusing in some languages. If that is the case in your language, you could translate this as a noun phrase. Alternate translation: [We also have faith] or [We also trust]",
+        "issue_type": "figs-nominaladj"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "This could mean: (1) Paul has confidence in the Thessalonian believers because of the close relationship that they have with the Lord Jesus. In this case, Paul is speaking of this relationship as if they were inside the Lord Jesus. Alternate translation: [Because you are united to the Lord, we are also confident]; (2) Paul has confidence in the Lord Jesus, that he will cause them to do what is right. Alternate translation: [Because we trust in the Lord Jesus to enable you, we are also confident]"
+        "note": "This could mean: (1) Paul has confidence in the Thessalonian believers because of the close relationship that they have with the Lord Jesus. In this case, Paul is speaking of this relationship as if they were inside the Lord Jesus. Alternate translation: [Because you are united to the Lord, we are also confident]; (2) Paul has confidence in the Lord Jesus, that he will cause them to do what is right. Alternate translation: [Because we trust in the Lord Jesus to enable you, we are also confident]",
+        "issue_type": "figs-metaphor"
       }
     ]
   },
@@ -822,20 +811,20 @@
     "text": "May the Lord direct your hearts into God’s love and Christ’s perseverance.",
     "note_data": [
       {
-        "issue_type": "figs-metonymy",
-        "note": "Here, **hearts** stands for a person’s thoughts or mind. If your readers would not understand this, you could use an equivalent expression or plain language. Alternate translation: [may the Lord cause you to understand the love of God and the endurance of Christ] or [may the Lord help you to know the love of God and the endurance of Christ]"
+        "note": "Here, **hearts** stands for a person’s thoughts or mind. If your readers would not understand this, you could use an equivalent expression or plain language. Alternate translation: [may the Lord cause you to understand the love of God and the endurance of Christ] or [may the Lord help you to know the love of God and the endurance of Christ]",
+        "issue_type": "figs-metonymy"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "Paul speaks of God’s **love** and Christ’s **endurance** as if they were destinations on a path. If your readers would not understand this figure of speech, you could express the meaning in a nonfigurative way. Alternate translation: [to know how much God loves you and the endurance that Christ supplies you]"
+        "note": "Paul speaks of God’s **love** and Christ’s **endurance** as if they were destinations on a path. If your readers would not understand this figure of speech, you could express the meaning in a nonfigurative way. Alternate translation: [to know how much God loves you and the endurance that Christ supplies you]",
+        "issue_type": "figs-metaphor"
       },
       {
-        "issue_type": "figs-possession",
-        "note": "Here, **love of God** can mean (1) the love that comes from God. Alternate translation: [to know how much God loves you] or (2) the love that people give to God. Alternate translation: [to love God more]"
+        "note": "Here, **love of God** can mean (1) the love that comes from God. Alternate translation: [to know how much God loves you] or (2) the love that people give to God. Alternate translation: [to love God more]",
+        "issue_type": "figs-possession"
       },
       {
-        "issue_type": "figs-possession",
-        "note": "Here, **endurance of Christ** can mean (1) the endurance that Christ gives to his people. Alternate translation: [to experience the endurance that Christ gives you] or (2) the endurance that Christ had through his suffering. Alternate translation: [to know how much Christ has endured for you]"
+        "note": "Here, **endurance of Christ** can mean (1) the endurance that Christ gives to his people. Alternate translation: [to experience the endurance that Christ gives you] or (2) the endurance that Christ had through his suffering. Alternate translation: [to know how much Christ has endured for you]",
+        "issue_type": "figs-possession"
       }
     ]
   },
@@ -844,31 +833,30 @@
     "text": "Now we command you, brothers, in the name of our Lord Jesus Christ, to keep away from any brother who leads an undisciplined life that is not in keeping with the tradition you received from us.",
     "note_data": [
       {
-        "issue_type": "rc://*/ta/man/checking/headings",
-        "note": "# General Information:\\n\\nIn [verses 6–15](../03/06.md), Paul gives the believers some final instructions about working and not being idle. A heading for this section might be, “Believers Must Work.”"
+        "note": "# General Information:\\n\\nIn [verses 6–15](../03/06.md), Paul gives the believers some final instructions about working and not being idle. A heading for this section might be, “Believers Must Work.”",
+        "issue_type": "rc://*/ta/man/checking/headings"
       },
       {
-        "issue_type": "grammar-connect-words-phrases",
-        "note": "The word translated **Now** marks a change in topic. You can use a natural way in your language to show that this is a new section with a different topic than the previous section."
+        "note": "The word translated **Now** marks a change in topic. You can use a natural way in your language to show that this is a new section with a different topic than the previous section.",
+        "issue_type": "grammar-connect-words-phrases"
       },
       {
-        "issue_type": "figs-gendernotations",
-        "note": "Here, the words **brothers** and **brother** refer to fellow Christians, including both men and women. Alternate translation: [brothers and sisters … brother or sister]"
+        "note": "Here, the words **brothers** and **brother** refer to fellow Christians, including both men and women. Alternate translation: [brothers and sisters … brother or sister]",
+        "issue_type": "figs-gendernotations"
       },
       {
-        "issue_type": "figs-metonymy",
-        "note": "Here, **name** stands for the person of Jesus Christ. It can also mean “with the authority of.” If using this term is not clear in your language, you could express it directly. Alternate translation: [as if our Lord Jesus Christ himself were speaking] or [with the authority that our Lord Jesus Christ has given us]"
+        "note": "Here, **name** stands for the person of Jesus Christ. It can also mean “with the authority of.” If using this term is not clear in your language, you could express it directly. Alternate translation: [as if our Lord Jesus Christ himself were speaking] or [with the authority that our Lord Jesus Christ has given us]",
+        "issue_type": "figs-metonymy"
       },
       {
-        "issue_type": "figs-exclusive",
-        "note": "Here, **our** refers to all believers. If you have exclusive and inclusive first-person plural pronouns in your language, this should be an inclusive pronoun."
+        "note": "Here, **our** refers to all believers. If you have exclusive and inclusive first-person plural pronouns in your language, this should be an inclusive pronoun.",
+        "issue_type": "figs-exclusive"
       },
       {
-        "issue_type": "figs-metaphor",
-        "note": "Here Paul speaks of people who are not living well as if they walk in a haphazard manner. If your readers would not understand this metaphor, you could use an equivalent metaphor from your culture. Alternatively, you could express the meaning in a nonfigurative way. Alternate translation: [who is living in a bad way] or [who is not living correctly]"
+        "note": "Here Paul speaks of people who are not living well as if they walk in a haphazard manner. If your readers would not understand this metaphor, you could use an equivalent metaphor from your culture. Alternatively, you could express the meaning in a nonfigurative way. Alternate translation: [who is living in a bad way] or [who is not living correctly]",
+        "issue_type": "figs-metaphor"
       },
       {
-        "issue_type": "",
         "note": "Here, **the traditions** refers to the teachings that the apostles received from Jesus and are passing along to all believers. Alternate translation: [the teachings] or [the instructions]"
       }
     ]
@@ -878,12 +866,12 @@
     "text": "For you yourselves know how you ought to imitate us, because we were not undisciplined among you,",
     "note_data": [
       {
-        "issue_type": "figs-explicit",
-        "note": "The phrase **to imitate** may be a difficult word to translate in your language. In that case, you could make this explicit. Alternate translation: [to act the way that my fellow workers and I act]"
+        "note": "The phrase **to imitate** may be a difficult word to translate in your language. In that case, you could make this explicit. Alternate translation: [to act the way that my fellow workers and I act]",
+        "issue_type": "figs-explicit"
       },
       {
-        "issue_type": "figs-doublenegatives",
-        "note": "Paul uses a double negative to emphasize the positive. If this double negative would be misunderstood in your language, you could translate it as a positive statement. Alternate translation: [we lived among you as those who had much discipline] or [we worked diligently when we were with you]"
+        "note": "Paul uses a double negative to emphasize the positive. If this double negative would be misunderstood in your language, you could translate it as a positive statement. Alternate translation: [we lived among you as those who had much discipline] or [we worked diligently when we were with you]",
+        "issue_type": "figs-doublenegatives"
       }
     ]
   },
@@ -892,16 +880,16 @@
     "text": "nor did we eat anyone’s food without paying for it. Instead, in labor and toil, we worked night and day so that we would not be a burden to any of you.",
     "note_data": [
       {
-        "issue_type": "translate-unknown",
-        "note": "Paul refers to **bread** here because it was the most common and basic food for them. If your readers would not be familiar with **bread** or if that is a kind of food that would be considered unusual or extravagant, you could use a general expression for ordinary food. Alternate translation: [food] or [anything]"
+        "note": "Paul refers to **bread** here because it was the most common and basic food for them. If your readers would not be familiar with **bread** or if that is a kind of food that would be considered unusual or extravagant, you could use a general expression for ordinary food. Alternate translation: [food] or [anything]",
+        "issue_type": "translate-unknown"
       },
       {
-        "issue_type": "figs-merism",
-        "note": "Here, **night and day** forms a merism, which means “all the time.” If it would be helpful in your language to explain that they did not work without taking any rest whatsoever, then you could make the meaning clear. Alternate translation: [working throughout that time with little rest] or [we worked almost continuously]"
+        "note": "Here, **night and day** forms a merism, which means “all the time.” If it would be helpful in your language to explain that they did not work without taking any rest whatsoever, then you could make the meaning clear. Alternate translation: [working throughout that time with little rest] or [we worked almost continuously]",
+        "issue_type": "figs-merism"
       },
       {
-        "issue_type": "figs-doublet",
-        "note": "Here, **toil** and **hardship** have very similar meanings. Paul used this repetition to emphasize that they worked very hard. If you do not have two similar words that you can use here or if it would be unnatural for you to use such repetition, you could emphasize this in another way. Alternate translation: [with great effort] or [in very difficult circumstances]"
+        "note": "Here, **toil** and **hardship** have very similar meanings. Paul used this repetition to emphasize that they worked very hard. If you do not have two similar words that you can use here or if it would be unnatural for you to use such repetition, you could emphasize this in another way. Alternate translation: [with great effort] or [in very difficult circumstances]",
+        "issue_type": "figs-doublet"
       }
     ]
   },
@@ -910,15 +898,14 @@
     "text": "Not that we lack this right, but we wanted to offer ourselves as an example for you to imitate.",
     "note_data": [
       {
-        "issue_type": "figs-doublenegatives",
-        "note": "Paul uses a double negative to emphasize the positive. If this double negative would be misunderstood in your language, you could translate it as a positive statement. Alternate translation: [and we certainly have the right to receive food from you, but instead we worked for our food]"
+        "note": "Paul uses a double negative to emphasize the positive. If this double negative would be misunderstood in your language, you could translate it as a positive statement. Alternate translation: [and we certainly have the right to receive food from you, but instead we worked for our food]",
+        "issue_type": "figs-doublenegatives"
       },
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "If your language does not use an abstract noun for the idea of **example**, you can express the same idea in another way. Alternate translation: [we might show you the right way in order for you] or [we might demonstrate the way to live for you]"
+        "note": "If your language does not use an abstract noun for the idea of **example**, you can express the same idea in another way. Alternate translation: [we might show you the right way in order for you] or [we might demonstrate the way to live for you]",
+        "issue_type": "figs-abstractnouns"
       },
       {
-        "issue_type": "",
         "note": "See how you translated **imitate** in [verse 7](../03/07.md)."
       }
     ]
@@ -928,8 +915,8 @@
     "text": "For even while we were with you, we gave you this command: “If anyone is unwilling to work, he shall not eat.”",
     "note_data": [
       {
-        "issue_type": "figs-doublenegatives",
-        "note": "You can state this in positive form, if this form is difficult to understand in your language. Alternate translation: [If a person wants to eat, he must work]"
+        "note": "You can state this in positive form, if this form is difficult to understand in your language. Alternate translation: [If a person wants to eat, he must work]",
+        "issue_type": "figs-doublenegatives"
       }
     ]
   },
@@ -938,12 +925,12 @@
     "text": "For we hear that some of you are leading undisciplined lives, accomplishing nothing, but being busybodies.",
     "note_data": [
       {
-        "issue_type": "figs-metaphor",
-        "note": "Here, **walking** stands for behavior in life. you can use an equivalent metaphor from your culture, if it is available. Otherwise, you could express the meaning in a nonfigurative way. Alternate translation: [some who are living idle lives] or [some who are being lazy]"
+        "note": "Here, **walking** stands for behavior in life. you can use an equivalent metaphor from your culture, if it is available. Otherwise, you could express the meaning in a nonfigurative way. Alternate translation: [some who are living idle lives] or [some who are being lazy]",
+        "issue_type": "figs-metaphor"
       },
       {
-        "issue_type": "translate-unknown",
-        "note": "Meddlers are people who interfere in the affairs of others without being asked to help."
+        "note": "Meddlers are people who interfere in the affairs of others without being asked to help.",
+        "issue_type": "translate-unknown"
       }
     ]
   },
@@ -952,8 +939,8 @@
     "text": "We command and urge such people by our Lord Jesus Christ to begin working quietly to earn their own living.",
     "note_data": [
       {
-        "issue_type": "figs-abstractnouns",
-        "note": "Here, **with quietness** is the opposite of meddling. Paul exhorts the meddlers to stop getting involved in other people’s affairs. If your language does not use an abstract noun for the idea of **quietness**, you can express the same idea in another way. Alternate translation: [in a quiet and peaceful manner]"
+        "note": "Here, **with quietness** is the opposite of meddling. Paul exhorts the meddlers to stop getting involved in other people’s affairs. If your language does not use an abstract noun for the idea of **quietness**, you can express the same idea in another way. Alternate translation: [in a quiet and peaceful manner]",
+        "issue_type": "figs-abstractnouns"
       }
     ]
   },
@@ -962,16 +949,16 @@
     "text": "But as for you, brothers, do not grow weary in well-doing.",
     "note_data": [
       {
-        "issue_type": "grammar-connect-logic-contrast",
-        "note": "Paul here uses the word **But** to contrast the lazy believers with the hardworking believers. Use a natural way in your language for introducing a contrast. Alternate translation: [Concerning]"
+        "note": "Paul here uses the word **But** to contrast the lazy believers with the hardworking believers. Use a natural way in your language for introducing a contrast. Alternate translation: [Concerning]",
+        "issue_type": "grammar-connect-logic-contrast"
       },
       {
-        "issue_type": "figs-you",
-        "note": "The word **you** refers to all the Thessalonian believers, so it should be in plural form."
+        "note": "The word **you** refers to all the Thessalonian believers, so it should be in plural form.",
+        "issue_type": "figs-you"
       },
       {
-        "issue_type": "figs-gendernotations",
-        "note": "Here, **brothers** means fellow Christians, including both men and women. Alternate translation: [brothers and sisters]"
+        "note": "Here, **brothers** means fellow Christians, including both men and women. Alternate translation: [brothers and sisters]",
+        "issue_type": "figs-gendernotations"
       }
     ]
   },
@@ -980,16 +967,16 @@
     "text": "Take note of anyone who does not obey the instructions we have given in this letter. Do not associate with him, so that he may be ashamed.",
     "note_data": [
       {
-        "issue_type": "figs-metonymy",
-        "note": "Paul is referring to his command to the Thessalonian believers as a **word**. If your readers would not understand this, you could use an equivalent expression or plain language. Alternate translation: [our instructions]"
+        "note": "Paul is referring to his command to the Thessalonian believers as a **word**. If your readers would not understand this, you could use an equivalent expression or plain language. Alternate translation: [our instructions]",
+        "issue_type": "figs-metonymy"
       },
       {
-        "issue_type": "figs-idiom",
-        "note": "Paul wants the Thessalonians to notice who this person is. Alternate translation: [point out that person] or [make sure everyone knows who he is]"
+        "note": "Paul wants the Thessalonians to notice who this person is. Alternate translation: [point out that person] or [make sure everyone knows who he is]",
+        "issue_type": "figs-idiom"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "Paul instructs believers to avoid lazy believers as a disciplinary action. If necessary, you could make this explicit to make the meaning clear. Alternate translation: [in order that he will know that his laziness is wrong]"
+        "note": "Paul instructs believers to avoid lazy believers as a disciplinary action. If necessary, you could make this explicit to make the meaning clear. Alternate translation: [in order that he will know that his laziness is wrong]",
+        "issue_type": "figs-explicit"
       }
     ]
   },
@@ -998,8 +985,8 @@
     "text": "Yet do not regard him as an enemy, but admonish him as a brother.",
     "note_data": [
       {
-        "issue_type": "figs-gendernotations",
-        "note": "Although the term **brother** is masculine, Paul is using the word here in a generic sense that includes both men and women. Alternate translation: [a fellow believer]"
+        "note": "Although the term **brother** is masculine, Paul is using the word here in a generic sense that includes both men and women. Alternate translation: [a fellow believer]",
+        "issue_type": "figs-gendernotations"
       }
     ]
   },
@@ -1008,20 +995,20 @@
     "text": "Now may the Lord of peace Himself give you peace at all times and in every way. The Lord be with all of you.",
     "note_data": [
       {
-        "issue_type": "rc://*/ta/man/checking/headings",
-        "note": "# General Information:\\n\\nIn [verses 16–18](../03/16.md), Paul makes closing remarks to the believers at Thessalonica. A heading for this section might be, “Closing Remarks.”"
+        "note": "# General Information:\\n\\nIn [verses 16–18](../03/16.md), Paul makes closing remarks to the believers at Thessalonica. A heading for this section might be, “Closing Remarks.”",
+        "issue_type": "rc://*/ta/man/checking/headings"
       },
       {
-        "issue_type": "grammar-connect-words-phrases",
-        "note": "The word translated **Now** marks a change in topic. You can use a natural way in your language to show that this is a new section with a different topic than the previous section."
+        "note": "The word translated **Now** marks a change in topic. You can use a natural way in your language to show that this is a new section with a different topic than the previous section.",
+        "issue_type": "grammar-connect-words-phrases"
       },
       {
-        "issue_type": "translate-blessing",
-        "note": "Paul ends the letter with blessings that are also prayers. Use a form that people would recognize as a blessing or prayer in your language. Alternate translation: [I pray that the Lord of peace himself may give you]"
+        "note": "Paul ends the letter with blessings that are also prayers. Use a form that people would recognize as a blessing or prayer in your language. Alternate translation: [I pray that the Lord of peace himself may give you]",
+        "issue_type": "translate-blessing"
       },
       {
-        "issue_type": "figs-rpronouns",
-        "note": "Here, **himself** emphasizes that the Lord is the source of peace and that he will personally give peace to believers."
+        "note": "Here, **himself** emphasizes that the Lord is the source of peace and that he will personally give peace to believers.",
+        "issue_type": "figs-rpronouns"
       }
     ]
   },
@@ -1030,16 +1017,15 @@
     "text": "This greeting is in my own hand—Paul. This is my mark in every letter; it is the way I write.",
     "note_data": [
       {
-        "issue_type": "",
         "note": "Alternate translation: [I, Paul, write this greeting with my own hand, which I do in every letter, as a sign that this letter is truly from me because this is how I write]"
       },
       {
-        "issue_type": "figs-idiom",
-        "note": "Here, the phrase **in my own hand** is an idiom meaning “in my own handwriting.” If your readers would not understand this, you could use an equivalent idiom or use plain language. Alternate translation: [I myself am writing]"
+        "note": "Here, the phrase **in my own hand** is an idiom meaning “in my own handwriting.” If your readers would not understand this, you could use an equivalent idiom or use plain language. Alternate translation: [I myself am writing]",
+        "issue_type": "figs-idiom"
       },
       {
-        "issue_type": "figs-explicit",
-        "note": "Paul makes it clear that this letter is from him and is not a forgery. If it would be helpful to your readers, you could express that explicitly. Alternate translation: [you could know that the letter is from me because this is how I write]"
+        "note": "Paul makes it clear that this letter is from him and is not a forgery. If it would be helpful to your readers, you could express that explicitly. Alternate translation: [you could know that the letter is from me because this is how I write]",
+        "issue_type": "figs-explicit"
       }
     ]
   },
@@ -1048,8 +1034,8 @@
     "text": "The grace of our Lord Jesus Christ be with all of you.",
     "note_data": [
       {
-        "issue_type": "translate-blessing",
-        "note": "Paul ends the letter with one more blessing. Use a form that people would recognize as a blessing in your language. Alternate translation: [I pray that the grace of our Lord Jesus Christ will be with you all]"
+        "note": "Paul ends the letter with one more blessing. Use a form that people would recognize as a blessing in your language. Alternate translation: [I pray that the grace of our Lord Jesus Christ will be with you all]",
+        "issue_type": "translate-blessing"
       }
     ]
   }
