@@ -2,7 +2,7 @@
   {
     "reference": "3Jo 1:1",
     "text": "The elder, To the beloved Gaius, whom I love in the truth:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "John assumes that Gaius will know who he is when he calls himself **The elder.** If it would be helpful to your readers, you could make John’s name explicit. (See the Introduction to 3 John for a discussion of how to translate the term **elder**.) Alternate translation: [I, John the elder, am writing]"
@@ -20,12 +20,12 @@
   {
     "reference": "3Jo 1:2",
     "text": "Beloved, I pray that in every way you may prosper and enjoy good health, as your soul also prospers.",
-    "translation_challanges": []
+    "translation_challenges": []
   },
   {
     "reference": "3Jo 1:3",
     "text": "For I was overjoyed when the brothers came and testified about your devotion to the truth, in which you continue to walk.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "John is using word translated as **For** to introduce the reason for what he said at the end of the previous verse. Use a connector in your language that makes this clear. Alternate translation: [I know that your soul prospers because]"
@@ -47,7 +47,7 @@
   {
     "reference": "3Jo 1:4",
     "text": "I have no greater joy than to hear that my children are walking in the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **joy**, you could express the same idea in another way. Alternate translation: [Nothing makes me more joyful]"
@@ -69,7 +69,7 @@
   {
     "reference": "3Jo 1:5",
     "text": "Beloved, you are faithful in what you are doing for the brothers, and especially since they are strangers to you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "John is using the term **brothers** to mean people who share the same faith. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [other believers]"
@@ -79,7 +79,7 @@
   {
     "reference": "3Jo 1:6",
     "text": "They have testified to the church about your love. You will do well to send them on their way in a manner worthy of God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **love**, you could express the same idea in another way. Alternate translation: [that you love them]"
@@ -97,7 +97,7 @@
   {
     "reference": "3Jo 1:7",
     "text": "For they went out on behalf of the Name, accepting nothing from the Gentiles.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the action that the first phrase describes. If you do so, you will need create a verse bridge in order to combine [verses 6](../01/06.md) and [7](../01/07.md), as described in the Introduction to 3 John. It may be helpful to begin a new sentence here. Alternate translation: [Because they went out for the sake of the name, accepting nothing from the Gentiles, you will do well to send them on in a manner worthy of God]"
@@ -119,7 +119,7 @@
   {
     "reference": "3Jo 1:8",
     "text": "Therefore we ought to support such men, so that we may be fellow workers for the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "John is using the word translated as **Therefore** to introduce the result that should follow from the reason he gave at the end of the previous verse. Because **such ones** are accepting nothing from “the Gentiles” ([verse 7](../01/07.md)), believers ought to help them. Use a connector in your language that makes this relationship clear. Alternate translation: [This is why]"
@@ -153,7 +153,7 @@
   {
     "reference": "3Jo 1:9",
     "text": "I have written to the church about this, but Diotrephes, who loves to be first, will not accept our instruction.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "What John wrote was a letter, probably containing instructions about helping traveling Christian teachers. You could include this information if that would be helpful to your readers. Alternate translation: [a letter about this]"
@@ -183,7 +183,7 @@
   {
     "reference": "3Jo 1:10",
     "text": "So if I come, I will call attention to his malicious slander against us. And unsatisfied with that, he refuses to welcome the brothers and forbids those who want to do so, even putting them out of the church.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**Because of this** indicates that what follows is a result of what came before. Because Diotrephes “does not receive” John and those with him ([verse 9](../01/09.md)), John will expose his evil works. Use a natural way in your language that makes this relationship clear. Alternate translation: [Therefore] or [This is why]"
@@ -217,7 +217,7 @@
   {
     "reference": "3Jo 1:11",
     "text": "Beloved, do not imitate what is evil, but what is good. The one who does good is of God; the one who does evil has not seen God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-nominaladj",
         "note": "John is using the adjectives **evil** and **good** as nouns in a general sense. Your language may use adjectives in the same way. If not, you could translate these words with an equivalent phrase. Alternate translation: [do not imitate evil things that people do, but imitate good things]"
@@ -235,7 +235,7 @@
   {
     "reference": "3Jo 1:12",
     "text": "Demetrius has received a good testimony from everyone, and from the truth itself. We also testify for him, and you know that our testimony is true.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you can state this in active form. Alternate translation: [All attest to Demetrius] or [Everyone praises Demetrius as a good person]"
@@ -273,7 +273,7 @@
   {
     "reference": "3Jo 1:13",
     "text": "I have many things to write to you, but I would prefer not to do so with pen and ink.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "John is using something associated with a letter, the **ink and pen** he would use to write a letter, to represent the letter itself. If it would be helpful in your language, you could use an equivalent expression or state the meaning plainly. Alternate translation, as in UST: [in a letter]"
@@ -283,7 +283,7 @@
   {
     "reference": "3Jo 1:14",
     "text": "Instead, I hope to see you soon and speak with you face to face. Peace to you. The friends here send you greetings. Greet each of our friends there by name.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **mouth to mouth** is an idiom meaning “in person.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have this meaning or state the meaning plainly. Alternate translation: [face to face] or [in person]"

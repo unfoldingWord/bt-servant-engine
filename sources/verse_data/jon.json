@@ -2,7 +2,7 @@
   {
     "reference": "Jon 1:1",
     "text": "Now the word of the LORD came to Jonah son of Amittai, saying,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This phrase introduces the first half of the story of Jonah. This is a common way of beginning a historical story about a prophet. Most languages would not begin a story with a conjunction such as \\\\*\\\\*And\\\\*\\\\*. Use a word, phrase, or other method in your language that is natural for introducing a new event. The repetition of this same phrase introduces the second half of the story ([3:1](../03/01.md))."
@@ -20,7 +20,7 @@
   {
     "reference": "Jon 1:2",
     "text": "“Get up! Go to the great city of Nineveh and preach against it, because its wickedness has come up before Me.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be more natural in your language, you could reverse the order of these clauses since the second half of the verse gives the reason for the result that the first half describes. Alternate translation: [The evil of Nineveh has risen before my face. Therefore, get up, go to that great city, and call out against it]"
@@ -50,7 +50,7 @@
   {
     "reference": "Jon 1:3",
     "text": "Jonah, however, got up to flee to Tarshish, away from the presence of the LORD. He went down to Joppa and found a ship bound for Tarshish. So he paid the fare and went aboard to sail for Tarshish, away from the presence of the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here the words **got up** mean that Jonah took action in response to God’s command, but his action was to disobey instead of to obey. If your readers would misunderstand this, you could state the meaning plainly. See how you translated this idiom in [1:2](../01/02.md). Alternate translation: [But Jonah decided to run away] or [Jonah prepared himself, but to run away]"
@@ -88,7 +88,7 @@
   {
     "reference": "Jon 1:4",
     "text": "Then the LORD hurled a great wind upon the sea, and such a violent storm arose that the ship was in danger of breaking apart.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "**But** here indicates a strong contrast between what Jonah thought would happen and what God did. In your translation, indicate this strong contrast in a way that is natural in your language. Alternate translation: [However, Yahweh]"
@@ -106,7 +106,7 @@
   {
     "reference": "Jon 1:5",
     "text": "The sailors were afraid, and each cried out to his own god. And they threw the ship’s cargo into the sea to lighten the load. But Jonah had gone down to the lowest part of the vessel, where he lay down and fell into a deep sleep.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "The **sailors** were men who worked on a ship to control the sails and do other tasks. If your readers would not be familiar with this type of work, you could use a more general term or a phrase that explains it. Alternate translation: [the crew members] or [the men who worked on the ship]"
@@ -140,7 +140,7 @@
   {
     "reference": "Jon 1:6",
     "text": "The captain approached him and said, “How can you sleep? Get up and call upon your God. Perhaps this God will consider us, so that we may not perish.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "The **captain** of the ship is the person who is in charge of the ship and the **crew**. The **crew** is another name for the group of sailors who work there. If your readers would not be familiar with these occupations, you could use the name of something similar in your area or you could use a more general term or a description. Alternate translation: [Then the man in charge of the men working on the ship came to Jonah and said]"
@@ -174,7 +174,7 @@
   {
     "reference": "Jon 1:7",
     "text": "“Come!” said the sailors to one another. “Let us cast lots to find out who is responsible for this calamity that is upon us.” So they cast lots, and the lot fell on Jonah.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The phrase **a man to his friend** is an idiom expressing reciprocal action. This means that the group together decided to do this. Alternate translation: [Then the sailors all said to each other]"
@@ -204,7 +204,7 @@
   {
     "reference": "Jon 1:8",
     "text": "“Tell us now,” they demanded, “who is to blame for this calamity that is upon us? What is your occupation, and where have you come from? What is your country, and who are your people?”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **they** refers back to the group of sailors referred to as “every man” in [verse 7](../01/07.md); the pronoun **him** refers to Jonah. If it would be helpful in your language, you could repeat Jonah’s name and the term that you are using for the sailors here. Alternate translation: [Then the men who were working on the ship said to Jonah]"
@@ -218,7 +218,7 @@
   {
     "reference": "Jon 1:9",
     "text": "“I am a Hebrew,” replied Jonah. “I worship the LORD, the God of the heavens, who made the sea and the dry land.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **I fear Yahweh** is an idiom that means “I worship Yahweh and not any other god.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: [I am a worshiper of Yahweh]"
@@ -228,7 +228,7 @@
   {
     "reference": "Jon 1:10",
     "text": "Then the men were even more afraid and said to him, “What have you done?” The men knew that he was fleeing from the presence of the LORD, because he had told them.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-poetry",
         "note": "Here, **feared a great fear** is an emphatic construction that uses a verb and its object that both come from the same root. You may be able to use the same construction in your language to express the meaning here. Alternatively, your language may have another way of showing the emphasis. Alternate translation: [Then the men were extremely frightened]"
@@ -254,7 +254,7 @@
   {
     "reference": "Jon 1:11",
     "text": "Now the sea was growing worse and worse, so they said to Jonah, “What must we do to you to calm this sea for us?”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **they** refers to the sailors. Alternate translation: [Then the sailors said to Jonah] or [Then the men on the ship said to Jonah]"
@@ -276,7 +276,7 @@
   {
     "reference": "Jon 1:12",
     "text": "“Pick me up,” he answered, “and cast me into the sea, so it may quiet down for you. For I know that I am to blame for this violent storm that has come upon you.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [because I know that this huge storm is my fault]"
@@ -290,7 +290,7 @@
   {
     "reference": "Jon 1:13",
     "text": "Nevertheless, the men rowed hard to get back to dry land, but they could not, for the sea was raging against them more and more.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "They did not do as Jonah suggested. The implication is that the men did not want to throw Jonah into the sea. You could include this information if that would be helpful to your readers. Alternate translation: [The men did want want to throw Jonah into the sea, so they rowed hard]"
@@ -304,7 +304,7 @@
   {
     "reference": "Jon 1:14",
     "text": "So they cried out to the LORD: “Please, O LORD, do not let us perish on account of this man’s life! Do not charge us with innocent blood! For You, O LORD, have done as You pleased.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, **So** indicates that what follows is a result of what came before. Use a connector in your language that makes it clear that what follows is a result of what came before. Alternate translation: [Because of that they called out] or [Because the sea became more violent, they called loudly]"
@@ -338,7 +338,7 @@
   {
     "reference": "Jon 1:15",
     "text": "Then they picked up Jonah and cast him into the sea, and the raging sea grew calm.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Here, **the sea** is spoken of as if it were a person who could rage. If it would be helpful in your language, you could express the meaning plainly. Alternate translation: [the sea stopped moving violently]"
@@ -352,7 +352,7 @@
   {
     "reference": "Jon 1:16",
     "text": "Then the men feared the LORD greatly, and they offered a sacrifice to the LORD and made vows to Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-poetry",
         "note": "Here, **feared … {with} great fear** is an emphatic construction that uses a verb and its object that both come from the same root. You may be able to use the same construction in your language to express the meaning here. Alternatively, your language may have another way of showing the emphasis. See how you translated this phrase in [verse 10](../01/10.md), but be aware that you may want a different translation here for the different kind of fear that this is. The danger of the storm is past; now they are in awe of Yahweh’s power. Alternate translation: [then the men became greatly awed at Yahweh’s power] or [then the men worshiped Yahweh with great awe]"
@@ -366,7 +366,7 @@
   {
     "reference": "Jon 1:17",
     "text": "Now the LORD had appointed a great fish to swallow Jonah, and Jonah spent three days and three nights in the belly of the fish.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Some versions number this verse as the first verse of [chapter 2](../02/01.md). You may want to number the verses according to the main version that your language group uses."
@@ -380,7 +380,7 @@
   {
     "reference": "Jon 2:1",
     "text": "From inside the fish, Jonah prayed to the LORD his God,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-possession",
         "note": "Here, the author is using the possessive form to describe **Yahweh** as the God whom Jonah worshiped. The word **his** does not mean that Jonah owned God. If it would be helpful in your language, you could express the meaning plainly. Alternate translation: [Yahweh, the God to whom he belonged,]"
@@ -390,7 +390,7 @@
   {
     "reference": "Jon 2:2",
     "text": "saying: “In my distress I called to the LORD, and He answered me. From the belly of Sheol I called for help, and You heard my voice.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Jonah said]"
@@ -428,7 +428,7 @@
   {
     "reference": "Jon 2:3",
     "text": "For You cast me into the deep, into the heart of the seas, and the current swirled about me; all Your breakers and waves swept over me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "The terms **the deep** and **the heart of the seas** mean similar things. Jonah is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [into the middle of the deep ocean]"
@@ -458,7 +458,7 @@
   {
     "reference": "Jon 2:4",
     "text": "At this, I said, ‘I have been banished from Your sight; yet I will look once more toward Your holy temple.’",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "**But I** shows that there is a contrast between the actions of Yahweh, which Jonah had just talked about, and his own response, which he will talk about now. In your translation, indicate this contrast in a way that is natural in your language. Alternate translation: [On my part]"
@@ -480,7 +480,7 @@
   {
     "reference": "Jon 2:5",
     "text": "The waters engulfed me to take my life; the watery depths closed around me; the seaweed wrapped around my head.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two phrases mean basically the same thing. The second emphasizes the meaning of the first by repeating the same idea with different words. If it would be helpful to your readers, you could connect the phrases in a way that shows that the second phrase is repeating the first one, not saying something additional. Alternate translation: [Water had closed around me even as far as life; indeed, the deep was surrounding me]"
@@ -506,7 +506,7 @@
   {
     "reference": "Jon 2:6",
     "text": "To the roots of the mountains I descended; the earth beneath me barred me in forever! But You raised my life from the pit, O LORD my God!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Jonah is speaking of **the earth** under the water as if it had **bars** like a prison. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the earth was like a prison that was about to lock me in forever]"
@@ -532,7 +532,7 @@
   {
     "reference": "Jon 2:7",
     "text": "As my life was fading away, I remembered the LORD. My prayer went up to You, to Your holy temple.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This phrase could mean that: (1) Jonah was already in the process of dying when he remembered Yahweh. Alternate translation: [when my life was fainting away from me]; (2) Jonah had given up hope of being rescued and resigned himself to the fact that he would die. Alternate translation: [when my spirit inside me had fainted]"
@@ -554,7 +554,7 @@
   {
     "reference": "Jon 2:8",
     "text": "Those who cling to worthless idols forsake His loving devotion.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here the term **vanities of worthlessness** is probably an idiom referring to idols of false gods. If this phrase does not have that meaning in your language, you could use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: [Those who give attention to useless idols] or [Those who pay attention to useless gods]"
@@ -568,7 +568,7 @@
   {
     "reference": "Jon 2:9",
     "text": "But I, with the voice of thanksgiving, will sacrifice to You. I will fulfill what I have vowed. Salvation is from the LORD!”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "This expression shows that there is a contrast between Jonah himself and the people about whom Jonah had just spoken. They paid attention to useless gods, but he would worship Yahweh. In your translation, indicate this contrast in a way that is natural in your language. Alternate translation: [But as for me]"
@@ -594,7 +594,7 @@
   {
     "reference": "Jon 2:10",
     "text": "And the LORD commanded the fish, and it vomited Jonah onto dry land.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The content of what **Yahweh spoke** was a command to vomit up Jonah. You could include this information if that would be helpful to your readers. Alternate translation: [And Yahweh told the fish to vomit up Jonah onto the land]"
@@ -612,7 +612,7 @@
   {
     "reference": "Jon 3:1",
     "text": "Then the word of the LORD came to Jonah a second time:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This phrase introduces the second half of the story of Jonah. The same phrase introduced the first half of the story in [1:1](../01/01.md) See how you translated it there."
@@ -626,7 +626,7 @@
   {
     "reference": "Jon 3:2",
     "text": "“Get up! Go to the great city of Nineveh and proclaim to it the message that I give you.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "**Get up** is an idiom that means that Jonah should take action and obey the next command, which is “go.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have this meaning or state the meaning plainly. See how you translated this in [1:2](../01/02.md) and [1:3](../01/03.md). Alternate translation: [Look alive] or [Prepare yourself]"
@@ -644,7 +644,7 @@
   {
     "reference": "Jon 3:3",
     "text": "This time Jonah got up and went to Nineveh, in accordance with the word of the LORD. Now Nineveh was an exceedingly great city, requiring a three-day journey.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here the words **got up** mean that Jonah “took action” in response to God’s command to go as he did in [1:3](../01/03.md), but this time he obeyed instead of disobeying. If this phrase does not have that meaning in your language, you could use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: [This time Jonah obeyed Yahweh and went to Nineveh] or [So Jonah left the beach and went to Nineveh, as Yahweh had commanded him]"
@@ -670,7 +670,7 @@
   {
     "reference": "Jon 3:4",
     "text": "On the first day of his journey, Jonah set out into the city and proclaimed, “Forty more days and Nineveh will be overturned!”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase **a journey of one day** could mean: (1) Jonah walked a day’s journey into the city and then he started calling out. Alternate translation: [So Jonah walked into the city for one day, and then he called out]; (2) while Jonah was walking through the city on the first day, he started calling out. Alternate translation: [So Jonah began walking into the city for one day, and as he went he called out]"
@@ -692,7 +692,7 @@
   {
     "reference": "Jon 3:5",
     "text": "And the Ninevites believed God. They proclaimed a fast and dressed in sackcloth, from the greatest of them to the least.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "Although the term **men** is masculine, here it has a generic sense that includes both men and women. If it would be helpful in your language, you could use a phrase that makes this clear. Alternate translation: [the men and women of Nineveh]"
@@ -714,7 +714,7 @@
   {
     "reference": "Jon 3:6",
     "text": "When word reached the king of Nineveh, he got up from his throne, took off his royal robe, covered himself with sackcloth, and sat in ashes.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The author assumes that his readers will understand that this **word** is Jonah’s message from God. You could include this information if that would be helpful to your readers. Alternate translation: [Jonah’s message]"
@@ -736,7 +736,7 @@
   {
     "reference": "Jon 3:7",
     "text": "Then he issued a proclamation in Nineveh: “By the decree of the king and his nobles: Let no man or beast, herd or flock, taste anything at all. They must not eat or drink.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicitinfo",
         "note": "The expression **proclaimed and spoke** contains extra information that would be unnatural to express in some languages. If this is true of your language, you could shorten the expression. Alternate translation: [And he proclaimed] or [And he announced]"
@@ -766,7 +766,7 @@
   {
     "reference": "Jon 3:8",
     "text": "Furthermore, let both man and beast be covered with sackcloth, and have everyone call out earnestly to God. Let each one turn from his evil ways and from the violence in his hands.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that these are the people’s domestic animals. They are not wild animals. You could include this information if that would be helpful to your readers. Alternate translation: [and every animal that they own]"
@@ -792,7 +792,7 @@
   {
     "reference": "Jon 3:9",
     "text": "Who knows? God may turn and relent; He may turn from His fierce anger, so that we will not perish.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "The king used this rhetorical question to get the people to think about something that is possible but uncertain: that if they would stop sinning, God might not kill them. It could be translated as a statement: “We do not know.” Or it could be stated as an initial word and be part of the next sentence: “Perhaps”"
@@ -814,7 +814,7 @@
   {
     "reference": "Jon 3:10",
     "text": "When God saw their actions—that they had turned from their evil ways—He relented from the disaster He had threatened to bring upon them.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [God saw that they stopped doing evil actions]"
@@ -840,7 +840,7 @@
   {
     "reference": "Jon 4:1",
     "text": "Jonah, however, was greatly displeased, and he became angry.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This sentence introduces the next part of the story, in which Jonah responds to God because God saved the city of Nineveh. Use a word, phrase, or other method in your language that is natural for introducing a new event. Alternate translation: [Now this made evil to Jonah] or [But for Jonah, it made evil]"
@@ -862,7 +862,7 @@
   {
     "reference": "Jon 4:2",
     "text": "So he prayed to the LORD, saying, “O LORD, is this not what I said while I was still in my own country? This is why I was so quick to flee toward Tarshish. I knew that You are a gracious and compassionate God, slow to anger, abounding in loving devotion—One who relents from sending disaster.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "This is an exclamation that is emphasizing intense frustration. Use an exclamation that would communicate that meaning in your language. Alternate translation: [Oh] or [I knew it]"
@@ -892,7 +892,7 @@
   {
     "reference": "Jon 4:3",
     "text": "And now, O LORD, please take my life from me, for it is better for me to die than to live.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that Jonah wanted to die because God will not punish his former enemies. You could include this information if that would be helpful to your readers. Alternate translation: [since you will not destroy Nineveh as you said you would, please allow me to die]"
@@ -906,7 +906,7 @@
   {
     "reference": "Jon 4:4",
     "text": "But the LORD replied, “Have you any right to be angry?”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The phrase **it burns to you** is an idiom that speaks of Jonah’s anger as if it were a fire burning inside him. If this phrase does not have that meaning in your language, you could use an idiom from your language that does have this meaning or state the meaning plainly. See how you translated it in [4:1](../04/01.md). Alternate translation: [is it right for you to be angry about this]"
@@ -924,7 +924,7 @@
   {
     "reference": "Jon 4:5",
     "text": "Then Jonah left the city and sat down east of it, where he made himself a shelter and sat in its shade to see what would happen to the city.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that Jonah wanted to see whether God would destroy the city or not. You could include this information if that would be helpful to your readers. Alternate translation: [what would become of the city] or [what God would do to the city]"
@@ -934,7 +934,7 @@
   {
     "reference": "Jon 4:6",
     "text": "So the LORD God appointed a vine, and it grew up to provide shade over Jonah’s head to ease his discomfort, and Jonah was greatly pleased with the plant.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [over Jonah’s head for shade]"
@@ -952,7 +952,7 @@
   {
     "reference": "Jon 4:7",
     "text": "When dawn came the next day, God appointed a worm that attacked the plant so that it withered.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [then God sent a worm]"
@@ -966,7 +966,7 @@
   {
     "reference": "Jon 4:8",
     "text": "As the sun was rising, God appointed a scorching east wind, and the sun beat down on Jonah’s head so that he grew faint and wished to die, saying, “It is better for me to die than to live.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-background",
         "note": "This clause provides background information about the time of day to help readers understand what happens next in the story. In your translation, present this information in a way that makes it clear that this is background information. Alternate translation: [And then, after the sun had come up]"
@@ -1000,7 +1000,7 @@
   {
     "reference": "Jon 4:9",
     "text": "Then God asked Jonah, “Have you any right to be angry about the plant?” “I do,” he replied. “I am angry enough to die!”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "God is using the question form to lead Jonah to draw a conclusion about his selfish attitude. God is not seeking information. Since Jonah answers the question, it would be good to keep the question form if that would be natural in your language. But if you would not use the question form for this purpose in your language, you could translate this as a statement. Alternate translation: [It is not right that it burns to you about the plant!]"
@@ -1014,7 +1014,7 @@
   {
     "reference": "Jon 4:10",
     "text": "But the LORD said, “You cared about the plant, which you neither tended nor made grow. It sprang up in a night and perished in a night.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Yahweh is speaking to Jonah. You could include this information if that would be helpful to your readers. Alternate translation: [Yahweh said to Jonah]"
@@ -1028,7 +1028,7 @@
   {
     "reference": "Jon 4:11",
     "text": "So should I not care about the great city of Nineveh, which has more than 120,000 people who cannot tell their right hand from their left, and many cattle as well?”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "This expression, **So I,** paired with “You” in verse [4:10](../04/10.md), indicates a direct comparison between Yahweh’s attitude toward the people of Nineveh and Jonah’s attitude toward the plant. Indicate this comparison in a way that is natural in your language. Alternate translation: [So on my part] or [So as for me]"

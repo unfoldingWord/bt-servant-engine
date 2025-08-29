@@ -2,7 +2,7 @@
   {
     "reference": "Tit 1:1",
     "text": "Paul, a servant of God and an apostle of Jesus Christ for the faith of God’s elect and their knowledge of the truth that leads to godliness,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "The words **faith**, **knowledge**, and **truth** are abstract nouns. If it would be more clear in your language, you could express those ideas in another way. Alternate translation: [to help God’s chosen people to continue to trust him and to know every true thing]"
@@ -24,7 +24,7 @@
   {
     "reference": "Tit 1:2",
     "text": "in the hope of eternal life, which God, who cannot lie, promised before time began.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here **hope** could be connected to: (1) **godliness**, meaning that if we live to please God, we will have hope of eternal life. Alternate translation: [which gives us the certain hope of everlasting life] or (2) **knowledge of the truth**, meaning that this hope of eternal life is part of the truth, and that knowing the truth gives hope of eternal life. Alternate translation: [and that teaches us to expect eternal life]"
@@ -46,7 +46,7 @@
   {
     "reference": "Tit 1:3",
     "text": "In His own time He has made His word evident in the proclamation entrusted to me by the command of God our Savior.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [at the proper time]"
@@ -72,7 +72,7 @@
   {
     "reference": "Tit 1:4",
     "text": "To Titus, my true child in our common faith: Grace and peace from God the Father and Christ Jesus our Savior.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Though Titus was not Paul’s biological **son**, they share a common faith in Christ. Paul considers relationship to Christ through faith to be more important than biological relationship. Thus, because of their relative ages and shared faith in Christ, Paul considers Titus as his own son. It may also be that Paul led Titus to faith in Christ, and so Titus is like a son in this spiritual sense. Alternate translation: [like a son to me]"
@@ -102,7 +102,7 @@
   {
     "reference": "Tit 1:5",
     "text": "The reason I left you in Crete was that you would set in order what was unfinished and appoint elders in every town, as I directed you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The phrase **For this purpose** introduces the goal that Paul wanted to accomplish when he left Titus in Crete (to ordain elders in the church). Use a phrase in your language that makes it clear that this is the purpose. Alternate translation: [This is why]"
@@ -124,7 +124,7 @@
   {
     "reference": "Tit 1:6",
     "text": "An elder must be blameless, the husband of but one wife, having children who are believers and who are not open to accusation of indiscretion or insubordination.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This is the beginning of the description of the character of an elder. Paul assumes that Titus understands that he is to choose men who fit the following description. You could include this information if that would be helpful to your readers. Alternate translation: [an elder must be blameless] or [any man you choose to be an elder must be without blame]"
@@ -146,7 +146,7 @@
   {
     "reference": "Tit 1:7",
     "text": "As God’s steward, an overseer must be above reproach—not self-willed, not quick-tempered, not given to drunkenness, not violent, not greedy for money.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "The word **overseer** is another name for the same position of spiritual leadership that Paul referred to as “elder” in [1:5](../01/05.md). This term focuses on the function of the elder: he oversees the activities and people of the church. Alternate translation: [an elder in charge of God’s people]"
@@ -168,7 +168,7 @@
   {
     "reference": "Tit 1:8",
     "text": "Instead, he must be hospitable, a lover of good, self-controlled, upright, holy, and disciplined.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The connecting word **Instead** introduces a contrast between the things that an elder is not to be (that Paul already stated), and the things that an elder is to be (that Paul is about to state). Indicate this contrast in a way that is natural in your language. Alternate translation: [In contrast]"
@@ -190,7 +190,7 @@
   {
     "reference": "Tit 1:9",
     "text": "He must hold firmly to the faithful word as it was taught, so that he can encourage others by sound teaching and refute those who contradict it.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of devotion to the Christian faith as if it were grasping the faith with one’s hands. If it would be helpful in your language, you could use a different metaphor or state the meaning plainly. Alternate translation: [He must carefully follow] or [He must be devoted to]"
@@ -212,7 +212,7 @@
   {
     "reference": "Tit 1:10",
     "text": "For many are rebellious and full of empty talk and deception, especially those of the circumcision,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **empty** is a metaphor for useless, and **empty talkers** are people who say useless or foolish things. Alternate translation: [people who say useless things]"
@@ -234,7 +234,7 @@
   {
     "reference": "Tit 1:11",
     "text": "who must be silenced. For the sake of dishonorable gain, they undermine entire households and teach things they should not.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that these people must be stopped from teaching. You could include this information if that would be helpful to your readers. Alternate translation: [You must prevent them from spreading their false teachings] or [Someone must stop them from deceiving others by their words]"
@@ -252,7 +252,7 @@
   {
     "reference": "Tit 1:12",
     "text": "As one of their own prophets has said, “Cretans are always liars, evil beasts, lazy gluttons.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [A Cretan, one that they themselves consider to be a prophet]"
@@ -274,7 +274,7 @@
   {
     "reference": "Tit 1:13",
     "text": "This testimony is true. Therefore rebuke them sternly, so that they will be sound in the faith",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [For that reason, you must use strong language that the Cretans will understand when you correct them]"
@@ -304,7 +304,7 @@
   {
     "reference": "Tit 1:14",
     "text": "and will pay no attention to Jewish myths or to the commands of men who have rejected the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [false teaching of the Jews]"
@@ -318,7 +318,7 @@
   {
     "reference": "Tit 1:15",
     "text": "To the pure, all things are pure; but to the defiled and unbelieving, nothing is pure. Indeed, both their minds and their consciences are defiled.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-proverbs",
         "note": "Here, Paul uses or invents a proverb in order to teach that being pure or pleasing to God is a matter of a person’s inward thoughts, not a matter of outward actions or rituals. Translate this proverb in a way that will be recognized as a proverb and be meaningful in your language and culture. Alternate translation: [If people are pure on the inside, everything that they do will be pure] or [When people have only good thoughts, nothing that they do will offend God]"
@@ -340,7 +340,7 @@
   {
     "reference": "Tit 1:16",
     "text": "They profess to know God, but by their actions they deny Him. They are detestable, disobedient, and unfit for any good deed.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The connecting word **but** introduces a contrast between what these corrupt people say (that they know God) and what their actions show (that they do not know God). Indicate this contrast in a way that is natural in your language. Alternate translation: [nevertheless,]"
@@ -354,7 +354,7 @@
   {
     "reference": "Tit 2:1",
     "text": "But as for you, speak the things that are consistent with sound doctrine.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **you** is singular and refers to Titus. If it is helpful, you could include the name “Titus” here, as in the UST."
@@ -368,7 +368,7 @@
   {
     "reference": "Tit 2:2",
     "text": "Older men are to be temperate, dignified, self-controlled, and sound in faith, love, and perseverance.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "A verb is lacking here that in many languages a sentence would need in order to be complete. If it would be clearer in your language, you could supply a verb here, drawing from the idea of “speak” in the previous verse, such as “teach” or “exhort.” Alternate translation: [Teach older men to be]"
@@ -406,7 +406,7 @@
   {
     "reference": "Tit 2:3",
     "text": "Older women, likewise, are to be reverent in their behavior, not slanderers or addicted to much wine, but teachers of good.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Some verbs are lacking here that in many languages a sentence would need in order to be complete. If it would be clearer in your language, you could continue the verbal ideas from the previous two verses and apply them here, as well, such as “Teach older women to be” or “Exhort older women to be.” Alternate translation, removing the comma: [In the same way, teach older women to be] or [Also teach older women to be]"
@@ -428,7 +428,7 @@
   {
     "reference": "Tit 2:4",
     "text": "In this way they can train the young women to love their husbands and children,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Here, **so that** marks training **the younger women** as the goal or purpose of being “teachers of what is good” in [verse 3](../02/03.md). Of course, living in a good way, as [verse 3](../02/03.md) describes, helps the older women to be teachers of what is good. Use a connector in your language that makes it clear that what follows is the purpose."
@@ -446,7 +446,7 @@
   {
     "reference": "Tit 2:5",
     "text": "to be self-controlled, pure, managers of their households, kind, and submissive to their own husbands, so that the word of God will not be discredited.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [and to obey their own husbands]"
@@ -468,7 +468,7 @@
   {
     "reference": "Tit 2:6",
     "text": "In the same way, urge the younger men to be self-controlled.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Paul’s instructions for the different groups of believers are similar. See how you translated this phrase in [verse 3](../02/03.md)."
@@ -478,7 +478,7 @@
   {
     "reference": "Tit 2:7",
     "text": "In everything, show yourself to be an example by doing good works. In your teaching show integrity, dignity,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "It is possible that this phrase is part of the previous sentence instead of this one. If the Bible used in your area uses this phrase to end the previous sentence, you may choose to do the same."
@@ -508,7 +508,7 @@
   {
     "reference": "Tit 2:8",
     "text": "and wholesome speech that is above reproach, so that anyone who opposes us will be ashamed, having nothing bad to say about us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here the word **sound** applies to Titus’s **message** and means “accurate” or “correct,” as it does in [Titus 1:9](../01/09.md) and [2:1](../02/01.md) where it also applies to teaching. Alternate translation: [correct] or [true]"
@@ -530,7 +530,7 @@
   {
     "reference": "Tit 2:9",
     "text": "Slaves are to submit to their own masters in everything, to be well-pleasing, not argumentative,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "As in [2:2](../02/02.md) and [2:3](../02/03.md), Paul is leaving out a word that in many languages a sentence would need in order to be complete. If it would be clearer in your language, you could apply the verbal idea from [verse 6](../02/06.md) to here, which is “urge” or “exhort.” Alternate translation: [Exhort slaves to be subject to their own masters] or [Exhort slaves to obey their own masters]"
@@ -548,7 +548,7 @@
   {
     "reference": "Tit 2:10",
     "text": "not stealing from them, but showing all good faith, so that in every respect they will adorn the teaching about God our Savior.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that they would be tempted to steal from their masters. You could include this information if that would be helpful to your readers. Alternate translation: [not to steal from their masters]"
@@ -582,7 +582,7 @@
   {
     "reference": "Tit 2:11",
     "text": "For the grace of God has appeared, bringing salvation to everyone.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word translated as **For** indicates that what follows is a reason for what came before. Use a connector in your language that makes it clear that what follows is a reason for what came before. Alternate translation: [They should do this because]"
@@ -608,7 +608,7 @@
   {
     "reference": "Tit 2:12",
     "text": "It instructs us to renounce ungodliness and worldly passions, and to live sensible, upright, and godly lives in the present age,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Paul speaks of the grace of God ([2:11](../02/11.md)) as if it were a person who trains other people how to live holy lives. Alternate translation: [by which God trains us]"
@@ -638,7 +638,7 @@
   {
     "reference": "Tit 2:13",
     "text": "as we await the blessed hope and glorious appearance of our great God and Savior Jesus Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [while we wait to welcome]"
@@ -664,7 +664,7 @@
   {
     "reference": "Tit 2:14",
     "text": "He gave Himself for us to redeem us from all lawlessness and to purify for Himself a people for His own possession, zealous for good deeds.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This refers to Jesus dying willingly. You could include this information if that would be helpful to your readers. Alternate translation: [He gave himself to die for us]"
@@ -694,7 +694,7 @@
   {
     "reference": "Tit 2:15",
     "text": "Speak these things as you encourage and rebuke with all authority. Let no one despise you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-pronouns",
         "note": "Here, **these things** refers back to all of the things that Paul has said in chapter two. Use a natural way in your language to refer back to these things. Alternate translation: [about all of this]"
@@ -728,7 +728,7 @@
   {
     "reference": "Tit 3:1",
     "text": "Remind the believers to submit to rulers and authorities, to be obedient and ready for every good work,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Tell our people again what they already know, to submit] or [Keep reminding them to submit]"
@@ -750,7 +750,7 @@
   {
     "reference": "Tit 3:2",
     "text": "to malign no one, and to be peaceable and gentle, showing full consideration to everyone.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [to speak evil of]"
@@ -772,7 +772,7 @@
   {
     "reference": "Tit 3:3",
     "text": "For at one time we too were foolish, disobedient, misled, and enslaved to all sorts of desires and pleasures—living in malice and envy, being hated and hating one another.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word translated as **For** indicates that what follows is a reason for what came before. A reason for being gentle and humble with **foolish and disobedient** people is that we also used to be that way. Use a connector in your language that makes it clear that what follows is a reason for what came before. Alternate translation: [This is because we ourselves were once]"
@@ -814,7 +814,7 @@
   {
     "reference": "Tit 3:4",
     "text": "But when the kindness of God our Savior and His love for mankind appeared,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "**But** is used here to mark the important contrast between the evil way that people are ([verses 1–3](../03/01.md)) and the goodness of God ([verses 4–7](../03/04.md)). In your translation, indicate this strong contrast in a way that is natural in your language. Alternate translation: [However,]"
@@ -836,7 +836,7 @@
   {
     "reference": "Tit 3:5",
     "text": "He saved us, not by the righteous deeds we had done, but according to His mercy, through the washing of new birth and renewal by the Holy Spirit.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **righteousness**, you could express the same idea in another way. Alternate translation: [righteous works] or [good deeds]"
@@ -854,7 +854,7 @@
   {
     "reference": "Tit 3:6",
     "text": "This is the Spirit He poured out on us abundantly through Jesus Christ our Savior,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "It is common for New Testament writers to speak of the Holy Spirit as a liquid that God can pour out in large amounts. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [whom God gave to us generously]"
@@ -876,7 +876,7 @@
   {
     "reference": "Tit 3:7",
     "text": "so that, having been justified by His grace, we would become heirs with the hope of eternal life.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Here, **so that** marks becoming **heirs** of **eternal life** as the goal or purpose for why God gave us the Holy Spirit ([verse 6](../03/06.md)). Use a connector in your language that makes it clear that this is the purpose."
@@ -902,7 +902,7 @@
   {
     "reference": "Tit 3:8",
     "text": "This saying is trustworthy. And I want you to emphasize these things, so that those who have believed God will take care to devote themselves to good deeds. These things are excellent and profitable for the people.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-pronouns",
         "note": "**This message** is the one just expressed in [verses 4–7](../03/04.md), that God freely gives the Holy Spirit and eternal life to believers through Jesus. Alternate translation: [this saying]"
@@ -924,7 +924,7 @@
   {
     "reference": "Tit 3:9",
     "text": "But avoid foolish controversies, genealogies, arguments, and quarrels about the law, because these things are pointless and worthless.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The word **But** here indicates a contrast between good things to do ([verse 8](../03/08.md)) and bad things to avoid doing ([verse 9](../03/09.md)). In your translation, indicate this contrast in a way that is natural in your language. Alternate translation: [In contrast, avoid]"
@@ -950,7 +950,7 @@
   {
     "reference": "Tit 3:10",
     "text": "Reject a divisive man after a first and second admonition,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that this person is causing division in the church. You could include this information if that would be helpful to your readers. Alternate translation: [Stay away from a person who causes division in the church]"
@@ -964,7 +964,7 @@
   {
     "reference": "Tit 3:11",
     "text": "knowing that such a man is corrupt and sinful; he is self-condemned.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [a person like that]"
@@ -982,7 +982,7 @@
   {
     "reference": "Tit 3:12",
     "text": "As soon as I send Artemas or Tychicus to you, make every effort to come to me at Nicopolis, because I have decided to winter there.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that Titus should come to Nicopolis after either Artemas or Tychicus arrives to where Titus is. You could include this information if that would be helpful to your readers. Alternate translation: [After I send Artemas or Tychicus and he arrives to you]"
@@ -1004,7 +1004,7 @@
   {
     "reference": "Tit 3:13",
     "text": "Do your best to equip Zenas the lawyer and Apollos, so that they will have everything they need.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication here is that to **Diligently send** these men is to help and equip them. You could include this information if that would be helpful to your readers. Alternate translation: [Give supplies for traveling to]"
@@ -1030,7 +1030,7 @@
   {
     "reference": "Tit 3:14",
     "text": "And our people must also learn to devote themselves to good works in order to meet the pressing needs of others, so that they will not be unfruitful.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Here, **our own** refers to the believers in Crete. Alternate translation: [our own people]"
@@ -1056,7 +1056,7 @@
   {
     "reference": "Tit 3:15",
     "text": "All who are with me send you greetings. Greet those who love us in the faith. Grace be with all of you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "Here, **you** is singular. This is a personal greeting to Titus."

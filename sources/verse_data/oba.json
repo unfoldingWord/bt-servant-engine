@@ -2,7 +2,7 @@
   {
     "reference": "Oba 1:1",
     "text": "This is the vision of Obadiah: This is what the Lord GOD says about Edom—We have heard a message from the LORD; an envoy has been sent among the nations to say, “Rise up, and let us go to battle against her!”—",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "This is the title of the book. Here **vision** is used in the general sense of a message from Yahweh, rather than to indicate how Obadiah received that message. **Vision** here is a metaphor for the way that God gives knowledge to people. Alternate translation: [The message that God gave to Obadiah] or [The prophecy of Obadiah]"
@@ -64,7 +64,7 @@
   {
     "reference": "Oba 1:2",
     "text": "“Behold, I will make you small among the nations; you will be deeply despised.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "The addressee changes here. This is no longer Yahweh speaking to Judah or the messenger speaking to the other nations. Now Yahweh is speaking directly to the people of Edom. If it would be helpful in your language, you could add a quote introduction here, as in the UST."
@@ -90,7 +90,7 @@
   {
     "reference": "Oba 1:3",
     "text": "The pride of your heart has deceived you, O dwellers in the clefts of the rocks whose habitation is the heights, who say in your heart, ‘Who can bring me down to the ground?’",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Here, **pride** is spoken of as though it were a person who could deceive someone. If this is not clear, you could say this with plain language. Alternate translation: [Because you are so proud, you have deceived yourselves]"
@@ -132,7 +132,7 @@
   {
     "reference": "Oba 1:4",
     "text": "Though you soar like the eagle and make your nest among the stars, even from there I will bring you down,” declares the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two expressions have similar meanings. This is a way of showing that something is important by saying it more than once but in slightly different ways. If this is not clear in your language, use another way of showing that this is important. Alternate translation: [Even if you had wings and could live high up among the eagles, or even up among the stars]"
@@ -162,7 +162,7 @@
   {
     "reference": "Oba 1:5",
     "text": "“If thieves came to you, if robbers by night—oh, how you will be ruined—would they not steal only what they wanted? If grape gatherers came to you, would they not leave some gleanings?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "These two phrases mean the same thing. The repetition is used to emphasize the one idea that they are expressing. If this is not clear in your language, use another way of showing that this is important or you could combine them, as in the UST."
@@ -188,7 +188,7 @@
   {
     "reference": "Oba 1:6",
     "text": "But how Esau will be pillaged, his hidden treasures sought out!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "Here, **How** introduces an exclamation to express amazement that the pillaging of Edom is so extreme. Use a natural way in your language to express this. Alternate translation: [In an extreme way] or [Completely]"
@@ -214,7 +214,7 @@
   {
     "reference": "Oba 1:7",
     "text": "All the men allied with you will drive you to the border; the men at peace with you will deceive and overpower you. Those who eat your bread will set a trap for you without your awareness of it.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "If it does not make sense in your language to say that someone would be attacked by someone with whom they have a **covenant**, that is, an ally, then you could add in the missing step of their betrayal, as in the UST."
@@ -252,7 +252,7 @@
   {
     "reference": "Oba 1:8",
     "text": "In that day, declares the LORD, will I not destroy the wise men of Edom and the men of understanding in the mountains of Esau?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "This is a rhetorical question. Yahweh uses the question form here to emphasize that he will certainly do this. Alternate translation: [On that day … I will certainly destroy the wise men from Edom]"
@@ -290,7 +290,7 @@
   {
     "reference": "Oba 1:9",
     "text": "Then your mighty men, O Teman, will be terrified, so that everyone in the mountains of Esau will be cut down in the slaughter.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "Yahweh continues speaking to the people of Edom, but now he addresses them as **Teman**, which was the name of the region around their capital city. This part of Edom is now being used to represent the whole people. Alternate translation: [People of Edom, your strong soldiers will become terrified]"
@@ -332,7 +332,7 @@
   {
     "reference": "Oba 1:10",
     "text": "Because of the violence against your brother Jacob, you will be covered with shame and cut off forever.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "The term **brother** is being used here to refer to members of a related people group. Use the term that is most natural in your language. Alternate translation: [your relatives who are the descendants of Jacob]"
@@ -366,7 +366,7 @@
   {
     "reference": "Oba 1:11",
     "text": "On the day you stood aloof while strangers carried off his wealth and foreigners entered his gate and cast lots for Jerusalem, you were just like one of them.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "This is a metaphor that pictures the people of Edom as a person who was just standing around and not helping a relative. Alternate translation: [you did not help him.]"
@@ -400,7 +400,7 @@
   {
     "reference": "Oba 1:12",
     "text": "But you should not gloat in that day, your brother’s day of misfortune, nor rejoice over the people of Judah in the day of their destruction, nor boast proudly in the day of their distress.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-litany",
         "note": "Yahweh uses a repetitive series of sentences in [verses 12–14](../01/12.md) to show how badly the people of Edom have treated the people of Judah. This repetitive style of speaking or writing is called a “litany.” This is a list of the charges against the people of Edom. Yahweh goes on to say in [verses 15](../01/15.md) and [16](../01/16.md) that he has found them guilty of all of these charges and that he will punish them. Use a form in your language that someone would use to list things that someone has done wrong."
@@ -434,7 +434,7 @@
   {
     "reference": "Oba 1:13",
     "text": "You should not enter the gate of My people in the day of their disaster, nor gloat over their affliction in the day of their disaster, nor loot their wealth in the day of their disaster.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "In this poetic style, the same phrase is used at the end of each line to emphasize how terrible the **calamity** was. If this style does not work in your language to communicate an increased emphasis, then you could combine the three occurrences into one and communicate that this was a very bad thing in another way, as in the UST."
@@ -460,7 +460,7 @@
   {
     "reference": "Oba 1:14",
     "text": "Nor should you stand at the crossroads to cut off their fugitives, nor deliver up their survivors in the day of their distress.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "A **crossroads** is a place where two roads come together."
@@ -478,7 +478,7 @@
   {
     "reference": "Oba 1:15",
     "text": "For the Day of the LORD is near for all the nations. As you have done, it will be done to you; your recompense will return upon your own head.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Bible experts are not certain whether [verse 15](../01/15.md) goes with [verse 14](../01/14.md) as the end of the previous section or if it goes with [verse 16](../01/16.md) as the beginning of the new section. Many Bibles put a section break and a heading before [verse 15](../01/15.md), such as “God Will Judge the Nations.”"
@@ -512,7 +512,7 @@
   {
     "reference": "Oba 1:16",
     "text": "For as you drank on My holy mountain, so all the nations will drink continually. They will drink and gulp it down; they will be as if they had never existed.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "As at the beginning of [verse 15](../01/15.md), here also the connecting word **For** indicates that this is a reason why the people of Edom should have helped the Israelites instead of joining in attacking them. Here also Yahweh describes how he will soon judge all nations for the way that they have treated others. There are two possibilities for how you can make this explicit, If it would be helpful in your language. Choosing between these possibilities depends on how you interpret the referent of the word **you**. The word **you** here is masculine plural, the first and only time it occurs in this form in the book. Throughout the book, the nation of Edom was addressed with the masculine singular form. This is also the last occurrence of the second person in the book. (1) Because of these observations, the use of drinking here and throughout the Bible as a metaphor for suffering punishment, and the location of this suffering on Mount Zion in Jerusalem, it seems that here Obadiah stops addressing the people of Edom and returns to addressing the people of Israel. At the beginning of the book, Obadiah included the people of Israel when he said, “We have heard a report from Yahweh.” Now, near the end of the book, he addresses them again, giving them assurance that the people of Edom will be punished for what they did to the people of Israel. See the UST. (2) This word **you** could refer to the people of Edom. Alternate translation: [You should have helped the people of Israel, because just as you drank]"
@@ -546,7 +546,7 @@
   {
     "reference": "Oba 1:17",
     "text": "But on Mount Zion there will be deliverance, and it will be holy, and the house of Jacob will reclaim their possession.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "The abstract noun **escape** refers to the people of Israel who will still be alive in Jerusalem after Yahweh has finished punishing the other nations. As [1:16](../01/16.md) says, those other nations will disappear completely, but the descendants of Jacob will continue as a people. Alternate translation: [But in Jerusalem some people will remain]"
@@ -572,7 +572,7 @@
   {
     "reference": "Oba 1:18",
     "text": "Then the house of Jacob will be a blazing fire, and the house of Joseph a burning flame; but the house of Esau will be stubble—Jacob will set it ablaze and consume it. Therefore no survivor will remain from the house of Esau.” For the LORD has spoken.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two expressions have similar meanings. Yahweh is showing that what he is saying is important by saying it more than once. Both **house of Jacob** and **house of Joseph** stand for all of the Israelites. Alternate translation: [The Israelites will be like a fire. Yes, they will be like a flame] If saying this twice is confusing, you could combine them into one expression, as in the UST."
@@ -614,7 +614,7 @@
   {
     "reference": "Oba 1:19",
     "text": "Those from the Negev will possess the mountains of Esau; those from the foothills will possess the land of the Philistines. They will occupy the fields of Ephraim and Samaria, and Benjamin will possess Gilead.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "This verse as a whole describes people who live in different parts of Israel conquering the territories next to them. Alternate translation: [will conquer]"
@@ -664,7 +664,7 @@
   {
     "reference": "Oba 1:20",
     "text": "And the exiles of this host of the Israelites will possess the land of the Canaanites as far as Zarephath; and the exiles from Jerusalem who are in Sepharad will possess the cities of the Negev.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-collectivenouns",
         "note": "Here, **exile** is a collective singular noun that includes all of the people who were exiled. Alternate translation: [All of the large group of people who were captured and taken away from their homes]"
@@ -710,7 +710,7 @@
   {
     "reference": "Oba 1:21",
     "text": "The deliverers will ascend Mount Zion to rule over the mountains of Esau. And the kingdom will belong to the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Even though **the mountain of Zion** is a figurative name for Jerusalem, it would be good to keep the imagery of this high place in Jerusalem where God’s temple was, if possible. This would also allow the comparison with **the mountain of Esau**. Edom had boasted that it was up high and that no one could bring it down. But with this figurative imagery, Yahweh is saying that he will bring it down and place his own people up high instead. you could also choose to express this meaning in plain language if that is how you have been translating the book and if **the mountain of Zion** would be misunderstood. Alternate translation: [Israel’s saviors will go up to Jerusalem and will rule over Edom, who thought that they were so high, from up there]"

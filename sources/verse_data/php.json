@@ -2,7 +2,7 @@
   {
     "reference": "Php 1:1",
     "text": "Paul and Timothy, servants of Christ Jesus, To all the saints in Christ Jesus at Philippi, together with the overseers and deacons:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The phrase **in Christ Jesus** and similar expressions are metaphors that frequently occur in the New Testament letters. They express the strongest kind of relationship possible between Christ and those who believe in him, picturing believers as being surrounded by Christ. Alternate translation: [in close relationship to Christ Jesus] or [in union with Christ Jesus]"
@@ -12,7 +12,7 @@
   {
     "reference": "Php 1:2",
     "text": "Grace and peace to you from God our Father and the Lord Jesus Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "This is a greeting and blessing that Paul often uses in the beginning of his letters. Use a form in your language that makes it clear that this is a greeting and blessing. Alternate translation: [may you experience kindness, mercy, and peace within you] or [I pray that you will have grace, mercy, and peace]"
@@ -30,7 +30,7 @@
   {
     "reference": "Php 1:3",
     "text": "I thank my God every time I remember you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, **in all my remembrance of you** could refer to: (1) each time that Paul thought about the Philippian believers. Alternate translation: [each time that I think about you]; (2) each time that Paul prayed for the Philippian believers. Alternate translation: [every time that I pray for you]"
@@ -48,12 +48,12 @@
   {
     "reference": "Php 1:4",
     "text": "In every prayer for all of you, I always pray with joy,",
-    "translation_challanges": []
+    "translation_challenges": []
   },
   {
     "reference": "Php 1:5",
     "text": "because of your partnership in the gospel from the first day until now,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, **because** could refer to: (1) the reason that Paul gives thanks to God. Alternate translation: [I give thanks to God because of your partnership in the gospel from the first day until now]; (2) the reason for Paul’s joy."
@@ -79,7 +79,7 @@
   {
     "reference": "Php 1:6",
     "text": "being confident of this, that He who began a good work in you will carry it on to completion until the day of Christ Jesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase **having been persuaded** indicates a reason that Paul thanks God. If it would be clearer in your language, you could state that explicitly. Alternate translation: [I thank God because I am confident of this very thing]"
@@ -109,7 +109,7 @@
   {
     "reference": "Php 1:7",
     "text": "It is right for me to feel this way about all of you, since I have you in my heart. For in my chains and in my defense and confirmation of the gospel, you are all partners in grace with me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The phrase, **I have you in my heart** is an idiom which expresses strong affection. If you have an equivalent expression which adequately communicates the meaning, you may use it here. If not, you could state this using plain language. Alternate translation: [I love you very much]"
@@ -135,7 +135,7 @@
   {
     "reference": "Php 1:8",
     "text": "God is my witness how I long for all of you with the affection of Christ Jesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The Greek word translated as **inner parts** is a term which refers to body organs, particularly to the intestines, liver, lungs, and heart. Paul is using **inner parts** to refer to love or affection. You can use the body part that represents the seat of affection in your language, or translate the plain meaning. Alternate translation: [with the heart of Christ Jesus] or [with the affection of Christ Jesus]"
@@ -149,7 +149,7 @@
   {
     "reference": "Php 1:9",
     "text": "And this is my prayer: that your love may abound more and more in knowledge and depth of insight,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be clearer in your language, you could express the idea behind the abstract noun **love** with the verb form. Alternate translation: [that you will be able to love others more and more abundantly]"
@@ -167,7 +167,7 @@
   {
     "reference": "Php 1:10",
     "text": "so that you may be able to test and prove what is best and may be pure and blameless for the day of Christ,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The word **{what}** here refers to that which a person does, and the word **excels** here refers to something that is best, according to God. If it would be clearer in your language, you could state these things explicitly. Alternate translation: [so that you may approve and choose to do what pleases God the most]"
@@ -185,7 +185,7 @@
   {
     "reference": "Php 1:11",
     "text": "filled with the fruit of righteousness that comes through Jesus Christ, to the glory and praise of God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, the phrase **being filled with** is a metaphor meaning to be occupied in doing something. The phrase **the fruit of righteousness** is a metaphor which refers to what characterizes a person, namely what a person produces. This metaphor is a comparison between a good tree that produces good fruit and a person who is filled with righteousness and produces good actions as a result. So with these two metaphors, Paul is telling the Philippians to be occupied in doing righteous deeds. If this would be unclear in your language, you could state this plainly. Alternate translation: [filling your lives with the righteous deeds that are] or [habitually doing the good works that are]"
@@ -211,7 +211,7 @@
   {
     "reference": "Php 1:12",
     "text": "Now I want you to know, brothers, that my circumstances have actually served to advance the gospel.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "Although the term **brothers** is masculine, Paul is using the word here in a spiritual sense to include both men and women who believe in Jesus. Alternate translation: [brothers and sisters]"
@@ -233,7 +233,7 @@
   {
     "reference": "Php 1:13",
     "text": "As a result, it has become clear throughout the whole palace guard and to everyone else that I am in chains for Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The phrase **As a result** shows that what follows this phrase is the result of Paul’s circumstances which he began discussing in [verse 12](../01/12.md), namely, his imprisonment. Consider using a connecting word or phrase that will clearly show that what follows it is the result of Paul’s imprisonment."
@@ -251,7 +251,7 @@
   {
     "reference": "Php 1:14",
     "text": "And most of the brothers, confident in the Lord by my chains, now dare more greatly to speak the word without fear.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "See how you translated **brothers** in the previous verse [1:12](../01/12.md)."
@@ -281,7 +281,7 @@
   {
     "reference": "Php 1:15",
     "text": "It is true that some preach Christ out of envy and rivalry, but others out of goodwill.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-poetry",
         "note": "Beginning in this verse, and extending to the end of [1:17](../01/17.md), Paul uses a poetic device called chiasm that could be confusing in some languages. You may need to reorder certain things in [1:15–17](../01/15.md) if it would be more natural in your language. See the UST."
@@ -303,7 +303,7 @@
   {
     "reference": "Php 1:16",
     "text": "The latter do so in love, knowing that I am appointed for the defense of the gospel.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The object of the word **love** is not specified. You can leave the object of **love** unspecified or, if it is needed in your language, you may specify the object of **love**. Here, the word **love** could refer to: (1) love for Paul. Alternate translation: [because of their love for me]; (2) love for Christ. Alternate translation: [The ones who proclaim the good news because they love Christ]; (3) love for multiple objects, such as Paul and Christ and those who have not yet heard or believed in the gospel. Alternate translation: [The ones who proclaim the good news because of their love for me, and Jesus, and those who do not believe]"
@@ -329,7 +329,7 @@
   {
     "reference": "Php 1:17",
     "text": "The former, however, preach Christ out of selfish ambition, not sincerely, supposing that they can add to the distress of my chains.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be clearer in your language, you could express the idea behind the abstract noun **ambition** with a verbal phrase. Alternate translation: [but they proclaim Christ only to make themselves seem important]"
@@ -351,7 +351,7 @@
   {
     "reference": "Php 1:18",
     "text": "What then is the issue? Just this: that in every way, whether by false motives or true, Christ is preached. And in this I rejoice. Yes, and I will continue to rejoice,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "The phrase **What then?** is a rhetorical question. If using a rhetorical question would be confusing in your language, consider expressing the meaning of this rhetorical question by changing it into a statement. Alternate translation: [But that does not matter!]"
@@ -369,7 +369,7 @@
   {
     "reference": "Php 1:19",
     "text": "because I know that through your prayers and the provision of the Spirit of Jesus Christ, my distress will turn out for my deliverance.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the word **this** refers to Paul’s current situation of being in prison and the things that accompanied it. You could include this information if that would be helpful to your readers. Alternate translation: [my imprisonment] or [my current condition in prison]"
@@ -387,7 +387,7 @@
   {
     "reference": "Php 1:20",
     "text": "I eagerly expect and hope that I will in no way be ashamed, but will have complete boldness so that now as always Christ will be exalted in my body, whether by life or by death.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "Both **eager expectation** and **hope** have similar meanings and together express a single idea. Paul uses these two words together to emphasize the strength of his expectation. If you have a single word or phrase in your language which expresses the meaning of these two words, consider using that to express the strength of the hope in another way. Alternate translation: [sincere expectation] or [sure hope]"
@@ -417,7 +417,7 @@
   {
     "reference": "Php 1:21",
     "text": "For to me, to live is Christ, and to die is gain.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If the abstract noun **gain** would be unclear in your language, you may express the meaning behind this word by using a verb phrase. Alternate translation: [to die is to go to Christ] or [to die would give me more blessing]"
@@ -427,7 +427,7 @@
   {
     "reference": "Php 1:22",
     "text": "But if I go on living in the body, this will mean fruitful labor for me. So what shall I choose? I do not know.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "Paul is using the word **flesh** to refer to his entire body. The phrase **in the flesh** then refers to living as physical beings. If this would be confusing in your language, consider using a different word or phrase that refers to this present physical life. Alternate translation: [on this earth] or [in this world]"
@@ -445,7 +445,7 @@
   {
     "reference": "Php 1:23",
     "text": "I am torn between the two. I desire to depart and be with Christ, which is far better indeed.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The phrase **I am hard pressed between the two** is a metaphor. Paul speaks as if he were experiencing literal pressure from two opposite sides at the same time. Paul uses this figurative expression to show his difficulty in deciding which decision is best, if given the option between living or dying. If this would be confusing in your language, you could translate this phrase using a metaphor that would make sense in your language, or you could choose to use plain language to express it. Alternate translation: [both options have their advantages, so the decision is not an easy one for me]"
@@ -471,7 +471,7 @@
   {
     "reference": "Php 1:24",
     "text": "But it is more necessary for you that I remain in the body.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "The phrase **but remain in the flesh** means to remain alive in one’s body on earth. See how you translated **flesh** in [1:22](../01/22.md). If this would be unclear in your language, consider stating this plainly. Alternate translation: [but to continue in the body] or [but to continue to live on this earth]"
@@ -489,7 +489,7 @@
   {
     "reference": "Php 1:25",
     "text": "Convinced of this, I know that I will remain and will continue with all of you for your progress and joy in the faith,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The word **this** refers back to [1:24](../01/24.md) where Paul said that he believed it was more necessary that he remain alive on earth so that he could continue helping the Philippian Christians mature in their faith. If this would be unclear in your language, consider further explaining the word **this** in your translation. Alternate translation: [And being sure that it is better for you that I remain] or [And having been convinced that I should remain here on earth]"
@@ -531,7 +531,7 @@
   {
     "reference": "Php 1:26",
     "text": "so that through my coming to you again your exultation in Christ Jesus will resound on account of me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Here, the phrase **so that** indicates that what follows is the purpose of what came before it. The purpose of Paul remaining alive, ([1:25](../01/25.md)), was to increase the Philippian’s boasting in Christ. In your translation, use the method your language uses to indicate purpose."
@@ -553,7 +553,7 @@
   {
     "reference": "Php 1:27",
     "text": "Nevertheless, conduct yourselves in a manner worthy of the gospel of Christ. Then, whether I come and see you or only hear about you in my absence, I will know that you stand firm in one spirit, contending together as one for the faith of the gospel,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-go",
         "note": "Your language may have a different way of expressing the motion described by the word **come**. Here, the word **come** refers to Paul traveling to where the Philippians live and visiting them. See how you translated the form of this word in the previous verse, [1:26](../01/26.md)."
@@ -587,7 +587,7 @@
   {
     "reference": "Php 1:28",
     "text": "without being frightened in any way by those who oppose you. This is a clear sign of their destruction but of your salvation, and it is from God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase **the ones opposing you** refers to the people who were opposing the Philippian Christians and causing them trouble. If this would be unclear in your language, consider stating this plainly. Alternate translation: [the people opposing you] or [the people opposing you because you believe in Jesus]"
@@ -613,7 +613,7 @@
   {
     "reference": "Php 1:29",
     "text": "For it has been granted to you on behalf of Christ not only to believe in Him, but also to suffer for Him,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You could express this with an active form, and you could state who did the action. Alternate translation: [God has graciously granted to you]"
@@ -623,7 +623,7 @@
   {
     "reference": "Php 1:30",
     "text": "since you are encountering the same struggle you saw I had, and now hear that I still have.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If the abstract noun **struggle** would be confusing in your language, you could express it with a verb phrase, as the UST does, or by expressing the idea behind this word in some other way that would be clear in your language. Alternate translation: [facing the same strife] or [enduring the same trials]"
@@ -641,7 +641,7 @@
   {
     "reference": "Php 2:1",
     "text": "Therefore if you have any encouragement in Christ, if any comfort from His love, if any fellowship with the Spirit, if any affection and compassion,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **Therefore** indicates that what follows is the natural result of or conclusion to what preceded it. Use the most natural form in your language to show this relationship."
@@ -699,7 +699,7 @@
   {
     "reference": "Php 2:2",
     "text": "then make my joy complete by being like-minded, having the same love, being united in spirit and purpose.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **joy**, you can express the idea behind the abstract noun **joy** by using an adjective or verb. Alternate translation: [make me overflow with happiness]"
@@ -725,7 +725,7 @@
   {
     "reference": "Php 2:3",
     "text": "Do nothing out of selfish ambition or empty pride, but in humility consider others more important than yourselves.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Do not be selfishly ambitious] or [Do not do anything with an attitude of self-importance]"
@@ -747,7 +747,7 @@
   {
     "reference": "Php 2:4",
     "text": "Each of you should look not only to your own interests, but also to the interests of others.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [each of you caring not only about what you need, but also about what others need]"
@@ -773,7 +773,7 @@
   {
     "reference": "Php 2:5",
     "text": "Let this mind be in you which was also in Christ Jesus:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Have the same attitude that Christ Jesus had]"
@@ -795,7 +795,7 @@
   {
     "reference": "Php 2:6",
     "text": "Who, existing in the form of God, did not consider equality with God something to be grasped,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase **existing in the form of God** means that Jesus had the very nature of God. It does not mean that Jesus only appeared to be God, but was not God. This phrase is saying that Jesus was fully God. The rest of this verse and the next two verses explain that Jesus, while being fully God, humbled himself and acted as a servant, in obedience to God. Avoid any translation that would suggest that Jesus was not fully God. Alternate translation: [being fully God] or [though everything that is true of God is true of him]"
@@ -813,7 +813,7 @@
   {
     "reference": "Php 2:7",
     "text": "but emptied Himself, taking the form of a servant, being made in human likeness.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The word **Instead** introduces a contrast between the preceding clause in [2:6](../02/06.md) and what is expressed about Jesus in this verse and the next two verses. The contrast is made between Jesus’ choice to retain his divine rights and privileges, or to surrender them. Choose the best form in your language to show the contrast that **Instead** expresses here. Alternate translation: [On the contrary] or [Rather] or [But instead]"
@@ -855,7 +855,7 @@
   {
     "reference": "Php 2:8",
     "text": "And being found in appearance as a man, He humbled Himself and became obedient to death—even death on a cross.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase **having become** clarifies or introduces the way that Jesus **humbled himself**. Choose the most natural form in your language to express this meaning. Alternate translation: [Jesus humbled himself by becoming obedient to the point of dying] or [Jesus humbled himself this way, by obeying to the point of death] or [Jesus humbled himself, specifically, by obeying God to the point of death]"
@@ -881,7 +881,7 @@
   {
     "reference": "Php 2:9",
     "text": "Therefore God exalted Him to the highest place and gave Him the name above all names,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **Therefore** shows the reason and result relationship between what comes before this word and what follows it. Here, **Therefore** introduces the result of Jesus humbling himself, as was described in [2:6–8](../02/06.md). Choose the form in your language that best expresses the reason and result relationship expressed by the word **Therefore**. Alternate translation: [Because of this] or [Because Jesus acted this way]"
@@ -899,7 +899,7 @@
   {
     "reference": "Php 2:10",
     "text": "that at the name of Jesus every knee should bow, in heaven and on earth and under the earth,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The phrase **so that** connects this verse with the preceding verse, [2:9](../02/09.md) and shows that this verse and the next verse are the result of [2:9](../02/09.md). Use the most natural form in your language to show this connection."
@@ -921,7 +921,7 @@
   {
     "reference": "Php 2:11",
     "text": "and every tongue confess that Jesus Christ is Lord, to the glory of God the Father.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Paul uses the word **tongue** to represent the mouth and what comes out of the mouth. Paul is describing what is said by associating it with the tongue. If this is not clear in your language, you could use an equivalent expression, or use plain language. Alternate translation: [every mouth will declare] or [every being will say] or [everyone will say]"
@@ -939,7 +939,7 @@
   {
     "reference": "Php 2:12",
     "text": "Therefore, my beloved, just as you have always obeyed, not only in my presence, but now even more in my absence, continue to work out your salvation with fear and trembling.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The phrase **So then** shows that what follows it is the desired result of what preceded it in [2:5–11](../02/05.md). Use the most natural form in your language to show this relationship. Alternate translation: [Therefore]"
@@ -969,7 +969,7 @@
   {
     "reference": "Php 2:13",
     "text": "For it is God who works in you to will and to act on behalf of His good purpose.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "In the original language in which Paul wrote this letter, the word **working** expresses continuous action and emphasizes the ongoing nature of God’s work in believers. Consider the best way to express the continuous nature of this word in your language. Alternate translation: [continually working]"
@@ -987,7 +987,7 @@
   {
     "reference": "Php 2:14",
     "text": "Do everything without complaining or arguing,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "The phrase **Do all things without** is a command or instruction to all of the Philippian Christians. Use the most natural form in your language to give direction to a group of people. Alternate translation: [Every one of you, make sure that you do not complain or argue in anything you do]"
@@ -997,7 +997,7 @@
   {
     "reference": "Php 2:15",
     "text": "so that you may be blameless and pure, children of God without fault in a crooked and perverse generation, in which you shine as lights in the world",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "The words **blameless** and **pure** are very similar in meaning and are used together to emphasize the idea of living a morally pure life. You may translate these words individually, as the ULT does, or combine them together into one idea and express their meaning together as a single expression. Consider what would be most natural in your language. Alternate translation: [completely innocent]"
@@ -1027,7 +1027,7 @@
   {
     "reference": "Php 2:16",
     "text": "as you hold forth the word of life, in order that I may boast on the day of Christ that I did not run or labor in vain.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Here, **holding forth** could mean: (1) holding out to others the word of life. Alternate translation: [holding out the word of life] or [offering the word of life]; (2) holding firmly to the word of life. Alternate translation: [holding tightly to the word of life] or [holding firmly to the word of life]"
@@ -1089,7 +1089,7 @@
   {
     "reference": "Php 2:17",
     "text": "But even if I am being poured out like a drink offering on the sacrifice and service of your faith, I am glad and rejoice with all of you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "**But even if** connects the idea of running and laboring for the advance of the gospel, which Paul discussed in [2:16](../02/16.md), with what he says in the rest of this verse. Consider how to translate this phrase in your language in a way that shows this connection."
@@ -1119,7 +1119,7 @@
   {
     "reference": "Php 2:18",
     "text": "So you too should be glad and rejoice with me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase **in the same manner** refers to the Philippian Christians rejoicing in the same manner that Paul said he would rejoice in previous verse [2:17](../02/17.md). If this would be unclear in your language, consider stating this explicitly. Alternate translation: [in the same way that I rejoice]"
@@ -1133,7 +1133,7 @@
   {
     "reference": "Php 2:19",
     "text": "Now I hope in the Lord Jesus to send Timothy to you soon, that I also may be cheered when I learn how you are doing.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **hope**, you can express the idea behind the abstract noun **hope** with a verb form such as “hoping.”"
@@ -1143,7 +1143,7 @@
   {
     "reference": "Php 2:20",
     "text": "I have nobody else like him who will genuinely care for your needs.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [For I have no one else who loves you like I do]"
@@ -1153,7 +1153,7 @@
   {
     "reference": "Php 2:21",
     "text": "For all the others look after their own interests, not those of Jesus Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The words **they** and **their** refer to a group of people whom Paul does not think he can trust to help the believers in Philippi. If it would be helpful in your language, consider stating that explicitly. Alternate translation: [All the other people I might send to you seek what they want and do not see the things Jesus Christ wants]"
@@ -1163,7 +1163,7 @@
   {
     "reference": "Php 2:22",
     "text": "But you know Timothy’s proven worth, that as a child with his father he has served with me to advance the gospel.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-simile",
         "note": "The point of this comparison is that children learn from their fathers and try to follow and imitate them as they work alongside them. Paul was not Timothy’s biological father, but he uses this simile to illustrate how Timothy worked alongside him and learned from him as, together, they advanced the gospel. If it would be helpful in your language, you could use an equivalent comparison or express this meaning plainly. Alternate translation: [he learned from me and did what I did as he served with me in the gospel]"
@@ -1181,12 +1181,12 @@
   {
     "reference": "Php 2:23",
     "text": "So I hope to send him as soon as I see what happens with me.",
-    "translation_challanges": []
+    "translation_challenges": []
   },
   {
     "reference": "Php 2:24",
     "text": "And I trust in the Lord that I myself will come soon.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [I am sure, if it is the Lord’s will, that I will also come soon]"
@@ -1204,7 +1204,7 @@
   {
     "reference": "Php 2:25",
     "text": "But I thought it necessary to send back to you Epaphroditus, my brother, fellow worker, and fellow soldier, who is also your messenger and minister to my needs.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Epaphroditus** is the name of a man sent by the Philippian church to minister to Paul in prison."
@@ -1226,7 +1226,7 @@
   {
     "reference": "Php 2:26",
     "text": "For he has been longing for all of you and is distressed because you heard he was ill.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [he has wanted to be with you all and is deeply concerned]"
@@ -1240,7 +1240,7 @@
   {
     "reference": "Php 2:27",
     "text": "He was sick indeed, nearly unto death. But God had mercy on him, and not only on him but also on me, to spare me sorrow upon sorrow.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **he** refers to Epaphroditus, as do both uses of the pronoun **him**. If this would be unclear in your language, consider clarifying this in your translation. Alternate translation: [For indeed Epaphroditus was sick nearly to death. But God had mercy on him, and not on him only, but also on me, so that I might not have sorrow upon sorrow]"
@@ -1266,7 +1266,7 @@
   {
     "reference": "Php 2:28",
     "text": "Therefore I am all the more eager to send him, so that when you see him again you may rejoice, and I may be less anxious.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, both occurrences of the pronoun **him** refer to Epaphroditus. If it would be helpful in your language, consider clarifying who **him** is referring to in a way that would be natural in your language. Alternate translation: [Therefore, I sent Epaphroditus all the more eagerly, so that, having seen him again, you might rejoice, and I might be free from pain]"
@@ -1280,7 +1280,7 @@
   {
     "reference": "Php 2:29",
     "text": "Welcome him in the Lord with great joy, and honor men like him,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "The word **welcome** is a command or instruction in plural form to all of the Philippian Christians. Use the most natural form in your language to give direction to a group of people. Alternate translation: [I exhort all of you to welcome him] or [all of you receive him]"
@@ -1302,7 +1302,7 @@
   {
     "reference": "Php 2:30",
     "text": "because he nearly died for the work of Christ, risking his life to make up for your deficit of service to me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronouns **he** and **him** refer to Epaphroditus. If it would be helpful in your language, consider clarifying this in a way that would be natural in your language. Alternate translation: [since for the sake of the work of Christ, Epaphroditus came near even to death, risking his life so that he might make up your lack of service to me]"
@@ -1336,7 +1336,7 @@
   {
     "reference": "Php 3:1",
     "text": "Finally, my brothers, rejoice in the Lord. It is no trouble for me to write the same things to you again, and it is a safeguard for you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "Paul is using the term **brothers** here to refer to anyone who is a fellow believer in Jesus. If this is not clear in your language, you could express this plainly. See how you translated this word in [Philippians 1:12](../01/12.md)."
@@ -1358,7 +1358,7 @@
   {
     "reference": "Php 3:2",
     "text": "Watch out for those dogs, those workers of evil, those mutilators of the flesh!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "All three times that the phrase **Beware** occurs in this verse, it is a command or instruction given to all of the Philippian believers. Use the most natural form in your language to give direction to a group of people. Alternate translation: [I exhort each of you to beware of] or [Each of you should beware of]"
@@ -1392,7 +1392,7 @@
   {
     "reference": "Php 3:3",
     "text": "For it is we who are the circumcision, we who worship by the Spirit of God, who glory in Christ Jesus, and who put no confidence in the flesh—",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Paul uses **we** to refer to himself and the Philippian believers and anyone else who believes in Christ, so **we** is inclusive. Your language may require you to mark this form."
@@ -1422,7 +1422,7 @@
   {
     "reference": "Php 3:4",
     "text": "though I myself could have such confidence. If anyone else thinks he has grounds for confidence in the flesh, I have more:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "Using a type of hypothetical situation, Paul begins to recite his own credentials to illustrate that if observing the law could earn God’s favor, then he had more reason to boast than anyone else. His purpose is to teach the Philippian believers that they should only trust in Christ and not trust in other things to earn God’s favor. Paul explains in [3:7–11](../03/07.md) that his hope is in Christ and not in the things he lists in the next two verses. Alternate translation: [we do not trust in those rituals to make us acceptable to God, although I could very well do that if it would be useful for me]"
@@ -1432,7 +1432,7 @@
   {
     "reference": "Php 3:5",
     "text": "circumcised on the eighth day, of the people of Israel, of the tribe of Benjamin; a Hebrew of Hebrews; as to the law, a Pharisee;",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "In this verse and the next verse, Paul lists a total of seven things in which he put his confidence before he believed in Christ. In this verse he lists five of those things and in the next verse he lists the remaining two. If the connection between this statement and the previous one and following one is not clear, you may want to use a connecting word to show how this statement relates to what came before it. Use a natural form in your language for connecting this statement to those before and after it."
@@ -1454,7 +1454,7 @@
   {
     "reference": "Php 3:6",
     "text": "as to zeal, persecuting the church; as to righteousness in the law, faultless.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "In this verse Paul finishes naming the things in which he put his confidence before he believed in Christ."
@@ -1476,7 +1476,7 @@
   {
     "reference": "Php 3:7",
     "text": "But whatever was gain to me I count as loss for the sake of Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "This entire verse is Paul’s response to the seven things he listed in [3:5–6](../03/05.md), which he once considered to be spiritually and religiously profitable to himself. In this verse Paul contrasts his former way of viewing things when he was a Pharisee with his new way of viewing things now that he believes in Christ."
@@ -1502,7 +1502,7 @@
   {
     "reference": "Php 3:8",
     "text": "More than that, I count all things as loss compared to the surpassing excellence of knowing Christ Jesus my Lord, for whom I have lost all things. I consider them rubbish, that I may gain Christ",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "In this verse Paul continues the business metaphor which he began in [3:7](../03/07.md)."
@@ -1556,7 +1556,7 @@
   {
     "reference": "Php 3:9",
     "text": "and be found in Him, not having my own righteousness from the law, but that which is through faith in Christ, the righteousness from God on the basis of faith.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If it would be clearer in your language, you could translate the passive verbal phrase **be found** with an active form, and you could state who did the action. Alternate translation: [and God might find me belonging to him]"
@@ -1590,7 +1590,7 @@
   {
     "reference": "Php 3:10",
     "text": "I want to know Christ and the power of His resurrection and the fellowship of His sufferings, being conformed to Him in His death,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "All occurrences of the pronouns **him** and **his** in this verse refer to Christ. If it would be helpful in your language, you could clarify this in a way that would be natural in your language. Alternate translation: [to know Christ and the power of his resurrection and the fellowship of his sufferings, being conformed to his death]"
@@ -1636,7 +1636,7 @@
   {
     "reference": "Php 3:11",
     "text": "and so, somehow, to attain to the resurrection from the dead.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [the resurrection from the dead]"
@@ -1646,7 +1646,7 @@
   {
     "reference": "Php 3:12",
     "text": "Not that I have already obtained all this, or have already been made perfect, but I press on to take hold of that for which Christ Jesus took hold of me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **{it}** in the phrase **Not that I already received {it}** could be referring to: (1) spiritual perfection and completion. This phrase would then mean that Paul is saying that he is not yet spiritually perfect or complete. Alternate translation: [Not that I have already attained spiritual perfection] or [Not that I am already spiritually complete] or [Not that God’s work in me is already complete] or [Not that God’s work in me is already perfected]; (2) that Paul has not yet reached the goals he has for himself and so has not received his reward. Alternate translation: [Not that I have yet reached my goals and received my reward from God]; (3) Paul has not yet finished the work God gave him to do with his life, and then died and received his reward from God. Alternate translation: [Not that I have finished my work and received my reward from God]"
@@ -1672,7 +1672,7 @@
   {
     "reference": "Php 3:13",
     "text": "Brothers, I do not consider myself yet to have taken hold of it. But one thing I do: Forgetting what is behind and straining toward what is ahead,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "See how you translated the word **Brothers** in [Philippians 1:12](../01/12.md) and [3:1](../03/01.md)."
@@ -1694,7 +1694,7 @@
   {
     "reference": "Php 3:14",
     "text": "I press on toward the goal to win the prize of God’s heavenly calling in Christ Jesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "In this verse Paul continues using the metaphor of a runner who is competing in a foot race in order to win a prize. In this verse Paul says that his **goal**, which he works hard for, is to win the **prize** which God promises to give every person who obediently follows Christ. If this metaphor would be unfamiliar in your culture, consider using another metaphor, or use plain language to translate the idea behind this metaphor. Alternate translation: [I do all I can to pursue the goal of winning the prize of God’s upward call in Christ Jesus] or [I work hard so that I can reach my goal]"
@@ -1724,7 +1724,7 @@
   {
     "reference": "Php 3:15",
     "text": "All of us who are mature should embrace this point of view. And if you think differently about some issue, God will reveal this to you as well.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **Therefore** indicates that Paul is transitioning from teaching the Philippians by using his personal experience ([Philippians 3:4–14](../03/04.md)) to exhorting them ([Philippians 3:15–17](../03/15.md)). Use the form that would best express this meaning in your language."
@@ -1746,7 +1746,7 @@
   {
     "reference": "Php 3:16",
     "text": "Nevertheless, we must live up to what we have already attained.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "When Paul says **we** in this verse, he is speaking of himself and the Philippian Christians, so **we** is inclusive here. Your language may require you to mark these two uses of **we** as inclusive forms. Alternate translation: [let us all continue obeying the same truths we have already received]"
@@ -1760,7 +1760,7 @@
   {
     "reference": "Php 3:17",
     "text": "Join one another in following my example, brothers, and carefully observe those who walk according to the pattern we set for you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Do what I do] or [Live as I live]"
@@ -1786,7 +1786,7 @@
   {
     "reference": "Php 3:18",
     "text": "For as I have often told you before, and now say again even with tears: Many live as enemies of the cross of Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "The word **walk** is a Jewish figure of speech meaning to “live” or to “conduct one’s life.” In Jewish culture a person’s behavior was spoken of as if that person were walking along a path. If it would be helpful in your language, consider stating this in plain language. Alternate translation: [For many live] or [For many people conduct their lives]"
@@ -1808,7 +1808,7 @@
   {
     "reference": "Php 3:19",
     "text": "Their end is destruction, their god is their belly, and their glory is in their shame. Their minds are set on earthly things.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **end**, you can express the idea behind the abstract noun **end** in another way. Alternate translation: [whom God will destroy]"
@@ -1846,7 +1846,7 @@
   {
     "reference": "Php 3:20",
     "text": "But our citizenship is in heaven, and we eagerly await a Savior from there, the Lord Jesus Christ,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "When Paul uses **our** and **we** here, he is referring to himself and the believers in Philippi, so **our** and **we** are inclusive. Your language may require you to mark these forms."
@@ -1860,7 +1860,7 @@
   {
     "reference": "Php 3:21",
     "text": "who, by the power that enables Him to subject all things to Himself, will transform our lowly bodies to be like His glorious body.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, the pronoun **his** refers to Christ. Alternate translation: [to Christ’s glorious body]"
@@ -1874,7 +1874,7 @@
   {
     "reference": "Php 4:1",
     "text": "Therefore, my brothers, whom I love and long for, my joy and crown, that is how you must stand firm in the Lord, my beloved.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Paul uses the word **Therefore** as a transition word to introduce the exhortations to the Philippian Christians which he is about to give and which are based on the things that he has said before this verse. Consider the best word or phrase to use in your language to show this meaning. Alternate translation: [So then]"
@@ -1924,7 +1924,7 @@
   {
     "reference": "Php 4:2",
     "text": "I urge Euodia and Syntyche to agree with each other in the Lord.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Euodia** and **Syntyche** are the names of women."
@@ -1934,7 +1934,7 @@
   {
     "reference": "Php 4:3",
     "text": "Yes, and I ask you, my true yokefellow, to help these women who have contended at my side for the gospel, along with Clement and the rest of my fellow workers, whose names are in the Book of Life.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "Here, **you** refers to the **true companion** and is singular. This is the only occurrence of the word **you** in Philippians that is singular."
@@ -1968,7 +1968,7 @@
   {
     "reference": "Php 4:4",
     "text": "Rejoice in the Lord always. I will say it again: Rejoice!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "See how you translated the phrase **Rejoice in the Lord** in [Philippians 3:1](../03/01.md)."
@@ -1982,7 +1982,7 @@
   {
     "reference": "Php 4:5",
     "text": "Let your gentleness be apparent to all. The Lord is near.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "The phrase **Let your gentleness be known** is a command or instruction to all of the Philippian Christians. Use the most natural form in your language to give direction to a group of people."
@@ -2000,7 +2000,7 @@
   {
     "reference": "Php 4:6",
     "text": "Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests to God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "**Be anxious about nothing** is a command or instruction to all of the Philippian Christians. Use the most natural form in your language to give direction to a group of people."
@@ -2042,7 +2042,7 @@
   {
     "reference": "Php 4:7",
     "text": "And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **and** shows that what follows is the result of practicing what comes before **and** in the previous verse. Alternate translation: [and then]"
@@ -2076,7 +2076,7 @@
   {
     "reference": "Php 4:8",
     "text": "Finally, brothers, whatever is true, whatever is honorable, whatever is right, whatever is pure, whatever is lovely, whatever is admirable—if anything is excellent or praiseworthy—think on these things.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-endofstory",
         "note": "Here, as Paul comes near to the end of his letter, he gives some final instructions for how believers should live. Alternate translation: [Regarding what remains to be said] or [As to what remains for me to say]"
@@ -2114,7 +2114,7 @@
   {
     "reference": "Php 4:9",
     "text": "Whatever you have learned or received or heard from me, or seen in me, put it into practice. And the God of peace will be with you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [And everything that I have taught and shown you]"
@@ -2148,7 +2148,7 @@
   {
     "reference": "Php 4:10",
     "text": "Now I rejoice greatly in the Lord that at last you have revived your concern for me. You were indeed concerned, but you had no opportunity to show it.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "See how you translated the phrase **in the Lord** in [Philippians 3:12](../03/12.md)."
@@ -2170,7 +2170,7 @@
   {
     "reference": "Php 4:11",
     "text": "I am not saying this out of need, for I have learned to be content regardless of my circumstances.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [I do not say this because of need]"
@@ -2188,7 +2188,7 @@
   {
     "reference": "Php 4:12",
     "text": "I know how to live humbly, and I know how to abound. In any and every situation I have learned the secret of being filled and being hungry, of having plenty and having need.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **I know** means “I know from experience” and refers to what Paul knew from his experience. If it would help your readers, consider clarifying this in your translation in some way. Alternate translation: [I have learned both how]"
@@ -2230,7 +2230,7 @@
   {
     "reference": "Php 4:13",
     "text": "I can do all things through Christ who gives me strength.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **the one** refers to Christ. Alternate translation: [I can do all things because Christ gives me strength]"
@@ -2244,7 +2244,7 @@
   {
     "reference": "Php 4:14",
     "text": "Nevertheless, you have done well to share in my affliction.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase **having shared together in my affliction** means that the Philippian believers helped Paul while he was experiencing difficulties by giving him money and sending Epaphroditus to him. If it would help your readers, you could state this explicitly. Alternate translation: [by helping me in my affliction through your gift of money and sending Epaphroditus to me] or [by helping me when I faced difficult circumstances by sending Epaphroditus to encourage me and bring me your gift of money]"
@@ -2262,7 +2262,7 @@
   {
     "reference": "Php 4:15",
     "text": "And as you Philippians know, in the early days of the gospel, when I left Macedonia, no church but you partnered with me in the matter of giving and receiving.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **in the beginning of the gospel** refers to when Paul first began communicating the gospel message to the Philippians. If it would be helpful in your language, you could state explicitly the idea behind this phrase. Alternate translation: [when you first heard me preach the gospel]"
@@ -2288,7 +2288,7 @@
   {
     "reference": "Php 4:16",
     "text": "For even while I was in Thessalonica, you provided for my needs again and again.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [for even when I was in Thessalonica]"
@@ -2306,7 +2306,7 @@
   {
     "reference": "Php 4:17",
     "text": "Not that I am seeking a gift, but I am looking for the fruit that may be credited to your account.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "At the time Paul wrote this letter, the word **fruit** could be used in a business context to refer to what was gained in a financial transaction. When used in a business context, the word **fruit** meant “profit” or “gain.” Here Paul is using this business meaning to refer to God’s reward. If your language has an equivalent word that could be used in a business context, consider using it here if it would be natural in your language. Alternately, you may express this meaning using plain language, as the UST does. Alternate translation: [I seek the profit that increases to your account] or [I seek the gain that increases to your account]"
@@ -2316,7 +2316,7 @@
   {
     "reference": "Php 4:18",
     "text": "I have all I need and more, now that I have received your gifts from Epaphroditus. They are a fragrant offering, an acceptable sacrifice, well-pleasing to God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "The phrase **I have all things in full** could mean: (1) that Paul has received **all things** that he needs from the Philippian believers and is therefore sufficiently supplied. Alternate translation: [I have everything I need and am content]; (2) that Paul is continuing the business metaphor from [Philippians 4:17](../04/17.md) and is here offering the Philippians a figurative receipt for the gifts they gave him. Alternate translation: [I have received the gift that you sent]"
@@ -2342,7 +2342,7 @@
   {
     "reference": "Php 4:19",
     "text": "And my God will supply all your needs according to His glorious riches in Christ Jesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The word for **will fulfill** is the same word translated as “have been fulfilled” in [verse 18](../04/18.md). This phrase is an idiom meaning “will provide everything you need”"
@@ -2356,7 +2356,7 @@
   {
     "reference": "Php 4:20",
     "text": "To our God and Father be glory forever and ever. Amen.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "When Paul says **our**, he is speaking of himself and the Philippian believers, so **our** is inclusive. Your language may require you to mark this form."
@@ -2366,7 +2366,7 @@
   {
     "reference": "Php 4:21",
     "text": "Greet all the saints in Christ Jesus. The brothers who are with me send you greetings.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "**Greet** is a command or instruction to all of the Philippian Christians. Use the most natural form in your language to give direction to a group of people."
@@ -2384,7 +2384,7 @@
   {
     "reference": "Php 4:22",
     "text": "All the saints send you greetings, especially those from the household of Caesar.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "The phrase **the household of Caesar** refers to the servants who worked in Caesar’s palace."
@@ -2394,7 +2394,7 @@
   {
     "reference": "Php 4:23",
     "text": "The grace of the Lord Jesus Christ be with your spirit.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "Paul describes the Philippian Christians as whole persons by reference to their **spirit**. Alternate translation: [be with you]"

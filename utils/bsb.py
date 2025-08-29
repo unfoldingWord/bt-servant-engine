@@ -186,15 +186,15 @@ def select_verses(data_root: Path, canonical_book: str, ranges: Iterable[Tuple[i
     return result
 
 
-def select_translation_challanges(
+def select_translation_challenges(
     data_root: Path,
     canonical_book: str,
     ranges: Iterable[Tuple[int, int | None, int | None, int | None]],
 ) -> List[Tuple[str, List[Dict[str, str]]]]:
-    """Select translation challanges for a canonical book given a set of ranges.
+    """Select translation challenges for a canonical book given a set of ranges.
 
-    Returns a list of (reference, translation_challanges[]) for each verse in range order.
-    If a verse has no challanges, its list will be empty.
+    Returns a list of (reference, translation_challenges[]) for each verse in range order.
+    If a verse has no challenges, its list will be empty.
     """
     mapping = BOOK_MAP[canonical_book]
     entries = load_book_json(data_root, mapping["file_stem"])  # cached
@@ -224,10 +224,10 @@ def select_translation_challanges(
                 break
             entry = idx_cv_to_entry[(ch, vs)]
             ref = entry.get("reference", "")
-            challanges = entry.get("translation_challanges", [])
+            challenges = entry.get("translation_challenges", [])
             # Ensure a list to avoid None
-            chall_list: List[Dict[str, str]] = challanges if isinstance(challanges, list) else []
-            result.append((ref, chall_list))
+            challenge_list: List[Dict[str, str]] = challenges if isinstance(challenges, list) else []
+            result.append((ref, challenge_list))
     return result
 
 

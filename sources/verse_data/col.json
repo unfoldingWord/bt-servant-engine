@@ -2,7 +2,7 @@
   {
     "reference": "Col 1:1",
     "text": "Paul, an apostle of Christ Jesus by the will of God, and Timothy our brother,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Throughout this letter the words “we,” “us,” “our,” and “ours” include the Colossian believers unless noted otherwise."
@@ -24,7 +24,7 @@
   {
     "reference": "Col 1:2",
     "text": "To the saints and faithful brothers in Christ at Colossae: Grace and peace to you from God our Father.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "In this culture, after giving their own names, letter writers would name those to whom they sent the letter, referring to them in the third person. If that is confusing in your language, you could use the second person here. Or if your language has a particular way of introducing the recipient of a letter, and if it would be helpful to your readers, you could use it here. Alternate translation: [to you who live in the city of Colossae and who are God’s people and faithful fellow believers who are united to the Messiah]"
@@ -50,7 +50,7 @@
   {
     "reference": "Col 1:3",
     "text": "We always thank God, the Father of our Lord Jesus Christ, when we pray for you,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "The word **We** here does not include the Colossians, but the word **our** here does include the Colossians"
@@ -64,7 +64,7 @@
   {
     "reference": "Col 1:4",
     "text": "because we have heard about your faith in Christ Jesus and your love for all the saints—",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea behind the word **faith**, you could express the idea behind this abstract noun in another way. Alternate translation: [having heard that you are trusting]"
@@ -78,7 +78,7 @@
   {
     "reference": "Col 1:5",
     "text": "the faith and love proceeding from the hope stored up for you in heaven, of which you have already heard in the word of truth, the gospel",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **hope** refers not only to the attitude of hopefulness but also to what the believer hopes for, that is, what God has promised to give to all believers. If it would be helpful in your language, you could express the idea by using a relative clause. Alternate translation: [what you hope for]"
@@ -100,7 +100,7 @@
   {
     "reference": "Col 1:6",
     "text": "that has come to you. All over the world this gospel is bearing fruit and growing, just as it has been doing among you since the day you heard it and truly understood the grace of God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Here the good news is spoken of as though it were a person who could be **present** with the Colossians. If it would be helpful in your language, you could express the meaning plainly. Alternate translation: [which was told to you in Colossae]"
@@ -126,7 +126,7 @@
   {
     "reference": "Col 1:7",
     "text": "You learned it from Epaphras, our beloved fellow servant, who is a faithful minister of Christ on our behalf,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Epaphras** is the name of a man. He is the one who preached the good news to the people in Colossae."
@@ -140,7 +140,7 @@
   {
     "reference": "Col 1:8",
     "text": "and who also informed us of your love in the Spirit.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "The word **us** here does not include the Colossians."
@@ -158,7 +158,7 @@
   {
     "reference": "Col 1:9",
     "text": "For this reason, since the day we heard about you, we have not stopped praying for you and asking God to fill you with the knowledge of His will in all spiritual wisdom and understanding,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "The word **we** here does not include the Colossians."
@@ -208,7 +208,7 @@
   {
     "reference": "Col 1:10",
     "text": "so that you may walk in a manner worthy of the Lord and may please Him in every way: bearing fruit in every good work, growing in the knowledge of God,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The word **walk** is a figurative way to refer to behavior in life. If it would be helpful in your language, you could use a comparable metaphor or express the idea plainly. Alternate translation: [to behave in the way that the Lord expects you to behave]"
@@ -230,7 +230,7 @@
   {
     "reference": "Col 1:11",
     "text": "being strengthened with all power according to His glorious might so that you may have full endurance and patience, and joyfully",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could express the idea with an active form, with God as the subject. Alternate translation: [God strengthening you]"
@@ -260,7 +260,7 @@
   {
     "reference": "Col 1:12",
     "text": "giving thanks to the Father, who has qualified you to share in the inheritance of the saints in the light.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Some Bible versions connect the phrase “with joy” at the end of [verse 11](../01/11.md) to the phrase at the beginning of [verse 12](../01/12.md), instead of connecting it to [verse 11](../01/11.md). Alternate translation: [with joy giving thanks]"
@@ -294,7 +294,7 @@
   {
     "reference": "Col 1:13",
     "text": "He has rescued us from the dominion of darkness and brought us into the kingdom of His beloved Son,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **darkness** is a metaphor for evil. If it would be helpful in your language, you could express the idea plainly. Alternate translation: [the authority of evil powers]"
@@ -328,7 +328,7 @@
   {
     "reference": "Col 1:14",
     "text": "in whom we have redemption, the forgiveness of sins.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-textvariants",
         "note": "Some later manuscripts add “through his blood” after **redemption**. Most likely, “through his blood” was accidentally added because of how similar this verse is to [Ephesians 1:7](../../eph/01/07.md), which does include “through his blood.” Most likely, you should not include “through his blood” in your translation."
@@ -350,7 +350,7 @@
   {
     "reference": "Col 1:15",
     "text": "The Son is the image of the invisible God, the firstborn over all creation.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **image** does not mean a representation of something that is visible, like a photo or a reflection. Instead, **image** refers to how the Son perfectly reveals the Father. If it would be helpful in your language, you could replace **image** with an expression that emphasizes how the Son reveals the Father. Alternate translation: [What the invisible God is like can be seen in his Son]"
@@ -372,7 +372,7 @@
   {
     "reference": "Col 1:16",
     "text": "For in Him all things were created, things in heaven and on earth, visible and invisible, whether thrones or dominions or rulers or authorities. All things were created through Him and for Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could express the idea in active form, with God as the subject. Alternate translation: [For in him God created all things]"
@@ -410,7 +410,7 @@
   {
     "reference": "Col 1:17",
     "text": "He is before all things, and in Him all things hold together.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The word **before** refers to time, not location. It means that the Son did not come into being when God created everything, but rather he existed as God before anything was created. If it would be helpful in your language, you could use a word or phrase that refers to prior time. Alternate translation: [before God created anything, the Son existed as God]"
@@ -424,7 +424,7 @@
   {
     "reference": "Col 1:18",
     "text": "And He is the head of the body, the church; He is the beginning and firstborn from among the dead, so that in all things He may have preeminence.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of Jesus’ position over the **church** as if he were the **head** on the human **body**. As the head rules and directs the body, so Jesus rules and directs the church. If it would be helpful in your language, you could use a comparable expression or express the idea with a simile or in plain language. Alternate translation: [he rules and directs the church]"
@@ -454,7 +454,7 @@
   {
     "reference": "Col 1:19",
     "text": "For God was pleased to have all His fullness dwell in Him,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **For** provides a reason for previous statements. If it would be helpful in your language, you could clarify for which statements this verse gives a reason. These statements could be: (1) everything in the previous verse, including the Son’s headship over the church, his founding of the church, his resurrection, and his status as most important. Alternate translation: [He is all these things because]; (2) why the Son is first among all things. Alternate translation: [He is first among all things because]"
@@ -476,7 +476,7 @@
   {
     "reference": "Col 1:20",
     "text": "and through Him to reconcile to Himself all things, whether things on earth or things in heaven, by making peace through the blood of His cross.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "This verse continues the sentence from the previous verse, so **to reconcile** continues the same verb from there, “was pleased,” along with its implied subject, God the Father. If it would be helpful in your language, you could repeat that subject and verb here. Alternate translation: [God the Father was pleased to reconcile]"
@@ -510,7 +510,7 @@
   {
     "reference": "Col 1:21",
     "text": "Once you were alienated from God and were hostile in your minds, engaging in evil deeds.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "The phrase **At one time** does not refer to one specific instance in time when the Colossians were alienated from God. Instead, it refers to all the time before they believed in Jesus. If it would be helpful in your language, you could clarify what **time** Paul is referring to. Alternate translation: [During the time before you believed]"
@@ -532,7 +532,7 @@
   {
     "reference": "Col 1:22",
     "text": "But now He has reconciled you by Christ’s physical body through death to present you holy, unblemished, and blameless in His presence—",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The word **But** here introduces a strong contrast from the previous sentence. Use a natural way in your language for introducing a strong contrast from what was just said. Alternate translation: [Instead of that,]"
@@ -570,7 +570,7 @@
   {
     "reference": "Col 1:23",
     "text": "if indeed you continue in your faith, established and firm, not moved from the hope of the gospel you heard, which has been proclaimed to every creature under heaven, and of which I, Paul, have become a servant.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "Paul explains that the Colossians need to continue in their faith for what he said in the previous verse to be true about them. In other words, in order for them to be reconciled to God, blameless and without reproach, they need to continue in the faith. However, he does not think that this is a hypothetical situation or something that is likely not true. Instead, Paul thinks that they are continuing in their faith, and he uses this statement with **if** to encourage them to keep doing so. If your language does not use **if** in this context, you could rephrase the condition into a circumstance or an assumption. Alternate translation: [provided that you continue] or [presuming that you continue]"
@@ -616,7 +616,7 @@
   {
     "reference": "Col 1:24",
     "text": "Now I rejoice in my sufferings for you, and I fill up in my flesh what is lacking in regard to Christ’s afflictions for the sake of His body, which is the church.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **Now** indicates that Paul wishes to tell the Colossians how he is currently serving the gospel. It does not indicate a change of topic, as it sometimes does in English. If it would be helpful in your language, you could use a longer phrase to express this idea. Alternate translation: [While I write this letter,]"
@@ -646,7 +646,7 @@
   {
     "reference": "Col 1:25",
     "text": "I became its servant by the commission God gave me to fully proclaim to you the word of God,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "If your language would specify who called Paul to be **a servant** of the church, you could rephrase this clause so that God is the subject and Paul is the object. Alternate translation: [God appointed me to be a servant of the church]"
@@ -676,7 +676,7 @@
   {
     "reference": "Col 1:26",
     "text": "the mystery that was hidden for ages and generations but is now revealed to His saints.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could express the idea in active form, with God as the subject. Alternate translation: [the mystery that God had hidden]"
@@ -706,7 +706,7 @@
   {
     "reference": "Col 1:27",
     "text": "To them God has chosen to make known among the Gentiles the glorious riches of this mystery, which is Christ in you, the hope of glory.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul emphasizes the scope of **the glory** by speaking as if it had wealth or **riches**. If it would be helpful in your language, you could use a comparable statement or express the idea with an adverb such as “very” or an adjective such as “abundant.” Alternate translation: [the abundant glory of this mystery]"
@@ -740,7 +740,7 @@
   {
     "reference": "Col 1:28",
     "text": "We proclaim Him, admonishing and teaching everyone with all wisdom, so that we may present everyone perfect in Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "The pronoun **We** in this verse does not include the Colossians."
@@ -774,7 +774,7 @@
   {
     "reference": "Col 1:29",
     "text": "To this end I also labor, striving with all His energy working powerfully within me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "The words **labor** and **striving** mean very similar things. The repetition emphasizes how hard Paul works. If your language does not use repetition in this way or has only one word for this concept, you could use just one word and provide emphasis in another way. Alternate translation: [work hard] or [labor greatly]"
@@ -792,7 +792,7 @@
   {
     "reference": "Col 2:1",
     "text": "For I want you to know how much I am struggling for you and for those at Laodicea, and for all who have not met me face to face,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **For** introduces the reason why Paul told them in [1:29](../01/29.md) about how hard he works. If it would be helpful in your language, you could make the transition more explicit. Alternate translation: [I tell you about my hard work because]"
@@ -826,7 +826,7 @@
   {
     "reference": "Col 2:2",
     "text": "that they may be encouraged in heart, knit together in love, and filled with the full riches of complete understanding, so that they may know the mystery of God, namely Christ,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Here, **so that** marks the encouragement of the believers as the goal or purpose of Paul’s struggle. Use a connector in your language that makes it clear that this is the purpose. If it would be helpful, you could start a new sentence here and repeat some of the previous verse. Alternate translation: [The reason that I struggle so much is so that] or [I do this in order that]"
@@ -872,7 +872,7 @@
   {
     "reference": "Col 2:3",
     "text": "in whom are hidden all the treasures of wisdom and knowledge.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this form, you could express the idea in active form, with God as the subject. Alternate translation: [God has hidden all the treasures of wisdom and knowledge]"
@@ -898,7 +898,7 @@
   {
     "reference": "Col 2:4",
     "text": "I say this so that no one will deceive you by smooth rhetoric.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The word **this** refers to what Paul has said in [2:2–3](../02/02.md) about the Messiah. If it would be helpful in your language, you could summarize what Paul has said instead of using **this**. Alternate translation: [these things about the Messiah]"
@@ -916,7 +916,7 @@
   {
     "reference": "Col 2:5",
     "text": "For although I am absent from you in body, I am present with you in spirit, and I delight to see your orderly condition and firm faith in Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **For** introduces further support for why the Colossians should not be “deceived” ([2:4](../02/04.md)). Even if Paul is physically absent, he is thinking about them and caring for them. If it would be helpful in your language, you could specify what the word **For** is supporting. Alternate translation: [Do not let yourselves be deceived, because]"
@@ -966,7 +966,7 @@
   {
     "reference": "Col 2:6",
     "text": "Therefore, just as you have received Christ Jesus as Lord, continue to walk in Him,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **Therefore** draws an inference or conclusion from what Paul has said in [2:1–5](../02/01.md), particularly what he has said about Jesus. If it would be helpful in your language, you could specify more explicitly what Paul is basing his inference on. Alternate translation: [Since these things about the Messiah are true]"
@@ -988,7 +988,7 @@
   {
     "reference": "Col 2:7",
     "text": "rooted and built up in Him, established in the faith as you were taught, and overflowing with thankfulness.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Paul uses these four verbs to give examples of how the Colossians should “walk in” the Messiah ([2:6](../02/06.md)). If it would be helpful in your language, you could add a phrase that makes this relationship clear. Alternate translation: (starting a new sentence) [Walking in him entails being rooted … built up … confirmed … abounding]"
@@ -1026,7 +1026,7 @@
   {
     "reference": "Col 2:8",
     "text": "See to it that no one takes you captive through philosophy and empty deception, which are based on human tradition and the spiritual forces of the world rather than on Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Paul uses this clause to warn the Colossians against any person who wishes to take them captive. If your language does not use this form, you could simplify or restructure the clause so that it does not include both **someone** and **the one**. Alternate translation: [Beware lest anyone take you captive] or [Make sure that no one takes you captive]"
@@ -1060,7 +1060,7 @@
   {
     "reference": "Col 2:9",
     "text": "For in Christ all the fullness of the Deity dwells in bodily form.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **For** introduces the reason why the Colossians need to watch out for any teaching that is “not according to Christ” ([2:8](../02/08.md)): Christ is God and only he provides access to God. Use a connector that makes this clear in your language. Alternate translation: [You must beware of any teaching that ignores Christ, because]"
@@ -1078,7 +1078,7 @@
   {
     "reference": "Col 2:10",
     "text": "And you have been made complete in Christ, who is the head over every ruler and authority.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **and** introduces another reason why the Colossians need to watch out for anyone who provides teaching that is “not according to Christ” ([2:8](../02/08.md)): not only is Christ fully God ([2:9](../02/09.md)), but he provides the way in which the Colossians are filled with everything they need. If it would be helpful in your language, you could make this link more explicit. Alternate translation: [and furthermore,]"
@@ -1108,7 +1108,7 @@
   {
     "reference": "Col 2:11",
     "text": "In Him you were also circumcised, in the putting off of your sinful nature, with the circumcision performed by Christ and not by human hands.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exmetaphor",
         "note": "Paul uses **circumcision** as an image to describe what happens to believers when they are united to the Messiah. In the metaphor, the **circumcision** is completed **without hands**, which means that God accomplishes it. What is “removed” or cut off is the **body of flesh**, which refers to the broken and sinful parts of the person. If it would be helpful in your language, you could express this idea with the language of analogy or express it plainly. Alternate translation: [you were also marked off by God as his own when he took away your body of flesh by the work of the Messiah]"
@@ -1134,7 +1134,7 @@
   {
     "reference": "Col 2:12",
     "text": "And having been buried with Him in baptism, you were raised with Him through your faith in the power of God, who raised Him from the dead.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul here uses a metaphor that connects **baptism** to “burial” to further explain what happens to believers when they are united to Christ. This metaphor expresses how, when they are baptized, believers are united to Christ in his (death and) burial and are no longer who they once were. If it would be helpful in your language, you could express this idea with the language of analogy, or express it plainly. Alternate translation: [having been united with the Messiah in his burial when you were baptized] or [having been baptized in him, as if you were buried with him,]"
@@ -1172,7 +1172,7 @@
   {
     "reference": "Col 2:13",
     "text": "When you were dead in your trespasses and in the uncircumcision of your sinful nature, God made you alive with Christ. He forgave us all our trespasses,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Paul begins the sentence with **you**, and then he restates **you** when he identifies what God has done for **you**. If your language would not restate **you** or use this structure, you could separate the two uses of **you** into separate sentences. Alternate translation: [you were dead in the trespasses and the uncircumcision of your flesh. Then, he made you alive together]"
@@ -1210,7 +1210,7 @@
   {
     "reference": "Col 2:14",
     "text": "having canceled the debt ascribed to us in the decrees that stood against us. He took it away, nailing it to the cross!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of the way God forgives our sins as if God **canceled** debts that we owed him. In the metaphor, God has crossed out or erased the **written record** of those debts and thus removed any impact these debts have on our relationship to him. If it would be helpful in your language, you could use a comparable metaphor or express the idea plainly. Alternate translation: [having taken away the guilt from our sins, he has kept those sins from impacting our relationship with him, having nailed them to the cross]"
@@ -1232,7 +1232,7 @@
   {
     "reference": "Col 2:15",
     "text": "And having disarmed the powers and authorities, He made a public spectacle of them, triumphing over them by the cross.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks of God’s victory over powerful spiritual beings in terms that fit with what a conqueror often did to his prisoners in Paul’s culture. He would make a **public spectacle** or example of them, “stripping” them of their clothes and forcing them to parade behind him in his “triumph.” If it would be helpful in your language, you could express these ideas with a comparable metaphor, or express it plainly. Alternate translation: [having defeated … he showed everyone that he had conquered]"
@@ -1250,7 +1250,7 @@
   {
     "reference": "Col 2:16",
     "text": "Therefore let no one judge you by what you eat or drink, or with regard to a feast, a New Moon, or a Sabbath.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **Therefore** draws an inference or conclusion from what Paul has already said, which can be found in [2:9–15](../02/09.md): in the work of Christ, the Colossians have received new life and the powers that rule this world have been defeated. Because of these things that have happened, the Colossians should not allow others to judge them in how they behave. Paul is continuing the warning against false teachers that he started in [2:8](../02/08.md). If it would be helpful in your language, you could refer to these ideas more explicitly or use a comparable transition word or phrase. Alternate translation: [In light of all these things] or [Given the Messiah’s sufficient work on your behalf]"
@@ -1272,7 +1272,7 @@
   {
     "reference": "Col 2:17",
     "text": "These are a shadow of the things to come, but the body that casts it belongs to Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "A **shadow** shows the shape and outline of a **body**, but it is not the **body** itself. In a similar way, the things listed in the previous verse show the shape and outline of the **things coming**, but the **body** that casts this **shadow** is **Christ**. He is the substance of the **things coming**. If it would be helpful in your language, you could use a comparable metaphor or express the idea plainly. Alternate translation: [which are a foretaste of the things coming, but the full experience is of Christ] or [which hint at the things that were to come, but Christ is the one who came]"
@@ -1294,7 +1294,7 @@
   {
     "reference": "Col 2:18",
     "text": "Do not let anyone who delights in false humility and the worship of angels disqualify you with speculation about what he has seen. Such a person is puffed up without basis by his unspiritual mind.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "The words **no one**, **he**, and **his** do not refer to one male person. Instead, they refer in a generic way to anyone, male or female, who acts in these ways. If it would be helpful in your language, you could translate these words with a comparable generic phrase in your language or make them plural. Alternate translation: [no one … they have seen … their]"
@@ -1344,7 +1344,7 @@
   {
     "reference": "Col 2:19",
     "text": "He has lost connection to the head, from whom the whole body, supported and knit together by its joints and ligaments, grows as God causes it to grow.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul describes the false teachers as if they had let go of the **head**, which is Christ. This means that they have stopped treating Christ as the source and authority behind their teaching. If it would be helpful in your language, you could use a comparable expression or translate the idea plainly. Alternate translation: [not staying connected to the head] or [ceasing to depend on Christ, who is the head]"
@@ -1374,7 +1374,7 @@
   {
     "reference": "Col 2:20",
     "text": "If you have died with Christ to the spiritual forces of the world, why, as though you still belonged to the world, do you submit to its regulations:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "Paul is speaking as if this were a hypothetical possibility, but he means that it is actually true. If your language does not state something as a condition if it is certain or true, then you could translate the clause as an affirmative statement. Alternate translation: [Since you died with Christ]"
@@ -1420,7 +1420,7 @@
   {
     "reference": "Col 2:21",
     "text": "“Do not handle, do not taste, do not touch!”?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "This verse gives three commands that are not from Paul, but rather they are examples of the “decrees” from [2:20](../02/20.md). If it would be helpful in your language, you could introduce these commands with a phrase, such as “for example,” to show that they connect to the “decrees” in the previous verse. Alternate translation: [for example, “You may not handle, nor taste, nor touch]"
@@ -1438,7 +1438,7 @@
   {
     "reference": "Col 2:22",
     "text": "These will all perish with use, because they are based on human commands and teachings.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "This pronoun refers to the commands in the previous verse, especially focusing on the implied objects of the rules. If it would be helpful in your language, you could express the idea with a noun or a short phrase. Alternate translation: [The things that these commands regulate]"
@@ -1468,7 +1468,7 @@
   {
     "reference": "Col 2:23",
     "text": "Such restrictions indeed have an appearance of wisdom, with their self-prescribed worship, their false humility, and their harsh treatment of the body; but they are of no value against the indulgence of the flesh.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Commands that have **a word of wisdom** are commands that come from wise thinking or require wise behavior. If it would be helpful in your language, you could translate this idiom with a comparable expression, or express it plainly. Alternate translation: [being indeed characterized by wisdom]"
@@ -1510,7 +1510,7 @@
   {
     "reference": "Col 3:1",
     "text": "Therefore, since you have been raised with Christ, strive for the things above, where Christ is seated at the right hand of God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **therefore** introduces an exhortation based on what Paul has already said about being “raised with Christ” in [2:12](../02/12.md). Use a word or phrase that introduces an inference or concluding command based on what has already been said. Alternate translation: [then]"
@@ -1548,7 +1548,7 @@
   {
     "reference": "Col 3:2",
     "text": "Set your minds on things above, not on earthly things.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Focus on] or [Meditate on]"
@@ -1566,7 +1566,7 @@
   {
     "reference": "Col 3:3",
     "text": "For you died, and your life is now hidden with Christ in God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **For** introduces the reason why the Colossians should think about the things above ([3:1–2](../03/01.md)): it is because they **died**. If it would be helpful in your language, you could express the transition more explicitly. Alternate translation: [You should think about the things above, because]"
@@ -1592,7 +1592,7 @@
   {
     "reference": "Col 3:4",
     "text": "When Christ, who is your life, appears, then you also will appear with Him in glory.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could translate the idea in active form with: (1) Christ as the subject. Alternate translation: [Christ, your life, reveals himself] or [Christ, your life, appears]; (2) God the Father as the subject. Alternate translation: [God the Father reveals Christ, your life,]"
@@ -1626,7 +1626,7 @@
   {
     "reference": "Col 3:5",
     "text": "Put to death, therefore, the components of your earthly nature: sexual immorality, impurity, lust, evil desires, and greed, which is idolatry.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here, the word **therefore** introduces an exhortation based on previous statements. In this case, Paul bases his exhortation on what he has said about the Colossians’ union with Christ and its end goal: being revealed with him in glory. If it would be helpful in your language, you could use a comparable connecting word or express the idea with a phrase that refers back to what Paul has already said. Alternate translation: [because of your union with Christ]"
@@ -1672,7 +1672,7 @@
   {
     "reference": "Col 3:6",
     "text": "Because of these, the wrath of God is coming on the sons of disobedience.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-textvariants",
         "note": "Many ancient manuscripts include “on the sons of disobedience” after **is coming**. Several early and reliable manuscripts do not include it, however. If a translation of the Bible exists in your region, you may wish to include these words if that translation includes them. If a translation of the Bible does not exist in your region, you may wish to follow the example of the ULT and not include these words. The phrase “sons of disobedience” is an idiom that refers to people who disobey. Alternate translation: [is coming against people who disobey]"
@@ -1698,7 +1698,7 @@
   {
     "reference": "Col 3:7",
     "text": "When you lived among them, you also used to walk in these ways.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The word **which** refers again back to the list of sins in [3:5](../03/05.md). If it would be helpful in your language, you could include the word “sins” to clarify this reference. Alternate translation: [in which sins]"
@@ -1728,7 +1728,7 @@
   {
     "reference": "Col 3:8",
     "text": "But now you must put aside all such things as these: anger, rage, malice, slander, and filthy language from your lips.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The phrase **But now** introduces a contrast with the previous verse, a contrast that focuses on time. The word translated **now** refers to the time after the Colossians believed. It introduces how they should behave **now** in contrast to how they behaved “formerly” ([3:7](../03/07.md)). If it would be helpful in your language, you could clarify what **now** refers to. Alternate translation: [But now that you believe in Jesus,]"
@@ -1762,7 +1762,7 @@
   {
     "reference": "Col 3:9",
     "text": "Do not lie to one another, since you have taken off the old self with its practices,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The clause that begins with **having taken off** could: (1) give the reason why the Colossians should not lie to each other (and should put off the sins listed in the previous verse). Alternate translation: [because you have taken off]; (2) give another command. Alternate translation: [and take off]"
@@ -1788,7 +1788,7 @@
   {
     "reference": "Col 3:10",
     "text": "and have put on the new self, which is being renewed in knowledge in the image of its Creator.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The clause that begins with **having put on** is parallel to the clause beginning with “having taken off” in the previous verse ([3:9](../03/09.md)). Translate this clause with the same structure you used in the previous verse. This clause could: (1) give the reason why the Colossians should not lie to each other (and should put off the sins listed in the [3:8](../03/08.md)). Alternate translation: [because you have put on]; (2) give another command. Alternate translation: [put on]"
@@ -1838,7 +1838,7 @@
   {
     "reference": "Col 3:11",
     "text": "Here there is no Greek or Jew, circumcised or uncircumcised, barbarian, Scythian, slave, or free, but Christ is all and is in all.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul refers to the “new man” from the previous verse as if it were a place one could be in. This means that the word **where** refers to the new situation of those who have put on this “new man.” If it would be helpful in your language, you could express this idea by identifying those who have put on the “new man” as the ones addressed by this verse. Alternate translation: (start a new sentence) [For those who have put on the new man,]"
@@ -1872,7 +1872,7 @@
   {
     "reference": "Col 3:12",
     "text": "Therefore, as the elect of God, holy and beloved, clothe yourselves with hearts of compassion, kindness, humility, gentleness, and patience.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here the word **Therefore** introduces an exhortation based on what Paul has already told the Colossians in [3:9–11](../03/09.md) about putting off the old man, putting on the new man, and the effects of this. Use a word or phrase in your language that introduces an exhortation based on what has already been said, and you could refer back to what Paul has already said. Alternate translation: [Because you have put off the old man and put on the new man]"
@@ -1914,7 +1914,7 @@
   {
     "reference": "Col 3:13",
     "text": "Bear with one another and forgive any complaint you may have against someone else. Forgive as the Lord forgave you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "If your language would put the conditional statement first, you could move the **if** clause to the beginning, starting a new sentence. Alternate translation: [If someone may have a complaint against someone else, bear with one another and be gracious to each other]"
@@ -1952,7 +1952,7 @@
   {
     "reference": "Col 3:14",
     "text": "And over all these virtues put on love, which is the bond of perfect unity.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks as if **love** is higher than, or **above**, all the things he has said. By this, he means that **love** is more important than **all these things**. If it would be helpful in your language, you could use a comparable metaphor or express the idea plainly with a word such as “important” or “essential.” Alternate translation: [But what is most essential is love]"
@@ -1982,7 +1982,7 @@
   {
     "reference": "Col 3:15",
     "text": "Let the peace of Christ rule in your hearts, for to this you were called as members of one body. And be thankful.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-imperative",
         "note": "Here Paul uses a third person imperative. If you have third person imperatives in your language, you could use one here. If you do not have third person imperatives, you could translate this imperative in the second person, with the Colossians as the subject of a verb such as “obey” and the **peace of Christ** as the object. Alternate translation: [in your hearts obey the peace of Christ]"
@@ -2016,7 +2016,7 @@
   {
     "reference": "Col 3:16",
     "text": "Let the word of Christ richly dwell within you as you teach and admonish one another with all wisdom, and as you sing psalms, hymns, and spiritual songs with gratitude in your hearts to God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-imperative",
         "note": "Here Paul uses a third person imperative. If you have third person imperatives in your language, you could use one here. If you do not have third person imperatives, you could express Paul’s command in the second person with the Colossians as the subject of a verb such as “welcome.” Alternate translation: [Welcome the word of Christ richly into your lives]"
@@ -2074,7 +2074,7 @@
   {
     "reference": "Col 3:17",
     "text": "And whatever you do, in word or deed, do it all in the name of the Lord Jesus, giving thanks to God the Father through Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "The word **all** refers back to **everything, whatever you might do in word or in deed**. If your language would not write the object (**everything, whatever you might do in word or in deed**) first, you could put it where **all** is, after the verb. Or, you could change the object into a relative clause. Alternate translation: [do everything, whatever you might do in word or in deed, in]"
@@ -2100,7 +2100,7 @@
   {
     "reference": "Col 3:18",
     "text": "Wives, submit to your husbands, as is fitting in the Lord.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Here Paul directly addresses the **Wives** in the audience. Use a form in your language that indicates that the speaker is singling out a specific group of people as the intended audience of the following words. Alternate translation: [You wives]"
@@ -2130,7 +2130,7 @@
   {
     "reference": "Col 3:19",
     "text": "Husbands, love your wives and do not be harsh with them.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Here Paul directly addresses the **Husbands** in the audience. Use a form in your language that indicates that the speaker is singling out a specific group of people as the intended audience of the following words. Alternate translation: [You husbands]"
@@ -2148,7 +2148,7 @@
   {
     "reference": "Col 3:20",
     "text": "Children, obey your parents in everything, for this is pleasing to the Lord.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Here Paul directly addresses the **Children** in the audience. Use a form in your language that indicates that the speaker is singling out a specific group of people as the intended audience of the following words. Alternate translation: [You children]"
@@ -2182,7 +2182,7 @@
   {
     "reference": "Col 3:21",
     "text": "Fathers, do not provoke your children, so they will not become discouraged.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Here Paul directly addresses the **Fathers** in the audience. Use a form in your language that indicates that the speaker is singling out a specific group of people as the intended audience of the following words. Alternate translation: [You fathers]"
@@ -2208,7 +2208,7 @@
   {
     "reference": "Col 3:22",
     "text": "Slaves, obey your earthly masters in everything, not only to please them while they are watching, but with sincerity of heart and fear of the Lord.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Here Paul directly addresses the **Slaves** in the audience. Use a form in your language that indicates that the speaker is singling out a specific group of people as the intended audience of the following words. Alternate translation: [You slaves]"
@@ -2254,7 +2254,7 @@
   {
     "reference": "Col 3:23",
     "text": "Whatever you do, work at it with your whole being, as for the Lord and not for men,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "In Paul’s culture, this is a natural way to refer to anything someone might do, including all possibilities. If it would be helpful in your language, you could use a customary way of referring to all possible actions. Alternate translation: [In anything you do]"
@@ -2276,7 +2276,7 @@
   {
     "reference": "Col 3:24",
     "text": "because you know that you will receive an inheritance from the Lord as your reward. It is the Lord Christ you are serving.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The word **knowing** introduces a reason why the slaves should obey as Paul commands them to in [3:22–23](../03/22.md). If **knowing** would not introduce a reason in your language, you could clarify this by using a word such as “because.” Alternate translation: [since you know] or [for you know]"
@@ -2298,7 +2298,7 @@
   {
     "reference": "Col 3:25",
     "text": "Whoever does wrong will be repaid for his wrong, and there is no favoritism.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **For** introduces support for what has already been said. Here Paul uses it to introduce a negative reason for obedience (he already gave a positive reason in [3:24](../03/24.md)). If it would be helpful in your language, you could clarify that the word introduces another reason for obedience. Alternate translation: [Do these things because]"
@@ -2324,7 +2324,7 @@
   {
     "reference": "Col 4:1",
     "text": "Masters, supply your slaves with what is right and fair, since you know that you also have a Master in heaven.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Here Paul directly addresses the **Masters** in the audience. Use a form in your language that indicates that the speaker is singling out a specific group of people as the intended audience of the following words. Alternate translation: [You masters]"
@@ -2350,7 +2350,7 @@
   {
     "reference": "Col 4:2",
     "text": "Devote yourselves to prayer, being watchful and thankful,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Keep praying faithfully] or [Pray consistently]"
@@ -2372,7 +2372,7 @@
   {
     "reference": "Col 4:3",
     "text": "as you pray also for us, that God may open to us a door for the word, so that we may proclaim the mystery of Christ, for which I am in chains.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-simultaneous",
         "note": "In this context, the word **together** does not refer to people being together but rather, it refers to actions happening **together** or at the same time. If it would be helpful in your language, you could use a word or phrase that indicates that the Colossians should pray for Paul at the same time they pray about other things (the things mentioned in [4:2](../04/02.md)). Alternate translation: [at the same time]"
@@ -2426,7 +2426,7 @@
   {
     "reference": "Col 4:4",
     "text": "Pray that I may declare it clearly, as I should.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "The phrase **in order that** could introduce: (1) another thing for which the Colossians should pray (in addition to what is said in [4:3](../04/03.md)). Alternate translation: [and that] or [and asking that]; (2) another purpose for which the Colossians should pray for Paul (in addition to what is said in [4:3](../04/03.md)). Alternate translation: [and so that]"
@@ -2448,7 +2448,7 @@
   {
     "reference": "Col 4:5",
     "text": "Act wisely toward outsiders, redeeming the time.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul uses the word **Walk** to refer to consistent, habitual behavior (like putting one foot in front of the other). In this image, walking **toward** someone refers to consistent behavior in relationship with that person. If it would be helpful in your language, you could express the idea with a comparable metaphor or plainly. Alternate translation: [Act … with]"
@@ -2474,7 +2474,7 @@
   {
     "reference": "Col 4:6",
     "text": "Let your speech always be gracious, seasoned with salt, so that you may know how to answer everyone.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "This verse provides one way in which Paul wants the Colossians to “walk in wisdom toward those outside” ([4:5](../04/05.md)). They are to speak with words that are compelling and carefully chosen to fit the situation."
@@ -2508,7 +2508,7 @@
   {
     "reference": "Col 4:7",
     "text": "Tychicus will tell you all the news about me. He is a beloved brother, a faithful minister, and a fellow servant in the Lord.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "# Connecting Statement:\\n\\nIf it would be helpful in your language, you could rearrange this sentence so that: (1) what **Tychicus will make known** to them comes after **to you**, and (2) the words that describe **Tychicus** come after his name. You may need to make one or both of these changes to make the verse clear in your language. Alternate translation: [Tychicus, the beloved brother and faithful servant and fellow slave in the Lord, will make known to you all the things concerning me]"
@@ -2538,7 +2538,7 @@
   {
     "reference": "Col 4:8",
     "text": "I have sent him to you for this very purpose, that you may know about us, and that he may encourage your hearts.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-pastforfuture",
         "note": "Here Paul uses the past tense form **sent** to describe something he has not yet done when he is dictating this letter. He uses the past tense because, when the letter is read to the Colossians, his sending of Tychicus will be in the past. If your language would not use the past tense here, you could use whatever tense would customarily be used in this situation in your language. Alternate translation: [whom I send] or [whom I have sent]"
@@ -2572,7 +2572,7 @@
   {
     "reference": "Col 4:9",
     "text": "With him I am sending Onesimus, our faithful and beloved brother, who is one of you. They will tell you about everything here.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Paul uses this phrase to tell the Colossians that he is sending **Onesimus** along with Tychicus to the city of Colossae. If it would be helpful in your language, you could make this explicit by adding a verb such as “sending.” Alternate translation: [With him I send Onesimus] (start a new sentence with “they will make”)"
@@ -2598,7 +2598,7 @@
   {
     "reference": "Col 4:10",
     "text": "My fellow prisoner Aristarchus sends you greetings, as does Mark the cousin of Barnabas. You have already received instructions about him: If he comes to you, welcome him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Aristarchus**, **Mark**, and **Barnabas** are all names of men."
@@ -2640,7 +2640,7 @@
   {
     "reference": "Col 4:11",
     "text": "Jesus, who is called Justus, also sends greetings. These are the only Jews among my fellow workers for the kingdom of God, and they have been a comfort to me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Jesus** and **Justus** are two names for the same man."
@@ -2678,7 +2678,7 @@
   {
     "reference": "Col 4:12",
     "text": "Epaphras, who is one of you and a servant of Christ Jesus, sends you greetings. He is always wrestling in prayer for you, so that you may stand mature and fully assured in the full will of God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Epaphras** is the name of a man. He was the one who first preached the good news to the people in Colossae (See: [Colossians 1:7](../01/07.md))."
@@ -2724,7 +2724,7 @@
   {
     "reference": "Col 4:13",
     "text": "For I testify about him that he goes to great pains for you and for those at Laodicea and Hierapolis.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word **For** introduces further support for Paul’s statements about Epaphras in the previous verse. In [4:12](../04/12.md), Paul says that Epaphras is “always striving” for them, and he supports that claim here by giving his own testimony about how hard Epaphras has worked for the Colossians and for other believers who live near them. If it would be helpful in your language, you could use a word or phrase that introduces support for a previous statement, or you could refer back to what Paul is supporting. Alternate translation: [you could be sure that he does this, because]"
@@ -2746,7 +2746,7 @@
   {
     "reference": "Col 4:14",
     "text": "Luke, the beloved physician, and Demas send you greetings.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "As was customary in this culture, Paul concludes the letter by extending greetings from people who are with him and who know the people to whom he is writing. Your language may have a particular way of sharing greetings in a letter. If so, you could use that form here. Alternate translation: [asks to be remembered to] or [says hello to]"
@@ -2764,7 +2764,7 @@
   {
     "reference": "Col 4:15",
     "text": "Greet the brothers in Laodicea, as well as Nympha and the church that meets at her house.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "As was customary in this culture, Paul not only extends greetings from people who are with him and who know the people to whom he is writing (as he has done in [4:10–14](../04/10.md)). He also asks the Colossians to extend greetings for him to other people that both he and the Colossians know. Your language may have a particular way of sharing greetings in a letter. If so, you could use that form here. Alternate translation: [Remember me to] or [Say hello for me to]"
@@ -2786,7 +2786,7 @@
   {
     "reference": "Col 4:16",
     "text": "After this letter has been read among you, make sure that it is also read in the church of the Laodiceans, and that you in turn read the letter from Laodicea.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "In this culture, letters sent to a group were normally read out loud by one person to everyone else in the group. The words that are translated by **read** in this verse refer to this practice. If you have a way to refer to this practice, you could use it here. Alternate translation: [has been heard … it is heard … hear]"
@@ -2808,7 +2808,7 @@
   {
     "reference": "Col 4:17",
     "text": "Tell Archippus: “See to it that you complete the ministry you have received in the Lord.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "In addition to asking the Colossians to greet others for him ([4:15](../04/15.md)), Paul also asks them to **say** something to Archippus. If you have a specific form in your language for instructions on relaying a message, you could use it here. Alternate translation: [And relay this message]"
@@ -2846,7 +2846,7 @@
   {
     "reference": "Col 4:18",
     "text": "This greeting is in my own hand—Paul. Remember my chains. Grace be with you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Paul concludes his letter by writing a final greeting to the Colossians. Your language may have a particular way of sharing greetings in a letter. If so, you could use that form here. Alternate translation: [I ask to be remembered by my own hand] or [I say hello by my own hand]"

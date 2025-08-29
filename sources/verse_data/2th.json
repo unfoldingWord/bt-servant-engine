@@ -2,7 +2,7 @@
   {
     "reference": "2Th 1:1",
     "text": "Paul, Silvanus, and Timothy, To the church of the Thessalonians in God our Father and the Lord Jesus Christ:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Silvanus** is the Latin form of “Silas.” **Silvanus** is the name of a man, the same person listed in the book of Acts as Paul’s fellow traveler. If your readers may not know that these two are the same person, you could use the name “Silas” in the text and “Silvanus” in the footnote."
@@ -24,7 +24,7 @@
   {
     "reference": "2Th 1:2",
     "text": "Grace and peace to you from God our Father and the Lord Jesus Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Many languages have different ways to offer good wishes as they greet. Paul greeted his letter recipients with a blessing. Use a form that would be a good wish or blessing in your language. Alternate translation: [We pray that God the Father and the Lord Jesus Christ give you grace and peace] or [I wish you grace and peace from God the Father and the Lord Jesus Christ] or [May the grace and peace of God the Father and the Lord Jesus Christ be your portion] or [May God the Father and the Lord Jesus Christ show grace and give peace to your hearts]"
@@ -38,7 +38,7 @@
   {
     "reference": "2Th 1:3",
     "text": "We are obligated to thank God for you all the time, brothers, as is fitting, because your faith is growing more and more, and your love for one another is increasing.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/checking/headings",
         "note": "# General Information:\\n\\nIn [verses 3–12](../01/03.md), Paul gives thanks for the believers in Thessalonica and prays for them. A heading for this section might be, “Thanks and Prayers.”"
@@ -80,7 +80,7 @@
   {
     "reference": "2Th 1:4",
     "text": "That is why we boast among God’s churches about your perseverance and faith in the face of all the persecution and affliction you are enduring.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rpronouns",
         "note": "Here, **ourselves** is added to **we** to emphasize that even the apostle Paul and his associates are boasting about the Thessalonian believers. Alternate translation: [even we] or [we are the ones who]"
@@ -102,7 +102,7 @@
   {
     "reference": "2Th 1:5",
     "text": "All this is clear evidence of God’s righteous judgment. And so you will be counted worthy of the kingdom of God, for which you are suffering.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The **evidence** that Paul is referring to here is the faithful endurance of the Thessalonian believers while suffering persecution, which he mentioned in [verse 4](../01/04.md). If it would be helpful to your readers, you could state that explicitly. It may also be helpful to start a new sentence here. Alternate translation: [Your endurance while suffering is a clear indication of God’s righteous judgment, that he considers you worthy] or [Your faithfulness through persecution shows that God is just and right to consider you worthy]"
@@ -120,7 +120,7 @@
   {
     "reference": "2Th 1:6",
     "text": "After all, it is only right for God to repay with affliction those who afflict you,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "Paul is speaking as if this were a hypothetical possibility, but he means that it is actually true. If your language does not state something as a condition if it is certain or true, and if your readers might think that what Paul is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [Since you know that God is just] or [for God is certainly right]"
@@ -138,7 +138,7 @@
   {
     "reference": "2Th 1:7",
     "text": "and to grant relief to you who are oppressed and to us as well. This will take place when the Lord Jesus is revealed from heaven with His mighty angels",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "The words **and relief to you** continue the description of what God is right “to return” to people ([verse 6](../01/06.md)). If this would not be understood in your language, you could supply these words from the context. Alternate translation: [and it is righteous for God to give relief to you]"
@@ -164,7 +164,7 @@
   {
     "reference": "2Th 1:8",
     "text": "in blazing fire, inflicting vengeance on those who do not know God and do not obey the gospel of our Lord Jesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea behind **vengeance**, you can express this idea in another way. Since this is part of God’s justice, do not use a word that implies that God is doing something illegal or inappropriate. Alternate translation: [punishing the people] or [judging the ones]"
@@ -190,7 +190,7 @@
   {
     "reference": "2Th 1:9",
     "text": "They will suffer the penalty of eternal destruction, separated from the presence of the Lord and the glory of His might,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **who** refers to the people who are not obeying the gospel, not to the Lord Jesus. You may prefer to start a new sentence here. Alternate translation: [Those people will pay the penalty]"
@@ -224,7 +224,7 @@
   {
     "reference": "2Th 1:10",
     "text": "on the day He comes to be glorified in His saints and regarded with wonder by all who have believed, including you who have believed our testimony.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **that day** is the day when Jesus will return to the world. If it would be helpful to your readers, you could express that explicitly. Alternate translation: [on the day when Jesus returns to the world]"
@@ -250,7 +250,7 @@
   {
     "reference": "2Th 1:11",
     "text": "To this end, we always pray for you, that our God will count you worthy of His calling, and that He will powerfully fulfill your every good desire and work of faith,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Here, **For this** connects [verse 11](../01/11.md) to [verse 10](../01/10.md), so that [verse 11](../01/11.md) gives the means or method (prayer for the Thessalonian believers) for reaching the purpose that [verse 10](../01/10.md) has just described (for Jesus to “be glorified … and marveled at”). Use a natural way in your language for introducing this relationship. Alternate translation: [This is why] or [To this end]"
@@ -276,7 +276,7 @@
   {
     "reference": "2Th 1:12",
     "text": "so that the name of our Lord Jesus will be glorified in you, and you in Him, according to the grace of our God and of the Lord Jesus Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "Here, **so that** introduces the purpose for which Paul and his associates pray all of the things mentioned in [verse 11](../01/11.md). It is a repetition of the same purpose that was given in [verse 10](../01/10.md), using similar words. Alternate translation: [and we also pray so that]"
@@ -310,7 +310,7 @@
   {
     "reference": "2Th 2:1",
     "text": "Now concerning the coming of our Lord Jesus Christ and our being gathered together to Him, we ask you, brothers,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/checking/headings",
         "note": "# General Information:\\n\\nIn [verses 1–12](../02/01.md), Paul exhorts believers not to be deceived about the day Jesus will come back and warns them about the coming man of lawlessness. A heading for this section might be, “The Man of Lawlessness” or “The Deception before Jesus Returns.”"
@@ -336,7 +336,7 @@
   {
     "reference": "2Th 2:2",
     "text": "not to be easily disconcerted or alarmed by any spirit or message or letter seeming to be from us, alleging that the Day of the Lord has already come.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublenegatives",
         "note": "The phrase **shaken in your mind** refers to a person’s thoughts being unsettled. You could also express this positively. Alternate translation: [for you to remain firm in your thinking]"
@@ -366,7 +366,7 @@
   {
     "reference": "2Th 2:3",
     "text": "Let no one deceive you in any way, for it will not come until the rebellion occurs and the man of lawlessness—the son of destruction—is revealed.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Do not permit anyone to fool you] or [Do not believe at all the wrong words that people are telling you about this]"
@@ -400,7 +400,7 @@
   {
     "reference": "2Th 2:4",
     "text": "He will oppose and exalt himself above every so-called god or object of worship. So he will seat himself in the temple of God, proclaiming himself to be God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can state this in active form. Alternate translation: [everything that people call God or whatever they worship]"
@@ -418,7 +418,7 @@
   {
     "reference": "2Th 2:5",
     "text": "Do you not remember that I told you these things while I was still with you?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Paul is not asking for information here, but is using the question form to remind the Thessalonians of what he taught when he was with them previously. If you would not use a rhetorical question for this purpose in your language, you could translate his words as a statement. See the UST."
@@ -432,7 +432,7 @@
   {
     "reference": "2Th 2:6",
     "text": "And you know what is now restraining him, so that he may be revealed at the proper time.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "There are two possibilities for understanding the function of the word **now** here. (1) It goes with **the one restraining {him}**. Alternate translation: [And you know what is restraining him now] or (2) it goes with **you know**. Alternate translation: [And now you know what is restraining him]"
@@ -446,7 +446,7 @@
   {
     "reference": "2Th 2:7",
     "text": "For the mystery of lawlessness is already at work, but the one who now restrains it will continue until he is taken out of the way.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here, the word translated **For** serves to connect this sentence as a contrast to what Paul has said about **lawlessness**, starting in [verse 3](../02/03.md). Until here, Paul was talking about lawlessness in the future, but now he wants to clarify that people are already being lawless.Use a natural way in your language for introducing this contrast. Alternate translation: [Now] or [Actually,]"
@@ -472,7 +472,7 @@
   {
     "reference": "2Th 2:8",
     "text": "And then the lawless one will be revealed, whom the Lord Jesus will slay with the breath of His mouth and annihilate by the majesty of His arrival.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [and then God will allow the lawless one to show himself]"
@@ -490,7 +490,7 @@
   {
     "reference": "2Th 2:9",
     "text": "The coming of the lawless one will be accompanied by the working of Satan, with every kind of power, sign, and false wonder,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-possession",
         "note": "Here, Paul is using the possessive form to describe **work** that **Satan** does. If this is not clear in your language, you could state this explicitly. Alternate translation: [Satan will bring this man and will work through him]"
@@ -516,7 +516,7 @@
   {
     "reference": "2Th 2:10",
     "text": "and with every wicked deception directed against those who are perishing, because they refused the love of the truth that would have saved them.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hyperbole",
         "note": "Here, **all** is hyperbole and could mean: (1) “a high degree of” or (2) “many kinds of”"
@@ -550,7 +550,7 @@
   {
     "reference": "2Th 2:11",
     "text": "For this reason God will send them a powerful delusion so that they believe the lie,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "What follows **because of this** is the result of the action of the people who “did not receive the love of the truth” in [verse 10](../02/10.md). Use a connector that shows that what the people did in [verse 10](../02/10.md) is the reason for what follows in this verse. Alternate translation: [for this reason] or [because the people did not receive the love of the truth]"
@@ -576,7 +576,7 @@
   {
     "reference": "2Th 2:12",
     "text": "in order that judgment may come upon all who have disbelieved the truth and delighted in wickedness.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-goal",
         "note": "This phrase introduces a purpose clause. This follows the purpose clause of [verse 11](../02/11.md), so you may want to link them together. Alternate translation: [and furthermore, so that] or [and therefore]"
@@ -598,7 +598,7 @@
   {
     "reference": "2Th 2:13",
     "text": "But we should always thank God for you, brothers who are loved by the Lord, because God chose you from the beginning to be saved by the sanctification of the Spirit and by faith in the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/checking/headings",
         "note": "# General Information:\\n\\nPaul now changes topics. If you are using section headings, you could put one here before [verse 13](../02/13.md). Suggested heading: “Paul gives thanks to God for the believers and encourages them.”"
@@ -636,7 +636,7 @@
   {
     "reference": "2Th 2:14",
     "text": "To this He called you through our gospel, so that you may share in the glory of our Lord Jesus Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Here, the phrase **through our gospel** does not mean that the gospel belongs to Paul and his companions. It refers to the gospel about Jesus that Paul and his companions preached. Alternate translation: [through the gospel that we preached to you]"
@@ -654,7 +654,7 @@
   {
     "reference": "2Th 2:15",
     "text": "Therefore, brothers, stand firm and cling to the traditions we taught you, whether by speech or by letter.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "The words **So then** connect this verse with [verses 13](../02/13.md) and [14](../02/14.md) as their logical conclusion. Because God did the wonderful things in those verses, the Thessalonians should do what [verse 15](../02/15.md) says. Use a natural way to introduce a conclusion in your language. Alternate translation: [Therefore] or [Because God did all of that for you]"
@@ -692,7 +692,7 @@
   {
     "reference": "2Th 2:16",
     "text": "Now may our Lord Jesus Christ Himself and God our Father, who by grace has loved us and given us eternal comfort and good hope,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The word translated **Now** marks a change in topic. You can use a natural way in your language to show that this is a new section with a different topic than the previous section."
@@ -722,7 +722,7 @@
   {
     "reference": "2Th 2:17",
     "text": "encourage your hearts and strengthen you in every good word and deed.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, the word **hearts** represents both the emotion and will of a person. If **hearts** does not mean this in your language, you could use an equivalent expression or plain language. Alternate translation: [may he give comfort and strength to your livers] or [may he comfort you and strengthen you]"
@@ -736,7 +736,7 @@
   {
     "reference": "2Th 3:1",
     "text": "Finally, brothers, pray for us, that the word of the Lord may spread quickly and be held in honor, just as it was with you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/checking/headings",
         "note": "# General Information:\\n\\nIn [verses 1–5](../03/01.md), Paul asks the believers to pray for him and his companions and encourages them. A heading for this section might be, “Pray for Us.”"
@@ -770,7 +770,7 @@
   {
     "reference": "2Th 3:2",
     "text": "And pray that we may be delivered from wicked and evil men; for not everyone holds to the faith.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "You can state this in active form. Alternate translation: [God may save us] or [God may rescue us]"
@@ -792,7 +792,7 @@
   {
     "reference": "2Th 3:3",
     "text": "But the Lord is faithful, and He will strengthen you and guard you from the evil one.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The word **strengthen** here refers to spiritual strength, not physical strength. If it would be helpful in your language, you could make this clear in your translation. Alternate translation: [who will strengthen you spiritually] or [who will make you inwardly strong]"
@@ -806,7 +806,7 @@
   {
     "reference": "2Th 3:4",
     "text": "And we have confidence in the Lord that you are doing and will continue to do what we command.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-nominaladj",
         "note": "The phrase **We are also confident** may be confusing in some languages. If that is the case in your language, you could translate this as a noun phrase. Alternate translation: [We also have faith] or [We also trust]"
@@ -820,7 +820,7 @@
   {
     "reference": "2Th 3:5",
     "text": "May the Lord direct your hearts into God’s love and Christ’s perseverance.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **hearts** stands for a person’s thoughts or mind. If your readers would not understand this, you could use an equivalent expression or plain language. Alternate translation: [may the Lord cause you to understand the love of God and the endurance of Christ] or [may the Lord help you to know the love of God and the endurance of Christ]"
@@ -842,7 +842,7 @@
   {
     "reference": "2Th 3:6",
     "text": "Now we command you, brothers, in the name of our Lord Jesus Christ, to keep away from any brother who leads an undisciplined life that is not in keeping with the tradition you received from us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/checking/headings",
         "note": "# General Information:\\n\\nIn [verses 6–15](../03/06.md), Paul gives the believers some final instructions about working and not being idle. A heading for this section might be, “Believers Must Work.”"
@@ -876,7 +876,7 @@
   {
     "reference": "2Th 3:7",
     "text": "For you yourselves know how you ought to imitate us, because we were not undisciplined among you,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase **to imitate** may be a difficult word to translate in your language. In that case, you could make this explicit. Alternate translation: [to act the way that my fellow workers and I act]"
@@ -890,7 +890,7 @@
   {
     "reference": "2Th 3:8",
     "text": "nor did we eat anyone’s food without paying for it. Instead, in labor and toil, we worked night and day so that we would not be a burden to any of you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "Paul refers to **bread** here because it was the most common and basic food for them. If your readers would not be familiar with **bread** or if that is a kind of food that would be considered unusual or extravagant, you could use a general expression for ordinary food. Alternate translation: [food] or [anything]"
@@ -908,7 +908,7 @@
   {
     "reference": "2Th 3:9",
     "text": "Not that we lack this right, but we wanted to offer ourselves as an example for you to imitate.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublenegatives",
         "note": "Paul uses a double negative to emphasize the positive. If this double negative would be misunderstood in your language, you could translate it as a positive statement. Alternate translation: [and we certainly have the right to receive food from you, but instead we worked for our food]"
@@ -926,7 +926,7 @@
   {
     "reference": "2Th 3:10",
     "text": "For even while we were with you, we gave you this command: “If anyone is unwilling to work, he shall not eat.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublenegatives",
         "note": "You can state this in positive form, if this form is difficult to understand in your language. Alternate translation: [If a person wants to eat, he must work]"
@@ -936,7 +936,7 @@
   {
     "reference": "2Th 3:11",
     "text": "For we hear that some of you are leading undisciplined lives, accomplishing nothing, but being busybodies.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **walking** stands for behavior in life. you can use an equivalent metaphor from your culture, if it is available. Otherwise, you could express the meaning in a nonfigurative way. Alternate translation: [some who are living idle lives] or [some who are being lazy]"
@@ -950,7 +950,7 @@
   {
     "reference": "2Th 3:12",
     "text": "We command and urge such people by our Lord Jesus Christ to begin working quietly to earn their own living.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "Here, **with quietness** is the opposite of meddling. Paul exhorts the meddlers to stop getting involved in other people’s affairs. If your language does not use an abstract noun for the idea of **quietness**, you can express the same idea in another way. Alternate translation: [in a quiet and peaceful manner]"
@@ -960,7 +960,7 @@
   {
     "reference": "2Th 3:13",
     "text": "But as for you, brothers, do not grow weary in well-doing.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Paul here uses the word **But** to contrast the lazy believers with the hardworking believers. Use a natural way in your language for introducing a contrast. Alternate translation: [Concerning]"
@@ -978,7 +978,7 @@
   {
     "reference": "2Th 3:14",
     "text": "Take note of anyone who does not obey the instructions we have given in this letter. Do not associate with him, so that he may be ashamed.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Paul is referring to his command to the Thessalonian believers as a **word**. If your readers would not understand this, you could use an equivalent expression or plain language. Alternate translation: [our instructions]"
@@ -996,7 +996,7 @@
   {
     "reference": "2Th 3:15",
     "text": "Yet do not regard him as an enemy, but admonish him as a brother.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "Although the term **brother** is masculine, Paul is using the word here in a generic sense that includes both men and women. Alternate translation: [a fellow believer]"
@@ -1006,7 +1006,7 @@
   {
     "reference": "2Th 3:16",
     "text": "Now may the Lord of peace Himself give you peace at all times and in every way. The Lord be with all of you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/checking/headings",
         "note": "# General Information:\\n\\nIn [verses 16–18](../03/16.md), Paul makes closing remarks to the believers at Thessalonica. A heading for this section might be, “Closing Remarks.”"
@@ -1028,7 +1028,7 @@
   {
     "reference": "2Th 3:17",
     "text": "This greeting is in my own hand—Paul. This is my mark in every letter; it is the way I write.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [I, Paul, write this greeting with my own hand, which I do in every letter, as a sign that this letter is truly from me because this is how I write]"
@@ -1046,7 +1046,7 @@
   {
     "reference": "2Th 3:18",
     "text": "The grace of our Lord Jesus Christ be with all of you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Paul ends the letter with one more blessing. Use a form that people would recognize as a blessing in your language. Alternate translation: [I pray that the grace of our Lord Jesus Christ will be with you all]"

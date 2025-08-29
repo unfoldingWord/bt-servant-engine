@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Augment verse JSON files with translation_challanges from unfoldingWord Translation Notes (TSV).
+Augment verse JSON files with translation_challenges from unfoldingWord Translation Notes (TSV).
 
-Phase 1 data prep for get-passage-translation-challanges intent:
+Phase 1 data prep for get-passage-translation-challenges intent:
 - Renames data dir outside this script (sources/verse_data).
 - Reads TSVs from the external dataset repo and maps notes to verse entries.
 
 For each verse object in sources/verse_data/<stem>.json, ensures a
-`translation_challanges` array exists and appends objects of shape:
+`translation_challenges` array exists and appends objects of shape:
   { "issue_type": <SupportReference>, "note": <Note> }
 
 Mapping strategy:
@@ -18,7 +18,7 @@ Mapping strategy:
 - Apply each note to every verse covered by the reference range.
 
 Usage:
-  python scripts/enrich_translation_challanges.py [--tn-dir /path/to/uw_translation_notes]
+  python scripts/enrich_translation_challenges.py [--tn-dir /path/to/uw_translation_notes]
 
 If --tn-dir is omitted, this script will clone the source repo to a temp folder.
 """
@@ -76,7 +76,6 @@ class RefRange:
 def _clone_dataset_repo(dest: Path) -> Path:
     repo = "https://github.com/unfoldingWord/bt-servant-engine-data-loaders"
     if dest.exists():
-        # Clean out previous clone
         subprocess.run(["rm", "-rf", str(dest)], check=False)
     subprocess.run(["git", "clone", "--depth=1", repo, str(dest)], check=True)
     return dest / "datasets" / "uw_translation_notes"
@@ -108,7 +107,6 @@ def _build_entry_index(entries: List[dict]) -> Dict[Tuple[int, int], dict]:
 
 
 def _parse_reference_range(ref_str: str) -> RefRange | None:
-    # skip non-verse refs like 'front:intro' or '1:intro'
     if ":" not in ref_str:
         return None
     if "intro" in ref_str.lower():
@@ -133,7 +131,6 @@ def _parse_reference_range(ref_str: str) -> RefRange | None:
     except Exception:
         return None
 
-    # Normalize ordering if needed
     if (end_ch, end_vs) < (start_ch, start_vs):
         start_ch, start_vs, end_ch, end_vs = end_ch, end_vs, start_ch, start_vs
     return RefRange(start=(start_ch, start_vs), end=(end_ch, end_vs))
@@ -165,9 +162,11 @@ def enrich_book(tsv_path: Path, book_name: str) -> None:
     entries = _load_json(json_path)
     idx = _build_entry_index(entries)
 
-    # Ensure every entry has a fresh `translation_challanges` array (idempotent)
+    # Reset `translation_challenges` and drop old key if present
     for e in entries:
-        e["translation_challanges"] = []
+        if "translation_challanges" in e:
+            e.pop("translation_challanges", None)
+        e["translation_challenges"] = []
 
     with tsv_path.open("r", encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter="\t")
@@ -187,8 +186,8 @@ def enrich_book(tsv_path: Path, book_name: str) -> None:
                 e = idx.get(key)
                 if e is None:
                     continue
-                e.setdefault("translation_challanges", [])
-                e["translation_challanges"].append({
+                e.setdefault("translation_challenges", [])
+                e["translation_challenges"].append({
                     "issue_type": issue_type,
                     "note": note,
                 })

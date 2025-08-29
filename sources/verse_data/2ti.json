@@ -2,7 +2,7 @@
   {
     "reference": "2Ti 1:1",
     "text": "Paul, an apostle of Christ Jesus by the will of God, according to the promise of life in Christ Jesus,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "In this culture, letter writers would give their own names first, referring to themselves in the third person. If it would be helpful in your language, you could use the first person here. Or if your language has a particular way of introducing the author of a letter, and if it would be helpful to your readers, you could use it here. Alternate translation: [From Paul. I am an apostle]"
@@ -36,7 +36,7 @@
   {
     "reference": "2Ti 1:2",
     "text": "To Timothy, my beloved child: Grace, mercy, and peace from God the Father and Christ Jesus our Lord.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "In this culture, after giving their own names, letter writers would name those to whom they sent the letter, referring to them in the third person. If that is confusing in your language, you could use the second person here. Or if your language has a particular way of introducing the recipient of a letter, and if it would be helpful to your readers, you could use it here. Alternate translation: [This letter is for you, Timothy]"
@@ -70,7 +70,7 @@
   {
     "reference": "2Ti 1:3",
     "text": "I thank God, whom I serve with a clear conscience as did my forefathers, as I constantly remember you night and day in my prayers.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **gratitude**, you could express the same idea in another way. Alternate translation: [I am grateful] or [I am thankful]"
@@ -100,7 +100,7 @@
   {
     "reference": "2Ti 1:4",
     "text": "Recalling your tears, I long to see you so that I may be filled with joy.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul implies that Timothy shed **tears** when Paul had to leave Timothy. If it would be helpful in your language, you could make that idea more explicit. Alternate translation: [remembering your tears when we separated] or [remembering your tears when I said goodbye to you]"
@@ -126,7 +126,7 @@
   {
     "reference": "2Ti 1:5",
     "text": "I am reminded of your sincere faith, which first dwelt in your grandmother Lois and your mother Eunice, and I am convinced is in you as well.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **remembrance**, you could express the same idea in another way. Alternate translation: [having remembered] or [having been reminded]"
@@ -156,7 +156,7 @@
   {
     "reference": "2Ti 1:6",
     "text": "For this reason I remind you to fan into flame the gift of God, which is in you through the laying on of my hands.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here the phrase **which reason** refers back to the fact of Timothy’s sincere faith (see [1:5](../01/05.md)). If it would be helpful in your language, you could make that idea more explicit. Alternate translation: [Because of your sincere faith]"
@@ -182,7 +182,7 @@
   {
     "reference": "2Ti 1:7",
     "text": "For God has not given us a spirit of fear, but of power, love, and self-control.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **For** introduces a reason why Timothy should rekindle his gift ([1:6](../01/06.md)). If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis for an exhortation, or you could leave **For** untranslated. Alternate translation: [You should do that because] or [I remind you of that because]"
@@ -204,7 +204,7 @@
   {
     "reference": "2Ti 1:8",
     "text": "So do not be ashamed of the testimony of our Lord, or of me, His prisoner. Instead, join me in suffering for the gospel by the power of God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **Therefore** includes an exhortation that is based on what Paul said in the previous verse about having power, love, and self-control instead of fear. If it would be helpful in your language, you could use a different word or phrase that introduces an exhortation based on a previous statement. Alternate translation: [So then] or [Because you have that spirit]"
@@ -238,7 +238,7 @@
   {
     "reference": "2Ti 1:9",
     "text": "He has saved us and called us to a holy calling, not because of our works, but by His own purpose and by the grace He granted us in Christ Jesus before time began.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here the phrase **holy calling** could refer to: (1) the result of being called, which is to be **holy**. Alternate translation: [to be holy people]; (2) the way in which God called, which is a **holy** way. Alternate translation: [with a holy calling] or [by means of a holy calling]"
@@ -264,7 +264,7 @@
   {
     "reference": "2Ti 1:10",
     "text": "And now He has revealed this grace through the appearing of our Savior, Christ Jesus, who has abolished death and illuminated the way to life and immortality through the gospel,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. If you need to say who did the action, it is clear from the context that it was God. Alternate translation: [which now God has revealed] or [which now God has allowed people to know]"
@@ -298,7 +298,7 @@
   {
     "reference": "2Ti 1:11",
     "text": "to which I was appointed as a preacher, an apostle, and a teacher.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here the pronoun **which** refers back to “the gospel” in the previous verse. If this is not clear for your readers, you could refer to “the gospel” more directly. Alternate translation: [for which gospel]"
@@ -320,7 +320,7 @@
   {
     "reference": "2Ti 1:12",
     "text": "For this reason, even though I suffer as I do, I am not ashamed; for I know whom I have believed, and I am convinced that He is able to guard what I have entrusted to Him for that day.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here the phrase **which reason** refers back to the fact that Paul was appointed to be a herald, apostle, and teacher (see [1:11](../01/11.md)). If it would be helpful in your language, you could make that idea more explicit. Alternate translation: [because of which appointment] or [and so]"
@@ -358,7 +358,7 @@
   {
     "reference": "2Ti 1:13",
     "text": "Hold on to the pattern of sound teaching you have heard from me, with the faith and love that are in Christ Jesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul indicates that he wants Timothy to maintain the basic form and content of the **healthy words**. If it would be helpful in your language, you could make that idea more explicit. Alternate translation: [Maintain the form] or [Preserve the core content]"
@@ -388,7 +388,7 @@
   {
     "reference": "2Ti 1:14",
     "text": "Guard the treasure entrusted to you, with the help of the Holy Spirit who dwells in us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, the phrase **good deposit** refers to something that has been entrusted to Timothy and that he must **Guard**. More specifically, the **good deposit** is the gospel, which God entrusted to Timothy. If it would be helpful in your language, you could make that idea more explicit. Alternate translation: [guard the good deposit of the gospel] or [guard the good gospel, which God entrusted to you,]"
@@ -406,7 +406,7 @@
   {
     "reference": "2Ti 1:15",
     "text": "You know that everyone in the Province of Asia has deserted me, including Phygelus and Hermogenes.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicitinfo",
         "note": "Here the word **this** refers directly ahead to the phrase **all the ones in Asia turned away from me**. Paul expressed the idea in this way because it was powerful in his language. If using the word **this** to refer to what someone is about to say would be redundant in your language, you could omit the redundant information and make the expression powerful in another way. Alternate translation: [You surely know that]"
@@ -436,7 +436,7 @@
   {
     "reference": "2Ti 1:16",
     "text": "May the Lord grant mercy to the household of Onesiphorus, because he has often refreshed me and was unashamed of my chains.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Here Paul asks God to bless the family of **Onesiphorus**. Use a form that people would recognize as a blessing in your language. Alternate translation: [I ask the Lord to give mercy to the household of Onesiphorus] or [I pray that the household of Onesiphorus will receive mercy from the Lord]"
@@ -462,7 +462,7 @@
   {
     "reference": "2Ti 1:17",
     "text": "Indeed, when he arrived in Rome, he searched diligently until he found me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here the word **but** introduces what Onesiphorus did instead of being ashamed of Paul. If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast, or you could leave **but** untranslated. Alternate translation: [but instead,] or [and rather,]"
@@ -476,7 +476,7 @@
   {
     "reference": "2Ti 1:18",
     "text": "May the Lord grant Onesiphorus His mercy on that day. You know very well how much he ministered to me in Ephesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "If it would be helpful in your language, you could reverse the order of these sentences since the second sentence continues to describe what Onesiphorus did, as the previous verse does. Alternate translation: [And as much as he served in Ephesus, you know very well. May the Lord give to him to find mercy from the Lord in that day]"
@@ -506,7 +506,7 @@
   {
     "reference": "2Ti 2:1",
     "text": "You therefore, my child, be strong in the grace that is in Christ Jesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **therefore** could introduce: (1) an inference from [1:15–18](../01/15.md). In this case, Paul wants Timothy to act like Onesiphorus and not like Phygelus and Hermogenes. Alternate translation: [Like those who have not abandoned me, you too] or [In contrast to Phygelus and Hermogenes, you]; (2) an inference from most or all of [chapter 1](../01/01.md). Alternate translation: [Given all that, you]; (3) further exhortation to Timothy that is not based on anything specific. Alternate translation: [Now you]"
@@ -536,7 +536,7 @@
   {
     "reference": "2Ti 2:2",
     "text": "And the things that you have heard me say among many witnesses, entrust these to faithful men who will be qualified to teach others as well.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here the phrase **through many witnesses** could indicate that: (1) many people have witnessed or testified to the truth of what Paul has taught Timothy. Alternate translation: [that many witnesses have affirmed]; (2) Timothy has been taught by Paul in the presence of many people who can witness or testify to what Paul said. Alternate translation: [in the presence of many witnesses]"
@@ -554,7 +554,7 @@
   {
     "reference": "2Ti 2:3",
     "text": "Join me in suffering, like a good soldier of Christ Jesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here the phrase **Suffer together** could indicate that Timothy should suffer with: (1) Paul. Alternate translation: [Suffer together with me]; (2) all Christians who suffer. Alternate translation: [Suffer together with other believers]"
@@ -572,7 +572,7 @@
   {
     "reference": "2Ti 2:4",
     "text": "A soldier refrains from entangling himself in civilian affairs, in order to please the one who enlisted him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exmetaphor",
         "note": "Here Paul continues to speak about a **soldier** to help Timothy understand how to behave. Just as a soldier focuses on pleasing his commander, so Timothy should focus on pleasing Jesus. To do so, he will have to avoid becoming **entangled in the affairs of life**. Since Paul tells Timothy in [2:7](../02/07.md) to think carefully about the examples that he gives in this verse and in [2:5–6](../02/05.md), you should not explain the meaning of this metaphor here. However, if it would be helpful in your language, you could use a form that indicates that Paul is using a metaphor or giving an example. Alternate translation: [Imagine that you are a soldier. No one serving as a soldier is entangled in the affairs of life, so that he may please the one having enlisted him]"
@@ -598,7 +598,7 @@
   {
     "reference": "2Ti 2:5",
     "text": "Likewise, a competitor does not receive the crown unless he competes according to the rules.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here the phrase **But also** introduces another example or metaphor that Paul uses to explain how Timothy should serve Jesus. If it would be helpful in your language, you could use a word or phrase that introduces another example, or you could leave **But also** untranslated. Alternate translation: [Further] or [Similarly]"
@@ -636,7 +636,7 @@
   {
     "reference": "2Ti 2:6",
     "text": "The hardworking farmer should be the first to partake of the crops.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks about a **farmer** who is **hardworking**. He speaks about this to help Timothy understand how to behave. Just as this kind of **farmer** should be **first to share in the fruits**, so Timothy will be **first** to receive rewards if he works hard to serve Jesus. Since Paul tells Timothy in [2:7](../02/07.md) to think carefully about the examples that he gives in this verse and in [2:4–5](../02/04.md), you should not explain the meaning of this metaphor here. However, if it would be helpful in your language, you could use a form that indicates that Paul is using a metaphor or giving an example. Alternate translation: [Now imagine that you are a farmer. It is necessary for the hardworking farmer first to share in the fruits]"
@@ -654,7 +654,7 @@
   {
     "reference": "2Ti 2:7",
     "text": "Consider what I am saying, for the Lord will give you insight into all things.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul means that Timothy should **Think about** what Paul has written about soldiers, athletes, and farmers ([2:4–6](../02/04.md)). He wants Timothy to apply these examples to himself as he serves Jesus. If it would be helpful in your language, you could make that idea more explicit. Alternate translation: [Think about the examples I have given] or [Think about what I have said about soldiers, athletes, and farmers]"
@@ -672,7 +672,7 @@
   {
     "reference": "2Ti 2:8",
     "text": "Remember Jesus Christ, raised from the dead, descended from David, as proclaimed by my gospel,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here the word **Remember** indicates that Timothy should think consistently about **Jesus Christ**. It does not imply that Timothy might completely forget about **Jesus Christ**. If it would be helpful in your language, you could make that idea more explicit. Alternate translation: [Concentrate on] or [Consistently think about]"
@@ -706,7 +706,7 @@
   {
     "reference": "2Ti 2:9",
     "text": "for which I suffer to the extent of being chained like a criminal. But the word of God cannot be chained!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **chains** represent imprisonment. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [even to imprisonment] or [even up to being imprisoned]"
@@ -736,7 +736,7 @@
   {
     "reference": "2Ti 2:10",
     "text": "For this reason I endure all things for the sake of the elect, so that they too may obtain the salvation that is in Christ Jesus, with eternal glory.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **this** could refer to: (1) what Paul said in the previous verse about how God’s word is not bound. Alternate translation: [Because God’s word has not been bound, I endure all things]; (2) what Paul is about to say about **the elect** and their **salvation**. Alternate translation: [Here is why I endure all things:]"
@@ -770,7 +770,7 @@
   {
     "reference": "2Ti 2:11",
     "text": "This is a trustworthy saying: If we died with Him, we will also live with Him;",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **word** represents what Paul is about to write using words. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [What I am about to write is trustworthy] or [The following words are trustworthy]"
@@ -800,7 +800,7 @@
   {
     "reference": "2Ti 2:12",
     "text": "if we endure, we will also reign with Him; if we deny Him, He will also deny us;",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "These words are the **word** that Paul shares with Timothy. To indicate this, the ULT and UST put quotation marks around these words. If it would be helpful in your language, you could use quotation marks or another form to indicate which words are the ones that Paul introduces as the word."
@@ -822,7 +822,7 @@
   {
     "reference": "2Ti 2:13",
     "text": "if we are faithless, He remains faithful, for He cannot deny Himself.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "These words are the **word** that Paul shares with Timothy. To indicate this, the ULT and UST put quotation marks around these words. If it would be helpful in your language, you could use quotation marks or another form to indicate which words are the ones that Paul introduces as the word."
@@ -844,7 +844,7 @@
   {
     "reference": "2Ti 2:14",
     "text": "Remind the believers of these things, charging them before God to avoid quarreling over words, which succeeds only in leading the listeners to ruin.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul implies that Timothy should **Remind** the believers who are with him and over whom he has responsibility. If it would be helpful in your language, you could make that idea more explicit. Alternate translation: [Remind the believers there of]"
@@ -878,7 +878,7 @@
   {
     "reference": "2Ti 2:15",
     "text": "Make every effort to present yourself approved to God, an unashamed workman who accurately handles the word of truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here Paul means that Timothy should **Strive** to be the kind of person who is **approved** by **God**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [Work hard so that God approves of you] or [Do your best to please God]"
@@ -912,7 +912,7 @@
   {
     "reference": "2Ti 2:16",
     "text": "But avoid irreverent, empty chatter, which will only lead to more ungodliness,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here the word **But** introduces how Timothy should treat **profane empty sayings** in contrast with how he should treat “the word of truth” ([2:15](../02/15.md)). If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast, or you could leave **But** untranslated. Alternate translation: [In contrast,]"
@@ -938,7 +938,7 @@
   {
     "reference": "2Ti 2:17",
     "text": "and the talk of such men will spread like gangrene. Among them are Hymenaeus and Philetus,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **word** represents what people communicate using words. In this case, Paul is referring specifically to the “profane empty sayings” to which he referred in [2:16](../02/16.md). If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [their sayings] or [their message]"
@@ -960,7 +960,7 @@
   {
     "reference": "2Ti 2:18",
     "text": "who have deviated from the truth. They say that the resurrection has already occurred, and they undermine the faith of some.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks as if **the truth** were a mark or target that these two men have **missed**. Paul means that these men have failed to maintain **the truth**. If it would be helpful in your language, you could use a comparable figure of speech or state the meaning plainly. Alternate translation: [have not remained in the truth] or [have ceased to have the truth]"
@@ -986,7 +986,7 @@
   {
     "reference": "2Ti 2:19",
     "text": "Nevertheless, God’s firm foundation stands, bearing this seal: “The Lord knows those who are His,” and, “Everyone who calls on the name of the Lord must turn away from iniquity.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks of a **firm foundation** that **stands** to indicate that something that **God** has established is secure and will remain. Paul could be referring to: (1) God’s people, the church. In this case, God has established his people as a **firm foundation**, and no false teaching can make them stop believing. Alternate translation: [the church of God stands like a firm foundation]; (2) the gospel. In this case, God has established the gospel as a **firm foundation**, and no false teaching can corrupt it. Alternate translation: [the gospel of God stands like a firm foundation]"
@@ -1028,7 +1028,7 @@
   {
     "reference": "2Ti 2:20",
     "text": "A large house contains not only vessels of gold and silver, but also of wood and clay. Some indeed are for honorable use, but others are for common use.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here the word **Now** introduces the next thing that Paul wants to write about. If it would be helpful in your language, you could use a word or phrase that introduces the next topic, or you could leave **Now** untranslated. Alternate translation: [Further,]"
@@ -1058,7 +1058,7 @@
   {
     "reference": "2Ti 2:21",
     "text": "So if anyone cleanses himself of what is unfit, he will be a vessel for honor: sanctified, useful to the Master, and prepared for every good work.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exmetaphor",
         "note": "Here Paul continues to speak of believers as if they were each a **container**. In this verse, Paul gives some explanation of this figure of speech. When people cleanse themselves, they become like clean containers that can be used in honorable ways and that are useful to the **master** of the house, who represents God. If it would be helpful in your language, you could express the idea in simile form to explain the figure of speech. Alternate translation: [if someone has cleansed himself from these, he will be like a container for honor. Like such a container, he will be sanctified and useful to God, who is like the master of the house. He will be prepared for every good work]"
@@ -1088,7 +1088,7 @@
   {
     "reference": "2Ti 2:22",
     "text": "Flee from youthful passions and pursue righteousness, faith, love, and peace, together with those who call on the Lord out of a pure heart.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here the word **But** introduces the next thing that Paul wants to write about. If it would be helpful in your language, you could use a word or phrase that introduces the next idea, or you could leave **But** untranslated. Alternate translation: [Now]"
@@ -1134,7 +1134,7 @@
   {
     "reference": "2Ti 2:23",
     "text": "But reject foolish and ignorant speculation, for you know that it breeds quarreling.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here the word **But** introduces how Timothy should treat **foolish and uneducated controversies** in contrast to how he should “pursue” the good qualities that Paul listed in the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast, or you could leave **But** untranslated. Alternate translation: [In contrast,]"
@@ -1160,7 +1160,7 @@
   {
     "reference": "2Ti 2:24",
     "text": "And a servant of the Lord must not be quarrelsome, but must be kind to everyone, able to teach, and forbearing.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here the word **But** introduces how **a slave of the Lord** acts in contrast to how the “controversies” that Paul mentioned in the previous verse cause people to act. If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast, or you could leave **But** untranslated. Alternate translation: [In contrast,]"
@@ -1186,7 +1186,7 @@
   {
     "reference": "2Ti 2:25",
     "text": "He must gently reprove those who oppose him, in the hope that God may grant them repentance leading to a knowledge of the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **meekness**, you could express the same idea in another way. Alternate translation: [meekly] or [in a meek way]"
@@ -1208,7 +1208,7 @@
   {
     "reference": "2Ti 2:26",
     "text": "Then they will come to their senses and escape the snare of the devil, who has taken them captive to his will.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-events",
         "note": "These people must have been **captured** by the devil before they could **become sober again from the trap of the devil**. If it would be helpful in your language, you could reverse the order of these clauses to express the ideas in sequential order. Alternate translation: [having in the past been captured by the devil for the will of that one, they may become sober again from the trap of the devil]"
@@ -1242,7 +1242,7 @@
   {
     "reference": "2Ti 3:1",
     "text": "But understand this: In the last days terrible times will come.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here the word **But** introduces the next thing that Paul wants to write about. If it would be helpful in your language, you could use a word or phrase that introduces the next idea, or you could leave **But** untranslated. Alternate translation: [Now]"
@@ -1264,7 +1264,7 @@
   {
     "reference": "2Ti 3:2",
     "text": "For men will be lovers of themselves, lovers of money, boastful, arrogant, abusive, disobedient to their parents, ungrateful, unholy,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **For** introduces a reason why the times will be difficult. If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis for a claim, or you could leave **For** untranslated. Alternate translation: [That is because] or [Here is why:]"
@@ -1286,7 +1286,7 @@
   {
     "reference": "2Ti 3:3",
     "text": "unloving, unforgiving, slanderous, without self-control, brutal, without love of good,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-nominaladj",
         "note": "Paul is using the adjective **good** as a noun to mean good things and actions. Your language may use adjectives in the same way. If not, you could translate this word with an equivalent phrase. Alternate translation: [not lovers of good things]"
@@ -1296,7 +1296,7 @@
   {
     "reference": "2Ti 3:4",
     "text": "traitorous, reckless, conceited, lovers of pleasure rather than lovers of God,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks of proud people as if it they were **puffed up** by air. If it would be helpful in your language, you could use a comparable figure of speech or state the meaning plainly. Alternate translation: [conceited]"
@@ -1310,7 +1310,7 @@
   {
     "reference": "2Ti 3:5",
     "text": "having a form of godliness but denying its power. Turn away from such as these!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for the ideas of **godliness** and **power**, you could express the same ideas in another way. Alternate translation: [seeming to be godly, but denying how powerful being godly really is]"
@@ -1340,7 +1340,7 @@
   {
     "reference": "2Ti 3:6",
     "text": "They are the kind who worm their way into households and captivate vulnerable women who are weighed down with sins and led astray by various passions,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **For** introduces a reason why Timothy should “turn away from these” people (see [3:5](../03/05.md)). If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis for a command, or you could leave **For** untranslated. Alternate translation: [Turn away from them because] or [I say that because]"
@@ -1382,7 +1382,7 @@
   {
     "reference": "2Ti 3:7",
     "text": "who are always learning but never able to come to a knowledge of the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here the word **and** introduces something that contrasts with how these women are **always learning**. If it would be helpful in your language, you could use a word or phrase that introduces a contrast. Alternate translation: [yet]"
@@ -1400,7 +1400,7 @@
   {
     "reference": "2Ti 3:8",
     "text": "Just as Jannes and Jambres opposed Moses, so also these men oppose the truth. They are depraved in mind and disqualified from the faith.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul refers to something that happened when God sent **Moses** to tell Pharaoh, the king of Egypt, to set the Israelites free. When Moses performed a miracle, some of the magicians and sorcerers who served Pharaoh also performed that miracle. In this way, they tried to prevent **Moses** from doing what God had told him to do. You can read this story in [Exodus 7:8–13](../../exo/07/08.md). While the names of these magicians are not mentioned in the story in Exodus, their traditional names are **Jannes** and **Jambres**. If it would be helpful in your language, you could make some of this information more explicit, or you could include a footnote that gives this information. Alternate translation: [Jannes and Jambres, who were two of Pharaoh’s sorcerers, opposed Moses when he spoke to Pharaoh]"
@@ -1446,7 +1446,7 @@
   {
     "reference": "2Ti 3:9",
     "text": "But they will not advance much further. For just like Jannes and Jambres, their folly will be plain to everyone.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here the word **But** introduces what will happen to these false teachers in contrast to what they are trying to do, which is to oppose the truth. (See [3:8](../03/08.md).) If it would be helpful in your language, you could use a different word or phrase that introduces this kind of contrast. Alternate translation: [Despite that,] or [Although they try to oppose the truth,]"
@@ -1484,7 +1484,7 @@
   {
     "reference": "2Ti 3:10",
     "text": "You, however, have observed my teaching, my conduct, my purpose, my faith, my patience, my love, my perseverance,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here the word **But** introduces how Timothy behaves in contrast to how the false teachers behave. If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast, or you could leave **But** untranslated. Alternate translation: [You, however,] or [As for you, though, you]"
@@ -1502,7 +1502,7 @@
   {
     "reference": "2Ti 3:11",
     "text": "my persecutions, and the sufferings that came upon me in Antioch, Iconium, and Lystra. What persecutions I endured! Yet the Lord rescued me from all of them.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use abstract nouns for some or all of the ideas in this list, you could express the same ideas in another way. Alternate translation: [what I teach, how I conduct myself, what I have chosen to do, how I have believed, how patient I am, how I love others, how I endure everything, how I am persecuted, and how I suffer. You know what]"
@@ -1528,7 +1528,7 @@
   {
     "reference": "2Ti 3:12",
     "text": "Indeed, all who desire to live godly lives in Christ Jesus will be persecuted,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here the phrase **But also** introduces the idea that what has been true for Paul will be true for all true believers. If it would be helpful in your language, you could use a word or phrase that introduces an expansion or further application of an idea. Alternate translation: [In fact] or [Beyond that]"
@@ -1546,7 +1546,7 @@
   {
     "reference": "2Ti 3:13",
     "text": "while evil men and imposters go from bad to worse, deceiving and being deceived.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here the word **But** introduces what happens to **evil men and impostors** in contrast with what happens to people who want to live in godly ways. If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast, or you could leave **But** untranslated. Alternate translation: [However,] or [In contrast,]"
@@ -1580,7 +1580,7 @@
   {
     "reference": "2Ti 3:14",
     "text": "But as for you, continue in the things you have learned and firmly believed, since you know from whom you have learned them.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here the word **But** introduces how Timothy should behave in contrast to how the false teachers behave. If it would be helpful in your language, you could use a word or phrase that introduces that kind of contrast. Alternate translation: [You, however] or [As for you, though]"
@@ -1606,7 +1606,7 @@
   {
     "reference": "2Ti 3:15",
     "text": "From infancy you have known the Holy Scriptures, which are able to make you wise for salvation through faith in Christ Jesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **childhood**, you could express the same idea in another way. Alternate translation: [since you were an infant]"
@@ -1624,7 +1624,7 @@
   {
     "reference": "2Ti 3:16",
     "text": "All Scripture is God-breathed and is useful for instruction, for conviction, for correction, and for training in righteousness,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [God has breathed out all Scripture, and it is profitable]"
@@ -1650,7 +1650,7 @@
   {
     "reference": "2Ti 3:17",
     "text": "so that the man of God may be complete, fully equipped for every good work.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the phrase **so that** could introduce: (1) a result that comes from how Scripture is God-breathed and profitable in the ways that Paul has described. Alternate translation: [and so]; (2) a purpose for which Scripture is God-breathed and profitable in the ways that Paul has described. Alternate translation: [in order that]"
@@ -1680,7 +1680,7 @@
   {
     "reference": "2Ti 4:1",
     "text": "I charge you in the presence of God and of Christ Jesus, who will judge the living and the dead, and in view of His appearing and His kingdom:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-oathformula",
         "note": "Here Paul could be: (1) indicating that **God and Christ Jesus** know and approve what Paul is about to write. Also, he means that he is as sure about what he is about to write as he is sure about Jesus’ **appearing** and **kingdom**. Alternate translation: [God and Christ Jesus, the one being about to judge living and dead, hear and approve when I declare by his appearing and kingdom] or [What I declare is approved by God and Christ Jesus, the one being about to judge living and dead, and I am as sure about it as I am sure about his appearing and his kingdom]; (2) putting Timothy under oath, making him swear by **God** and **Christ Jesus**, that he will do what Paul is about to write. Also, he wants Timothy to be as sure about doing what Paul is about to write as Timothy is sure about Jesus’ **appearing** and **kingdom**. Alternate translation: [I make you swear before God and Christ Jesus, the one being about to judge living and dead, and as you think about his appearing and his kingdom] or [I require that you solemnly promise God and Christ Jesus, the one being about to judge living and dead, that you will do what I am about to write, and I want you to guarantee it as much as Jesus’ appearing and kingdom are guaranteed]"
@@ -1702,7 +1702,7 @@
   {
     "reference": "2Ti 4:2",
     "text": "Preach the word; be prepared in season and out of season; reprove, rebuke, and encourage with every form of patient instruction.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **word** represents the gospel, which people communicate using words. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [the gospel] or [God’s message]"
@@ -1728,7 +1728,7 @@
   {
     "reference": "2Ti 4:3",
     "text": "For the time will come when men will not tolerate sound doctrine, but with itching ears they will gather around themselves teachers to suit their own desires.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **For** introduces a basis for the commands that Paul gave in the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces a basis for a command, or you could leave **For** untranslated. Alternate translation: [Here is why I command those things:] or [I urge you to do those things because]"
@@ -1770,7 +1770,7 @@
   {
     "reference": "2Ti 4:4",
     "text": "So they will turn their ears away from the truth and turn aside to myths.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Paul speaks about people no longer paying attention as if they were physically turning their ears away so that they could not hear. If it would be helpful in your language, you could use a comparable metaphor or state the meaning plainly. Alternate translation: [they will no longer pay attention to the truth]"
@@ -1800,7 +1800,7 @@
   {
     "reference": "2Ti 4:5",
     "text": "But you, be sober in all things, endure hardship, do the work of an evangelist, fulfill your ministry.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here the word **But** introduces how Timothy should behave in contrast to how the people Paul describes behave. If it would be helpful in your language, you could use a word or phrase that introduces that kind of contrast. Alternate translation: [You, however] or [As for you, though]"
@@ -1830,7 +1830,7 @@
   {
     "reference": "2Ti 4:6",
     "text": "For I am already being poured out like a drink offering, and the time of my departure is at hand.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **For** introduces a reason why Timothy should do the things that Paul has commanded him to do in the previous verse. If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis for a command, or you could leave **For** untranslated. Alternate translation: [I command those things because] or [Here is why I say those things:]"
@@ -1852,7 +1852,7 @@
   {
     "reference": "2Ti 4:7",
     "text": "I have fought the good fight, I have finished the race, I have kept the faith.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here Paul speaks about how he has persevered in believing in and obeying Jesus as if he had been a warrior fighting in a **good fight** or an athlete doing his best to win an event. He means that he has encountered opposition, pain, and problems, but he has persisted and persevered in believing in and obeying Jesus. If it would be helpful in your language, you could express the idea in simile form or state the meaning plainly. Alternate translation: [I have lived as if I were fighting a good fight] or [I have persevered, no matter how hard it was]"
@@ -1882,7 +1882,7 @@
   {
     "reference": "2Ti 4:8",
     "text": "From now on there is laid up for me the crown of righteousness, which the Lord, the righteous Judge, will award to me on that day—and not only to me, but to all who crave His appearing.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here the word translated as **From now on** could introduce: (1) something that is true from that moment and into the future. Alternate translation: [Now and in the future] or [Henceforth]; (2) the last thing that Paul wants to say about how he has lived his life. Alternate translation: [Finally]"
@@ -1920,7 +1920,7 @@
   {
     "reference": "2Ti 4:9",
     "text": "Make every effort to come to me quickly,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Come to me as soon as you can]"
@@ -1934,7 +1934,7 @@
   {
     "reference": "2Ti 4:10",
     "text": "because Demas, in his love of this world, has deserted me and gone to Thessalonica. Crescens has gone to Galatia, and Titus to Dalmatia.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here the word **for** introduces a reason why Paul wants Timothy to come to him. If it would be helpful in your language, you could use a word or phrase that introduces a reason or basis for a command, or you could leave **for** untranslated. Alternate translation: [which I request because] or [since]"
@@ -1964,7 +1964,7 @@
   {
     "reference": "2Ti 4:11",
     "text": "Only Luke is with me. Get Mark and bring him with you, because he is useful to me in the ministry.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here Paul could be implying that Mark is **useful**: (1) in helping Paul minister to others, especially by preaching and teaching. Alternate translation: [useful to me in my ministry]; (2) in helping Paul to take care of his personal needs. Alternate translation: [he is useful in taking care of my needs]"
@@ -1978,7 +1978,7 @@
   {
     "reference": "2Ti 4:12",
     "text": "Tychicus, however, I have sent to Ephesus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Here the word **But** introduces the next thing that Paul wants to write about. If it would be helpful in your language, you could use a word or phrase that introduces the next idea, or you could leave **But** untranslated. Alternate translation: [Now]"
@@ -1992,7 +1992,7 @@
   {
     "reference": "2Ti 4:13",
     "text": "When you come, bring the cloak that I left with Carpus at Troas, and my scrolls, especially the parchments.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "The term **cloak** refers to a heavy garment that was worn over other clothes. If your readers would not be familiar with this type of garment, you could use the name of something similar in your area or you could use a more general term. Alternate translation: [coat]"
@@ -2018,7 +2018,7 @@
   {
     "reference": "2Ti 4:14",
     "text": "Alexander the coppersmith did great harm to me. The Lord will repay him according to his deeds.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "A **coppersmith** is a person who makes things out of copper and other metals. If your readers would not be familiar with this type of worker, you could use the name of something similar in your area or you could use a more general term. Alternate translation: [Alexander the metalworker] or [Alexander, who works with metals,]"
@@ -2040,7 +2040,7 @@
   {
     "reference": "2Ti 4:15",
     "text": "You too should beware of him, for he has vigorously opposed our message.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be more natural in your language, you could reverse the order of these clauses, since the second clause gives the reason for the result that the first clause describes. Alternate translation: [whom, because he opposed our words very much, you also must guard yourself against]"
@@ -2054,7 +2054,7 @@
   {
     "reference": "2Ti 4:16",
     "text": "At my first defense, no one stood with me, but everyone deserted me. May it not be charged against them.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "Here the phrase **first defense** refers to the first time that Paul was in court and had to defend himself against accusations. Paul implies that he already had appeared in court again or that he would have to do so again in the future. If your readers would not be familiar with this type of legal proceeding, you could use the name of something similar in your area or you could use a more general term. Alternate translation: [At the opening session of my trial] or [When I first appeared in court to answer the accusations against me]"
@@ -2080,7 +2080,7 @@
   {
     "reference": "2Ti 4:17",
     "text": "But the Lord stood by me and strengthened me, so that through me the message would be fully proclaimed, and all the Gentiles would hear it. So I was delivered from the mouth of the lion.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "Here the word **But** introduces what **the Lord** did in contrast to what the rest of the believers did (see [4:16](../04/16.md)). If it would be helpful in your language, you could use a word or phrase that introduces this kind of contrast, or you could leave **But** untranslated. Alternate translation: [In contrast,]"
@@ -2118,7 +2118,7 @@
   {
     "reference": "2Ti 4:18",
     "text": "And the Lord will rescue me from every evil action and bring me safely into His heavenly kingdom. To Him be the glory forever and ever. Amen.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **glory**, you could express the same idea in another way. Alternate translation: [May people glorify him]"
@@ -2132,7 +2132,7 @@
   {
     "reference": "2Ti 4:19",
     "text": "Greet Prisca and Aquila, as well as the household of Onesiphorus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Here Paul asks Timothy to extend greetings for him to other people that both he and the Timothy know. See the chapter introduction for more information."
@@ -2146,7 +2146,7 @@
   {
     "reference": "2Ti 4:20",
     "text": "Erastus has remained at Corinth, and Trophimus I left sick in Miletus.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "The words **Erastus** and **Trophimus** are the names of men."
@@ -2160,7 +2160,7 @@
   {
     "reference": "2Ti 4:21",
     "text": "Make every effort to come to me before winter. Eubulus sends you greetings, as do Pudens, Linus, Claudia, and all the brothers.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Do your best to come]"
@@ -2202,7 +2202,7 @@
   {
     "reference": "2Ti 4:22",
     "text": "The Lord be with your spirit. Grace be with you all.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "As was customary in his culture, Paul closes his letter with a blessing for Timothy. Use a form that people would recognize as a blessing in your language. Alternate translation: [May the Lord be with your spirit] or [I pray that the Lord will be with your spirit]"

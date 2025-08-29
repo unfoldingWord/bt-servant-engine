@@ -2,7 +2,7 @@
   {
     "reference": "Rut 1:1",
     "text": "In the days when the judges ruled, there was a famine in the land. And a certain man from Bethlehem in Judah, with his wife and two sons, went to reside in the land of Moab.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This phrase translates a common way of beginning a historical story in the Bible. Use a natural way of beginning a true story that happened a long time ago. Alternate translation: [It was]"
@@ -24,7 +24,7 @@
   {
     "reference": "Rut 1:2",
     "text": "The man’s name was Elimelech, his wife’s name was Naomi, and the names of his two sons were Mahlon and Chilion. They were Ephrathites from Bethlehem in Judah, and they entered the land of Moab and settled there.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "The term **Ephrathites** refers to the people from the clan of Ephrathah, people who lived in the area around Bethlehem. Alternate translation: [from the clan of Ephrathah]"
@@ -34,7 +34,7 @@
   {
     "reference": "Rut 1:3",
     "text": "Then Naomi’s husband Elimelech died, and she was left with her two sons,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [Naomi and her two sons remained in Moab without him]"
@@ -44,7 +44,7 @@
   {
     "reference": "Rut 1:4",
     "text": "who took Moabite women as their wives, one named Orpah and the other named Ruth. And after they had lived in Moab about ten years,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The phrase **took wives for themselves** is an idiom that means that they married women. They did not take women by force or take women who were already married to other men."
@@ -58,7 +58,7 @@
   {
     "reference": "Rut 1:5",
     "text": "both Mahlon and Chilion also died, and Naomi was left without her two sons and without her husband.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [and the woman was alone without her husband or her two sons] or [and Naomi remained widowed and childless]"
@@ -68,7 +68,7 @@
   {
     "reference": "Rut 1:6",
     "text": "When Naomi heard in Moab that the LORD had attended to His people by providing them with food, she and her daughters-in-law prepared to leave the land of Moab.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "This part of the sentence forms an introductory summary of what will happen in the following section. It does not relate events in the timeline of the story. If your language does not use introductory summaries like this, you can translate these actions as events. Alternate translation: [Then she, along with her daughters-in-law, prepared to return]"
@@ -102,7 +102,7 @@
   {
     "reference": "Rut 1:7",
     "text": "Accompanied by her two daughters-in-law, she left the place where she had been living and set out on the road leading back to the land of Judah.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [And they walked along the road]"
@@ -112,7 +112,7 @@
   {
     "reference": "Rut 1:8",
     "text": "Then Naomi said to her two daughters-in-law, “Go back, each of you to your mother’s home. May the LORD show you loving devotion, as you have shown to your dead and to me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [to her two sons’ wives] or [to the widows of her two sons]"
@@ -146,7 +146,7 @@
   {
     "reference": "Rut 1:9",
     "text": "May the LORD enable each of you to find rest in the home of your new husband.” And she kissed them as they wept aloud",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Here, Naomi continues her blessing. Use a natural form for a blessing in your language. Alternate translation: [May Yahweh give you] or [I pray that Yahweh will allow you to have]"
@@ -168,7 +168,7 @@
   {
     "reference": "Rut 1:10",
     "text": "and said, “Surely we will return with you to your people.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "When Orpah and Ruth said **we,** they were referring to themselves and not Naomi. So languages that have inclusive and exclusive forms of **we** would use the exclusive form here."
@@ -190,7 +190,7 @@
   {
     "reference": "Rut 1:11",
     "text": "But Naomi replied, “Return home, my daughters. Why would you go with me? Are there still sons in my womb to become your husbands?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The word **But** here indicates a strong contrast between what the daughters-in-law said and what Naomi is about to say. In your translation, indicate this strong contrast in a way that is natural in your language. Alternate translation: [However, Naomi said]"
@@ -212,7 +212,7 @@
   {
     "reference": "Rut 1:12",
     "text": "Return home, my daughters. Go on, for I am too old to have another husband. Even if I thought there was hope for me to have a husband tonight and to bear sons,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that Naomi cannot again marry and provide them with husbands. You could include this information if that would be helpful to your readers. Alternate translation: [I am too old to marry again and bear more children]"
@@ -230,7 +230,7 @@
   {
     "reference": "Rut 1:13",
     "text": "would you wait for them to grow up? Would you refrain from having husbands? No, my daughters, it is much more bitter for me than for you, because the hand of the LORD has gone out against me.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Naomi completes the rhetorical question she began in the previous verse and immediately asks another rhetorical question which emphasizes the same meaning. Alternate translation: [you would not wait until they were grown up so that you could marry them. You would need to marry a husband before then.]"
@@ -256,7 +256,7 @@
   {
     "reference": "Rut 1:14",
     "text": "Again they wept aloud, and Orpah kissed her mother-in-law goodbye, but Ruth clung to her.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **they lifted up their voices** is an idiom meaning that they expressed themselves loudly. If this phrase does not have that meaning in your language, use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: [Then they wailed and wept loudly]"
@@ -270,7 +270,7 @@
   {
     "reference": "Rut 1:15",
     "text": "“Look,” said Naomi, “your sister-in-law has gone back to her people and her gods; follow her back home.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Naomi is using the term **Behold** to focus Ruth’s attention on what she is about to say. Your language may have a comparable expression that you could use in your translation. Alternate translation: [Listen] or [You know]"
@@ -296,7 +296,7 @@
   {
     "reference": "Rut 1:16",
     "text": "But Ruth replied: “Do not urge me to leave you or to turn from following you. For wherever you go, I will go, and wherever you live, I will live; your people will be my people, and your God will be my God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [and where you live]"
@@ -314,7 +314,7 @@
   {
     "reference": "Rut 1:17",
     "text": "Where you die, I will die, and there I will be buried. May the LORD punish me, and ever so severely, if anything but death separates you and me.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-oathformula",
         "note": "Ruth uses this oath formula to show that she is very committed to doing what she says. She calls down a curse on herself, asking God to punish her if she does not do what she has said she would do. In keeping with the custom, she did not express what that punishment would be. Use a natural way in your language to express an oath. Alternate translation: [May Yahweh strike me dead, and may he do more, and may he do even more]"
@@ -332,7 +332,7 @@
   {
     "reference": "Rut 1:18",
     "text": "When Naomi saw that Ruth was determined to go with her, she stopped trying to persuade her.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This phrase expresses the result of the previous phrase. You may want to indicate this by using a connector that introduces a result. Alternate translation: [so she refrained from speaking to her further]"
@@ -346,7 +346,7 @@
   {
     "reference": "Rut 1:19",
     "text": "So Naomi and Ruth traveled until they came to Bethlehem. When they entered Bethlehem, the whole town was stirred because of them, and the women of the town exclaimed, “Can this be Naomi?”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "**And it happened** introduces a new event in the story. Use a word, phrase, or other method in your language that is natural for introducing a new event. Alternate translation: [And it came about]"
@@ -372,7 +372,7 @@
   {
     "reference": "Rut 1:20",
     "text": "“Do not call me Naomi,” she replied. “Call me Mara, because the Almighty has dealt quite bitterly with me.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "The name **Naomi** means “delight” or “pleasantness.” If it would be helpful in your language, you could include this information in the text or in a footnote. Alternate translation: [It is no longer appropriate to call me Naomi, the Pleasant One.]"
@@ -386,7 +386,7 @@
   {
     "reference": "Rut 1:21",
     "text": "I went away full, but the LORD has brought me back empty. Why call me Naomi? After all, the LORD has testified against me, and the Almighty has afflicted me.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, Naomi is speaking of herself as a container that can be **full** or **empty**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [As for me, I went out with a complete family, but Yahweh has brought me back with no one]"
@@ -412,7 +412,7 @@
   {
     "reference": "Rut 1:22",
     "text": "So Naomi returned from the land of Moab with her daughter-in-law Ruth the Moabitess. And they arrived in Bethlehem at the beginning of the barley harvest.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-endofstory",
         "note": "This sentence provides a brief summary and conclusion of the story so far. It does not provide new information or new events in the story. Your language may have its own way of showing that this is the end of a section of a story. Follow that way here."
@@ -430,7 +430,7 @@
   {
     "reference": "Rut 2:1",
     "text": "Now Naomi had a relative on her husband’s side, a prominent man of noble character from the clan of Elimelech, whose name was Boaz.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-background",
         "note": "Verse 1 gives background information about Boaz so that the reader will understand who he is. In your translation, present this information in a way that makes it clear that this is background information."
@@ -452,7 +452,7 @@
   {
     "reference": "Rut 2:2",
     "text": "And Ruth the Moabitess said to Naomi, “Please let me go into the fields and glean heads of grain after someone in whose sight I may find favor.” “Go ahead, my daughter,” Naomi replied.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-participants",
         "note": "Here the writer reintroduces Ruth after giving background information about someone else. If your language has its own way of reintroducing old participants when it resumes a story, you could use it here in your translation. Alternate translation: [the same Moabite woman, Ruth]"
@@ -474,7 +474,7 @@
   {
     "reference": "Rut 2:3",
     "text": "So Ruth departed and went out into the field and gleaned after the harvesters. And she happened to come to the part of the field belonging to Boaz, who was from the clan of Elimelech.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The phrase, **her chance chanced upon** indicates that Ruth did not know whose field she was in. You could include this information if that would be helpful to your readers. Alternate translation: [Being unaware of who owned the field, Ruth came to]"
@@ -488,7 +488,7 @@
   {
     "reference": "Rut 2:4",
     "text": "Just then Boaz arrived from Bethlehem and said to the harvesters, “The LORD be with you.” “The LORD bless you,” they replied.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The writer is using the term **behold** to alert us to the important event of Boaz arriving at the field and seeing Ruth for the first time. Your language may have a comparable way of calling attention to this event that you can use in your translation. Alternate translation: [Then look]"
@@ -510,7 +510,7 @@
   {
     "reference": "Rut 2:5",
     "text": "And Boaz asked the foreman of his harvesters, “Whose young woman is this?”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **set over** is an idiom that means “managing.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have this meaning or state the meaning plainly. Alternate translation: [who was overseeing] or [who was in charge of]"
@@ -524,7 +524,7 @@
   {
     "reference": "Rut 2:6",
     "text": "The foreman answered, “She is the Moabitess who returned with Naomi from the land of Moab.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hendiadys",
         "note": "The two words **answered** and **said** express a single idea. If it would be more natural in your language, you could express this idea in a different way. Alternate translation: [Then … answered him by saying] or [Then … said]"
@@ -534,7 +534,7 @@
   {
     "reference": "Rut 2:7",
     "text": "She has said, ‘Please let me glean and gather among the sheaves after the harvesters.’ So she came out and has continued from morning until now, except that she rested a short time in the shelter.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If your language would not use a direct quotation inside of a direct quotation, you could translate this second direct quotation as an indirect quotation. Alternate translation: [She asked me if she could glean and gather among the bundles of grain after the reapers]"
@@ -552,7 +552,7 @@
   {
     "reference": "Rut 2:8",
     "text": "Then Boaz said to Ruth, “Listen, my daughter. Do not go and glean in another field, and do not go away from this place, but stay here close to my servant girls.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Boaz is using the question form to draw Ruth’s attention to what he will say to her. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [Listen to me, my daughter!] or [Note well what I am telling you, my daughter!]"
@@ -566,7 +566,7 @@
   {
     "reference": "Rut 2:9",
     "text": "Let your eyes be on the field they are harvesting, and follow along after these girls. Indeed, I have ordered the young men not to touch you. And when you are thirsty, go and drink from the jars the young men have filled.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, the word **eyes** represents the capability of a person to see, watch or observe. If it would be helpful to your readers, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [Watch only the field] or [Pay attention only to the field]"
@@ -596,7 +596,7 @@
   {
     "reference": "Rut 2:10",
     "text": "At this, she fell on her face, bowing low to the ground, and said to him, “Why have I found such favor in your eyes that you should take notice of me, even though I am a foreigner?”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "These are two descriptions of a single action. The writer may be using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [Then she prostrated herself before him]"
@@ -622,7 +622,7 @@
   {
     "reference": "Rut 2:11",
     "text": "Boaz replied, “I have been made fully aware of all you have done for your mother-in-law since the death of your husband, how you left your father and mother and the land of your birth, and how you came to a people you did not know before.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hendiadys",
         "note": "Both **answered** and **said** describe the same action. If it would be helpful in your language, you could use only one verb for this, as in the UST. Alternate translation: [Then Boaz responded]"
@@ -648,7 +648,7 @@
   {
     "reference": "Rut 2:12",
     "text": "May the LORD repay your work, and may you receive a rich reward from the LORD, the God of Israel, under whose wings you have taken refuge.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that her **work** was the good things she had done, everything Boaz had just described. You could include this information if that would be helpful to your readers. Alternate translation: [your good deeds.]"
@@ -666,7 +666,7 @@
   {
     "reference": "Rut 2:13",
     "text": "“My lord,” she said, “may I continue to find favor in your eyes, for you have comforted and spoken kindly to your maidservant, though I am not like one of your servant girls.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here **find favor in your eyes** is an idiom that means to be approved of or to be found to be pleasing. Alternate translation: [May you continue to approve of me] or [May you continue to be pleased with me]"
@@ -696,7 +696,7 @@
   {
     "reference": "Rut 2:14",
     "text": "At mealtime Boaz said to her, “Come over here; have some bread and dip it into the vinegar sauce.” So she sat down beside the harvesters, and he offered her roasted grain, and she ate and was satisfied and had some left over.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [at the time of the midday meal]"
@@ -718,7 +718,7 @@
   {
     "reference": "Rut 2:15",
     "text": "When Ruth got up to glean, Boaz ordered his young men, “Even if she gathers among the sheaves, do not insult her.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "When Boaz spoke to his workers, it is likely that Ruth was far enough away that she did not hear Boaz’s instructions. If it would be helpful in your language, you could include this information. Alternate translation: [Then Boaz privately instructed his young men]"
@@ -736,7 +736,7 @@
   {
     "reference": "Rut 2:16",
     "text": "Rather, pull out for her some stalks from the bundles and leave them for her to gather. Do not rebuke her.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "translate-unknown",
         "note": "Here Boaz goes another step beyond what is normal and tells his workers to also drop on the ground some of the grain that they had harvested for Ruth to pick up. Alternate translation: [Not only that, but also]"
@@ -750,7 +750,7 @@
   {
     "reference": "Rut 2:17",
     "text": "So Ruth gathered grain in the field until evening. And when she beat out what she had gleaned, it was about an ephah of barley.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "translate-unknown",
         "note": "Ruth would have beaten the barley stalks with a big stick until the kernels of edible grain came off. She would then keep only the kernels of grain. Alternate translation: [She beat the edible kernels of grain off of the stalks from]"
@@ -764,7 +764,7 @@
   {
     "reference": "Rut 2:18",
     "text": "She picked up the grain and went into the town, where her mother-in-law saw what she had gleaned. And she brought out what she had saved from her meal and gave it to Naomi.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "It is implied that Ruth carried the grain home."
@@ -774,7 +774,7 @@
   {
     "reference": "Rut 2:19",
     "text": "Then her mother-in-law asked her, “Where did you glean today, and where did you work? Blessed be the man who noticed you.” So she told her mother-in-law where she had worked. “The name of the man I worked with today is Boaz,” she said.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "Naomi asked the same thing in two different ways to show that she was very excited and interested in knowing what had happened to Ruth that day. If it is not natural in your language to show excitement and interest by repeating a question, then use a more natural form. Alternate translation: [Wow, whose field did you work in today]"
@@ -800,7 +800,7 @@
   {
     "reference": "Rut 2:20",
     "text": "Then Naomi said to her daughter-in-law, “May he be blessed by the LORD, who has not withdrawn His kindness from the living or the dead.” Naomi continued, “The man is a close relative. He is one of our kinsman-redeemers.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Naomi is asking God to bless Boaz. You could express this as either a blessing or a prayer, in whichever way is more natural in your language. Alternate translation: [I pray that he will be blessed by Yahweh]"
@@ -838,7 +838,7 @@
   {
     "reference": "Rut 2:21",
     "text": "Then Ruth the Moabitess said, “He also told me, ‘Stay with my young men until they have finished gathering all my harvest.’”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that what follows is beyond what anyone would have expected a landowner to say to Ruth. You could include this information if that would be helpful to your readers. Alternate translation: [He even said to me]"
@@ -856,7 +856,7 @@
   {
     "reference": "Rut 2:22",
     "text": "And Naomi said to her daughter-in-law Ruth, “My daughter, it is good for you to work with his young women, so that nothing will happen to you in another field.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [you work with] or [you glean alongside]"
@@ -870,7 +870,7 @@
   {
     "reference": "Rut 2:23",
     "text": "So Ruth stayed close to the servant girls of Boaz to glean grain until the barley and wheat harvests were finished. And she lived with her mother-in-law.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here, **So** indicates that what follows is a result of what came before. Use a connector in your language that makes it clear that what follows is a result of what came before. Alternate translation: [Because of these instructions, she stayed close] or [Therefore, Ruth continued to work]"
@@ -884,7 +884,7 @@
   {
     "reference": "Rut 3:1",
     "text": "One day Ruth’s mother-in-law Naomi said to her, “My daughter, should I not seek a resting place for you, that it may be well with you?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "The writer is using the word translated **Then** to introduce the next part of the story, in which Ruth asks Boaz to perform the role of kinsman-redeemer for her and Naomi. Use a word, phrase, or other method in your language that is natural for introducing a new event. Alternate translation: [After some time, Naomi, Ruth’s mother-in-law, said to her]"
@@ -918,7 +918,7 @@
   {
     "reference": "Rut 3:2",
     "text": "Now is not Boaz, with whose servant girls you have been working, a relative of ours? In fact, tonight he is winnowing barley on the threshing floor.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Naomi’s rhetorical question in [3:1](../03/01.md) gave the reason for the plan that she is about to tell to Ruth in verses [3:2–4](../03/02.md). Use a connector in your language that marks what follows as a planned result of what was said before. Alternate translation: [Because of that, I have been thinking.]"
@@ -940,7 +940,7 @@
   {
     "reference": "Rut 3:3",
     "text": "Therefore wash yourself, put on perfume, and wear your best clothes. Go down to the threshing floor, but do not let the man know you are there until he has finished eating and drinking.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [rub sweet-smelling oil on yourself]"
@@ -958,7 +958,7 @@
   {
     "reference": "Rut 3:4",
     "text": "When he lies down, note the place where he lies. Then go in and uncover his feet, and lie down, and he will explain to you what you should do.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-imperative",
         "note": "The phrase **And let it be** introduces the next series of specific instructions that Naomi is about to give to Ruth. Use a form in your language that introduces a series of instructions, or omit the phrase if your language does not do this. Use a colon to replace the comma. Alternate translation: [Do this:]"
@@ -984,12 +984,12 @@
   {
     "reference": "Rut 3:5",
     "text": "“I will do everything you say,” Ruth answered.",
-    "translation_challanges": []
+    "translation_challenges": []
   },
   {
     "reference": "Rut 3:6",
     "text": "So she went down to the threshing floor and did everything her mother-in-law had instructed her to do.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "This statement summarizes the actions that Ruth will do in [3:7](../03/07.md). If people misunderstand from this that Ruth did these actions in [3:6](../03/06.md) and then did them again in [3:7](../03/07.md), then you could translate this sentence as **and she obeyed her mother-in-law**. Or if it would make the order of events more clear, you could move this sentence to the end of [3:7](../03/07.md), then combine the verse numbers as a verse bridge (6–7)."
@@ -999,7 +999,7 @@
   {
     "reference": "Rut 3:7",
     "text": "After Boaz had finished eating and drinking and was in good spirits, he went to lie down at the end of the heap of grain. Then Ruth went in secretly, uncovered his feet, and lay down.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here **heart** stands for “emotions” or “disposition.” Boaz’s emotions or feelings were good. This does not imply that Boaz was drunk. Alternate translation: [and he felt good] or [and he was in a good mood]"
@@ -1017,7 +1017,7 @@
   {
     "reference": "Rut 3:8",
     "text": "At midnight, Boaz was startled, turned over, and there lying at his feet was a woman!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-background",
         "note": "This clause gives information about when the next event in the story happened. Use a natural way in your language to give background information. Alternate translation: [Hours later, in the middle of the night,]"
@@ -1035,7 +1035,7 @@
   {
     "reference": "Rut 3:9",
     "text": "“Who are you?” he asked. “I am your servant Ruth,” she replied. “Spread the corner of your garment over me, for you are a kinsman-redeemer.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-politeness",
         "note": "Ruth was not one of Boaz’s servants, but she referred to herself as Boaz’s servant as a polite way to express respect to Boaz. Use your language’s way of expressing humility and respect. Alternate translation: [your humble handmaid] … “your humble handmaid”"
@@ -1053,7 +1053,7 @@
   {
     "reference": "Rut 3:10",
     "text": "Then Boaz said, “May the LORD bless you, my daughter. You have shown more kindness now than before, because you have not run after the younger men, whether rich or poor.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-blessing",
         "note": "Use a natural form for a blessing in your language. Alternate translation: [A blessing from Yahweh on you]"
@@ -1079,7 +1079,7 @@
   {
     "reference": "Rut 3:11",
     "text": "And now do not be afraid, my daughter. I will do for you whatever you request, since all my fellow townspeople know that you are a woman of noble character.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "**So now** indicates that what came before in verse [3:10](../03/10.md) is the reason for what follows here in [verse 11](../03/11.md). Use a natural connector for introducing a result. Alternate translation: [Therefore]"
@@ -1101,7 +1101,7 @@
   {
     "reference": "Rut 3:12",
     "text": "Yes, it is true that I am a kinsman-redeemer, but there is a redeemer nearer than I.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "The phrase **And now** indicates that what follows is something else important that Ruth should pay attention to, as well as what Boaz introduced by saying “So now” in [3:11](../03/11.md). Alternate translation: [Another thing you must know]"
@@ -1119,7 +1119,7 @@
   {
     "reference": "Rut 3:13",
     "text": "Stay here tonight, and in the morning, if he wants to redeem you, good. Let him redeem you. But if he does not want to redeem you, as surely as the LORD lives, I will. Now lie here until morning.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication of the word **redeem** is that in this culture it means “marry according to our custom concerning widows.” Boaz is referring to the expectation that the closest male relative of Ruth’s dead husband would marry her and raise a son to carry on the dead man’s family name. You could include some of this information if that would be helpful to your readers. Alternate translation: [if he will take care of you] or [if he will redeem you, that is, marry you]"
@@ -1137,7 +1137,7 @@
   {
     "reference": "Rut 3:14",
     "text": "So she lay down at his feet until morning, but she got up before anyone else could recognize her. Then Boaz said, “Do not let it be known that a woman came to the threshing floor.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication of **So she lay at his feet** is that although Ruth and Boaz were alone together all night, they did not sin sexually. You can include this information if that would be helpful to your readers. Alternate translation: [Ruth slept at the feet of Boaz]"
@@ -1159,7 +1159,7 @@
   {
     "reference": "Rut 3:15",
     "text": "And he told her, “Bring the shawl you are wearing and hold it out.” When she did so, he poured in six measures of barley and placed it on her. Then he went into the city.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "A **cloak** was a long, thick outer garment usually made of cloth. Your language and culture may have a term for such a piece of clothing that you can use in your translation. Alternate translation: [the cape] or [the coat]"
@@ -1181,7 +1181,7 @@
   {
     "reference": "Rut 3:16",
     "text": "When Ruth returned to her mother-in-law, Naomi asked her, “How did it go, my daughter?” Then Ruth told her all that Boaz had done for her.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Naomi’s question to Ruth, **“Who are you, my daughter?”** appears to be an idiom that probably asks about her current status. In other words, it is likely that Naomi is asking if Ruth is now betrothed to be married. Alternate translation: [How is it with you] or [How did it go for you]"
@@ -1199,7 +1199,7 @@
   {
     "reference": "Rut 3:17",
     "text": "And she said, “He gave me these six measures of barley, for he said, ‘Do not go back to your mother-in-law empty-handed.’”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "See how you translated this in [3:15](../03/15.md). Alternate translation: [six measures of barley]"
@@ -1217,7 +1217,7 @@
   {
     "reference": "Rut 3:18",
     "text": "“Wait, my daughter,” said Naomi, “until you find out how things go, for he will not rest unless he has resolved the matter today.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **Sit** is an idiom that means to wait patiently and calmly. If this phrase does not have that meaning in your language, you could use an idiom from your language that does have this meaning or state the meaning plainly. Alternate translation: [Stay quiet] or [Be patient]"
@@ -1243,7 +1243,7 @@
   {
     "reference": "Rut 4:1",
     "text": "Meanwhile, Boaz went to the gate and sat down there. Soon the kinsman-redeemer of whom he had spoken came along, and Boaz said, “Come over here, my friend, and sit down.” So he went over and sat down.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "The writer is using this clause to introduce the next part of the story, in which Boaz takes the leading role as kinsman-redeemer and marries Ruth. Use a word, phrase, or other method in your language that is natural for introducing a new event. Alternate translation: [As for Boaz, he went up to the town gate]"
@@ -1273,7 +1273,7 @@
   {
     "reference": "Rut 4:2",
     "text": "Then Boaz took ten of the elders of the city and said, “Sit here,” and they did so.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Then he chose ten men]"
@@ -1283,7 +1283,7 @@
   {
     "reference": "Rut 4:3",
     "text": "And he said to the kinsman-redeemer, “Naomi, who has returned from the land of Moab, is selling the piece of land that belonged to our brother Elimelech.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-kinship",
         "note": "Here the term **brother** is used in the broad sense to mean a male relative of an extended family. If your language has a word for this, it would be appropriate to use it here."
@@ -1293,7 +1293,7 @@
   {
     "reference": "Rut 4:4",
     "text": "I thought I should inform you that you may buy it back in the presence of those seated here and in the presence of the elders of my people. If you want to redeem it, do so. But if you will not redeem it, tell me so I may know, because there is no one but you to redeem it, and I am next after you.” “I will redeem it,” he replied.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **said** refers to something that Boaz said to himself in his own mind. Alternate translation: [I said to myself that] or [I felt that]"
@@ -1323,7 +1323,7 @@
   {
     "reference": "Rut 4:5",
     "text": "Then Boaz said, “On the day you buy the land from Naomi and also from Ruth the Moabitess, you must also acquire the widow of the deceased in order to raise up the name of the deceased on his inheritance.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **On the day** is an idiom that means “at the time.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have this meaning or state the meaning plainly. Alternate translation: [At the hour] or [At the same time]"
@@ -1353,7 +1353,7 @@
   {
     "reference": "Rut 4:6",
     "text": "The kinsman-redeemer replied, “I cannot redeem it myself, or I would jeopardize my own inheritance. Take my right of redemption, because I cannot redeem it.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here, **I damage my own inheritance** means that if the man marries Ruth, the property that he buys would belong to her son, not to his own children. In that way, he would be taking away from the wealth that his own children would inherit from him and giving it instead to the children that Ruth might bear. Alternate translation: [lest I take away from my own children’s inheritance.]"
@@ -1367,7 +1367,7 @@
   {
     "reference": "Rut 4:7",
     "text": "Now in former times in Israel, concerning the redemption or exchange of property, to make any matter legally binding a man would remove his sandal and give it to the other party, and this was a confirmation in Israel.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-background",
         "note": "The word **Now** marks what follows as background information that the writer wants the reader to know in order to understand the story. Use your language’s way of giving background information in a story. Alternate translation: [You need to know this:]"
@@ -1389,7 +1389,7 @@
   {
     "reference": "Rut 4:8",
     "text": "So the kinsman-redeemer removed his sandal and said to Boaz, “Buy it for yourself.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "The events of the story start again here after the background information of [verse 7](../04/07.md). Use your language’s way of starting to tell the events of the story again."
@@ -1407,7 +1407,7 @@
   {
     "reference": "Rut 4:9",
     "text": "At this, Boaz said to the elders and all the people, “You are witnesses today that I am buying from Naomi all that belonged to Elimelech, Chilion, and Mahlon.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hyperbole",
         "note": "Here, **to the elders and to all the people** refers to all the people who were present at the meeting place, not to everyone in the town. The writer uses it here as a generalization for emphasis. If it would be helpful in your language, you could use a different way to express the emphasis. Alternate translation: [to everyone there, including the elders]"
@@ -1425,7 +1425,7 @@
   {
     "reference": "Rut 4:10",
     "text": "Moreover, I have acquired Ruth the Moabitess, Mahlon’s widow, as my wife, to raise up the name of the deceased through his inheritance, so that his name will not disappear from among his brothers or from the gate of his home. You are witnesses today.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This connecting phrase indicates that the people sitting at the gate are also witnesses to what follows. You could include this information if that would be helpful to your readers. Alternate translation: [You are also witnesses that]"
@@ -1459,7 +1459,7 @@
   {
     "reference": "Rut 4:11",
     "text": "“We are witnesses,” said the elders and all the people at the gate. “May the LORD make the woman entering your home like Rachel and Leah, who together built up the house of Israel. May you be prosperous in Ephrathah and famous in Bethlehem.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The implication is that **the people who were in the gate** are the same people who heard and observed the meeting between Boaz and the man who had been first as kinsman-redeemer. You could include this information if that would be helpful to your readers. Alternate translation: [the people who had observed Boaz’s meeting with the first kinsman-redeemer]"
@@ -1493,7 +1493,7 @@
   {
     "reference": "Rut 4:12",
     "text": "And may your house become like the house of Perez, whom Tamar bore to Judah, because of the offspring the LORD will give you by this young woman.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **house** represents the people who might live in a house plus all of their descendants. Perez had many descendants who became large clans in Israel, including the clan of Ephrathah. Also, many of his descendants became important people. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [And may your clan become like the clan of Perez]"
@@ -1507,7 +1507,7 @@
   {
     "reference": "Rut 4:13",
     "text": "So Boaz took Ruth, and she became his wife. And when he had relations with her, the LORD enabled her to conceive, and she gave birth to a son.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two clauses mean basically the same thing. The second clause emphasizes the meaning of the first by repeating the same idea with different words. If it would be helpful to your readers, you could combine the clauses into one clause. Alternate translation: [So Boaz took Ruth home to be his wife]"
@@ -1525,7 +1525,7 @@
   {
     "reference": "Rut 4:14",
     "text": "Then the women said to Naomi, “Blessed be the LORD, who has not left you this day without a kinsman-redeemer. May his name become famous in Israel.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "These are **the women** of the town as mentioned in [1:19](../01/19.md). You could include this information if that would be helpful to your readers. Alternate translation: [the women of the town]"
@@ -1551,7 +1551,7 @@
   {
     "reference": "Rut 4:15",
     "text": "He will renew your life and sustain you in your old age. For your daughter-in-law, who loves you and is better to you than seven sons, has given him birth.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "This phrase, **a restorer of life**, refers to how Naomi will again experience joy and hope in her life as a result of having this grandson. Alternate translation: [one who brings joy to you again] or [one who will make you feel young and strong again]"
@@ -1573,7 +1573,7 @@
   {
     "reference": "Rut 4:16",
     "text": "And Naomi took the child, placed him on her lap, and became a nurse to him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-symaction",
         "note": "The phrase **And Naomi took the child** does not mean that she took him away from Ruth in any hostile way. This probably indicates that Naomi held the child for a kind of ceremony of adoption."
@@ -1587,7 +1587,7 @@
   {
     "reference": "Rut 4:17",
     "text": "The neighbor women said, “A son has been born to Naomi,” and they named him Obed. He became the father of Jesse, the father of David.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two clauses mean basically the same thing. The first phrase introduces the naming event, and the second repeats it in order to report the event. If it would be helpful to your readers, you could combine the clauses that both refer to calling out a name. Alternate translation: [Then the women of the neighborhood said … And they called him Obed]"
@@ -1613,7 +1613,7 @@
   {
     "reference": "Rut 4:18",
     "text": "Now these are the generations of Perez: Perez was the father of Hezron,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "Because it was mentioned earlier that Perez was the son of Judah, the writer continues listing the family line that came from Perez. Verse [4:17](../04/17.md) was the end of the story about Naomi and Ruth, and verse [4:18](../04/18.md) begins a final section that lists the family line of the clan of Ephrathah, showing how important Obed was as the grandfather of King David. Use a connecting word that signals that this is a new section. You may also need to make it clear that this verse refers to a much earlier time than the time period of the story. Alternate translation: [the successive descendants of our clan, starting with Perez]"
@@ -1627,7 +1627,7 @@
   {
     "reference": "Rut 4:19",
     "text": "Hezron was the father of Ram, Ram was the father of Amminadab,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Hezron**, **Ram**, and **Amminidab** are the names of men. Use forms of these names that are natural in your language."
@@ -1637,7 +1637,7 @@
   {
     "reference": "Rut 4:20",
     "text": "Amminadab was the father of Nahshon, Nahshon was the father of Salmon,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "**Amminidab**, **Nahshon**, and **Salmon** are the names of men. Use forms of these names that are natural in your language."
@@ -1647,12 +1647,12 @@
   {
     "reference": "Rut 4:21",
     "text": "Salmon was the father of Boaz, Boaz was the father of Obed,",
-    "translation_challanges": []
+    "translation_challenges": []
   },
   {
     "reference": "Rut 4:22",
     "text": "Obed was the father of Jesse, and Jesse was the father of David.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "See the note about **David** on [4:17](../04/17.md). Alternate translation: [King David]"

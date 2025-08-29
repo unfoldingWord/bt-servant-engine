@@ -2,7 +2,7 @@
   {
     "reference": "Hag 1:1",
     "text": "In the second year of the reign of Darius, on the first day of the sixth month, the word of the LORD came through Haggai the prophet to Zerubbabel son of Shealtiel, governor of Judah, and to Joshua son of Jehozadak, the high priest, stating",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "The **second year of Darius the king** implicitly means the second year of the reign of Darius as king. You could include this information if that would be helpful to your readers, here and in [1:15](../01/15.md) and [2:10](../02/10.md). Alternate translation: [In the second year of the reign of King Darius]"
@@ -28,7 +28,7 @@
   {
     "reference": "Hag 1:2",
     "text": "that this is what the LORD of Hosts says: “These people say, ‘The time has not yet come to rebuild the house of the LORD.’”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Yahweh of hosts is concerned that these people are saying that the time has not come to rebuild the house of Yahweh]"
@@ -50,7 +50,7 @@
   {
     "reference": "Hag 1:3",
     "text": "Then the word of the LORD came through Haggai the prophet, saying:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "See how you translated this in [1:1](../01/01.md). Alternate translation: [Then Haggai the prophet brought this message from Yahweh]"
@@ -60,7 +60,7 @@
   {
     "reference": "Hag 1:4",
     "text": "“Is it a time for you yourselves to live in your paneled houses, while this house lies in ruins?”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Yahweh is using the question form for emphasis. If you would not use the question form for that purpose in your language, you could translate this as a statement or as an exclamation. Alternate translation: [Now is not a time for you yourselves to live in your paneled houses, while this house is desolate!]"
@@ -78,7 +78,7 @@
   {
     "reference": "Hag 1:5",
     "text": "Now this is what the LORD of Hosts says: “Consider carefully your ways.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [So now Yahweh of Armies is telling you to set your heart upon your ways]"
@@ -100,7 +100,7 @@
   {
     "reference": "Hag 1:6",
     "text": "You have planted much but harvested little. You eat but never have enough. You drink but never have your fill. You put on clothes but never get warm. You earn wages to put into a bag pierced through.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **satiety**, you could express the same idea in another way. Alternate translation: [but not enough to satisfy your hunger]"
@@ -130,7 +130,7 @@
   {
     "reference": "Hag 1:7",
     "text": "This is what the LORD of Hosts says: “Consider carefully your ways.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Yahweh of Armies is telling you to set your heart upon your ways]"
@@ -144,7 +144,7 @@
   {
     "reference": "Hag 1:8",
     "text": "Go up into the hills, bring down lumber, and build the house, so that I may take pleasure in it and be glorified, says the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Yes, Yahweh is telling you to go up to the mountain and bring timber and build the house, and he will take pleasure in it and he will be glorified]"
@@ -162,7 +162,7 @@
   {
     "reference": "Hag 1:9",
     "text": "You expected much, but behold, it amounted to little. And what you brought home, I blew away. Why? declares the LORD of Hosts. Because My house still lies in ruins, while each of you is busy with his own house.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [You looked for much, but behold, little! And you brought it home, but he blew upon it! And Yahweh of Armies wants you to know why this happened. It is because of his house, that it is desolate, but you are running, a man to his house]"
@@ -200,7 +200,7 @@
   {
     "reference": "Hag 1:10",
     "text": "Therefore, on account of you the heavens have withheld their dew and the earth has withheld its crops.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Yahweh is speaking as if the **heavens** and the **earth** were living things that could actively withhold **dew** and **produce** from the Judeans. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [there is no dew from the heavens above you and there is no produce from the earth]"
@@ -214,7 +214,7 @@
   {
     "reference": "Hag 1:11",
     "text": "I have summoned a drought on the fields and on the mountains, on the grain, new wine, and oil, and on whatever the ground yields, on man and beast, and on all the labor of your hands.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-litany",
         "note": "In this verse, Yahweh uses a series of repetitive phrases to show that the effects of the **desolation** he has **called for** are comprehensive. A series of phrases like this is called a litany. If your readers would not be familiar with this form, to help them appreciate it, you could put each of the phrases on a separate line in your translation, for example:\\n“And I have called for desolation\\n upon the land and upon the mountains and upon the grain and upon the new wine …”"
@@ -244,7 +244,7 @@
   {
     "reference": "Hag 1:12",
     "text": "Then Zerubbabel son of Shealtiel and Joshua son of Jehozadak, the high priest, as well as all the remnant of the people, obeyed the voice of the LORD their God and the words of the prophet Haggai, because the LORD their God had sent him. So the people feared the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here the word **listened** implicitly means “obeyed.” If it would be helpful to your readers, you could state the meaning plainly. Alternate translation: [Then … obeyed the voice of Yahweh their God and the words of Haggai the prophet]"
@@ -266,7 +266,7 @@
   {
     "reference": "Hag 1:13",
     "text": "Haggai, the messenger of the LORD, delivered the message of the LORD to the people: “I am with you,” declares the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Yahweh declares that he is with you!]"
@@ -276,7 +276,7 @@
   {
     "reference": "Hag 1:14",
     "text": "So the LORD stirred the spirit of Zerubbabel son of Shealtiel, governor of Judah, and the spirit of Joshua son of Jehozadak, the high priest, as well as the spirit of all the remnant of the people. And they came and began the work on the house of the LORD of Hosts, their God,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "Here one part of Zerubbabel, Joshua, and the people, their **spirit** in each case, represents all of them. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [And Yahweh awakened the governor of Judah, Zerubbabel son of Shealtiel, and Joshua son of Jehozadak, the high priest, and all of the remnant of the people]"
@@ -290,7 +290,7 @@
   {
     "reference": "Hag 1:15",
     "text": "on the twenty-fourth day of the sixth month, in the second year of King Darius.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-hebrewmonths",
         "note": "The **sixth month** of the Hebrew calendar includes August and September on Western calendars. See how you decided to translate the similar reference to a day, month, and year in [1:1](../01/01.md)."
@@ -304,7 +304,7 @@
   {
     "reference": "Hag 2:1",
     "text": "On the twenty-first day of the seventh month, the word of the LORD came through Haggai the prophet, saying:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Here some words are omitted that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [in the seventh month, on the twenty-first day of the month]"
@@ -326,7 +326,7 @@
   {
     "reference": "Hag 2:2",
     "text": "“Speak to Zerubbabel son of Shealtiel, governor of Judah, and to Joshua son of Jehozadak, the high priest, and also to the remnant of the people. Ask them,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "You may decide to translate the rest of this oracle, through [verse 9](../02/09.md), so that there is not a direct quotation within a quotation. If so, you can translate this so that it does not introduce a direct quotation. Alternate translation, with no comma following: [the people and ask them]"
@@ -336,7 +336,7 @@
   {
     "reference": "Hag 2:3",
     "text": "‘Who is left among you who saw this house in its former glory? How does it look to you now? Does it not appear to you like nothing in comparison?’",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain direct quotations within a quotation, you can translate this verse as an indirect quotation, continuing the sentence that begins in the previous verse. Alternate translation: [who is left among them who saw this house in its former glory. Ask them how they are seeing it now and whether, compared with it, it is not like nothing in their eyes]"
@@ -366,7 +366,7 @@
   {
     "reference": "Hag 2:4",
     "text": "But now be strong, O Zerubbabel, declares the LORD. Be strong, O Joshua son of Jehozadak, the high priest. And be strong, all you people of the land, declares the LORD. Work! For I am with you, declares the LORD of Hosts.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain direct quotations within a quotation, you can translate the second-level quotations in this verse as indirect quotations. Alternate translation: [But tell Zerubbabel that I, Yahweh, declare that he should now be strong, and that I, Yahweh, declare to Joshua son of Jehozadak, the high priest, and to all the people of the land that they should be strong, and that I, Yahweh of Armies, declare that they should work, for I am with them]"
@@ -380,7 +380,7 @@
   {
     "reference": "Hag 2:5",
     "text": "This is the promise I made to you when you came out of Egypt. And My Spirit remains among you; do not be afraid.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate this verse as an indirect quotation. Alternate translation: [Tell them that this is the word that I covenanted with them when they came out of Egypt, and my Spirit remains in their midst, so they should not fear]"
@@ -406,7 +406,7 @@
   {
     "reference": "Hag 2:6",
     "text": "For this is what the LORD of Hosts says: “Once more, in a little while, I will shake the heavens and the earth, the sea and the dry land.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [For I, Yahweh of Armies, say that yet once, it will be a little while, and I will be shaking the heavens and the earth and the sea and the dry land]"
@@ -428,7 +428,7 @@
   {
     "reference": "Hag 2:7",
     "text": "I will shake all the nations, and they will come with all their treasures, and I will fill this house with glory, says the LORD of Hosts.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [I, Yahweh of Armies, say that I will shake all of the nations, and they will come with the treasure of all of the nations, and I will fill this house with glory]"
@@ -446,7 +446,7 @@
   {
     "reference": "Hag 2:8",
     "text": "The silver is Mine, and the gold is Mine, declares the LORD of Hosts.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [I, Yahweh of Armies, declare that the silver is mine, and the gold is mine]"
@@ -460,7 +460,7 @@
   {
     "reference": "Hag 2:9",
     "text": "The latter glory of this house will be greater than the former, says the LORD of Hosts. And in this place I will provide peace, declares the LORD of Hosts.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotations in this verse as indirect quotations. Alternate translation: [I, Yahweh of Armies, say that the latter glory of this house will be greater than the former, and I, Yahweh of Armies, declare that in this place I will give peace]"
@@ -486,7 +486,7 @@
   {
     "reference": "Hag 2:10",
     "text": "On the twenty-fourth day of the ninth month, in the second year of Darius, the word of the LORD came to Haggai the prophet, saying,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Here some words are omitted that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [On the twenty-fourth day of the ninth month]"
@@ -508,7 +508,7 @@
   {
     "reference": "Hag 2:11",
     "text": "“This is what the LORD of Hosts says: ‘Ask the priests for a ruling.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotemarks",
         "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Yahweh of Armies says to ask the priests about the law. Ask them]"
@@ -518,7 +518,7 @@
   {
     "reference": "Hag 2:12",
     "text": "If a man carries consecrated meat in the fold of his garment, and it touches bread, stew, wine, oil, or any other food, does that item become holy?’” “No,” replied the priests.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain direct quotations within a quotation, you can translate this verse as an indirect quotation, continuing the sentence that begins in the previous verse. Alternate translation: [whether bread or stew or wine or oil or any other food becomes holy if a man carries holy flesh in the fold of his garment and he touches with his fold upon it]"
@@ -540,7 +540,7 @@
   {
     "reference": "Hag 2:13",
     "text": "So Haggai asked, “If one who is defiled by contact with a corpse touches any of these, does it become defiled?” “Yes, it becomes defiled,” the priests answered.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Haggai implicitly means a **person** who has died, and he is speaking specifically of that dead person’s body. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the unclean by contact with a dead body]"
@@ -566,7 +566,7 @@
   {
     "reference": "Hag 2:14",
     "text": "Then Haggai replied, “So it is with this people and this nation before Me, declares the LORD, and so it is with every work of their hands; whatever they offer there is defiled.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [Yahweh of Armies declares that this people and this nation are thus to his face, and that every work of their hands is thus, and that what they offer there is unclean]"
@@ -600,7 +600,7 @@
   {
     "reference": "Hag 2:15",
     "text": "Now consider carefully from this day forward: Before one stone was placed on another in the temple of the LORD,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "See how you translated this expression in [1:5](../01/05.md). Alternate translation: [consider carefully what has been happening]"
@@ -622,7 +622,7 @@
   {
     "reference": "Hag 2:16",
     "text": "from that time, when one came expecting a heap of twenty ephahs of grain, there were but ten. When one came to the winepress to draw out fifty baths, there were but twenty.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **their** likely refers to the days that Haggai described in the previous verse, beginning with “this day” (the day on which he is speaking) and including all of the days since the return from exile before the Judeans began rebuilding the temple. Alternate translation: [During those days] or [During that whole time period]"
@@ -648,7 +648,7 @@
   {
     "reference": "Hag 2:17",
     "text": "I struck you—all the work of your hands—with blight, mildew, and hail, but you did not turn to Me, declares the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [Yahweh declares that he struck you with blight and with mildew and with hail, all of the work of your hands, but it was not you to him]"
@@ -670,7 +670,7 @@
   {
     "reference": "Hag 2:18",
     "text": "Consider carefully from this day forward—from the twenty-fourth day of the ninth month, the day the foundation of the LORD’s temple was laid—consider carefully:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "See how you translated the similar phrase in [1:5](../01/05.md). Alternate translation: [consider carefully what has been happening]"
@@ -704,7 +704,7 @@
   {
     "reference": "Hag 2:19",
     "text": "Is there still seed in the barn? The vine, the fig, the pomegranate, and the olive tree have not yet yielded fruit. But from this day on, I will bless you.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Yahweh is using the question form for emphasis. If you would not use the question form for that purpose in your language, you could translate this as a statement or as an exclamation. Alternate translation: [The seed is not yet in the storehouse!] or [There is no seed in the storehouse!]"
@@ -722,7 +722,7 @@
   {
     "reference": "Hag 2:20",
     "text": "For the second time that day, the twenty-fourth day of the month, the word of the LORD came to Haggai, saying,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "See how you translated the similar phrase in [2:10](../02/10.md). Alternate translation: [And Haggai received another message from Yahweh]"
@@ -748,7 +748,7 @@
   {
     "reference": "Hag 2:21",
     "text": "“Tell Zerubbabel governor of Judah that I am about to shake the heavens and the earth:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Speak to Zerubbabel, the governor of Judah, and tell him that I am shaking the heavens and the earth]"
@@ -766,7 +766,7 @@
   {
     "reference": "Hag 2:22",
     "text": "I will overturn royal thrones and destroy the power of the kingdoms of the nations. I will overturn chariots and their riders; horses and their riders will fall, each by the sword of his brother.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-genericnoun",
         "note": "Yahweh is not referring to a specific **throne**. He means the thrones of all of the **kingdoms** in the world. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [the thrones of kingdoms]"
@@ -804,7 +804,7 @@
   {
     "reference": "Hag 2:23",
     "text": "On that day, declares the LORD of Hosts, I will take you, My servant, Zerubbabel son of Shealtiel, declares the LORD, and I will make you like My signet ring, for I have chosen you, declares the LORD of Hosts.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotesinquotes",
         "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotations in this verse as indirect quotations. Alternate translation: [I, Yahweh of Armies, declare that on that day I will take him, Zerubbabel son of Shealtiel, my servant, and I, Yahweh of Armies, declare that I will make him like a signet ring, for I have chosen him]"

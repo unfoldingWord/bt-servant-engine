@@ -2,7 +2,7 @@
   {
     "reference": "Jas 1:1",
     "text": "James, a servant of God and of the Lord Jesus Christ, To the twelve tribes of the Dispersion: Greetings.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "In this culture, letter writers would give their own names first, and they would refer to themselves in the third person. If that would be confusing in your language, you could use the first person. If your language has a particular way of introducing the author of a letter, you could also use that if it would be helpful to your readers. Alternate translation: [I, James, am writing this letter] or [From James]"
@@ -36,7 +36,7 @@
   {
     "reference": "Jas 1:2",
     "text": "Consider it pure joy, my brothers, when you encounter trials of many kinds,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **joy** with an adjective such as “happy.” Alternate translation: [You should be happy]"
@@ -66,7 +66,7 @@
   {
     "reference": "Jas 1:3",
     "text": "because you know that the testing of your faith develops perseverance.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-infostructure",
         "note": "It may be helpful to begin a new sentence here, as UST does. Alternate translation: [I want you to know that] or [You should realize that]"
@@ -80,7 +80,7 @@
   {
     "reference": "Jas 1:4",
     "text": "Allow perseverance to finish its work, so that you may be mature and complete, not lacking anything.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "The expression **let endurance have a perfect work** means “let endurance complete its work.” James is speaking as if the quality of **endurance** were actively developing the character of believers. Alternate translation: [But make sure that you completely develop the ability not to give up]"
@@ -98,7 +98,7 @@
   {
     "reference": "Jas 1:5",
     "text": "Now if any of you lacks wisdom, he should ask God, who gives generously to all without finding fault, and it will be given to him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **wisdom** with an adjective such as “wise.” Alternate translation: [is not sure what would be the wise thing to do]"
@@ -116,7 +116,7 @@
   {
     "reference": "Jas 1:6",
     "text": "But he must ask in faith, without doubting, because he who doubts is like a wave of the sea, blown and tossed by the wind.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **faith** with a verb such as “trust.” Alternate translation: [confidently trusting God]"
@@ -142,7 +142,7 @@
   {
     "reference": "Jas 1:7",
     "text": "That man should not expect to receive anything from the Lord.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "James is using the term **man** in a generic sense that includes both men and women. Alternate translation: [Such a person should not think]"
@@ -152,7 +152,7 @@
   {
     "reference": "Jas 1:8",
     "text": "He is a double-minded man, unstable in all his ways.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "James speaks of this person as if he had two minds, with one mind deciding to do one thing and the other mind deciding to do something else. Alternate translation: [a man who cannot make up his mind]"
@@ -170,7 +170,7 @@
   {
     "reference": "Jas 1:9",
     "text": "The brother in humble circumstances should exult in his high position.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "James assumes that his readers will understand that he is using the word **boast** in a positive sense. He does not mean it in the sinful sense of bragging or vaunting oneself over others. You could include this information if that would be helpful to your readers. Alternate translation: [Now let the lowly brother take satisfaction]"
@@ -196,7 +196,7 @@
   {
     "reference": "Jas 1:10",
     "text": "But the one who is rich should exult in his low position, because he will pass away like a flower of the field.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "James is leaving out some of the words that in many languages a sentence would need in order to be complete. These words can be supplied from the previous verse. Alternate translation: [but let the rich boast in his lowliness] or [but let the rich take satisfaction in his lowliness]"
@@ -234,7 +234,7 @@
   {
     "reference": "Jas 1:11",
     "text": "For the sun rises with scorching heat and withers the plant; its flower falls and its beauty is lost. So too, the rich man will fade away in the midst of his pursuits.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-tense",
         "note": "Here James is giving an illustration in the past tense as if he were telling the story of something that had happened. (See the discussion of this in Part 3 of the Introduction to James.) If it would be helpful in your language, you could translate this sentence with the present tense. Alternate translation: [For the sun rises with heat and dries up the grass, and its flower falls off and the beauty of its face perishes]"
@@ -280,7 +280,7 @@
   {
     "reference": "Jas 1:12",
     "text": "Blessed is the man who perseveres under trial, because when he has stood the test, he will receive the crown of life that God has promised to those who love Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "**Blessed {is}** indicates that God is giving favor to someone or that his situation is positive or good. Alternate translation: [The person who endures trial receives God’s favor] or [The person who endures trial is in a positive situation]"
@@ -318,7 +318,7 @@
   {
     "reference": "Jas 1:13",
     "text": "When tempted, no one should say, “God is tempting me.” For God cannot be tempted by evil, nor does He tempt anyone.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you can express this with an active form. Alternate translation: [God is tempting me] or [God is leading me to do something wrong]"
@@ -336,7 +336,7 @@
   {
     "reference": "Jas 1:14",
     "text": "But each one is tempted when by his own evil desires he is lured away and enticed.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "James is using the word **But** to indicate a contrast between the wrong idea that God might tempt someone and the truth that each person **is tempted by his own desire**. This is actually a strong contrast, and you may wish to use a strong expression for it. Alternate translation: [No, on the contrary,]"
@@ -362,7 +362,7 @@
   {
     "reference": "Jas 1:15",
     "text": "Then after desire has conceived, it gives birth to sin; and sin, when it is full-grown, gives birth to death.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-sequential",
         "note": "James uses the word **Then** to indicate that what he describes in this verse happens after something that he described in the previous verse. However, he does not mean that this happens after a person is “dragged away and enticed,” as he said at the end of that verse. Rather, he means that it happens after a person begins to entertain the temptation of a wrong “desire,” as he said at the beginning of that verse. It may be helpful to your readers to use the word “when” to indicate this. Alternate translation: [When desire has conceived, it bears sin]"
@@ -384,7 +384,7 @@
   {
     "reference": "Jas 1:16",
     "text": "Do not be deceived, my beloved brothers.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "James is speaking as if some deceptive guides were trying to lead his readers in the wrong direction. Alternate translation: [Do not be deceived]"
@@ -406,7 +406,7 @@
   {
     "reference": "Jas 1:17",
     "text": "Every good and perfect gift is from above, coming down from the Father of the heavenly lights, with whom there is no change or shifting shadow.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, **from above** is a spatial metaphor that describes God. Alternate translation: [God gives us every good present and every perfect gift]"
@@ -444,7 +444,7 @@
   {
     "reference": "Jas 1:18",
     "text": "He chose to give us birth through the word of truth, that we would be a kind of firstfruits of His creation.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [God chose to give birth to us]"
@@ -490,7 +490,7 @@
   {
     "reference": "Jas 1:19",
     "text": "My beloved brothers, understand this: Everyone should be quick to listen, slow to speak, and slow to anger,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-sentencetypes",
         "note": "This Greek form of **Know** could be either imperative or indicative, and so it could mean: (1) if it is an imperative, James is telling his readers to pay attention to what he is about to say. Alternate translation: [This is important]; (2) if it is an indicative, James is telling his readers that he is about to remind them of something that they already know. Alternate translation: [You already know this]"
@@ -516,7 +516,7 @@
   {
     "reference": "Jas 1:20",
     "text": "for man’s anger does not bring about the righteousness that God desires.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James uses **For** to introduce the reason why people should not get angry, as he said in the previous verse. Alternate translation: [You should not get angry, because]"
@@ -534,7 +534,7 @@
   {
     "reference": "Jas 1:21",
     "text": "Therefore, get rid of all moral filth and every expression of evil, and humbly accept the word planted in you, which can save your souls.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "Here James uses **Therefore** to introduce to his readers a statement of what they should do as a result of what he explained to them in the previous verse. Alternate translation: [Consequently]"
@@ -580,7 +580,7 @@
   {
     "reference": "Jas 1:22",
     "text": "Be doers of the word, and not hearers only. Otherwise, you are deceiving yourselves.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "**But** draws a contrast not with what James has just said, but with a potential misunderstanding of what he has just said. He wants to clarify that by “receive the implanted word” he does not mean simply to believe it, but to put it into practice. It may be appropriate in your language to translate the word **but** with an expression that introduces a clarification. Alternate translation: [Now]"
@@ -602,7 +602,7 @@
   {
     "reference": "Jas 1:23",
     "text": "For anyone who hears the word but does not carry it out is like a man who looks at his face in a mirror,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "James is using a hypothetical situation to teach. Alternate translation: [Suppose someone is a hearer of the word and not a doer. Then he is like a man beholding the face of his birth in a mirror]"
@@ -640,7 +640,7 @@
   {
     "reference": "Jas 1:24",
     "text": "and after observing himself goes away and immediately forgets what he looks like.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "**For** introduces a reason, as would be expected, but it is a reason for something that must be inferred from the context. If it would be helpful to your readers, you could state explicitly what James is giving the reason for. Alternate translation: [This did not really benefit him, because]"
@@ -666,7 +666,7 @@
   {
     "reference": "Jas 1:25",
     "text": "But the one who looks intently into the perfect law of freedom, and continues to do so—not being a forgetful hearer, but an effective doer—he will be blessed in what he does.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "James is using a further hypothetical situation to teach. This illustration is a contrast to the one he offered in [1:23](../01/23.md). Alternate translation: [But suppose someone gazes into the perfect law of freedom and perseveres … Then that person will be blessed]"
@@ -720,7 +720,7 @@
   {
     "reference": "Jas 1:26",
     "text": "If anyone considers himself religious and yet does not bridle his tongue, he deceives his heart and his religion is worthless.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "James is using a hypothetical situation to teach. Alternate translation: [Suppose someone thinks that he is religious, but he does not bridle his tongue, thus deceiving his heart. Then his religion is worthless]"
@@ -754,7 +754,7 @@
   {
     "reference": "Jas 1:27",
     "text": "Pure and undefiled religion before our God and Father is this: to care for orphans and widows in their distress, and to keep oneself from being polluted by the world.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "James is speaking of **religion** as if it could be physically **Pure** and **undefiled**. Alternate translation: [Religion that is pleasing and acceptable]"
@@ -800,7 +800,7 @@
   {
     "reference": "Jas 2:1",
     "text": "My brothers, as you hold out your faith in our glorious Lord Jesus Christ, do not show favoritism.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See how you translated the term **brothers** in [1:2](../01/02.md). Alternate translation: [My fellow believers]"
@@ -822,7 +822,7 @@
   {
     "reference": "Jas 2:2",
     "text": "Suppose a man comes into your meeting wearing a gold ring and fine clothes, and a poor man in shabby clothes also comes in.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "James is using a hypothetical situation to teach. He describes the condition in this verse and the next verse, and he describes the result in [2:4](../02/04.md). Alternate translation: [Suppose]"
@@ -848,7 +848,7 @@
   {
     "reference": "Jas 2:3",
     "text": "If you lavish attention on the man in fine clothes and say, “Here is a seat of honor,” but say to the poor man, “You must stand” or “Sit at my feet,”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "James is continuing to describe the condition in the hypothetical situation that he introduced in the previous verse. Alternate translation, as in UST: [and suppose]"
@@ -894,7 +894,7 @@
   {
     "reference": "Jas 2:4",
     "text": "have you not discriminated among yourselves and become judges with evil thoughts?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "In this verse James describes the result of the hypothetical situation he has been describing since [2:2](../02/02.md). It may be helpful to begin a new sentence here. Alternate translation: [Then you have distinguished among yourselves and become judges of evil thoughts.]"
@@ -920,7 +920,7 @@
   {
     "reference": "Jas 2:5",
     "text": "Listen, my beloved brothers: Has not God chosen the poor of this world to be rich in faith and to inherit the kingdom He promised those who love Him?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "James uses this expression to emphasize what he is about to say. Alternate translation: [Pay attention to this]"
@@ -962,7 +962,7 @@
   {
     "reference": "Jas 2:6",
     "text": "But you have dishonored the poor. Is it not the rich who oppress you and drag you into court?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "What James means by this is clear from the example he gives in [2:2–3](../02/02.md). Alternate translation: [you have treated people who are poor much worse than you have treated people who are rich]"
@@ -1004,7 +1004,7 @@
   {
     "reference": "Jas 2:7",
     "text": "Are they not the ones who blaspheme the noble name by which you have been called?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "James is using the question form as a teaching tool. If it would be helpful in your language, you could express this question by translating his words as a statement or an exclamation. Alternate translation: [They are the ones who blaspheme the good name that has been called upon you!]"
@@ -1030,7 +1030,7 @@
   {
     "reference": "Jas 2:8",
     "text": "If you really fulfill the royal law stated in Scripture, “Love your neighbor as yourself,” you are doing well.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "James is using these words to introduce a contrast with what he said in [2:6](../02/06.md), “you have dishonored the poor,” meaning “you have treated rich people much better than you have treated poor people.” Alternate translation: [But if, instead of favoring rich people]"
@@ -1060,7 +1060,7 @@
   {
     "reference": "Jas 2:9",
     "text": "But if you show favoritism, you sin and are convicted by the law as transgressors.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Your language may require you to specify the object of **favor**. Alternate translation: [you favor the rich]"
@@ -1078,7 +1078,7 @@
   {
     "reference": "Jas 2:10",
     "text": "Whoever keeps the whole law but stumbles at just one point is guilty of breaking all of it.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James is giving the reason for the statement he made in the previous verse. Alternate translation: [The reason why showing favoritism makes a person guilty of breaking God’s law is that]"
@@ -1108,7 +1108,7 @@
   {
     "reference": "Jas 2:11",
     "text": "For He who said, “Do not commit adultery,” also said, “Do not murder.” If you do not commit adultery, but do commit murder, you have become a lawbreaker.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James is giving the reason for the statement he made in the previous verse. Alternate translation: [The reason why breaking one law makes a person guilty of breaking every law is that]"
@@ -1126,7 +1126,7 @@
   {
     "reference": "Jas 2:12",
     "text": "Speak and act as those who are going to be judged by the law that gives freedom.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-you",
         "note": "The implied “you” in these imperatives is plural. James returns here to the plural usage that he follows in most of his letter. So in your translation, use the plural form of “you” if your language marks that distinction and if it reflects it in imperatives. Alternate translation: [Speak and act in this way]"
@@ -1156,7 +1156,7 @@
   {
     "reference": "Jas 2:13",
     "text": "For judgment without mercy will be shown to anyone who has not been merciful. Mercy triumphs over judgment.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James is giving the reason why people should be guided in their actions by the principle of loving others, as he said in the previous verse. Alternate translation: [You should follow the principle of loving others because]"
@@ -1186,7 +1186,7 @@
   {
     "reference": "Jas 2:14",
     "text": "What good is it, my brothers, if someone claims to have faith, but has no deeds? Can such faith save him?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "James is using the question form as a teaching tool. If it would be helpful in your language, you could express this question by translating his words as a statement. Alternate translation: [It does no good, my brothers, for someone to say he has faith if he does not have works.]"
@@ -1228,7 +1228,7 @@
   {
     "reference": "Jas 2:15",
     "text": "Suppose a brother or sister is without clothes and daily food.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "James is using a hypothetical situation to teach. He begins to describe the condition in this verse. He describes the rest of the condition and the result in the next verse. Alternate translation: [Suppose]"
@@ -1246,7 +1246,7 @@
   {
     "reference": "Jas 2:16",
     "text": "If one of you tells him, “Go in peace; stay warm and well fed,” but does not provide for his physical needs, what good is that?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "James is continuing to describe the condition of the hypothetical situation that he is using to teach. Alternate translation: [and suppose that]"
@@ -1296,7 +1296,7 @@
   {
     "reference": "Jas 2:17",
     "text": "So too, faith by itself, if it does not result in action, is dead.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "James is speaking of **faith** as if it would be a living thing if it had works but not be alive if it did not have them. Alternate translation: [a person’s faith is not genuine by itself; he must express it through works]"
@@ -1310,7 +1310,7 @@
   {
     "reference": "Jas 2:18",
     "text": "But someone will say, “You have faith and I have deeds.” Show me your faith without deeds, and I will show you my faith by my deeds.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotations",
         "note": "See the discussion of this sentence in the Introduction to this chapter. You may want to turn the direct quotation into an indirect quotation to help your readers understand that the **You** who is being addressed is the same “one of you” as in [2:16](../02/16.md) and that when James says **I**, he is referring to himself. Alternate translation: [But someone may tell you that you have faith and I have works]"
@@ -1356,7 +1356,7 @@
   {
     "reference": "Jas 2:19",
     "text": "You believe that God is one. Good for you! Even the demons believe that—and shudder.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-reduplication",
         "note": "The verb translated **believe** comes from the same root as the word translated “faith.” It may be helpful to your readers to show in your translation that James is continuing to speak to the same person as in the previous verse. Alternate translation: [You have faith that God is one]"
@@ -1378,7 +1378,7 @@
   {
     "reference": "Jas 2:20",
     "text": "O foolish man, do you want evidence that faith without deeds is worthless?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "James is using the question form as a teaching tool. If it would be helpful in your language, you could express this question by translating his words as a statement. Alternate translation: [But I can show you, O foolish man, that faith without works is idle.]"
@@ -1416,7 +1416,7 @@
   {
     "reference": "Jas 2:21",
     "text": "Was not our father Abraham justified by what he did when he offered his son Isaac on the altar?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "James is using the question form as a teaching tool. If it would be helpful in your language, you could express this question by translating his words as a statement. Alternate translation: [Abraham our father was justified by works when he offered up Isaac his son on the altar.]"
@@ -1446,7 +1446,7 @@
   {
     "reference": "Jas 2:22",
     "text": "You see that his faith was working with his actions, and his faith was perfected by what he did.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, to **see** represents to understand. Alternate translation: [So you should understand]"
@@ -1472,7 +1472,7 @@
   {
     "reference": "Jas 2:23",
     "text": "And the Scripture was fulfilled that says, “Abraham believed God, and it was credited to him as righteousness,” and he was called a friend of God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you can express this with an active form. Alternate translation: [this fulfilled the scripture]"
@@ -1494,7 +1494,7 @@
   {
     "reference": "Jas 2:24",
     "text": "As you can see, a man is justified by his deeds and not by faith alone.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Here, to **see** represents to understand. Alternate translation: [So you should understand]"
@@ -1524,7 +1524,7 @@
   {
     "reference": "Jas 2:25",
     "text": "In the same way, was not even Rahab the prostitute justified by her actions when she welcomed the spies and sent them off on another route?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "James is using the question form as a teaching tool. If it would be helpful in your language, you could express this question by translating his words as a statement. Alternate translation: [Rahab the prostitute was also justified similarly from works when she welcomed the messengers and sent them away by another road.]"
@@ -1554,7 +1554,7 @@
   {
     "reference": "Jas 2:26",
     "text": "As the body without the spirit is dead, so faith without deeds is dead.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James is using the word **For** to introduce a general principle that can be deduced from the argument he has been making since [2:14](../02/14.md) that **faith** needs to be expressed in **works**. He does not say **For**, which often means “because,” to indicate that God justified Abraham and Rahab for this reason. Rather, he is using the word **For** in order to bring his argument to its conclusion. Alternate translation: [These specific cases confirm the general principle that]"
@@ -1576,7 +1576,7 @@
   {
     "reference": "Jas 3:1",
     "text": "Not many of you should become teachers, my brothers, because you know that we who teach will be judged more strictly.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Not many of you should become teachers]"
@@ -1602,7 +1602,7 @@
   {
     "reference": "Jas 3:2",
     "text": "We all stumble in many ways. If anyone is never at fault in what he says, he is a perfect man, able to control his whole body.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James is using **For** to introduce the reason why most of his readers should not become teachers, not the reason why God will judge teachers more strictly. If it would be helpful to your readers, you could explain this reason more fully as a separate sentence, as UST does."
@@ -1640,7 +1640,7 @@
   {
     "reference": "Jas 3:3",
     "text": "When we put bits into the mouths of horses to make them obey us, we can guide the whole animal.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-background",
         "note": "James uses **Now** to introduce background information in the form of an illustration that will help his readers understand what he wants to teach them. If it would be helpful to your readers, you could translate the word with a phrase that shows that James is going to offer an illustration, as UST does."
@@ -1666,7 +1666,7 @@
   {
     "reference": "Jas 3:4",
     "text": "Consider ships as well. Although they are so large and are driven by strong winds, they are steered by a very small rudder wherever the pilot is inclined.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The term **Behold** focuses the attention of a listener or reader on what a speaker or writer is about to say. Though it literally means “look” or “see,” the term can be used to suggest giving notice and attention, and that is how James is using it here. Alternate translation: [Also consider the case of ships]"
@@ -1708,7 +1708,7 @@
   {
     "reference": "Jas 3:5",
     "text": "In the same way, the tongue is a small part of the body, but it boasts of great things. Consider how small a spark sets a great forest ablaze.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-simile",
         "note": "James uses the words **Thus also** to introduce a simile or comparison between the human tongue and the small items he discussed in the previous two verses, a horse’s bit and a ship’s rudder. Alternate translation: [In the same way] or [Likewise]"
@@ -1746,7 +1746,7 @@
   {
     "reference": "Jas 3:6",
     "text": "The tongue also is a fire, a world of wickedness among the parts of the body. It pollutes the whole person, sets the course of his life on fire, and is itself set on fire by hell.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "James is using the **tongue** to represent what people say, by association with the way the tongue is used for speech. Alternate translation: [What we say is also a fire]"
@@ -1808,7 +1808,7 @@
   {
     "reference": "Jas 3:7",
     "text": "All kinds of animals, birds, reptiles, and creatures of the sea are being tamed and have been tamed by man,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-time-background",
         "note": "James uses **For** to introduce background information in the form of an illustration that will help his readers understand what he wants to teach them. Alternate translation: [Now]"
@@ -1846,7 +1846,7 @@
   {
     "reference": "Jas 3:8",
     "text": "but no man can tame the tongue. It is a restless evil, full of deadly poison.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "James is using the term **men** in a generic sense that includes all people. Alternate translation: [no human being]"
@@ -1876,7 +1876,7 @@
   {
     "reference": "Jas 3:9",
     "text": "With the tongue we bless our Lord and Father, and with it we curse men, who have been made in God’s likeness.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **it** refers to the tongue. Alternate translation: [With our tongue we bless … and with our tongue we curse]"
@@ -1910,7 +1910,7 @@
   {
     "reference": "Jas 3:10",
     "text": "Out of the same mouth come blessing and cursing. My brothers, this should not be!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "By association with the way the mouth is used for speech, James is using the **mouth** to represent what people say. Alternate translation: [The same person speaks blessing and cursing]"
@@ -1936,7 +1936,7 @@
   {
     "reference": "Jas 3:11",
     "text": "Can both fresh water and salt water flow from the same spring?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublenegatives",
         "note": "The first word of this sentence in Greek is a negative word that can be used to turn a statement into a question that expects a negative answer. ULT shows this by adding “does it?” Your language may have other ways of asking a question that expects a negative answer, for example, by changing the word order of a positive statement. Alternate translation: [Does a spring gush the sweet and the bitter from the same opening]"
@@ -1958,7 +1958,7 @@
   {
     "reference": "Jas 3:12",
     "text": "My brothers, can a fig tree grow olives, or a grapevine bear figs? Neither can a salt spring produce fresh water.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublenegatives",
         "note": "The first word of this sentence in Greek is a negative word that can be used to turn a statement into a question that expects a negative answer. ULT shows this by adding “is it?” Your language may have other ways of asking a question that expects a negative answer, for example, by changing the word order of a positive statement. Alternate translation: [Is a fig tree able to make olives]"
@@ -2008,7 +2008,7 @@
   {
     "reference": "Jas 3:13",
     "text": "Who is wise and understanding among you? Let him show it by his good conduct, by deeds done in the humility that comes from wisdom.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "James is not looking for information. He is using the question form to express a condition. If it would be helpful in your language, you could express this question by translating this as a conditional statement. Alternate translation: [If anyone is wise and understanding among you, let him show]"
@@ -2030,7 +2030,7 @@
   {
     "reference": "Jas 3:14",
     "text": "But if you harbor bitter jealousy and selfish ambition in your hearts, do not boast in it or deny the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "James is using the **heart** to represent the thoughts and emotions. Alternate translation: [you have bitterly envious and ambitious thoughts and feelings]"
@@ -2060,7 +2060,7 @@
   {
     "reference": "Jas 3:15",
     "text": "Such wisdom does not come from above, but is earthly, unspiritual, demonic.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "**This** refers to the “bitter jealousy and ambition” that James describes in the previous verse. If it would be helpful to your readers, you could state that explicitly. Alternate translation: [This bitter jealousy and ambition]"
@@ -2090,7 +2090,7 @@
   {
     "reference": "Jas 3:16",
     "text": "For where jealousy and selfish ambition exist, there will be disorder and every evil practice.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James is giving the reason for the statement he made in the previous verse. Alternate translation: [It is clear that this is not godly wisdom, because]"
@@ -2108,7 +2108,7 @@
   {
     "reference": "Jas 3:17",
     "text": "But the wisdom from above is first of all pure, then peace-loving, gentle, accommodating, full of mercy and good fruit, impartial, and sincere.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **wisdom** with an adjective such as “wise.” Alternate translation: [the wise way of living]"
@@ -2130,7 +2130,7 @@
   {
     "reference": "Jas 3:18",
     "text": "Peacemakers who sow in peace reap the fruit of righteousness.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "James speaks of those who **make peace** as if they were sowing seeds, and of righteousness as if it were **fruit** that grew from those seeds. Alternate translation: [those who work in peace to make peace produce righteousness]"
@@ -2148,7 +2148,7 @@
   {
     "reference": "Jas 4:1",
     "text": "What causes conflicts and quarrels among you? Don’t they come from the passions at war within you?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "James is using the terms **wars** and **battles**. Alternate translation: [Where do the conflicts and disputes that you are having come from]"
@@ -2178,7 +2178,7 @@
   {
     "reference": "Jas 4:2",
     "text": "You crave what you do not have; you kill and covet, but are unable to obtain it. You quarrel and fight. You do not have, because you do not ask.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "In both of these sentences, James is using the word translated **and** to introduce a contrast between the first and second clauses. Alternate translation: [You covet, but you do not have. You kill and envy, but you are not able to obtain]"
@@ -2216,7 +2216,7 @@
   {
     "reference": "Jas 4:3",
     "text": "And when you do ask, you do not receive, because you ask with wrong motives, that you may squander it on your pleasures.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "James is using the word translated **and** to introduce a contrast between these two clauses. Alternate translation: [You ask but you do not receive]"
@@ -2234,7 +2234,7 @@
   {
     "reference": "Jas 4:4",
     "text": "You adulteresses! Do you not know that friendship with the world is hostility toward God? Therefore, whoever chooses to be a friend of the world renders himself an enemy of God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: \\\\[Adulteresses\\\\]"
@@ -2284,7 +2284,7 @@
   {
     "reference": "Jas 4:5",
     "text": "Or do you think the Scripture says without reason that the Spirit He caused to dwell in us yearns with envy?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "James is using the question form as a teaching tool. If it would be helpful in your language, you could express this question by translating his words as a statement. (In this context, the term **vainly** means “for no good reason,” not “in a conceited way.”) Alternate translation: [There is a good reason why the Scripture says]"
@@ -2310,7 +2310,7 @@
   {
     "reference": "Jas 4:6",
     "text": "But He gives us more grace. This is why it says: “God opposes the proud, but gives grace to the humble.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "In light of what he says in the previous two verses, James is drawing a contrast between what God might be expected to do and what God actually does. If it would be helpful to your readers, you could state the contrast more explicitly. Alternate translation: [But even though God is jealous if we are friends with the world, he does not reject us. Instead, he gives us even more grace to be friends with him]"
@@ -2340,7 +2340,7 @@
   {
     "reference": "Jas 4:7",
     "text": "Submit yourselves, then, to God. Resist the devil, and he will flee from you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you can express this with an active form. Alternate translation: [Submit, therefore]"
@@ -2366,7 +2366,7 @@
   {
     "reference": "Jas 4:8",
     "text": "Draw near to God, and He will draw near to you. Cleanse your hands, you sinners, and purify your hearts, you double-minded.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James is using the word translated **and** to describe a result. Alternate translation: [If you come near to God, then he will come near to you]"
@@ -2408,7 +2408,7 @@
   {
     "reference": "Jas 4:9",
     "text": "Grieve, mourn, and weep. Turn your laughter to mourning, and your joy to gloom.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublet",
         "note": "These three verbs have similar meanings. James is using them together to emphasize how sorry his readers should be. Alternate translation: [Be extremely sorry]"
@@ -2442,7 +2442,7 @@
   {
     "reference": "Jas 4:10",
     "text": "Humble yourselves before the Lord, and He will exalt you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James is using the word translated **and** to describe a result. Alternate translation: [If you are humbled before the Lord, then he will lift you up]"
@@ -2464,7 +2464,7 @@
   {
     "reference": "Jas 4:11",
     "text": "Brothers, do not slander one another. Anyone who speaks against his brother or judges him speaks against the law and judges it. And if you judge the law, you are not a practitioner of the law, but a judge of it.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Do not say bad things about one another]"
@@ -2494,7 +2494,7 @@
   {
     "reference": "Jas 4:12",
     "text": "There is only one Lawgiver and Judge, the One who is able to save and destroy. But who are you to judge your neighbor?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [The lawgiver and judge are the same person]"
@@ -2524,7 +2524,7 @@
   {
     "reference": "Jas 4:13",
     "text": "Come now, you who say, “Today or tomorrow we will go to this or that city, spend a year there, carry on business, and make a profit.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This is an idiom. Alternate translation: [Now listen]"
@@ -2554,7 +2554,7 @@
   {
     "reference": "Jas 4:14",
     "text": "You do not even know what will happen tomorrow! What is your life? You are a mist that appears for a little while and then vanishes.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "James is using the question form to challenge and teach his readers. If it would be helpful in your language, you could express this question by translating his words as a statement or an exclamation. Alternate translation: [You do not know what will happen tomorrow, and you may not even be alive then!]"
@@ -2568,7 +2568,7 @@
   {
     "reference": "Jas 4:15",
     "text": "Instead, you ought to say, “If the Lord is willing, we will live and do this or that.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "James is using a construction that puts the word “and” before two things that would both be the case, more literally “and we will live and we will do.” Your language may have a similar construction that you could use here. If not, it may not be necessary for you to translate the first occurrence of “and,” which ULT represents as **both**. (The term **both** in ULT does not mean “the two of us.”) Alternate translation: [we will live and we will do]"
@@ -2586,7 +2586,7 @@
   {
     "reference": "Jas 4:16",
     "text": "As it is, you boast in your proud intentions. All such boasting is evil.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the abstract nouns **pretensions** and **boasting** (the second occurrence of the word in ULT) by stating the ideas behind them with equivalent expressions. Alternate translation: [you are boasting about what you presume you will be able to do. It is always wrong to boast like that]"
@@ -2596,7 +2596,7 @@
   {
     "reference": "Jas 4:17",
     "text": "Anyone, then, who knows the right thing to do, yet fails to do it, is guilty of sin.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "James is using the word **Therefore** to describe a further inference rather than a conclusion. He is saying that if it is wrong to plan to do things without knowing whether God wants you to do them, then it is also wrong not to do things that you do know God wants. Alternate translation: [From this we can also recognize that if someone does know what God wants him to do but he does not do it, then he is also sinning]"
@@ -2606,7 +2606,7 @@
   {
     "reference": "Jas 5:1",
     "text": "Come now, you who are rich, weep and wail over the misery to come upon you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This is an idiom. See how you translated it in [4:13](../04/13.md). Alternate translation: [Now listen]"
@@ -2636,7 +2636,7 @@
   {
     "reference": "Jas 5:2",
     "text": "Your riches have rotted and moths have eaten your clothes.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-versebridge",
         "note": "If it would be helpful to your readers, you could combine [5:2](../05/02.md) and [5:3](../05/03.md) into a verse bridge. You could put the last sentence of [5:3](../05/03.md) first, followed by all of [5:2](../05/02.md) and then the rest of [5:3](../05/03.md). This would allow you to address several translation issues that are discussed in the notes to this verse and the next verse."
@@ -2662,7 +2662,7 @@
   {
     "reference": "Jas 5:3",
     "text": "Your gold and silver are corroded. Their corrosion will testify against you and consume your flesh like fire. You have hoarded treasure in the last days.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-pastforfuture",
         "note": "James is using the past tense to refer to something that will happen in the future. If it would be helpful in your language, you could use the future tense in your translation. Alternate translation: [Your gold and silver are going to be tarnished]"
@@ -2720,7 +2720,7 @@
   {
     "reference": "Jas 5:4",
     "text": "Look, the wages you withheld from the workmen who mowed your fields are crying out against you. The cries of the harvesters have reached the ears of the Lord of Hosts.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The term **Behold** focuses the attention of a listener or reader on what a speaker or writer is about to say. It may be helpful to express its meaning as a separate sentence here. Alternate translation: [Consider this! The pay of the workers]"
@@ -2750,7 +2750,7 @@
   {
     "reference": "Jas 5:5",
     "text": "You have lived on earth in luxury and self-indulgence. You have fattened your hearts in the day of slaughter.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two phrases mean similar things. James is using them together for emphasis. If it would be helpful in your language, you could combine them. Alternate translation: [You have indulged yourselves with earthly luxuries]"
@@ -2776,7 +2776,7 @@
   {
     "reference": "Jas 5:6",
     "text": "You have condemned and murdered the righteous, who did not resist you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "James probably does not mean that these rich people have done these things personally. He is likely referring to the kind of actions he described in [2:6](../02/06.md), where he told how rich people “overpower” the poor by taking them to court. He may mean that the rich people have gotten the courts to condemn innocent people and in some cases even to execute them. He could also mean that the rich people have gotten the courts to decide lawsuits in their favor and that as a result, some poor people have died because of the great poverty this caused them. James would be speaking of the rich people as the ones who did these actions, using them to represent all the people who were involved. Alternate translation: [You have gotten the courts to condemn and even execute innocent people] or [You have gotten the courts to decide lawsuits in your favor and, as a result, innocent people have died from poverty]"
@@ -2802,7 +2802,7 @@
   {
     "reference": "Jas 5:7",
     "text": "Be patient, then, brothers, until the Lord’s coming. See how the farmer awaits the precious fruit of the soil—how patient he is for the fall and spring rains.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James uses **Therefore** to introduce a description of what his readers should do as a result of what he has just said about rich people. He is referring specifically to what he said about God’s judgment being imminent. Alternate translation: [Because you know that God will soon judge the people who are oppressing you]"
@@ -2844,7 +2844,7 @@
   {
     "reference": "Jas 5:8",
     "text": "You, too, be patient and strengthen your hearts, because the Lord’s coming is near.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Here James makes clear that what he said about farmers in the previous verse was an analogy for his readers. Alternate translation: [You should also wait patiently, just as a farmer does]"
@@ -2862,7 +2862,7 @@
   {
     "reference": "Jas 5:9",
     "text": "Do not complain about one another, brothers, so that you will not be judged. Look, the Judge is standing at the door!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See how you translated the term **brothers** in [1:2](../01/02.md). Alternate translation: [my fellow believers]"
@@ -2884,7 +2884,7 @@
   {
     "reference": "Jas 5:10",
     "text": "Brothers, as an example of patience in affliction, take the prophets who spoke in the name of the Lord.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "",
         "note": "Alternate translation: [Take as your example, brothers, the suffering]"
@@ -2906,7 +2906,7 @@
   {
     "reference": "Jas 5:11",
     "text": "See how blessed we consider those who have persevered. You have heard of Job’s perseverance and have seen the outcome from the Lord. The Lord is full of compassion and mercy.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The term **Behold** focuses the attention of a listener or reader on what a speaker or writer is about to say. Alternate translation: [Indeed]"
@@ -2928,7 +2928,7 @@
   {
     "reference": "Jas 5:12",
     "text": "Above all, my brothers, do not swear, not by heaven or earth or by any other oath. Simply let your “Yes” be yes, and your “No,” no, so that you will not fall under judgment.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "James is using a spatial metaphor to emphasize the importance of what he is about to say. Your language may use a different spatial metaphor. Alternate translation: [above all]"
@@ -2962,7 +2962,7 @@
   {
     "reference": "Jas 5:13",
     "text": "Is any one of you suffering? He should pray. Is anyone cheerful? He should sing praises.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "James is not looking for information. He is using the question form to state a condition, and he describes the result in a short sentence right after the question. If it would be helpful in your language, you could express this question by translating the question and that sentence together as a single statement. Alternate translation: [If anyone among you is suffering hardship, then he should pray]"
@@ -2976,7 +2976,7 @@
   {
     "reference": "Jas 5:14",
     "text": "Is any one of you sick? He should call the elders of the church to pray over him and anoint him with oil in the name of the Lord.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Once again James is using the question form to state a condition and describing the result in a following sentence. If it would be helpful in your language, you could express this question by translating the question and that sentence together as a single statement. Alternate translation: [If anyone among you sick, then he should summon the elders of the church and they should pray]"
@@ -3002,7 +3002,7 @@
   {
     "reference": "Jas 5:15",
     "text": "And the prayer offered in faith will restore the one who is sick. The Lord will raise him up. If he has sinned, he will be forgiven.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-possession",
         "note": "James is using the possessive form to describe **prayer** that is characterized by **faith**. Alternate translation: [the prayer that is offered in faith will save the sick]"
@@ -3032,7 +3032,7 @@
   {
     "reference": "Jas 5:16",
     "text": "Therefore confess your sins to each other and pray for each other so that you may be healed. The prayer of a righteous man has great power to prevail.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "James uses **Therefore** to introduce something that believers should do as a result of what he said in the previous verse. If it would be helpful to your readers, you could explain in more detail what he means, as UST does."
@@ -3058,7 +3058,7 @@
   {
     "reference": "Jas 5:17",
     "text": "Elijah was a man just like us. He prayed earnestly that it would not rain, and it did not rain on the land for three and a half years.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "James assumes that his readers will know from the Scriptures about this episode in Elijah’s life. If your readers might not be familiar with it, you could describe it in more detail. Alternate translation: [You know from the Scriptures how a prophet named Elijah who lived long ago]"
@@ -3076,7 +3076,7 @@
   {
     "reference": "Jas 5:18",
     "text": "Again he prayed, and the heavens gave rain, and the earth yielded its crops.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **he** refers to Elijah. Alternate translation: [Elijah prayed again]"
@@ -3094,7 +3094,7 @@
   {
     "reference": "Jas 5:19",
     "text": "My brothers, if one of you should wander from the truth and someone should bring him back,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See how you translated the term **brothers** in [1:2](../01/02.md). Alternate translation: [My fellow believers]"
@@ -3120,7 +3120,7 @@
   {
     "reference": "Jas 5:20",
     "text": "consider this: Whoever turns a sinner from the error of his way will save his soul from death and cover over a multitude of sins.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **him** refers to the person who corrects another believer who has been deceived. Alternate translation: [the person who corrects the deceived believer should know]"

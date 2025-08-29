@@ -2,7 +2,7 @@
   {
     "reference": "Joe 1:1",
     "text": "This is the word of the LORD that came to Joel son of Pethuel:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "The word **Pethuel** is the name of a man."
@@ -16,7 +16,7 @@
   {
     "reference": "Joe 1:2",
     "text": "Hear this, O elders; and give ear, all who dwell in the land. Has anything like this ever happened in your days or in the days of your fathers?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "See the discussion in the introduction to Joel of how Hebrew poetry consisted of paired phrases that meant basically the same thing. Decide as a translation team how you will represent this poetry in your translation throughout the book of Joel. Alternate translation: [Hear this, you elders! Yes, listen, all of the dwellers of the land!]"
@@ -38,7 +38,7 @@
   {
     "reference": "Joe 1:3",
     "text": "Tell it to your children; let your children tell it to their children, and their children to the next generation.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Joel is leaving out some of the words that in many languages a sentence would need to be complete. You could supply these words from the context if that would be clearer in your language. Alternate translation: [and let your sons recount about it to their sons, and let their sons recount about it to the generation after]"
@@ -56,7 +56,7 @@
   {
     "reference": "Joe 1:4",
     "text": "What the devouring locust has left, the swarming locust has eaten; what the swarming locust has left, the young locust has eaten; and what the young locust has left, the destroying locust has eaten.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-genericnoun",
         "note": "Joel is not referring to specific locusts of these types. He means locusts of these types in general. It may be more natural in your language to express this meaning by using plural forms. Alternate translation: [The residue of the cutting locusts, swarming locusts have eaten, and the residue of the swarming locusts, hopping locusts have eaten, and the residue of the hopping locusts, destroying locusts have eaten]"
@@ -74,7 +74,7 @@
   {
     "reference": "Joe 1:5",
     "text": "Wake up, you drunkards, and weep; wail, all you drinkers of wine, because of the sweet wine, for it has been cut off from your mouth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "See the discussion in the introduction to Joel of places such as this where the speaker describes a result before giving the reason for it. If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [The sweet wine has been cut off from your mouth, so wail upon it, all of the drinkers of wine]"
@@ -96,7 +96,7 @@
   {
     "reference": "Joe 1:6",
     "text": "For a nation has invaded My land, powerful and without number; its teeth are the teeth of a lion, and its fangs are the fangs of a lioness.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Joel is using the word **For** to introduce the reason for what he described in the previous verse. Alternate translation: [This has happened because]"
@@ -134,7 +134,7 @@
   {
     "reference": "Joe 1:7",
     "text": "It has laid waste My grapevine and splintered My fig tree. It has stripped off the bark and thrown it away; the branches have turned white.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Since Joel and the people whom he is addressing eat the same crops, it may be more natural in your language to say “our” instead of **my**. Alternate translation: [It has made our vines into a waste and our fig trees into splinters]"
@@ -160,7 +160,7 @@
   {
     "reference": "Joe 1:8",
     "text": "Wail like a virgin dressed in sackcloth, grieving for the husband of her youth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The imperative **Mourn** is feminine singular because Joel is telling the community to mourn as it would as if it were a young woman whose fiancé had died. It may be more natural in your language to use a plural imperative."
@@ -190,7 +190,7 @@
   {
     "reference": "Joe 1:9",
     "text": "Grain and drink offerings have been cut off from the house of the LORD; the priests are in mourning, those who minister before the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [The locusts have cut off the grain offering and the drink offering]"
@@ -208,7 +208,7 @@
   {
     "reference": "Joe 1:10",
     "text": "The field is ruined; the land mourns. For the grain is destroyed, the new wine is dried up, and the oil fails.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [The locusts have destroyed the field, the ground mourns, for the locusts have destroyed the grain]"
@@ -238,7 +238,7 @@
   {
     "reference": "Joe 1:11",
     "text": "Be dismayed, O farmers, wail, O vinedressers, over the wheat and barley, because the harvest of the field has perished.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-genericnoun",
         "note": "Joel is not referring to a specific **field**. He means fields in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [the fields]"
@@ -248,7 +248,7 @@
   {
     "reference": "Joe 1:12",
     "text": "The grapevine is dried up, and the fig tree is withered; the pomegranate, palm, and apple—all the trees of the orchard—are withered. Surely the joy of mankind has dried up.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-genericnoun",
         "note": "Joel is not referring to a specific **vine**, **fig tree**, **pomegranate tree**, **palm tree**, or **apple tree**. He is talking about these kinds of trees in general. It may be more natural in your language to express this meaning by using plural forms. Alternate translation: [The vines have dried up and the fig trees have been made weak. The pomegranate trees, also the palm trees and the apple trees]"
@@ -278,7 +278,7 @@
   {
     "reference": "Joe 1:13",
     "text": "Put on sackcloth and lament, O priests; wail, O ministers of the altar. Come, spend the night in sackcloth, O ministers of my God, because the grain and drink offerings are withheld from the house of your God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Joel assumes that his listeners will know that by **Dress**, he means “Dress in sackcloth.” You could say that explicitly if that would be helpful to your readers. Alternate translation: [Dress in sackcloth]"
@@ -304,7 +304,7 @@
   {
     "reference": "Joe 1:14",
     "text": "Consecrate a fast; proclaim a solemn assembly! Gather the elders and all the residents of the land to the house of the LORD your God, and cry out to the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-symaction",
         "note": "A **fast** is a time of going without eating. In this context, not eating would be a symbolic action to express sorrow for the sins that had caused Yahweh to punish the Israelites. If it would be helpful to your readers, you could explain the significance of this action. Alternate translation: [Consecrate a fast to show your sorrow for your sin]"
@@ -318,7 +318,7 @@
   {
     "reference": "Joe 1:15",
     "text": "Alas for the day! For the Day of the LORD is near, and it will come as destruction from the Almighty.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "Joel is using this phrase as an exclamation to express a strong feeling. There may be an equivalent phrase in your language that you could use in your translation to convey this strong feeling. If not, you could say what Joel was feeling. Alternate translation: [Oh, what a terrible day] or [What a distressing day]"
@@ -344,7 +344,7 @@
   {
     "reference": "Joe 1:16",
     "text": "Has not the food been cut off before our very eyes—joy and gladness from the house of our God?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Joel is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [Food has been cut off before our eyes, and joy and gladness from the house of our God!]"
@@ -370,7 +370,7 @@
   {
     "reference": "Joe 1:17",
     "text": "The seeds lie shriveled beneath the clods; the storehouses are in ruins; the granaries are broken down, for the grain has withered away.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [the granaries have broken down]"
@@ -384,7 +384,7 @@
   {
     "reference": "Joe 1:18",
     "text": "How the cattle groan! The herds wander in confusion because they have no pasture. Even the flocks of sheep are suffering.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclamations",
         "note": "Joel is using this phrase as an exclamation to express a strong feeling. There may be an equivalent phrase in your language that you could use in your translation to convey this strong feeling. If not, you could say what Joel was feeling. Alternate translation: [Listen to the animals’ pitiful cries] or [How sad to hear the beasts groan]"
@@ -410,7 +410,7 @@
   {
     "reference": "Joe 1:19",
     "text": "To You, O LORD, I call, for fire has consumed the open pastures and flames have scorched all the trees of the field.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-youformal",
         "note": "Joel is appealing to God here, so use the form of “you” that speakers of your language would use to address God."
@@ -432,7 +432,7 @@
   {
     "reference": "Joe 1:20",
     "text": "Even the beasts of the field pant for You, for the streams of water have dried up, and fire has consumed the open pastures.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-youformal",
         "note": "By **you**, Joel means Yahweh, so use the same form of “you” as you used in the previous verse."
@@ -446,7 +446,7 @@
   {
     "reference": "Joe 2:1",
     "text": "Blow the ram’s horn in Zion; sound the alarm on My holy mountain! Let all who dwell in the land tremble, for the Day of the LORD is coming; indeed, it is near—",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Joel assumes that his listeners will know that he wants them to do the things he describes in order to sound an alarm. You could say that explicitly if that would be helpful to your readers. Alternate translation: [Blow the shofar in Zion, and shout on the mountain of my holiness in order to sound an alarm]"
@@ -476,7 +476,7 @@
   {
     "reference": "Joe 2:2",
     "text": "a day of darkness and gloom, a day of clouds and blackness. Like the dawn overspreading the mountains a great and strong army appears, such as never was of old, nor will ever be in ages to come.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Joel is using the term **day** to mean a period of time, by association with the way days make up specific periods of time. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [a time of darkness and gloom, a time of clouds and thick darkness]"
@@ -522,7 +522,7 @@
   {
     "reference": "Joe 2:3",
     "text": "Before them a fire devours, and behind them a flame scorches. The land before them is like the Garden of Eden, but behind them, it is like a desert wasteland—surely nothing will escape them.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronouns **its** and **it** refer to the locust swarm, described in the previous verse as a “people,” that is, an “army.” It may be more natural in your language to use plural pronouns. Alternate translation: [A fire is devouring in front of them, and behind them a flame is burning. In front of them the land is like the garden of Eden, but behind them is a wilderness of desolation, and indeed there is no escape from them]"
@@ -556,7 +556,7 @@
   {
     "reference": "Joe 2:4",
     "text": "Their appearance is like that of horses, and they gallop like swift steeds.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-simile",
         "note": "The point of this comparison is that just like war horses, the locusts appear to be strong and fearless. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [Like the appearance of strong, fearless war horses is their appearance]"
@@ -574,7 +574,7 @@
   {
     "reference": "Joe 2:5",
     "text": "With a sound like that of chariots they bound over the mountaintops, like the crackling of fire consuming stubble, like a mighty army deployed for battle.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-simile",
         "note": "The point of this comparison is that just as chariots make a loud, rumbling noise, so the locusts make a loud noise as they move across the land. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [Making a loud sound like that of chariots, they leap on the tops of the hills]"
@@ -600,7 +600,7 @@
   {
     "reference": "Joe 2:6",
     "text": "Nations writhe in horror before them; every face turns pale.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Joel assumes that his listeners will know that by **writhe** he means to writhe in agony or fear. You could say that explicitly if that would be helpful to your readers. Alternate translation: [twist and contort in agony] or [squirm in fear]"
@@ -614,7 +614,7 @@
   {
     "reference": "Joe 2:7",
     "text": "They charge like mighty men; they scale the walls like men of war. Each one marches in formation, not swerving from the course.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-simile",
         "note": "The point of this comparison is that the locusts rush forward irresistibly, just as warriors do. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [They rush forward, unstoppable, like mighty warriors]"
@@ -648,7 +648,7 @@
   {
     "reference": "Joe 2:8",
     "text": "They do not jostle one another; each proceeds in his path. They burst through the defenses, never breaking ranks.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here, **man** means “each one” and **brother** means “another one.” This expression describes how the locusts move in an orderly manner. Your language may have a comparable expression that you can use in your translation. Alternate translation: [And they do not crowd each other]"
@@ -666,7 +666,7 @@
   {
     "reference": "Joe 2:9",
     "text": "They storm the city; they run along the wall; they climb into houses, entering through windows like thieves.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-litany",
         "note": "See the discussion in the introduction to Joel of the litany form and how you might format this verse in your translation to show that Joel is using litany."
@@ -680,7 +680,7 @@
   {
     "reference": "Joe 2:10",
     "text": "Before them the earth quakes; the heavens tremble. The sun and moon grow dark, and the stars lose their brightness.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hyperbole",
         "note": "Joel is speaking as if the locust swarm were so powerful that it was causing the **earth** to shake and the **heavens** to **tremble**. He means that the locusts make such a loud sound and cause such vibration that it seems like this is happening. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [They make such a loud sound and cause such vibration that it is as if the earth is shaking and the heavens are trembling]"
@@ -698,7 +698,7 @@
   {
     "reference": "Joe 2:11",
     "text": "The LORD raises His voice in the presence of His army. Indeed, His camp is very large, for mighty are those who obey His command. For the Day of the LORD is great and very dreadful. Who can endure it?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Joel is using the term **voice** to mean Yahweh’s commands, by association with the way authorities use their voices to give commands. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [his commands]"
@@ -724,7 +724,7 @@
   {
     "reference": "Joe 2:12",
     "text": "“Yet even now,” declares the LORD, “return to Me with all your heart, with fasting, weeping, and mourning.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "The phrase **the declaration of Yahweh** indicates that this is a direct quotation from Yahweh. You may wish to indicate that in your translation using a natural way of introducing direct quotations in your language. Alternate translation: [Yahweh declares, “Yet even now, return to me]"
@@ -746,7 +746,7 @@
   {
     "reference": "Joe 2:13",
     "text": "So rend your hearts and not your garments, and return to the LORD your God. For He is gracious and compassionate, slow to anger, abounding in loving devotion. And He relents from sending disaster.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Joel is speaking as if people could literally tear their hearts. He is using the contrast with tearing garments, which was a literal sign of mourning, to emphasize internal repentance. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [And do not only tear your garments; repent in your hearts]"
@@ -768,7 +768,7 @@
   {
     "reference": "Joe 2:14",
     "text": "Who knows? He may turn and relent and leave a blessing behind Him—grain and drink offerings for the LORD your God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Joel is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [For all anyone knows, he may turn and relent and leave a blessing after him]"
@@ -790,7 +790,7 @@
   {
     "reference": "Joe 2:15",
     "text": "Blow the ram’s horn in Zion, consecrate a fast, proclaim a sacred assembly.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Joel assumes that his readers will understand that the purpose of **a fast** was to show repentance for sin. You could include this information if that would be helpful to your readers. Alternate translation: [a fast to show your repentance]"
@@ -804,7 +804,7 @@
   {
     "reference": "Joe 2:16",
     "text": "Gather the people, sanctify the congregation, assemble the aged, gather the children, even those nursing at the breast. Let the bridegroom leave his room, and the bride her chamber.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-merism",
         "note": "Joel is speaking of two things in order to mean those two extremes and everything in between. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [assemble people of all ages]"
@@ -818,7 +818,7 @@
   {
     "reference": "Joe 2:17",
     "text": "Let the priests who minister before the LORD weep between the portico and the altar, saying, “Spare Your people, O LORD, and do not make Your heritage a reproach, an object of scorn among the nations. Why should they say among the peoples, ‘Where is their God?’”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-merism",
         "note": "Joel is speaking of these two things that are at the far extremes of the courtyard of the temple in order to refer to them and to everything in between them. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [throughout the entire court of the priests]"
@@ -856,7 +856,7 @@
   {
     "reference": "Joe 2:18",
     "text": "Then the LORD became jealous for His land, and He spared His people.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-pastforfuture",
         "note": "Joel is using the past tense to describe something that is going to happen in the future, after the people repent. He may be doing this to show that the event will certainly happen. Alternatively, there may have been a gap of time between the writing of [verse 17](../02/17.md) and [verse 18](../02/18.md), and in that time, the people repented. If it would be clearer in your language, you could use the future tense in your translation of these two verses and express the emphasis in another way. Alternate translation: [Then Yahweh will be jealous for his land, and he will have pity on his people]"
@@ -870,7 +870,7 @@
   {
     "reference": "Joe 2:19",
     "text": "And the LORD answered His people: “Behold, I will send you grain, new wine, and oil, and by them you will be satisfied. I will never again make you a reproach among the nations.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-pastforfuture",
         "note": "Joel continues using the past tense here to describe something that is going to happen in the future, after the people repent. Alternatively, the people already repented and so Joel tells Yahweh’s response here. If you chose to use the future tense in [verse 18](../02/18.md), then you should also do so here. Alternate translation: [Then Yahweh will answer and say]"
@@ -900,7 +900,7 @@
   {
     "reference": "Joe 2:20",
     "text": "The northern army I will drive away from you, banishing it to a barren and desolate land, its front ranks into the Eastern Sea, and its rear guard into the Western Sea. And its stench will rise; its foul odor will ascend. For He has done great things.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Yahweh is using the term **northerner** to refer to an invading army of some kind, by association with the direction from which invasions often came. It seems that this term is purposely vague so that it can refer to the current locust invasion as well as to a future military invasion on “the day of Yahweh” ([verse 11](../02/11.md)). If possible, use a term that could refer to both. Alternate translation: [the invaders]"
@@ -938,7 +938,7 @@
   {
     "reference": "Joe 2:21",
     "text": "Do not be afraid, O land; rejoice and be glad, for the LORD has done great things.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-apostrophe",
         "note": "Joel is speaking to the **land** as if it were a person who could hear him. He is doing this to show in a strong way how he feels about what Yahweh will do for the land. Joel is actually speaking to the people who can hear him. If your readers might not understand this kind of figurative speech, you could translate what Joel is saying as if he were speaking directly to the Judeans. Alternate translation: [You Judeans should not be afraid because of what has happened to the land. Be glad and rejoice]"
@@ -960,7 +960,7 @@
   {
     "reference": "Joe 2:22",
     "text": "Do not be afraid, O beasts of the field, for the open pastures have turned green, the trees bear their fruit, and the fig tree and vine yield their best.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-apostrophe",
         "note": "Joel is once again speaking to the **beasts of the field** as if they were people who could hear him. He is doing this to show his Judean listeners in a strong way how he feels about what Yahweh will do for them by restoring the pastures and the trees. If your readers might not understand this kind of figurative speech, you could translate what Joel is saying as if he were speaking directly to the Judeans. Alternate translation: [You Judeans should also not be afraid of what will happen to the beasts of the field]"
@@ -982,7 +982,7 @@
   {
     "reference": "Joe 2:23",
     "text": "Be glad, O children of Zion, and rejoice in the LORD your God, for He has given you the autumn rains for your vindication. He sends you showers, both autumn and spring rains, as before.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Joel is speaking as if **Zion**, meaning Jerusalem, were literally the mother of the people who lived in that city. Alternate translation: [residents of Zion] or [citizens of Jerusalem]"
@@ -1016,7 +1016,7 @@
   {
     "reference": "Joe 2:24",
     "text": "The threshing floors will be full of grain, and the vats will overflow with new wine and oil.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hyperbole",
         "note": "Joel is making an overstatement for emphasis. If it would be clearer in your language, you could express the emphasis in a different way. Alternate translation: [and the vats will be very full of new wine and oil]"
@@ -1026,7 +1026,7 @@
   {
     "reference": "Joe 2:25",
     "text": "I will repay you for the years eaten by locusts—the swarming locust, the young locust, the destroying locust, and the devouring locust—My great army that I sent against you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "This verse begins a direct quotation from Yahweh. You may wish to indicate that in your translation, using a natural way of introducing direct quotations in your language. Alternate translation: [Then Yahweh said, “And I will restore to you the years]"
@@ -1044,7 +1044,7 @@
   {
     "reference": "Joe 2:26",
     "text": "You will have plenty to eat, until you are satisfied. You will praise the name of the LORD your God, who has worked wonders for you. My people will never again be put to shame.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-reduplication",
         "note": "Yahweh is repeating the verb “eat” in order to intensify the idea that it expresses. If your language can repeat words for intensification, it would be appropriate to do that here in your translation. If not, your language may have another way of expressing the emphasis. Alternate translation: [And you will eat abundantly]"
@@ -1070,7 +1070,7 @@
   {
     "reference": "Joe 2:27",
     "text": "Then you will know that I am present in Israel and that I am the LORD your God, and there is no other. My people will never again be put to shame.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "While it is not known precisely where or when Joel prophesied, he appears to have lived in the southern kingdom of Judah before the exile or in the province of Judah (Judea) after the exile. So the term **Israel** probably does not mean the northern kingdom of Israel. It seems to be a reference to the people of Judah as Israelites. Alternate translation: [the people of Israel]"
@@ -1084,7 +1084,7 @@
   {
     "reference": "Joe 2:28",
     "text": "And afterward, I will pour out My Spirit on all people. Your sons and daughters will prophesy, your old men will dream dreams, your young men will see visions.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "Yahweh is using this phrase to introduce a new event in the story that he goes on to describe. Use a word, phrase, or other method in your language that is natural for introducing a new event."
@@ -1118,7 +1118,7 @@
   {
     "reference": "Joe 2:29",
     "text": "Even on My menservants and maidservants, I will pour out My Spirit in those days.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-merism",
         "note": "Yahweh is speaking of two things in order to mean them and everything in between. This verse continues the thought of the previous verse, that the Spirit will come to a great variety of people. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [Yes, even on people of low social status and of both genders]"
@@ -1136,7 +1136,7 @@
   {
     "reference": "Joe 2:30",
     "text": "I will show wonders in the heavens and on the earth, blood and fire and columns of smoke.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **wonders**, you could express the same idea in another way. Alternate translation: [I will do wonderful things] or [I will do amazing things]"
@@ -1146,7 +1146,7 @@
   {
     "reference": "Joe 2:31",
     "text": "The sun will be turned to darkness and the moon to blood before the coming of the great and awesome Day of the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Yahweh is speaking as if the sun and moon would literally turn into darkness and blood. He means that they will appear as they do during eclipses. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [The sun and the moon will appear as they do during eclipses]"
@@ -1176,7 +1176,7 @@
   {
     "reference": "Joe 2:32",
     "text": "And everyone who calls on the name of the LORD will be saved; for on Mount Zion and in Jerusalem there will be deliverance, as the LORD has promised, among the remnant called by the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-newevent",
         "note": "Yahweh is using this phrase to introduce a new or special event in the story that he goes on to describe. Use a word, phrase, or other method in your language that is natural for introducing a new or special event. Alternate translation: [And not only that]"
@@ -1218,7 +1218,7 @@
   {
     "reference": "Joe 3:1",
     "text": "“Yes, in those days and at that time, when I restore Judah and Jerusalem from captivity,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "This verse continues a direct quotation from Yahweh. You may wish to indicate that in your translation, using a natural way of continuing direct quotations in your language. Alternate translation: [Yahweh also said, “For behold, in those days and at that time]"
@@ -1244,7 +1244,7 @@
   {
     "reference": "Joe 3:2",
     "text": "I will gather all the nations and bring them down to the Valley of Jehoshaphat. There I will enter into judgment against them concerning My people, My inheritance, Israel, whom they have scattered among the nations as they divided up My land.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-transliterate",
         "note": "The word **Jehoshaphat** is the name of a valley. In your translation, you could spell it the way it sounds in your language, as the ULT does, or you could use a word or phrase from your language that expresses the meaning of this name, which is “Yahweh judges.” Alternate translation: [the Valley of Yahweh-Judges]"
@@ -1262,7 +1262,7 @@
   {
     "reference": "Joe 3:3",
     "text": "They cast lots for My people; they bartered a boy for a prostitute and sold a girl for wine to drink.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-genericnoun",
         "note": "Yahweh is not referring to a specific **lot**. He means “lots” in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [lots]"
@@ -1276,7 +1276,7 @@
   {
     "reference": "Joe 3:4",
     "text": "Now what do you have against Me, O Tyre, Sidon, and all the regions of Philistia? Are you rendering against Me a recompense? If you retaliate against Me, I will swiftly and speedily return your recompense upon your heads.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "Yahweh is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [And indeed, you have nothing to hold against me, Tyre, Sidon, and all of the regions of Philistia! There is no recompense that you need to pay back to me!]"
@@ -1306,12 +1306,12 @@
   {
     "reference": "Joe 3:5",
     "text": "For you took My silver and gold and carried off My finest treasures to your temples.",
-    "translation_challanges": []
+    "translation_challenges": []
   },
   {
     "reference": "Joe 3:6",
     "text": "You sold the people of Judah and Jerusalem to the Greeks, to send them far from their homeland.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See how you translated the term **sons** in [2:23](../02/23.md). Alternate translation: [the people who lived in the province of Judah and the city of Jerusalem]"
@@ -1333,7 +1333,7 @@
   {
     "reference": "Joe 3:7",
     "text": "Behold, I will rouse them from the places to which you sold them; I will return your recompense upon your heads.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "As in [2:19](../02/19.md), this expression means “I am going to rouse them.” Your language may have a comparable expression that you can use in your translation. Alternate translation: [But I am going to stir them up]"
@@ -1355,7 +1355,7 @@
   {
     "reference": "Joe 3:8",
     "text": "I will sell your sons and daughters into the hands of the people of Judah, and they will sell them to the Sabeans—to a distant nation.” Indeed, the LORD has spoken.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "Yahweh is using the word **For** to introduce more specific information about what he described in the previous verse. Alternate translation: [This will happen when I sell]"
@@ -1385,7 +1385,7 @@
   {
     "reference": "Joe 3:9",
     "text": "Proclaim this among the nations: “Prepare for war; rouse the mighty men; let all the men of war advance and attack!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "The imperative **Proclaim** is plural here, so use the plural form in your translation if your language marks that distinction. Joel is addressing generally all those who would be in a position to make this proclamation."
@@ -1399,7 +1399,7 @@
   {
     "reference": "Joe 3:10",
     "text": "Beat your plowshares into swords and your pruning hooks into spears. Let the weak say, ‘I am strong!’",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-unknown",
         "note": "The word **plowshares** describes blades for plows, which are tools used to break up soil for planting. If your readers would not be familiar with what a plowshare is, in your translation you could use the name of a similar thing that your readers would recognize, or you could use a general expression. Alternate translation: [your plow blades] or [your farming tools]"
@@ -1421,7 +1421,7 @@
   {
     "reference": "Joe 3:11",
     "text": "Come quickly, all you surrounding nations, and gather yourselves. Bring down Your mighty ones, O LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hendiadys",
         "note": "This phrase expresses a single idea by using two words connected with **and**. The word **Hurry** tells in what way the nations should **come**. Alternate translation: [Come quickly]"
@@ -1431,7 +1431,7 @@
   {
     "reference": "Joe 3:12",
     "text": "Let the nations be roused and advance to the Valley of Jehoshaphat, for there I will sit down to judge all the nations on every side.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotations",
         "note": "Most versions treat [verses 12](../03/12.md) and [13](../03/13.md) as a direct quotation of Yahweh, but some do not. If a translation of the Bible exists in your region, you may wish to follow the quotation boundaries that it has. If a translation of the Bible does not exist in your region, you may wish to use the same boundaries as the ULT."
@@ -1449,7 +1449,7 @@
   {
     "reference": "Joe 3:13",
     "text": "Swing the sickle, for the harvest is ripe. Come, trample the grapes, for the winepress is full; the wine vats overflow because their wickedness is great.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Yahweh is speaking as if he literally wanted the “warriors” mentioned in [3:11](../03/11.md) to harvest grain. He means that he wants them to punish the nations. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [Strike the nations, just as harvesters cut down grain with a sickle]"
@@ -1479,7 +1479,7 @@
   {
     "reference": "Joe 3:14",
     "text": "Multitudes, multitudes in the valley of decision! For the Day of the LORD is near in the valley of decision.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-reduplication",
         "note": "Joel is repeating the word **multitudes** in order to intensify the idea that it expresses. If your language can repeat words for intensification, it would be appropriate to do that here in your translation. If not, your language may have another way of expressing the emphasis. Alternate translation: [Vast multitudes in the valley of decision]"
@@ -1497,7 +1497,7 @@
   {
     "reference": "Joe 3:15",
     "text": "The sun and moon will grow dark, and the stars will no longer shine.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "These are the same phrases as in [2:10](../02/10.md), where Joel used them to describe the locust swarm blocking the light of the sun, moon, and stars. Here, in Joel’s description of the final judgment, these phrases could: (1) have a literal meaning, describing how the creation will disintegrate at the end of history. See the UST. Or (2) be symbolic of earthly rulers and nations losing their power. Alternate translation: [All earthly powers fade before the power of Yahweh]"
@@ -1511,7 +1511,7 @@
   {
     "reference": "Joe 3:16",
     "text": "The LORD will roar from Zion and raise His voice from Jerusalem; heaven and earth will tremble. But the LORD will be a refuge for His people, a stronghold for the people of Israel.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Joel is speaking as if Yahweh would literally **roar** like a lion. He means that Yahweh will powerfully proclaim his judgments. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [Yahweh will powerfully proclaim his judgments from Zion, just as a lion roars powerfully]"
@@ -1533,7 +1533,7 @@
   {
     "reference": "Joe 3:17",
     "text": "Then you will know that I am the LORD your God, who dwells in Zion, My holy mountain. Jerusalem will be holy, never again to be overrun by foreigners.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "This verse begins a direct quotation from Yahweh. You may wish to indicate that in your translation, using a natural way of introducing direct quotations in your language. Alternate translation: [He says, “Then you will know]"
@@ -1547,7 +1547,7 @@
   {
     "reference": "Joe 3:18",
     "text": "And in that day the mountains will drip with sweet wine, and the hills will flow with milk. All the streams of Judah will run with water, and a spring will flow from the house of the LORD to water the Valley of Acacias.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotations",
         "note": "Some versions do not treat this verse as part of the direct quotation of Yahweh in [3:17–21](../03/17.md). If a translation of the Bible exists in your region, you may wish to follow the quotation boundaries that it has. If a translation of the Bible does not exist in your region, you may wish to use the same boundaries as the ULT."
@@ -1581,7 +1581,7 @@
   {
     "reference": "Joe 3:19",
     "text": "Egypt will become desolate, and Edom a desert wasteland, because of the violence done to the people of Judah, in whose land they shed innocent blood.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If your language does not use an abstract noun for the idea of **desolation**, you could express the same idea in another way. Alternate translation: [Egypt will become desolate]"
@@ -1603,7 +1603,7 @@
   {
     "reference": "Joe 3:20",
     "text": "But Judah will be inhabited forever, and Jerusalem from generation to generation.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Yahweh is using the term **Judah** by association to mean the people living in Judah. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the people of Judah]"
@@ -1621,7 +1621,7 @@
   {
     "reference": "Joe 3:21",
     "text": "For I will avenge their blood, which I have not yet avenged.” For the LORD dwells in Zion.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-textvariants",
         "note": "See the discussion in the introduction to this chapter of an alternate reading for this phrase. Alternate translation: [And I will avenge their blood {that} I have not avenged]"

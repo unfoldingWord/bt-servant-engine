@@ -2,7 +2,7 @@
   {
     "reference": "1Jo 1:1",
     "text": "That which was from the beginning, which we have heard, which we have seen with our own eyes, which we have gazed upon and touched with our own hands—this is the Word of life.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "See the discussion in the introduction to this chapter for how to translate the long sentence in [1:1–3](../01/01.md). If you follow the suggestion to translate the phrase **regarding the Word of life** as a topical introduction to this letter, you will already have indicated that the four clauses in this verse refer to a person, Jesus. If you have pronouns in your language that refer to people, such as “he,” “who,” and “whom,” it would be appropriate to use them here. Alternate translation: [Regarding the Word of life—he is the one who has existed from all eternity, whom we heard speak, whom we saw with our own eyes, and whom we looked at and touched with our own hands]"
@@ -60,7 +60,7 @@
   {
     "reference": "1Jo 1:2",
     "text": "And this is the life that was revealed; we have seen it and testified to it, and we proclaim to you the eternal life that was with the Father and was revealed to us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "See the discussion of the term “appear” in Part 3 of the Introduction to 1 John. Here the term could mean one of two things. (1) John could be emphasizing how Jesus came to this earth, as modelled by the UST. It may be helpful to begin a new sentence here. Alternate translation: [Indeed, the life came right here]; (2) John could be emphasizing how God revealed Jesus to the world and thereby revealed himself to the world through Jesus. To bring out that emphasis, you could translate this with a passive verbal form or, if your language does not use passive forms, you can use an active form and say who did the action. Alternate translation: [Indeed, the life was made visible] or [Indeed, God made the life visible]"
@@ -102,7 +102,7 @@
   {
     "reference": "1Jo 1:3",
     "text": "We proclaim to you what we have seen and heard, so that you also may have fellowship with us. And this fellowship of ours is with the Father and with His Son, Jesus Christ.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be helpful in your language, you could rearrange the parts of this section. You could move the clause beginning with **so that you also** to the beginning of the verse, since that clause gives the reason for the action that the rest of the verse describes. As the introduction to this chapter suggests, it may be helpful to begin a new sentence here. Alternate translation: [So that you also may have fellowship with us, we are declaring to you what we have seen and heard]"
@@ -132,7 +132,7 @@
   {
     "reference": "1Jo 1:4",
     "text": "We write these things so that our joy may be complete.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "As the introduction to this chapter explains, here John is formally stating his purpose for writing. If you decided in [1:1](../01/01.md) that it would be more natural in your language for him to refer to himself with a singular pronoun in such a context, you could do the same thing here. Alternate translation: [I, John, am writing these things]"
@@ -166,7 +166,7 @@
   {
     "reference": "1Jo 1:5",
     "text": "And this is the message we have heard from Him and announce to you: God is light, and in Him there is no darkness at all.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "The pronoun **we** is exclusive, since John is speaking on behalf of himself and the other eyewitnesses to the earthly life of Jesus."
@@ -200,7 +200,7 @@
   {
     "reference": "1Jo 1:6",
     "text": "If we say we have fellowship with Him yet walk in the darkness, we lie and do not practice the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is using a hypothetical situation to help his readers recognize the importance of consistency between their words and their actions. Alternate translation: [Suppose we say that we have fellowship with him, but we walk in darkness. Then we are lying and are not doing the truth]"
@@ -238,7 +238,7 @@
   {
     "reference": "1Jo 1:7",
     "text": "But if we walk in the light as He is in the light, we have fellowship with one another, and the blood of Jesus His Son cleanses us from all sin.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is using another hypothetical situation to help his readers recognize the value and benefits of living a life that is holy, as God is holy. Alternate translation: [But suppose we walk in the light as he is in the light. Then we have fellowship with one another]"
@@ -280,7 +280,7 @@
   {
     "reference": "1Jo 1:8",
     "text": "If we say we have no sin, we deceive ourselves, and the truth is not in us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is using another hypothetical situation to help his readers recognize the importance of consistency between their words and their actions. Alternate translation: [Suppose we say that we have no sin. Then we are leading ourselves astray, and the truth is not in us]"
@@ -302,7 +302,7 @@
   {
     "reference": "1Jo 1:9",
     "text": "If we confess our sins, He is faithful and just to forgive us our sins and to cleanse us from all unrighteousness.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is using another hypothetical situation to help his readers recognize the value and benefits of living in holiness. Alternate translation: [Suppose we confess our sins. Then he is faithful and righteous]"
@@ -332,7 +332,7 @@
   {
     "reference": "1Jo 1:10",
     "text": "If we say we have not sinned, we make Him out to be a liar, and His word is not in us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is using another hypothetical situation to help his readers recognize the serious implications of not living in holiness. Alternate translation: [Suppose we say that we have not sinned. Then we are calling God a liar]"
@@ -358,7 +358,7 @@
   {
     "reference": "1Jo 2:1",
     "text": "My little children, I am writing these things to you so that you will not sin. But if anyone does sin, we have an advocate before the Father—Jesus Christ, the Righteous One.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here and in several other places in the book, John uses the diminutive form of the word **children** as an affectionate form of address. The ULT shows this by adding the word **little**. If your language has diminutive forms, you may wish to use one here. You could also express the meaning of the diminutive as a term of endearment. Alternate translation: [My dear children]"
@@ -396,7 +396,7 @@
   {
     "reference": "1Jo 2:2",
     "text": "He Himself is the atoning sacrifice for our sins, and not only for ours but also for the sins of the whole world.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **he** here refers to Jesus, the antecedent in the previous verse. Alternate translation: [Jesus]"
@@ -418,7 +418,7 @@
   {
     "reference": "1Jo 2:3",
     "text": "By this we can be sure that we have come to know Him: if we keep His commandments.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be helpful in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [if we obey what he has commanded, then we can be assured that we have a close relationship with him]"
@@ -456,7 +456,7 @@
   {
     "reference": "1Jo 2:4",
     "text": "If anyone says, “I know Him,” but does not keep His commandments, he is a liar, and the truth is not in him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is describing a hypothetical situation in order to challenge his readers. Alternate translation: [Suppose someone says, “I have a close relationship with God,” but he does not obey what God has commanded. Then that person is a liar]"
@@ -498,7 +498,7 @@
   {
     "reference": "1Jo 2:5",
     "text": "But if anyone keeps His word, the love of God has been truly perfected in him. By this we know that we are in Him:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "This sentence makes a contrast by saying in a positive way what the previous sentence said in a negative way. Indicate this contrast in a natural way in your language. Alternate translation: [On the other hand,]"
@@ -544,7 +544,7 @@
   {
     "reference": "1Jo 2:6",
     "text": "Whoever claims to abide in Him must walk as Jesus walked.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-versebridge",
         "note": "If it would be a more natural order in your language, you could move the last sentence of [verse 5](../02/05.md) to the end of [verse 6](../02/06.md). You would then present the combined verses as 5-6. Alternate translation: [The one saying he remains in him ought, just as that one walked, also to walk himself. That is how we know that we are in him.]"
@@ -578,7 +578,7 @@
   {
     "reference": "1Jo 2:7",
     "text": "Beloved, I am not writing to you a new commandment, but an old one, which you have had from the beginning. This commandment is the message you have heard.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-nominaladj",
         "note": "**Beloved** is another term of affection by which John addresses the believers to whom he is writing. It involves using the adjective “beloved” as a noun in order to indicate a specific group of people. Your language may use adjectives in the same way. If not, you could translate this with an equivalent expression. Alternate translation: [You people whom I love] or [My dear friends]"
@@ -600,7 +600,7 @@
   {
     "reference": "1Jo 2:8",
     "text": "Then again, I am also writing to you a new commandment, which is true in Him and also in you. For the darkness is fading and the true light is already shining.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "John is using the term **Again** in the sense of “Looking at this again from another perspective.” Alternate translation: [On the other hand]"
@@ -638,7 +638,7 @@
   {
     "reference": "1Jo 2:9",
     "text": "If anyone claims to be in the light but hates his brother, he is still in the darkness.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is suggesting a further hypothetical situation in order to challenge his readers. Alternate translation: [Suppose someone says that he is in the light, but he hates his brother. That person is actually still in the darkness.]"
@@ -672,7 +672,7 @@
   {
     "reference": "1Jo 2:10",
     "text": "Whoever loves his brother remains in the light, and there is no cause of stumbling in him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is suggesting a further hypothetical situation in order to reassure his readers. Alternate translation: [Suppose someone does love his fellow believers. Then he is genuinely doing what is right]"
@@ -706,7 +706,7 @@
   {
     "reference": "1Jo 2:11",
     "text": "But whoever hates his brother is in the darkness and walks in the darkness. He does not know where he is going, because the darkness has blinded his eyes.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See how you translated **his brother** in [2:9](../02/09.md). Alternate translation: [a fellow believer]"
@@ -740,7 +740,7 @@
   {
     "reference": "1Jo 2:12",
     "text": "I am writing to you, little children, because your sins have been forgiven through His name.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The term **little children** here could refer to: (1) all of the believers to whom John is writing. This is the way that he uses this term in [2:1](../02/01.md) and in several other places in this letter. See the explanation of it in two of the notes to [2:1](../02/01.md). If that is the sense, then John divides the believers into only two groups in [verses 12–14](../02/12.md), the older ones and the younger ones. See the UST. Or it could refer to: (2) only some of the believers. In that case, John is addressing the believers in three different groups in [verses 12–14](../02/12.md), and this group would represent new believers, that is, those who have very recently put their faith in Jesus for the forgiveness of their sins. This would also apply to the similar term in [2:14](../02/14.md). Alternate translation: [new believers]"
@@ -766,7 +766,7 @@
   {
     "reference": "1Jo 2:13",
     "text": "I am writing to you, fathers, because you know Him who is from the beginning. I am writing to you, young men, because you have overcome the evil one. I have written to you, children, because you know the Father.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "The term **fathers** here is likely a figurative description of one part of the believers. In that case, it could mean either: (1) mature believers or (2) church leaders"
@@ -804,7 +804,7 @@
   {
     "reference": "1Jo 2:14",
     "text": "I have written to you, fathers, because you know Him who is from the beginning. I have written to you, young men, because you are strong, and the word of God abides in you, and you have overcome the evil one.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "This sentence is similar to the sentence in [2:12](../02/12.md). The next two sentences in this verse mean basically the same thing as the two sentences in [2:13](../02/13.md). John is using these repetitions for emphasis and for poetic effect. For those reasons, it would be appropriate to translate all of these sentences separately and not combine them with the ones in the previous two verses, even if you combine parallel statements with similar meanings elsewhere in the book."
@@ -878,7 +878,7 @@
   {
     "reference": "1Jo 2:15",
     "text": "Do not love the world or anything in the world. If anyone loves the world, the love of the Father is not in him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "In the second phrase in this sentence, John leaves out some of the words that a sentence would need in many languages in order to be complete. These words can be supplied from the first phrase. Alternate translation: [Do not love the world, and do not love any of the things that are in the world]"
@@ -908,7 +908,7 @@
   {
     "reference": "1Jo 2:16",
     "text": "For all that is in the world—the desires of the flesh, the desires of the eyes, and the pride of life—is not from the Father but from the world.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-versebridge",
         "note": "In this verse, John is giving the reason why the previous sentence is true. If it would be helpful in your language, you could put this reason before that statement of result by combining this verse and the previous one into a verse bridge. In order to create a verse bridge, you could begin this verse with “Since” instead of **For**; you could end it with a comma instead of a period; and you could make it the beginning of the second sentence in the previous verse, putting it before “if anyone loves the world.”"
@@ -942,7 +942,7 @@
   {
     "reference": "1Jo 2:17",
     "text": "The world is passing away, along with its desires; but whoever does the will of God remains forever.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "See how you translated the term **world** in [2:15](../02/15.md). It has a similar meaning in this verse. Alternate translation: [the ungodly value system of the people who do not honor God]"
@@ -976,7 +976,7 @@
   {
     "reference": "1Jo 2:18",
     "text": "Children, it is the last hour; and just as you have heard that the antichrist is coming, so now many antichrists have appeared. This is how we know it is the last hour.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "**Young children** is the same term that John used in [2:14](../02/14.md) that seems to be a stylistic variation of the term that he uses in [2:1](../02/01.md) and [2:12](../02/12.md), as well as in several other places in the book, to address all of the believers to whom he is writing. See how you translated this in those places. Alternate translation: [My dear children] or [You dear believers who are under my care]"
@@ -994,7 +994,7 @@
   {
     "reference": "1Jo 2:19",
     "text": "They went out from us, but they did not belong to us. For if they had belonged to us, they would have remained with us. But their departure made it clear that none of them belonged to us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "These people formerly met with the group of believers to whom John is writing. While they physically left the places where the believers met, John is also using the expression **went out** to mean that these people stopped being part of the group. Alternate translation: [They left our group of believers in Jesus]"
@@ -1028,7 +1028,7 @@
   {
     "reference": "1Jo 2:20",
     "text": "You, however, have an anointing from the Holy One, and all of you know the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "John is using the word **And** to introduce a contrast between the people who left the group and the remaining believers to whom he is writing. Alternate translation: [However,]"
@@ -1062,7 +1062,7 @@
   {
     "reference": "1Jo 2:21",
     "text": "I have not written to you because you lack knowledge of the truth, but because you have it, and because no lie comes from the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublenegatives",
         "note": "If it would be helpful in your language, you could express this double negative by translating it as a positive statement. Since John then repeats the statement in positive form in the next phrase, you could make the connection to that phrase as an affirmation rather than as a contrast. Alternate translation: [I have written to you because you know the truth, yes, because you do know it]"
@@ -1096,7 +1096,7 @@
   {
     "reference": "1Jo 2:22",
     "text": "Who is the liar, if it is not the one who denies that Jesus is the Christ? This is the antichrist, who denies the Father and the Son.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "John is using the question form for emphasis. If it would be helpful in your language, you could express this question by translating his words as a statement or exclamation. Alternate translation: [Anyone who denies that Jesus is the Messiah is certainly a liar!]"
@@ -1122,7 +1122,7 @@
   {
     "reference": "1Jo 2:23",
     "text": "Whoever denies the Son does not have the Father, but whoever confesses the Son has the Father as well.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "If it would be helpful to your readers, you could state explicitly what this means in light of what John says in the previous verse. Alternate translation: [Everyone who denies that Jesus is the Son of God and the Messiah]"
@@ -1148,7 +1148,7 @@
   {
     "reference": "1Jo 2:24",
     "text": "As for you, let what you have heard from the beginning remain in you. If it does, you will also remain in the Son and in the Father.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here John turns from talking about people in general to giving direct instruction to his readers. He indicates this emphasis by beginning his instruction with **You**. Use a natural way to indicate this emphasis in your language. Alternate translation: [As for you]"
@@ -1182,7 +1182,7 @@
   {
     "reference": "1Jo 2:25",
     "text": "And this is the promise that He Himself made to us: eternal life.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-poetry",
         "note": "John is using a construction in which a verb and its object come from the same root. You may be able to use the same construction in your language to express the meaning here. Alternatively, your language may have another way of expressing this. Alternate translation: [the promise that he made to us] or [what he promised us]"
@@ -1200,7 +1200,7 @@
   {
     "reference": "1Jo 2:26",
     "text": "I have written these things to you about those who are trying to deceive you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "John speaks of these people as if they were guides who were **leading** others in the wrong direction. This is a metaphor for their attempts to get the people to whom John is writing to believe things that are not true. Alternate translation: [those who are deceiving you] or [those who are trying to get you to believe things that are not true]"
@@ -1214,7 +1214,7 @@
   {
     "reference": "1Jo 2:27",
     "text": "And as for you, the anointing you received from Him remains in you, and you do not need anyone to teach you. But just as His true and genuine anointing teaches you about all things, so remain in Him as you have been taught.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Here John states again the emphasis that he started in [2:24](../02/24.md), continuing his direct instruction to his readers. Use a natural way to indicate this continuing emphasis in your language. Alternate translation: [Now as for you]"
@@ -1260,7 +1260,7 @@
   {
     "reference": "1Jo 2:28",
     "text": "And now, little children, remain in Christ, so that when He appears, we may be confident and unashamed before Him at His coming.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-words-phrases",
         "note": "John uses the expression **And now** to introduce a new part of the letter, in which he will talk about being children of God and about the return of Jesus. In your translation, you could use a word, phrase, or other method that is natural in your language for introducing a new topic."
@@ -1302,7 +1302,7 @@
   {
     "reference": "1Jo 2:29",
     "text": "If you know that He is righteous, you also know that everyone who practices righteousness has been born of Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "John is using the form of conditional possibility here, but he is stating something that is actually true. In Greek, this was a way of affirming that the part that follows this statement is also true. If your language does not state something as a condition if it is certain or true, and if your readers might think that what John is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [Since you know that God is righteous]"
@@ -1328,7 +1328,7 @@
   {
     "reference": "1Jo 3:1",
     "text": "Behold what manner of love the Father has given to us, that we should be called children of God. And that is what we are! The reason the world does not know us is that it did not know Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "John is using the term **See** to focus his reader’s attention on what he is about to say. Your language may have a comparable expression that you could use in your translation. Alternate translation: [Consider]"
@@ -1374,7 +1374,7 @@
   {
     "reference": "1Jo 3:2",
     "text": "Beloved, we are now children of God, and what we will be has not yet been revealed. We know that when Christ appears, we will be like Him, for we will see Him as He is.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-nominaladj",
         "note": "See how you translated **Beloved** in [2:7](../02/07.md). Alternate translation: [You people whom I love] or [My dear ones]"
@@ -1408,7 +1408,7 @@
   {
     "reference": "1Jo 3:3",
     "text": "And everyone who has this hope in Him purifies himself, just as Christ is pure.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **him** here does not refer to **everyone**; it refers to Jesus. The expression **this hope** refers to the hope that John describes in the previous verse, of seeing Jesus as he is. Alternate translation: [everyone who hopes to see Jesus as he really is]"
@@ -1422,7 +1422,7 @@
   {
     "reference": "1Jo 3:4",
     "text": "Everyone who practices sin practices lawlessness as well. Indeed, sin is lawlessness.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **lawlessness** with an equivalent expression. Alternate translation: [Everyone who commits sin is also breaking God’s law. Indeed, sin is breaking God’s law]"
@@ -1436,7 +1436,7 @@
   {
     "reference": "1Jo 3:5",
     "text": "But you know that Christ appeared to take away sins, and in Him there is no sin.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronouns **that one**, **he**, and **him** refer to Jesus in this verse. Consider whether it might be helpful to your readers or more natural in your language to use the name “Jesus” in one or more of these instances."
@@ -1454,7 +1454,7 @@
   {
     "reference": "1Jo 3:6",
     "text": "No one who remains in Him keeps on sinning. No one who continues to sin has seen Him or known Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See the discussion of the term “remain” in Part 3 of the Introduction to 1 John. In this instance, it seems to mean the same thing as in [2:6](../02/06.md). See how you translated it there. Alternate translation: [Everyone who has a close relationship with Jesus]"
@@ -1484,7 +1484,7 @@
   {
     "reference": "1Jo 3:7",
     "text": "Little children, let no one deceive you: The one who practices righteousness is righteous, just as Christ is righteous.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See how you translated **Little children** in [2:1](../02/01.md). Alternate translation: [You dear believers who are under my care]"
@@ -1510,7 +1510,7 @@
   {
     "reference": "1Jo 3:8",
     "text": "The one who practices sin is of the devil, because the devil has been sinning from the very start. This is why the Son of God was revealed, to destroy the works of the devil.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Here the preposition **from** indicates influence. The usage here is similar to that in the phrase “from the world” in [2:16](../02/16.md). Alternate translation: [is acting under the influence of the devil]"
@@ -1536,7 +1536,7 @@
   {
     "reference": "1Jo 3:9",
     "text": "Anyone born of God refuses to practice sin, because God’s seed abides in him; he cannot go on sinning, because he has been born of God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "See how you translated this in [2:29](../02/29.md). Alternate translation: [Everyone whose father is God … because God is his father]"
@@ -1566,7 +1566,7 @@
   {
     "reference": "1Jo 3:10",
     "text": "By this the children of God are distinguished from the children of the devil: Anyone who does not practice righteousness is not of God, nor is anyone who does not love his brother.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "**In this** means something similar to the idiomatic expression “in this we know” that John uses many times in this letter. The word **this** refers to what John says in the next sentence. Alternate translation: [This is how we can tell the difference between the children of God and the children of the devil]"
@@ -1600,7 +1600,7 @@
   {
     "reference": "1Jo 3:11",
     "text": "This is the message you have heard from the beginning: We should love one another.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "John uses the phrase **from the beginning** in various ways in this letter. Here it refers to the time when the people to whom he is writing first heard about or first believed in Jesus. See how you translated this phrase in [2:7](../02/07.md). Alternate translation: [ever since you first heard about Jesus]"
@@ -1610,7 +1610,7 @@
   {
     "reference": "1Jo 3:12",
     "text": "Do not be like Cain, who belonged to the evil one and murdered his brother. And why did Cain slay him? Because his own deeds were evil, while those of his brother were righteous.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "John is leaving out some of the words that a sentence would need in many languages in order to be complete. Alternate translation: [so we should not be like Cain]"
@@ -1644,7 +1644,7 @@
   {
     "reference": "1Jo 3:13",
     "text": "So do not be surprised, brothers, if the world hates you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be helpful in your language, you could show the connection between this sentence and the previous one by using a connecting word like “so” or “therefore.” Using the example of Cain, John shows that evil people naturally hate righteous people. Alternate translation: [So do not be surprised]"
@@ -1662,7 +1662,7 @@
   {
     "reference": "1Jo 3:14",
     "text": "We know that we have passed from death to life, because we love our brothers. The one who does not love remains in death.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be helpful in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [Because we love the brothers, we know that we have relocated from death into life]"
@@ -1692,7 +1692,7 @@
   {
     "reference": "1Jo 3:15",
     "text": "Everyone who hates his brother is a murderer, and you know that eternal life does not reside in a murderer.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "John is using the term **murderer**, and he is echoing the teaching of Jesus that is recorded in Matthew [5:21–22](../05/21.md). John means that since people commit murder because they hate other people, anyone who hates is the same on the inside as someone who actually kills another person. It may be helpful to translate this metaphor as a simile. Alternate translation: [Whoever hates another believer is just like someone who kills a person]"
@@ -1718,7 +1718,7 @@
   {
     "reference": "1Jo 3:16",
     "text": "By this we know what love is: Jesus laid down His life for us, and we ought to lay down our lives for our brothers.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "**In this we have known** means something similar to the idiomatic expression “in this we know” that John uses many times in this letter. Alternate translation: [This is how we have come to understand what love is]"
@@ -1744,7 +1744,7 @@
   {
     "reference": "1Jo 3:17",
     "text": "If anyone with earthly possessions sees his brother in need, but withholds his compassion from him, how can the love of God abide in him?",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John uses this expression to introduce a hypothetical situation, which he discusses over the course of the whole verse. He is not talking about any specific person. If it would be helpful in your language, you could restate this as in the UST."
@@ -1778,7 +1778,7 @@
   {
     "reference": "1Jo 3:18",
     "text": "Little children, let us love not in word and speech, but in action and truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See how you translated **Little children** in [2:1](../02/01.md). Alternate translation: [You dear believers who are under my care]"
@@ -1812,7 +1812,7 @@
   {
     "reference": "1Jo 3:19",
     "text": "And by this we will know that we belong to the truth, and will assure our hearts in His presence:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-versebridge",
         "note": "John describes a result in this verse. He gives the reason for that result in the next verse. If it would be helpful in your language, you could put the reason before the result by creating a verse bridge. You could put [3:20](../03/20.md) first in your translation, making it a separate sentence and leaving out both instances of the word “that.” You could put this verse next, translating it as in the following suggestions. Alternate translation: [That is how we can know … and how we can persuade our hearts]"
@@ -1858,7 +1858,7 @@
   {
     "reference": "1Jo 3:20",
     "text": "Even if our hearts condemn us, God is greater than our hearts, and He knows all things.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is discussing a hypothetical situation in order to reassure his readers. Alternate translation: [Suppose our heart condemns us. Then we should remember that God is greater than our heart and knows everything]"
@@ -1888,7 +1888,7 @@
   {
     "reference": "1Jo 3:21",
     "text": "Beloved, if our hearts do not condemn us, we have confidence before God,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-nominaladj",
         "note": "See how you translated **Beloved** in [2:7](../02/07.md). Alternate translation: [You people whom I love]"
@@ -1918,7 +1918,7 @@
   {
     "reference": "1Jo 3:22",
     "text": "and we will receive from Him whatever we ask, because we keep His commandments and do what is pleasing in His sight.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "John is not saying that we **receive** **whatever we ask** in return for obeying God’s commandments and doing what pleases him. Our obedience does not obligate God to give us what we ask for. Our obedience is simply what God has a right to expect from us. Rather, the word **because** reaches back to the statement earlier in this sentence, in the previous verse, that “we have confidence toward God,” that is, we can pray to God confidently. Living in obedience and doing what pleases God gives us confidence to ask for things according to his will. If it would be helpful to your readers, you could indicate this explicitly by starting a new sentence here that refers back to that statement and explains how John’s statement in this verse relates to it. Alternate translation: [We can pray confidently like this because we obey God’s commandments and do what pleases him, and that assures us that we belong to him]"
@@ -1940,7 +1940,7 @@
   {
     "reference": "1Jo 3:23",
     "text": "And this is His commandment: that we should believe in the name of His Son, Jesus Christ, and we should love one another just as He commanded us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **his** refers to God in this verse. Alternate translation: [this is what God has commanded]"
@@ -1962,7 +1962,7 @@
   {
     "reference": "1Jo 3:24",
     "text": "Whoever keeps His commandments remains in God, and God in him. And by this we know that He remains in us: by the Spirit He has given us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronouns **his** and **him** here refer to God. Alternate translation: [the one who keeps God’s commandments remains in God]"
@@ -2004,7 +2004,7 @@
   {
     "reference": "1Jo 4:1",
     "text": "Beloved, do not believe every spirit, but test the spirits to see whether they are from God. For many false prophets have gone out into the world.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-nominaladj",
         "note": "See how you translated **Beloved** in [2:7](../02/07.md). Alternate translation: [You people whom I love]"
@@ -2030,7 +2030,7 @@
   {
     "reference": "1Jo 4:2",
     "text": "By this you will know the Spirit of God: Every spirit that confesses that Jesus Christ has come in the flesh is from God,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This is an idiomatic expression that John uses many times in this letter. Alternate translation: [This is how you can recognize]"
@@ -2052,7 +2052,7 @@
   {
     "reference": "1Jo 4:3",
     "text": "and every spirit that does not confess Jesus is not from God. This is the spirit of the antichrist, which you have heard is coming and which is already in the world at this time.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "See how you translated the similar expression in [4:2](../04/02.md). Alternate translation: [every prophet who does not teach]"
@@ -2094,7 +2094,7 @@
   {
     "reference": "1Jo 4:4",
     "text": "You, little children, are from God and have overcome them, because greater is He who is in you than he who is in the world.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "The expression **from God** means something different in this verse than in the previous three verses, since it refers to believers rather than to the spirits that are inspiring prophets. It means the same thing as in [3:10](../03/10.md). See how you translated it there. Alternate translation: [You belong to God] or [You are living in relationship with God]"
@@ -2124,7 +2124,7 @@
   {
     "reference": "1Jo 4:5",
     "text": "They are of the world. That is why they speak from the world’s perspective, and the world listens to them.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "John uses **world** to mean various things in this letter. Here in these first two instances, it refers to the system of values shared by people who do not know God. Alternate translation: [These false teachers are influenced by the ungodly value system of the people who do not honor God. As a result, they express the perspectives of that system]"
@@ -2146,7 +2146,7 @@
   {
     "reference": "1Jo 4:6",
     "text": "We are from God. Whoever knows God listens to us; whoever is not from God does not listen to us. That is how we know the Spirit of truth and the spirit of deception.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "The pronouns **We** and **us** in the first three sentences of this verse are probably exclusive, and so if your language marks that distinction, we recommend using the exclusive form in your translation. John appears to be speaking here of himself and his fellow eyewitnesses of the resurrection as teachers of the truth about Jesus. He has already said that the believers to whom he is writing are from God in [4:4](../04/04.md)."
@@ -2196,7 +2196,7 @@
   {
     "reference": "1Jo 4:7",
     "text": "Beloved, let us love one another, because love comes from God. Everyone who loves has been born of God and knows God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-nominaladj",
         "note": "See how you translated **Beloved** in [2:7](../02/07.md). Alternate translation: [You people whom I love]"
@@ -2222,7 +2222,7 @@
   {
     "reference": "1Jo 4:8",
     "text": "Whoever does not love does not know God, because God is love.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be helpful in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [Since God is love, the one who does not love does not know God]"
@@ -2244,7 +2244,7 @@
   {
     "reference": "1Jo 4:9",
     "text": "This is how God’s love was revealed among us: God sent His one and only Son into the world, so that we might live through Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "**In this** means something similar to the idiomatic expression “in this we know” that John uses many times in this letter. Alternate translation: [This is how]"
@@ -2286,7 +2286,7 @@
   {
     "reference": "1Jo 4:10",
     "text": "And love consists in this: not that we loved God, but that He loved us and sent His Son as the atoning sacrifice for our sins.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "**In this** means something similar to the idiomatic expression “in this we know” that John uses many times in this letter. Alternate translation: [This is how we have experienced genuine love]"
@@ -2308,7 +2308,7 @@
   {
     "reference": "1Jo 4:11",
     "text": "Beloved, if God so loved us, we also ought to love one another.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-nominaladj",
         "note": "See how you translated **Beloved** in [2:7](../02/07.md). Alternate translation: [You people whom I love]"
@@ -2326,7 +2326,7 @@
   {
     "reference": "1Jo 4:12",
     "text": "No one has ever seen God; but if we love one another, God remains in us, and His love is perfected in us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "John is speaking of a real situation as if it were a hypothetical condition. If your language does not state something as a condition if it is already real, and if your readers might think that what John is saying is not real, then you could translate his words as an affirmative statement. Alternate translation: [But as we love each other, God remains in us, and his love is perfected in us] or [But we do love each other, so that means that God remains in us, and his love is perfected in us]"
@@ -2344,7 +2344,7 @@
   {
     "reference": "1Jo 4:13",
     "text": "By this we know that we remain in Him, and He in us: He has given us of His Spirit.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
         "note": "The expression **In this** introduces a note of assurance that contrasts with the idea in the previous verse, “No one has ever seen God.” This verse is very similar to the second half of [3:24](../03/24.md). See how you translated that verse. Alternate translation: [Nevertheless, this is how we know that we remain in him, and he in us: He has given us of his Spirit] or [But we know that we remain in him, and he in us, because he has given us of his Spirit]"
@@ -2374,7 +2374,7 @@
   {
     "reference": "1Jo 4:14",
     "text": "And we have seen and testify that the Father has sent His Son to be the Savior of the world.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "In this verse, John is speaking on behalf of himself and the other eyewitnesses of the earthly life of Jesus, so the pronoun **we** is exclusive. Alternate translation: [we apostles have seen and bear witness to the fact that]"
@@ -2392,7 +2392,7 @@
   {
     "reference": "1Jo 4:15",
     "text": "If anyone confesses that Jesus is the Son of God, God abides in him, and he in God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "This can be translated as a conditional statement if that would be helpful in your language. John is saying that what he describes in the second phrase will happen only if what he describes in the first phrase happens. Then it will certainly happen. Alternate translation: [If someone confesses that Jesus is the Son of God, then God will remain in him and he will remain in God]"
@@ -2418,7 +2418,7 @@
   {
     "reference": "1Jo 4:16",
     "text": "And we have come to know and believe the love that God has for us. God is love; whoever abides in love abides in God, and God in him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-exclusive",
         "note": "Here and in the rest of the letter, John speaks of himself and the believers to whom he is writing, so the words **we** and **us** will be inclusive. If your language marks that distinction, use the inclusive form in your translation."
@@ -2444,7 +2444,7 @@
   {
     "reference": "1Jo 4:17",
     "text": "In this way, love has been perfected among us, so that we may have confidence on the day of judgment; for in this world we are just like Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "As in [4:9](../04/09.md), **In this** means something similar to the idiomatic expression “in this we know” that John uses many times in this letter. Alternate translation: [By doing this]"
@@ -2490,7 +2490,7 @@
   {
     "reference": "1Jo 4:18",
     "text": "There is no fear in love, but perfect love drives out fear, because fear involves punishment. The one who fears has not been perfected in love.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be helpful in your language, you could put the third clause before the first clause, since the third clause gives the reason for the result that the first clause describes. Alternate translation: [Because fear has punishment, fear is not in love, but perfect love throws fear outside]"
@@ -2528,7 +2528,7 @@
   {
     "reference": "1Jo 4:19",
     "text": "We love because He first loved us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "This verse summarizes the idea of verse [10](../04/10.md). See how you translated there. If it would be helpful in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [Because God first loved us, we love]"
@@ -2546,7 +2546,7 @@
   {
     "reference": "1Jo 4:20",
     "text": "If anyone says, “I love God,” but hates his brother, he is a liar. For anyone who does not love his brother, whom he has seen, cannot love God, whom he has not seen.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is using a hypothetical situation to help his readers recognize the importance of consistency between their words and their actions. Alternate translation: [Suppose someone says, “I love God,” but he hates his brother. Then he is a liar]"
@@ -2572,7 +2572,7 @@
   {
     "reference": "1Jo 4:21",
     "text": "And we have this commandment from Him: Whoever loves God must love his brother as well.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The pronoun **him** refers to God. Alternate translation: [from God]"
@@ -2590,7 +2590,7 @@
   {
     "reference": "1Jo 5:1",
     "text": "Everyone who believes that Jesus is the Christ has been born of God, and everyone who loves the Father also loves those born of Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/checking/headings",
         "note": "If you are using section headings, you could put one here before [verse 1](../05/01.md). Suggested heading: “Jesus is the Messiah and Son of God”"
@@ -2616,7 +2616,7 @@
   {
     "reference": "1Jo 5:2",
     "text": "By this we know that we love the children of God: when we love God and keep His commandments.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "This is an idiomatic expression that John uses many times in this letter. Alternate translation: [This is how we know that]"
@@ -2634,7 +2634,7 @@
   {
     "reference": "1Jo 5:3",
     "text": "For this is the love of God, that we keep His commandments. And His commandments are not burdensome,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "In this verse, John gives a reason why his readers should recognize that the statement he makes in the previous verse is true. Alternate translation: [After all,]"
@@ -2660,7 +2660,7 @@
   {
     "reference": "1Jo 5:4",
     "text": "because everyone born of God overcomes the world. And this is the victory that has overcome the world: our faith.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-versebridge",
         "note": "Verses 3 and 4 might be clearer in your language if you reorder and combine them as a verse bridge. To do so, you could begin this sentence with “Since” instead of **For**; you could end it with a comma instead of a period; and you could make it the beginning of the second sentence in the previous verse. It would go before “his commandments are not burdensome.” The word “And” would be left out. The result would be: “For this is the love of God, that we should keep his commandments. Since everyone who has been begotten from God overcomes the world, his commandments are not burdensome. And this is the victory that has overcome the world, our faith.”"
@@ -2710,7 +2710,7 @@
   {
     "reference": "1Jo 5:5",
     "text": "Who then overcomes the world? Only he who believes that Jesus is the Son of God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-rquestion",
         "note": "John is using the question form for emphasis, to reaffirm what he said in the first sentence of the previous verse. If it would be helpful in your language, you could express this question by translating his words as a statement and provide emphasis in another way. Alternate translation: [But only someone who believes that Jesus is the Son of God triumphs over the world.]"
@@ -2732,7 +2732,7 @@
   {
     "reference": "1Jo 5:6",
     "text": "This is the One who came by water and blood, Jesus Christ—not by water alone, but by water and blood. And it is the Spirit who testifies to this, because the Spirit is the truth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "John is specifying here what it means to believe fully that “Jesus is the Son of God,” as he described in the previous verse. The terms **water** and **blood** are metonyms representing different important ways that the Son of God **came** to us. You may want to clarify these meanings in the text or do so in a footnote. The **blood** represents Jesus’ death on the cross, when he shed his blood as the Savior of the world. The **water** could stand for: (1) Jesus’ baptism. When John baptized Jesus in the water of the Jordan River, the Son of God began his ministry of reconciling the world to God. See the UST. (2) Jesus’ birth. There was the breaking of the birth water when the Son of God was born as a man. Alternate translation: [This is the one who came through the water of human birth and the blood of his sacrificial death]"
@@ -2758,7 +2758,7 @@
   {
     "reference": "1Jo 5:7",
     "text": "For there are three that testify:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "In this statement, John reaffirms that the three things that he mentions in verse [6](../05/06.md) give us confidence that Jesus is the Son of God and came from him. If it would be helpful to your readers, you could indicate this explicitly. Alternate translation: [So there are three who testify that Jesus is God’s Son and came from him]"
@@ -2776,7 +2776,7 @@
   {
     "reference": "1Jo 5:8",
     "text": "the Spirit, the water, and the blood—and these three are in agreement.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "See how you decided to translate the terms **water** and **blood** in [5:6](../05/06.md). Alternate translation: (1) [the baptism of Jesus and his death on the cross] or (2) [the birth of Jesus and his death on the cross]"
@@ -2790,7 +2790,7 @@
   {
     "reference": "1Jo 5:9",
     "text": "Even if we accept human testimony, the testimony of God is greater. For this is the testimony that God has given about His Son.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "John is speaking as if this were a hypothetical possibility, but he means that it is actually true. If your language does not state something this way if it is certain or true, and if your readers might think that what John is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [Since we receive the testimony of men]"
@@ -2828,7 +2828,7 @@
   {
     "reference": "1Jo 5:10",
     "text": "Whoever believes in the Son of God has this testimony within him; whoever does not believe God has made Him out to be a liar, because he has not believed in the testimony that God has given about His Son.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This verse comes in between John’s two introductions of God’s testimony. You could include this information that tells your reader that the testimony is still coming, as in the UST, if that would be helpful to your readers."
@@ -2866,7 +2866,7 @@
   {
     "reference": "1Jo 5:11",
     "text": "And this is that testimony: God has given us eternal life, and this life is in His Son.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-quotations",
         "note": "If it would be helpful in your language, you could express this as a direct quotation, as in the UST."
@@ -2888,7 +2888,7 @@
   {
     "reference": "1Jo 5:12",
     "text": "Whoever has the Son has life; whoever does not have the Son of God does not have life.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "John speaks of believers who are in a close relationship with Jesus as if Jesus were their possession. If it would be helpful in your language, you could use a different expression. Alternate translation: [Anyone who is in a close relationship with the Son has life. Anyone who is not in a close relationship with the Son of God does not have life]"
@@ -2906,7 +2906,7 @@
   {
     "reference": "1Jo 5:13",
     "text": "I have written these things to you who believe in the name of the Son of God, so that you may know that you have eternal life.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "Here, **these things** refers back to everything that John has written so far in the letter. Alternate translation: [all of this]"
@@ -2928,7 +2928,7 @@
   {
     "reference": "1Jo 5:14",
     "text": "And this is the confidence that we have before Him: If we ask anything according to His will, He hears us.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "If it would be helpful to your readers, as in [3:21](../03/21.md) you could state explicitly what this **confidence** applies to in light of what John says in the rest of this sentence. Alternate translation: [we can be confident of this as we pray to God]"
@@ -2954,7 +2954,7 @@
   {
     "reference": "1Jo 5:15",
     "text": "And if we know that He hears us in whatever we ask, we know that we already possess what we have asked of Him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-condition-fact",
         "note": "John is speaking as if this were a hypothetical possibility, but he means that it is actually true. If your language does not state something as a possibility if it is certain or true, and if your readers might think that what John is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [since we know that he listens to us]"
@@ -2976,7 +2976,7 @@
   {
     "reference": "1Jo 5:16",
     "text": "If anyone sees his brother committing a sin not leading to death, he should ask God, who will give life to those who commit this kind of sin. There is a sin that leads to death; I am not saying he should ask regarding that sin.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-hypo",
         "note": "John is describing a hypothetical situation in order to counsel his readers. UST models an alternative way of showing this."
@@ -3014,7 +3014,7 @@
   {
     "reference": "1Jo 5:17",
     "text": "All unrighteousness is sin, yet there is sin that does not lead to death.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-abstractnouns",
         "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **unrighteousness** with an equivalent expression. Alternate translation: [Every time we do what God does not want, that is sin]"
@@ -3032,7 +3032,7 @@
   {
     "reference": "1Jo 5:18",
     "text": "We know that anyone born of God does not keep on sinning; the One who was born of God protects him, and the evil one cannot touch him.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-activepassive",
         "note": "See how you translated the similar expression in [2:29](../02/29.md). Alternate translation: [everyone whose father is God]"
@@ -3066,7 +3066,7 @@
   {
     "reference": "1Jo 5:19",
     "text": "We know that we are of God, and that the whole world is under the power of the evil one.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "See how you translated the similar expression in [4:4](../04/04.md). Alternate translation: [we are sharing life with God] or [we are living in relationship with God]"
@@ -3088,7 +3088,7 @@
   {
     "reference": "1Jo 5:20",
     "text": "And we know that the Son of God has come and has given us understanding, so that we may know Him who is true; and we are in Him who is true—in His Son Jesus Christ. He is the true God and eternal life.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/guidelines-sonofgodprinciples",
         "note": "**Son of God** is an important title for Jesus that describes his relationship to God."
@@ -3142,7 +3142,7 @@
   {
     "reference": "1Jo 5:21",
     "text": "Little children, keep yourselves from idols.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "See how you translated **children** in [2:1](../02/01.md). Alternate translation: [You dear believers who are under my care]"

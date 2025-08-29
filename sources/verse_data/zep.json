@@ -2,7 +2,7 @@
   {
     "reference": "Zep 1:1",
     "text": "This is the word of the LORD that came to Zephaniah son of Cushi, the son of Gedaliah, the son of Amariah, the son of Hezekiah, in the days of Josiah son of Amon king of Judah:",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "In this title for the book, the term **word** refers to the message that Yahweh sent to the Judeans through Zephaniah by using words. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [The message that Yahweh sent through Zephaniah]"
@@ -24,7 +24,7 @@
   {
     "reference": "Zep 1:2",
     "text": "“I will completely sweep away everything from the face of the earth,” declares the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "Zephaniah is using the phrase **the declaration of Yahweh** to indicate that he is quoting the message that Yahweh has given him for the people of Judah. Consider natural ways of identifying direct quotations in your language. It may be more natural for you to put this attribution of the saying to Yahweh before the saying itself, as the UST does. Alternate translation: [This is what Yahweh declares: “Removing, I will exterminate everything from upon the face of the ground.”]"
@@ -46,7 +46,7 @@
   {
     "reference": "Zep 1:3",
     "text": "“I will sweep away man and beast; I will sweep away the birds of the air, and the fish of the sea, and the idols with their wicked worshipers. I will cut off mankind from the face of the earth,” declares the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "See how you translated the phrase **the declaration of Yahweh** in the previous verse. If you used it to introduce the quotation there, you may wish to do the same thing here."
@@ -96,7 +96,7 @@
   {
     "reference": "Zep 1:4",
     "text": "“I will stretch out My hand against Judah and against all who dwell in Jerusalem. I will cut off from this place every remnant of Baal, the names of the idolatrous and pagan priests—",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here, **hand** represents the power that a person has to do something. If it would be helpful in your language, you could use an equivalent expression or state the meaning plainly. Alternate translation: [And I will use my power]"
@@ -134,7 +134,7 @@
   {
     "reference": "Zep 1:5",
     "text": "those who bow on the rooftops to worship the host of heaven, those who bow down and swear by the LORD but also swear by Milcom,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [and I will cut off the ones bowing down on the housetops to the army of the skies, and I will cut off the ones bowing down, swearing to Yahweh but swearing by their king] or [and I will destroy the ones bowing down on the housetops to the army of the skies, and I will destroy the ones bowing down, swearing to Yahweh but swearing by their king]"
@@ -168,7 +168,7 @@
   {
     "reference": "Zep 1:6",
     "text": "and those who turn back from following the LORD, neither seeking the LORD nor inquiring of Him.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [and the ones turning back from after me, and who do not search for me and do not seek me]"
@@ -190,7 +190,7 @@
   {
     "reference": "Zep 1:7",
     "text": "Be silent in the presence of the Lord GOD, for the Day of the LORD is near. Indeed, the LORD has prepared a sacrifice; He has consecrated His guests.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Here the word **face** represents the presence of a person by association with the way people can see the face of someone who is present. Alternate translation: [Hush in the presence of Lord Yahweh]"
@@ -216,7 +216,7 @@
   {
     "reference": "Zep 1:8",
     "text": "“On the Day of the LORD’s sacrifice I will punish the princes, the sons of the king, and all who are dressed in foreign apparel.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-litany",
         "note": "As the introduction to this chapter discusses, this phrase is the beginning of a litany. You may use that discussion to help you consider how to format the material in [verses 8–9](../01/08.md)."
@@ -254,7 +254,7 @@
   {
     "reference": "Zep 1:9",
     "text": "On that day I will punish all who leap over the threshold, who fill the house of their master with violence and deceit.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "See how you translated the expressions “on the day” and “I will visit upon” in the previous verse. Alternate translation: [and at the time when I punish you Judeans, I will punish]"
@@ -276,7 +276,7 @@
   {
     "reference": "Zep 1:10",
     "text": "On that day,” declares the LORD, “a cry will go up from the Fish Gate, a wail from the Second District, and a loud crashing from the hills.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "See how you translated the phrase **the declaration of Yahweh** in [verses 2](../01/02.md) and [3](../01/03.md). Alternate translation: [This is what Yahweh declares: “And it will happen on that day, the sound of]"
@@ -306,7 +306,7 @@
   {
     "reference": "Zep 1:11",
     "text": "Wail, O dwellers of the Hollow, for all your merchants will be silenced; all who weigh out silver will be cut off.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/translate-names",
         "note": "The word **Maktesh** is the name of one of the districts in the ancient city of Jerusalem. It seems to have been a place where many goods were bought and sold, and so some translations refer to it with a descriptive phrase rather than with this name. Alternate translation: [the market district]"
@@ -336,7 +336,7 @@
   {
     "reference": "Zep 1:12",
     "text": "And at that time I will search Jerusalem with lamps and punish the men settled in complacency, who say to themselves, ‘The LORD will do nothing, either good or bad.’",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Yahweh is speaking as if he is literally going to use **lamps** in order to **search** for evildoers so that he can find them and punish them. He means that he is going to search thoroughly, as if using a lamp in order to see into all dark corners where someone or something might escape notice. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [thoroughly]"
@@ -378,7 +378,7 @@
   {
     "reference": "Zep 1:13",
     "text": "Their wealth will be plundered and their houses laid waste. They will build houses but not inhabit them, and plant vineyards but never drink their wine.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-ellipsis",
         "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [and their wealth will become plunder and their houses will become a ruin]"
@@ -396,7 +396,7 @@
   {
     "reference": "Zep 1:14",
     "text": "The great Day of the LORD is near—near and coming quickly. Listen, the Day of the LORD! Then the cry of the mighty will be bitter.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "See how you translated the expression “the day of Yahweh” in [verse 7](../01/07.md). Alternate translation: [the awful time when Yahweh will punish people for their sins … the time when Yahweh will punish people]"
@@ -426,7 +426,7 @@
   {
     "reference": "Zep 1:15",
     "text": "That day will be a day of wrath, a day of trouble and distress, a day of destruction and desolation, a day of darkness and gloom, a day of clouds and blackness,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "If you have been translating the phrase “the day of Yahweh” with an expression that uses the word “time,” you may wish to say “time” rather than **day** in each of the instances in this verse."
@@ -444,7 +444,7 @@
   {
     "reference": "Zep 1:16",
     "text": "a day of horn blast and battle cry against the fortified cities, and against the high corner towers.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "If you have been translating the phrase “the day of Yahweh” with an expression that uses the word “time,” you may wish to say “time” rather than **day** here. Alternate translation: [a time of]"
@@ -466,7 +466,7 @@
   {
     "reference": "Zep 1:17",
     "text": "I will bring such distress on mankind that they will walk like the blind, because they have sinned against the LORD. Their blood will be poured out like dust and their flesh like dung.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-gendernotations",
         "note": "Here the masculine term **man** has a generic sense that includes both men and women. If it would be helpful to your readers, you could use language in your translation that is clearly inclusive of both men and women. The reference is most likely to the sinful, complacent Judeans. Alternate translation: [to the people of Judah]"
@@ -500,7 +500,7 @@
   {
     "reference": "Zep 1:18",
     "text": "Neither their silver nor their gold will be able to deliver them on the Day of the LORD’s wrath. The whole earth will be consumed by the fire of His jealousy.” For indeed, He will make a sudden end of all who dwell on the earth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Yahweh is speaking as if the **silver** and the **gold** that the Judeans own were living things that could **deliver them** from their enemies. If it would be helpful to your readers, you could state the meaning plainly. Alternate translation: [They will not even be able to pay their enemies silver or gold in order to be spared]"
@@ -534,7 +534,7 @@
   {
     "reference": "Zep 2:1",
     "text": "Gather yourselves, gather together, O shameful nation,",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-reduplication",
         "note": "Zephaniah is repeating the verb **Gather** in order to emphasize the idea that it expresses. If a speaker of your language would not do that, you may be able to express the emphasis in another way in your translation. Alternate translation: [It is urgent that you gather together]"
@@ -560,7 +560,7 @@
   {
     "reference": "Zep 2:2",
     "text": "before the decree takes effect and the day passes like chaff, before the burning anger of the LORD comes upon you, before the Day of the LORD’s anger comes upon you.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-possession",
         "note": "Zephaniah is using this possessive form not to describe something **bringing forth** the **decree** but to speak of the **decree** as if it would be **bringing forth** something, that is, as if it would literally be giving birth to something. It may be helpful to clarify this for your readers, and it may be helpful to use plain language. Alternate translation: [before the decree takes effect]"
@@ -602,7 +602,7 @@
   {
     "reference": "Zep 2:3",
     "text": "Seek the LORD, all you humble of the earth who carry out His justice. Seek righteousness; seek humility. Perhaps you will be sheltered on the day of the LORD’s anger.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Zephaniah is speaking as if he literally wanted the Judeans to **Seek** or look for Yahweh. If it would be clearer in your language, you could state the meaning plainly. See how you translated the similar expression in [1:6](../01/06.md). Alternate translation: [Pray to Yahweh for mercy]"
@@ -644,7 +644,7 @@
   {
     "reference": "Zep 2:4",
     "text": "For Gaza will be abandoned, and Ashkelon left in ruins. Ashdod will be driven out at noon, and Ekron will be uprooted.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-poetry",
         "note": "For poetic effect and emphasis, at the beginning and end of this verse Zephaniah uses verbs that echo the sound of the names of the cities he is describing. It may be possible for you to reproduce this effect in your translation."
@@ -682,7 +682,7 @@
   {
     "reference": "Zep 2:5",
     "text": "Woe to the dwellers of the seacoast, O nation of the Cherethites! The word of the LORD is against you, O Canaan, land of the Philistines: “I will destroy you, and no one will be left.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-possession",
         "note": "Zephaniah is using this possessive form to describe a **region** that is along the coast of the **sea**. He means specifically the area along the coast of the Mediterranean Sea where the Philistines lived. It may be helpful to clarify this for your readers. Alternate translation: [the seacoast]"
@@ -716,7 +716,7 @@
   {
     "reference": "Zep 2:6",
     "text": "So the seacoast will become a land of pastures, with wells for shepherds and folds for sheep.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-possession",
         "note": "See how you translated this expression in the previous verse. Alternate translation: [the seacoast] or [the seacoast where the Philistines formerly lived]"
@@ -730,7 +730,7 @@
   {
     "reference": "Zep 2:7",
     "text": "The coast will belong to the remnant of the house of Judah; there they will find pasture. They will lie down in the evening among the houses of Ashkelon, for the LORD their God will attend to them and restore their captives.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Zephaniah is using the word **house** to mean the people who live in the kingdom of Judah. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [the people of Judah]"
@@ -748,7 +748,7 @@
   {
     "reference": "Zep 2:8",
     "text": "“I have heard the reproach of Moab and the insults of the Ammonites, who have taunted My people and threatened their borders.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "This is the beginning of a direct quotation from Yahweh, as the phrase “the declaration of Yahweh of armies, the God of Israel” in the next verse indicates. See how you translated the phrase “the declaration of Yahweh” in [1:2](../01/02.md). If you used it to introduce the quotation there, you may wish to use the comparable phrase from [2:9](../02/09.md) to introduce the quotation here. The UST models a way to do that."
@@ -770,7 +770,7 @@
   {
     "reference": "Zep 2:9",
     "text": "Therefore, as surely as I live,” declares the LORD of Hosts, the God of Israel, “surely Moab will be like Sodom and the Ammonites like Gomorrah—a place of weeds and salt pits, a perpetual wasteland. The remnant of My people will plunder them; the remainder of My nation will dispossess them.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-oathformula",
         "note": "Yahweh is using this language to swear a solemn oath. He is indicating that the things he says will happen to Moab and Ammon are just as certain as some other very certain thing, the fact that he is **alive**. Translate this in a way that will show your readers that it is an oath. For example, it may be helpful to add the words **I swear**, as the UST does. If oaths are unfamiliar in your culture, you could also add a short explanation of what an oath is."
@@ -808,7 +808,7 @@
   {
     "reference": "Zep 2:10",
     "text": "This they shall have in return for their pride, for taunting and mocking the people of the LORD of Hosts.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-connect-logic-result",
         "note": "If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [Because they reproached and made themselves great against the people of Yahweh of Armies, this will be to them instead of their pride]"
@@ -830,7 +830,7 @@
   {
     "reference": "Zep 2:11",
     "text": "The LORD will be terrifying to them when He starves all the gods of the earth. Then the nations of every shore will bow in worship to Him, each in its own place.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Zephaniah is speaking as if Yahweh is literally going to **starve** the false **gods** that other nations worship, that is, deny them food so that they become thin. This is likely a reference to the fat of animals that people sacrificed to gods. The implication is that people will no longer sacrifice to those gods because they will no longer worship them once Yahweh has shown that he is the only true and powerful God. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [he will show by his powerful actions that he is the only true God]"
@@ -852,7 +852,7 @@
   {
     "reference": "Zep 2:12",
     "text": "“You too, O Cushites, will be slain by My sword.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "This verse is a direct quotation from Yahweh. You may wish to indicate that in your translation by using a natural way of introducing direct quotations in your language. Alternate translation: [Yahweh also declares, “You, Cushites]"
@@ -874,7 +874,7 @@
   {
     "reference": "Zep 2:13",
     "text": "And He will stretch out His hand against the north and destroy Assyria; He will make Nineveh a desolation, as dry as a desert.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "These two phrases mean basically the same thing. The second emphasizes the meaning of the first by repeating the same idea with different words. You may wish to include both phrases in your translation, but it may be clearer in your language to connect the phrases with a word other than **and** in order to show that the second phrase is repeating the first one, not saying something additional. Alternate translation: [And he will stretch out his hand against the north; yes, he will destroy Assyria]"
@@ -892,7 +892,7 @@
   {
     "reference": "Zep 2:14",
     "text": "Herds will lie down in her midst, creatures of every kind. Both the desert owl and screech owl will roost atop her pillars. Their calls will sound from the window, but desolation will lie on the threshold, for He will expose the beams of cedar.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-pronouns",
         "note": "The possessive pronoun **its** refers to the city of Nineveh. It may be helpful to clarify this for your readers. Alternate translation: [in the midst of Nineveh]"
@@ -926,7 +926,7 @@
   {
     "reference": "Zep 2:15",
     "text": "This carefree city that dwells securely, that thinks to herself: “I am it, and there is none besides me,” what a ruin she has become, a resting place for beasts. Everyone who passes by her hisses and shakes his fist.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-personification",
         "note": "Zephaniah is speaking of the **city** of Nineveh as if it were a living thing that could exult, dwell in **security**, and speak. He means that the people of Nineveh have done these things. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [This is the city whose people exulted, who thought they dwelled in security, who said in their hearts, “We are, and besides us there are no others]"
@@ -960,7 +960,7 @@
   {
     "reference": "Zep 3:1",
     "text": "Woe to the city of oppressors, rebellious and defiled!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Zephaniah is implicitly referring to the **city** of Jerusalem. You could indicate that in your translation if it would be helpful to your readers. Alternate translation: [Woe to Jerusalem, the one rebelling and being defiled, the oppressing city]"
@@ -982,7 +982,7 @@
   {
     "reference": "Zep 3:2",
     "text": "She heeded no voice; she accepted no correction. She does not trust in the LORD; she has not drawn near to her God.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Zephaniah is using the term **heard** in a specific sense to mean “obeyed.” If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [She does not obey the voice]"
@@ -1000,7 +1000,7 @@
   {
     "reference": "Zep 3:3",
     "text": "Her princes are roaring lions; her judges are evening wolves, leaving nothing for the morning.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "See how you translated the term “princes” in [1:8](../01/08.md). Alternate translation: [her officials]"
@@ -1022,7 +1022,7 @@
   {
     "reference": "Zep 3:4",
     "text": "Her prophets are reckless, faithless men. Her priests profane the sanctuary; they do violence to the law.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metaphor",
         "note": "Zephaniah is speaking as if the **prophets** in Jerusalem were literally **light**, that is, as if they did not weigh very much. He could mean: (1) that they are frivolous in character and so what they say is not profound or significant. Alternate translation: [are frivolous]; (2) that nothing restrains them from doing wrong things, as if they were a light object with nothing weighing it down that would float away or be blown away. Alternate translation: [are unprincipled] or [are reckless]"
@@ -1044,7 +1044,7 @@
   {
     "reference": "Zep 3:5",
     "text": "The LORD within her is righteous; He does no wrong. He applies His justice morning by morning; He does not fail at dawn, yet the unjust know no shame.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-doublenegatives",
         "note": "If it would be clearer in your language, you could use a positive expression to translate this double negative that consists of the negative particle **not** and the negative word **unrighteousness**. Alternate translation: [He always does what is right]"
@@ -1086,7 +1086,7 @@
   {
     "reference": "Zep 3:6",
     "text": "“I have cut off the nations; their corner towers are destroyed. I have made their streets deserted with no one to pass through. Their cities are laid waste, with no man, no inhabitant.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "This is the beginning of a direct quotation from Yahweh that continues through [verse 13](../03/13.md). You may wish to indicate that in your translation by using a natural way of introducing direct quotations in your language. Alternate translation: [Yahweh has said, “I have cut off nations, their corners have been demolished; I have destroyed their streets]"
@@ -1120,7 +1120,7 @@
   {
     "reference": "Zep 3:7",
     "text": "I said, ‘Surely you will fear Me and accept correction.’ Then her dwelling place would not be cut off despite all for which I punished her. But they rose early to corrupt all their deeds.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-123person",
         "note": "In this quotation, Yahweh first speaks directly to the city of Jerusalem in the second person, and then he speaks about that city in the third person. If it would help your readers appreciate what Yahweh is saying, you could translate the entire quotation in the third person. Alternate translation: [I said, ‘Surely she will fear me; she will take correction. Then her dwelling will not be cut off by all that I have visited upon her]"
@@ -1150,7 +1150,7 @@
   {
     "reference": "Zep 3:8",
     "text": "Therefore wait for Me,” declares the LORD, “until the day I rise to testify. For My decision is to gather nations, to assemble kingdoms, to pour out upon them My indignation—all My burning anger. For all the earth will be consumed by the fire of My jealousy.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/writing-quotations",
         "note": "See how you translated the phrase “the declaration of Yahweh” in [1:2](../01/02.md), [1:3](../01/03.md), [1:10](../01/10.md), and [2:9](../02/09.md). If you used it to introduce the quotations in those places, you may wish to do the same thing here. Alternate translation: [This is what Yahweh declares: “Therefore wait for me, for the day of my arising to the prey]"
@@ -1188,7 +1188,7 @@
   {
     "reference": "Zep 3:9",
     "text": "For then I will restore pure lips to the peoples, that all may call upon the name of the LORD and serve Him shoulder to shoulder.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-metonymy",
         "note": "Yahweh is using the term **lip** by association to mean the capacity to speak. He could mean: (1) the peoples were saying wicked things because their character was wicked, but he will purify their character so that they will say pure things. Alternate translation: [I will surely give the peoples righteous character so that they will say pure things; then they will pray to me acceptably]; (2) that by invoking the names of other gods (as described in [1:5](../01/05.md)), they had made themselves unworthy to pray to Yahweh, but he will cleanse their capacity to speak so that they can pray to him. Alternate translation: [I will surely cleanse the speech of the peoples from the defilement of the names of other gods so that they can pray to me acceptably]"
@@ -1214,7 +1214,7 @@
   {
     "reference": "Zep 3:10",
     "text": "From beyond the rivers of Cush My worshipers, My scattered people, will bring Me an offering.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-synecdoche",
         "note": "Yahweh is using one distant place, the area around the **rivers of Cush** (the upper Nile region), to mean distant places in general. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [From even as far away as across the rivers of Cush] or [From even the most distant places]"
@@ -1236,7 +1236,7 @@
   {
     "reference": "Zep 3:11",
     "text": "On that day you will not be put to shame for any of the deeds by which you have transgressed against Me. For then I will remove from among you those who rejoice in their pride, and you will never again be haughty on My holy mountain.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "The words **you** and **your** are singular throughout this verse because Yahweh is speaking to the city of Jerusalem as if it were a person, as he did in [3:7](../03/07.md). Since Yahweh is actually speaking to the people who live in Jerusalem, you could use the plural forms of “you” and “your” in your translation if your language marks that distinction."
@@ -1250,7 +1250,7 @@
   {
     "reference": "Zep 3:12",
     "text": "But I will leave within you a meek and humble people, and they will trust in the name of the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "See whether you decided to use the singular or plural form of “you” and “your” in the previous verse. It would be helpful to use the same form here."
@@ -1272,7 +1272,7 @@
   {
     "reference": "Zep 3:13",
     "text": "The remnant of Israel will no longer do wrong or speak lies, nor will a deceitful tongue be found in their mouths. But they will feed and lie down, with no one to make them tremble.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/grammar-collectivenouns",
         "note": "and they will not speak a lie, and a tongue of deceit will not be found in their mouth Since Yahweh is speaking of many people, it may be more natural in your language to use plural forms here. Alternate translation: [and they will not speak lies, and tongues of deceit will not be found in their mouths]"
@@ -1306,7 +1306,7 @@
   {
     "reference": "Zep 3:14",
     "text": "Sing for joy, O Daughter of Zion; shout aloud, O Israel! Be glad and rejoice with all your heart, O Daughter of Jerusalem!",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "The implied “you” in the imperatives **Sing**, **Rejoice**, and **exult** is singular because Zephaniah is addressing a group as if it were a single individual. The implied “you” in the imperative **Shout** is plural because Zephaniah is addressing a group as a number of individuals. Use the same singular and plural forms in your translation if your language marks a distinction between singular and plural “you” and you decide to retain the singular and plural forms of address. However, see the notes to the rest of this verse, which suggest the possibility of using a plural address throughout the verse."
@@ -1340,7 +1340,7 @@
   {
     "reference": "Zep 3:15",
     "text": "The LORD has taken away your punishment; He has turned back your enemy. Israel’s King, the LORD, is among you; no longer will you fear any harm.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "As the introduction to this chapter discusses, the words “you” and “your” are singular in these instances and generally in [verses 16–19](../03/16.md) because they are addressing Jerusalem as an individual. If you decide to retain the singular address, use the singular form in your translation if your language marks that distinction, but use plural forms if you decide to have a plural address."
@@ -1358,7 +1358,7 @@
   {
     "reference": "Zep 3:16",
     "text": "On that day they will say to Jerusalem: “Do not fear, O Zion; do not let your hands fall limp.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-idiom",
         "note": "Zephaniah is using the term **day** to refer to a specific time. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [At that time]"
@@ -1380,7 +1380,7 @@
   {
     "reference": "Zep 3:17",
     "text": "The LORD your God is among you; He is mighty to save. He will rejoice over you with gladness; He will quiet you with His love; He will rejoice over you with singing.”",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "Since the people who are speaking to Jerusalem say that Yahweh will **rejoice** and **exult**, they do not mean that he will literally **be silent.** Rather, they mean that Yahweh will no longer speak words of condemnation and judgment against Jerusalem. You could indicate that in your translation if it would be helpful to your readers. Alternate translation: [in his love, he will no longer speak to condemn you]"
@@ -1390,7 +1390,7 @@
   {
     "reference": "Zep 3:18",
     "text": "“I will gather those among you who grieve over the appointed feasts, so that you will no longer suffer reproach.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-explicit",
         "note": "This verse is very difficult to understand. Modern versions translate it in many different ways. The ULT offers one reasonable interpretation of it. If a translation of the Bible exists in your region, you may wish to follow the interpretation that it expresses. If a translation of the Bible does not exist in your region, you may wish to follow the interpretation of ULT."
@@ -1412,7 +1412,7 @@
   {
     "reference": "Zep 3:19",
     "text": "Behold, at that time, I will deal with all who afflict you. I will save the lame and gather the scattered; and I will appoint praise and fame for the disgraced throughout the earth.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-parallelism",
         "note": "The expressions **lame** and **cast-out one** are both feminine singular, suggesting that Yahweh is using both expressions to refer to Jerusalem as if that city were a female individual. In that case, Yahweh would be using repetition to emphasize the idea that these phrases express. The reference would actually be to the people of Judah and Jerusalem, who would be **lame** or limping from the difficulty of walking from their homeland to a place of exile and who could be described as **cast-out** since they had been taken from their homeland. It may be helpful to indicate in your translation that these two phrases are expressing the same idea. Alternate translation: [And I will rescue the people of Judah who are limping from walking so far away from home; yes, I will bring them back from exile]"
@@ -1442,7 +1442,7 @@
   {
     "reference": "Zep 3:20",
     "text": "At that time I will bring you in; yes, at that time I will gather you. For I will give you fame and praise among all the peoples of the earth when I restore your captives before your very eyes,” says the LORD.",
-    "translation_challanges": [
+    "translation_challenges": [
       {
         "issue_type": "rc://*/ta/man/translate/figs-yousingular",
         "note": "As the introduction to this chapter indicates, the words **you** and **your** are plural in this verse. Yahweh is now addressing the people of Judah as a group of individuals. If you have been using singular and plural forms in your translation to show the different kinds of address in this chapter, you may wish to indicate explicitly that the address changes to plural here. Alternate translation: [I will bring in you people of Judah]"
