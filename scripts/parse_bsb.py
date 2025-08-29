@@ -3,7 +3,7 @@ Parse the Berean Standard Bible (BSB) raw text into per-book JSON files.
 
 Source: https://bereanbible.com/bsb.txt
 
-Output: sources/bsb/<book>.json
+Output: sources/verse_data/<book>.json
 Each file is a JSON array of objects with shape:
   { "reference": "Gen 1:1", "text": "In the beginning..." }
 
@@ -166,8 +166,8 @@ def write_books_to_json(target_root: Path, data: Dict[str, List[Tuple[str, str]]
 
 
 def main(argv: List[str]) -> int:
-    # Optional first arg: custom output directory (defaults to ./sources/bsb)
-    out_dir = Path(argv[1]) if len(argv) > 1 else Path("sources") / "bsb"
+    # Optional first arg: custom output directory (defaults to ./sources/verse_data)
+    out_dir = Path(argv[1]) if len(argv) > 1 else Path("sources") / "verse_data"
     print(f"Fetching BSB text from {BSB_URL}...")
     text = fetch_bsb_text(BSB_URL)
     lines = text.splitlines()
@@ -182,4 +182,3 @@ def main(argv: List[str]) -> int:
 
 if __name__ == "__main__":  # pragma: no cover - one-off script
     raise SystemExit(main(sys.argv))
-

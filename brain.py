@@ -1239,8 +1239,8 @@ def handle_get_passage_summary(state: Any) -> dict:
             ranges.append((sel.start_chapter, sel.start_verse, sel.end_chapter, sel.end_verse))
     logger.info("[passage-summary] ranges=%s", ranges)
 
-    # Retrieve verses from BSB JSONs; data dir is project root / sources/bsb
-    data_root = Path("sources") / "bsb"
+    # Retrieve verses from verse JSONs; data dir is project root / sources/verse_data
+    data_root = Path("sources") / "verse_data"
     logger.info("[passage-summary] retrieving verses from %s", data_root)
     verses = select_verses(data_root, canonical_book, ranges)
     logger.info("[passage-summary] retrieved %d verse(s)", len(verses))
