@@ -41,9 +41,9 @@ FEATURES_SUMMARY_RESPONSE = (
 
 BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE = (
     f"{FEATURES_SUMMARY_RESPONSE}\n\n"
-    "(1) Please summarize Titus chapter 1.\n"
+    "(1) Please summarize Titus chapter 1. (intent: get-passage-summary)\n"
     "(2) List all the important words in Romans 1.\n"
-    "(3) What challenges might I face when translating John 1:1?\n\n"
+    "(3) What challenges might I face when translating John 1:1? (intent: get-passage-translation-challenges)\n\n"
     "Which of these would you like me to do?"
 )
 
@@ -98,8 +98,8 @@ You are a part of a WhatsApp RAG bot system that assists Bible translators calle
 You will be supplied with the user's most recent message and also past conversation history. Using this context, provide the user with information detailing how the system works (the features of the BT Servant system). When doing so, leverage the feature information below. In almost all situations, when appropriate, end your response with a question asking the user if they want to use one of the first three features (example: 'Would you like me to summarize a verse or passage for you?').
 
 # Features
-1. Summarize books or passages of Scripture. (Example usage: 'please summarize Titus 2'; Please summarize Mark 1:1-8.)
-2. Provide translation issues found in a verse range, chapter, or book. (Example usage: 'Tell me all the translation challenges in Mark 1:2.')
+1. Summarize books or passages of Scripture (intent: get-passage-summary). (Example usage: 'please summarize Titus 2'; 'Please summarize Mark 1:1-8'.)
+2. Provide translation issues found in a verse range, chapter, or book (intent: get-passage-translation-challenges). (Example usage: 'Tell me all the translation challenges in Mark 1:2'.)
 3. Provide a list of keywords found in a verse range, chapter, or book. (Example usage: 'What are all the keywords in Titus 1:5-16?')
 4. Set the response language for the user. This is a persistent setting for the user and determines the response language of the system. If this is not set, the system tries to respond using the same language as the user's message. Currently, the supported languages are: English, Arabic, French, Spanish, Hindi, Russian, Indonesian, Swahili, Portuguese, Mandarin, and Dutch. (Example usage: Please set my response language to Spanish.)
 
