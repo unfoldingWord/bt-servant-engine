@@ -1,0 +1,10932 @@
+{
+  "1:1": [
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "1:3": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Simeon",
+      "tw_match": "Simeon"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "Perizzite",
+      "tw_match": "Perizzite"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "Perizzite",
+      "tw_match": "Perizzite"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "seized",
+      "tw_match": "seize"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "gathering",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "Negev",
+      "tw_match": "Negev"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "Hebron",
+      "tw_match": "Hebron"
+    },
+    {
+      "surface": "Kiriath Arba",
+      "tw_match": "Kiriath Arba"
+    }
+  ],
+  "1:11": [],
+  "1:12": [
+    {
+      "surface": "Caleb",
+      "tw_match": "Caleb"
+    }
+  ],
+  "1:13": [
+    {
+      "surface": "Caleb",
+      "tw_match": "Caleb"
+    },
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    }
+  ],
+  "1:14": [
+    {
+      "surface": "descended",
+      "tw_match": "descend"
+    },
+    {
+      "surface": "donkey",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "Caleb",
+      "tw_match": "Caleb"
+    }
+  ],
+  "1:15": [
+    {
+      "surface": "blessing",
+      "tw_match": "blessing"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Negev",
+      "tw_match": "Negev"
+    },
+    {
+      "surface": "springs",
+      "tw_match": "spring"
+    },
+    {
+      "surface": "Caleb",
+      "tw_match": "Caleb"
+    }
+  ],
+  "1:16": [
+    {
+      "surface": "law of Moses",
+      "tw_match": "law of Moses"
+    },
+    {
+      "surface": "Palms",
+      "tw_match": "palm"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    },
+    {
+      "surface": "Negev",
+      "tw_match": "Negev"
+    }
+  ],
+  "1:17": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Simeon",
+      "tw_match": "Simeon"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "devoted",
+      "tw_match": "devoted"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    }
+  ],
+  "1:18": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    },
+    {
+      "surface": "Gaza",
+      "tw_match": "Gaza"
+    },
+    {
+      "surface": "Ashkelon",
+      "tw_match": "Ashkelon"
+    },
+    {
+      "surface": "Ekron",
+      "tw_match": "Ekron"
+    }
+  ],
+  "1:19": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "possessed",
+      "tw_match": "possessed"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "iron",
+      "tw_match": "iron"
+    }
+  ],
+  "1:20": [
+    {
+      "surface": "Hebron",
+      "tw_match": "Hebron"
+    },
+    {
+      "surface": "Caleb",
+      "tw_match": "Caleb"
+    },
+    {
+      "surface": "Moses",
+      "tw_match": "Moses"
+    },
+    {
+      "surface": "dispossessed",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "Anak",
+      "tw_match": "Anak"
+    }
+  ],
+  "1:21": [
+    {
+      "surface": "Jebusite",
+      "tw_match": "Jebusite"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "1:22": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Joseph",
+      "tw_match": "Joseph"
+    },
+    {
+      "surface": "Bethel",
+      "tw_match": "Bethel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:23": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Joseph",
+      "tw_match": "Joseph"
+    },
+    {
+      "surface": "Bethel",
+      "tw_match": "Bethel"
+    }
+  ],
+  "1:24": [
+    {
+      "surface": "please",
+      "tw_match": "please"
+    }
+  ],
+  "1:25": [
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "family",
+      "tw_match": "family"
+    }
+  ],
+  "1:26": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Hittites",
+      "tw_match": "Hittite"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "1:27": [
+    {
+      "surface": "Manasseh",
+      "tw_match": "Manasseh"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "1:28": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "labor",
+      "tw_match": "labor"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    }
+  ],
+  "1:29": [
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    }
+  ],
+  "1:30": [
+    {
+      "surface": "Zebulun",
+      "tw_match": "Zebulun"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "labor",
+      "tw_match": "labor"
+    }
+  ],
+  "1:31": [
+    {
+      "surface": "Asher",
+      "tw_match": "Asher"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "Sidon",
+      "tw_match": "Sidon"
+    }
+  ],
+  "1:32": [
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    }
+  ],
+  "1:33": [
+    {
+      "surface": "Naphtali",
+      "tw_match": "Naphtali"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "Beth Shemesh",
+      "tw_match": "Beth Shemesh"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "labor",
+      "tw_match": "labor"
+    }
+  ],
+  "1:34": [
+    {
+      "surface": "Amorite",
+      "tw_match": "Amorite"
+    },
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    }
+  ],
+  "1:35": [
+    {
+      "surface": "Amorite",
+      "tw_match": "Amorite"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Joseph",
+      "tw_match": "Joseph"
+    },
+    {
+      "surface": "labor",
+      "tw_match": "labor"
+    }
+  ],
+  "1:36": [
+    {
+      "surface": "Amorite",
+      "tw_match": "Amorite"
+    }
+  ],
+  "2:1": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Gilgal",
+      "tw_match": "Gilgal"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    },
+    {
+      "surface": "covenant",
+      "tw_match": "covenant"
+    }
+  ],
+  "2:2": [
+    {
+      "surface": "covenant",
+      "tw_match": "covenant"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "altars",
+      "tw_match": "altar"
+    }
+  ],
+  "2:3": [
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "snare",
+      "tw_match": "snare"
+    }
+  ],
+  "2:4": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "2:5": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "sacrificed",
+      "tw_match": "sacrifice"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "2:6": [
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    },
+    {
+      "surface": "possess",
+      "tw_match": "possess"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "2:7": [
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "2:8": [
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "2:9": [
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    }
+  ],
+  "2:10": [
+    {
+      "surface": "generation",
+      "tw_match": "generation"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "2:11": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "Baals",
+      "tw_match": "Baal"
+    }
+  ],
+  "2:12": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "bowed",
+      "tw_match": "bow"
+    }
+  ],
+  "2:13": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "Baal",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "Ashtoreths",
+      "tw_match": "Ashtoreth"
+    }
+  ],
+  "2:14": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "plundered",
+      "tw_match": "plundered"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    }
+  ],
+  "2:15": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "calamity",
+      "tw_match": "calamity"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "2:16": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "judges",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "saved",
+      "tw_match": "saved"
+    }
+  ],
+  "2:17": [
+    {
+      "surface": "judges",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "whored",
+      "tw_match": "whored"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "bowed",
+      "tw_match": "bow"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "2:18": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "judges",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "judge",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "saved",
+      "tw_match": "saved"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "compassion",
+      "tw_match": "compassion"
+    }
+  ],
+  "2:19": [
+    {
+      "surface": "judge",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "serve",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "bow down",
+      "tw_match": "bow down"
+    }
+  ],
+  "2:20": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "nation",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "transgressed",
+      "tw_match": "transgress"
+    },
+    {
+      "surface": "covenant",
+      "tw_match": "covenant"
+    }
+  ],
+  "2:21": [
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    }
+  ],
+  "2:22": [
+    {
+      "surface": "testing",
+      "tw_match": "testing"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "keeping",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "2:23": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    }
+  ],
+  "3:1": [
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "testing",
+      "tw_match": "testing"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Canaan",
+      "tw_match": "Canaan"
+    }
+  ],
+  "3:2": [
+    {
+      "surface": "knowing",
+      "tw_match": "know"
+    },
+    {
+      "surface": "generations",
+      "tw_match": "generation"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "3:3": [
+    {
+      "surface": "rulers",
+      "tw_match": "ruler"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "Hivite",
+      "tw_match": "Hivite"
+    },
+    {
+      "surface": "Lebanon",
+      "tw_match": "Lebanon"
+    },
+    {
+      "surface": "Baal",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "Lebo Hamath",
+      "tw_match": "Lebo Hamath"
+    }
+  ],
+  "3:4": [
+    {
+      "surface": "testing",
+      "tw_match": "testing"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Moses",
+      "tw_match": "Moses"
+    }
+  ],
+  "3:5": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Canaanite",
+      "tw_match": "Canaanite"
+    },
+    {
+      "surface": "Hittite",
+      "tw_match": "Hittite"
+    },
+    {
+      "surface": "Amorite",
+      "tw_match": "Amorite"
+    },
+    {
+      "surface": "Perizzite",
+      "tw_match": "Perizzite"
+    },
+    {
+      "surface": "Hivite",
+      "tw_match": "Hivite"
+    },
+    {
+      "surface": "Jebusite",
+      "tw_match": "Jebusite"
+    }
+  ],
+  "3:6": [
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    }
+  ],
+  "3:7": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "Baals",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "Asherahs",
+      "tw_match": "Asherah"
+    }
+  ],
+  "3:8": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Aram Naharaim",
+      "tw_match": "Aram Naharaim"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "3:9": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "savior",
+      "tw_match": "savior"
+    },
+    {
+      "surface": "saved",
+      "tw_match": "saved"
+    },
+    {
+      "surface": "Caleb",
+      "tw_match": "Caleb"
+    }
+  ],
+  "3:10": [
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Aram",
+      "tw_match": "Aram"
+    }
+  ],
+  "3:11": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "3:12": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    }
+  ],
+  "3:13": [
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Amalek",
+      "tw_match": "Amalek"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "possessed",
+      "tw_match": "possessed"
+    },
+    {
+      "surface": "Palms",
+      "tw_match": "palm"
+    }
+  ],
+  "3:14": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "3:15": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "savior",
+      "tw_match": "savior"
+    },
+    {
+      "surface": "Benjaminite",
+      "tw_match": "Benjaminite"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "tribute",
+      "tw_match": "tribute"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    }
+  ],
+  "3:16": [
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "3:17": [
+    {
+      "surface": "tribute",
+      "tw_match": "tribute"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    }
+  ],
+  "3:18": [
+    {
+      "surface": "tribute",
+      "tw_match": "tribute"
+    },
+    {
+      "surface": "bearers",
+      "tw_match": "bearers"
+    }
+  ],
+  "3:19": [
+    {
+      "surface": "images",
+      "tw_match": "image"
+    },
+    {
+      "surface": "Gilgal",
+      "tw_match": "Gilgal"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "3:20": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "throne",
+      "tw_match": "throne"
+    }
+  ],
+  "3:21": [
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "3:22": [
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "3:23": [],
+  "3:24": [
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    }
+  ],
+  "3:25": [
+    {
+      "surface": "ashamed",
+      "tw_match": "ashamed"
+    },
+    {
+      "surface": "lord",
+      "tw_match": "lord"
+    }
+  ],
+  "3:26": [
+    {
+      "surface": "images",
+      "tw_match": "image"
+    }
+  ],
+  "3:27": [
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "3:28": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    },
+    {
+      "surface": "cross",
+      "tw_match": "cross"
+    }
+  ],
+  "3:29": [
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "3:30": [
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "3:31": [
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "ox",
+      "tw_match": "ox"
+    },
+    {
+      "surface": "saved",
+      "tw_match": "saved"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "4:1": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "4:2": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Canaan",
+      "tw_match": "Canaan"
+    },
+    {
+      "surface": "reigned",
+      "tw_match": "reign"
+    },
+    {
+      "surface": "commander",
+      "tw_match": "commander"
+    }
+  ],
+  "4:3": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "chariots",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "iron",
+      "tw_match": "iron"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "4:4": [
+    {
+      "surface": "prophetess",
+      "tw_match": "prophetess"
+    },
+    {
+      "surface": "judging",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "4:5": [
+    {
+      "surface": "Palm",
+      "tw_match": "palm"
+    },
+    {
+      "surface": "Ramah",
+      "tw_match": "Ramah"
+    },
+    {
+      "surface": "Bethel",
+      "tw_match": "Bethel"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    }
+  ],
+  "4:6": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Kedesh",
+      "tw_match": "Kedesh"
+    },
+    {
+      "surface": "Naphtali",
+      "tw_match": "Naphtali"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Zebulun",
+      "tw_match": "Zebulun"
+    }
+  ],
+  "4:7": [
+    {
+      "surface": "wadi",
+      "tw_match": "wadi"
+    },
+    {
+      "surface": "commander",
+      "tw_match": "commander"
+    }
+  ],
+  "4:8": [],
+  "4:9": [
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Kedesh",
+      "tw_match": "Kedesh"
+    }
+  ],
+  "4:10": [
+    {
+      "surface": "Zebulun",
+      "tw_match": "Zebulun"
+    },
+    {
+      "surface": "Naphtali",
+      "tw_match": "Naphtali"
+    },
+    {
+      "surface": "Kedesh",
+      "tw_match": "Kedesh"
+    }
+  ],
+  "4:11": [
+    {
+      "surface": "law of Moses",
+      "tw_match": "law of Moses"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "oak",
+      "tw_match": "oak"
+    },
+    {
+      "surface": "Kedesh",
+      "tw_match": "Kedesh"
+    }
+  ],
+  "4:12": [
+    {
+      "surface": "reported",
+      "tw_match": "reported"
+    }
+  ],
+  "4:13": [
+    {
+      "surface": "chariots",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "iron",
+      "tw_match": "iron"
+    },
+    {
+      "surface": "wadi",
+      "tw_match": "wadi"
+    }
+  ],
+  "4:14": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "4:15": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "descended",
+      "tw_match": "descend"
+    },
+    {
+      "surface": "chariot",
+      "tw_match": "chariot"
+    }
+  ],
+  "4:16": [
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "4:17": [
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "4:18": [
+    {
+      "surface": "lord",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    }
+  ],
+  "4:19": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    }
+  ],
+  "4:20": [
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    }
+  ],
+  "4:21": [
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    }
+  ],
+  "4:22": [
+    {
+      "surface": "seeking",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    }
+  ],
+  "4:23": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Canaan",
+      "tw_match": "Canaan"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "4:24": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Canaan",
+      "tw_match": "Canaan"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    }
+  ],
+  "5:1": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "5:2": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "bless",
+      "tw_match": "bless"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "5:3": [
+    {
+      "surface": "kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "rulers",
+      "tw_match": "ruler"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "5:4": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Seir",
+      "tw_match": "Seir"
+    },
+    {
+      "surface": "Edom",
+      "tw_match": "Edom"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "5:5": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Sinai",
+      "tw_match": "Sinai"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "5:6": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "5:7": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "5:8": [
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "gates",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "shield",
+      "tw_match": "shield"
+    },
+    {
+      "surface": "spear",
+      "tw_match": "spear"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "5:9": [
+    {
+      "surface": "commanders",
+      "tw_match": "commander"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Bless",
+      "tw_match": "bless"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "5:10": [
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    }
+  ],
+  "5:11": [
+    {
+      "surface": "celebrate",
+      "tw_match": "celebrate"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "gates",
+      "tw_match": "gate"
+    }
+  ],
+  "5:12": [
+    {
+      "surface": "captive",
+      "tw_match": "captive"
+    },
+    {
+      "surface": "captivity",
+      "tw_match": "captivity"
+    }
+  ],
+  "5:13": [
+    {
+      "surface": "remnant",
+      "tw_match": "remnant"
+    },
+    {
+      "surface": "nobles",
+      "tw_match": "noble"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "warriors",
+      "tw_match": "warrior"
+    }
+  ],
+  "5:14": [
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "Amalek",
+      "tw_match": "Amalek"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "commanders",
+      "tw_match": "commander"
+    },
+    {
+      "surface": "Zebulun",
+      "tw_match": "Zebulun"
+    },
+    {
+      "surface": "scepter",
+      "tw_match": "scepter"
+    },
+    {
+      "surface": "scribe",
+      "tw_match": "scribe"
+    }
+  ],
+  "5:15": [
+    {
+      "surface": "commanders",
+      "tw_match": "commander"
+    },
+    {
+      "surface": "Issachar",
+      "tw_match": "Issachar"
+    },
+    {
+      "surface": "Reuben",
+      "tw_match": "Reuben"
+    }
+  ],
+  "5:16": [
+    {
+      "surface": "sheepfolds",
+      "tw_match": "sheepfold"
+    },
+    {
+      "surface": "piping",
+      "tw_match": "pipe"
+    },
+    {
+      "surface": "flocks",
+      "tw_match": "flock"
+    },
+    {
+      "surface": "Reuben",
+      "tw_match": "Reuben"
+    }
+  ],
+  "5:17": [
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    },
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    },
+    {
+      "surface": "sojourn",
+      "tw_match": "sojourn"
+    },
+    {
+      "surface": "Asher",
+      "tw_match": "Asher"
+    }
+  ],
+  "5:18": [
+    {
+      "surface": "Zebulun",
+      "tw_match": "Zebulun"
+    },
+    {
+      "surface": "reproaching",
+      "tw_match": "reproach"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "Naphtali",
+      "tw_match": "Naphtali"
+    }
+  ],
+  "5:19": [
+    {
+      "surface": "Kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Canaan",
+      "tw_match": "Canaan"
+    },
+    {
+      "surface": "Plunder",
+      "tw_match": "plunder"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    }
+  ],
+  "5:20": [
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "5:21": [
+    {
+      "surface": "wadi",
+      "tw_match": "wadi"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    }
+  ],
+  "5:22": [
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    }
+  ],
+  "5:23": [
+    {
+      "surface": "Curse",
+      "tw_match": "curse"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Cursing",
+      "tw_match": "curse"
+    },
+    {
+      "surface": "curse",
+      "tw_match": "curse"
+    },
+    {
+      "surface": "warriors",
+      "tw_match": "warrior"
+    }
+  ],
+  "5:24": [
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    }
+  ],
+  "5:25": [
+    {
+      "surface": "nobles",
+      "tw_match": "noble"
+    }
+  ],
+  "5:26": [
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    }
+  ],
+  "5:27": [
+    {
+      "surface": "bowed",
+      "tw_match": "bow"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    }
+  ],
+  "5:28": [
+    {
+      "surface": "chariot",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "chariots",
+      "tw_match": "chariot"
+    }
+  ],
+  "5:29": [
+    {
+      "surface": "wise",
+      "tw_match": "wise"
+    },
+    {
+      "surface": "princesses",
+      "tw_match": "princess"
+    }
+  ],
+  "5:30": [
+    {
+      "surface": "spoil",
+      "tw_match": "spoil"
+    },
+    {
+      "surface": "warrior",
+      "tw_match": "warrior"
+    }
+  ],
+  "5:31": [
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "lovers",
+      "tw_match": "lover"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "6:1": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "6:2": [
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "strongholds",
+      "tw_match": "stronghold"
+    }
+  ],
+  "6:3": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "sowed",
+      "tw_match": "sow"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "Amalek",
+      "tw_match": "Amalek"
+    }
+  ],
+  "6:4": [
+    {
+      "surface": "ruined",
+      "tw_match": "ruined"
+    },
+    {
+      "surface": "produce",
+      "tw_match": "produce"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Gaza",
+      "tw_match": "Gaza"
+    },
+    {
+      "surface": "leave",
+      "tw_match": "leave"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "sheep",
+      "tw_match": "sheep"
+    },
+    {
+      "surface": "ox",
+      "tw_match": "ox"
+    },
+    {
+      "surface": "donkey",
+      "tw_match": "donkey"
+    }
+  ],
+  "6:5": [
+    {
+      "surface": "livestock",
+      "tw_match": "livestock"
+    },
+    {
+      "surface": "tents",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "locust",
+      "tw_match": "locust"
+    },
+    {
+      "surface": "camels",
+      "tw_match": "camel"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    }
+  ],
+  "6:6": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "6:7": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "6:8": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "prophet",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "slaves",
+      "tw_match": "slave"
+    }
+  ],
+  "6:9": [
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "6:10": [
+    {
+      "surface": "I am Yahweh",
+      "tw_match": "I am Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "Amorite",
+      "tw_match": "Amorite"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "6:11": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "oak",
+      "tw_match": "oak"
+    },
+    {
+      "surface": "Joash",
+      "tw_match": "Joash"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "threshing",
+      "tw_match": "thresh"
+    },
+    {
+      "surface": "wheat",
+      "tw_match": "wheat"
+    },
+    {
+      "surface": "winepress",
+      "tw_match": "winepress"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "6:12": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "warrior",
+      "tw_match": "warrior"
+    }
+  ],
+  "6:13": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "lord",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "wonders",
+      "tw_match": "wonder"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "forsaken",
+      "tw_match": "forsaken"
+    },
+    {
+      "surface": "palm",
+      "tw_match": "palm"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "6:14": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "palm",
+      "tw_match": "palm"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "6:15": [
+    {
+      "surface": "lord",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Manasseh",
+      "tw_match": "Manasseh"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "6:16": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "6:17": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "sign",
+      "tw_match": "sign"
+    }
+  ],
+  "6:18": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "offering",
+      "tw_match": "offering"
+    }
+  ],
+  "6:19": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "prepared",
+      "tw_match": "prepared"
+    },
+    {
+      "surface": "goats",
+      "tw_match": "goat"
+    },
+    {
+      "surface": "unleavened bread",
+      "tw_match": "unleavened bread"
+    },
+    {
+      "surface": "oak",
+      "tw_match": "oak"
+    }
+  ],
+  "6:20": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "unleavened bread",
+      "tw_match": "unleavened bread"
+    }
+  ],
+  "6:21": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "staff",
+      "tw_match": "staff"
+    },
+    {
+      "surface": "unleavened bread",
+      "tw_match": "unleavened bread"
+    },
+    {
+      "surface": "consumed",
+      "tw_match": "consume"
+    }
+  ],
+  "6:22": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Lord Yahweh",
+      "tw_match": "Lord Yahweh"
+    }
+  ],
+  "6:23": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "6:24": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "6:25": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "ox",
+      "tw_match": "ox"
+    },
+    {
+      "surface": "years old",
+      "tw_match": "years old"
+    },
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    },
+    {
+      "surface": "Baal",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "Asherah",
+      "tw_match": "Asherah"
+    }
+  ],
+  "6:26": [
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "stronghold",
+      "tw_match": "stronghold"
+    },
+    {
+      "surface": "bull",
+      "tw_match": "bull"
+    },
+    {
+      "surface": "offering",
+      "tw_match": "offering"
+    },
+    {
+      "surface": "Asherah",
+      "tw_match": "Asherah"
+    }
+  ],
+  "6:27": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "feared",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "6:28": [
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    },
+    {
+      "surface": "Baal",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "Asherah",
+      "tw_match": "Asherah"
+    }
+  ],
+  "6:29": [
+    {
+      "surface": "searched",
+      "tw_match": "search"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "Joash",
+      "tw_match": "Joash"
+    }
+  ],
+  "6:30": [
+    {
+      "surface": "Joash",
+      "tw_match": "Joash"
+    },
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    },
+    {
+      "surface": "Baal",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "Asherah",
+      "tw_match": "Asherah"
+    }
+  ],
+  "6:31": [
+    {
+      "surface": "Joash",
+      "tw_match": "Joash"
+    },
+    {
+      "surface": "Baal",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "god",
+      "tw_match": "god"
+    },
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    }
+  ],
+  "6:32": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Baal",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    }
+  ],
+  "6:33": [
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "Amalek",
+      "tw_match": "Amalek"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    },
+    {
+      "surface": "crossed",
+      "tw_match": "cross"
+    },
+    {
+      "surface": "Jezreel",
+      "tw_match": "Jezreel"
+    }
+  ],
+  "6:34": [
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    }
+  ],
+  "6:35": [
+    {
+      "surface": "messengers",
+      "tw_match": "messenger"
+    },
+    {
+      "surface": "Manasseh",
+      "tw_match": "Manasseh"
+    },
+    {
+      "surface": "Asher",
+      "tw_match": "Asher"
+    },
+    {
+      "surface": "Zebulun",
+      "tw_match": "Zebulun"
+    },
+    {
+      "surface": "Naphtali",
+      "tw_match": "Naphtali"
+    }
+  ],
+  "6:36": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "saving",
+      "tw_match": "save"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "6:37": [
+    {
+      "surface": "threshing",
+      "tw_match": "thresh"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "6:38": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "6:39": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "test",
+      "tw_match": "test"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    }
+  ],
+  "6:40": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "7:1": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "spring",
+      "tw_match": "spring"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "7:2": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "glorify",
+      "tw_match": "glorify"
+    },
+    {
+      "surface": "saved",
+      "tw_match": "saved"
+    }
+  ],
+  "7:3": [
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "proclaim",
+      "tw_match": "proclaim"
+    },
+    {
+      "surface": "afraid",
+      "tw_match": "afraid"
+    },
+    {
+      "surface": "trembling",
+      "tw_match": "tremble"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    }
+  ],
+  "7:4": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    }
+  ],
+  "7:5": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "kneels",
+      "tw_match": "kneel"
+    }
+  ],
+  "7:6": [],
+  "7:7": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "7:8": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "tents",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "7:9": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "7:10": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    }
+  ],
+  "7:11": [
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    }
+  ],
+  "7:12": [
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "Amalek",
+      "tw_match": "Amalek"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "locust",
+      "tw_match": "locust"
+    },
+    {
+      "surface": "camels",
+      "tw_match": "camel"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "7:13": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "dream",
+      "tw_match": "dream"
+    },
+    {
+      "surface": "dreamed",
+      "tw_match": "dream"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    },
+    {
+      "surface": "barley",
+      "tw_match": "barley"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    }
+  ],
+  "7:14": [
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "Joash",
+      "tw_match": "Joash"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "7:15": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "dream",
+      "tw_match": "dream"
+    },
+    {
+      "surface": "interpretation",
+      "tw_match": "interpretation"
+    },
+    {
+      "surface": "bowed",
+      "tw_match": "bow"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "7:16": [],
+  "7:17": [
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "7:18": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    }
+  ],
+  "7:19": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "watch",
+      "tw_match": "watch"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "guards",
+      "tw_match": "guard"
+    }
+  ],
+  "7:20": [
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "called out",
+      "tw_match": "called out"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    }
+  ],
+  "7:21": [],
+  "7:22": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "Abel",
+      "tw_match": "Abel"
+    }
+  ],
+  "7:23": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Naphtali",
+      "tw_match": "Naphtali"
+    },
+    {
+      "surface": "Asher",
+      "tw_match": "Asher"
+    },
+    {
+      "surface": "Manasseh",
+      "tw_match": "Manasseh"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "7:24": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "messengers",
+      "tw_match": "messenger"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "capture",
+      "tw_match": "capture"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    },
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    }
+  ],
+  "7:25": [
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    },
+    {
+      "surface": "commanders",
+      "tw_match": "commander"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "winepress",
+      "tw_match": "winepress"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    }
+  ],
+  "8:1": [
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "calling",
+      "tw_match": "call"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "8:2": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "gleanings",
+      "tw_match": "gleanings"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "better",
+      "tw_match": "better"
+    }
+  ],
+  "8:3": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "commanders",
+      "tw_match": "commander"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    }
+  ],
+  "8:4": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    },
+    {
+      "surface": "Crossing",
+      "tw_match": "cross"
+    }
+  ],
+  "8:5": [
+    {
+      "surface": "Succoth",
+      "tw_match": "Succoth"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    },
+    {
+      "surface": "kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "8:6": [
+    {
+      "surface": "leaders",
+      "tw_match": "leader"
+    },
+    {
+      "surface": "Succoth",
+      "tw_match": "Succoth"
+    },
+    {
+      "surface": "palm",
+      "tw_match": "palm"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    }
+  ],
+  "8:7": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "thorns",
+      "tw_match": "thorn"
+    },
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    }
+  ],
+  "8:8": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "Succoth",
+      "tw_match": "Succoth"
+    }
+  ],
+  "8:9": [
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "tower",
+      "tw_match": "tower"
+    }
+  ],
+  "8:10": [
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "8:11": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "tents",
+      "tw_match": "tent"
+    }
+  ],
+  "8:12": [
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    },
+    {
+      "surface": "kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "tremble",
+      "tw_match": "tremble"
+    }
+  ],
+  "8:13": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "Joash",
+      "tw_match": "Joash"
+    }
+  ],
+  "8:14": [
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    },
+    {
+      "surface": "Succoth",
+      "tw_match": "Succoth"
+    },
+    {
+      "surface": "leaders",
+      "tw_match": "leader"
+    },
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    }
+  ],
+  "8:15": [
+    {
+      "surface": "Succoth",
+      "tw_match": "Succoth"
+    },
+    {
+      "surface": "palm",
+      "tw_match": "palm"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    }
+  ],
+  "8:16": [
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "thorns",
+      "tw_match": "thorn"
+    },
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    },
+    {
+      "surface": "Succoth",
+      "tw_match": "Succoth"
+    }
+  ],
+  "8:17": [
+    {
+      "surface": "tower",
+      "tw_match": "tower"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    }
+  ],
+  "8:18": [
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "8:19": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    }
+  ],
+  "8:20": [
+    {
+      "surface": "firstborn",
+      "tw_match": "firstborn"
+    },
+    {
+      "surface": "kill",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "feared",
+      "tw_match": "fear"
+    }
+  ],
+  "8:21": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "camels",
+      "tw_match": "camel"
+    }
+  ],
+  "8:22": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "Rule",
+      "tw_match": "rule"
+    },
+    {
+      "surface": "saved",
+      "tw_match": "saved"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "8:23": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "rule",
+      "tw_match": "rule"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "8:24": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "spoil",
+      "tw_match": "spoil"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "Ishmaelites",
+      "tw_match": "Ishmaelite"
+    }
+  ],
+  "8:25": [
+    {
+      "surface": "spoil",
+      "tw_match": "spoil"
+    }
+  ],
+  "8:26": [
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "purple",
+      "tw_match": "purple"
+    },
+    {
+      "surface": "robes",
+      "tw_match": "robe"
+    },
+    {
+      "surface": "kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "camels",
+      "tw_match": "camel"
+    }
+  ],
+  "8:27": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "ephod",
+      "tw_match": "ephod"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "whored",
+      "tw_match": "whored"
+    },
+    {
+      "surface": "snare",
+      "tw_match": "snare"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    }
+  ],
+  "8:28": [
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    }
+  ],
+  "8:29": [
+    {
+      "surface": "Joash",
+      "tw_match": "Joash"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    }
+  ],
+  "8:30": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    }
+  ],
+  "8:31": [
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "bore",
+      "tw_match": "bore"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "8:32": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "Joash",
+      "tw_match": "Joash"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "old age",
+      "tw_match": "old age"
+    },
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    },
+    {
+      "surface": "tomb",
+      "tw_match": "tomb"
+    }
+  ],
+  "8:33": [
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "whored",
+      "tw_match": "whored"
+    },
+    {
+      "surface": "Baals",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "Baal",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "god",
+      "tw_match": "god"
+    }
+  ],
+  "8:34": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "delivered",
+      "tw_match": "delivered"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    }
+  ],
+  "8:35": [
+    {
+      "surface": "covenant faithfulness",
+      "tw_match": "covenant faithfulness"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Gideon",
+      "tw_match": "Gideon"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "9:1": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "9:2": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "better",
+      "tw_match": "better"
+    },
+    {
+      "surface": "ruling",
+      "tw_match": "rule"
+    }
+  ],
+  "9:3": [
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:4": [
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Baal",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:5": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "Jotham",
+      "tw_match": "Jotham"
+    }
+  ],
+  "9:6": [
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "reign",
+      "tw_match": "reign"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "oak",
+      "tw_match": "oak"
+    },
+    {
+      "surface": "pillar",
+      "tw_match": "pillar"
+    }
+  ],
+  "9:7": [
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "Jotham",
+      "tw_match": "Jotham"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "9:8": [
+    {
+      "surface": "anoint",
+      "tw_match": "anoint"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "olive",
+      "tw_match": "olive"
+    },
+    {
+      "surface": "Reign",
+      "tw_match": "reign"
+    }
+  ],
+  "9:9": [
+    {
+      "surface": "olive",
+      "tw_match": "olive"
+    },
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    }
+  ],
+  "9:10": [
+    {
+      "surface": "fig",
+      "tw_match": "fig"
+    },
+    {
+      "surface": "reign",
+      "tw_match": "reign"
+    }
+  ],
+  "9:11": [
+    {
+      "surface": "fig",
+      "tw_match": "fig"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "fruit",
+      "tw_match": "fruit"
+    }
+  ],
+  "9:12": [
+    {
+      "surface": "vine",
+      "tw_match": "vine"
+    },
+    {
+      "surface": "reign",
+      "tw_match": "reign"
+    }
+  ],
+  "9:13": [
+    {
+      "surface": "vine",
+      "tw_match": "vine"
+    },
+    {
+      "surface": "new wine",
+      "tw_match": "new wine"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    }
+  ],
+  "9:14": [
+    {
+      "surface": "reign",
+      "tw_match": "reign"
+    }
+  ],
+  "9:15": [
+    {
+      "surface": "anointing",
+      "tw_match": "anointing"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "shelter",
+      "tw_match": "shelter"
+    },
+    {
+      "surface": "consume",
+      "tw_match": "consume"
+    },
+    {
+      "surface": "cedars",
+      "tw_match": "cedar"
+    },
+    {
+      "surface": "Lebanon",
+      "tw_match": "Lebanon"
+    }
+  ],
+  "9:16": [
+    {
+      "surface": "integrity",
+      "tw_match": "integrity"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "reign",
+      "tw_match": "reign"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "deserving",
+      "tw_match": "deserve"
+    }
+  ],
+  "9:17": [
+    {
+      "surface": "delivered",
+      "tw_match": "delivered"
+    },
+    {
+      "surface": "Midian",
+      "tw_match": "Midian"
+    }
+  ],
+  "9:18": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "slave",
+      "tw_match": "slave"
+    },
+    {
+      "surface": "reign",
+      "tw_match": "reign"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    }
+  ],
+  "9:19": [
+    {
+      "surface": "integrity",
+      "tw_match": "integrity"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "rejoice",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:20": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "consume",
+      "tw_match": "consume"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    }
+  ],
+  "9:21": [
+    {
+      "surface": "Jotham",
+      "tw_match": "Jotham"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:22": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "ruled",
+      "tw_match": "rule"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "9:23": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    }
+  ],
+  "9:24": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "kill",
+      "tw_match": "kill"
+    }
+  ],
+  "9:25": [
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "robbed",
+      "tw_match": "rob"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:26": [
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "trusted",
+      "tw_match": "trusted"
+    },
+    {
+      "surface": "in him",
+      "tw_match": "in him"
+    }
+  ],
+  "9:27": [
+    {
+      "surface": "vineyards",
+      "tw_match": "vineyards"
+    },
+    {
+      "surface": "offerings",
+      "tw_match": "offering"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "god",
+      "tw_match": "god"
+    },
+    {
+      "surface": "cursed",
+      "tw_match": "cursed"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:28": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "serve",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "Serve",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "Hamor",
+      "tw_match": "Hamor"
+    }
+  ],
+  "9:29": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:30": [
+    {
+      "surface": "ruler",
+      "tw_match": "ruler"
+    }
+  ],
+  "9:31": [
+    {
+      "surface": "messengers",
+      "tw_match": "messenger"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    }
+  ],
+  "9:32": [],
+  "9:33": [],
+  "9:34": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    }
+  ],
+  "9:35": [
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:36": [],
+  "9:37": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Oak",
+      "tw_match": "oak"
+    },
+    {
+      "surface": "Diviners",
+      "tw_match": "diviner"
+    }
+  ],
+  "9:38": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "serve",
+      "tw_match": "serve"
+    }
+  ],
+  "9:39": [
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:40": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    }
+  ],
+  "9:41": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    }
+  ],
+  "9:42": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "reported",
+      "tw_match": "reported"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:43": [
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    }
+  ],
+  "9:44": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    }
+  ],
+  "9:45": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "sowed",
+      "tw_match": "sow"
+    }
+  ],
+  "9:46": [
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "tower",
+      "tw_match": "tower"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "9:47": [
+    {
+      "surface": "reported",
+      "tw_match": "reported"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "tower",
+      "tw_match": "tower"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    }
+  ],
+  "9:48": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "axes",
+      "tw_match": "ax"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "9:49": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    },
+    {
+      "surface": "tower",
+      "tw_match": "tower"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    }
+  ],
+  "9:50": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    }
+  ],
+  "9:51": [
+    {
+      "surface": "tower",
+      "tw_match": "tower"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    }
+  ],
+  "9:52": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "tower",
+      "tw_match": "tower"
+    }
+  ],
+  "9:53": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:54": [
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "bearing",
+      "tw_match": "bearing"
+    },
+    {
+      "surface": "armor",
+      "tw_match": "armor"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "kill",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    }
+  ],
+  "9:55": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    }
+  ],
+  "9:56": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "killing",
+      "tw_match": "kill"
+    }
+  ],
+  "9:57": [
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "curse",
+      "tw_match": "curse"
+    },
+    {
+      "surface": "Jotham",
+      "tw_match": "Jotham"
+    }
+  ],
+  "10:1": [
+    {
+      "surface": "Abimelech",
+      "tw_match": "Abimelech"
+    },
+    {
+      "surface": "Issachar",
+      "tw_match": "Issachar"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    }
+  ],
+  "10:2": [
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    },
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    }
+  ],
+  "10:3": [
+    {
+      "surface": "Gileadite",
+      "tw_match": "Gileadite"
+    },
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "10:4": [
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    }
+  ],
+  "10:5": [
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    }
+  ],
+  "10:6": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "Baals",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "Ashtoreths",
+      "tw_match": "Ashtoreth"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "Aram",
+      "tw_match": "Aram"
+    },
+    {
+      "surface": "Sidon",
+      "tw_match": "Sidon"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "serve",
+      "tw_match": "serve"
+    }
+  ],
+  "10:7": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    }
+  ],
+  "10:8": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Amorites",
+      "tw_match": "Amorite"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    }
+  ],
+  "10:9": [
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "crossed",
+      "tw_match": "cross"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "10:10": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "sinned",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "forsaken",
+      "tw_match": "forsaken"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "Baals",
+      "tw_match": "Baal"
+    }
+  ],
+  "10:11": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Egyptians",
+      "tw_match": "Egyptian"
+    },
+    {
+      "surface": "Amorite",
+      "tw_match": "Amorite"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    }
+  ],
+  "10:12": [
+    {
+      "surface": "Sidonians",
+      "tw_match": "Sidonians"
+    },
+    {
+      "surface": "Amalek",
+      "tw_match": "Amalek"
+    },
+    {
+      "surface": "saved",
+      "tw_match": "saved"
+    }
+  ],
+  "10:13": [
+    {
+      "surface": "forsaken",
+      "tw_match": "forsaken"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    }
+  ],
+  "10:14": [
+    {
+      "surface": "cry out",
+      "tw_match": "cry out"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "chosen",
+      "tw_match": "chosen"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "distress",
+      "tw_match": "distress"
+    }
+  ],
+  "10:15": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "sinned",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "deliver",
+      "tw_match": "deliver"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "10:16": [
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "10:17": [
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "Mizpah",
+      "tw_match": "Mizpah"
+    }
+  ],
+  "10:18": [
+    {
+      "surface": "leaders",
+      "tw_match": "leader"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    }
+  ],
+  "11:1": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "Gileadite",
+      "tw_match": "Gileadite"
+    },
+    {
+      "surface": "warrior",
+      "tw_match": "warrior"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "begotten",
+      "tw_match": "begotten"
+    }
+  ],
+  "11:2": [
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "bore",
+      "tw_match": "bore"
+    },
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "inherit",
+      "tw_match": "inherit"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "11:3": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "11:4": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "11:5": [
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "11:6": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "commander",
+      "tw_match": "commander"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    }
+  ],
+  "11:7": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    }
+  ],
+  "11:8": [
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    }
+  ],
+  "11:9": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "11:10": [
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "11:11": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "commander",
+      "tw_match": "commander"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Mizpah",
+      "tw_match": "Mizpah"
+    }
+  ],
+  "11:12": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "messengers",
+      "tw_match": "messenger"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "11:13": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "messengers",
+      "tw_match": "messenger"
+    },
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "11:14": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "messengers",
+      "tw_match": "messenger"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    }
+  ],
+  "11:15": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    }
+  ],
+  "11:16": [
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    },
+    {
+      "surface": "Sea of Reeds",
+      "tw_match": "Sea of Reeds"
+    },
+    {
+      "surface": "Kadesh",
+      "tw_match": "Kadesh"
+    }
+  ],
+  "11:17": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "messengers",
+      "tw_match": "messenger"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Edom",
+      "tw_match": "Edom"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "Kadesh",
+      "tw_match": "Kadesh"
+    }
+  ],
+  "11:18": [
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Edom",
+      "tw_match": "Edom"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    }
+  ],
+  "11:19": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "messengers",
+      "tw_match": "messenger"
+    },
+    {
+      "surface": "Sihon",
+      "tw_match": "Sihon"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Amorite",
+      "tw_match": "Amorite"
+    },
+    {
+      "surface": "Heshbon",
+      "tw_match": "Heshbon"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "11:20": [
+    {
+      "surface": "Sihon",
+      "tw_match": "Sihon"
+    },
+    {
+      "surface": "trust",
+      "tw_match": "trust"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    }
+  ],
+  "11:21": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Sihon",
+      "tw_match": "Sihon"
+    },
+    {
+      "surface": "possessed",
+      "tw_match": "possessed"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Amorite",
+      "tw_match": "Amorite"
+    }
+  ],
+  "11:22": [
+    {
+      "surface": "possessed",
+      "tw_match": "possessed"
+    },
+    {
+      "surface": "Amorite",
+      "tw_match": "Amorite"
+    },
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    }
+  ],
+  "11:23": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "dispossessed",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "Amorite",
+      "tw_match": "Amorite"
+    },
+    {
+      "surface": "possess",
+      "tw_match": "possess"
+    }
+  ],
+  "11:24": [
+    {
+      "surface": "god",
+      "tw_match": "god"
+    },
+    {
+      "surface": "possess",
+      "tw_match": "possess"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "dispossessed",
+      "tw_match": "dispossess"
+    }
+  ],
+  "11:25": [
+    {
+      "surface": "better",
+      "tw_match": "better"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "11:26": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Heshbon",
+      "tw_match": "Heshbon"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    },
+    {
+      "surface": "deliver",
+      "tw_match": "deliver"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "11:27": [
+    {
+      "surface": "sinned",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "wrong",
+      "tw_match": "wrong"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "judge",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    }
+  ],
+  "11:28": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    }
+  ],
+  "11:29": [
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Manasseh",
+      "tw_match": "Manasseh"
+    },
+    {
+      "surface": "Mizpah",
+      "tw_match": "Mizpah"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    }
+  ],
+  "11:30": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "vowed",
+      "tw_match": "vow"
+    },
+    {
+      "surface": "vow",
+      "tw_match": "vow"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    }
+  ],
+  "11:31": [
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "burnt offering",
+      "tw_match": "burnt offering"
+    }
+  ],
+  "11:32": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "11:33": [
+    {
+      "surface": "Abel",
+      "tw_match": "Abel"
+    },
+    {
+      "surface": "slaughter",
+      "tw_match": "slaughter"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "11:34": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "Mizpah",
+      "tw_match": "Mizpah"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    }
+  ],
+  "11:35": [
+    {
+      "surface": "bow",
+      "tw_match": "bow"
+    },
+    {
+      "surface": "troubling",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "11:36": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "vengeances",
+      "tw_match": "vengeance"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    }
+  ],
+  "11:37": [
+    {
+      "surface": "months",
+      "tw_match": "month"
+    },
+    {
+      "surface": "virginity",
+      "tw_match": "virginity"
+    },
+    {
+      "surface": "companions",
+      "tw_match": "companion"
+    }
+  ],
+  "11:38": [
+    {
+      "surface": "months",
+      "tw_match": "month"
+    },
+    {
+      "surface": "companions",
+      "tw_match": "companion"
+    },
+    {
+      "surface": "virginity",
+      "tw_match": "virginity"
+    }
+  ],
+  "11:39": [
+    {
+      "surface": "months",
+      "tw_match": "month"
+    },
+    {
+      "surface": "vow",
+      "tw_match": "vow"
+    },
+    {
+      "surface": "vowed",
+      "tw_match": "vow"
+    },
+    {
+      "surface": "custom",
+      "tw_match": "customs"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "11:40": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "Gileadite",
+      "tw_match": "Gileadite"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    }
+  ],
+  "12:1": [
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "crossed",
+      "tw_match": "cross"
+    },
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "cross",
+      "tw_match": "cross"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "your house",
+      "tw_match": "your house"
+    }
+  ],
+  "12:2": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "strife",
+      "tw_match": "strife"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    }
+  ],
+  "12:3": [
+    {
+      "surface": "savior",
+      "tw_match": "savior"
+    },
+    {
+      "surface": "palm",
+      "tw_match": "palm"
+    },
+    {
+      "surface": "crossed",
+      "tw_match": "cross"
+    },
+    {
+      "surface": "Ammon",
+      "tw_match": "Ammon"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "12:4": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "Manasseh",
+      "tw_match": "Manasseh"
+    }
+  ],
+  "12:5": [
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "cross",
+      "tw_match": "cross"
+    },
+    {
+      "surface": "Ephraimite",
+      "tw_match": "Ephraimite"
+    }
+  ],
+  "12:6": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "seized",
+      "tw_match": "seize"
+    },
+    {
+      "surface": "slaughtered",
+      "tw_match": "slaughtered"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    }
+  ],
+  "12:7": [
+    {
+      "surface": "Jephthah",
+      "tw_match": "Jephthah"
+    },
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    },
+    {
+      "surface": "Gileadite",
+      "tw_match": "Gileadite"
+    },
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    }
+  ],
+  "12:8": [
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "12:9": [
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "12:10": [
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    },
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    }
+  ],
+  "12:11": [
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "12:12": [
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Zebulun",
+      "tw_match": "Zebulun"
+    }
+  ],
+  "12:13": [
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "12:14": [
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "12:15": [
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "Amalekite",
+      "tw_match": "Amalekite"
+    }
+  ],
+  "13:1": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "13:2": [
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "barren",
+      "tw_match": "barren"
+    }
+  ],
+  "13:3": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "barren",
+      "tw_match": "barren"
+    },
+    {
+      "surface": "conceive",
+      "tw_match": "conceive"
+    },
+    {
+      "surface": "bear",
+      "tw_match": "bear"
+    }
+  ],
+  "13:4": [
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    }
+  ],
+  "13:5": [
+    {
+      "surface": "conceive",
+      "tw_match": "conceive"
+    },
+    {
+      "surface": "bear",
+      "tw_match": "bear"
+    },
+    {
+      "surface": "Nazirite",
+      "tw_match": "Nazirite"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    }
+  ],
+  "13:6": [
+    {
+      "surface": "man of God",
+      "tw_match": "man of God"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "awesome",
+      "tw_match": "awesome"
+    },
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    }
+  ],
+  "13:7": [
+    {
+      "surface": "conceive",
+      "tw_match": "conceive"
+    },
+    {
+      "surface": "bear",
+      "tw_match": "bear"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "Nazirite",
+      "tw_match": "Nazirite"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "13:8": [
+    {
+      "surface": "prayed",
+      "tw_match": "pray"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "man of God",
+      "tw_match": "man of God"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    }
+  ],
+  "13:9": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    }
+  ],
+  "13:10": [
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "13:11": [],
+  "13:12": [
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "13:13": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "13:14": [
+    {
+      "surface": "vine",
+      "tw_match": "vine"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    }
+  ],
+  "13:15": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "goats",
+      "tw_match": "goat"
+    }
+  ],
+  "13:16": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    },
+    {
+      "surface": "burnt offering",
+      "tw_match": "burnt offering"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "13:17": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    }
+  ],
+  "13:18": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "13:19": [
+    {
+      "surface": "goats",
+      "tw_match": "goat"
+    },
+    {
+      "surface": "grain offering",
+      "tw_match": "grain offering"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "watching",
+      "tw_match": "watch"
+    }
+  ],
+  "13:20": [
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "watching",
+      "tw_match": "watch"
+    }
+  ],
+  "13:21": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "knew",
+      "tw_match": "knew"
+    }
+  ],
+  "13:22": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "13:23": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "kill",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "burnt offering",
+      "tw_match": "burnt offering"
+    },
+    {
+      "surface": "grain offering",
+      "tw_match": "grain offering"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "13:24": [
+    {
+      "surface": "bore",
+      "tw_match": "bore"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    }
+  ],
+  "13:25": [
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    }
+  ],
+  "14:1": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    }
+  ],
+  "14:2": [
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    }
+  ],
+  "14:3": [
+    {
+      "surface": "uncircumcised",
+      "tw_match": "uncircumcised"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "14:4": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "seeking",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "ruling",
+      "tw_match": "rule"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "14:5": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "vineyards",
+      "tw_match": "vineyards"
+    },
+    {
+      "surface": "lion",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "lions",
+      "tw_match": "lion"
+    }
+  ],
+  "14:6": [
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    }
+  ],
+  "14:7": [
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    }
+  ],
+  "14:8": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "lion",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "honey",
+      "tw_match": "honey"
+    }
+  ],
+  "14:9": [
+    {
+      "surface": "palms",
+      "tw_match": "palm"
+    },
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "honey",
+      "tw_match": "honey"
+    },
+    {
+      "surface": "lion",
+      "tw_match": "lion"
+    }
+  ],
+  "14:10": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    }
+  ],
+  "14:11": [
+    {
+      "surface": "companions",
+      "tw_match": "companion"
+    }
+  ],
+  "14:12": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "declaring",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    }
+  ],
+  "14:13": [
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    }
+  ],
+  "14:14": [
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "14:15": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    }
+  ],
+  "14:16": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    },
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    }
+  ],
+  "14:17": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    }
+  ],
+  "14:18": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "honey",
+      "tw_match": "honey"
+    },
+    {
+      "surface": "lion",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "plowed",
+      "tw_match": "plowed"
+    },
+    {
+      "surface": "heifer",
+      "tw_match": "heifer"
+    }
+  ],
+  "14:19": [
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Ashkelon",
+      "tw_match": "Ashkelon"
+    },
+    {
+      "surface": "spoils",
+      "tw_match": "spoils"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "14:20": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "companion",
+      "tw_match": "companion"
+    }
+  ],
+  "15:1": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "harvest",
+      "tw_match": "harvest"
+    },
+    {
+      "surface": "wheat",
+      "tw_match": "wheat"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "goats",
+      "tw_match": "goat"
+    }
+  ],
+  "15:2": [
+    {
+      "surface": "companion",
+      "tw_match": "companion"
+    },
+    {
+      "surface": "better",
+      "tw_match": "better"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    }
+  ],
+  "15:3": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "blameless",
+      "tw_match": "blameless"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    }
+  ],
+  "15:4": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    }
+  ],
+  "15:5": [
+    {
+      "surface": "grain",
+      "tw_match": "grain"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "olive",
+      "tw_match": "olive"
+    }
+  ],
+  "15:6": [
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "companion",
+      "tw_match": "companion"
+    }
+  ],
+  "15:7": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "avenge",
+      "tw_match": "avenge"
+    }
+  ],
+  "15:8": [],
+  "15:9": [
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    }
+  ],
+  "15:10": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "bind",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "15:11": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "ruling",
+      "tw_match": "rule"
+    },
+    {
+      "surface": "Just",
+      "tw_match": "just"
+    }
+  ],
+  "15:12": [
+    {
+      "surface": "bind",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "Swear",
+      "tw_match": "swear"
+    }
+  ],
+  "15:13": [
+    {
+      "surface": "binding",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "bind",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    }
+  ],
+  "15:14": [
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "bonds",
+      "tw_match": "bonds"
+    }
+  ],
+  "15:15": [
+    {
+      "surface": "donkey",
+      "tw_match": "donkey"
+    }
+  ],
+  "15:16": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "donkey",
+      "tw_match": "donkey"
+    }
+  ],
+  "15:17": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    }
+  ],
+  "15:18": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "salvation",
+      "tw_match": "salvation"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "uncircumcised",
+      "tw_match": "uncircumcised"
+    }
+  ],
+  "15:19": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "15:20": [
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "16:1": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "Gaza",
+      "tw_match": "Gaza"
+    },
+    {
+      "surface": "harlot",
+      "tw_match": "harlot"
+    }
+  ],
+  "16:2": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "kill",
+      "tw_match": "kill"
+    }
+  ],
+  "16:3": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "seized",
+      "tw_match": "seize"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "doorposts",
+      "tw_match": "doorpost"
+    },
+    {
+      "surface": "Hebron",
+      "tw_match": "Hebron"
+    }
+  ],
+  "16:4": [
+    {
+      "surface": "loved",
+      "tw_match": "love"
+    },
+    {
+      "surface": "Delilah",
+      "tw_match": "Delilah"
+    }
+  ],
+  "16:5": [
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "bind",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "humble",
+      "tw_match": "humble"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    }
+  ],
+  "16:6": [
+    {
+      "surface": "Delilah",
+      "tw_match": "Delilah"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    },
+    {
+      "surface": "humble",
+      "tw_match": "humble"
+    }
+  ],
+  "16:7": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "bind",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "16:8": [
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    }
+  ],
+  "16:9": [
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "16:10": [
+    {
+      "surface": "Delilah",
+      "tw_match": "Delilah"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "deceived",
+      "tw_match": "deceive"
+    },
+    {
+      "surface": "lies",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    }
+  ],
+  "16:11": [
+    {
+      "surface": "binding",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "bind",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "16:12": [
+    {
+      "surface": "Delilah",
+      "tw_match": "Delilah"
+    },
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "16:13": [
+    {
+      "surface": "Delilah",
+      "tw_match": "Delilah"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "deceived",
+      "tw_match": "deceive"
+    },
+    {
+      "surface": "lies",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "Declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    }
+  ],
+  "16:14": [
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    }
+  ],
+  "16:15": [
+    {
+      "surface": "love",
+      "tw_match": "love"
+    },
+    {
+      "surface": "times",
+      "tw_match": "time"
+    },
+    {
+      "surface": "deceived",
+      "tw_match": "deceive"
+    },
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    }
+  ],
+  "16:16": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    }
+  ],
+  "16:17": [
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "Nazirite",
+      "tw_match": "Nazirite"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "16:18": [
+    {
+      "surface": "Delilah",
+      "tw_match": "Delilah"
+    },
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    }
+  ],
+  "16:19": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "humble",
+      "tw_match": "humble"
+    }
+  ],
+  "16:20": [
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "shake",
+      "tw_match": "shake"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "16:21": [
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "seized",
+      "tw_match": "seize"
+    },
+    {
+      "surface": "Gaza",
+      "tw_match": "Gaza"
+    },
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    },
+    {
+      "surface": "bronze",
+      "tw_match": "bronze"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "16:22": [],
+  "16:23": [
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "sacrifice",
+      "tw_match": "sacrifice"
+    },
+    {
+      "surface": "god",
+      "tw_match": "god"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    }
+  ],
+  "16:24": [
+    {
+      "surface": "praised",
+      "tw_match": "praised"
+    },
+    {
+      "surface": "god",
+      "tw_match": "god"
+    },
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "multiplied",
+      "tw_match": "multiplied"
+    },
+    {
+      "surface": "slain",
+      "tw_match": "slain"
+    }
+  ],
+  "16:25": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "Call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "columns",
+      "tw_match": "column"
+    }
+  ],
+  "16:26": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "columns",
+      "tw_match": "column"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "16:27": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "watching",
+      "tw_match": "watch"
+    },
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    }
+  ],
+  "16:28": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Lord Yahweh",
+      "tw_match": "Lord Yahweh"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "avenge",
+      "tw_match": "avenge"
+    },
+    {
+      "surface": "vengeance",
+      "tw_match": "vengeance"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    }
+  ],
+  "16:29": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "columns",
+      "tw_match": "column"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "16:30": [
+    {
+      "surface": "Samson",
+      "tw_match": "Samson"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    }
+  ],
+  "16:31": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    },
+    {
+      "surface": "burial place",
+      "tw_match": "burial place"
+    },
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "17:1": [
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    }
+  ],
+  "17:2": [
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "Blessed",
+      "tw_match": "bless"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "17:3": [
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "Consecrating",
+      "tw_match": "consecrate"
+    },
+    {
+      "surface": "consecrate",
+      "tw_match": "consecrate"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "idol",
+      "tw_match": "idol"
+    },
+    {
+      "surface": "molded",
+      "tw_match": "molded"
+    },
+    {
+      "surface": "image",
+      "tw_match": "image"
+    }
+  ],
+  "17:4": [
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "idol",
+      "tw_match": "idol"
+    },
+    {
+      "surface": "molded",
+      "tw_match": "molded"
+    },
+    {
+      "surface": "image",
+      "tw_match": "image"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    }
+  ],
+  "17:5": [
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "a house",
+      "tw_match": "a house"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "ephod",
+      "tw_match": "ephod"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    }
+  ],
+  "17:6": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "17:7": [
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "Levite",
+      "tw_match": "Levite"
+    },
+    {
+      "surface": "sojourning",
+      "tw_match": "sojourn"
+    }
+  ],
+  "17:8": [
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "sojourn",
+      "tw_match": "sojourn"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    }
+  ],
+  "17:9": [
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "Levite",
+      "tw_match": "Levite"
+    },
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "sojourn",
+      "tw_match": "sojourn"
+    }
+  ],
+  "17:10": [
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Levite",
+      "tw_match": "Levite"
+    }
+  ],
+  "17:11": [
+    {
+      "surface": "Levite",
+      "tw_match": "Levite"
+    },
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "17:12": [
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "Levite",
+      "tw_match": "Levite"
+    },
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "17:13": [
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "Levite",
+      "tw_match": "Levite"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    }
+  ],
+  "18:1": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "tribe",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "seeking",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "tribes",
+      "tw_match": "tribe"
+    }
+  ],
+  "18:2": [
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    },
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    }
+  ],
+  "18:3": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "Levite",
+      "tw_match": "Levite"
+    }
+  ],
+  "18:4": [
+    {
+      "surface": "Like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    }
+  ],
+  "18:5": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "inquire",
+      "tw_match": "inquire"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "prosper",
+      "tw_match": "prosper"
+    }
+  ],
+  "18:6": [
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "18:7": [
+    {
+      "surface": "Sidonians",
+      "tw_match": "Sidonians"
+    },
+    {
+      "surface": "possessing",
+      "tw_match": "possess"
+    },
+    {
+      "surface": "humiliating",
+      "tw_match": "humiliate"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "18:8": [],
+  "18:9": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "possess",
+      "tw_match": "possess"
+    }
+  ],
+  "18:10": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "18:11": [
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "girded",
+      "tw_match": "girded"
+    }
+  ],
+  "18:12": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "18:13": [
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    }
+  ],
+  "18:14": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "houses",
+      "tw_match": "house"
+    },
+    {
+      "surface": "ephod",
+      "tw_match": "ephod"
+    },
+    {
+      "surface": "idol",
+      "tw_match": "idol"
+    },
+    {
+      "surface": "molded",
+      "tw_match": "molded"
+    },
+    {
+      "surface": "image",
+      "tw_match": "image"
+    }
+  ],
+  "18:15": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "Levite",
+      "tw_match": "Levite"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "18:16": [
+    {
+      "surface": "girded",
+      "tw_match": "girded"
+    },
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    }
+  ],
+  "18:17": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "idol",
+      "tw_match": "idol"
+    },
+    {
+      "surface": "ephod",
+      "tw_match": "ephod"
+    },
+    {
+      "surface": "molded",
+      "tw_match": "molded"
+    },
+    {
+      "surface": "image",
+      "tw_match": "image"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "girded",
+      "tw_match": "girded"
+    }
+  ],
+  "18:18": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "idol",
+      "tw_match": "idol"
+    },
+    {
+      "surface": "ephod",
+      "tw_match": "ephod"
+    },
+    {
+      "surface": "molded",
+      "tw_match": "molded"
+    },
+    {
+      "surface": "image",
+      "tw_match": "image"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    }
+  ],
+  "18:19": [
+    {
+      "surface": "hand over",
+      "tw_match": "hand over"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "tribe",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "18:20": [
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "ephod",
+      "tw_match": "ephod"
+    },
+    {
+      "surface": "idol",
+      "tw_match": "idol"
+    }
+  ],
+  "18:21": [
+    {
+      "surface": "livestock",
+      "tw_match": "livestock"
+    }
+  ],
+  "18:22": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "houses",
+      "tw_match": "house"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    },
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    }
+  ],
+  "18:23": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    }
+  ],
+  "18:24": [
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    }
+  ],
+  "18:25": [
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "your house",
+      "tw_match": "your house"
+    }
+  ],
+  "18:26": [
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    }
+  ],
+  "18:27": [
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "18:28": [
+    {
+      "surface": "deliverer",
+      "tw_match": "deliverer"
+    },
+    {
+      "surface": "Sidon",
+      "tw_match": "Sidon"
+    }
+  ],
+  "18:29": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "18:30": [
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    },
+    {
+      "surface": "idol",
+      "tw_match": "idol"
+    },
+    {
+      "surface": "Jonathan",
+      "tw_match": "Jonathan"
+    },
+    {
+      "surface": "Manasseh",
+      "tw_match": "Manasseh"
+    },
+    {
+      "surface": "priests",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "tribe",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "exile",
+      "tw_match": "exile"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "18:31": [
+    {
+      "surface": "set up",
+      "tw_match": "set up"
+    },
+    {
+      "surface": "idol",
+      "tw_match": "idol"
+    },
+    {
+      "surface": "Micah",
+      "tw_match": "Micah"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Shiloh",
+      "tw_match": "Shiloh"
+    }
+  ],
+  "19:1": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Levite",
+      "tw_match": "Levite"
+    },
+    {
+      "surface": "sojourning",
+      "tw_match": "sojourn"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    }
+  ],
+  "19:2": [
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "whored",
+      "tw_match": "whored"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "months",
+      "tw_match": "month"
+    }
+  ],
+  "19:3": [
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "glad",
+      "tw_match": "glad"
+    }
+  ],
+  "19:4": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "19:5": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    }
+  ],
+  "19:6": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "19:7": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    }
+  ],
+  "19:8": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    }
+  ],
+  "19:9": [
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    }
+  ],
+  "19:10": [
+    {
+      "surface": "Jebus",
+      "tw_match": "Jebus"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    }
+  ],
+  "19:11": [
+    {
+      "surface": "Jebus",
+      "tw_match": "Jebus"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "master",
+      "tw_match": "master"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "Jebusite",
+      "tw_match": "Jebusite"
+    }
+  ],
+  "19:12": [
+    {
+      "surface": "master",
+      "tw_match": "master"
+    },
+    {
+      "surface": "foreigner",
+      "tw_match": "foreigner"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "cross",
+      "tw_match": "cross"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    }
+  ],
+  "19:13": [
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "Ramah",
+      "tw_match": "Ramah"
+    }
+  ],
+  "19:14": [
+    {
+      "surface": "crossed",
+      "tw_match": "cross"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    }
+  ],
+  "19:15": [
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "receiving",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "19:16": [
+    {
+      "surface": "old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "sojourning",
+      "tw_match": "sojourn"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "Benjaminite",
+      "tw_match": "Benjaminite"
+    }
+  ],
+  "19:17": [
+    {
+      "surface": "old",
+      "tw_match": "old"
+    }
+  ],
+  "19:18": [
+    {
+      "surface": "crossing",
+      "tw_match": "cross"
+    },
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "receiving",
+      "tw_match": "receive"
+    }
+  ],
+  "19:19": [
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "maidservant",
+      "tw_match": "maidservant"
+    },
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    }
+  ],
+  "19:20": [
+    {
+      "surface": "old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "Peace",
+      "tw_match": "peace"
+    }
+  ],
+  "19:21": [
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "washed",
+      "tw_match": "wash"
+    }
+  ],
+  "19:22": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "master",
+      "tw_match": "master"
+    },
+    {
+      "surface": "your house",
+      "tw_match": "your house"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "19:23": [
+    {
+      "surface": "master",
+      "tw_match": "master"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    }
+  ],
+  "19:24": [
+    {
+      "surface": "virgin",
+      "tw_match": "virgin"
+    },
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "humble",
+      "tw_match": "humble"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "19:25": [
+    {
+      "surface": "seized",
+      "tw_match": "seize"
+    },
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "knew",
+      "tw_match": "knew"
+    }
+  ],
+  "19:26": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "master",
+      "tw_match": "master"
+    }
+  ],
+  "19:27": [
+    {
+      "surface": "master",
+      "tw_match": "master"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "threshold",
+      "tw_match": "threshold"
+    }
+  ],
+  "19:28": [
+    {
+      "surface": "donkey",
+      "tw_match": "donkey"
+    }
+  ],
+  "19:29": [
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "seized",
+      "tw_match": "seize"
+    },
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "19:30": [
+    {
+      "surface": "Like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "counsel",
+      "tw_match": "counsel"
+    }
+  ],
+  "20:1": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "congregation",
+      "tw_match": "congregation"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    },
+    {
+      "surface": "Dan",
+      "tw_match": "Dan"
+    },
+    {
+      "surface": "Beersheba",
+      "tw_match": "Beersheba"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Mizpah",
+      "tw_match": "Mizpah"
+    }
+  ],
+  "20:2": [
+    {
+      "surface": "cornerstones",
+      "tw_match": "cornerstone"
+    },
+    {
+      "surface": "tribes",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "assembly",
+      "tw_match": "assembly"
+    },
+    {
+      "surface": "people of God",
+      "tw_match": "people of God"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "20:3": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Mizpah",
+      "tw_match": "Mizpah"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "20:4": [
+    {
+      "surface": "Levite",
+      "tw_match": "Levite"
+    },
+    {
+      "surface": "murdered",
+      "tw_match": "murder"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    }
+  ],
+  "20:5": [
+    {
+      "surface": "lords",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "kill",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "humbled",
+      "tw_match": "humbled"
+    }
+  ],
+  "20:6": [
+    {
+      "surface": "concubine",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "20:7": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "advice",
+      "tw_match": "advice"
+    }
+  ],
+  "20:8": [
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    }
+  ],
+  "20:9": [
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "lot",
+      "tw_match": "lots"
+    }
+  ],
+  "20:10": [
+    {
+      "surface": "tribes",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    }
+  ],
+  "20:11": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    }
+  ],
+  "20:12": [
+    {
+      "surface": "tribes",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "20:13": [
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "kill",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    }
+  ],
+  "20:14": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "20:15": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "chosen",
+      "tw_match": "chosen"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    }
+  ],
+  "20:16": [
+    {
+      "surface": "chosen",
+      "tw_match": "chosen"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    }
+  ],
+  "20:17": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "20:18": [
+    {
+      "surface": "Bethel",
+      "tw_match": "Bethel"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "inquired",
+      "tw_match": "inquire"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    }
+  ],
+  "20:19": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    }
+  ],
+  "20:20": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    }
+  ],
+  "20:21": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "20:22": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "20:23": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "inquired",
+      "tw_match": "inquire"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    }
+  ],
+  "20:24": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "20:25": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "20:26": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Bethel",
+      "tw_match": "Bethel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "fasted",
+      "tw_match": "fast"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "offerings",
+      "tw_match": "offering"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "20:27": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "inquired",
+      "tw_match": "inquire"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Box",
+      "tw_match": "box"
+    },
+    {
+      "surface": "Covenant",
+      "tw_match": "covenant"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "20:28": [
+    {
+      "surface": "Phinehas",
+      "tw_match": "Phinehas"
+    },
+    {
+      "surface": "Eleazar",
+      "tw_match": "Eleazar"
+    },
+    {
+      "surface": "Aaron",
+      "tw_match": "Aaron"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "20:29": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    }
+  ],
+  "20:30": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "20:31": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "slain",
+      "tw_match": "slain"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "Bethel",
+      "tw_match": "Bethel"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "20:32": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "20:33": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Baal",
+      "tw_match": "Baal"
+    },
+    {
+      "surface": "Tamar",
+      "tw_match": "Tamar"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    }
+  ],
+  "20:34": [
+    {
+      "surface": "chosen",
+      "tw_match": "chosen"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "20:35": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "20:36": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    }
+  ],
+  "20:37": [
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "20:38": [
+    {
+      "surface": "sign",
+      "tw_match": "sign"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "20:39": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "slain",
+      "tw_match": "slain"
+    }
+  ],
+  "20:40": [
+    {
+      "surface": "column",
+      "tw_match": "column"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "20:41": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "alarmed",
+      "tw_match": "alarmed"
+    }
+  ],
+  "20:42": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    },
+    {
+      "surface": "destroying",
+      "tw_match": "destroy"
+    }
+  ],
+  "20:43": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "trampled",
+      "tw_match": "trample"
+    },
+    {
+      "surface": "Gibeah",
+      "tw_match": "Gibeah"
+    }
+  ],
+  "20:44": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    }
+  ],
+  "20:45": [
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    },
+    {
+      "surface": "Rimmon",
+      "tw_match": "Rimmon"
+    },
+    {
+      "surface": "gleaned",
+      "tw_match": "glean"
+    }
+  ],
+  "20:46": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "20:47": [
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    },
+    {
+      "surface": "Rimmon",
+      "tw_match": "Rimmon"
+    },
+    {
+      "surface": "months",
+      "tw_match": "month"
+    }
+  ],
+  "20:48": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "cattle",
+      "tw_match": "cattle"
+    }
+  ],
+  "21:1": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Mizpah",
+      "tw_match": "Mizpah"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    }
+  ],
+  "21:2": [
+    {
+      "surface": "Bethel",
+      "tw_match": "Bethel"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "weeping",
+      "tw_match": "weeping"
+    }
+  ],
+  "21:3": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "tribe",
+      "tw_match": "tribe"
+    }
+  ],
+  "21:4": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    },
+    {
+      "surface": "offerings",
+      "tw_match": "offering"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "21:5": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "assembly",
+      "tw_match": "assembly"
+    },
+    {
+      "surface": "tribes",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "oath",
+      "tw_match": "oath"
+    },
+    {
+      "surface": "Mizpah",
+      "tw_match": "Mizpah"
+    }
+  ],
+  "21:6": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "repented",
+      "tw_match": "repent"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "tribe",
+      "tw_match": "tribe"
+    }
+  ],
+  "21:7": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "21:8": [
+    {
+      "surface": "tribes",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Mizpah",
+      "tw_match": "Mizpah"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "assembly",
+      "tw_match": "assembly"
+    }
+  ],
+  "21:9": [
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    }
+  ],
+  "21:10": [
+    {
+      "surface": "congregation",
+      "tw_match": "congregation"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "21:11": [],
+  "21:12": [
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "young women",
+      "tw_match": "young women"
+    },
+    {
+      "surface": "virgin",
+      "tw_match": "virgin"
+    },
+    {
+      "surface": "Shiloh",
+      "tw_match": "Shiloh"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Canaan",
+      "tw_match": "Canaan"
+    }
+  ],
+  "21:13": [
+    {
+      "surface": "congregation",
+      "tw_match": "congregation"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Rimmon",
+      "tw_match": "Rimmon"
+    },
+    {
+      "surface": "called out",
+      "tw_match": "called out"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "21:14": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    }
+  ],
+  "21:15": [
+    {
+      "surface": "repented",
+      "tw_match": "repent"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "tribes",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "21:16": [
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "congregation",
+      "tw_match": "congregation"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    }
+  ],
+  "21:17": [
+    {
+      "surface": "possession",
+      "tw_match": "possession"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "tribe",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "21:18": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Cursed",
+      "tw_match": "curse"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    }
+  ],
+  "21:19": [
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Shiloh",
+      "tw_match": "Shiloh"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Bethel",
+      "tw_match": "Bethel"
+    },
+    {
+      "surface": "Shechem",
+      "tw_match": "Shechem"
+    }
+  ],
+  "21:20": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "vineyards",
+      "tw_match": "vineyards"
+    }
+  ],
+  "21:21": [
+    {
+      "surface": "Shiloh",
+      "tw_match": "Shiloh"
+    },
+    {
+      "surface": "vineyards",
+      "tw_match": "vineyards"
+    },
+    {
+      "surface": "catch",
+      "tw_match": "catch"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    }
+  ],
+  "21:22": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "guilty",
+      "tw_match": "guilty"
+    }
+  ],
+  "21:23": [
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    }
+  ],
+  "21:24": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "tribe",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    }
+  ],
+  "21:25": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ]
+}

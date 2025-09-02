@@ -1,0 +1,840 @@
+{
+  "1:1": [
+    {
+      "surface": "Paul",
+      "tw_match": "Paul"
+    },
+    {
+      "surface": "Silvanus",
+      "tw_match": "Silvanus"
+    },
+    {
+      "surface": "Timothy",
+      "tw_match": "Timothy"
+    },
+    {
+      "surface": "church",
+      "tw_match": "church"
+    },
+    {
+      "surface": "Thessalonians",
+      "tw_match": "Thessalonian"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Father",
+      "tw_match": "Father"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "Grace",
+      "tw_match": "grace"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "God the Father",
+      "tw_match": "God the Father"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    }
+  ],
+  "1:3": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "faith",
+      "tw_match": "faith"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "boast",
+      "tw_match": "boast"
+    },
+    {
+      "surface": "churches",
+      "tw_match": "church"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "endurance",
+      "tw_match": "endurance"
+    },
+    {
+      "surface": "faith",
+      "tw_match": "faith"
+    },
+    {
+      "surface": "afflictions",
+      "tw_match": "affliction"
+    },
+    {
+      "surface": "endure",
+      "tw_match": "endure"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "evidence",
+      "tw_match": "evidence"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "judgment",
+      "tw_match": "judgment"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "kingdom of God",
+      "tw_match": "kingdom of God"
+    },
+    {
+      "surface": "suffer",
+      "tw_match": "suffer"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "affliction",
+      "tw_match": "affliction"
+    },
+    {
+      "surface": "afflicting",
+      "tw_match": "afflict"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "afflicted",
+      "tw_match": "afflict"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus",
+      "tw_match": "Jesus"
+    },
+    {
+      "surface": "heaven",
+      "tw_match": "heaven"
+    },
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    },
+    {
+      "surface": "angels",
+      "tw_match": "angel"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "vengeance",
+      "tw_match": "vengeance"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "gospel",
+      "tw_match": "gospel"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus",
+      "tw_match": "Jesus"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "eternal",
+      "tw_match": "eternal"
+    },
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "saints",
+      "tw_match": "saint"
+    },
+    {
+      "surface": "believed",
+      "tw_match": "believe"
+    },
+    {
+      "surface": "testimony",
+      "tw_match": "testimony"
+    }
+  ],
+  "1:11": [
+    {
+      "surface": "pray",
+      "tw_match": "pray"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "calling",
+      "tw_match": "call"
+    },
+    {
+      "surface": "fulfill",
+      "tw_match": "fulfill"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "faith",
+      "tw_match": "faith"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus",
+      "tw_match": "Jesus"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "in him",
+      "tw_match": "in him"
+    },
+    {
+      "surface": "grace",
+      "tw_match": "grace"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    }
+  ],
+  "2:1": [
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    },
+    {
+      "surface": "gathering",
+      "tw_match": "gather"
+    }
+  ],
+  "2:2": [
+    {
+      "surface": "mind",
+      "tw_match": "mind"
+    },
+    {
+      "surface": "troubled",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "as if",
+      "tw_match": "as if"
+    },
+    {
+      "surface": "day of the Lord",
+      "tw_match": "day of the Lord"
+    }
+  ],
+  "2:3": [
+    {
+      "surface": "deceive",
+      "tw_match": "deceive"
+    },
+    {
+      "surface": "lawlessness",
+      "tw_match": "lawlessness"
+    },
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    }
+  ],
+  "2:4": [
+    {
+      "surface": "exalting",
+      "tw_match": "exalt"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "god",
+      "tw_match": "god"
+    },
+    {
+      "surface": "worship",
+      "tw_match": "worship"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "2:5": [
+    {
+      "surface": "telling",
+      "tw_match": "tell"
+    }
+  ],
+  "2:6": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "2:7": [
+    {
+      "surface": "mystery",
+      "tw_match": "mystery"
+    },
+    {
+      "surface": "lawlessness",
+      "tw_match": "lawlessness"
+    },
+    {
+      "surface": "working",
+      "tw_match": "work"
+    }
+  ],
+  "2:8": [
+    {
+      "surface": "lawless",
+      "tw_match": "lawless"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus",
+      "tw_match": "Jesus"
+    },
+    {
+      "surface": "kill",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    }
+  ],
+  "2:9": [
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "Satan",
+      "tw_match": "Satan"
+    },
+    {
+      "surface": "signs",
+      "tw_match": "sign"
+    },
+    {
+      "surface": "wonders",
+      "tw_match": "wonder"
+    }
+  ],
+  "2:10": [
+    {
+      "surface": "unrighteousness",
+      "tw_match": "unrighteousness"
+    },
+    {
+      "surface": "perishing",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "receive",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    },
+    {
+      "surface": "saved",
+      "tw_match": "saved"
+    }
+  ],
+  "2:11": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "working",
+      "tw_match": "work"
+    },
+    {
+      "surface": "believe",
+      "tw_match": "believe"
+    },
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    }
+  ],
+  "2:12": [
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "judged",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "believed",
+      "tw_match": "believe"
+    },
+    {
+      "surface": "unrighteousness",
+      "tw_match": "unrighteousness"
+    }
+  ],
+  "2:13": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "loved",
+      "tw_match": "love"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "firstfruits",
+      "tw_match": "firstfruits"
+    },
+    {
+      "surface": "salvation",
+      "tw_match": "salvation"
+    },
+    {
+      "surface": "sanctification",
+      "tw_match": "sanctification"
+    },
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "belief",
+      "tw_match": "belief"
+    }
+  ],
+  "2:14": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "gospel",
+      "tw_match": "gospel"
+    },
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    }
+  ],
+  "2:15": [
+    {
+      "surface": "traditions",
+      "tw_match": "tradition"
+    }
+  ],
+  "2:16": [
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Father",
+      "tw_match": "Father"
+    },
+    {
+      "surface": "loved",
+      "tw_match": "love"
+    },
+    {
+      "surface": "eternal",
+      "tw_match": "eternal"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "grace",
+      "tw_match": "grace"
+    }
+  ],
+  "2:17": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "3:1": [
+    {
+      "surface": "pray",
+      "tw_match": "pray"
+    },
+    {
+      "surface": "word of the Lord",
+      "tw_match": "word of the Lord"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "3:2": [
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "perverse",
+      "tw_match": "perverse"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "faith",
+      "tw_match": "faith"
+    }
+  ],
+  "3:3": [
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "faithful",
+      "tw_match": "faithful"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "evil one",
+      "tw_match": "evil one"
+    }
+  ],
+  "3:4": [
+    {
+      "surface": "in the Lord",
+      "tw_match": "in the Lord"
+    }
+  ],
+  "3:5": [
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "endurance",
+      "tw_match": "endurance"
+    },
+    {
+      "surface": "Christ",
+      "tw_match": "Christ"
+    }
+  ],
+  "3:6": [
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "traditions",
+      "tw_match": "tradition"
+    },
+    {
+      "surface": "received",
+      "tw_match": "receive"
+    }
+  ],
+  "3:7": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "3:8": [
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    },
+    {
+      "surface": "free",
+      "tw_match": "free"
+    },
+    {
+      "surface": "working",
+      "tw_match": "work"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "hardship",
+      "tw_match": "hardship"
+    }
+  ],
+  "3:9": [
+    {
+      "surface": "authority",
+      "tw_match": "authority"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    }
+  ],
+  "3:10": [
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "3:11": [
+    {
+      "surface": "working",
+      "tw_match": "work"
+    }
+  ],
+  "3:12": [
+    {
+      "surface": "exhorting",
+      "tw_match": "exhort"
+    },
+    {
+      "surface": "in the Lord",
+      "tw_match": "in the Lord"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    },
+    {
+      "surface": "working",
+      "tw_match": "work"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    }
+  ],
+  "3:13": [
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "3:14": [
+    {
+      "surface": "shame",
+      "tw_match": "shame"
+    }
+  ],
+  "3:15": [
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    }
+  ],
+  "3:16": [
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "3:17": [
+    {
+      "surface": "Paul",
+      "tw_match": "Paul"
+    },
+    {
+      "surface": "sign",
+      "tw_match": "sign"
+    }
+  ],
+  "3:18": [
+    {
+      "surface": "grace",
+      "tw_match": "grace"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    }
+  ]
+}

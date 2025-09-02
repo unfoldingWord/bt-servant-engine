@@ -1,0 +1,192 @@
+{
+  "1:1": [
+    {
+      "surface": "elder",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "chosen",
+      "tw_match": "chosen"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "eternity",
+      "tw_match": "eternity"
+    }
+  ],
+  "1:3": [
+    {
+      "surface": "Grace",
+      "tw_match": "grace"
+    },
+    {
+      "surface": "mercy",
+      "tw_match": "mercy"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "God the Father",
+      "tw_match": "God the Father"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    },
+    {
+      "surface": "the Son",
+      "tw_match": "the Son"
+    },
+    {
+      "surface": "Father",
+      "tw_match": "Father"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "rejoiced",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "received",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "Father",
+      "tw_match": "Father"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "love",
+      "tw_match": "love"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "love",
+      "tw_match": "love"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "world",
+      "tw_match": "world"
+    },
+    {
+      "surface": "confessing",
+      "tw_match": "confess"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    },
+    {
+      "surface": "antichrist",
+      "tw_match": "antichrist"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "Watch",
+      "tw_match": "watch"
+    },
+    {
+      "surface": "worked",
+      "tw_match": "work"
+    },
+    {
+      "surface": "receive",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "reward",
+      "tw_match": "reward"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "teaching",
+      "tw_match": "teaching"
+    },
+    {
+      "surface": "Christ",
+      "tw_match": "Christ"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Father",
+      "tw_match": "Father"
+    },
+    {
+      "surface": "the Son",
+      "tw_match": "the Son"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "teaching",
+      "tw_match": "teaching"
+    },
+    {
+      "surface": "receive",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "your house",
+      "tw_match": "your house"
+    }
+  ],
+  "1:11": [
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "joy",
+      "tw_match": "joy"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "complete",
+      "tw_match": "complete"
+    }
+  ],
+  "1:13": [
+    {
+      "surface": "chosen",
+      "tw_match": "chosen"
+    }
+  ]
+}
