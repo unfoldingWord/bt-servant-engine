@@ -276,11 +276,17 @@ Return a normalized, structured selection of book + verse ranges.
   - Multi-chapter ranges with no verse specification (e.g., "John 1–4", "John chapters 1–4"): set start_chapter=1, end_chapter=4 and leave verses empty
   - Whole book (John)
   - Multiple disjoint ranges within the same book (comma/semicolon separated)
-- Do not cross books in one selection. If user mentions multiple books, choose one or return the clearest primary one.
-- If no clear passage is present, return an empty list.
+- Do not cross books in one selection. If the user mentions multiple books (including with 'and', commas, or hyphens like 'Gen–Exo'), you MUST select exactly one book. Prefer the first book mentioned unless explicit chapter/verse qualifiers clearly indicate a different single book. Never return an empty selection solely because multiple books were mentioned.
+- If no verses/chapters are supplied for the chosen book, interpret it as the whole book.
+- If no clear passage is present (and no book can be reasonably inferred), return an empty list.
 
 # Output format
 Return JSON parsable into the provided schema.
+
+# Examples
+- "What are the keywords in Genesis and Exodus?" -> choose one book (Genesis) and interpret as whole book.
+- "Gen–Exo" -> choose one book (Genesis) and interpret as whole book.
+- "John and Mark 1:1" -> choose Mark 1:1 (explicit qualifier picks Mark over first mention).
 """
 
 
@@ -1148,6 +1154,60 @@ def converse_with_bt_servant(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}]}
 
 
+def _book_patterns() -> list[tuple[str, str]]:
+    """Return (canonical, regex) patterns to detect book mentions (ordered)."""
+    pats: list[tuple[str, str]] = []
+    for canonical, meta in BSB_BOOK_MAP.items():
+        # canonical name as a whole word/phrase
+        cn = re.escape(canonical)
+        pats.append((canonical, rf"\b{cn}\b"))
+        # short ref abbreviation (e.g., Gen, Exo, 1Sa)
+        abbr = re.escape(meta.get("ref_abbr", ""))
+        if abbr:
+            pats.append((canonical, rf"\b{abbr}\b"))
+    return pats
+
+
+def _detect_mentioned_books(text: str) -> list[str]:
+    """Detect canonical books mentioned in text, preserving order of appearance."""
+    found: list[tuple[int, str]] = []
+    lower = text
+    for canonical, pattern in _book_patterns():
+        for m in re.finditer(pattern, lower, flags=re.IGNORECASE):
+            found.append((m.start(), canonical))
+    # sort by appearance and dedupe preserving order
+    found.sort(key=lambda t: t[0])
+    seen = set()
+    ordered: list[str] = []
+    for _, can in found:
+        if can not in seen:
+            seen.add(can)
+            ordered.append(can)
+    return ordered
+
+
+def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
+    """Heuristic to pick a primary book when multiple are mentioned.
+
+    Prefer the first mentioned that appears near chapter/verse digits; else None.
+    """
+    if not candidates:
+        return None
+    # Build spans for each candidate occurrence
+    spans: list[tuple[int, int, str]] = []
+    for can, pat in _book_patterns():
+        if can not in candidates:
+            continue
+        for m in re.finditer(pat, text, flags=re.IGNORECASE):
+            spans.append((m.start(), m.end(), can))
+    spans.sort(key=lambda t: t[0])
+    for start, end, can in spans:
+        window = text[end:end + 12]
+        if re.search(r"\d", window):
+            return can
+    return None
+
+
 def _resolve_selection_for_single_book(query: str, query_lang: str) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
     """Parse and normalize a user query into a single canonical book and ranges.
 
@@ -1198,13 +1258,32 @@ def _resolve_selection_for_single_book(query: str, query_lang: str) -> tuple[str
         )
 
     if not selection.selections:
-        supported = ", ".join(BSB_BOOK_MAP.keys())
+        # If multiple books are clearly mentioned, prefer consistent cross-book guidance,
+        # but allow a tie-break fallback when one has explicit digits nearby.
+        mentioned = _detect_mentioned_books(parse_input)
+        if len(mentioned) >= 2:
+            primary = _choose_primary_book(parse_input, mentioned)
+            if primary:
+                logger.info("[selection-helper] empty parse; falling back to primary book: %s", primary)
+                return primary, [(1, None, 10_000, None)], None
+            msg = (
+                "Please request a selection for one book at a time. "
+                "If you need multiple books, send a separate message for each."
+            )
+            logger.info("[selection-helper] empty parse; multiple books detected -> cross-book message")
+            return None, None, msg
+        if len(mentioned) == 1:
+            # Fallback: choose the single detected book as a whole-book selection.
+            primary = mentioned[0]
+            logger.info("[selection-helper] empty parse; falling back to single detected book: %s", primary)
+            return primary, [(1, None, 10_000, None)], None
         msg = (
-            "I couldn't identify a clear Bible passage in your request. "
-            "Please specify a book and passage, for example: 'John 3:16', 'Mark 1:1–8', or 'Psalm 1'. "
-            f"Supported books include: {supported}."
+            "I couldn't identify a clear Bible passage in your request. Supported selection types include: "
+            "single verse (e.g., John 3:16); verse range within a chapter (John 3:16-18); cross-chapter within a "
+            "single book (John 3:16–4:2); whole chapter (John 3); multi-chapter span with no verses (John 1–4); "
+            "or the whole book (John). Multiple books in one request are not supported — please choose one book."
         )
-        logger.info("[selection-helper] no passage detected")
+        logger.info("[selection-helper] no passage detected; returning guidance message")
         return None, None, msg
 
     # Ensure all selections are within the same canonical book and normalize
