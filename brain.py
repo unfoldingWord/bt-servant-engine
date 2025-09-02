@@ -4,7 +4,7 @@ This module defines the state, nodes, and orchestration logic for handling
 incoming user messages, classifying intents, querying resources, and producing
 final responses (including translation and chunking when necessary).
 """
-# pylint: disable=line-too-long,too-many-lines
+# pylint: disable=line-too-long,too-many-lines,too-many-statements
 
 from __future__ import annotations
 
@@ -26,6 +26,7 @@ from logger import get_logger
 from config import config
 from utils import chop_text, combine_chunks
 from utils.bsb import BOOK_MAP as BSB_BOOK_MAP, normalize_book_name, select_verses, label_ranges
+from utils.keywords import select_keywords
 from db import (
     get_chroma_collection,
     is_first_interaction,
@@ -342,6 +343,11 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     If the user mentions multiple books (e.g., "summarize John and Mark"), still classify as `get-passage-summary` —
     downstream logic will handle scope constraints.
   </intent>
+  <intent name="get-passage-keywords">
+    The user is explicitly asking for key words in a specific Bible passage, verse range, chapter(s),
+    or entire book (e.g., "Hebrews 1:1–11", "Joel", "John 1–3"). Prefer this when the user clearly
+    requests keywords, important words, or pivotal words to focus on during translation.
+  </intent>
   <intent name="set-response-language">
     The user wants to change the language in which the system responds. They might ask for responses in 
     Spanish, French, Arabic, etc.
@@ -393,6 +399,18 @@ Here are a few examples to guide you:
   <example>
     <message>summarize John and Mark</message>
     <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>What are all the important words in Hebrews 1:1-11?</message>
+    <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>what are all the keywords in the book of Joel?</message>
+    <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>what words are pivotal from a translation perspective in John 1-3</message>
+    <intent>get-passage-keywords</intent>
   </example>
   <example>
     <message>Give me a summary of John 3:16-18.</message>
@@ -547,6 +565,7 @@ class IntentType(str, Enum):
     """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
     GET_PASSAGE_SUMMARY = "get-passage-summary"
+    GET_PASSAGE_KEYWORDS = "get-passage-keywords"
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
     SET_RESPONSE_LANGUAGE = "set-response-language"
@@ -1037,6 +1056,8 @@ def process_intents(state: Any) -> List[str]:
         nodes_to_traverse.append("query_vector_db_node")
     if IntentType.GET_PASSAGE_SUMMARY in user_intents:
         nodes_to_traverse.append("handle_get_passage_summary_node")
+    if IntentType.GET_PASSAGE_KEYWORDS in user_intents:
+        nodes_to_traverse.append("handle_get_passage_keywords_node")
     if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
         nodes_to_traverse.append("set_response_language_node")
     if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
@@ -1279,6 +1300,133 @@ def handle_get_passage_summary(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
 
 
+def handle_get_passage_keywords(state: Any) -> dict:
+    """Handle get-passage-keywords: extract refs, retrieve keywords, and list them.
+
+    Mirrors the summary flow for selection parsing and validation, but instead of
+    summarizing verses, loads per-verse keyword data from sources/keyword_data and
+    returns a comma-separated list of distinct tw_match values present in the
+    selection. The response is prefixed with "Keywords in <range>\n\n".
+    """
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    query_lang = s["query_language"]
+    logger.info("[passage-keywords] start; query_lang=%s; query=%s", query_lang, query)
+
+    # Translate to English for parsing, if needed
+    if query_lang == Language.ENGLISH.value:
+        parse_input = query
+        logger.info("[passage-keywords] parsing in English (no translation needed)")
+    else:
+        logger.info("[passage-keywords] translating query to English for parsing")
+        parse_input = translate_text(query, target_language="en")
+
+    # Build selection prompt with canonical books
+    books = ", ".join(BSB_BOOK_MAP.keys())
+    system_prompt = PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT.format(books=books)
+    selection_messages: list[EasyInputMessageParam] = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": parse_input},
+    ]
+    logger.info("[passage-keywords] extracting passage selection via LLM")
+    selection_resp = open_ai_client.responses.parse(
+        model="gpt-4o",
+        input=selection_messages,
+        text_format=PassageSelection,
+        store=False,
+    )
+    selection: PassageSelection = selection_resp.output_parsed
+    logger.info("[passage-keywords] extracted %d selection(s)", len(selection.selections))
+
+    # Heuristic correction for explicit "chapters X–Y"
+    lower_in = parse_input.lower()
+    chap_match = re.search(r"\bchapters?\s+(\d+)\s*[-–]\s*(\d+)\b", lower_in)
+    if chap_match and selection.selections:
+        a, b = int(chap_match.group(1)), int(chap_match.group(2))
+        logger.info("[passage-keywords] correcting to multi-chapter range: %d-%d due to 'chapters' phrasing", a, b)
+        first = selection.selections[0]
+        selection.selections[0] = PassageRef(
+            book=first.book,
+            start_chapter=a,
+            start_verse=None,
+            end_chapter=b,
+            end_verse=None,
+        )
+
+    if not selection.selections:
+        supported = ", ".join(BSB_BOOK_MAP.keys())
+        msg = (
+            "I couldn't identify a clear Bible passage in your request. "
+            "Please specify a book and passage, for example: 'John 3:16', 'Mark 1:1–8', or 'Psalm 1'. "
+            f"Supported books include: {supported}."
+        )
+        logger.info("[passage-keywords] no passage detected; prompting user for clearer reference")
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": msg}]}
+
+    # Ensure all selections are within the same canonical book and normalize
+    canonical_books: list[str] = []
+    normalized_selections: list[PassageRef] = []
+    for sel in selection.selections:
+        canonical = normalize_book_name(sel.book) or sel.book
+        if canonical not in BSB_BOOK_MAP:
+            supported = ", ".join(BSB_BOOK_MAP.keys())
+            msg = (
+                f"The book '{sel.book}' is not recognized. Please use a supported canonical book name. "
+                f"Supported books include: {supported}."
+            )
+            logger.info("[passage-keywords] unsupported book requested: %s", sel.book)
+            return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": msg}]}
+        canonical_books.append(canonical)
+        normalized_selections.append(PassageRef(
+            book=canonical,
+            start_chapter=sel.start_chapter,
+            start_verse=sel.start_verse,
+            end_chapter=sel.end_chapter,
+            end_verse=sel.end_verse,
+        ))
+
+    if len(set(canonical_books)) != 1:
+        msg = (
+            "Please request keywords for one book at a time. "
+            "If you need multiple books, send a separate message for each."
+        )
+        logger.info("[passage-keywords] cross-book selection detected; rejecting")
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": msg}]}
+
+    canonical_book = canonical_books[0]
+    logger.info("[passage-keywords] canonical_book=%s", canonical_book)
+
+    # Build ranges: if no chapter info, interpret as whole book
+    ranges: list[tuple[int, int | None, int | None, int | None]] = []
+    for sel in normalized_selections:
+        if sel.start_chapter is None:
+            ranges.append((1, None, 10_000, None))
+        else:
+            ranges.append((sel.start_chapter, sel.start_verse, sel.end_chapter, sel.end_verse))
+
+    logger.info("[passage-keywords] ranges=%s", ranges)
+
+    # Retrieve keywords from keyword dataset
+    data_root = Path("sources") / "keyword_data"
+    logger.info("[passage-keywords] retrieving keywords from %s", data_root)
+    keywords = select_keywords(data_root, canonical_book, ranges)
+    logger.info("[passage-keywords] retrieved %d keyword(s)", len(keywords))
+
+    if not keywords:
+        msg = (
+            "I couldn't locate keywords for that selection. Please check the reference and try again."
+        )
+        logger.info("[passage-keywords] no keywords found; prompting user")
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": msg}]}
+
+    ref_label = label_ranges(canonical_book, ranges)
+    header = f"Keywords in {ref_label}\n\n"
+    body = ", ".join(keywords)
+    response_text = header + body
+    logger.info("[passage-keywords] done")
+    return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": response_text}]}
+
+
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
@@ -1299,6 +1447,7 @@ def create_brain():
     builder.add_node("handle_system_information_request_node", handle_system_information_request)
     builder.add_node("converse_with_bt_servant_node", converse_with_bt_servant)
     builder.add_node("handle_get_passage_summary_node", handle_get_passage_summary)
+    builder.add_node("handle_get_passage_keywords_node", handle_get_passage_keywords)
     builder.add_node("translate_responses_node", translate_responses, defer=True)
 
     builder.set_entry_point("start_node")
@@ -1317,6 +1466,7 @@ def create_brain():
     builder.add_edge("handle_system_information_request_node", "translate_responses_node")
     builder.add_edge("converse_with_bt_servant_node", "translate_responses_node")
     builder.add_edge("handle_get_passage_summary_node", "translate_responses_node")
+    builder.add_edge("handle_get_passage_keywords_node", "translate_responses_node")
     builder.add_edge("query_open_ai_node", "translate_responses_node")
 
     builder.add_conditional_edges(
