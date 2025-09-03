@@ -1,8 +1,10 @@
+"""Text utilities for chunking and splitting text safely."""
 import re
 from typing import List
 
 
 def combine_chunks(chunks: List[str], chunk_max: int) -> List[str]:
+    """Combine small chunks into larger ones up to chunk_max characters."""
     combined_chunks = []
     current_chunk = ""
     for piece in chunks:
@@ -21,6 +23,7 @@ def combine_chunks(chunks: List[str], chunk_max: int) -> List[str]:
 
 
 def chop_text(text: str, n: int) -> list[str]:
+    """Split text into chunks no longer than n, preserving sentence-ish breaks."""
     # Split text by sentence-ish boundaries, but keep delimiters
     pieces = re.split(r'(\.|\;|\n\n)', text)
 

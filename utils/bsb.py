@@ -1,3 +1,8 @@
+"""BSB utilities: loading, selecting, and labeling Bible passages.
+
+Provides helpers to load per-book JSON, select verse ranges, and
+produce canonical labels for output headers.
+"""
 from __future__ import annotations
 
 import json
@@ -146,15 +151,20 @@ def build_index(entries: List[Dict[str, str]]) -> Dict[Tuple[int, int], Tuple[st
             ch_s, vs_s = cv.split(":", 1)
             ch = int(ch_s)
             vs = int(vs_s)
-        except Exception:
+        except (ValueError, KeyError):
             # Ignore malformed lines
             continue
         idx[(ch, vs)] = (ref, e["text"])
     return idx
 
 
-def select_range(idx: Dict[Tuple[int, int], Tuple[str, str]], start_ch: int, start_vs: int | None,
-                 end_ch: int | None, end_vs: int | None) -> List[Tuple[str, str]]:
+def select_range(
+    idx: Dict[Tuple[int, int], Tuple[str, str]],
+    start_ch: int,
+    start_vs: int | None,
+    end_ch: int | None,
+    end_vs: int | None,
+) -> List[Tuple[str, str]]:
     """Select verses from index in inclusive range (supports cross-chapter within a book)."""
     items = []
     # Determine bounds; if no verses, select whole chapter(s)
@@ -172,10 +182,15 @@ def select_range(idx: Dict[Tuple[int, int], Tuple[str, str]], start_ch: int, sta
     return items
 
 
-def select_verses(data_root: Path, canonical_book: str, ranges: Iterable[Tuple[int, int | None, int | None, int | None]]) -> List[Tuple[str, str]]:
+def select_verses(
+    data_root: Path,
+    canonical_book: str,
+    ranges: Iterable[Tuple[int, int | None, int | None, int | None]],
+) -> List[Tuple[str, str]]:
     """Select verses for a canonical book given a set of ranges.
 
-    ranges: iterable of (start_ch, start_vs, end_ch, end_vs). Use None to denote whole chapter/book semantics.
+    ranges: iterable of (start_ch, start_vs, end_ch, end_vs).
+    Use None to denote whole chapter/book semantics.
     """
     mapping = BOOK_MAP[canonical_book]
     entries = load_book_json(data_root, mapping["file_stem"])  # cached
@@ -186,7 +201,10 @@ def select_verses(data_root: Path, canonical_book: str, ranges: Iterable[Tuple[i
     return result
 
 
-def label_ranges(canonical_book: str, ranges: List[Tuple[int, int | None, int | None, int | None]]) -> str:
+def label_ranges(
+    canonical_book: str,
+    ranges: List[Tuple[int, int | None, int | None, int | None]],
+) -> str:
     """Return a canonical human-readable reference label for the selection.
 
     Rules:
@@ -199,7 +217,9 @@ def label_ranges(canonical_book: str, ranges: List[Tuple[int, int | None, int | 
     # Upstream callers represent a whole-book selection as (1, None, 10_000, None).
     if len(ranges) == 1:
         sc, sv, ec, ev = ranges[0]
-        full_book = (sc == 1 and sv is None and ev is None and ec is not None and ec >= 10_000)
+        full_book = (
+            sc == 1 and sv is None and ev is None and ec is not None and ec >= 10_000
+        )
         if full_book:
             return f"{canonical_book}"
     parts: List[str] = []

@@ -28,9 +28,13 @@ BSB_URL = "https://bereanbible.com/bsb.txt"
 
 @dataclass(frozen=True)
 class BookMap:
-    # Lowercase file stem (e.g., "gen", "1sa").
+    """Small mapping entry for one book.
+
+    Attributes
+    - file_stem: Lowercase file stem (e.g., "gen", "1sa").
+    - ref_abbr: Title-case reference abbreviation (e.g., "Gen", "1Sa").
+    """
     file_stem: str
-    # Title-case reference abbreviation (e.g., "Gen", "1Sa").
     ref_abbr: str
 
 
@@ -114,10 +118,14 @@ BOOK_MAP: Dict[str, BookMap] = {
 
 
 # Regex to match lines like: "Genesis 1:1\tIn the beginning..."
-VERSE_RE = re.compile(r"^(?P<book>[1-3] [A-Za-z]+|[A-Za-z]+(?: [A-Za-z]+)*) (?P<ch>\d+):(?P<v>\d+)\t(?P<text>.+)$")
+VERSE_RE = re.compile(
+    r"^(?P<book>[1-3] [A-Za-z]+|[A-Za-z]+(?: [A-Za-z]+)*) "
+    r"(?P<ch>\d+):(?P<v>\d+)\t(?P<text>.+)$"
+)
 
 
 def fetch_bsb_text(url: str = BSB_URL) -> str:
+    """Fetch the raw BSB text from the upstream URL and decode as UTF-8."""
     with urlopen(url) as resp:  # nosec: B310 - trusted upstream text file
         raw = resp.read()
     # Strip a possible UTF-8 BOM if present
@@ -157,15 +165,20 @@ def parse_lines_to_entries(lines: List[str]) -> Dict[str, List[Tuple[str, str]]]
 
 
 def write_books_to_json(target_root: Path, data: Dict[str, List[Tuple[str, str]]]) -> None:
+    """Write grouped verses to JSON files under the target root."""
     target_root.mkdir(parents=True, exist_ok=True)
     for file_stem, entries in data.items():
         out_path = target_root / f"{file_stem}.json"
         payload = [{"reference": ref, "text": txt} for ref, txt in entries]
         # Ensure ascii is not enforced; keep unicode punctuation as-is
-        out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        out_path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
 
 def main(argv: List[str]) -> int:
+    """Entry point for one-off parse: fetch, parse, and write per-book JSONs."""
     # Optional first arg: custom output directory (defaults to ./sources/bsb)
     out_dir = Path(argv[1]) if len(argv) > 1 else Path("sources") / "bsb"
     print(f"Fetching BSB text from {BSB_URL}...")
@@ -182,4 +195,3 @@ def main(argv: List[str]) -> int:
 
 if __name__ == "__main__":  # pragma: no cover - one-off script
     raise SystemExit(main(sys.argv))
-

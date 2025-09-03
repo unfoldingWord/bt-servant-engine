@@ -1,44 +1,37 @@
-import os
-import sys
-from pathlib import Path
-
+"""Chroma endpoints test suite with FastAPI TestClient and monkeypatching."""
+# pylint: disable=redefined-builtin
 import chromadb
 from fastapi.testclient import TestClient
 
-# Ensure repository root is on sys.path for local package imports
-sys.path.append(str(Path(__file__).resolve().parents[1]))
-
-
-# Ensure required env vars exist for config import in app
-os.environ.setdefault("OPENAI_API_KEY", "test")
-os.environ.setdefault("GROQ_API_KEY", "test")
-os.environ.setdefault("META_VERIFY_TOKEN", "test")
-os.environ.setdefault("META_WHATSAPP_TOKEN", "test")
-os.environ.setdefault("META_PHONE_NUMBER_ID", "test")
-os.environ.setdefault("META_APP_SECRET", "test")
-os.environ.setdefault("FACEBOOK_USER_AGENT", "test")
-os.environ.setdefault("BASE_URL", "http://example.com")
+import db.chroma_db as cdb
+import bt_servant as api
 
 
 class DummyEmbeddingFunction:
+    """Simple callable stub returning fixed-size zero embeddings for inputs."""
+
     def __call__(self, input):  # type: ignore[override]
         return [[0.0, 0.0, 0.0] for _ in input]
 
+    def ping(self) -> None:
+        """No-op method to satisfy pylint public-methods threshold."""
+        return None
 
-def make_tmp_client(tmp_path: Path) -> chromadb.PersistentClient:
+
+def make_tmp_client(tmp_path):
+    """Create a chromadb PersistentClient rooted at a tmp path."""
     return chromadb.PersistentClient(path=str(tmp_path))
 
 
 def test_create_and_delete_collection(monkeypatch, tmp_path):
+    """Create collection, idempotency on duplicate, and delete semantics."""
     # Patch Chroma client and embedding function used by db helpers
-    import db.chroma_db as cdb
 
     tmp_client = make_tmp_client(tmp_path)
     monkeypatch.setattr(cdb, "_aquifer_chroma_db", tmp_client)
     monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
 
-    # Import app and patch startup to avoid brain initialization
-    import bt_servant as api
+    # Patch startup to avoid brain initialization
 
     def noop_init():  # no-op startup
         return None
@@ -69,19 +62,19 @@ def test_create_and_delete_collection(monkeypatch, tmp_path):
     # Invalid name cases
     resp = client.post("/chroma/collections", json={"name": "   "})
     assert resp.status_code == 400
-    assert "Invalid" in resp.json()["error"] or "must be non-empty" in resp.json()["error"]
+    err = resp.json()["error"]
+    assert ("Invalid" in err) or ("must be non-empty" in err)
 
 
 def test_list_collections_and_delete_document(monkeypatch, tmp_path):
+    """List collections and delete a previously added document."""
     # Patch Chroma client and embedding function used by db helpers
-    import db.chroma_db as cdb
 
     tmp_client = chromadb.PersistentClient(path=str(tmp_path))
     monkeypatch.setattr(cdb, "_aquifer_chroma_db", tmp_client)
     monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
 
-    # Import app and patch startup to avoid brain initialization
-    import bt_servant as api
+    # Patch startup to avoid brain initialization
 
     def noop_init():
         return None
@@ -125,8 +118,9 @@ def test_list_collections_and_delete_document(monkeypatch, tmp_path):
 
 
 def test_admin_auth_401_json_body(monkeypatch):
+    """Admin auth enabled without credentials returns 401 JSON body."""
     # Ensure auth is enabled and no valid token is provided
-    import bt_servant as api
+    # api imported at module scope
 
     def noop_init():
         return None
@@ -142,12 +136,17 @@ def test_admin_auth_401_json_body(monkeypatch):
     # JSON body present with detail
     assert resp.headers.get("WWW-Authenticate") == "Bearer"
     data = resp.json()
-    assert data.get("detail") in {"Missing credentials", "Admin token not configured", "Invalid credentials"}
+    assert data.get("detail") in {
+        "Missing credentials",
+        "Admin token not configured",
+        "Invalid credentials",
+    }
 
 
 def test_chroma_root_unauthorized_returns_401(monkeypatch):
+    """Unauthorized request to /chroma returns 401 and WWW-Authenticate header."""
     # Unauthorized access to /chroma should yield 401 (not 404)
-    import bt_servant as api
+    # api imported at module scope
 
     def noop_init():
         return None
@@ -161,19 +160,22 @@ def test_chroma_root_unauthorized_returns_401(monkeypatch):
     assert resp.status_code == 401
     assert resp.headers.get("WWW-Authenticate") == "Bearer"
     data = resp.json()
-    assert data.get("detail") in {"Missing credentials", "Admin token not configured", "Invalid credentials"}
+    assert data.get("detail") in {
+        "Missing credentials",
+        "Admin token not configured",
+        "Invalid credentials",
+    }
 
 
 def test_count_documents_in_collection(monkeypatch, tmp_path):
+    """Count documents in a collection via endpoint."""
     # Patch Chroma client and embedding function used by db helpers
-    import db.chroma_db as cdb
 
     tmp_client = chromadb.PersistentClient(path=str(tmp_path))
     monkeypatch.setattr(cdb, "_aquifer_chroma_db", tmp_client)
     monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
 
-    # Import app and patch startup to avoid brain initialization
-    import bt_servant as api
+    # Patch startup to avoid brain initialization
 
     def noop_init():
         return None
@@ -204,15 +206,14 @@ def test_count_documents_in_collection(monkeypatch, tmp_path):
 
 
 def test_list_document_ids_endpoint(monkeypatch, tmp_path):
+    """List document IDs for a collection via endpoint."""
     # Patch Chroma client and embedding function used by db helpers
-    import db.chroma_db as cdb
 
     tmp_client = chromadb.PersistentClient(path=str(tmp_path))
     monkeypatch.setattr(cdb, "_aquifer_chroma_db", tmp_client)
     monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
 
-    # Import app and patch startup to avoid brain initialization
-    import bt_servant as api
+    # Patch startup to avoid brain initialization
 
     def noop_init():
         return None

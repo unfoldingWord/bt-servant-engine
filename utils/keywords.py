@@ -1,3 +1,7 @@
+"""Keyword utilities for per-book topical word selection.
+
+Loads keyword JSONs and filters matches across verse ranges.
+"""
 from __future__ import annotations
 
 import json
@@ -92,7 +96,13 @@ def load_keywords_json(data_root: Path, code: str) -> Dict[str, List[Dict[str, s
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _in_range(ch: int, vs: int, start_ch: int, start_vs: int | None, end_ch: int | None, end_vs: int | None) -> bool:
+def _in_range(
+    ch: int,
+    vs: int,
+    sel: tuple[int, int | None, int | None, int | None],
+) -> bool:
+    """Return True if verse (ch, vs) falls within the selection tuple."""
+    start_ch, start_vs, end_ch, end_vs = sel
     s_vs = start_vs if start_vs is not None else 1
     e_ch = end_ch if end_ch is not None else start_ch
     e_vs = end_vs if end_vs is not None else 10_000
@@ -120,21 +130,15 @@ def select_keywords(
         return []
     data = load_keywords_json(data_root, code)
 
-    # Pre-parse available verse keys into (ch, vs)
-    # Keys are "<chapter>:<verse>" strings.
-    parsed: List[Tuple[int, int, str]] = []
-    for k in data.keys():
-        try:
-            ch_s, vs_s = k.split(":", 1)
-            parsed.append((int(ch_s), int(vs_s), k))
-        except Exception:
-            continue
-
     found: Set[str] = set()
-    for sc, sv, ec, ev in ranges:
-        for ch, vs, key in parsed:
-            if _in_range(ch, vs, sc, sv, ec, ev):
-                entries = data.get(key, [])
+    for sel in ranges:
+        for key, entries in data.items():
+            try:
+                ch_s, vs_s = key.split(":", 1)
+                ch_i, vs_i = int(ch_s), int(vs_s)
+            except ValueError:
+                continue
+            if _in_range(ch_i, vs_i, sel):
                 for e in entries:
                     tw = e.get("tw_match")
                     if tw:
