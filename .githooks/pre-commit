@@ -12,4 +12,4 @@ if [[ "${SKIP_CHECKS:-}" == "1" ]]; then
 fi
 
 repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-"$repo_root/scripts/check_cleaned.sh"
+"$repo_root/scripts/check_commit.sh"
