@@ -136,6 +136,12 @@ Recommended workflow
 
 - Branch/state:
   - On `main` at latest commits:
+    - (CODEX) Add legacy init() shim for tests after moving to lifespan
+    - (CODEX) Fix indentation and import order after lifespan/exception refactor
+    - (CODEX) Replace startup event with lifespan; narrow exception handling to satisfy IDE warnings
+    - (CODEX) Finalize hooks setup: address mypy Optional brain in bt_servant
+    - (CODEX) Enable hooks and doc update; fix lint fallout for bt_servant.py and chroma imports
+    - (CODEX) Clean bt_servant.py: docstrings, typing, and safe exception handling
     - (CODEX) Relax chroma types and embedder typing in db/chroma_db.py
     - (CODEX) Clean messaging.py; add to enforced checks
     - (CODEX) Clean db/user.py typing; add to enforced checks
@@ -152,6 +158,7 @@ Recommended workflow
     - Repo-wide mode: `CHECK_ALL=1` (delegates to `scripts/check_repo.sh`).
     - Bypass (rare): `SKIP_CHECKS=1 git commit -m "..."`.
   - This clone: hooks configured (core.hooksPath is set to `.githooks`).
+  - On Windows, run commits from Git Bash; no chmod needed. If `$'\r'` errors appear, convert scripts to LF.
 - Cleaned files list (enforced by hook/script):
   - `brain.py`, `user_message.py`, `db/user.py`, `messaging.py`, `db/chroma_db.py`, `bt_servant.py`.
   - Script: `scripts/check_commit.sh` (edit `CHECK_FILES=(...)` to add newly cleaned files).
