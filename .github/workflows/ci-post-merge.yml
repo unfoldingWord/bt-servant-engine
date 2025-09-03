@@ -1,21 +1,19 @@
-name: CI (PRs - Full Suite)
+name: CI (Post-Merge Full Suite)
 
 on:
   pull_request:
-    branches:
-      - "**"
+    types: [closed]
 
 jobs:
   build-test:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: read
     env:
-      # OpenAI and test gating
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       CHROMA_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       RUN_OPENAI_API_TESTS: "1"
-      # Required config envs (safe defaults for tests)
       BASE_URL: "https://example.invalid"
       FACEBOOK_USER_AGENT: "facebookexternalua"
       META_APP_SECRET: "testsecret"
@@ -27,8 +25,10 @@ jobs:
       BT_SERVANT_LOG_LEVEL: "info"
       DATA_DIR: "./data"
     steps:
-      - name: Checkout
+      - name: Checkout merge commit
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -59,3 +59,4 @@ jobs:
 
       - name: Pytest (full, includes OpenAI tests)
         run: pytest -q
+
