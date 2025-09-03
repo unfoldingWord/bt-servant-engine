@@ -151,6 +151,7 @@ Recommended workflow
     - Default: checks the “cleaned files” list.
     - Repo-wide mode: `CHECK_ALL=1` (delegates to `scripts/check_repo.sh`).
     - Bypass (rare): `SKIP_CHECKS=1 git commit -m "..."`.
+  - This clone: hooks configured (core.hooksPath is set to `.githooks`).
 - Cleaned files list (enforced by hook/script):
   - `brain.py`, `user_message.py`, `db/user.py`, `messaging.py`, `db/chroma_db.py`, `bt_servant.py`.
   - Script: `scripts/check_commit.sh` (edit `CHECK_FILES=(...)` to add newly cleaned files).

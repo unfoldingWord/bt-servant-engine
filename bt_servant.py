@@ -1,3 +1,9 @@
+"""FastAPI entrypoint for webhooks and admin endpoints.
+
+Includes Meta webhook processing and ChromaDB admin utilities.
+"""
+# pylint: disable=line-too-long
+
 import asyncio
 import concurrent.futures
 import json
@@ -28,7 +34,12 @@ from db import (
     CollectionNotFoundError,
     DocumentNotFoundError,
 )
-from messaging import send_text_message, send_voice_message, transcribe_voice_message, send_typing_indicator_message
+from messaging import (
+    send_text_message,
+    send_voice_message,
+    transcribe_voice_message,
+    send_typing_indicator_message,
+)
 from user_message import UserMessage
 
 app = FastAPI()
@@ -40,6 +51,7 @@ user_locks: DefaultDict[str, asyncio.Lock] = defaultdict(asyncio.Lock)
 
 
 class Document(BaseModel):
+    """Payload schema for adding/upserting a document to Chroma."""
     document_id: str
     collection: str
     name: str
@@ -48,6 +60,7 @@ class Document(BaseModel):
 
 
 class CollectionCreate(BaseModel):
+    """Payload schema for creating a Chroma collection."""
     name: str
 
 
@@ -88,9 +101,10 @@ async def require_admin_token(
 
 @app.on_event("startup")
 def init():
+    """Initialize brain and increase thread pool for blocking tasks."""
     logger.info("Initializing bt servant engine...")
     logger.info("Loading brain...")
-    global brain
+    global brain  # pylint: disable=global-statement
     brain = create_brain()
     # Bump the default thread pool size
     loop = asyncio.get_event_loop()
@@ -134,6 +148,7 @@ async def add_document(document: Document, _: None = Depends(require_admin_token
 # Back-compat alias used by tests and earlier clients
 @app.post("/add-document")
 async def add_document_alias(document: Document, _: None = Depends(require_admin_token)):
+    """Back-compat alias for `/chroma/add-document`."""
     return await add_document(document)
 
 
@@ -311,13 +326,12 @@ async def verify_webhook(request: Request):
     if mode == "subscribe" and token == config.META_VERIFY_TOKEN:
         logger.info("webhook verified successfully with Meta.")
         return Response(content=challenge, media_type="text/plain", status_code=200)
-    else:
-        logger.warning("webhook verification failed.")
-        return Response(status_code=403)
+    logger.warning("webhook verification failed.")
+    return Response(status_code=403)
 
 
 @app.post("/meta-whatsapp")
-async def handle_meta_webhook(
+async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks
         request: Request,
         x_hub_signature_256: Annotated[Optional[str], Header(alias="X-Hub-Signature-256")] = None,
         x_hub_signature: Annotated[Optional[str], Header(alias="X-Hub-Signature")] = None,
@@ -331,7 +345,11 @@ async def handle_meta_webhook(
             raise HTTPException(status_code=401, detail="Invalid signature")
 
         if not user_agent or user_agent.strip() != config.FACEBOOK_USER_AGENT:
-            logger.error('received invalid user agent: %s. expected: %s', user_agent, config.FACEBOOK_USER_AGENT)
+            logger.error(
+                'received invalid user agent: %s. expected: %s',
+                user_agent,
+                config.FACEBOOK_USER_AGENT,
+            )
             raise HTTPException(status_code=401, detail="Invalid User Agent")
 
         payload = await request.json()
@@ -365,7 +383,7 @@ async def handle_meta_webhook(
     except json.JSONDecodeError:
         logger.error("Invalid JSON received", exc_info=True)
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": "Invalid JSON"})
-    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
+    except Exception:  # pylint: disable=broad-except
         logger.error("Error handling Meta webhook payload", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
@@ -377,7 +395,7 @@ async def process_message(user_message: UserMessage):
             start_time = time.time()
             try:
                 await send_typing_indicator_message(user_message.message_id)
-            except Exception as e:  # pylint: disable=broad-except  # Non-fatal: typing indicator best-effort
+            except Exception as e:  # pylint: disable=broad-except
                 logger.warning("Failed to send typing indicator: %s", e)
 
             if user_message.message_type == "audio":
@@ -386,6 +404,7 @@ async def process_message(user_message: UserMessage):
                 text = user_message.text
 
             loop = asyncio.get_event_loop()
+            assert brain is not None  # mypy: brain set during startup
             result = await loop.run_in_executor(None, brain.invoke, {
                 "user_id": user_message.user_id,
                 "user_query": text,
@@ -407,21 +426,36 @@ async def process_message(user_message: UserMessage):
                         # the sleep below is to prevent the (1/3)(3/3)(2/3) situation
                         # in a prod situation we may want to handle this better - IJL
                         await asyncio.sleep(4)
-                    except Exception as send_err:  # pylint: disable=broad-except  # Non-fatal: keep sending others
-                        logger.error("Failed to send message to Meta for user %s: %s", user_message.user_id, send_err)
+                    except Exception as send_err:  # pylint: disable=broad-except
+                        logger.error(
+                            "Failed to send message to Meta for user %s: %s",
+                            user_message.user_id,
+                            send_err,
+                        )
 
-            update_user_chat_history(user_id=user_message.user_id, query=user_message.text, response=full_response_text)
-            logger.info("Overall process_message processing time: %.2f seconds", time.time() - start_time)
-        except Exception:  # pylint: disable=broad-except  # Keep user-facing error safe
+            update_user_chat_history(
+                user_id=user_message.user_id,
+                query=user_message.text,
+                response=full_response_text,
+            )
+            logger.info(
+                "Overall process_message processing time: %.2f seconds",
+                time.time() - start_time,
+            )
+        except Exception:  # pylint: disable=broad-except
             logger.error("Error handling Meta webhook payload", exc_info=True)
-            # TODO: THIS MESSAGE NEEDS TO BE TRANSLATED AT SOME POINT!!! - IJL
+            # NOTE: This message should be localized in the future. - IJL
             error_message = ("I'm sorry. I'm having a bad day and I'm having trouble responding. "
                              "Please report this issue to my creators.")
             if user_message.message_type == "audio":
                 await send_voice_message(user_id=user_message.user_id, text=error_message)
             else:
                 await send_text_message(user_id=user_message.user_id, text=error_message)
-            update_user_chat_history(user_id=user_message.user_id, query=user_message.text, response=error_message)
+            update_user_chat_history(
+                user_id=user_message.user_id,
+                query=user_message.text,
+                response=error_message,
+            )
 
 
 def verify_facebook_signature(app_secret: str, payload: bytes,

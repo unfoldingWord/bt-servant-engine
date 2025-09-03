@@ -5,12 +5,12 @@ retrieve or create collections, along with small helper utilities.
 """
 
 from pathlib import Path
+from typing import Any, Optional
 import chromadb
 from chromadb.utils import embedding_functions
 from chromadb.config import Settings
 from config import config
 from logger import get_logger
-from typing import Any, Optional
 
 # Pylint struggles to infer pydantic BaseSettings field types.
 # Casting to Path makes the type explicit for static analyzers.
