@@ -140,5 +140,5 @@ def select_keywords(
                     if tw:
                         found.add(tw)
 
-    return sorted(found)
-
+    # Case-insensitive sort so capitalized words do not group separately
+    return sorted(found, key=str.casefold)

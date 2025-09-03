@@ -407,6 +407,14 @@ Here are a few examples to guide you:
     <intent>get-passage-summary</intent>
   </example>
   <example>
+    <message>summarize Gen–Exo</message>
+    <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>summarize Genesis and Exodus</message>
+    <intent>get-passage-summary</intent>
+  </example>
+  <example>
     <message>what are the important words in EXO-DEUT</message>
     <intent>get-passage-keywords</intent>
   </example>
