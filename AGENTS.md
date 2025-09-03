@@ -38,6 +38,16 @@ Recommended workflow
 - Before committing: run `ruff`, `pylint`, and `mypy` repo‑wide. Fix or explicitly document remaining issues.
 - Prefer local casts or minimal docstrings to satisfy static analysis when frameworks (e.g., Pydantic) confuse linters.
 
+## Incremental Pre-Commit Checks (Enforced)
+- Purpose: grow toward a strict “full repo clean before every commit” without blocking on legacy warnings.
+- For now, always run the full gambit on `brain.py` before every commit:
+  - `ruff check brain.py`
+  - `pylint -rn -sn brain.py`
+  - `mypy brain.py`
+- Tests must still pass: `pytest -q`.
+- As additional files are cleaned of warnings, add them to this enforced list. The end state is to run the full repo checks on every commit:
+  - `ruff check . && pylint $(git ls-files '*.py') && mypy .`
+
 ## Testing Guidelines
 - Place tests in `tests/` as `test_*.py`.
 - Arrange/Act/Assert structure; mock network/LLM calls.
