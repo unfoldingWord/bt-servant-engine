@@ -48,6 +48,12 @@ Recommended workflow
 - As additional files are cleaned of warnings, add them to this enforced list. The end state is to run the full repo checks on every commit:
   - `ruff check . && pylint $(git ls-files '*.py') && mypy .`
 
+### Git Hook + Helper Scripts
+- One-time install per clone: `git config core.hooksPath .githooks`
+- The versioned pre-commit hook runs `scripts/check_brain.sh` by default.
+- Bypass in emergencies/CI: `SKIP_CHECKS=1 git commit -m "..."`.
+- When the codebase is clean repo-wide, switch the hook to call `scripts/check_repo.sh`.
+
 ## Testing Guidelines
 - Place tests in `tests/` as `test_*.py`.
 - Arrange/Act/Assert structure; mock network/LLM calls.
