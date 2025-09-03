@@ -24,7 +24,7 @@ if [[ "${CHECK_ALL:-}" == "1" ]]; then
   exec "$repo_root/scripts/check_repo.sh"
 fi
 
-CHECK_FILES=(brain.py user_message.py)
+CHECK_FILES=(brain.py user_message.py db/user.py)
 
 echo -e "${YLW}Running ruff on cleaned files: ${CHECK_FILES[*]}...${RST}"
 ruff check "${CHECK_FILES[@]}"
