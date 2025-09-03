@@ -5,7 +5,7 @@ Meta sends. The brain runs normally and will invoke OpenAI for language,
 preprocessor, intent classification, and selection parsing. We choose a
 keywords-style query to avoid costly summarization calls.
 """
-# pylint: disable=missing-function-docstring,line-too-long,duplicate-code,unused-argument
+# pylint: disable=missing-function-docstring,line-too-long,duplicate-code,unused-argument,too-many-locals
 from __future__ import annotations
 
 import os
@@ -17,6 +17,9 @@ import re
 from dotenv import load_dotenv
 import pytest
 from fastapi.testclient import TestClient
+from tinydb import TinyDB
+import brain
+from db import user as user_db
 
 import bt_servant as api
 from config import config as app_config
@@ -69,9 +72,17 @@ def _meta_text_payload(text: str) -> dict:
 
 
 @pytest.mark.skipif(not _has_real_openai(), reason="OPENAI_API_KEY not set for live OpenAI tests")
-def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch):
+@pytest.mark.parametrize("is_first", [True, False])
+def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first: bool):
     # Ensure sandbox guard does not block the test sender
     monkeypatch.setattr(api.config, "IN_META_SANDBOX_MODE", False, raising=True)
+    # Use an isolated TinyDB for user state so we can control first_interaction
+    tmp_db_path = tmp_path / "db.json"
+    test_db = TinyDB(str(tmp_db_path))
+    monkeypatch.setattr(user_db, "get_user_db", lambda: test_db)
+    # Set the user's first_interaction flag explicitly
+    user_id = "15555555555"
+    user_db.set_first_interaction(user_id, is_first)
     # Record outbound messages instead of hitting Meta
     sent: list[str] = []
 
@@ -88,6 +99,18 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch):
     monkeypatch.setattr(api, "send_text_message", _fake_send_text_message)
     monkeypatch.setattr(api, "send_voice_message", _fake_send_voice_message)
     monkeypatch.setattr(api, "send_typing_indicator_message", _fake_typing_indicator_message)
+
+    # Capture that the keywords handler node actually ran (state-based validation)
+    invoked: list[bool] = []
+    orig_keywords = brain.handle_get_passage_keywords
+
+    def _wrapped_keywords(state):  # type: ignore[no-redef]
+        invoked.append(True)
+        return orig_keywords(state)
+
+    monkeypatch.setattr(brain, "handle_get_passage_keywords", _wrapped_keywords)
+    # Force fresh brain compile with the patched node
+    api.brain = None
 
     client = TestClient(api.app)
 
@@ -117,8 +140,9 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch):
         time.sleep(0.25)
 
     assert sent, "No outbound messages captured from keywords flow"
+    # Primary assertion: the keywords handler ran, proving the intent path executed
+    assert invoked, "Keywords handler was not invoked"
+    # Secondary loose check: response mentions both tokens somewhere (tolerant)
     combined = "\n".join(sent)
-    # Allow minor phrasing variations from the LLM combiner, e.g.,
-    # "In 3 John, the keywords are ..." vs "Keywords in 3 John ...".
-    pattern = re.compile(r"(?i)(\bkeywords?\b.*3\s*john|3\s*john.*\bkeywords?\b)")
-    assert pattern.search(combined), f"Combined response did not mention keywords for 3 John: {combined}"
+    text = re.sub(r"[^a-z0-9]+", " ", combined.lower())
+    assert ("keyword" in text or "keywords" in text) and "3 john" in text

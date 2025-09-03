@@ -58,5 +58,4 @@ jobs:
         run: pyright
 
       - name: Pytest (full, includes OpenAI tests)
-        run: pytest -q
-
+        run: pytest -vv -r a -s --log-cli-level=INFO --durations=20
