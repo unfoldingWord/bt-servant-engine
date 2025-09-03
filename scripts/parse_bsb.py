@@ -170,7 +170,7 @@ def write_books_to_json(target_root: Path, data: Dict[str, List[Tuple[str, str]]
     for file_stem, entries in data.items():
         out_path = target_root / f"{file_stem}.json"
         payload = [{"reference": ref, "text": txt} for ref, txt in entries]
-        # Ensure ascii is not enforced; keep unicode punctuation as-is
+        # Ensure ascii is not enforced; keep Unicode punctuation as-is
         out_path.write_text(
             json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",

@@ -31,3 +31,8 @@ venv/
 data/
 db/data/
 logs/
+
+# node stuff
+node_modules/
+package.json
+package-lock.json
