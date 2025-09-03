@@ -10,6 +10,9 @@ import bt_servant as api
 class DummyEmbeddingFunction:
     """Simple callable stub returning fixed-size zero embeddings for inputs."""
 
+    # Newer Chroma config path checks this attribute to avoid legacy warnings
+    is_legacy = False
+
     def __call__(self, input):  # type: ignore[override]
         return [[0.0, 0.0, 0.0] for _ in input]
 
