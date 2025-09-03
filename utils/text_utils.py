@@ -25,7 +25,8 @@ def combine_chunks(chunks: List[str], chunk_max: int) -> List[str]:
 def chop_text(text: str, n: int) -> list[str]:
     """Split text into chunks no longer than n, preserving sentence-ish breaks."""
     # Split text by sentence-ish boundaries, but keep delimiters
-    pieces = re.split(r'(\.|\;|\n\n)', text)
+    # Match a period, semicolon, or double newline as separators
+    pieces = re.split(r'(\.|;|\n\n)', text)
 
     # Reattach the separator (so "This is a sentence." instead of "This is a sentence" + ".")
     combined_pieces = []

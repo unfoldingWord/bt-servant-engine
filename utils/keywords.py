@@ -144,5 +144,6 @@ def select_keywords(
                     if tw:
                         found.add(tw)
 
-    # Case-insensitive sort so capitalized words do not group separately
-    return sorted(found, key=str.casefold)
+    # Case-insensitive sort so capitalized words do not group separately.
+    # Use a lambda to satisfy type-checkers/IDEs expecting (str) -> Any.
+    return sorted(found, key=lambda s: s.casefold())
