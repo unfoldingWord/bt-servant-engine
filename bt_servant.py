@@ -11,7 +11,9 @@ import time
 import hmac
 import hashlib
 from typing import Optional, Annotated, Any, DefaultDict
+from contextlib import asynccontextmanager
 from collections import defaultdict
+import httpx
 from fastapi import FastAPI, Request, Response, status, HTTPException, Header, Depends
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -42,12 +44,39 @@ from messaging import (
 )
 from user_message import UserMessage
 
-app = FastAPI()
+@asynccontextmanager
+async def _lifespan(_: FastAPI):
+    """Initialize shared resources at startup and clean up on shutdown."""
+    logger.info("Initializing bt servant engine...")
+    logger.info("Loading brain...")
+    global brain  # pylint: disable=global-statement
+    brain = create_brain()
+    # Bump the default thread pool size
+    loop = asyncio.get_event_loop()
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=64)
+    loop.set_default_executor(executor)
+    logger.info("brain loaded.")
+    try:
+        yield
+    finally:
+        executor.shutdown(wait=False)
+
+
+app = FastAPI(lifespan=_lifespan)
 
 brain: Any | None = None
 
 logger = get_logger(__name__)
 user_locks: DefaultDict[str, asyncio.Lock] = defaultdict(asyncio.Lock)
+
+
+def init() -> None:
+    """Deprecated startup hook retained for test compatibility.
+
+    Tests may monkeypatch `bt_servant.init` to a no-op. App startup now uses
+    FastAPI lifespan instead of on_event.
+    """
+    return None
 
 
 class Document(BaseModel):
@@ -99,20 +128,6 @@ async def require_admin_token(
                             headers={"WWW-Authenticate": "Bearer"})
 
 
-@app.on_event("startup")
-def init():
-    """Initialize brain and increase thread pool for blocking tasks."""
-    logger.info("Initializing bt servant engine...")
-    logger.info("Loading brain...")
-    global brain  # pylint: disable=global-statement
-    brain = create_brain()
-    # Bump the default thread pool size
-    loop = asyncio.get_event_loop()
-    executor = concurrent.futures.ThreadPoolExecutor(max_workers=64)
-    loop.set_default_executor(executor)
-    logger.info("brain loaded.")
-
-
 @app.get("/")
 def read_root():
     """Health/info endpoint with a short usage message."""
@@ -125,24 +140,28 @@ async def add_document(document: Document, _: None = Depends(require_admin_token
 
     For now, simply logs the received payload.
     """
-    try:
-        logger.info("add_document payload received: %s-%s for collection %s.",document.document_id, document.name, document.collection)
-        # Upsert into ChromaDB
-        collection = get_or_create_chroma_collection(document.collection)
-        collection.upsert(
-            ids=[str(document.document_id)],
-            documents=[document.text],
-            metadatas=[document.metadata],
-        )
+    logger.info(
+        "add_document payload received: %s-%s for collection %s.",
+        document.document_id,
+        document.name,
+        document.collection,
+    )
+    # Upsert into ChromaDB
+    collection = get_or_create_chroma_collection(document.collection)
+    collection.upsert(
+        ids=[str(document.document_id)],
+        documents=[document.text],
+        metadatas=[document.metadata],
+    )
 
-        return JSONResponse(status_code=status.HTTP_200_OK, content={
+    return JSONResponse(
+        status_code=status.HTTP_200_OK,
+        content={
             "status": "ok",
             "document_id": document.document_id,
-            "doc_name": document.name
-        })
-    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
-        logger.error("Error handling add_document payload", exc_info=True)
-        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+            "doc_name": document.name,
+        },
+    )
 
 
 # Back-compat alias used by tests and earlier clients
@@ -158,20 +177,20 @@ async def create_collection_endpoint(payload: CollectionCreate, _: None = Depend
 
     Returns 201 on creation, 409 if it already exists, 400 on invalid name.
     """
+    logger.info("create collection request received: %s", payload.model_dump())
     try:
-        logger.info("create collection request received: %s", payload.model_dump())
         create_chroma_collection(payload.name)
-        return JSONResponse(status_code=status.HTTP_201_CREATED, content={
-            "status": "created",
-            "name": payload.name.strip(),
-        })
     except ValueError as ve:
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionExistsError:
         return JSONResponse(status_code=status.HTTP_409_CONFLICT, content={"error": "Collection already exists"})
-    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
-        logger.error("Error creating collection", exc_info=True)
-        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+    return JSONResponse(
+        status_code=status.HTTP_201_CREATED,
+        content={
+            "status": "created",
+            "name": payload.name.strip(),
+        },
+    )
 
 
 @app.delete("/chroma/collections/{name}")
@@ -180,28 +199,21 @@ async def delete_collection_endpoint(name: str, _: None = Depends(require_admin_
 
     Returns 204 on success, 404 if missing, 400 on invalid name.
     """
+    logger.info("delete collection request received: %s", name)
     try:
-        logger.info("delete collection request received: %s", name)
         delete_chroma_collection(name)
-        return Response(status_code=status.HTTP_204_NO_CONTENT)
     except ValueError as ve:
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
-    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
-        logger.error("Error deleting collection", exc_info=True)
-        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
 @app.get("/chroma/collections")
 async def list_collections_endpoint(_: None = Depends(require_admin_token)):
     """List all Chroma collection names."""
-    try:
-        names = list_chroma_collections()
-        return JSONResponse(status_code=status.HTTP_200_OK, content={"collections": names})
-    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
-        logger.error("Error listing collections", exc_info=True)
-        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+    names = list_chroma_collections()
+    return JSONResponse(status_code=status.HTTP_200_OK, content={"collections": names})
 
 
 @app.get("/chroma/collections/{name}/count")
@@ -211,20 +223,20 @@ async def count_documents_endpoint(name: str, _: None = Depends(require_admin_to
     Returns 200 with `{ "collection": name, "count": n }` on success,
     404 if the collection does not exist, and 400 on invalid name.
     """
+    logger.info("count documents request received: %s", name)
     try:
-        logger.info("count documents request received: %s", name)
         count = count_documents_in_collection(name)
-        return JSONResponse(status_code=status.HTTP_200_OK, content={
-            "collection": name.strip(),
-            "count": count,
-        })
     except ValueError as ve:
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
-    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
-        logger.error("Error counting documents", exc_info=True)
-        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+    return JSONResponse(
+        status_code=status.HTTP_200_OK,
+        content={
+            "collection": name.strip(),
+            "count": count,
+        },
+    )
 
 
 @app.get("/chroma/collection/{name}/ids")
@@ -234,21 +246,21 @@ async def list_document_ids_endpoint(name: str, _: None = Depends(require_admin_
     Response format:
     { "collection": name, "count": N, "ids": ["id1", ...] }
     """
+    logger.info("list document ids request received: %s", name)
     try:
-        logger.info("list document ids request received: %s", name)
         ids = list_document_ids_in_collection(name)
-        return JSONResponse(status_code=status.HTTP_200_OK, content={
-            "collection": name.strip(),
-            "count": len(ids),
-            "ids": ids,
-        })
     except ValueError as ve:
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
-    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
-        logger.error("Error listing document ids", exc_info=True)
-        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+    return JSONResponse(
+        status_code=status.HTTP_200_OK,
+        content={
+            "collection": name.strip(),
+            "count": len(ids),
+            "ids": ids,
+        },
+    )
 
 
 @app.delete("/chroma/collections/{name}/documents/{document_id}")
@@ -257,19 +269,20 @@ async def delete_document_endpoint(name: str, document_id: str, _: None = Depend
 
     Returns 204 on success, 404 if missing, 400 on invalid inputs.
     """
+    logger.info(
+        "delete document request received: collection=%s, id=%s",
+        name,
+        document_id,
+    )
     try:
-        logger.info("delete document request received: collection=%s, id=%s", name, document_id)
         delete_document(name, document_id)
-        return Response(status_code=status.HTTP_204_NO_CONTENT)
     except ValueError as ve:
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
     except DocumentNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Document not found"})
-    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
-        logger.error("Error deleting document", exc_info=True)
-        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
 @app.get("/chroma/collections/{name}/documents/{document_id}")
@@ -279,23 +292,27 @@ async def get_document_text_endpoint(name: str, document_id: str, _: None = Depe
     Returns 200 with `{ "collection": name, "document_id": id, "text": "..." }` on success,
     404 if the collection or document does not exist, and 400 on invalid inputs.
     """
+    logger.info(
+        "get document text request received: collection=%s, id=%s",
+        name,
+        document_id,
+    )
     try:
-        logger.info("get document text request received: collection=%s, id=%s", name, document_id)
         text = get_document_text(name, document_id)
-        return JSONResponse(status_code=status.HTTP_200_OK, content={
-            "collection": name.strip(),
-            "document_id": str(document_id),
-            "text": text,
-        })
     except ValueError as ve:
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
     except DocumentNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Document not found"})
-    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
-        logger.error("Error retrieving document", exc_info=True)
-        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
+    return JSONResponse(
+        status_code=status.HTTP_200_OK,
+        content={
+            "collection": name.strip(),
+            "document_id": str(document_id),
+            "text": text,
+        },
+    )
 
 
 # Catch-all routes under /chroma to enforce auth on unknown paths
@@ -375,7 +392,7 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks
                             return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content={"error": "Unauthorized sender"})
 
                         asyncio.create_task(process_message(user_message=user_message))
-                    except Exception:  # pylint: disable=broad-except  # Defensive: skip bad message batch items
+                    except ValueError:
                         logger.error("Error while processing user message...", exc_info=True)
                         continue
         return Response(status_code=200)
@@ -383,79 +400,55 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks
     except json.JSONDecodeError:
         logger.error("Invalid JSON received", exc_info=True)
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": "Invalid JSON"})
-    except Exception:  # pylint: disable=broad-except
-        logger.error("Error handling Meta webhook payload", exc_info=True)
-        return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 
 async def process_message(user_message: UserMessage):
     """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
+        start_time = time.time()
         try:
-            start_time = time.time()
-            try:
-                await send_typing_indicator_message(user_message.message_id)
-            except Exception as e:  # pylint: disable=broad-except
-                logger.warning("Failed to send typing indicator: %s", e)
+            await send_typing_indicator_message(user_message.message_id)
+        except httpx.HTTPError as e:
+            logger.warning("Failed to send typing indicator: %s", e)
 
-            if user_message.message_type == "audio":
-                text = await transcribe_voice_message(user_message.media_id)
-            else:
-                text = user_message.text
+        if user_message.message_type == "audio":
+            text = await transcribe_voice_message(user_message.media_id)
+        else:
+            text = user_message.text
 
-            loop = asyncio.get_event_loop()
-            assert brain is not None  # mypy: brain set during startup
-            result = await loop.run_in_executor(None, brain.invoke, {
-                "user_id": user_message.user_id,
-                "user_query": text,
-                "user_chat_history": get_user_chat_history(user_id=user_message.user_id),
-                "user_response_language": get_user_response_language(user_id=user_message.user_id)
-            })
-            responses = result["translated_responses"]
-            full_response_text = "\n\n".join(responses).rstrip()
-            if user_message.message_type == "audio":
-                await send_voice_message(user_id=user_message.user_id, text=full_response_text)
-            else:
-                response_count = len(responses)
-                if response_count > 1:
-                    responses = [f'({i}/{response_count}) {r}' for i, r in enumerate(responses, start=1)]
-                for response in responses:
-                    logger.info("Response from bt_servant: %s", response)
-                    try:
-                        await send_text_message(user_id=user_message.user_id, text=response)
-                        # the sleep below is to prevent the (1/3)(3/3)(2/3) situation
-                        # in a prod situation we may want to handle this better - IJL
-                        await asyncio.sleep(4)
-                    except Exception as send_err:  # pylint: disable=broad-except
-                        logger.error(
-                            "Failed to send message to Meta for user %s: %s",
-                            user_message.user_id,
-                            send_err,
-                        )
+        loop = asyncio.get_event_loop()
+        assert brain is not None  # mypy: brain set during startup
+        result = await loop.run_in_executor(None, brain.invoke, {
+            "user_id": user_message.user_id,
+            "user_query": text,
+            "user_chat_history": get_user_chat_history(user_id=user_message.user_id),
+            "user_response_language": get_user_response_language(user_id=user_message.user_id)
+        })
+        responses = result["translated_responses"]
+        full_response_text = "\n\n".join(responses).rstrip()
+        if user_message.message_type == "audio":
+            await send_voice_message(user_id=user_message.user_id, text=full_response_text)
+        else:
+            response_count = len(responses)
+            if response_count > 1:
+                responses = [f'({i}/{response_count}) {r}' for i, r in enumerate(responses, start=1)]
+            for response in responses:
+                logger.info("Response from bt_servant: %s", response)
+                try:
+                    await send_text_message(user_id=user_message.user_id, text=response)
+                    await asyncio.sleep(4)
+                except httpx.HTTPError as send_err:
+                    logger.error("Failed to send message to Meta for user %s: %s", user_message.user_id, send_err)
 
-            update_user_chat_history(
-                user_id=user_message.user_id,
-                query=user_message.text,
-                response=full_response_text,
-            )
-            logger.info(
-                "Overall process_message processing time: %.2f seconds",
-                time.time() - start_time,
-            )
-        except Exception:  # pylint: disable=broad-except
-            logger.error("Error handling Meta webhook payload", exc_info=True)
-            # NOTE: This message should be localized in the future. - IJL
-            error_message = ("I'm sorry. I'm having a bad day and I'm having trouble responding. "
-                             "Please report this issue to my creators.")
-            if user_message.message_type == "audio":
-                await send_voice_message(user_id=user_message.user_id, text=error_message)
-            else:
-                await send_text_message(user_id=user_message.user_id, text=error_message)
-            update_user_chat_history(
-                user_id=user_message.user_id,
-                query=user_message.text,
-                response=error_message,
-            )
+        update_user_chat_history(
+            user_id=user_message.user_id,
+            query=user_message.text,
+            response=full_response_text,
+        )
+        logger.info(
+            "Overall process_message processing time: %.2f seconds",
+            time.time() - start_time,
+        )
 
 
 def verify_facebook_signature(app_secret: str, payload: bytes,
