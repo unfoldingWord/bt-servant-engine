@@ -407,6 +407,18 @@ Here are a few examples to guide you:
     <intent>get-passage-summary</intent>
   </example>
   <example>
+    <message>what are the important words in EXO-DEUT</message>
+    <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>keywords in Genesis and Exodus</message>
+    <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>list the keywords for Gen 1-3</message>
+    <intent>get-passage-keywords</intent>
+  </example>
+  <example>
     <message>What are all the important words in Hebrews 1:1-11?</message>
     <intent>get-passage-keywords</intent>
   </example>
