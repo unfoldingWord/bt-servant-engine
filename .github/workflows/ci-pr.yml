@@ -1,0 +1,61 @@
+name: CI (PRs - Full Suite)
+
+on:
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      # OpenAI and test gating
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      RUN_OPENAI_API_TESTS: "1"
+      # Required config envs (safe defaults for tests)
+      BASE_URL: "https://example.invalid"
+      FACEBOOK_USER_AGENT: "facebookexternalua"
+      META_APP_SECRET: "testsecret"
+      META_VERIFY_TOKEN: "verifytoken"
+      META_WHATSAPP_TOKEN: "whatsapptoken"
+      META_PHONE_NUMBER_ID: "1234567890"
+      IN_META_SANDBOX_MODE: "False"
+      META_SANDBOX_PHONE_NUMBER: "15555555555"
+      BT_SERVANT_LOG_LEVEL: "info"
+      DATA_DIR: "./data"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest ruff pylint mypy pyright
+
+      - name: Ensure data dir
+        run: mkdir -p data
+
+      - name: Ruff
+        run: ruff check .
+
+      - name: Pylint
+        run: pylint -rn -sn $(git ls-files '*.py')
+
+      - name: Mypy
+        run: mypy .
+
+      - name: Pyright
+        run: pyright
+
+      - name: Pytest (full, includes OpenAI tests)
+        run: pytest -q
+
