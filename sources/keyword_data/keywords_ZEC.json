@@ -1,0 +1,4242 @@
+{
+  "1:1": [
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "Darius",
+      "tw_match": "Darius"
+    },
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Zechariah",
+      "tw_match": "Zechariah"
+    },
+    {
+      "surface": "prophet",
+      "tw_match": "prophet"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:3": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "prophets",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "prophets",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "decrees",
+      "tw_match": "decree"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "prophets",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "repented",
+      "tw_match": "repent"
+    },
+    {
+      "surface": "Just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "deserved",
+      "tw_match": "deserve"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "Darius",
+      "tw_match": "Darius"
+    },
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Zechariah",
+      "tw_match": "Zechariah"
+    },
+    {
+      "surface": "prophet",
+      "tw_match": "prophet"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "horses",
+      "tw_match": "horse"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "1:11": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "compassion",
+      "tw_match": "compassion"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "1:13": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "1:14": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "jealous",
+      "tw_match": "jealous"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "Zion",
+      "tw_match": "Zion"
+    },
+    {
+      "surface": "passion",
+      "tw_match": "passions"
+    }
+  ],
+  "1:15": [
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    }
+  ],
+  "1:16": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "mercies",
+      "tw_match": "mercy"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    }
+  ],
+  "1:17": [
+    {
+      "surface": "call out",
+      "tw_match": "call out"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Zion",
+      "tw_match": "Zion"
+    },
+    {
+      "surface": "choose",
+      "tw_match": "choose"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    }
+  ],
+  "1:18": [
+    {
+      "surface": "horns",
+      "tw_match": "horns"
+    }
+  ],
+  "1:19": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "horns",
+      "tw_match": "horns"
+    },
+    {
+      "surface": "scattered",
+      "tw_match": "scatter"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    }
+  ],
+  "1:20": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:21": [
+    {
+      "surface": "horns",
+      "tw_match": "horns"
+    },
+    {
+      "surface": "scattered",
+      "tw_match": "scatter"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "terrify",
+      "tw_match": "terrify"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "horn",
+      "tw_match": "horn"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "scatter",
+      "tw_match": "scatter"
+    }
+  ],
+  "2:1": [],
+  "2:2": [
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    }
+  ],
+  "2:3": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    }
+  ],
+  "2:4": [
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "beasts",
+      "tw_match": "beast"
+    }
+  ],
+  "2:5": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    }
+  ],
+  "2:6": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "declares",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "scattered",
+      "tw_match": "scatter"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "winds",
+      "tw_match": "wind"
+    },
+    {
+      "surface": "skies",
+      "tw_match": "sky"
+    }
+  ],
+  "2:7": [
+    {
+      "surface": "Zion",
+      "tw_match": "Zion"
+    },
+    {
+      "surface": "Babylon",
+      "tw_match": "Babylon"
+    }
+  ],
+  "2:8": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "honored",
+      "tw_match": "honor"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "plundered",
+      "tw_match": "plundered"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "2:9": [
+    {
+      "surface": "shake",
+      "tw_match": "shake"
+    },
+    {
+      "surface": "hand over",
+      "tw_match": "hand over"
+    },
+    {
+      "surface": "plunder",
+      "tw_match": "plunder"
+    },
+    {
+      "surface": "slaves",
+      "tw_match": "slave"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    }
+  ],
+  "2:10": [
+    {
+      "surface": "glad",
+      "tw_match": "glad"
+    },
+    {
+      "surface": "Zion",
+      "tw_match": "Zion"
+    },
+    {
+      "surface": "declares",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "2:11": [
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    }
+  ],
+  "2:12": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "inherit",
+      "tw_match": "inherit"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "possession",
+      "tw_match": "possession"
+    },
+    {
+      "surface": "holy",
+      "tw_match": "holy"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "choose",
+      "tw_match": "choose"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    }
+  ],
+  "2:13": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "holy place",
+      "tw_match": "holy place"
+    }
+  ],
+  "3:1": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "high priest",
+      "tw_match": "high priest"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Satan",
+      "tw_match": "Satan"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "3:2": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Satan",
+      "tw_match": "Satan"
+    },
+    {
+      "surface": "rebuke",
+      "tw_match": "rebuke"
+    },
+    {
+      "surface": "chosen",
+      "tw_match": "chosen"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    }
+  ],
+  "3:3": [
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    }
+  ],
+  "3:4": [
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "3:5": [
+    {
+      "surface": "clean",
+      "tw_match": "clean"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "3:6": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    }
+  ],
+  "3:7": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "govern",
+      "tw_match": "govern"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "guard",
+      "tw_match": "guard"
+    },
+    {
+      "surface": "courts",
+      "tw_match": "court"
+    }
+  ],
+  "3:8": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "high priest",
+      "tw_match": "high priest"
+    },
+    {
+      "surface": "companions",
+      "tw_match": "companion"
+    },
+    {
+      "surface": "sign",
+      "tw_match": "sign"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    }
+  ],
+  "3:9": [
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "3:10": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "neighbor",
+      "tw_match": "neighbor"
+    },
+    {
+      "surface": "vine",
+      "tw_match": "vine"
+    },
+    {
+      "surface": "fig",
+      "tw_match": "fig"
+    }
+  ],
+  "4:1": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "4:2": [
+    {
+      "surface": "lampstand",
+      "tw_match": "lampstand"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "lamps",
+      "tw_match": "lamp"
+    },
+    {
+      "surface": "lamp",
+      "tw_match": "lamp"
+    }
+  ],
+  "4:3": [
+    {
+      "surface": "olive",
+      "tw_match": "olive"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "4:4": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "master",
+      "tw_match": "master"
+    }
+  ],
+  "4:5": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "master",
+      "tw_match": "master"
+    }
+  ],
+  "4:6": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    }
+  ],
+  "4:7": [
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "Grace",
+      "tw_match": "grace"
+    }
+  ],
+  "4:8": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    }
+  ],
+  "4:9": [
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "foundation",
+      "tw_match": "foundation"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    }
+  ],
+  "4:10": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "rejoice",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "4:11": [
+    {
+      "surface": "olive",
+      "tw_match": "olive"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "lampstand",
+      "tw_match": "lampstand"
+    }
+  ],
+  "4:12": [
+    {
+      "surface": "olive",
+      "tw_match": "olive"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "pipes",
+      "tw_match": "pipe"
+    },
+    {
+      "surface": "golden",
+      "tw_match": "golden"
+    },
+    {
+      "surface": "oil",
+      "tw_match": "oil"
+    }
+  ],
+  "4:13": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "master",
+      "tw_match": "master"
+    }
+  ],
+  "4:14": [
+    {
+      "surface": "oil",
+      "tw_match": "oil"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "5:1": [
+    {
+      "surface": "scroll",
+      "tw_match": "scroll"
+    }
+  ],
+  "5:2": [
+    {
+      "surface": "scroll",
+      "tw_match": "scroll"
+    }
+  ],
+  "5:3": [
+    {
+      "surface": "curse",
+      "tw_match": "curse"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "thief",
+      "tw_match": "thief"
+    },
+    {
+      "surface": "swears",
+      "tw_match": "swear"
+    },
+    {
+      "surface": "oath",
+      "tw_match": "oath"
+    }
+  ],
+  "5:4": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "thief",
+      "tw_match": "thief"
+    },
+    {
+      "surface": "swears",
+      "tw_match": "swear"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "consume",
+      "tw_match": "consume"
+    },
+    {
+      "surface": "stones",
+      "tw_match": "stone"
+    }
+  ],
+  "5:5": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    }
+  ],
+  "5:6": [
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "5:7": [],
+  "5:8": [],
+  "5:9": [
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "heaven",
+      "tw_match": "heaven"
+    }
+  ],
+  "5:10": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    }
+  ],
+  "5:11": [
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Shinar",
+      "tw_match": "Shinar"
+    }
+  ],
+  "6:1": [
+    {
+      "surface": "chariots",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "bronze",
+      "tw_match": "bronze"
+    }
+  ],
+  "6:2": [
+    {
+      "surface": "chariot",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "horses",
+      "tw_match": "horse"
+    }
+  ],
+  "6:3": [
+    {
+      "surface": "chariot",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "horses",
+      "tw_match": "horse"
+    }
+  ],
+  "6:4": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "master",
+      "tw_match": "master"
+    }
+  ],
+  "6:5": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "winds",
+      "tw_match": "wind"
+    },
+    {
+      "surface": "heaven",
+      "tw_match": "heaven"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "6:6": [
+    {
+      "surface": "horses",
+      "tw_match": "horse"
+    }
+  ],
+  "6:7": [
+    {
+      "surface": "horses",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "6:8": [
+    {
+      "surface": "called out",
+      "tw_match": "called out"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    }
+  ],
+  "6:9": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    }
+  ],
+  "6:10": [
+    {
+      "surface": "exiles",
+      "tw_match": "exile"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Josiah",
+      "tw_match": "Josiah"
+    },
+    {
+      "surface": "Zephaniah",
+      "tw_match": "Zephaniah"
+    },
+    {
+      "surface": "Babylon",
+      "tw_match": "Babylon"
+    }
+  ],
+  "6:11": [
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "crown",
+      "tw_match": "crown"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "high priest",
+      "tw_match": "high priest"
+    }
+  ],
+  "6:12": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "6:13": [
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "bear",
+      "tw_match": "bear"
+    },
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "rule",
+      "tw_match": "rule"
+    },
+    {
+      "surface": "throne",
+      "tw_match": "throne"
+    },
+    {
+      "surface": "priest",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "counsel",
+      "tw_match": "counsel"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "6:14": [
+    {
+      "surface": "crown",
+      "tw_match": "crown"
+    },
+    {
+      "surface": "Zephaniah",
+      "tw_match": "Zephaniah"
+    },
+    {
+      "surface": "memorial",
+      "tw_match": "memorial"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "6:15": [
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "truly",
+      "tw_match": "truly"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "7:1": [
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "Darius",
+      "tw_match": "Darius"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Zechariah",
+      "tw_match": "Zechariah"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    }
+  ],
+  "7:2": [
+    {
+      "surface": "Bethel",
+      "tw_match": "Bethel"
+    },
+    {
+      "surface": "beg",
+      "tw_match": "beg"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "7:3": [
+    {
+      "surface": "priests",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "prophets",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "mourn",
+      "tw_match": "mourn"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "fast",
+      "tw_match": "fast"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "7:4": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    }
+  ],
+  "7:5": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "priests",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "fasted",
+      "tw_match": "fast"
+    },
+    {
+      "surface": "mourned",
+      "tw_match": "mourn"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    },
+    {
+      "surface": "truly",
+      "tw_match": "truly"
+    },
+    {
+      "surface": "fasting",
+      "tw_match": "fasting"
+    }
+  ],
+  "7:6": [],
+  "7:7": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "proclaimed",
+      "tw_match": "proclaim"
+    },
+    {
+      "surface": "prophets",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "prosperity",
+      "tw_match": "prosperity"
+    },
+    {
+      "surface": "Negev",
+      "tw_match": "Negev"
+    }
+  ],
+  "7:8": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Zechariah",
+      "tw_match": "Zechariah"
+    }
+  ],
+  "7:9": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "Judge",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "covenant faithfulness",
+      "tw_match": "covenant faithfulness"
+    },
+    {
+      "surface": "mercy",
+      "tw_match": "mercy"
+    }
+  ],
+  "7:10": [
+    {
+      "surface": "foreigner",
+      "tw_match": "foreigner"
+    },
+    {
+      "surface": "person",
+      "tw_match": "person"
+    }
+  ],
+  "7:11": [],
+  "7:12": [
+    {
+      "surface": "hard",
+      "tw_match": "hard"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "times",
+      "tw_match": "time"
+    },
+    {
+      "surface": "prophets",
+      "tw_match": "prophet"
+    }
+  ],
+  "7:13": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "call out",
+      "tw_match": "call out"
+    }
+  ],
+  "7:14": [
+    {
+      "surface": "scatter",
+      "tw_match": "scatter"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "desolate",
+      "tw_match": "desolate"
+    },
+    {
+      "surface": "wasteland",
+      "tw_match": "wasteland"
+    }
+  ],
+  "8:1": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    }
+  ],
+  "8:2": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "Zion",
+      "tw_match": "Zion"
+    },
+    {
+      "surface": "zeal",
+      "tw_match": "zeal"
+    }
+  ],
+  "8:3": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "Zion",
+      "tw_match": "Zion"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Holy",
+      "tw_match": "holy"
+    }
+  ],
+  "8:4": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "Old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "person",
+      "tw_match": "person"
+    },
+    {
+      "surface": "staff",
+      "tw_match": "staff"
+    }
+  ],
+  "8:5": [],
+  "8:6": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "remnant",
+      "tw_match": "remnant"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "8:7": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "8:8": [
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    }
+  ],
+  "8:9": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "prophets",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "foundation",
+      "tw_match": "foundation"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    }
+  ],
+  "8:10": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "profit",
+      "tw_match": "profit"
+    },
+    {
+      "surface": "beast",
+      "tw_match": "beast"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "person",
+      "tw_match": "person"
+    },
+    {
+      "surface": "neighbor",
+      "tw_match": "neighbor"
+    }
+  ],
+  "8:11": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "remnant",
+      "tw_match": "remnant"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    }
+  ],
+  "8:12": [
+    {
+      "surface": "seeds",
+      "tw_match": "seed"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "vine",
+      "tw_match": "vine"
+    },
+    {
+      "surface": "fruit",
+      "tw_match": "fruit"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "produce",
+      "tw_match": "produce"
+    },
+    {
+      "surface": "skies",
+      "tw_match": "sky"
+    },
+    {
+      "surface": "remnant",
+      "tw_match": "remnant"
+    },
+    {
+      "surface": "inherit",
+      "tw_match": "inherit"
+    }
+  ],
+  "8:13": [
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "curse",
+      "tw_match": "curse"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "house of Israel",
+      "tw_match": "house of Israel"
+    },
+    {
+      "surface": "blessing",
+      "tw_match": "blessing"
+    },
+    {
+      "surface": "afraid",
+      "tw_match": "afraid"
+    }
+  ],
+  "8:14": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "Just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "provoked",
+      "tw_match": "provoked"
+    }
+  ],
+  "8:15": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "8:16": [
+    {
+      "surface": "person",
+      "tw_match": "person"
+    },
+    {
+      "surface": "neighbor",
+      "tw_match": "neighbor"
+    },
+    {
+      "surface": "Judge",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "gates",
+      "tw_match": "gate"
+    }
+  ],
+  "8:17": [
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    },
+    {
+      "surface": "oaths",
+      "tw_match": "oath"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "8:18": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    }
+  ],
+  "8:19": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "fasts",
+      "tw_match": "fast"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "tenth",
+      "tw_match": "tenth"
+    },
+    {
+      "surface": "times",
+      "tw_match": "time"
+    },
+    {
+      "surface": "joy",
+      "tw_match": "joy"
+    },
+    {
+      "surface": "festivals",
+      "tw_match": "festival"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "8:20": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    }
+  ],
+  "8:21": [
+    {
+      "surface": "beg",
+      "tw_match": "beg"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    }
+  ],
+  "8:22": [
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "beg",
+      "tw_match": "beg"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "8:23": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "language",
+      "tw_match": "language"
+    },
+    {
+      "surface": "nation",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "robe",
+      "tw_match": "robe"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "9:1": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Damascus",
+      "tw_match": "Damascus"
+    },
+    {
+      "surface": "tribes",
+      "tw_match": "tribe"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "9:2": [
+    {
+      "surface": "Hamath",
+      "tw_match": "Hamath"
+    },
+    {
+      "surface": "Damascus",
+      "tw_match": "Damascus"
+    },
+    {
+      "surface": "Tyre",
+      "tw_match": "Tyre"
+    },
+    {
+      "surface": "Sidon",
+      "tw_match": "Sidon"
+    },
+    {
+      "surface": "wise",
+      "tw_match": "wise"
+    }
+  ],
+  "9:3": [
+    {
+      "surface": "Tyre",
+      "tw_match": "Tyre"
+    },
+    {
+      "surface": "stronghold",
+      "tw_match": "stronghold"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "9:4": [
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "dispossess",
+      "tw_match": "dispossess"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "devoured",
+      "tw_match": "devour"
+    }
+  ],
+  "9:5": [
+    {
+      "surface": "Ashkelon",
+      "tw_match": "Ashkelon"
+    },
+    {
+      "surface": "afraid",
+      "tw_match": "afraid"
+    },
+    {
+      "surface": "Gaza",
+      "tw_match": "Gaza"
+    },
+    {
+      "surface": "tremble",
+      "tw_match": "tremble"
+    },
+    {
+      "surface": "Ekron",
+      "tw_match": "Ekron"
+    },
+    {
+      "surface": "hopes",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    }
+  ],
+  "9:6": [
+    {
+      "surface": "Ashdod",
+      "tw_match": "Ashdod"
+    },
+    {
+      "surface": "pride",
+      "tw_match": "pride"
+    },
+    {
+      "surface": "Philistines",
+      "tw_match": "Philistines"
+    }
+  ],
+  "9:7": [
+    {
+      "surface": "abominations",
+      "tw_match": "abomination"
+    },
+    {
+      "surface": "remnant",
+      "tw_match": "remnant"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Ekron",
+      "tw_match": "Ekron"
+    },
+    {
+      "surface": "Jebusites",
+      "tw_match": "Jebusite"
+    }
+  ],
+  "9:8": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    }
+  ],
+  "9:9": [
+    {
+      "surface": "joy",
+      "tw_match": "joy"
+    },
+    {
+      "surface": "Zion",
+      "tw_match": "Zion"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    },
+    {
+      "surface": "humble",
+      "tw_match": "humble"
+    },
+    {
+      "surface": "donkey",
+      "tw_match": "donkey"
+    }
+  ],
+  "9:10": [
+    {
+      "surface": "chariot",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "bow",
+      "tw_match": "bow"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "dominion",
+      "tw_match": "dominion"
+    },
+    {
+      "surface": "the River",
+      "tw_match": "the River"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "9:11": [
+    {
+      "surface": "covenant",
+      "tw_match": "covenant"
+    },
+    {
+      "surface": "free",
+      "tw_match": "free"
+    },
+    {
+      "surface": "pit",
+      "tw_match": "pit"
+    }
+  ],
+  "9:12": [
+    {
+      "surface": "stronghold",
+      "tw_match": "stronghold"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "declaring",
+      "tw_match": "declare"
+    }
+  ],
+  "9:13": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "bow",
+      "tw_match": "bow"
+    },
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "Zion",
+      "tw_match": "Zion"
+    },
+    {
+      "surface": "Greece",
+      "tw_match": "Greece"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "warrior",
+      "tw_match": "warrior"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "9:14": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "Lord Yahweh",
+      "tw_match": "Lord Yahweh"
+    },
+    {
+      "surface": "trumpet",
+      "tw_match": "trumpet"
+    }
+  ],
+  "9:15": [
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "devour",
+      "tw_match": "devour"
+    },
+    {
+      "surface": "stones",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "drunk",
+      "tw_match": "drunk"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    }
+  ],
+  "9:16": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "flock",
+      "tw_match": "flock"
+    },
+    {
+      "surface": "crown",
+      "tw_match": "crown"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "9:17": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "grain",
+      "tw_match": "grain"
+    },
+    {
+      "surface": "virgins",
+      "tw_match": "virgin"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    }
+  ],
+  "10:1": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "spring",
+      "tw_match": "spring"
+    }
+  ],
+  "10:2": [
+    {
+      "surface": "household",
+      "tw_match": "household"
+    },
+    {
+      "surface": "idols",
+      "tw_match": "idol"
+    },
+    {
+      "surface": "diviners",
+      "tw_match": "diviner"
+    },
+    {
+      "surface": "envision",
+      "tw_match": "envision"
+    },
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    },
+    {
+      "surface": "dreams",
+      "tw_match": "dream"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "sheep",
+      "tw_match": "sheep"
+    },
+    {
+      "surface": "suffer",
+      "tw_match": "suffer"
+    },
+    {
+      "surface": "shepherd",
+      "tw_match": "shepherd"
+    }
+  ],
+  "10:3": [
+    {
+      "surface": "wrath",
+      "tw_match": "wrath"
+    },
+    {
+      "surface": "shepherds",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "goats",
+      "tw_match": "goat"
+    },
+    {
+      "surface": "leaders",
+      "tw_match": "leader"
+    },
+    {
+      "surface": "punish",
+      "tw_match": "punish"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "flock",
+      "tw_match": "flock"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "warhorse",
+      "tw_match": "warhorse"
+    }
+  ],
+  "10:4": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "cornerstone",
+      "tw_match": "cornerstone"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "bow",
+      "tw_match": "bow"
+    },
+    {
+      "surface": "ruler",
+      "tw_match": "ruler"
+    }
+  ],
+  "10:5": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "warriors",
+      "tw_match": "warrior"
+    },
+    {
+      "surface": "trample",
+      "tw_match": "trample"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "shame",
+      "tw_match": "shame"
+    },
+    {
+      "surface": "warhorses",
+      "tw_match": "warhorse"
+    }
+  ],
+  "10:6": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "Joseph",
+      "tw_match": "Joseph"
+    },
+    {
+      "surface": "restore",
+      "tw_match": "restore"
+    },
+    {
+      "surface": "mercy",
+      "tw_match": "mercy"
+    },
+    {
+      "surface": "I am Yahweh",
+      "tw_match": "I am Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "10:7": [
+    {
+      "surface": "Ephraim",
+      "tw_match": "Ephraim"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "warrior",
+      "tw_match": "warrior"
+    },
+    {
+      "surface": "rejoice",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    }
+  ],
+  "10:8": [
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    }
+  ],
+  "10:9": [
+    {
+      "surface": "sowed",
+      "tw_match": "sow"
+    }
+  ],
+  "10:10": [
+    {
+      "surface": "restore",
+      "tw_match": "restore"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "Assyria",
+      "tw_match": "Assyria"
+    },
+    {
+      "surface": "Gilead",
+      "tw_match": "Gilead"
+    },
+    {
+      "surface": "Lebanon",
+      "tw_match": "Lebanon"
+    }
+  ],
+  "10:11": [
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "affliction",
+      "tw_match": "affliction"
+    },
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    },
+    {
+      "surface": "the Nile",
+      "tw_match": "the Nile"
+    },
+    {
+      "surface": "majesty",
+      "tw_match": "majesty"
+    },
+    {
+      "surface": "Assyria",
+      "tw_match": "Assyria"
+    },
+    {
+      "surface": "scepter",
+      "tw_match": "scepter"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "Egyptians",
+      "tw_match": "Egyptian"
+    }
+  ],
+  "10:12": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "11:1": [
+    {
+      "surface": "Lebanon",
+      "tw_match": "Lebanon"
+    },
+    {
+      "surface": "devour",
+      "tw_match": "devour"
+    },
+    {
+      "surface": "cedars",
+      "tw_match": "cedar"
+    }
+  ],
+  "11:2": [
+    {
+      "surface": "Lament",
+      "tw_match": "lament"
+    },
+    {
+      "surface": "cypress",
+      "tw_match": "cypress"
+    },
+    {
+      "surface": "cedar",
+      "tw_match": "cedar"
+    },
+    {
+      "surface": "devastated",
+      "tw_match": "devastate"
+    },
+    {
+      "surface": "oaks",
+      "tw_match": "oak"
+    },
+    {
+      "surface": "Bashan",
+      "tw_match": "Bashan"
+    }
+  ],
+  "11:3": [
+    {
+      "surface": "shepherds",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "lions",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "pride",
+      "tw_match": "pride"
+    },
+    {
+      "surface": "Jordan River",
+      "tw_match": "Jordan River"
+    },
+    {
+      "surface": "devastated",
+      "tw_match": "devastate"
+    }
+  ],
+  "11:4": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "shepherd",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "watch",
+      "tw_match": "watch"
+    },
+    {
+      "surface": "flock",
+      "tw_match": "flock"
+    },
+    {
+      "surface": "slaughter",
+      "tw_match": "slaughter"
+    }
+  ],
+  "11:5": [
+    {
+      "surface": "slaughter",
+      "tw_match": "slaughter"
+    },
+    {
+      "surface": "punished",
+      "tw_match": "punished"
+    },
+    {
+      "surface": "Blessed",
+      "tw_match": "bless"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "shepherds",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "working",
+      "tw_match": "work"
+    },
+    {
+      "surface": "flocks",
+      "tw_match": "flock"
+    }
+  ],
+  "11:6": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "turn over",
+      "tw_match": "turn over"
+    },
+    {
+      "surface": "person",
+      "tw_match": "person"
+    },
+    {
+      "surface": "neighbor",
+      "tw_match": "neighbor"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "deliver",
+      "tw_match": "deliver"
+    }
+  ],
+  "11:7": [
+    {
+      "surface": "shepherd",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "flock",
+      "tw_match": "flock"
+    },
+    {
+      "surface": "slaughter",
+      "tw_match": "slaughter"
+    },
+    {
+      "surface": "sheep",
+      "tw_match": "sheep"
+    },
+    {
+      "surface": "staffs",
+      "tw_match": "staff"
+    },
+    {
+      "surface": "staff",
+      "tw_match": "staff"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "shepherded",
+      "tw_match": "shepherd"
+    }
+  ],
+  "11:8": [
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "shepherds",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "impatient",
+      "tw_match": "impatient"
+    }
+  ],
+  "11:9": [
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "shepherd",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "sheep",
+      "tw_match": "sheep"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "neighbor",
+      "tw_match": "neighbor"
+    }
+  ],
+  "11:10": [
+    {
+      "surface": "staff",
+      "tw_match": "staff"
+    },
+    {
+      "surface": "Favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "covenant",
+      "tw_match": "covenant"
+    },
+    {
+      "surface": "tribes",
+      "tw_match": "tribe"
+    }
+  ],
+  "11:11": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "covenant",
+      "tw_match": "covenant"
+    },
+    {
+      "surface": "sheep",
+      "tw_match": "sheep"
+    },
+    {
+      "surface": "watching",
+      "tw_match": "watch"
+    },
+    {
+      "surface": "knew",
+      "tw_match": "knew"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "11:12": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    }
+  ],
+  "11:13": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "11:14": [
+    {
+      "surface": "staff",
+      "tw_match": "staff"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "11:15": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "foolish",
+      "tw_match": "foolish"
+    },
+    {
+      "surface": "shepherd",
+      "tw_match": "shepherd"
+    }
+  ],
+  "11:16": [
+    {
+      "surface": "shepherd",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "perishing",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "sheep",
+      "tw_match": "sheep"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    }
+  ],
+  "11:17": [
+    {
+      "surface": "Woe",
+      "tw_match": "woe"
+    },
+    {
+      "surface": "shepherd",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "forsakes",
+      "tw_match": "forsake"
+    },
+    {
+      "surface": "flock",
+      "tw_match": "flock"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "12:1": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "skies",
+      "tw_match": "sky"
+    },
+    {
+      "surface": "foundation",
+      "tw_match": "foundation"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    }
+  ],
+  "12:2": [
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "stagger",
+      "tw_match": "stagger"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "siege",
+      "tw_match": "siege"
+    }
+  ],
+  "12:3": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "hurt",
+      "tw_match": "hurt"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    }
+  ],
+  "12:4": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    }
+  ],
+  "12:5": [
+    {
+      "surface": "leaders",
+      "tw_match": "leader"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "12:6": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "leaders",
+      "tw_match": "leader"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "grain",
+      "tw_match": "grain"
+    },
+    {
+      "surface": "consume",
+      "tw_match": "consume"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    }
+  ],
+  "12:7": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "tents",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "David",
+      "tw_match": "David"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    }
+  ],
+  "12:8": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "David",
+      "tw_match": "David"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    }
+  ],
+  "12:9": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    }
+  ],
+  "12:10": [
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "compassion",
+      "tw_match": "compassion"
+    },
+    {
+      "surface": "pleading",
+      "tw_match": "plead"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "David",
+      "tw_match": "David"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "mourn",
+      "tw_match": "mourn"
+    },
+    {
+      "surface": "mourns",
+      "tw_match": "mourn"
+    },
+    {
+      "surface": "lament",
+      "tw_match": "lament"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "firstborn",
+      "tw_match": "firstborn"
+    }
+  ],
+  "12:11": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "laments",
+      "tw_match": "lament"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "Rimmon",
+      "tw_match": "Rimmon"
+    }
+  ],
+  "12:12": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "mourn",
+      "tw_match": "mourn"
+    },
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "clans",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "David",
+      "tw_match": "David"
+    },
+    {
+      "surface": "Nathan",
+      "tw_match": "Nathan"
+    }
+  ],
+  "12:13": [
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Levi",
+      "tw_match": "Levi"
+    }
+  ],
+  "12:14": [
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "clans",
+      "tw_match": "clan"
+    }
+  ],
+  "13:1": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "spring",
+      "tw_match": "spring"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "David",
+      "tw_match": "David"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    }
+  ],
+  "13:2": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "idols",
+      "tw_match": "idol"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "prophets",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    }
+  ],
+  "13:3": [
+    {
+      "surface": "prophesy",
+      "tw_match": "prophesy"
+    },
+    {
+      "surface": "bore",
+      "tw_match": "bore"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    },
+    {
+      "surface": "lies",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "prophesies",
+      "tw_match": "prophesy"
+    }
+  ],
+  "13:4": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "prophet",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "ashamed",
+      "tw_match": "ashamed"
+    },
+    {
+      "surface": "vision",
+      "tw_match": "vision"
+    },
+    {
+      "surface": "prophesy",
+      "tw_match": "prophesy"
+    },
+    {
+      "surface": "prophets",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "deceive",
+      "tw_match": "deceive"
+    }
+  ],
+  "13:5": [
+    {
+      "surface": "prophet",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "works",
+      "tw_match": "work"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "young man",
+      "tw_match": "young man"
+    }
+  ],
+  "13:6": [
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    }
+  ],
+  "13:7": [
+    {
+      "surface": "Sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "shepherd",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "flock",
+      "tw_match": "flock"
+    },
+    {
+      "surface": "scatter",
+      "tw_match": "scatter"
+    },
+    {
+      "surface": "lowly",
+      "tw_match": "lowly"
+    }
+  ],
+  "13:8": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    }
+  ],
+  "13:9": [
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "test",
+      "tw_match": "test"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "tested",
+      "tw_match": "tested"
+    },
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "14:1": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "plunder",
+      "tw_match": "plunder"
+    }
+  ],
+  "14:2": [
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "nation",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "captured",
+      "tw_match": "capture"
+    },
+    {
+      "surface": "houses",
+      "tw_match": "house"
+    },
+    {
+      "surface": "plundered",
+      "tw_match": "plundered"
+    },
+    {
+      "surface": "captivity",
+      "tw_match": "captivity"
+    }
+  ],
+  "14:3": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "14:4": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Mount of Olives",
+      "tw_match": "Mount of Olives"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    }
+  ],
+  "14:5": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Uzziah",
+      "tw_match": "Uzziah"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "holy",
+      "tw_match": "holy"
+    }
+  ],
+  "14:6": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "14:7": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "14:8": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "the western sea",
+      "tw_match": "the western sea"
+    }
+  ],
+  "14:9": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "14:10": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "Arabah",
+      "tw_match": "Arabah"
+    },
+    {
+      "surface": "Rimmon",
+      "tw_match": "Rimmon"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "Benjamin",
+      "tw_match": "Benjamin"
+    },
+    {
+      "surface": "Gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "Tower",
+      "tw_match": "tower"
+    },
+    {
+      "surface": "king’s",
+      "tw_match": "king’s"
+    },
+    {
+      "surface": "winepresses",
+      "tw_match": "winepress"
+    }
+  ],
+  "14:11": [
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "complete",
+      "tw_match": "complete"
+    },
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "14:12": [
+    {
+      "surface": "plague",
+      "tw_match": "plague"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "tongues",
+      "tw_match": "tongue"
+    }
+  ],
+  "14:13": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "seize",
+      "tw_match": "seize"
+    }
+  ],
+  "14:14": [
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    }
+  ],
+  "14:15": [
+    {
+      "surface": "plague",
+      "tw_match": "plague"
+    },
+    {
+      "surface": "horses",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "mules",
+      "tw_match": "mule"
+    },
+    {
+      "surface": "camels",
+      "tw_match": "camel"
+    },
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "animal",
+      "tw_match": "animals"
+    },
+    {
+      "surface": "suffer",
+      "tw_match": "suffer"
+    }
+  ],
+  "14:16": [
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "worship",
+      "tw_match": "worship"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "Festival",
+      "tw_match": "festival"
+    },
+    {
+      "surface": "Shelters",
+      "tw_match": "shelter"
+    }
+  ],
+  "14:17": [
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "worship",
+      "tw_match": "worship"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "14:18": [
+    {
+      "surface": "nation",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "receive",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "plague",
+      "tw_match": "plague"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "Festival",
+      "tw_match": "festival"
+    },
+    {
+      "surface": "Shelters",
+      "tw_match": "shelter"
+    }
+  ],
+  "14:19": [
+    {
+      "surface": "punishment",
+      "tw_match": "punishment"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "nation",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "Festival",
+      "tw_match": "festival"
+    },
+    {
+      "surface": "Shelters",
+      "tw_match": "shelter"
+    }
+  ],
+  "14:20": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "horses",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Yahweh’s house",
+      "tw_match": "Yahweh’s house"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "altar",
+      "tw_match": "altar"
+    }
+  ],
+  "14:21": [
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Yahweh of hosts",
+      "tw_match": "Yahweh of hosts"
+    },
+    {
+      "surface": "sacrifice",
+      "tw_match": "sacrifice"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ]
+}

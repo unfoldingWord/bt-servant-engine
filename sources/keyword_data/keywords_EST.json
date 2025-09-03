@@ -1,0 +1,4045 @@
+{
+  "1:1": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "ruled",
+      "tw_match": "rule"
+    },
+    {
+      "surface": "Ethiopia",
+      "tw_match": "Ethiopia"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "throne",
+      "tw_match": "throne"
+    },
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    }
+  ],
+  "1:3": [
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "reign",
+      "tw_match": "reign"
+    },
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    },
+    {
+      "surface": "Persia",
+      "tw_match": "Persia"
+    },
+    {
+      "surface": "Media",
+      "tw_match": "Media"
+    },
+    {
+      "surface": "noblemen",
+      "tw_match": "noblemen"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "kingdom",
+      "tw_match": "kingdom"
+    },
+    {
+      "surface": "splendor",
+      "tw_match": "splendor"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "fulfilled",
+      "tw_match": "fulfilled"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    },
+    {
+      "surface": "courtyard",
+      "tw_match": "courtyard"
+    },
+    {
+      "surface": "palace",
+      "tw_match": "palace"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "hanging",
+      "tw_match": "hang"
+    },
+    {
+      "surface": "purple",
+      "tw_match": "purple"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "pillars",
+      "tw_match": "pillar"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "serving",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "established",
+      "tw_match": "established"
+    },
+    {
+      "surface": "overseer",
+      "tw_match": "overseer"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "Vashti",
+      "tw_match": "Vashti"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    },
+    {
+      "surface": "palace",
+      "tw_match": "palace"
+    },
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "pleased",
+      "tw_match": "please"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "eunuchs",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    }
+  ],
+  "1:11": [
+    {
+      "surface": "Vashti",
+      "tw_match": "Vashti"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "crown",
+      "tw_match": "crown"
+    },
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    },
+    {
+      "surface": "pleasing",
+      "tw_match": "please"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "Vashti",
+      "tw_match": "Vashti"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "eunuchs",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "rage",
+      "tw_match": "rage"
+    }
+  ],
+  "1:13": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "wise men",
+      "tw_match": "wise men"
+    },
+    {
+      "surface": "times",
+      "tw_match": "time"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "judgment",
+      "tw_match": "judgment"
+    }
+  ],
+  "1:14": [
+    {
+      "surface": "Tarshish",
+      "tw_match": "Tarshish"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    },
+    {
+      "surface": "Persia",
+      "tw_match": "Persia"
+    },
+    {
+      "surface": "Media",
+      "tw_match": "Media"
+    },
+    {
+      "surface": "seers",
+      "tw_match": "seer"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "kingdom",
+      "tw_match": "kingdom"
+    }
+  ],
+  "1:15": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "Vashti",
+      "tw_match": "Vashti"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "eunuchs",
+      "tw_match": "eunuch"
+    }
+  ],
+  "1:16": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    },
+    {
+      "surface": "Vashti",
+      "tw_match": "Vashti"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "wrong",
+      "tw_match": "wrong"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    }
+  ],
+  "1:17": [
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "Vashti",
+      "tw_match": "Vashti"
+    }
+  ],
+  "1:18": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Persia",
+      "tw_match": "Persia"
+    },
+    {
+      "surface": "Media",
+      "tw_match": "Media"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "contempt",
+      "tw_match": "contempt"
+    },
+    {
+      "surface": "wrath",
+      "tw_match": "wrath"
+    }
+  ],
+  "1:19": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "decree",
+      "tw_match": "decree"
+    },
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    },
+    {
+      "surface": "laws",
+      "tw_match": "law"
+    },
+    {
+      "surface": "Persia",
+      "tw_match": "Persia"
+    },
+    {
+      "surface": "Media",
+      "tw_match": "Media"
+    },
+    {
+      "surface": "Vashti",
+      "tw_match": "Vashti"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "neighbor",
+      "tw_match": "neighbor"
+    },
+    {
+      "surface": "better",
+      "tw_match": "better"
+    }
+  ],
+  "1:20": [
+    {
+      "surface": "decree",
+      "tw_match": "decree"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "kingdom",
+      "tw_match": "kingdom"
+    },
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    }
+  ],
+  "1:21": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    }
+  ],
+  "1:22": [
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "province",
+      "tw_match": "province"
+    },
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    },
+    {
+      "surface": "ruling",
+      "tw_match": "rule"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    }
+  ],
+  "2:1": [
+    {
+      "surface": "rage",
+      "tw_match": "rage"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "Vashti",
+      "tw_match": "Vashti"
+    }
+  ],
+  "2:2": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "young women",
+      "tw_match": "young women"
+    },
+    {
+      "surface": "virgins",
+      "tw_match": "virgin"
+    },
+    {
+      "surface": "pleasing",
+      "tw_match": "please"
+    }
+  ],
+  "2:3": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "appoint",
+      "tw_match": "appoint"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "kingdom",
+      "tw_match": "kingdom"
+    },
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "virgin",
+      "tw_match": "virgin"
+    },
+    {
+      "surface": "pleasing",
+      "tw_match": "please"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "eunuch",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "overseer",
+      "tw_match": "overseer"
+    }
+  ],
+  "2:4": [
+    {
+      "surface": "pleasing",
+      "tw_match": "please"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "Vashti",
+      "tw_match": "Vashti"
+    }
+  ],
+  "2:5": [
+    {
+      "surface": "Jew",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Shimei",
+      "tw_match": "Shimei"
+    }
+  ],
+  "2:6": [
+    {
+      "surface": "exiled",
+      "tw_match": "exiled"
+    },
+    {
+      "surface": "Jerusalem",
+      "tw_match": "Jerusalem"
+    },
+    {
+      "surface": "exiles",
+      "tw_match": "exile"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Nebuchadnezzar",
+      "tw_match": "Nebuchadnezzar"
+    },
+    {
+      "surface": "Babylon",
+      "tw_match": "Babylon"
+    }
+  ],
+  "2:7": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "pleasing",
+      "tw_match": "please"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    }
+  ],
+  "2:8": [
+    {
+      "surface": "decree",
+      "tw_match": "decree"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "young women",
+      "tw_match": "young women"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "palace",
+      "tw_match": "palace"
+    },
+    {
+      "surface": "overseer",
+      "tw_match": "overseer"
+    }
+  ],
+  "2:9": [
+    {
+      "surface": "pleasing",
+      "tw_match": "please"
+    },
+    {
+      "surface": "young women",
+      "tw_match": "young women"
+    },
+    {
+      "surface": "chosen",
+      "tw_match": "chosen"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "best",
+      "tw_match": "best"
+    }
+  ],
+  "2:10": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    }
+  ],
+  "2:11": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "courtyard",
+      "tw_match": "courtyard"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    }
+  ],
+  "2:12": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "months",
+      "tw_match": "month"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "fulfilled",
+      "tw_match": "fulfilled"
+    },
+    {
+      "surface": "oil",
+      "tw_match": "oil"
+    },
+    {
+      "surface": "myrrh",
+      "tw_match": "myrrh"
+    }
+  ],
+  "2:13": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "2:14": [
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "eunuch",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "overseer",
+      "tw_match": "overseer"
+    },
+    {
+      "surface": "concubines",
+      "tw_match": "concubine"
+    },
+    {
+      "surface": "delighted",
+      "tw_match": "delight"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    }
+  ],
+  "2:15": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "eunuch",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "overseer",
+      "tw_match": "overseer"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    }
+  ],
+  "2:16": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "palace",
+      "tw_match": "palace"
+    },
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    },
+    {
+      "surface": "tenth",
+      "tw_match": "tenth"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "reign",
+      "tw_match": "reign"
+    }
+  ],
+  "2:17": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "loved",
+      "tw_match": "love"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "virgins",
+      "tw_match": "virgin"
+    },
+    {
+      "surface": "crown",
+      "tw_match": "crown"
+    },
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "Vashti",
+      "tw_match": "Vashti"
+    }
+  ],
+  "2:18": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    }
+  ],
+  "2:19": [
+    {
+      "surface": "virgins",
+      "tw_match": "virgin"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "2:20": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    }
+  ],
+  "2:21": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "eunuchs",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "doorway",
+      "tw_match": "doorway"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    }
+  ],
+  "2:22": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "2:23": [
+    {
+      "surface": "hanged",
+      "tw_match": "hang"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "3:1": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "authority",
+      "tw_match": "authority"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    }
+  ],
+  "3:2": [
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "bowing",
+      "tw_match": "bow"
+    },
+    {
+      "surface": "prostrating",
+      "tw_match": "prostrate"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "bow down",
+      "tw_match": "bow down"
+    },
+    {
+      "surface": "prostrate",
+      "tw_match": "prostrate"
+    }
+  ],
+  "3:3": [
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "trespassing",
+      "tw_match": "trespass"
+    }
+  ],
+  "3:4": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Jew",
+      "tw_match": "Jew"
+    }
+  ],
+  "3:5": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "bow down",
+      "tw_match": "bow down"
+    },
+    {
+      "surface": "prostrate",
+      "tw_match": "prostrate"
+    },
+    {
+      "surface": "rage",
+      "tw_match": "rage"
+    }
+  ],
+  "3:6": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "annihilate",
+      "tw_match": "annihilate"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "kingdom",
+      "tw_match": "kingdom"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    }
+  ],
+  "3:7": [
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "lot",
+      "tw_match": "lots"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "3:8": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "scattered",
+      "tw_match": "scatter"
+    },
+    {
+      "surface": "dispersed",
+      "tw_match": "disperse"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "kingdom",
+      "tw_match": "kingdom"
+    },
+    {
+      "surface": "laws",
+      "tw_match": "law"
+    },
+    {
+      "surface": "profit",
+      "tw_match": "profit"
+    },
+    {
+      "surface": "leave",
+      "tw_match": "leave"
+    }
+  ],
+  "3:9": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "3:10": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    }
+  ],
+  "3:11": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "3:12": [
+    {
+      "surface": "scribes",
+      "tw_match": "scribe"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "governors",
+      "tw_match": "governors"
+    },
+    {
+      "surface": "province",
+      "tw_match": "province"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    },
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "sealed",
+      "tw_match": "sealed"
+    }
+  ],
+  "3:13": [
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "annihilate",
+      "tw_match": "annihilate"
+    },
+    {
+      "surface": "slaughter",
+      "tw_match": "slaughter"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "plunder",
+      "tw_match": "plunder"
+    },
+    {
+      "surface": "spoils",
+      "tw_match": "spoils"
+    }
+  ],
+  "3:14": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "province",
+      "tw_match": "province"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "3:15": [
+    {
+      "surface": "decree",
+      "tw_match": "decree"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    }
+  ],
+  "4:1": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "knew",
+      "tw_match": "knew"
+    },
+    {
+      "surface": "sackcloth",
+      "tw_match": "sackcloth"
+    },
+    {
+      "surface": "outcry",
+      "tw_match": "outcry"
+    }
+  ],
+  "4:2": [
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "sackcloth",
+      "tw_match": "sackcloth"
+    }
+  ],
+  "4:3": [
+    {
+      "surface": "province",
+      "tw_match": "province"
+    },
+    {
+      "surface": "decree",
+      "tw_match": "decree"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "mourning",
+      "tw_match": "mourn"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "fasting",
+      "tw_match": "fasting"
+    },
+    {
+      "surface": "weeping",
+      "tw_match": "weeping"
+    },
+    {
+      "surface": "lamenting",
+      "tw_match": "lament"
+    },
+    {
+      "surface": "sackcloth",
+      "tw_match": "sackcloth"
+    }
+  ],
+  "4:4": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "eunuchs",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "seized",
+      "tw_match": "seize"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "sackcloth",
+      "tw_match": "sackcloth"
+    }
+  ],
+  "4:5": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "eunuchs",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "4:6": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "4:7": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "reported",
+      "tw_match": "reported"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    }
+  ],
+  "4:8": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "annihilate",
+      "tw_match": "annihilate"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "implore",
+      "tw_match": "implore"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    }
+  ],
+  "4:9": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    }
+  ],
+  "4:10": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    }
+  ],
+  "4:11": [
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "knowing",
+      "tw_match": "know"
+    },
+    {
+      "surface": "court",
+      "tw_match": "court"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "scepter",
+      "tw_match": "scepter"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "4:12": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    }
+  ],
+  "4:13": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "palace",
+      "tw_match": "palace"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    }
+  ],
+  "4:14": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "deliverance",
+      "tw_match": "deliverance"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "knows",
+      "tw_match": "know"
+    },
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    }
+  ],
+  "4:15": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    }
+  ],
+  "4:16": [
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "fast",
+      "tw_match": "fast"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "likewise",
+      "tw_match": "likewise"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    }
+  ],
+  "4:17": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    }
+  ],
+  "5:1": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    },
+    {
+      "surface": "court",
+      "tw_match": "court"
+    },
+    {
+      "surface": "palace",
+      "tw_match": "palace"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "throne",
+      "tw_match": "throne"
+    }
+  ],
+  "5:2": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "court",
+      "tw_match": "court"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "scepter",
+      "tw_match": "scepter"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "5:3": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "kingdom",
+      "tw_match": "kingdom"
+    }
+  ],
+  "5:4": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "banquet",
+      "tw_match": "banquet"
+    }
+  ],
+  "5:5": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "banquet",
+      "tw_match": "banquet"
+    }
+  ],
+  "5:6": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "banquet",
+      "tw_match": "banquet"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "kingdom",
+      "tw_match": "kingdom"
+    }
+  ],
+  "5:7": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    }
+  ],
+  "5:8": [
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "banquet",
+      "tw_match": "banquet"
+    }
+  ],
+  "5:9": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "joyful",
+      "tw_match": "joyful"
+    },
+    {
+      "surface": "pleased",
+      "tw_match": "please"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "trembled",
+      "tw_match": "tremble"
+    },
+    {
+      "surface": "rage",
+      "tw_match": "rage"
+    }
+  ],
+  "5:10": [
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    }
+  ],
+  "5:11": [
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    }
+  ],
+  "5:12": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "banquet",
+      "tw_match": "banquet"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    }
+  ],
+  "5:13": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Jew",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "5:14": [
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "hang",
+      "tw_match": "hang"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "banquet",
+      "tw_match": "banquet"
+    },
+    {
+      "surface": "joyful",
+      "tw_match": "joyful"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "6:1": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "called out",
+      "tw_match": "called out"
+    }
+  ],
+  "6:2": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "eunuchs",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "doorway",
+      "tw_match": "doorway"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    }
+  ],
+  "6:3": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "served",
+      "tw_match": "serve"
+    }
+  ],
+  "6:4": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "court",
+      "tw_match": "court"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "hang",
+      "tw_match": "hang"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "prepared",
+      "tw_match": "prepared"
+    }
+  ],
+  "6:5": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "courtyard",
+      "tw_match": "courtyard"
+    }
+  ],
+  "6:6": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    },
+    {
+      "surface": "delighted",
+      "tw_match": "delight"
+    },
+    {
+      "surface": "delight",
+      "tw_match": "delight"
+    }
+  ],
+  "6:7": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "delights",
+      "tw_match": "delight"
+    },
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    }
+  ],
+  "6:8": [
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "crown",
+      "tw_match": "crown"
+    }
+  ],
+  "6:9": [
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "noble",
+      "tw_match": "noble"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "delights",
+      "tw_match": "delight"
+    },
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    },
+    {
+      "surface": "proclaim",
+      "tw_match": "proclaim"
+    }
+  ],
+  "6:10": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Jew",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    }
+  ],
+  "6:11": [
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "called out",
+      "tw_match": "called out"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "delights",
+      "tw_match": "delight"
+    },
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    }
+  ],
+  "6:12": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "mourning",
+      "tw_match": "mourn"
+    }
+  ],
+  "6:13": [
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "wise men",
+      "tw_match": "wise men"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "seed",
+      "tw_match": "seed"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    }
+  ],
+  "6:14": [
+    {
+      "surface": "eunuchs",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "banquet",
+      "tw_match": "banquet"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    }
+  ],
+  "7:1": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    }
+  ],
+  "7:2": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "banquet",
+      "tw_match": "banquet"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "kingdom",
+      "tw_match": "kingdom"
+    }
+  ],
+  "7:3": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "7:4": [
+    {
+      "surface": "slaughter",
+      "tw_match": "slaughter"
+    },
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    },
+    {
+      "surface": "slaves",
+      "tw_match": "slave"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "distress",
+      "tw_match": "distress"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "7:5": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    }
+  ],
+  "7:6": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    }
+  ],
+  "7:7": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "rage",
+      "tw_match": "rage"
+    },
+    {
+      "surface": "banquet",
+      "tw_match": "banquet"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "palace",
+      "tw_match": "palace"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "7:8": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "palace",
+      "tw_match": "palace"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "banquet",
+      "tw_match": "banquet"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    }
+  ],
+  "7:9": [
+    {
+      "surface": "eunuchs",
+      "tw_match": "eunuch"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Hang",
+      "tw_match": "hang"
+    }
+  ],
+  "7:10": [
+    {
+      "surface": "hanged",
+      "tw_match": "hang"
+    },
+    {
+      "surface": "prepared",
+      "tw_match": "prepared"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "rage",
+      "tw_match": "rage"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "8:1": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    }
+  ],
+  "8:2": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "8:3": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "implored",
+      "tw_match": "implore"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    }
+  ],
+  "8:4": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "scepter",
+      "tw_match": "scepter"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "8:5": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    }
+  ],
+  "8:6": [
+    {
+      "surface": "bear",
+      "tw_match": "bear"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    },
+    {
+      "surface": "kindred",
+      "tw_match": "kindred"
+    }
+  ],
+  "8:7": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Jew",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "hanged",
+      "tw_match": "hang"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    }
+  ],
+  "8:8": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "seal",
+      "tw_match": "seal"
+    },
+    {
+      "surface": "sealed",
+      "tw_match": "sealed"
+    }
+  ],
+  "8:9": [
+    {
+      "surface": "scribes",
+      "tw_match": "scribe"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "governors",
+      "tw_match": "governors"
+    },
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "Ethiopia",
+      "tw_match": "Ethiopia"
+    },
+    {
+      "surface": "province",
+      "tw_match": "province"
+    },
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    }
+  ],
+  "8:10": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "sealed",
+      "tw_match": "sealed"
+    },
+    {
+      "surface": "horses",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "royal",
+      "tw_match": "royal"
+    },
+    {
+      "surface": "mares",
+      "tw_match": "mare"
+    }
+  ],
+  "8:11": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "annihilate",
+      "tw_match": "annihilate"
+    },
+    {
+      "surface": "slaughter",
+      "tw_match": "slaughter"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "province",
+      "tw_match": "province"
+    },
+    {
+      "surface": "plunder",
+      "tw_match": "plunder"
+    },
+    {
+      "surface": "spoil",
+      "tw_match": "spoil"
+    }
+  ],
+  "8:12": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    }
+  ],
+  "8:13": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "province",
+      "tw_match": "province"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "prepared",
+      "tw_match": "prepared"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "revenge",
+      "tw_match": "revenge"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    }
+  ],
+  "8:14": [
+    {
+      "surface": "royal",
+      "tw_match": "royal"
+    },
+    {
+      "surface": "horses",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    }
+  ],
+  "8:15": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "royalty",
+      "tw_match": "royalty"
+    },
+    {
+      "surface": "crown",
+      "tw_match": "crown"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "robe",
+      "tw_match": "robe"
+    },
+    {
+      "surface": "purple",
+      "tw_match": "purple"
+    },
+    {
+      "surface": "rejoiced",
+      "tw_match": "rejoice"
+    }
+  ],
+  "8:16": [
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "joy",
+      "tw_match": "joy"
+    },
+    {
+      "surface": "rejoicing",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    }
+  ],
+  "8:17": [
+    {
+      "surface": "province",
+      "tw_match": "province"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "joy",
+      "tw_match": "joy"
+    },
+    {
+      "surface": "rejoicing",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "dread",
+      "tw_match": "dread"
+    }
+  ],
+  "9:1": [
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "hoped",
+      "tw_match": "hoped"
+    }
+  ],
+  "9:2": [
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "seeking",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "9:3": [
+    {
+      "surface": "officials",
+      "tw_match": "officials"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "governors",
+      "tw_match": "governors"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "dread",
+      "tw_match": "dread"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    }
+  ],
+  "9:4": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "palace",
+      "tw_match": "palace"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "report",
+      "tw_match": "report"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    }
+  ],
+  "9:5": [
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "slaughter",
+      "tw_match": "slaughter"
+    },
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    }
+  ],
+  "9:6": [
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "slaughtered",
+      "tw_match": "slaughtered"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    }
+  ],
+  "9:7": [],
+  "9:8": [],
+  "9:9": [],
+  "9:10": [
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "slaughtered",
+      "tw_match": "slaughtered"
+    },
+    {
+      "surface": "plunder",
+      "tw_match": "plunder"
+    }
+  ],
+  "9:11": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "report",
+      "tw_match": "report"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "9:12": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "citadel",
+      "tw_match": "citadel"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "slaughtered",
+      "tw_match": "slaughtered"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    }
+  ],
+  "9:13": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "hang",
+      "tw_match": "hang"
+    }
+  ],
+  "9:14": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "hanged",
+      "tw_match": "hang"
+    }
+  ],
+  "9:15": [
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "killed",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "plunder",
+      "tw_match": "plunder"
+    }
+  ],
+  "9:16": [
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "slaughtered",
+      "tw_match": "slaughtered"
+    },
+    {
+      "surface": "plunder",
+      "tw_match": "plunder"
+    }
+  ],
+  "9:17": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "feasting",
+      "tw_match": "feasting"
+    },
+    {
+      "surface": "rejoicing",
+      "tw_match": "rejoice"
+    }
+  ],
+  "9:18": [
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "assembled",
+      "tw_match": "assemble"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "feasting",
+      "tw_match": "feasting"
+    },
+    {
+      "surface": "rejoicing",
+      "tw_match": "rejoice"
+    }
+  ],
+  "9:19": [
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "rejoicing",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "feasting",
+      "tw_match": "feasting"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "friend",
+      "tw_match": "friend"
+    }
+  ],
+  "9:20": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    }
+  ],
+  "9:21": [
+    {
+      "surface": "set up",
+      "tw_match": "set up"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    }
+  ],
+  "9:22": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "joy",
+      "tw_match": "joy"
+    },
+    {
+      "surface": "mourning",
+      "tw_match": "mourn"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "feasting",
+      "tw_match": "feasting"
+    },
+    {
+      "surface": "rejoicing",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "friend",
+      "tw_match": "friend"
+    }
+  ],
+  "9:23": [
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    }
+  ],
+  "9:24": [
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "annihilate",
+      "tw_match": "annihilate"
+    },
+    {
+      "surface": "lot",
+      "tw_match": "lots"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    }
+  ],
+  "9:25": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "hang",
+      "tw_match": "hang"
+    }
+  ],
+  "9:26": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "9:27": [
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "set up",
+      "tw_match": "set up"
+    },
+    {
+      "surface": "seed",
+      "tw_match": "seed"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "appointed",
+      "tw_match": "appointed"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    }
+  ],
+  "9:28": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "generation",
+      "tw_match": "generation"
+    },
+    {
+      "surface": "family",
+      "tw_match": "family"
+    },
+    {
+      "surface": "province",
+      "tw_match": "province"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "seed",
+      "tw_match": "seed"
+    }
+  ],
+  "9:29": [
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Jew",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "set up",
+      "tw_match": "set up"
+    }
+  ],
+  "9:30": [
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "provinces",
+      "tw_match": "province"
+    },
+    {
+      "surface": "kingdom",
+      "tw_match": "kingdom"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "9:31": [
+    {
+      "surface": "set up",
+      "tw_match": "set up"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "appointed",
+      "tw_match": "appointed"
+    },
+    {
+      "surface": "times",
+      "tw_match": "time"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Jew",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "queen",
+      "tw_match": "queen"
+    },
+    {
+      "surface": "seed",
+      "tw_match": "seed"
+    },
+    {
+      "surface": "fasts",
+      "tw_match": "fast"
+    },
+    {
+      "surface": "outcry",
+      "tw_match": "outcry"
+    }
+  ],
+  "9:32": [
+    {
+      "surface": "decree",
+      "tw_match": "decree"
+    },
+    {
+      "surface": "Esther",
+      "tw_match": "Esther"
+    },
+    {
+      "surface": "set up",
+      "tw_match": "set up"
+    }
+  ],
+  "10:1": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "tribute",
+      "tw_match": "tribute"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "10:2": [
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Media",
+      "tw_match": "Media"
+    },
+    {
+      "surface": "Persia",
+      "tw_match": "Persia"
+    }
+  ],
+  "10:3": [
+    {
+      "surface": "Mordecai",
+      "tw_match": "Mordecai"
+    },
+    {
+      "surface": "Jew",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Ahasuerus",
+      "tw_match": "Ahasuerus"
+    },
+    {
+      "surface": "Jews",
+      "tw_match": "Jew"
+    },
+    {
+      "surface": "favored",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "seeking",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "seed",
+      "tw_match": "seed"
+    }
+  ]
+}

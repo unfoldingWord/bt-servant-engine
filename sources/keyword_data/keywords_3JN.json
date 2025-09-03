@@ -1,0 +1,181 @@
+{
+  "1:1": [
+    {
+      "surface": "elder",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "beloved",
+      "tw_match": "beloved"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "Beloved",
+      "tw_match": "beloved"
+    },
+    {
+      "surface": "pray",
+      "tw_match": "pray"
+    },
+    {
+      "surface": "prosper",
+      "tw_match": "prosper"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "prospers",
+      "tw_match": "prosper"
+    }
+  ],
+  "1:3": [
+    {
+      "surface": "rejoiced",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "joy",
+      "tw_match": "joy"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "Beloved",
+      "tw_match": "beloved"
+    },
+    {
+      "surface": "faithful",
+      "tw_match": "faithful"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "love",
+      "tw_match": "love"
+    },
+    {
+      "surface": "church",
+      "tw_match": "church"
+    },
+    {
+      "surface": "well",
+      "tw_match": "well"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "receiving",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "Gentiles",
+      "tw_match": "Gentile"
+    }
+  ],
+  "1:8": [],
+  "1:9": [
+    {
+      "surface": "church",
+      "tw_match": "church"
+    },
+    {
+      "surface": "loving",
+      "tw_match": "love"
+    },
+    {
+      "surface": "receive",
+      "tw_match": "receive"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "works",
+      "tw_match": "work"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "receive",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "church",
+      "tw_match": "church"
+    }
+  ],
+  "1:11": [
+    {
+      "surface": "Beloved",
+      "tw_match": "beloved"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "testimony",
+      "tw_match": "testimony"
+    }
+  ],
+  "1:13": [],
+  "1:14": [],
+  "1:15": [
+    {
+      "surface": "Peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    }
+  ]
+}

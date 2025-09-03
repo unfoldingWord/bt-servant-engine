@@ -195,6 +195,13 @@ def label_ranges(canonical_book: str, ranges: List[Tuple[int, int | None, int | 
     - Multi-chapter without verses: "Book 1-4" (no colon)
     - Cross-chapter with verses: "Book 3:16-4:2"
     """
+    # Special-case: treat a sentinel full-book range as just the book name.
+    # Upstream callers represent a whole-book selection as (1, None, 10_000, None).
+    if len(ranges) == 1:
+        sc, sv, ec, ev = ranges[0]
+        full_book = (sc == 1 and sv is None and ev is None and ec is not None and ec >= 10_000)
+        if full_book:
+            return f"{canonical_book}"
     parts: List[str] = []
     for sc, sv, ec, ev in ranges:
         # Whole-chapter(s) selection (no verses specified)

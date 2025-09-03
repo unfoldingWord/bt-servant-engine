@@ -4,7 +4,7 @@ This module defines the state, nodes, and orchestration logic for handling
 incoming user messages, classifying intents, querying resources, and producing
 final responses (including translation and chunking when necessary).
 """
-# pylint: disable=line-too-long,too-many-lines
+# pylint: disable=line-too-long,too-many-lines,too-many-statements
 
 from __future__ import annotations
 
@@ -26,6 +26,7 @@ from logger import get_logger
 from config import config
 from utils import chop_text, combine_chunks
 from utils.bsb import BOOK_MAP as BSB_BOOK_MAP, normalize_book_name, select_verses, label_ranges
+from utils.keywords import select_keywords
 from db import (
     get_chroma_collection,
     is_first_interaction,
@@ -275,11 +276,17 @@ Return a normalized, structured selection of book + verse ranges.
   - Multi-chapter ranges with no verse specification (e.g., "John 1–4", "John chapters 1–4"): set start_chapter=1, end_chapter=4 and leave verses empty
   - Whole book (John)
   - Multiple disjoint ranges within the same book (comma/semicolon separated)
-- Do not cross books in one selection. If user mentions multiple books, choose one or return the clearest primary one.
-- If no clear passage is present, return an empty list.
+- Do not cross books in one selection. If the user mentions multiple books (including with 'and', commas, or hyphens like 'Gen–Exo') and a single book cannot be unambiguously inferred by explicit chapter/verse qualifiers, return an empty selection. Prefer a clearly qualified single book (e.g., "Mark 1:1") over earlier mentions without qualifiers.
+- If no verses/chapters are supplied for the chosen book, interpret it as the whole book.
+- If no clear passage is present (and no book can be reasonably inferred), return an empty list.
 
 # Output format
 Return JSON parsable into the provided schema.
+
+# Examples
+- "What are the keywords in Genesis and Exodus?" -> return empty selection (multiple books; no clear single-book qualifier).
+- "Gen–Exo" -> return empty selection (multiple books; no clear single-book qualifier).
+- "John and Mark 1:1" -> choose Mark 1:1 (explicit qualifier picks Mark over first mention).
 """
 
 
@@ -342,6 +349,11 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     If the user mentions multiple books (e.g., "summarize John and Mark"), still classify as `get-passage-summary` —
     downstream logic will handle scope constraints.
   </intent>
+  <intent name="get-passage-keywords">
+    The user is explicitly asking for key words in a specific Bible passage, verse range, chapter(s),
+    or entire book (e.g., "Hebrews 1:1–11", "Joel", "John 1–3"). Prefer this when the user clearly
+    requests keywords, important words, or pivotal words to focus on during translation.
+  </intent>
   <intent name="set-response-language">
     The user wants to change the language in which the system responds. They might ask for responses in 
     Spanish, French, Arabic, etc.
@@ -393,6 +405,38 @@ Here are a few examples to guide you:
   <example>
     <message>summarize John and Mark</message>
     <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>summarize Gen–Exo</message>
+    <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>summarize Genesis and Exodus</message>
+    <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>what are the important words in EXO-DEUT</message>
+    <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>keywords in Genesis and Exodus</message>
+    <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>list the keywords for Gen 1-3</message>
+    <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>What are all the important words in Hebrews 1:1-11?</message>
+    <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>what are all the keywords in the book of Joel?</message>
+    <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>what words are pivotal from a translation perspective in John 1-3</message>
+    <intent>get-passage-keywords</intent>
   </example>
   <example>
     <message>Give me a summary of John 3:16-18.</message>
@@ -547,6 +591,7 @@ class IntentType(str, Enum):
     """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
     GET_PASSAGE_SUMMARY = "get-passage-summary"
+    GET_PASSAGE_KEYWORDS = "get-passage-keywords"
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
     SET_RESPONSE_LANGUAGE = "set-response-language"
@@ -1008,9 +1053,53 @@ def chunk_message(state: Any) -> dict:
         )
         response = completion.choices[0].message.content
         chunks = json.loads(response)
-    except json.JSONDecodeError:
-        logger.error("Error while attempting to chunk message. Manually chunking instead", exc_info=True)
-        chunks = chop_text(text=text_to_chunk, n=chunk_max)
+    except Exception:  # broad fallback to ensure we don't loop or fail hard
+        logger.error("LLM chunking failed. Falling back to deterministic chunking.", exc_info=True)
+        chunks = None
+
+    # Deterministic safeguards: if LLM returned a single massive chunk or invalid shape,
+    # or if we skipped to fallback
+    def _pack_items(items: list[str], max_len: int) -> list[str]:
+        out: list[str] = []
+        cur = ""
+        for it in items:
+            sep = (", " if cur else "")
+            if len(cur) + len(sep) + len(it) <= max_len:
+                cur += sep + it
+            else:
+                if cur:
+                    out.append(cur)
+                if len(it) <= max_len:
+                    cur = it
+                else:
+                    # hard-split this long token
+                    for j in range(0, len(it), max_len):
+                        out.append(it[j:j+max_len])
+                    cur = ""
+        if cur:
+            out.append(cur)
+        return out
+
+    if not isinstance(chunks, list) or any(not isinstance(c, str) for c in chunks):
+        # Try delimiter-aware fallback for comma-heavy lists first
+        if text_to_chunk.count(",") >= 10:
+            parts = [p.strip() for p in text_to_chunk.split(",") if p.strip()]
+            chunks = _pack_items(parts, chunk_max)
+        else:
+            chunks = chop_text(text=text_to_chunk, n=chunk_max)
+    else:
+        # Ensure each chunk respects the limit; if not, re-split deterministically
+        fixed: list[str] = []
+        for c in chunks:
+            if len(c) <= chunk_max:
+                fixed.append(c)
+            else:
+                if c.count(",") >= 10:
+                    parts = [p.strip() for p in c.split(",") if p.strip()]
+                    fixed.extend(_pack_items(parts, chunk_max))
+                else:
+                    fixed.extend(chop_text(text=c, n=chunk_max))
+        chunks = fixed
 
     chunks.extend(responses[1:])
     return {"translated_responses": combine_chunks(chunks=chunks, chunk_max=chunk_max)}
@@ -1037,6 +1126,8 @@ def process_intents(state: Any) -> List[str]:
         nodes_to_traverse.append("query_vector_db_node")
     if IntentType.GET_PASSAGE_SUMMARY in user_intents:
         nodes_to_traverse.append("handle_get_passage_summary_node")
+    if IntentType.GET_PASSAGE_KEYWORDS in user_intents:
+        nodes_to_traverse.append("handle_get_passage_keywords_node")
     if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
         nodes_to_traverse.append("set_response_language_node")
     if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
@@ -1127,6 +1218,190 @@ def converse_with_bt_servant(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}]}
 
 
+def _book_patterns() -> list[tuple[str, str]]:
+    """Return (canonical, regex) patterns to detect book mentions (ordered)."""
+    pats: list[tuple[str, str]] = []
+    for canonical, meta in BSB_BOOK_MAP.items():
+        # canonical name as a whole word/phrase
+        cn = re.escape(canonical)
+        pats.append((canonical, rf"\b{cn}\b"))
+        # short ref abbreviation (e.g., Gen, Exo, 1Sa)
+        abbr = re.escape(meta.get("ref_abbr", ""))
+        if abbr:
+            pats.append((canonical, rf"\b{abbr}\b"))
+    return pats
+
+
+def _detect_mentioned_books(text: str) -> list[str]:
+    """Detect canonical books mentioned in text, preserving order of appearance."""
+    found: list[tuple[int, str]] = []
+    lower = text
+    for canonical, pattern in _book_patterns():
+        for m in re.finditer(pattern, lower, flags=re.IGNORECASE):
+            found.append((m.start(), canonical))
+    # sort by appearance and dedupe preserving order
+    found.sort(key=lambda t: t[0])
+    seen = set()
+    ordered: list[str] = []
+    for _, can in found:
+        if can not in seen:
+            seen.add(can)
+            ordered.append(can)
+    return ordered
+
+
+def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
+    """Heuristic to pick a primary book when multiple are mentioned.
+
+    Prefer the first mentioned that appears near chapter/verse digits; else None.
+    """
+    if not candidates:
+        return None
+    # Build spans for each candidate occurrence
+    spans: list[tuple[int, int, str]] = []
+    for can, pat in _book_patterns():
+        if can not in candidates:
+            continue
+        for m in re.finditer(pat, text, flags=re.IGNORECASE):
+            spans.append((m.start(), m.end(), can))
+    spans.sort(key=lambda t: t[0])
+    for start, end, can in spans:
+        window = text[end:end + 12]
+        if re.search(r"\d", window):
+            return can
+    return None
+
+
+def _resolve_selection_for_single_book(query: str, query_lang: str) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
+    """Parse and normalize a user query into a single canonical book and ranges.
+
+    Returns a tuple of (canonical_book, ranges, error_message). On success, the
+    error_message is None. On failure, canonical_book and ranges are None and
+    error_message contains a user-friendly explanation.
+    """
+    logger.info("[selection-helper] start; query_lang=%s; query=%s", query_lang, query)
+
+    # Translate to English for parsing, if needed
+    if query_lang == Language.ENGLISH.value:
+        parse_input = query
+        logger.info("[selection-helper] parsing in English (no translation needed)")
+    else:
+        logger.info("[selection-helper] translating query to English for parsing")
+        parse_input = translate_text(query, target_language="en")
+
+    # Build selection prompt with canonical books
+    books = ", ".join(BSB_BOOK_MAP.keys())
+    system_prompt = PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT.format(books=books)
+    selection_messages: list[EasyInputMessageParam] = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": parse_input},
+    ]
+    logger.info("[selection-helper] extracting passage selection via LLM")
+    selection_resp = open_ai_client.responses.parse(
+        model="gpt-4o",
+        input=selection_messages,
+        text_format=PassageSelection,
+        store=False,
+    )
+    selection: PassageSelection = selection_resp.output_parsed
+    logger.info("[selection-helper] extracted %d selection(s)", len(selection.selections))
+
+    # Detect books explicitly mentioned in the user input for cross-book guardrails
+    mentioned = _detect_mentioned_books(parse_input)
+
+    # Heuristic correction for explicit "chapters X–Y"
+    lower_in = parse_input.lower()
+    chap_match = re.search(r"\bchapters?\s+(\d+)\s*[-–]\s*(\d+)\b", lower_in)
+    if chap_match and selection.selections:
+        a, b = int(chap_match.group(1)), int(chap_match.group(2))
+        logger.info("[selection-helper] correcting to multi-chapter range: %d-%d due to 'chapters' phrasing", a, b)
+        first = selection.selections[0]
+        selection.selections[0] = PassageRef(
+            book=first.book,
+            start_chapter=a,
+            start_verse=None,
+            end_chapter=b,
+            end_verse=None,
+        )
+
+    if not selection.selections:
+        # If multiple books are clearly mentioned, prefer consistent cross-book guidance,
+        # but allow a tie-break fallback when one has explicit digits nearby.
+        if len(mentioned) >= 2:
+            msg = (
+                "Please request a selection for one book at a time. "
+                "If you need multiple books, send a separate message for each."
+            )
+            logger.info("[selection-helper] empty parse; multiple books detected -> cross-book message")
+            return None, None, msg
+        if len(mentioned) == 1:
+            # Fallback: choose the single detected book as a whole-book selection.
+            primary = mentioned[0]
+            logger.info("[selection-helper] empty parse; falling back to single detected book: %s", primary)
+            return primary, [(1, None, 10_000, None)], None
+        msg = (
+            "I couldn't identify a clear Bible passage in your request. Supported selection types include: "
+            "single verse (e.g., John 3:16); verse range within a chapter (John 3:16-18); cross-chapter within a "
+            "single book (John 3:16–4:2); whole chapter (John 3); multi-chapter span with no verses (John 1–4); "
+            "or the whole book (John). Multiple books in one request are not supported — please choose one book."
+        )
+        logger.info("[selection-helper] no passage detected; returning guidance message")
+        return None, None, msg
+
+    # If multiple books were mentioned in the text, prefer a consistent message
+    if len(mentioned) >= 2:
+        msg = (
+            "Please request a selection for one book at a time. "
+            "If you need multiple books, send a separate message for each."
+        )
+        logger.info("[selection-helper] multiple books mentioned; returning cross-book message")
+        return None, None, msg
+
+    # Ensure all selections are within the same canonical book and normalize
+    canonical_books: list[str] = []
+    normalized_selections: list[PassageRef] = []
+    for sel in selection.selections:
+        canonical = normalize_book_name(sel.book) or sel.book
+        if canonical not in BSB_BOOK_MAP:
+            supported = ", ".join(BSB_BOOK_MAP.keys())
+            msg = (
+                f"The book '{sel.book}' is not recognized. Please use a supported canonical book name. "
+                f"Supported books include: {supported}."
+            )
+            logger.info("[selection-helper] unsupported book requested: %s", sel.book)
+            return None, None, msg
+        canonical_books.append(canonical)
+        normalized_selections.append(PassageRef(
+            book=canonical,
+            start_chapter=sel.start_chapter,
+            start_verse=sel.start_verse,
+            end_chapter=sel.end_chapter,
+            end_verse=sel.end_verse,
+        ))
+
+    if len(set(canonical_books)) != 1:
+        msg = (
+            "Please request a selection for one book at a time. "
+            "If you need multiple books, send a separate message for each."
+        )
+        logger.info("[selection-helper] cross-book selection detected")
+        return None, None, msg
+
+    canonical_book = canonical_books[0]
+    logger.info("[selection-helper] canonical_book=%s", canonical_book)
+
+    # Build ranges: if no chapter info, interpret as whole book
+    ranges: list[tuple[int, int | None, int | None, int | None]] = []
+    for sel in normalized_selections:
+        if sel.start_chapter is None:
+            ranges.append((1, None, 10_000, None))
+        else:
+            ranges.append((sel.start_chapter, sel.start_verse, sel.end_chapter, sel.end_verse))
+
+    logger.info("[selection-helper] ranges=%s", ranges)
+    return canonical_book, ranges, None
+
+
 def handle_get_passage_summary(state: Any) -> dict:
     """Handle get-passage-summary: extract refs, retrieve verses, summarize.
 
@@ -1143,102 +1418,10 @@ def handle_get_passage_summary(state: Any) -> dict:
     query_lang = s["query_language"]
     logger.info("[passage-summary] start; query_lang=%s; query=%s", query_lang, query)
 
-    # Translate to English for parsing, if needed
-    if query_lang == Language.ENGLISH.value:
-        parse_input = query
-        logger.info("[passage-summary] parsing in English (no translation needed)")
-    else:
-        logger.info("[passage-summary] translating query to English for parsing")
-        parse_input = translate_text(query, target_language="en")
-
-    # Build selection prompt with canonical books
-    books = ", ".join(BSB_BOOK_MAP.keys())
-    system_prompt = PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT.format(books=books)
-    selection_messages: list[EasyInputMessageParam] = [
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": parse_input},
-    ]
-    logger.info("[passage-summary] extracting passage selection via LLM")
-    selection_resp = open_ai_client.responses.parse(
-        model="gpt-4o",
-        input=selection_messages,
-        text_format=PassageSelection,
-        store=False,
-    )
-    selection: PassageSelection = selection_resp.output_parsed
-    logger.info("[passage-summary] extracted %d selection(s)", len(selection.selections))
-
-    # Heuristic correction: if user explicitly said "chapters X–Y", ensure we treat it
-    # as a multi-chapter span (not verses 1–Y). This guards against occasional LLM
-    # misreadings for phrasing like "John chapters 1-4".
-    lower_in = parse_input.lower()
-    chap_match = re.search(r"\bchapters?\s+(\d+)\s*[-–]\s*(\d+)\b", lower_in)
-    if chap_match and selection.selections:
-        a, b = int(chap_match.group(1)), int(chap_match.group(2))
-        logger.info("[passage-summary] correcting to multi-chapter range: %d-%d due to 'chapters' phrasing", a, b)
-        # Apply to the first selection; keep the canonical book returned by the model
-        first = selection.selections[0]
-        selection.selections[0] = PassageRef(
-            book=first.book,
-            start_chapter=a,
-            start_verse=None,
-            end_chapter=b,
-            end_verse=None,
-        )
-
-    if not selection.selections:
-        supported = ", ".join(BSB_BOOK_MAP.keys())
-        msg = (
-            "I couldn't identify a clear Bible passage in your request. "
-            "Please specify a book and passage, for example: 'John 3:16', 'Mark 1:1–8', or 'Psalm 1'. "
-            f"Supported books include: {supported}."
-        )
-        logger.info("[passage-summary] no passage detected; prompting user for clearer reference")
-        return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
-
-    # Ensure all selections are within the same canonical book
-    canonical_books: list[str] = []
-    normalized_selections: list[PassageRef] = []
-    for sel in selection.selections:
-        canonical = normalize_book_name(sel.book) or sel.book
-        if canonical not in BSB_BOOK_MAP:
-            supported = ", ".join(BSB_BOOK_MAP.keys())
-            msg = (
-                f"The book '{sel.book}' is not recognized. Please use a supported canonical book name. "
-                f"Supported books include: {supported}."
-            )
-            logger.info("[passage-summary] unsupported book requested: %s", sel.book)
-            return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
-        canonical_books.append(canonical)
-        normalized_selections.append(PassageRef(
-            book=canonical,
-            start_chapter=sel.start_chapter,
-            start_verse=sel.start_verse,
-            end_chapter=sel.end_chapter,
-            end_verse=sel.end_verse,
-        ))
-
-    if len(set(canonical_books)) != 1:
-        msg = (
-            "Please request a summary for one book at a time. "
-            "If you need multiple books summarized, send a separate message for each."
-        )
-        logger.info("[passage-summary] cross-book selection detected; rejecting")
-        return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
-
-    canonical_book = canonical_books[0]
-    logger.info("[passage-summary] canonical_book=%s", canonical_book)
-
-    # Build ranges: if no chapter info, interpret as whole book
-    ranges: list[tuple[int, int | None, int | None, int | None]] = []
-    for sel in normalized_selections:
-        if sel.start_chapter is None:
-            # entire book
-            # Represent using large end bounds so selection covers entire book
-            ranges.append((1, None, 10_000, None))
-        else:
-            ranges.append((sel.start_chapter, sel.start_verse, sel.end_chapter, sel.end_verse))
-    logger.info("[passage-summary] ranges=%s", ranges)
+    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    if err:
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": err}]}
+    assert canonical_book is not None and ranges is not None
 
     # Retrieve verses from BSB JSONs; data dir is project root / sources/bsb
     data_root = Path("sources") / "bsb"
@@ -1279,6 +1462,45 @@ def handle_get_passage_summary(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
 
 
+def handle_get_passage_keywords(state: Any) -> dict:
+    """Handle get-passage-keywords: extract refs, retrieve keywords, and list them.
+
+    Mirrors the summary flow for selection parsing and validation, but instead of
+    summarizing verses, loads per-verse keyword data from sources/keyword_data and
+    returns a comma-separated list of distinct tw_match values present in the
+    selection. The response is prefixed with "Keywords in <range>\n\n".
+    """
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    query_lang = s["query_language"]
+    logger.info("[passage-keywords] start; query_lang=%s; query=%s", query_lang, query)
+
+    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    if err:
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": err}]}
+    assert canonical_book is not None and ranges is not None
+
+    # Retrieve keywords from keyword dataset
+    data_root = Path("sources") / "keyword_data"
+    logger.info("[passage-keywords] retrieving keywords from %s", data_root)
+    keywords = select_keywords(data_root, canonical_book, ranges)
+    logger.info("[passage-keywords] retrieved %d keyword(s)", len(keywords))
+
+    if not keywords:
+        msg = (
+            "I couldn't locate keywords for that selection. Please check the reference and try again."
+        )
+        logger.info("[passage-keywords] no keywords found; prompting user")
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": msg}]}
+
+    ref_label = label_ranges(canonical_book, ranges)
+    header = f"Keywords in {ref_label}\n\n"
+    body = ", ".join(keywords)
+    response_text = header + body
+    logger.info("[passage-keywords] done")
+    return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": response_text}]}
+
+
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
@@ -1299,6 +1521,7 @@ def create_brain():
     builder.add_node("handle_system_information_request_node", handle_system_information_request)
     builder.add_node("converse_with_bt_servant_node", converse_with_bt_servant)
     builder.add_node("handle_get_passage_summary_node", handle_get_passage_summary)
+    builder.add_node("handle_get_passage_keywords_node", handle_get_passage_keywords)
     builder.add_node("translate_responses_node", translate_responses, defer=True)
 
     builder.set_entry_point("start_node")
@@ -1311,12 +1534,14 @@ def create_brain():
     )
     builder.add_edge("query_vector_db_node", "query_open_ai_node")
     builder.add_edge("set_response_language_node", "translate_responses_node")
-    builder.add_edge("chunk_message_node", "translate_responses_node")
+    # After chunking, finish. Do not loop back to translate, which can recreate
+    # the long message and trigger an infinite chunk cycle.
 
     builder.add_edge("handle_unsupported_function_node", "translate_responses_node")
     builder.add_edge("handle_system_information_request_node", "translate_responses_node")
     builder.add_edge("converse_with_bt_servant_node", "translate_responses_node")
     builder.add_edge("handle_get_passage_summary_node", "translate_responses_node")
+    builder.add_edge("handle_get_passage_keywords_node", "translate_responses_node")
     builder.add_edge("query_open_ai_node", "translate_responses_node")
 
     builder.add_conditional_edges(

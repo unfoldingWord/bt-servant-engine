@@ -1,0 +1,789 @@
+{
+  "1:1": [
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "Darius",
+      "tw_match": "Darius"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Haggai",
+      "tw_match": "Haggai"
+    },
+    {
+      "surface": "prophet",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "governor",
+      "tw_match": "governor"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "high priest",
+      "tw_match": "high priest"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "1:3": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Haggai",
+      "tw_match": "Haggai"
+    },
+    {
+      "surface": "prophet",
+      "tw_match": "prophet"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "houses",
+      "tw_match": "house"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "desolate",
+      "tw_match": "desolate"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "drunk",
+      "tw_match": "drunk"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "desolate",
+      "tw_match": "desolate"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "produce",
+      "tw_match": "produce"
+    }
+  ],
+  "1:11": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "desolation",
+      "tw_match": "desolation"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "grain",
+      "tw_match": "grain"
+    },
+    {
+      "surface": "new wine",
+      "tw_match": "new wine"
+    },
+    {
+      "surface": "oil",
+      "tw_match": "oil"
+    },
+    {
+      "surface": "produces",
+      "tw_match": "produce"
+    },
+    {
+      "surface": "beast",
+      "tw_match": "beast"
+    },
+    {
+      "surface": "labor",
+      "tw_match": "labor"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "high priest",
+      "tw_match": "high priest"
+    },
+    {
+      "surface": "remnant",
+      "tw_match": "remnant"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Haggai",
+      "tw_match": "Haggai"
+    },
+    {
+      "surface": "prophet",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "feared",
+      "tw_match": "fear"
+    }
+  ],
+  "1:13": [
+    {
+      "surface": "Haggai",
+      "tw_match": "Haggai"
+    },
+    {
+      "surface": "messenger",
+      "tw_match": "messenger"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:14": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "governor",
+      "tw_match": "governor"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "high priest",
+      "tw_match": "high priest"
+    },
+    {
+      "surface": "remnant",
+      "tw_match": "remnant"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "1:15": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "Darius",
+      "tw_match": "Darius"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "2:1": [
+    {
+      "surface": "month",
+      "tw_match": "month"
+    },
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Haggai",
+      "tw_match": "Haggai"
+    },
+    {
+      "surface": "prophet",
+      "tw_match": "prophet"
+    }
+  ],
+  "2:2": [
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "governor",
+      "tw_match": "governor"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "high priest",
+      "tw_match": "high priest"
+    },
+    {
+      "surface": "remnant",
+      "tw_match": "remnant"
+    }
+  ],
+  "2:3": [
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "2:4": [
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Joshua",
+      "tw_match": "Joshua"
+    },
+    {
+      "surface": "high priest",
+      "tw_match": "high priest"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "2:5": [
+    {
+      "surface": "covenanted",
+      "tw_match": "covenant"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    },
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "2:6": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "shaking",
+      "tw_match": "shake"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "2:7": [
+    {
+      "surface": "shake",
+      "tw_match": "shake"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "2:8": [
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "2:9": [
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "2:10": [
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "Darius",
+      "tw_match": "Darius"
+    },
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Haggai",
+      "tw_match": "Haggai"
+    },
+    {
+      "surface": "prophet",
+      "tw_match": "prophet"
+    }
+  ],
+  "2:11": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "priests",
+      "tw_match": "priest"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    }
+  ],
+  "2:12": [
+    {
+      "surface": "carries",
+      "tw_match": "carry"
+    },
+    {
+      "surface": "holy",
+      "tw_match": "holy"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "oil",
+      "tw_match": "oil"
+    },
+    {
+      "surface": "priests",
+      "tw_match": "priest"
+    }
+  ],
+  "2:13": [
+    {
+      "surface": "Haggai",
+      "tw_match": "Haggai"
+    },
+    {
+      "surface": "person",
+      "tw_match": "person"
+    },
+    {
+      "surface": "priests",
+      "tw_match": "priest"
+    }
+  ],
+  "2:14": [
+    {
+      "surface": "Haggai",
+      "tw_match": "Haggai"
+    },
+    {
+      "surface": "nation",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "2:15": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "2:16": [],
+  "2:17": [
+    {
+      "surface": "hail",
+      "tw_match": "hail"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "2:18": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "founded",
+      "tw_match": "founded"
+    }
+  ],
+  "2:19": [
+    {
+      "surface": "seed",
+      "tw_match": "seed"
+    },
+    {
+      "surface": "storehouse",
+      "tw_match": "storehouse"
+    },
+    {
+      "surface": "vine",
+      "tw_match": "vine"
+    },
+    {
+      "surface": "fig",
+      "tw_match": "fig"
+    },
+    {
+      "surface": "pomegranate",
+      "tw_match": "pomegranate"
+    },
+    {
+      "surface": "olive",
+      "tw_match": "olive"
+    },
+    {
+      "surface": "produced",
+      "tw_match": "produced"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "bless",
+      "tw_match": "bless"
+    }
+  ],
+  "2:20": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Haggai",
+      "tw_match": "Haggai"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "month",
+      "tw_match": "month"
+    }
+  ],
+  "2:21": [
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "governor",
+      "tw_match": "governor"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "shaking",
+      "tw_match": "shake"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "2:22": [
+    {
+      "surface": "throne",
+      "tw_match": "throne"
+    },
+    {
+      "surface": "kingdoms",
+      "tw_match": "kingdom"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "chariot",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "horses",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "2:23": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Zerubbabel",
+      "tw_match": "Zerubbabel"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "chosen",
+      "tw_match": "chosen"
+    }
+  ]
+}

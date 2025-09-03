@@ -1,0 +1,863 @@
+{
+  "1:1": [
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    },
+    {
+      "surface": "vision",
+      "tw_match": "vision"
+    },
+    {
+      "surface": "Nahum",
+      "tw_match": "Nahum"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "jealous",
+      "tw_match": "jealous"
+    },
+    {
+      "surface": "avenging",
+      "tw_match": "avenge"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "avenger",
+      "tw_match": "avenger"
+    },
+    {
+      "surface": "master",
+      "tw_match": "master"
+    },
+    {
+      "surface": "wrath",
+      "tw_match": "wrath"
+    },
+    {
+      "surface": "vengeance",
+      "tw_match": "vengeance"
+    },
+    {
+      "surface": "adversaries",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    }
+  ],
+  "1:3": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "rebukes",
+      "tw_match": "rebuke"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    },
+    {
+      "surface": "dries",
+      "tw_match": "dry"
+    },
+    {
+      "surface": "Bashan",
+      "tw_match": "Bashan"
+    },
+    {
+      "surface": "Carmel",
+      "tw_match": "Carmel"
+    },
+    {
+      "surface": "Lebanon",
+      "tw_match": "Lebanon"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "shake",
+      "tw_match": "shake"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "world",
+      "tw_match": "world"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "wrath",
+      "tw_match": "wrath"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "stronghold",
+      "tw_match": "stronghold"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "knowing",
+      "tw_match": "know"
+    },
+    {
+      "surface": "refuge",
+      "tw_match": "refuge"
+    },
+    {
+      "surface": "in him",
+      "tw_match": "in him"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "complete",
+      "tw_match": "complete"
+    },
+    {
+      "surface": "flood",
+      "tw_match": "flood"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "complete",
+      "tw_match": "complete"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "thorn",
+      "tw_match": "thorn"
+    },
+    {
+      "surface": "drunk",
+      "tw_match": "drunk"
+    },
+    {
+      "surface": "devoured",
+      "tw_match": "devour"
+    }
+  ],
+  "1:11": [
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "advisor",
+      "tw_match": "advisor"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "likewise",
+      "tw_match": "likewise"
+    },
+    {
+      "surface": "afflicted",
+      "tw_match": "afflict"
+    },
+    {
+      "surface": "afflict",
+      "tw_match": "afflict"
+    }
+  ],
+  "1:13": [
+    {
+      "surface": "yoke",
+      "tw_match": "yoke"
+    }
+  ],
+  "1:14": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "figures",
+      "tw_match": "figure"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "gods",
+      "tw_match": "god"
+    },
+    {
+      "surface": "graves",
+      "tw_match": "grave"
+    }
+  ],
+  "1:15": [
+    {
+      "surface": "announcing",
+      "tw_match": "announce"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "Celebrate",
+      "tw_match": "celebrate"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "vows",
+      "tw_match": "vow"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "2:1": [
+    {
+      "surface": "Guard",
+      "tw_match": "guard"
+    },
+    {
+      "surface": "watch",
+      "tw_match": "watch"
+    },
+    {
+      "surface": "loins",
+      "tw_match": "loins"
+    }
+  ],
+  "2:2": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "restored",
+      "tw_match": "restore"
+    },
+    {
+      "surface": "majesty",
+      "tw_match": "majesty"
+    },
+    {
+      "surface": "Jacob",
+      "tw_match": "Jacob"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "plundered",
+      "tw_match": "plundered"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "vine",
+      "tw_match": "vine"
+    }
+  ],
+  "2:3": [
+    {
+      "surface": "shields",
+      "tw_match": "shield"
+    },
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    },
+    {
+      "surface": "chariot",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "cypresses",
+      "tw_match": "cypress"
+    }
+  ],
+  "2:4": [
+    {
+      "surface": "chariots",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "2:5": [
+    {
+      "surface": "calls",
+      "tw_match": "call"
+    },
+    {
+      "surface": "stumble",
+      "tw_match": "stumble"
+    },
+    {
+      "surface": "siege",
+      "tw_match": "siege"
+    },
+    {
+      "surface": "shelter",
+      "tw_match": "shelter"
+    },
+    {
+      "surface": "prepared",
+      "tw_match": "prepared"
+    }
+  ],
+  "2:6": [
+    {
+      "surface": "gates",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "palace",
+      "tw_match": "palace"
+    }
+  ],
+  "2:7": [
+    {
+      "surface": "established",
+      "tw_match": "established"
+    },
+    {
+      "surface": "exile",
+      "tw_match": "exile"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "doves",
+      "tw_match": "dove"
+    }
+  ],
+  "2:8": [
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "2:9": [
+    {
+      "surface": "Plunder",
+      "tw_match": "plunder"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "plunder",
+      "tw_match": "plunder"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "delight",
+      "tw_match": "delight"
+    }
+  ],
+  "2:10": [
+    {
+      "surface": "desolate",
+      "tw_match": "desolate"
+    },
+    {
+      "surface": "ruined",
+      "tw_match": "ruined"
+    },
+    {
+      "surface": "shaking",
+      "tw_match": "shake"
+    },
+    {
+      "surface": "anguish",
+      "tw_match": "anguish"
+    },
+    {
+      "surface": "loins",
+      "tw_match": "loins"
+    },
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    }
+  ],
+  "2:11": [
+    {
+      "surface": "lions",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "lion",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "lioness",
+      "tw_match": "lioness"
+    },
+    {
+      "surface": "afraid",
+      "tw_match": "afraid"
+    }
+  ],
+  "2:12": [
+    {
+      "surface": "lion",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "lionesses",
+      "tw_match": "lioness"
+    },
+    {
+      "surface": "prey",
+      "tw_match": "prey"
+    }
+  ],
+  "2:13": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "chariot",
+      "tw_match": "chariot"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "devour",
+      "tw_match": "devour"
+    },
+    {
+      "surface": "lions",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "prey",
+      "tw_match": "prey"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "messengers",
+      "tw_match": "messenger"
+    }
+  ],
+  "3:1": [
+    {
+      "surface": "Woe",
+      "tw_match": "woe"
+    },
+    {
+      "surface": "bloodshed",
+      "tw_match": "bloodshed"
+    },
+    {
+      "surface": "lies",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "plunder",
+      "tw_match": "plunder"
+    },
+    {
+      "surface": "prey",
+      "tw_match": "prey"
+    }
+  ],
+  "3:2": [
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    },
+    {
+      "surface": "bounding",
+      "tw_match": "bound"
+    },
+    {
+      "surface": "chariot",
+      "tw_match": "chariot"
+    }
+  ],
+  "3:3": [
+    {
+      "surface": "horseman",
+      "tw_match": "horseman"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "spear",
+      "tw_match": "spear"
+    },
+    {
+      "surface": "slain",
+      "tw_match": "slain"
+    },
+    {
+      "surface": "stumble",
+      "tw_match": "stumble"
+    }
+  ],
+  "3:4": [
+    {
+      "surface": "prostitute",
+      "tw_match": "prostitute"
+    },
+    {
+      "surface": "pleasing",
+      "tw_match": "please"
+    },
+    {
+      "surface": "witchcraft",
+      "tw_match": "witchcraft"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    }
+  ],
+  "3:5": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "kingdoms",
+      "tw_match": "kingdom"
+    },
+    {
+      "surface": "shame",
+      "tw_match": "shame"
+    }
+  ],
+  "3:6": [],
+  "3:7": [
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    }
+  ],
+  "3:8": [
+    {
+      "surface": "better",
+      "tw_match": "better"
+    },
+    {
+      "surface": "the Nile",
+      "tw_match": "the Nile"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "3:9": [
+    {
+      "surface": "Cush",
+      "tw_match": "Cush"
+    },
+    {
+      "surface": "Egypt",
+      "tw_match": "Egypt"
+    }
+  ],
+  "3:10": [
+    {
+      "surface": "exile",
+      "tw_match": "exile"
+    },
+    {
+      "surface": "captivity",
+      "tw_match": "captivity"
+    },
+    {
+      "surface": "honored",
+      "tw_match": "honor"
+    },
+    {
+      "surface": "lots",
+      "tw_match": "lots"
+    },
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    }
+  ],
+  "3:11": [
+    {
+      "surface": "drunk",
+      "tw_match": "drunk"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "refuge",
+      "tw_match": "refuge"
+    },
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    }
+  ],
+  "3:12": [
+    {
+      "surface": "fortresses",
+      "tw_match": "fortress"
+    },
+    {
+      "surface": "fig",
+      "tw_match": "fig"
+    },
+    {
+      "surface": "fruits",
+      "tw_match": "fruit"
+    }
+  ],
+  "3:13": [
+    {
+      "surface": "gates",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "enemies",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "devoured",
+      "tw_match": "devour"
+    }
+  ],
+  "3:14": [
+    {
+      "surface": "siege",
+      "tw_match": "siege"
+    },
+    {
+      "surface": "fortresses",
+      "tw_match": "fortress"
+    },
+    {
+      "surface": "mold",
+      "tw_match": "mold"
+    }
+  ],
+  "3:15": [
+    {
+      "surface": "devour",
+      "tw_match": "devour"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "locust",
+      "tw_match": "locust"
+    },
+    {
+      "surface": "Multiply",
+      "tw_match": "multiply"
+    },
+    {
+      "surface": "multiply",
+      "tw_match": "multiply"
+    }
+  ],
+  "3:16": [
+    {
+      "surface": "multiplied",
+      "tw_match": "multiplied"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "locust",
+      "tw_match": "locust"
+    }
+  ],
+  "3:17": [
+    {
+      "surface": "guards",
+      "tw_match": "guard"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "locust",
+      "tw_match": "locust"
+    },
+    {
+      "surface": "locusts",
+      "tw_match": "locust"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "3:18": [
+    {
+      "surface": "King",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Assyria",
+      "tw_match": "Assyria"
+    },
+    {
+      "surface": "shepherds",
+      "tw_match": "shepherd"
+    },
+    {
+      "surface": "nobles",
+      "tw_match": "noble"
+    },
+    {
+      "surface": "scattered",
+      "tw_match": "scatter"
+    },
+    {
+      "surface": "gathering",
+      "tw_match": "gather"
+    }
+  ],
+  "3:19": [
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ]
+}

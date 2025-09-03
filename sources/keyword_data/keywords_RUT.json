@@ -1,0 +1,1324 @@
+{
+  "1:1": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "ruling",
+      "tw_match": "rule"
+    },
+    {
+      "surface": "judges",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "famine",
+      "tw_match": "famine"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    }
+  ],
+  "1:3": [],
+  "1:4": [
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "1:5": [],
+  "1:6": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "covenant faithfulness",
+      "tw_match": "covenant faithfulness"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "kissed",
+      "tw_match": "kiss"
+    }
+  ],
+  "1:10": [],
+  "1:11": [
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    }
+  ],
+  "1:13": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:14": [
+    {
+      "surface": "kissed",
+      "tw_match": "kiss"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    }
+  ],
+  "1:15": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "god",
+      "tw_match": "god"
+    }
+  ],
+  "1:16": [
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "forsake",
+      "tw_match": "forsake"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "1:17": [
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:18": [],
+  "1:19": [
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    }
+  ],
+  "1:20": [
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "Call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "1:21": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "1:22": [
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "Moabite",
+      "tw_match": "Moabite"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    },
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "harvest",
+      "tw_match": "harvest"
+    },
+    {
+      "surface": "barley",
+      "tw_match": "barley"
+    }
+  ],
+  "2:1": [
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    }
+  ],
+  "2:2": [
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "Moabite",
+      "tw_match": "Moabite"
+    },
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "glean",
+      "tw_match": "glean"
+    },
+    {
+      "surface": "grain",
+      "tw_match": "grain"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    }
+  ],
+  "2:3": [
+    {
+      "surface": "glean",
+      "tw_match": "glean"
+    },
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    }
+  ],
+  "2:4": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "bless",
+      "tw_match": "bless"
+    }
+  ],
+  "2:5": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    }
+  ],
+  "2:6": [
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "Moabite",
+      "tw_match": "Moabite"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    }
+  ],
+  "2:7": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "glean",
+      "tw_match": "glean"
+    },
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "grain",
+      "tw_match": "grain"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "2:8": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "glean",
+      "tw_match": "glean"
+    }
+  ],
+  "2:9": [
+    {
+      "surface": "Keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "reaping",
+      "tw_match": "reap"
+    },
+    {
+      "surface": "instructed",
+      "tw_match": "instruct"
+    }
+  ],
+  "2:10": [
+    {
+      "surface": "bowed",
+      "tw_match": "bow"
+    },
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "foreigner",
+      "tw_match": "foreigner"
+    }
+  ],
+  "2:11": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "reported",
+      "tw_match": "reported"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "2:12": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "reward",
+      "tw_match": "reward"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "refuge",
+      "tw_match": "refuge"
+    }
+  ],
+  "2:13": [
+    {
+      "surface": "favor",
+      "tw_match": "favor"
+    },
+    {
+      "surface": "lord",
+      "tw_match": "lord"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    }
+  ],
+  "2:14": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    },
+    {
+      "surface": "grain",
+      "tw_match": "grain"
+    }
+  ],
+  "2:15": [
+    {
+      "surface": "glean",
+      "tw_match": "glean"
+    },
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "shame",
+      "tw_match": "shame"
+    }
+  ],
+  "2:16": [
+    {
+      "surface": "leave",
+      "tw_match": "leave"
+    },
+    {
+      "surface": "glean",
+      "tw_match": "glean"
+    },
+    {
+      "surface": "rebuke",
+      "tw_match": "rebuke"
+    }
+  ],
+  "2:17": [
+    {
+      "surface": "gleaned",
+      "tw_match": "glean"
+    },
+    {
+      "surface": "barley",
+      "tw_match": "barley"
+    }
+  ],
+  "2:18": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "gleaned",
+      "tw_match": "glean"
+    }
+  ],
+  "2:19": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "glean",
+      "tw_match": "glean"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    },
+    {
+      "surface": "worked",
+      "tw_match": "work"
+    },
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    }
+  ],
+  "2:20": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "forsaken",
+      "tw_match": "forsaken"
+    },
+    {
+      "surface": "covenant faithfulness",
+      "tw_match": "covenant faithfulness"
+    },
+    {
+      "surface": "kinsman",
+      "tw_match": "kinsman"
+    },
+    {
+      "surface": "redeemers",
+      "tw_match": "redeemer"
+    }
+  ],
+  "2:21": [
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "Moabite",
+      "tw_match": "Moabite"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "harvest",
+      "tw_match": "harvest"
+    }
+  ],
+  "2:22": [
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "2:23": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "glean",
+      "tw_match": "glean"
+    },
+    {
+      "surface": "harvest",
+      "tw_match": "harvest"
+    },
+    {
+      "surface": "barley",
+      "tw_match": "barley"
+    },
+    {
+      "surface": "wheat",
+      "tw_match": "wheat"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    }
+  ],
+  "3:1": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "3:2": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "working",
+      "tw_match": "work"
+    },
+    {
+      "surface": "winnowing",
+      "tw_match": "winnow"
+    },
+    {
+      "surface": "barley",
+      "tw_match": "barley"
+    },
+    {
+      "surface": "threshing",
+      "tw_match": "thresh"
+    }
+  ],
+  "3:3": [
+    {
+      "surface": "wash",
+      "tw_match": "wash"
+    },
+    {
+      "surface": "anoint",
+      "tw_match": "anoint"
+    },
+    {
+      "surface": "threshing",
+      "tw_match": "thresh"
+    }
+  ],
+  "3:4": [
+    {
+      "surface": "lies",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    }
+  ],
+  "3:5": [],
+  "3:6": [
+    {
+      "surface": "threshing",
+      "tw_match": "thresh"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "instructed",
+      "tw_match": "instruct"
+    }
+  ],
+  "3:7": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "grain",
+      "tw_match": "grain"
+    }
+  ],
+  "3:8": [],
+  "3:9": [
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "kinsman",
+      "tw_match": "kinsman"
+    },
+    {
+      "surface": "redeemer",
+      "tw_match": "redeemer"
+    }
+  ],
+  "3:10": [
+    {
+      "surface": "Blessed",
+      "tw_match": "bless"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "covenant faithfulness",
+      "tw_match": "covenant faithfulness"
+    },
+    {
+      "surface": "better",
+      "tw_match": "better"
+    }
+  ],
+  "3:11": [
+    {
+      "surface": "afraid",
+      "tw_match": "afraid"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "knows",
+      "tw_match": "know"
+    }
+  ],
+  "3:12": [
+    {
+      "surface": "kinsman",
+      "tw_match": "kinsman"
+    },
+    {
+      "surface": "redeemer",
+      "tw_match": "redeemer"
+    }
+  ],
+  "3:13": [
+    {
+      "surface": "redeem",
+      "tw_match": "redeem"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Lie",
+      "tw_match": "lie"
+    }
+  ],
+  "3:14": [
+    {
+      "surface": "friend",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "threshing",
+      "tw_match": "thresh"
+    }
+  ],
+  "3:15": [
+    {
+      "surface": "barley",
+      "tw_match": "barley"
+    }
+  ],
+  "3:16": [
+    {
+      "surface": "law",
+      "tw_match": "law"
+    }
+  ],
+  "3:17": [
+    {
+      "surface": "barley",
+      "tw_match": "barley"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    }
+  ],
+  "3:18": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "4:1": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "kinsman",
+      "tw_match": "kinsman"
+    },
+    {
+      "surface": "redeemer",
+      "tw_match": "redeemer"
+    },
+    {
+      "surface": "person",
+      "tw_match": "person"
+    }
+  ],
+  "4:2": [
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    }
+  ],
+  "4:3": [
+    {
+      "surface": "kinsman",
+      "tw_match": "kinsman"
+    },
+    {
+      "surface": "redeemer",
+      "tw_match": "redeemer"
+    },
+    {
+      "surface": "Moab",
+      "tw_match": "Moab"
+    }
+  ],
+  "4:4": [
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "redeem",
+      "tw_match": "redeem"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "4:5": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "Moabite",
+      "tw_match": "Moabite"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    }
+  ],
+  "4:6": [
+    {
+      "surface": "kinsman",
+      "tw_match": "kinsman"
+    },
+    {
+      "surface": "redeemer",
+      "tw_match": "redeemer"
+    },
+    {
+      "surface": "redeem",
+      "tw_match": "redeem"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "redemption",
+      "tw_match": "redemption"
+    }
+  ],
+  "4:7": [
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "redemption",
+      "tw_match": "redemption"
+    },
+    {
+      "surface": "confirm",
+      "tw_match": "confirm"
+    },
+    {
+      "surface": "sandal",
+      "tw_match": "sandal"
+    },
+    {
+      "surface": "friend",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "legal",
+      "tw_match": "legal"
+    }
+  ],
+  "4:8": [
+    {
+      "surface": "kinsman",
+      "tw_match": "kinsman"
+    },
+    {
+      "surface": "redeemer",
+      "tw_match": "redeemer"
+    },
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "sandal",
+      "tw_match": "sandal"
+    }
+  ],
+  "4:9": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "witnesses",
+      "tw_match": "witness"
+    }
+  ],
+  "4:10": [
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "Moabite",
+      "tw_match": "Moabite"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    },
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "witnesses",
+      "tw_match": "witness"
+    }
+  ],
+  "4:11": [
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    },
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    },
+    {
+      "surface": "witnesses",
+      "tw_match": "witness"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "your house",
+      "tw_match": "your house"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "Rachel",
+      "tw_match": "Rachel"
+    },
+    {
+      "surface": "Leah",
+      "tw_match": "Leah"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    },
+    {
+      "surface": "Prosper",
+      "tw_match": "prosper"
+    },
+    {
+      "surface": "Ephrathah",
+      "tw_match": "Ephrathah"
+    },
+    {
+      "surface": "renowned",
+      "tw_match": "renowned"
+    },
+    {
+      "surface": "Bethlehem",
+      "tw_match": "Bethlehem"
+    }
+  ],
+  "4:12": [
+    {
+      "surface": "your house",
+      "tw_match": "your house"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "Tamar",
+      "tw_match": "Tamar"
+    },
+    {
+      "surface": "bore",
+      "tw_match": "bore"
+    },
+    {
+      "surface": "Judah",
+      "tw_match": "Judah"
+    },
+    {
+      "surface": "seed",
+      "tw_match": "seed"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "4:13": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    },
+    {
+      "surface": "Ruth",
+      "tw_match": "Ruth"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "conception",
+      "tw_match": "conception"
+    },
+    {
+      "surface": "bore",
+      "tw_match": "bore"
+    }
+  ],
+  "4:14": [
+    {
+      "surface": "Blessed",
+      "tw_match": "bless"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "kinsman",
+      "tw_match": "kinsman"
+    },
+    {
+      "surface": "redeemer",
+      "tw_match": "redeemer"
+    },
+    {
+      "surface": "renowned",
+      "tw_match": "renowned"
+    },
+    {
+      "surface": "Israel",
+      "tw_match": "Israel"
+    }
+  ],
+  "4:15": [
+    {
+      "surface": "old age",
+      "tw_match": "old age"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "loves",
+      "tw_match": "love"
+    },
+    {
+      "surface": "borne",
+      "tw_match": "borne"
+    },
+    {
+      "surface": "better",
+      "tw_match": "better"
+    }
+  ],
+  "4:16": [],
+  "4:17": [
+    {
+      "surface": "neighbor",
+      "tw_match": "neighbor"
+    },
+    {
+      "surface": "called out",
+      "tw_match": "called out"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "Jesse",
+      "tw_match": "Jesse"
+    },
+    {
+      "surface": "David",
+      "tw_match": "David"
+    }
+  ],
+  "4:18": [
+    {
+      "surface": "generations",
+      "tw_match": "generation"
+    }
+  ],
+  "4:19": [
+    {
+      "surface": "Ram",
+      "tw_match": "ram"
+    }
+  ],
+  "4:20": [],
+  "4:21": [
+    {
+      "surface": "Boaz",
+      "tw_match": "Boaz"
+    }
+  ],
+  "4:22": [
+    {
+      "surface": "Jesse",
+      "tw_match": "Jesse"
+    },
+    {
+      "surface": "David",
+      "tw_match": "David"
+    }
+  ]
+}

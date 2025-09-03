@@ -1,0 +1,842 @@
+{
+  "1:1": [
+    {
+      "surface": "Paul",
+      "tw_match": "Paul"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "apostle",
+      "tw_match": "apostle"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    },
+    {
+      "surface": "faith",
+      "tw_match": "faith"
+    },
+    {
+      "surface": "chosen people",
+      "tw_match": "chosen people"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    },
+    {
+      "surface": "godliness",
+      "tw_match": "godliness"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "eternal",
+      "tw_match": "eternal"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "promised",
+      "tw_match": "promised"
+    },
+    {
+      "surface": "ages",
+      "tw_match": "age"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "1:3": [
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "proclamation",
+      "tw_match": "proclamation"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Savior",
+      "tw_match": "Savior"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "Titus",
+      "tw_match": "Titus"
+    },
+    {
+      "surface": "faith",
+      "tw_match": "faith"
+    },
+    {
+      "surface": "Grace",
+      "tw_match": "grace"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "God the Father",
+      "tw_match": "God the Father"
+    },
+    {
+      "surface": "Christ Jesus",
+      "tw_match": "Christ Jesus"
+    },
+    {
+      "surface": "Savior",
+      "tw_match": "Savior"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "Crete",
+      "tw_match": "Crete"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "complete",
+      "tw_match": "complete"
+    },
+    {
+      "surface": "ordain",
+      "tw_match": "ordain"
+    },
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "blameless",
+      "tw_match": "blameless"
+    },
+    {
+      "surface": "faithful",
+      "tw_match": "faithful"
+    },
+    {
+      "surface": "rebellion",
+      "tw_match": "rebellion"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "overseer",
+      "tw_match": "overseer"
+    },
+    {
+      "surface": "blameless",
+      "tw_match": "blameless"
+    },
+    {
+      "surface": "household",
+      "tw_match": "household"
+    },
+    {
+      "surface": "manager",
+      "tw_match": "manager"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "arrogant",
+      "tw_match": "arrogant"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "friend",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "holy",
+      "tw_match": "holy"
+    },
+    {
+      "surface": "self-controlled",
+      "tw_match": "self-controlled"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "trustworthy",
+      "tw_match": "trustworthy"
+    },
+    {
+      "surface": "teaching",
+      "tw_match": "teaching"
+    },
+    {
+      "surface": "encourage",
+      "tw_match": "encourage"
+    },
+    {
+      "surface": "rebuke",
+      "tw_match": "rebuke"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "rebellious",
+      "tw_match": "rebellious"
+    },
+    {
+      "surface": "circumcision",
+      "tw_match": "circumcision"
+    }
+  ],
+  "1:11": [
+    {
+      "surface": "households",
+      "tw_match": "household"
+    },
+    {
+      "surface": "teaching",
+      "tw_match": "teaching"
+    },
+    {
+      "surface": "profit",
+      "tw_match": "profit"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "prophets",
+      "tw_match": "prophet"
+    },
+    {
+      "surface": "Cretans",
+      "tw_match": "Cretan"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "beasts",
+      "tw_match": "beast"
+    }
+  ],
+  "1:13": [
+    {
+      "surface": "testimony",
+      "tw_match": "testimony"
+    },
+    {
+      "surface": "rebuke",
+      "tw_match": "rebuke"
+    },
+    {
+      "surface": "faith",
+      "tw_match": "faith"
+    }
+  ],
+  "1:14": [
+    {
+      "surface": "Jewish",
+      "tw_match": "Jewish"
+    }
+  ],
+  "1:15": [
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    },
+    {
+      "surface": "corrupted",
+      "tw_match": "corrupted"
+    },
+    {
+      "surface": "minds",
+      "tw_match": "mind"
+    },
+    {
+      "surface": "consciences",
+      "tw_match": "conscience"
+    }
+  ],
+  "1:16": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "detestable",
+      "tw_match": "detestable"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "2:1": [
+    {
+      "surface": "teaching",
+      "tw_match": "teaching"
+    }
+  ],
+  "2:2": [
+    {
+      "surface": "faith",
+      "tw_match": "faith"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    },
+    {
+      "surface": "perseverance",
+      "tw_match": "perseverance"
+    }
+  ],
+  "2:3": [
+    {
+      "surface": "likewise",
+      "tw_match": "likewise"
+    },
+    {
+      "surface": "reverent",
+      "tw_match": "reverent"
+    },
+    {
+      "surface": "slanderers",
+      "tw_match": "slanderers"
+    },
+    {
+      "surface": "enslaved",
+      "tw_match": "enslave"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "teachers",
+      "tw_match": "teacher"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "2:4": [
+    {
+      "surface": "lovers",
+      "tw_match": "lover"
+    }
+  ],
+  "2:5": [
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "subject",
+      "tw_match": "subject"
+    },
+    {
+      "surface": "word of God",
+      "tw_match": "word of God"
+    },
+    {
+      "surface": "insulted",
+      "tw_match": "insult"
+    }
+  ],
+  "2:6": [
+    {
+      "surface": "exhort",
+      "tw_match": "exhort"
+    }
+  ],
+  "2:7": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "works",
+      "tw_match": "work"
+    },
+    {
+      "surface": "teaching",
+      "tw_match": "teaching"
+    }
+  ],
+  "2:8": [
+    {
+      "surface": "ashamed",
+      "tw_match": "ashamed"
+    }
+  ],
+  "2:9": [
+    {
+      "surface": "Slaves",
+      "tw_match": "slave"
+    },
+    {
+      "surface": "be subject to",
+      "tw_match": "be subject to"
+    },
+    {
+      "surface": "masters",
+      "tw_match": "master"
+    },
+    {
+      "surface": "pleasing",
+      "tw_match": "please"
+    }
+  ],
+  "2:10": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "faith",
+      "tw_match": "faith"
+    },
+    {
+      "surface": "teaching",
+      "tw_match": "teaching"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Savior",
+      "tw_match": "Savior"
+    }
+  ],
+  "2:11": [
+    {
+      "surface": "grace",
+      "tw_match": "grace"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "2:12": [
+    {
+      "surface": "rejecting",
+      "tw_match": "reject"
+    },
+    {
+      "surface": "godlessness",
+      "tw_match": "godlessness"
+    },
+    {
+      "surface": "worldly",
+      "tw_match": "worldly"
+    },
+    {
+      "surface": "passions",
+      "tw_match": "passions"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "godly",
+      "tw_match": "godly"
+    },
+    {
+      "surface": "age",
+      "tw_match": "age"
+    }
+  ],
+  "2:13": [
+    {
+      "surface": "receiving",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Savior",
+      "tw_match": "Savior"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    }
+  ],
+  "2:14": [
+    {
+      "surface": "redeem",
+      "tw_match": "redeem"
+    },
+    {
+      "surface": "lawlessness",
+      "tw_match": "lawlessness"
+    },
+    {
+      "surface": "purify",
+      "tw_match": "purify"
+    },
+    {
+      "surface": "chosen people",
+      "tw_match": "chosen people"
+    },
+    {
+      "surface": "zealous",
+      "tw_match": "zealous"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "works",
+      "tw_match": "work"
+    }
+  ],
+  "2:15": [
+    {
+      "surface": "exhort",
+      "tw_match": "exhort"
+    },
+    {
+      "surface": "rebuke",
+      "tw_match": "rebuke"
+    },
+    {
+      "surface": "authority",
+      "tw_match": "authority"
+    }
+  ],
+  "3:1": [
+    {
+      "surface": "Remind",
+      "tw_match": "remind"
+    },
+    {
+      "surface": "submit",
+      "tw_match": "submit"
+    },
+    {
+      "surface": "rulers",
+      "tw_match": "ruler"
+    },
+    {
+      "surface": "authorities",
+      "tw_match": "authority"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "3:2": [
+    {
+      "surface": "revile",
+      "tw_match": "revile"
+    },
+    {
+      "surface": "humility",
+      "tw_match": "humility"
+    }
+  ],
+  "3:3": [
+    {
+      "surface": "foolish",
+      "tw_match": "foolish"
+    },
+    {
+      "surface": "enslaved",
+      "tw_match": "enslave"
+    },
+    {
+      "surface": "passions",
+      "tw_match": "passions"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "envy",
+      "tw_match": "envy"
+    },
+    {
+      "surface": "detestable",
+      "tw_match": "detestable"
+    }
+  ],
+  "3:4": [
+    {
+      "surface": "love",
+      "tw_match": "love"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Savior",
+      "tw_match": "Savior"
+    }
+  ],
+  "3:5": [
+    {
+      "surface": "works",
+      "tw_match": "work"
+    },
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    },
+    {
+      "surface": "mercy",
+      "tw_match": "mercy"
+    },
+    {
+      "surface": "saved",
+      "tw_match": "saved"
+    },
+    {
+      "surface": "washing",
+      "tw_match": "wash"
+    },
+    {
+      "surface": "new birth",
+      "tw_match": "new birth"
+    },
+    {
+      "surface": "Holy Spirit",
+      "tw_match": "Holy Spirit"
+    }
+  ],
+  "3:6": [
+    {
+      "surface": "Savior",
+      "tw_match": "Savior"
+    },
+    {
+      "surface": "Jesus Christ",
+      "tw_match": "Jesus Christ"
+    }
+  ],
+  "3:7": [
+    {
+      "surface": "grace",
+      "tw_match": "grace"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "heirs",
+      "tw_match": "heir"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "eternal",
+      "tw_match": "eternal"
+    }
+  ],
+  "3:8": [
+    {
+      "surface": "trustworthy",
+      "tw_match": "trustworthy"
+    },
+    {
+      "surface": "believed",
+      "tw_match": "believe"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "works",
+      "tw_match": "work"
+    }
+  ],
+  "3:9": [
+    {
+      "surface": "foolish",
+      "tw_match": "foolish"
+    },
+    {
+      "surface": "strife",
+      "tw_match": "strife"
+    },
+    {
+      "surface": "conflict",
+      "tw_match": "conflict"
+    },
+    {
+      "surface": "law",
+      "tw_match": "law"
+    },
+    {
+      "surface": "unprofitable",
+      "tw_match": "unprofitable"
+    }
+  ],
+  "3:10": [
+    {
+      "surface": "Reject",
+      "tw_match": "reject"
+    },
+    {
+      "surface": "person",
+      "tw_match": "person"
+    }
+  ],
+  "3:11": [
+    {
+      "surface": "knowing",
+      "tw_match": "know"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "sinning",
+      "tw_match": "sinning"
+    },
+    {
+      "surface": "self",
+      "tw_match": "self"
+    },
+    {
+      "surface": "condemned",
+      "tw_match": "condemned"
+    }
+  ],
+  "3:12": [
+    {
+      "surface": "Tychicus",
+      "tw_match": "Tychicus"
+    }
+  ],
+  "3:13": [
+    {
+      "surface": "Apollos",
+      "tw_match": "Apollos"
+    }
+  ],
+  "3:14": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "works",
+      "tw_match": "work"
+    },
+    {
+      "surface": "unfruitful",
+      "tw_match": "unfruitful"
+    }
+  ],
+  "3:15": [
+    {
+      "surface": "loving",
+      "tw_match": "love"
+    },
+    {
+      "surface": "faith",
+      "tw_match": "faith"
+    },
+    {
+      "surface": "Grace",
+      "tw_match": "grace"
+    }
+  ]
+}

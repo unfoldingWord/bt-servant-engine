@@ -1,0 +1,10362 @@
+{
+  "1:1": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "blameless",
+      "tw_match": "blameless"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "1:2": [],
+  "1:3": [
+    {
+      "surface": "sheep",
+      "tw_match": "sheep"
+    },
+    {
+      "surface": "camels",
+      "tw_match": "camel"
+    },
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "called",
+      "tw_match": "called"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "feast",
+      "tw_match": "feast"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "consecrated",
+      "tw_match": "consecrated"
+    },
+    {
+      "surface": "offerings",
+      "tw_match": "offering"
+    },
+    {
+      "surface": "sinned",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "sons of God",
+      "tw_match": "sons of God"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "blameless",
+      "tw_match": "blameless"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    },
+    {
+      "surface": "works",
+      "tw_match": "work"
+    },
+    {
+      "surface": "cattle",
+      "tw_match": "cattle"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "1:11": [
+    {
+      "surface": "just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "bless",
+      "tw_match": "bless"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    }
+  ],
+  "1:13": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "1:14": [
+    {
+      "surface": "messenger",
+      "tw_match": "messenger"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "plowing",
+      "tw_match": "plow"
+    },
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    }
+  ],
+  "1:15": [
+    {
+      "surface": "Sheba",
+      "tw_match": "Sheba"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    }
+  ],
+  "1:16": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "sheep",
+      "tw_match": "sheep"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "consumed",
+      "tw_match": "consume"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    }
+  ],
+  "1:17": [
+    {
+      "surface": "Chaldeans",
+      "tw_match": "Chaldean"
+    },
+    {
+      "surface": "camels",
+      "tw_match": "camel"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    }
+  ],
+  "1:18": [
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "1:19": [
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    },
+    {
+      "surface": "desert",
+      "tw_match": "desert"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    }
+  ],
+  "1:20": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "robe",
+      "tw_match": "robe"
+    },
+    {
+      "surface": "prostrated",
+      "tw_match": "prostrate"
+    }
+  ],
+  "1:21": [
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    }
+  ],
+  "1:22": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "2:1": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "sons of God",
+      "tw_match": "sons of God"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    }
+  ],
+  "2:2": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "2:3": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "blameless",
+      "tw_match": "blameless"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "integrity",
+      "tw_match": "integrity"
+    },
+    {
+      "surface": "devour",
+      "tw_match": "devour"
+    }
+  ],
+  "2:4": [
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "2:5": [
+    {
+      "surface": "just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "bless",
+      "tw_match": "bless"
+    }
+  ],
+  "2:6": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    }
+  ],
+  "2:7": [
+    {
+      "surface": "adversary",
+      "tw_match": "adversary"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "2:8": [],
+  "2:9": [
+    {
+      "surface": "integrity",
+      "tw_match": "integrity"
+    },
+    {
+      "surface": "Bless",
+      "tw_match": "bless"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "2:10": [
+    {
+      "surface": "Like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "foolish",
+      "tw_match": "foolish"
+    },
+    {
+      "surface": "receive",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    }
+  ],
+  "2:11": [
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    }
+  ],
+  "2:12": [
+    {
+      "surface": "robe",
+      "tw_match": "robe"
+    }
+  ],
+  "2:13": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "3:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "cursed",
+      "tw_match": "cursed"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "3:2": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "3:3": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "conceived",
+      "tw_match": "conceived"
+    }
+  ],
+  "3:4": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    }
+  ],
+  "3:5": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "terrify",
+      "tw_match": "terrify"
+    }
+  ],
+  "3:6": [
+    {
+      "surface": "rejoice",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "year",
+      "tw_match": "year"
+    },
+    {
+      "surface": "months",
+      "tw_match": "month"
+    }
+  ],
+  "3:7": [
+    {
+      "surface": "barren",
+      "tw_match": "barren"
+    },
+    {
+      "surface": "joyful",
+      "tw_match": "joyful"
+    }
+  ],
+  "3:8": [
+    {
+      "surface": "cursing",
+      "tw_match": "cursing"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "curse",
+      "tw_match": "curse"
+    },
+    {
+      "surface": "Leviathan",
+      "tw_match": "Leviathan"
+    }
+  ],
+  "3:9": [],
+  "3:10": [
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    }
+  ],
+  "3:11": [
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    }
+  ],
+  "3:12": [
+    {
+      "surface": "welcome",
+      "tw_match": "welcome"
+    }
+  ],
+  "3:13": [],
+  "3:14": [
+    {
+      "surface": "kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "counselors",
+      "tw_match": "counselor"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "3:15": [
+    {
+      "surface": "princes",
+      "tw_match": "prince"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "houses",
+      "tw_match": "house"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    }
+  ],
+  "3:16": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    }
+  ],
+  "3:17": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "troubling",
+      "tw_match": "trouble"
+    }
+  ],
+  "3:18": [
+    {
+      "surface": "Captives",
+      "tw_match": "captive"
+    }
+  ],
+  "3:19": [
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "free",
+      "tw_match": "free"
+    },
+    {
+      "surface": "master",
+      "tw_match": "master"
+    }
+  ],
+  "3:20": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    }
+  ],
+  "3:21": [],
+  "3:22": [
+    {
+      "surface": "rejoicing",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "celebrate",
+      "tw_match": "celebrate"
+    },
+    {
+      "surface": "grave",
+      "tw_match": "grave"
+    }
+  ],
+  "3:23": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "3:24": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "3:25": [
+    {
+      "surface": "feared",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "dreaded",
+      "tw_match": "dread"
+    }
+  ],
+  "3:26": [
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    }
+  ],
+  "4:1": [],
+  "4:2": [],
+  "4:3": [
+    {
+      "surface": "instructed",
+      "tw_match": "instruct"
+    }
+  ],
+  "4:4": [
+    {
+      "surface": "stumbling",
+      "tw_match": "stumble"
+    }
+  ],
+  "4:5": [
+    {
+      "surface": "panic",
+      "tw_match": "panic"
+    }
+  ],
+  "4:6": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "integrity",
+      "tw_match": "integrity"
+    }
+  ],
+  "4:7": [
+    {
+      "surface": "innocent",
+      "tw_match": "innocent"
+    },
+    {
+      "surface": "perished",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    }
+  ],
+  "4:8": [
+    {
+      "surface": "plowing",
+      "tw_match": "plow"
+    },
+    {
+      "surface": "sowing",
+      "tw_match": "sow"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "reap",
+      "tw_match": "reap"
+    }
+  ],
+  "4:9": [
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    }
+  ],
+  "4:10": [
+    {
+      "surface": "lion",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "lions",
+      "tw_match": "lion"
+    }
+  ],
+  "4:11": [
+    {
+      "surface": "lion",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "perishes",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "prey",
+      "tw_match": "prey"
+    },
+    {
+      "surface": "lioness",
+      "tw_match": "lioness"
+    },
+    {
+      "surface": "scattered",
+      "tw_match": "scatter"
+    }
+  ],
+  "4:12": [
+    {
+      "surface": "received",
+      "tw_match": "receive"
+    }
+  ],
+  "4:13": [
+    {
+      "surface": "troubling",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "visions",
+      "tw_match": "vision"
+    }
+  ],
+  "4:14": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "trembling",
+      "tw_match": "tremble"
+    },
+    {
+      "surface": "frightened",
+      "tw_match": "frighten"
+    }
+  ],
+  "4:15": [
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    }
+  ],
+  "4:16": [
+    {
+      "surface": "image",
+      "tw_match": "image"
+    }
+  ],
+  "4:17": [
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    },
+    {
+      "surface": "Maker",
+      "tw_match": "Maker"
+    }
+  ],
+  "4:18": [
+    {
+      "surface": "trust",
+      "tw_match": "trust"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "angels",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "folly",
+      "tw_match": "folly"
+    }
+  ],
+  "4:19": [
+    {
+      "surface": "houses",
+      "tw_match": "house"
+    },
+    {
+      "surface": "foundation",
+      "tw_match": "foundation"
+    }
+  ],
+  "4:20": [
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    }
+  ],
+  "4:21": [
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    }
+  ],
+  "5:1": [
+    {
+      "surface": "Call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "holy",
+      "tw_match": "holy"
+    }
+  ],
+  "5:2": [
+    {
+      "surface": "kills",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "foolish",
+      "tw_match": "foolish"
+    }
+  ],
+  "5:3": [
+    {
+      "surface": "foolish",
+      "tw_match": "foolish"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "cursed",
+      "tw_match": "cursed"
+    }
+  ],
+  "5:4": [
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    }
+  ],
+  "5:5": [
+    {
+      "surface": "harvest",
+      "tw_match": "harvest"
+    },
+    {
+      "surface": "devours",
+      "tw_match": "devour"
+    },
+    {
+      "surface": "thorns",
+      "tw_match": "thorn"
+    }
+  ],
+  "5:6": [
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    }
+  ],
+  "5:7": [
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    }
+  ],
+  "5:8": [
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "commit",
+      "tw_match": "commit"
+    }
+  ],
+  "5:9": [
+    {
+      "surface": "searching",
+      "tw_match": "search"
+    }
+  ],
+  "5:10": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "5:11": [
+    {
+      "surface": "humble",
+      "tw_match": "humble"
+    },
+    {
+      "surface": "mourning",
+      "tw_match": "mourn"
+    }
+  ],
+  "5:12": [],
+  "5:13": [
+    {
+      "surface": "catching",
+      "tw_match": "catch"
+    },
+    {
+      "surface": "cunning",
+      "tw_match": "cunning"
+    }
+  ],
+  "5:14": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "5:15": [
+    {
+      "surface": "saves",
+      "tw_match": "save"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    }
+  ],
+  "5:16": [
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "injustice",
+      "tw_match": "injustice"
+    }
+  ],
+  "5:17": [
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "5:18": [
+    {
+      "surface": "binds",
+      "tw_match": "bind"
+    }
+  ],
+  "5:19": [
+    {
+      "surface": "troubles",
+      "tw_match": "trouble"
+    }
+  ],
+  "5:20": [
+    {
+      "surface": "famine",
+      "tw_match": "famine"
+    },
+    {
+      "surface": "redeem",
+      "tw_match": "redeem"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "5:21": [
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    }
+  ],
+  "5:22": [
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    },
+    {
+      "surface": "famine",
+      "tw_match": "famine"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "beast",
+      "tw_match": "beast"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "5:23": [
+    {
+      "surface": "stones",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "covenant",
+      "tw_match": "covenant"
+    },
+    {
+      "surface": "beast",
+      "tw_match": "beast"
+    }
+  ],
+  "5:24": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "sheepfold",
+      "tw_match": "sheepfold"
+    }
+  ],
+  "5:25": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "seed",
+      "tw_match": "seed"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "5:26": [
+    {
+      "surface": "grave",
+      "tw_match": "grave"
+    },
+    {
+      "surface": "old age",
+      "tw_match": "old age"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "grain",
+      "tw_match": "grain"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "5:27": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "6:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "6:2": [
+    {
+      "surface": "anguish",
+      "tw_match": "anguish"
+    },
+    {
+      "surface": "calamity",
+      "tw_match": "calamity"
+    }
+  ],
+  "6:3": [],
+  "6:4": [
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "terrors",
+      "tw_match": "terror"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "6:5": [
+    {
+      "surface": "donkey",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "ox",
+      "tw_match": "ox"
+    }
+  ],
+  "6:6": [],
+  "6:7": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "6:8": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "6:9": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "6:10": [
+    {
+      "surface": "exult",
+      "tw_match": "exult"
+    },
+    {
+      "surface": "Holy One",
+      "tw_match": "Holy One"
+    }
+  ],
+  "6:11": [],
+  "6:12": [
+    {
+      "surface": "stones",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "bronze",
+      "tw_match": "bronze"
+    }
+  ],
+  "6:13": [],
+  "6:14": [
+    {
+      "surface": "covenant faithfulness",
+      "tw_match": "covenant faithfulness"
+    },
+    {
+      "surface": "friend",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "forsakes",
+      "tw_match": "forsake"
+    }
+  ],
+  "6:15": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "wadi",
+      "tw_match": "wadi"
+    },
+    {
+      "surface": "wadis",
+      "tw_match": "wadi"
+    }
+  ],
+  "6:16": [
+    {
+      "surface": "snow",
+      "tw_match": "snow"
+    }
+  ],
+  "6:17": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    },
+    {
+      "surface": "annihilated",
+      "tw_match": "annihilate"
+    }
+  ],
+  "6:18": [
+    {
+      "surface": "wasteland",
+      "tw_match": "wasteland"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    }
+  ],
+  "6:19": [
+    {
+      "surface": "Sheba",
+      "tw_match": "Sheba"
+    },
+    {
+      "surface": "hoped",
+      "tw_match": "hoped"
+    }
+  ],
+  "6:20": [
+    {
+      "surface": "ashamed",
+      "tw_match": "ashamed"
+    }
+  ],
+  "6:21": [
+    {
+      "surface": "terror",
+      "tw_match": "terror"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "6:22": [],
+  "6:23": [
+    {
+      "surface": "Save",
+      "tw_match": "save"
+    },
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    }
+  ],
+  "6:24": [
+    {
+      "surface": "understand",
+      "tw_match": "understand"
+    }
+  ],
+  "6:25": [
+    {
+      "surface": "uprightness",
+      "tw_match": "uprightness"
+    }
+  ],
+  "6:26": [
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    }
+  ],
+  "6:27": [
+    {
+      "surface": "lots",
+      "tw_match": "lots"
+    },
+    {
+      "surface": "friend",
+      "tw_match": "friend"
+    }
+  ],
+  "6:28": [
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    }
+  ],
+  "6:29": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "injustice",
+      "tw_match": "injustice"
+    },
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    }
+  ],
+  "6:30": [
+    {
+      "surface": "injustice",
+      "tw_match": "injustice"
+    },
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    },
+    {
+      "surface": "discern",
+      "tw_match": "discern"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "7:1": [
+    {
+      "surface": "hardship",
+      "tw_match": "hardship"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "7:2": [
+    {
+      "surface": "slave",
+      "tw_match": "slave"
+    }
+  ],
+  "7:3": [
+    {
+      "surface": "inherit",
+      "tw_match": "inherit"
+    },
+    {
+      "surface": "months",
+      "tw_match": "month"
+    },
+    {
+      "surface": "appointed",
+      "tw_match": "appointed"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    }
+  ],
+  "7:4": [
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    }
+  ],
+  "7:5": [],
+  "7:6": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    }
+  ],
+  "7:7": [
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "7:8": [],
+  "7:9": [
+    {
+      "surface": "descending",
+      "tw_match": "descend"
+    },
+    {
+      "surface": "Sheol",
+      "tw_match": "Sheol"
+    }
+  ],
+  "7:10": [
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "7:11": [
+    {
+      "surface": "distress",
+      "tw_match": "distress"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    }
+  ],
+  "7:12": [
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "guard",
+      "tw_match": "guard"
+    }
+  ],
+  "7:13": [],
+  "7:14": [
+    {
+      "surface": "dreams",
+      "tw_match": "dream"
+    },
+    {
+      "surface": "terrify",
+      "tw_match": "terrify"
+    },
+    {
+      "surface": "visions",
+      "tw_match": "vision"
+    }
+  ],
+  "7:15": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "chooses",
+      "tw_match": "choose"
+    }
+  ],
+  "7:16": [
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "7:17": [],
+  "7:18": [
+    {
+      "surface": "test",
+      "tw_match": "test"
+    },
+    {
+      "surface": "moments",
+      "tw_match": "moment"
+    }
+  ],
+  "7:19": [],
+  "7:20": [
+    {
+      "surface": "sinned",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "watching",
+      "tw_match": "watch"
+    }
+  ],
+  "7:21": [
+    {
+      "surface": "pardon",
+      "tw_match": "pardon"
+    },
+    {
+      "surface": "transgression",
+      "tw_match": "transgression"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    }
+  ],
+  "8:1": [],
+  "8:2": [
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    },
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    }
+  ],
+  "8:3": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "pervert",
+      "tw_match": "pervert"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    }
+  ],
+  "8:4": [
+    {
+      "surface": "sinned",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "sins",
+      "tw_match": "sin"
+    }
+  ],
+  "8:5": [
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "8:6": [
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    },
+    {
+      "surface": "upright",
+      "tw_match": "upright"
+    },
+    {
+      "surface": "restore",
+      "tw_match": "restore"
+    },
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    }
+  ],
+  "8:7": [],
+  "8:8": [
+    {
+      "surface": "inquire",
+      "tw_match": "inquire"
+    },
+    {
+      "surface": "generations",
+      "tw_match": "generation"
+    }
+  ],
+  "8:9": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "8:10": [],
+  "8:11": [
+    {
+      "surface": "reed",
+      "tw_match": "reed"
+    }
+  ],
+  "8:12": [
+    {
+      "surface": "plant",
+      "tw_match": "plant"
+    }
+  ],
+  "8:13": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "godless",
+      "tw_match": "godless"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    }
+  ],
+  "8:14": [
+    {
+      "surface": "trust",
+      "tw_match": "trust"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "8:15": [
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    }
+  ],
+  "8:16": [],
+  "8:17": [
+    {
+      "surface": "wrapped around",
+      "tw_match": "wrapped around"
+    },
+    {
+      "surface": "a house",
+      "tw_match": "a house"
+    }
+  ],
+  "8:18": [
+    {
+      "surface": "destroys",
+      "tw_match": "destroy"
+    }
+  ],
+  "8:19": [
+    {
+      "surface": "joy",
+      "tw_match": "joy"
+    },
+    {
+      "surface": "plants",
+      "tw_match": "plant"
+    }
+  ],
+  "8:20": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "reject",
+      "tw_match": "reject"
+    },
+    {
+      "surface": "innocent",
+      "tw_match": "innocent"
+    }
+  ],
+  "8:21": [],
+  "8:22": [
+    {
+      "surface": "shame",
+      "tw_match": "shame"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "9:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "9:2": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "truly",
+      "tw_match": "truly"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "9:3": [
+    {
+      "surface": "desires",
+      "tw_match": "desires"
+    }
+  ],
+  "9:4": [
+    {
+      "surface": "wise",
+      "tw_match": "wise"
+    },
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    },
+    {
+      "surface": "hardened",
+      "tw_match": "harden"
+    }
+  ],
+  "9:5": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "9:6": [
+    {
+      "surface": "shaking",
+      "tw_match": "shake"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "pillars",
+      "tw_match": "pillar"
+    },
+    {
+      "surface": "tremble",
+      "tw_match": "tremble"
+    }
+  ],
+  "9:7": [
+    {
+      "surface": "seals",
+      "tw_match": "seal"
+    }
+  ],
+  "9:8": [
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "9:9": [
+    {
+      "surface": "Bear",
+      "tw_match": "bear"
+    }
+  ],
+  "9:10": [
+    {
+      "surface": "searching",
+      "tw_match": "search"
+    },
+    {
+      "surface": "distinguished",
+      "tw_match": "distinguish"
+    }
+  ],
+  "9:11": [],
+  "9:12": [],
+  "9:13": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Rahab",
+      "tw_match": "Rahab"
+    },
+    {
+      "surface": "bow",
+      "tw_match": "bow"
+    }
+  ],
+  "9:14": [
+    {
+      "surface": "choose",
+      "tw_match": "choose"
+    }
+  ],
+  "9:15": [
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "plead",
+      "tw_match": "plead"
+    },
+    {
+      "surface": "judge",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "mercy",
+      "tw_match": "mercy"
+    }
+  ],
+  "9:16": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    },
+    {
+      "surface": "believe",
+      "tw_match": "believe"
+    }
+  ],
+  "9:17": [
+    {
+      "surface": "multiply",
+      "tw_match": "multiply"
+    }
+  ],
+  "9:18": [
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    }
+  ],
+  "9:19": [
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    }
+  ],
+  "9:20": [
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "condemn",
+      "tw_match": "condemn"
+    },
+    {
+      "surface": "blameless",
+      "tw_match": "blameless"
+    }
+  ],
+  "9:21": [
+    {
+      "surface": "blameless",
+      "tw_match": "blameless"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    }
+  ],
+  "9:22": [
+    {
+      "surface": "blameless",
+      "tw_match": "blameless"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "destroying",
+      "tw_match": "destroy"
+    }
+  ],
+  "9:23": [
+    {
+      "surface": "kills",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "mocks",
+      "tw_match": "mock"
+    },
+    {
+      "surface": "innocent",
+      "tw_match": "innocent"
+    }
+  ],
+  "9:24": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "judges",
+      "tw_match": "judge"
+    }
+  ],
+  "9:25": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "9:26": [
+    {
+      "surface": "eagle",
+      "tw_match": "eagle"
+    }
+  ],
+  "9:27": [],
+  "9:28": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "9:29": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "vain",
+      "tw_match": "vain"
+    }
+  ],
+  "9:30": [
+    {
+      "surface": "washed",
+      "tw_match": "wash"
+    },
+    {
+      "surface": "snow",
+      "tw_match": "snow"
+    }
+  ],
+  "9:31": [],
+  "9:32": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "judgment",
+      "tw_match": "judgment"
+    }
+  ],
+  "9:33": [
+    {
+      "surface": "judge",
+      "tw_match": "judge"
+    }
+  ],
+  "9:34": [
+    {
+      "surface": "rod",
+      "tw_match": "rod"
+    },
+    {
+      "surface": "terror",
+      "tw_match": "terror"
+    },
+    {
+      "surface": "frighten",
+      "tw_match": "frighten"
+    }
+  ],
+  "9:35": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "10:1": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    }
+  ],
+  "10:2": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "condemn",
+      "tw_match": "condemn"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "10:3": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "10:4": [],
+  "10:5": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "10:6": [
+    {
+      "surface": "seek",
+      "tw_match": "seek"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "search",
+      "tw_match": "search"
+    }
+  ],
+  "10:7": [
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "10:8": [
+    {
+      "surface": "destroying",
+      "tw_match": "destroy"
+    }
+  ],
+  "10:9": [
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "10:10": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "10:11": [],
+  "10:12": [
+    {
+      "surface": "covenant faithfulness",
+      "tw_match": "covenant faithfulness"
+    },
+    {
+      "surface": "guarded",
+      "tw_match": "guard"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    }
+  ],
+  "10:13": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "10:14": [
+    {
+      "surface": "sinned",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "10:15": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "woe",
+      "tw_match": "woe"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "disgrace",
+      "tw_match": "disgrace"
+    },
+    {
+      "surface": "affliction",
+      "tw_match": "affliction"
+    }
+  ],
+  "10:16": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "lion",
+      "tw_match": "lion"
+    },
+    {
+      "surface": "distinguish",
+      "tw_match": "distinguish"
+    }
+  ],
+  "10:17": [
+    {
+      "surface": "witnesses",
+      "tw_match": "witness"
+    }
+  ],
+  "10:18": [
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    }
+  ],
+  "10:19": [
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    },
+    {
+      "surface": "grave",
+      "tw_match": "grave"
+    }
+  ],
+  "10:20": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "10:21": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "10:22": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "11:1": [],
+  "11:2": [],
+  "11:3": [
+    {
+      "surface": "boastings",
+      "tw_match": "boasting"
+    },
+    {
+      "surface": "mock",
+      "tw_match": "mock"
+    },
+    {
+      "surface": "shaming",
+      "tw_match": "shame"
+    }
+  ],
+  "11:4": [
+    {
+      "surface": "doctrine",
+      "tw_match": "doctrine"
+    },
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    },
+    {
+      "surface": "clean",
+      "tw_match": "clean"
+    }
+  ],
+  "11:5": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "11:6": [
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "11:7": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "searching",
+      "tw_match": "search"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "11:8": [
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "Sheol",
+      "tw_match": "Sheol"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "11:9": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "11:10": [
+    {
+      "surface": "assembles",
+      "tw_match": "assemble"
+    }
+  ],
+  "11:11": [
+    {
+      "surface": "knows",
+      "tw_match": "know"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "11:12": [
+    {
+      "surface": "donkey",
+      "tw_match": "donkey"
+    }
+  ],
+  "11:13": [],
+  "11:14": [
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "unrighteousness",
+      "tw_match": "unrighteousness"
+    },
+    {
+      "surface": "tents",
+      "tw_match": "tent"
+    }
+  ],
+  "11:15": [
+    {
+      "surface": "blemish",
+      "tw_match": "blemish"
+    },
+    {
+      "surface": "established",
+      "tw_match": "established"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "11:16": [
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    }
+  ],
+  "11:17": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "11:18": [
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    }
+  ],
+  "11:19": [
+    {
+      "surface": "afraid",
+      "tw_match": "afraid"
+    }
+  ],
+  "11:20": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    }
+  ],
+  "12:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "12:2": [
+    {
+      "surface": "Truly",
+      "tw_match": "truly"
+    },
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    }
+  ],
+  "12:3": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "12:4": [
+    {
+      "surface": "calling",
+      "tw_match": "call"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "neighbor",
+      "tw_match": "neighbor"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    },
+    {
+      "surface": "blameless",
+      "tw_match": "blameless"
+    }
+  ],
+  "12:5": [
+    {
+      "surface": "contempt",
+      "tw_match": "contempt"
+    },
+    {
+      "surface": "prepared",
+      "tw_match": "prepared"
+    }
+  ],
+  "12:6": [
+    {
+      "surface": "tents",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "robbers",
+      "tw_match": "robber"
+    },
+    {
+      "surface": "prosper",
+      "tw_match": "prosper"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "carries",
+      "tw_match": "carry"
+    }
+  ],
+  "12:7": [
+    {
+      "surface": "beasts",
+      "tw_match": "beast"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    }
+  ],
+  "12:8": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "12:9": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "12:10": [
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    }
+  ],
+  "12:11": [
+    {
+      "surface": "test",
+      "tw_match": "test"
+    }
+  ],
+  "12:12": [
+    {
+      "surface": "aged",
+      "tw_match": "aged"
+    },
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "12:13": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "counsel",
+      "tw_match": "counsel"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "12:14": [],
+  "12:15": [
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "12:16": [
+    {
+      "surface": "prudence",
+      "tw_match": "prudence"
+    }
+  ],
+  "12:17": [
+    {
+      "surface": "counselors",
+      "tw_match": "counselor"
+    },
+    {
+      "surface": "judges",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "foolish",
+      "tw_match": "foolish"
+    }
+  ],
+  "12:18": [
+    {
+      "surface": "bond",
+      "tw_match": "bond"
+    },
+    {
+      "surface": "kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "loins",
+      "tw_match": "loins"
+    }
+  ],
+  "12:19": [
+    {
+      "surface": "priests",
+      "tw_match": "priest"
+    }
+  ],
+  "12:20": [
+    {
+      "surface": "trusted",
+      "tw_match": "trusted"
+    },
+    {
+      "surface": "discernment",
+      "tw_match": "discernment"
+    },
+    {
+      "surface": "elders",
+      "tw_match": "elder"
+    }
+  ],
+  "12:21": [
+    {
+      "surface": "contempt",
+      "tw_match": "contempt"
+    },
+    {
+      "surface": "nobles",
+      "tw_match": "noble"
+    },
+    {
+      "surface": "belt",
+      "tw_match": "belt"
+    },
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    }
+  ],
+  "12:22": [],
+  "12:23": [
+    {
+      "surface": "nations",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "destroys",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "exiles",
+      "tw_match": "exile"
+    }
+  ],
+  "12:24": [
+    {
+      "surface": "leaders",
+      "tw_match": "leader"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "wasteland",
+      "tw_match": "wasteland"
+    }
+  ],
+  "12:25": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "drunkard",
+      "tw_match": "drunkard"
+    }
+  ],
+  "13:1": [],
+  "13:2": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "13:3": [
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "plead",
+      "tw_match": "plead"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "13:4": [
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    }
+  ],
+  "13:5": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    }
+  ],
+  "13:6": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    }
+  ],
+  "13:7": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "13:8": [
+    {
+      "surface": "plead",
+      "tw_match": "plead"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "13:9": [
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "deceive",
+      "tw_match": "deceive"
+    },
+    {
+      "surface": "deceiving",
+      "tw_match": "deceive"
+    }
+  ],
+  "13:10": [
+    {
+      "surface": "Reproving",
+      "tw_match": "reprove"
+    },
+    {
+      "surface": "reprove",
+      "tw_match": "reprove"
+    }
+  ],
+  "13:11": [
+    {
+      "surface": "majesty",
+      "tw_match": "majesty"
+    },
+    {
+      "surface": "terrify",
+      "tw_match": "terrify"
+    },
+    {
+      "surface": "dread",
+      "tw_match": "dread"
+    }
+  ],
+  "13:12": [
+    {
+      "surface": "proverbs",
+      "tw_match": "proverb"
+    }
+  ],
+  "13:13": [],
+  "13:14": [],
+  "13:15": [
+    {
+      "surface": "kills",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "in him",
+      "tw_match": "in him"
+    }
+  ],
+  "13:16": [
+    {
+      "surface": "salvation",
+      "tw_match": "salvation"
+    },
+    {
+      "surface": "godless",
+      "tw_match": "godless"
+    }
+  ],
+  "13:17": [],
+  "13:18": [
+    {
+      "surface": "prepared",
+      "tw_match": "prepared"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    }
+  ],
+  "13:19": [],
+  "13:20": [],
+  "13:21": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "terrify",
+      "tw_match": "terrify"
+    }
+  ],
+  "13:22": [
+    {
+      "surface": "call",
+      "tw_match": "call"
+    }
+  ],
+  "13:23": [
+    {
+      "surface": "iniquities",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "sins",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "transgression",
+      "tw_match": "transgression"
+    },
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    }
+  ],
+  "13:24": [
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    }
+  ],
+  "13:25": [
+    {
+      "surface": "terrify",
+      "tw_match": "terrify"
+    },
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    }
+  ],
+  "13:26": [
+    {
+      "surface": "inherit",
+      "tw_match": "inherit"
+    },
+    {
+      "surface": "iniquities",
+      "tw_match": "iniquity"
+    }
+  ],
+  "13:27": [
+    {
+      "surface": "watch",
+      "tw_match": "watch"
+    }
+  ],
+  "13:28": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "14:1": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    }
+  ],
+  "14:2": [
+    {
+      "surface": "Like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "14:3": [
+    {
+      "surface": "judgment",
+      "tw_match": "judgment"
+    }
+  ],
+  "14:4": [
+    {
+      "surface": "clean",
+      "tw_match": "clean"
+    }
+  ],
+  "14:5": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "months",
+      "tw_match": "month"
+    }
+  ],
+  "14:6": [
+    {
+      "surface": "fulfills",
+      "tw_match": "fulfill"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "14:7": [
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    }
+  ],
+  "14:8": [
+    {
+      "surface": "old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "14:9": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "plant",
+      "tw_match": "plant"
+    }
+  ],
+  "14:10": [],
+  "14:11": [
+    {
+      "surface": "dries",
+      "tw_match": "dry"
+    }
+  ],
+  "14:12": [
+    {
+      "surface": "lies",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "14:13": [
+    {
+      "surface": "Sheol",
+      "tw_match": "Sheol"
+    }
+  ],
+  "14:14": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "hardship",
+      "tw_match": "hardship"
+    }
+  ],
+  "14:15": [
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "14:16": [
+    {
+      "surface": "watch",
+      "tw_match": "watch"
+    },
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    }
+  ],
+  "14:17": [
+    {
+      "surface": "transgression",
+      "tw_match": "transgression"
+    },
+    {
+      "surface": "sealed",
+      "tw_match": "sealed"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "14:18": [],
+  "14:19": [
+    {
+      "surface": "stones",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "flooding",
+      "tw_match": "flood"
+    },
+    {
+      "surface": "washes",
+      "tw_match": "wash"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    }
+  ],
+  "14:20": [
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    }
+  ],
+  "14:21": [
+    {
+      "surface": "honor",
+      "tw_match": "honor"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "14:22": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "mourns",
+      "tw_match": "mourn"
+    }
+  ],
+  "15:1": [],
+  "15:2": [
+    {
+      "surface": "wise",
+      "tw_match": "wise"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    },
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    }
+  ],
+  "15:3": [
+    {
+      "surface": "profit",
+      "tw_match": "profit"
+    }
+  ],
+  "15:4": [
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "15:5": [
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "choose",
+      "tw_match": "choose"
+    },
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    }
+  ],
+  "15:6": [
+    {
+      "surface": "condemns",
+      "tw_match": "condemn"
+    },
+    {
+      "surface": "testify",
+      "tw_match": "testify"
+    }
+  ],
+  "15:7": [],
+  "15:8": [
+    {
+      "surface": "counsel",
+      "tw_match": "counsel"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    }
+  ],
+  "15:9": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "understand",
+      "tw_match": "understand"
+    }
+  ],
+  "15:10": [
+    {
+      "surface": "aged",
+      "tw_match": "aged"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "15:11": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "15:12": [
+    {
+      "surface": "carry",
+      "tw_match": "carry"
+    }
+  ],
+  "15:13": [
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "15:14": [
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    }
+  ],
+  "15:15": [
+    {
+      "surface": "trust",
+      "tw_match": "trust"
+    },
+    {
+      "surface": "holy",
+      "tw_match": "holy"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "clean",
+      "tw_match": "clean"
+    }
+  ],
+  "15:16": [
+    {
+      "surface": "abominable",
+      "tw_match": "abominable"
+    },
+    {
+      "surface": "corrupted",
+      "tw_match": "corrupted"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "15:17": [],
+  "15:18": [
+    {
+      "surface": "wise",
+      "tw_match": "wise"
+    },
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    }
+  ],
+  "15:19": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "15:20": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "15:21": [
+    {
+      "surface": "terrors",
+      "tw_match": "terror"
+    },
+    {
+      "surface": "prosperity",
+      "tw_match": "prosperity"
+    }
+  ],
+  "15:22": [
+    {
+      "surface": "believe",
+      "tw_match": "believe"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "15:23": [
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    },
+    {
+      "surface": "knows",
+      "tw_match": "know"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "prepared",
+      "tw_match": "prepared"
+    }
+  ],
+  "15:24": [
+    {
+      "surface": "Distress",
+      "tw_match": "distress"
+    },
+    {
+      "surface": "anguish",
+      "tw_match": "anguish"
+    },
+    {
+      "surface": "terrify",
+      "tw_match": "terrify"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    }
+  ],
+  "15:25": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "15:26": [
+    {
+      "surface": "shields",
+      "tw_match": "shield"
+    }
+  ],
+  "15:27": [],
+  "15:28": [
+    {
+      "surface": "ruined",
+      "tw_match": "ruined"
+    },
+    {
+      "surface": "houses",
+      "tw_match": "house"
+    }
+  ],
+  "15:29": [
+    {
+      "surface": "possessions",
+      "tw_match": "possession"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "15:30": [
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    },
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    }
+  ],
+  "15:31": [
+    {
+      "surface": "trust",
+      "tw_match": "trust"
+    },
+    {
+      "surface": "deceiving",
+      "tw_match": "deceive"
+    }
+  ],
+  "15:32": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "fulfilled",
+      "tw_match": "fulfilled"
+    }
+  ],
+  "15:33": [
+    {
+      "surface": "shake",
+      "tw_match": "shake"
+    },
+    {
+      "surface": "grapes",
+      "tw_match": "grape"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "grapevine",
+      "tw_match": "grapevine"
+    },
+    {
+      "surface": "olive",
+      "tw_match": "olive"
+    }
+  ],
+  "15:34": [
+    {
+      "surface": "godless",
+      "tw_match": "godless"
+    },
+    {
+      "surface": "barren",
+      "tw_match": "barren"
+    },
+    {
+      "surface": "devours",
+      "tw_match": "devour"
+    },
+    {
+      "surface": "tents",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "bribery",
+      "tw_match": "bribery"
+    }
+  ],
+  "15:35": [
+    {
+      "surface": "conceive",
+      "tw_match": "conceive"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "bear",
+      "tw_match": "bear"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    }
+  ],
+  "16:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "16:2": [
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    }
+  ],
+  "16:3": [
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    }
+  ],
+  "16:4": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "souls",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "shake",
+      "tw_match": "shake"
+    }
+  ],
+  "16:5": [],
+  "16:6": [],
+  "16:7": [
+    {
+      "surface": "devastated",
+      "tw_match": "devastate"
+    },
+    {
+      "surface": "family",
+      "tw_match": "family"
+    }
+  ],
+  "16:8": [
+    {
+      "surface": "witness",
+      "tw_match": "witness"
+    },
+    {
+      "surface": "testifies",
+      "tw_match": "testify"
+    }
+  ],
+  "16:9": [
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    }
+  ],
+  "16:10": [
+    {
+      "surface": "reproach",
+      "tw_match": "reproach"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    }
+  ],
+  "16:11": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "delivers",
+      "tw_match": "deliver"
+    },
+    {
+      "surface": "sinners",
+      "tw_match": "sinner"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "16:12": [
+    {
+      "surface": "seized",
+      "tw_match": "seize"
+    }
+  ],
+  "16:13": [
+    {
+      "surface": "archers",
+      "tw_match": "archer"
+    }
+  ],
+  "16:14": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "warrior",
+      "tw_match": "warrior"
+    }
+  ],
+  "16:15": [
+    {
+      "surface": "sackcloth",
+      "tw_match": "sackcloth"
+    },
+    {
+      "surface": "horn",
+      "tw_match": "horn"
+    }
+  ],
+  "16:16": [
+    {
+      "surface": "weeping",
+      "tw_match": "weeping"
+    }
+  ],
+  "16:17": [
+    {
+      "surface": "prayer",
+      "tw_match": "prayer"
+    },
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    }
+  ],
+  "16:18": [
+    {
+      "surface": "Earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "cry",
+      "tw_match": "cry"
+    }
+  ],
+  "16:19": [
+    {
+      "surface": "witness",
+      "tw_match": "witness"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "16:20": [
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "16:21": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "son of man",
+      "tw_match": "son of man"
+    },
+    {
+      "surface": "neighbor",
+      "tw_match": "neighbor"
+    }
+  ],
+  "16:22": [
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "17:1": [
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "destroyed",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "graves",
+      "tw_match": "grave"
+    }
+  ],
+  "17:2": [
+    {
+      "surface": "mockers",
+      "tw_match": "mocker"
+    },
+    {
+      "surface": "provocations",
+      "tw_match": "provocation"
+    }
+  ],
+  "17:3": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    }
+  ],
+  "17:4": [
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    },
+    {
+      "surface": "exalt",
+      "tw_match": "exalt"
+    }
+  ],
+  "17:5": [
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "reward",
+      "tw_match": "reward"
+    }
+  ],
+  "17:6": [],
+  "17:7": [
+    {
+      "surface": "members",
+      "tw_match": "member"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "17:8": [
+    {
+      "surface": "upright",
+      "tw_match": "upright"
+    },
+    {
+      "surface": "wonder",
+      "tw_match": "wonder"
+    },
+    {
+      "surface": "innocent",
+      "tw_match": "innocent"
+    },
+    {
+      "surface": "godless",
+      "tw_match": "godless"
+    }
+  ],
+  "17:9": [
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "clean",
+      "tw_match": "clean"
+    }
+  ],
+  "17:10": [
+    {
+      "surface": "wise",
+      "tw_match": "wise"
+    },
+    {
+      "surface": "person",
+      "tw_match": "person"
+    }
+  ],
+  "17:11": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "desires",
+      "tw_match": "desires"
+    }
+  ],
+  "17:12": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "17:13": [
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "Sheol",
+      "tw_match": "Sheol"
+    },
+    {
+      "surface": "house",
+      "tw_match": "house"
+    }
+  ],
+  "17:14": [
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "pit",
+      "tw_match": "pit"
+    }
+  ],
+  "17:15": [
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    }
+  ],
+  "17:16": [
+    {
+      "surface": "descend",
+      "tw_match": "descend"
+    },
+    {
+      "surface": "Sheol",
+      "tw_match": "Sheol"
+    }
+  ],
+  "18:1": [],
+  "18:2": [],
+  "18:3": [
+    {
+      "surface": "beasts",
+      "tw_match": "beast"
+    },
+    {
+      "surface": "as if",
+      "tw_match": "as if"
+    }
+  ],
+  "18:4": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "forsaken",
+      "tw_match": "forsaken"
+    }
+  ],
+  "18:5": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "18:6": [
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "lamp",
+      "tw_match": "lamp"
+    }
+  ],
+  "18:7": [],
+  "18:8": [
+    {
+      "surface": "pitfall",
+      "tw_match": "pitfall"
+    }
+  ],
+  "18:9": [
+    {
+      "surface": "snare",
+      "tw_match": "snare"
+    },
+    {
+      "surface": "seize",
+      "tw_match": "seize"
+    },
+    {
+      "surface": "trap",
+      "tw_match": "trap"
+    }
+  ],
+  "18:10": [
+    {
+      "surface": "trap",
+      "tw_match": "trap"
+    }
+  ],
+  "18:11": [
+    {
+      "surface": "Terrors",
+      "tw_match": "terror"
+    },
+    {
+      "surface": "frighten",
+      "tw_match": "frighten"
+    }
+  ],
+  "18:12": [
+    {
+      "surface": "prepared",
+      "tw_match": "prepared"
+    }
+  ],
+  "18:13": [
+    {
+      "surface": "devours",
+      "tw_match": "devour"
+    },
+    {
+      "surface": "firstborn",
+      "tw_match": "firstborn"
+    }
+  ],
+  "18:14": [
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "terrors",
+      "tw_match": "terror"
+    }
+  ],
+  "18:15": [
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "sulfur",
+      "tw_match": "sulfur"
+    },
+    {
+      "surface": "scattered",
+      "tw_match": "scatter"
+    }
+  ],
+  "18:16": [
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    }
+  ],
+  "18:17": [
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "18:18": [
+    {
+      "surface": "world",
+      "tw_match": "world"
+    }
+  ],
+  "18:19": [],
+  "18:20": [
+    {
+      "surface": "wonder",
+      "tw_match": "wonder"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "seize",
+      "tw_match": "seize"
+    },
+    {
+      "surface": "horror",
+      "tw_match": "horror"
+    }
+  ],
+  "18:21": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "19:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "19:2": [
+    {
+      "surface": "afflict",
+      "tw_match": "afflict"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    }
+  ],
+  "19:3": [
+    {
+      "surface": "times",
+      "tw_match": "time"
+    },
+    {
+      "surface": "reproached",
+      "tw_match": "reproach"
+    },
+    {
+      "surface": "ashamed",
+      "tw_match": "ashamed"
+    },
+    {
+      "surface": "mistreat",
+      "tw_match": "mistreat"
+    }
+  ],
+  "19:4": [
+    {
+      "surface": "truly",
+      "tw_match": "truly"
+    }
+  ],
+  "19:5": [
+    {
+      "surface": "truly",
+      "tw_match": "truly"
+    },
+    {
+      "surface": "exalt",
+      "tw_match": "exalt"
+    },
+    {
+      "surface": "plead",
+      "tw_match": "plead"
+    },
+    {
+      "surface": "disgrace",
+      "tw_match": "disgrace"
+    }
+  ],
+  "19:6": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "wronged",
+      "tw_match": "wronged"
+    }
+  ],
+  "19:7": [
+    {
+      "surface": "cry",
+      "tw_match": "cry"
+    },
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    }
+  ],
+  "19:8": [],
+  "19:9": [
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "crown",
+      "tw_match": "crown"
+    }
+  ],
+  "19:10": [
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "19:11": [
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    }
+  ],
+  "19:12": [
+    {
+      "surface": "ram",
+      "tw_match": "ram"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    }
+  ],
+  "19:13": [],
+  "19:14": [
+    {
+      "surface": "kin",
+      "tw_match": "kin"
+    },
+    {
+      "surface": "forsaken",
+      "tw_match": "forsaken"
+    },
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    }
+  ],
+  "19:15": [
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "servants",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "foreigner",
+      "tw_match": "foreigner"
+    }
+  ],
+  "19:16": [
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    }
+  ],
+  "19:17": [
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    },
+    {
+      "surface": "gracious",
+      "tw_match": "gracious"
+    },
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    }
+  ],
+  "19:18": [],
+  "19:19": [
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "counsel",
+      "tw_match": "counsel"
+    },
+    {
+      "surface": "love",
+      "tw_match": "love"
+    }
+  ],
+  "19:20": [],
+  "19:21": [
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "19:22": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "19:23": [
+    {
+      "surface": "scroll",
+      "tw_match": "scroll"
+    }
+  ],
+  "19:24": [
+    {
+      "surface": "iron",
+      "tw_match": "iron"
+    },
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    }
+  ],
+  "19:25": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "redeemer",
+      "tw_match": "redeemer"
+    }
+  ],
+  "19:26": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "19:27": [],
+  "19:28": [
+    {
+      "surface": "persecute",
+      "tw_match": "persecute"
+    }
+  ],
+  "19:29": [
+    {
+      "surface": "afraid",
+      "tw_match": "afraid"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "wrath",
+      "tw_match": "wrath"
+    },
+    {
+      "surface": "punishment",
+      "tw_match": "punishment"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "judgment",
+      "tw_match": "judgment"
+    }
+  ],
+  "20:1": [],
+  "20:2": [],
+  "20:3": [
+    {
+      "surface": "rebuke",
+      "tw_match": "rebuke"
+    },
+    {
+      "surface": "dishonor",
+      "tw_match": "dishonor"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "20:4": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "20:5": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "joy",
+      "tw_match": "joy"
+    },
+    {
+      "surface": "godless",
+      "tw_match": "godless"
+    },
+    {
+      "surface": "moment",
+      "tw_match": "moment"
+    }
+  ],
+  "20:6": [
+    {
+      "surface": "skies",
+      "tw_match": "sky"
+    }
+  ],
+  "20:7": [
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "dung",
+      "tw_match": "dung"
+    }
+  ],
+  "20:8": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "dream",
+      "tw_match": "dream"
+    },
+    {
+      "surface": "vision",
+      "tw_match": "vision"
+    }
+  ],
+  "20:9": [],
+  "20:10": [],
+  "20:11": [
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    }
+  ],
+  "20:12": [
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    }
+  ],
+  "20:13": [
+    {
+      "surface": "forsake",
+      "tw_match": "forsake"
+    },
+    {
+      "surface": "keeps",
+      "tw_match": "keep"
+    }
+  ],
+  "20:14": [],
+  "20:15": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "20:16": [
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    },
+    {
+      "surface": "viper",
+      "tw_match": "viper"
+    },
+    {
+      "surface": "kill",
+      "tw_match": "kill"
+    }
+  ],
+  "20:17": [
+    {
+      "surface": "honey",
+      "tw_match": "honey"
+    }
+  ],
+  "20:18": [
+    {
+      "surface": "consume",
+      "tw_match": "consume"
+    }
+  ],
+  "20:19": [
+    {
+      "surface": "forsaken",
+      "tw_match": "forsaken"
+    },
+    {
+      "surface": "seized",
+      "tw_match": "seize"
+    },
+    {
+      "surface": "a house",
+      "tw_match": "a house"
+    }
+  ],
+  "20:20": [],
+  "20:21": [
+    {
+      "surface": "remnant",
+      "tw_match": "remnant"
+    },
+    {
+      "surface": "prosperity",
+      "tw_match": "prosperity"
+    },
+    {
+      "surface": "endure",
+      "tw_match": "endure"
+    }
+  ],
+  "20:22": [
+    {
+      "surface": "troubling",
+      "tw_match": "trouble"
+    }
+  ],
+  "20:23": [],
+  "20:24": [
+    {
+      "surface": "iron",
+      "tw_match": "iron"
+    },
+    {
+      "surface": "a bow",
+      "tw_match": "a bow"
+    },
+    {
+      "surface": "bronze",
+      "tw_match": "bronze"
+    }
+  ],
+  "20:25": [
+    {
+      "surface": "Terrors",
+      "tw_match": "terror"
+    }
+  ],
+  "20:26": [
+    {
+      "surface": "devour",
+      "tw_match": "devour"
+    },
+    {
+      "surface": "consume",
+      "tw_match": "consume"
+    },
+    {
+      "surface": "remnant",
+      "tw_match": "remnant"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    }
+  ],
+  "20:27": [
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "20:28": [
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "20:29": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "21:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "21:2": [],
+  "21:3": [
+    {
+      "surface": "mock",
+      "tw_match": "mock"
+    }
+  ],
+  "21:4": [
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    }
+  ],
+  "21:5": [
+    {
+      "surface": "wonder",
+      "tw_match": "wonder"
+    }
+  ],
+  "21:6": [
+    {
+      "surface": "trembling",
+      "tw_match": "tremble"
+    },
+    {
+      "surface": "seizes",
+      "tw_match": "seize"
+    }
+  ],
+  "21:7": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    }
+  ],
+  "21:8": [
+    {
+      "surface": "seed",
+      "tw_match": "seed"
+    },
+    {
+      "surface": "established",
+      "tw_match": "established"
+    },
+    {
+      "surface": "descendants",
+      "tw_match": "descendant"
+    }
+  ],
+  "21:9": [
+    {
+      "surface": "houses",
+      "tw_match": "house"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "rod",
+      "tw_match": "rod"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "21:10": [
+    {
+      "surface": "bull",
+      "tw_match": "bull"
+    },
+    {
+      "surface": "cow",
+      "tw_match": "cow"
+    }
+  ],
+  "21:11": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "flock",
+      "tw_match": "flock"
+    }
+  ],
+  "21:12": [
+    {
+      "surface": "harp",
+      "tw_match": "harp"
+    },
+    {
+      "surface": "rejoice",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "flute",
+      "tw_match": "flute"
+    }
+  ],
+  "21:13": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "prosperity",
+      "tw_match": "prosperity"
+    },
+    {
+      "surface": "Sheol",
+      "tw_match": "Sheol"
+    },
+    {
+      "surface": "moment",
+      "tw_match": "moment"
+    }
+  ],
+  "21:14": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    }
+  ],
+  "21:15": [
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "serve",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "profit",
+      "tw_match": "profit"
+    },
+    {
+      "surface": "pray",
+      "tw_match": "pray"
+    }
+  ],
+  "21:16": [
+    {
+      "surface": "prosperity",
+      "tw_match": "prosperity"
+    },
+    {
+      "surface": "counsel",
+      "tw_match": "counsel"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "21:17": [
+    {
+      "surface": "lamp",
+      "tw_match": "lamp"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "calamity",
+      "tw_match": "calamity"
+    }
+  ],
+  "21:18": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    },
+    {
+      "surface": "chaff",
+      "tw_match": "chaff"
+    },
+    {
+      "surface": "carries",
+      "tw_match": "carry"
+    }
+  ],
+  "21:19": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "guilt",
+      "tw_match": "guilt"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "21:20": [
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    },
+    {
+      "surface": "wrath",
+      "tw_match": "wrath"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "21:21": [
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "months",
+      "tw_match": "month"
+    }
+  ],
+  "21:22": [
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "judges",
+      "tw_match": "judge"
+    }
+  ],
+  "21:23": [],
+  "21:24": [],
+  "21:25": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "21:26": [
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "alike",
+      "tw_match": "alike"
+    }
+  ],
+  "21:27": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "21:28": [
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "21:29": [
+    {
+      "surface": "acknowledge",
+      "tw_match": "acknowledge"
+    },
+    {
+      "surface": "signs",
+      "tw_match": "sign"
+    }
+  ],
+  "21:30": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "calamity",
+      "tw_match": "calamity"
+    },
+    {
+      "surface": "wrath",
+      "tw_match": "wrath"
+    }
+  ],
+  "21:31": [],
+  "21:32": [
+    {
+      "surface": "grave",
+      "tw_match": "grave"
+    },
+    {
+      "surface": "watch",
+      "tw_match": "watch"
+    },
+    {
+      "surface": "burial",
+      "tw_match": "burial"
+    }
+  ],
+  "21:33": [],
+  "21:34": [
+    {
+      "surface": "vain",
+      "tw_match": "vain"
+    }
+  ],
+  "22:1": [],
+  "22:2": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "wise",
+      "tw_match": "wise"
+    }
+  ],
+  "22:3": [
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "perfect",
+      "tw_match": "perfect"
+    }
+  ],
+  "22:4": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "rebuke",
+      "tw_match": "rebuke"
+    },
+    {
+      "surface": "judgment",
+      "tw_match": "judgment"
+    }
+  ],
+  "22:5": [
+    {
+      "surface": "iniquities",
+      "tw_match": "iniquity"
+    }
+  ],
+  "22:6": [
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    },
+    {
+      "surface": "pledge",
+      "tw_match": "pledge"
+    }
+  ],
+  "22:7": [
+    {
+      "surface": "quenched",
+      "tw_match": "quenched"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    }
+  ],
+  "22:8": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "22:9": [],
+  "22:10": [
+    {
+      "surface": "snares",
+      "tw_match": "snare"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "terrifies",
+      "tw_match": "terrify"
+    }
+  ],
+  "22:11": [],
+  "22:12": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "22:13": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "judge",
+      "tw_match": "judge"
+    }
+  ],
+  "22:14": [
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "22:15": [
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "22:16": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "foundations",
+      "tw_match": "foundation"
+    },
+    {
+      "surface": "washed",
+      "tw_match": "wash"
+    }
+  ],
+  "22:17": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "22:18": [
+    {
+      "surface": "houses",
+      "tw_match": "house"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "counsel",
+      "tw_match": "counsel"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "22:19": [
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "rejoice",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "innocent",
+      "tw_match": "innocent"
+    }
+  ],
+  "22:20": [
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "devoured",
+      "tw_match": "devour"
+    },
+    {
+      "surface": "possessions",
+      "tw_match": "possession"
+    }
+  ],
+  "22:21": [
+    {
+      "surface": "Reconcile",
+      "tw_match": "reconcile"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "22:22": [
+    {
+      "surface": "instruction",
+      "tw_match": "instruction"
+    }
+  ],
+  "22:23": [
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "unrighteousness",
+      "tw_match": "unrighteousness"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    }
+  ],
+  "22:24": [
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "stones",
+      "tw_match": "stone"
+    }
+  ],
+  "22:25": [
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "golds",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    }
+  ],
+  "22:26": [
+    {
+      "surface": "delight",
+      "tw_match": "delight"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "22:27": [
+    {
+      "surface": "pray",
+      "tw_match": "pray"
+    },
+    {
+      "surface": "vows",
+      "tw_match": "vow"
+    }
+  ],
+  "22:28": [
+    {
+      "surface": "decree",
+      "tw_match": "decree"
+    }
+  ],
+  "22:29": [
+    {
+      "surface": "save",
+      "tw_match": "save"
+    }
+  ],
+  "22:30": [
+    {
+      "surface": "innocent",
+      "tw_match": "innocent"
+    }
+  ],
+  "23:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "23:2": [],
+  "23:3": [
+    {
+      "surface": "knew",
+      "tw_match": "knew"
+    }
+  ],
+  "23:4": [],
+  "23:5": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "23:6": [],
+  "23:7": [
+    {
+      "surface": "upright",
+      "tw_match": "upright"
+    },
+    {
+      "surface": "arguing",
+      "tw_match": "arguing"
+    },
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    },
+    {
+      "surface": "judging",
+      "tw_match": "judge"
+    }
+  ],
+  "23:8": [],
+  "23:9": [
+    {
+      "surface": "working",
+      "tw_match": "work"
+    }
+  ],
+  "23:10": [
+    {
+      "surface": "knows",
+      "tw_match": "know"
+    },
+    {
+      "surface": "tested",
+      "tw_match": "tested"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "23:11": [],
+  "23:12": [],
+  "23:13": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "desires",
+      "tw_match": "desires"
+    }
+  ],
+  "23:14": [
+    {
+      "surface": "carry",
+      "tw_match": "carry"
+    },
+    {
+      "surface": "decree",
+      "tw_match": "decree"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "23:15": [
+    {
+      "surface": "afraid",
+      "tw_match": "afraid"
+    }
+  ],
+  "23:16": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "23:17": [],
+  "24:1": [
+    {
+      "surface": "times",
+      "tw_match": "time"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "knowing",
+      "tw_match": "know"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "24:2": [
+    {
+      "surface": "seize",
+      "tw_match": "seize"
+    },
+    {
+      "surface": "flock",
+      "tw_match": "flock"
+    }
+  ],
+  "24:3": [
+    {
+      "surface": "donkey",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "pledge",
+      "tw_match": "pledge"
+    },
+    {
+      "surface": "ox",
+      "tw_match": "ox"
+    }
+  ],
+  "24:4": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "24:5": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "searching",
+      "tw_match": "search"
+    },
+    {
+      "surface": "Arabah",
+      "tw_match": "Arabah"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    }
+  ],
+  "24:6": [
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "vineyard",
+      "tw_match": "vineyard"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "glean",
+      "tw_match": "glean"
+    }
+  ],
+  "24:7": [
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    }
+  ],
+  "24:8": [
+    {
+      "surface": "shelter",
+      "tw_match": "shelter"
+    }
+  ],
+  "24:9": [
+    {
+      "surface": "bind",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "pledge",
+      "tw_match": "pledge"
+    }
+  ],
+  "24:10": [
+    {
+      "surface": "carry",
+      "tw_match": "carry"
+    }
+  ],
+  "24:11": [
+    {
+      "surface": "oil",
+      "tw_match": "oil"
+    },
+    {
+      "surface": "winepresses",
+      "tw_match": "winepress"
+    }
+  ],
+  "24:12": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "cries",
+      "tw_match": "cry"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "24:13": [
+    {
+      "surface": "rebelling",
+      "tw_match": "rebel"
+    }
+  ],
+  "24:14": [
+    {
+      "surface": "kills",
+      "tw_match": "kill"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "thief",
+      "tw_match": "thief"
+    }
+  ],
+  "24:15": [
+    {
+      "surface": "adulterer",
+      "tw_match": "adulterer"
+    },
+    {
+      "surface": "watches",
+      "tw_match": "watch"
+    }
+  ],
+  "24:16": [
+    {
+      "surface": "houses",
+      "tw_match": "house"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "24:17": [
+    {
+      "surface": "terrors",
+      "tw_match": "terror"
+    }
+  ],
+  "24:18": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "cursed",
+      "tw_match": "cursed"
+    },
+    {
+      "surface": "vineyards",
+      "tw_match": "vineyards"
+    }
+  ],
+  "24:19": [
+    {
+      "surface": "snow",
+      "tw_match": "snow"
+    },
+    {
+      "surface": "Sheol",
+      "tw_match": "Sheol"
+    },
+    {
+      "surface": "sinned",
+      "tw_match": "sin"
+    }
+  ],
+  "24:20": [
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "24:21": [
+    {
+      "surface": "devouring",
+      "tw_match": "devour"
+    },
+    {
+      "surface": "barren",
+      "tw_match": "barren"
+    },
+    {
+      "surface": "borne",
+      "tw_match": "borne"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "24:22": [
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    },
+    {
+      "surface": "believe",
+      "tw_match": "believe"
+    }
+  ],
+  "24:23": [],
+  "24:24": [
+    {
+      "surface": "exalted",
+      "tw_match": "exalted"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "grain",
+      "tw_match": "grain"
+    }
+  ],
+  "24:25": [],
+  "25:1": [],
+  "25:2": [
+    {
+      "surface": "Dominion",
+      "tw_match": "dominion"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "peace",
+      "tw_match": "peace"
+    }
+  ],
+  "25:3": [],
+  "25:4": [
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    }
+  ],
+  "25:5": [
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    }
+  ],
+  "25:6": [
+    {
+      "surface": "son of man",
+      "tw_match": "son of man"
+    }
+  ],
+  "26:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "26:2": [
+    {
+      "surface": "saved",
+      "tw_match": "saved"
+    }
+  ],
+  "26:3": [
+    {
+      "surface": "advised",
+      "tw_match": "advise"
+    },
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    }
+  ],
+  "26:4": [
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    }
+  ],
+  "26:5": [
+    {
+      "surface": "Raphaites",
+      "tw_match": "Raphaites"
+    },
+    {
+      "surface": "tremble",
+      "tw_match": "tremble"
+    }
+  ],
+  "26:6": [
+    {
+      "surface": "Sheol",
+      "tw_match": "Sheol"
+    }
+  ],
+  "26:7": [
+    {
+      "surface": "hanging",
+      "tw_match": "hang"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "26:8": [
+    {
+      "surface": "binding",
+      "tw_match": "bind"
+    }
+  ],
+  "26:9": [],
+  "26:10": [],
+  "26:11": [
+    {
+      "surface": "pillars",
+      "tw_match": "pillar"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "tremble",
+      "tw_match": "tremble"
+    },
+    {
+      "surface": "rebuke",
+      "tw_match": "rebuke"
+    }
+  ],
+  "26:12": [
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    },
+    {
+      "surface": "Rahab",
+      "tw_match": "Rahab"
+    }
+  ],
+  "26:13": [
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    },
+    {
+      "surface": "skies",
+      "tw_match": "sky"
+    },
+    {
+      "surface": "serpent",
+      "tw_match": "serpent"
+    }
+  ],
+  "26:14": [
+    {
+      "surface": "understand",
+      "tw_match": "understand"
+    }
+  ],
+  "27:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "27:2": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "27:3": [
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "27:4": [
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    }
+  ],
+  "27:5": [
+    {
+      "surface": "justify",
+      "tw_match": "justify"
+    },
+    {
+      "surface": "integrity",
+      "tw_match": "integrity"
+    }
+  ],
+  "27:6": [
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    },
+    {
+      "surface": "reproach",
+      "tw_match": "reproach"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "27:7": [
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "unrighteous",
+      "tw_match": "unrighteous"
+    }
+  ],
+  "27:8": [
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "godless",
+      "tw_match": "godless"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "27:9": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "cry",
+      "tw_match": "cry"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    }
+  ],
+  "27:10": [
+    {
+      "surface": "delight",
+      "tw_match": "delight"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "call",
+      "tw_match": "call"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "27:11": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "27:12": [
+    {
+      "surface": "vanity",
+      "tw_match": "vanity"
+    }
+  ],
+  "27:13": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "receive",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "27:14": [
+    {
+      "surface": "multiply",
+      "tw_match": "multiply"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    }
+  ],
+  "27:15": [
+    {
+      "surface": "buried",
+      "tw_match": "buried"
+    },
+    {
+      "surface": "lament",
+      "tw_match": "lament"
+    }
+  ],
+  "27:16": [
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "27:17": [
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "innocent",
+      "tw_match": "innocent"
+    },
+    {
+      "surface": "receives",
+      "tw_match": "receive"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    }
+  ],
+  "27:18": [
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "guard",
+      "tw_match": "guard"
+    }
+  ],
+  "27:19": [
+    {
+      "surface": "lies",
+      "tw_match": "lie"
+    }
+  ],
+  "27:20": [
+    {
+      "surface": "Terrors",
+      "tw_match": "terror"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "carries",
+      "tw_match": "carry"
+    }
+  ],
+  "27:21": [
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    },
+    {
+      "surface": "leaves",
+      "tw_match": "leave"
+    }
+  ],
+  "27:22": [],
+  "27:23": [],
+  "28:1": [
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "28:2": [
+    {
+      "surface": "Iron",
+      "tw_match": "iron"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    }
+  ],
+  "28:3": [
+    {
+      "surface": "searching",
+      "tw_match": "search"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    }
+  ],
+  "28:4": [],
+  "28:5": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    }
+  ],
+  "28:6": [
+    {
+      "surface": "stones",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "28:7": [
+    {
+      "surface": "prey",
+      "tw_match": "prey"
+    },
+    {
+      "surface": "knows",
+      "tw_match": "know"
+    }
+  ],
+  "28:8": [
+    {
+      "surface": "pride",
+      "tw_match": "pride"
+    },
+    {
+      "surface": "lion",
+      "tw_match": "lion"
+    }
+  ],
+  "28:9": [],
+  "28:10": [],
+  "28:11": [
+    {
+      "surface": "binds",
+      "tw_match": "bind"
+    }
+  ],
+  "28:12": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "28:13": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "28:14": [
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "28:15": [
+    {
+      "surface": "Gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    }
+  ],
+  "28:16": [
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "28:17": [
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "28:18": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    }
+  ],
+  "28:19": [
+    {
+      "surface": "Cush",
+      "tw_match": "Cush"
+    },
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "28:20": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "28:21": [
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "28:22": [],
+  "28:23": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "understands",
+      "tw_match": "understand"
+    },
+    {
+      "surface": "knows",
+      "tw_match": "know"
+    }
+  ],
+  "28:24": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "28:25": [
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    }
+  ],
+  "28:26": [
+    {
+      "surface": "decree",
+      "tw_match": "decree"
+    }
+  ],
+  "28:27": [
+    {
+      "surface": "established",
+      "tw_match": "established"
+    }
+  ],
+  "28:28": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "Lord",
+      "tw_match": "Lord"
+    },
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "29:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "29:2": [
+    {
+      "surface": "months",
+      "tw_match": "month"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "keeping",
+      "tw_match": "keep"
+    }
+  ],
+  "29:3": [
+    {
+      "surface": "lamp",
+      "tw_match": "lamp"
+    }
+  ],
+  "29:4": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    }
+  ],
+  "29:5": [
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "29:6": [
+    {
+      "surface": "oil",
+      "tw_match": "oil"
+    }
+  ],
+  "29:7": [
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    }
+  ],
+  "29:8": [
+    {
+      "surface": "old",
+      "tw_match": "old"
+    }
+  ],
+  "29:9": [
+    {
+      "surface": "princes",
+      "tw_match": "prince"
+    }
+  ],
+  "29:10": [
+    {
+      "surface": "nobles",
+      "tw_match": "noble"
+    },
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    }
+  ],
+  "29:11": [
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    }
+  ],
+  "29:12": [
+    {
+      "surface": "afflicted",
+      "tw_match": "afflict"
+    },
+    {
+      "surface": "crying",
+      "tw_match": "cry"
+    }
+  ],
+  "29:13": [
+    {
+      "surface": "blessing",
+      "tw_match": "blessing"
+    },
+    {
+      "surface": "perishing",
+      "tw_match": "perish"
+    }
+  ],
+  "29:14": [
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "robe",
+      "tw_match": "robe"
+    }
+  ],
+  "29:15": [],
+  "29:16": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "29:17": [
+    {
+      "surface": "unrighteous",
+      "tw_match": "unrighteous"
+    },
+    {
+      "surface": "prey",
+      "tw_match": "prey"
+    }
+  ],
+  "29:18": [
+    {
+      "surface": "multiply",
+      "tw_match": "multiply"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "29:19": [],
+  "29:20": [
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "bow",
+      "tw_match": "bow"
+    }
+  ],
+  "29:21": [
+    {
+      "surface": "counsel",
+      "tw_match": "counsel"
+    }
+  ],
+  "29:22": [],
+  "29:23": [],
+  "29:24": [
+    {
+      "surface": "believe",
+      "tw_match": "believe"
+    }
+  ],
+  "29:25": [
+    {
+      "surface": "chief",
+      "tw_match": "chief"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "mourners",
+      "tw_match": "mourner"
+    }
+  ],
+  "30:1": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "flock",
+      "tw_match": "flock"
+    }
+  ],
+  "30:2": [
+    {
+      "surface": "old age",
+      "tw_match": "old age"
+    },
+    {
+      "surface": "perished",
+      "tw_match": "perish"
+    }
+  ],
+  "30:3": [
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "waste",
+      "tw_match": "waste"
+    },
+    {
+      "surface": "desolation",
+      "tw_match": "desolation"
+    }
+  ],
+  "30:4": [
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    }
+  ],
+  "30:5": [
+    {
+      "surface": "thief",
+      "tw_match": "thief"
+    }
+  ],
+  "30:6": [
+    {
+      "surface": "wadis",
+      "tw_match": "wadi"
+    }
+  ],
+  "30:7": [
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "thorn",
+      "tw_match": "thorn"
+    }
+  ],
+  "30:8": [
+    {
+      "surface": "fool",
+      "tw_match": "fool"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "30:9": [],
+  "30:10": [],
+  "30:11": [
+    {
+      "surface": "humbled",
+      "tw_match": "humbled"
+    }
+  ],
+  "30:12": [
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    }
+  ],
+  "30:13": [
+    {
+      "surface": "destroy",
+      "tw_match": "destroy"
+    },
+    {
+      "surface": "calamity",
+      "tw_match": "calamity"
+    }
+  ],
+  "30:14": [
+    {
+      "surface": "ruin",
+      "tw_match": "ruin"
+    }
+  ],
+  "30:15": [
+    {
+      "surface": "Terrors",
+      "tw_match": "terror"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    },
+    {
+      "surface": "deliverance",
+      "tw_match": "deliverance"
+    }
+  ],
+  "30:16": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "affliction",
+      "tw_match": "affliction"
+    },
+    {
+      "surface": "seize",
+      "tw_match": "seize"
+    }
+  ],
+  "30:17": [],
+  "30:18": [
+    {
+      "surface": "binds",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "tunic",
+      "tw_match": "tunic"
+    }
+  ],
+  "30:19": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "30:20": [
+    {
+      "surface": "cry",
+      "tw_match": "cry"
+    }
+  ],
+  "30:21": [],
+  "30:22": [
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    }
+  ],
+  "30:23": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "the house",
+      "tw_match": "the house"
+    }
+  ],
+  "30:24": [
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "cry out",
+      "tw_match": "cry out"
+    }
+  ],
+  "30:25": [
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    }
+  ],
+  "30:26": [
+    {
+      "surface": "hoped",
+      "tw_match": "hoped"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "30:27": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "affliction",
+      "tw_match": "affliction"
+    }
+  ],
+  "30:28": [
+    {
+      "surface": "assembly",
+      "tw_match": "assembly"
+    },
+    {
+      "surface": "cry out",
+      "tw_match": "cry out"
+    }
+  ],
+  "30:29": [
+    {
+      "surface": "companion",
+      "tw_match": "companion"
+    }
+  ],
+  "30:30": [],
+  "30:31": [
+    {
+      "surface": "harp",
+      "tw_match": "harp"
+    },
+    {
+      "surface": "mourning",
+      "tw_match": "mourn"
+    },
+    {
+      "surface": "flute",
+      "tw_match": "flute"
+    },
+    {
+      "surface": "weeping",
+      "tw_match": "weeping"
+    }
+  ],
+  "31:1": [
+    {
+      "surface": "covenant",
+      "tw_match": "covenant"
+    },
+    {
+      "surface": "virgin",
+      "tw_match": "virgin"
+    }
+  ],
+  "31:2": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "31:3": [
+    {
+      "surface": "calamity",
+      "tw_match": "calamity"
+    },
+    {
+      "surface": "unrighteous",
+      "tw_match": "unrighteous"
+    }
+  ],
+  "31:4": [],
+  "31:5": [],
+  "31:6": [
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "integrity",
+      "tw_match": "integrity"
+    }
+  ],
+  "31:7": [],
+  "31:8": [
+    {
+      "surface": "sow",
+      "tw_match": "sow"
+    }
+  ],
+  "31:9": [
+    {
+      "surface": "neighbor",
+      "tw_match": "neighbor"
+    }
+  ],
+  "31:10": [
+    {
+      "surface": "bow down",
+      "tw_match": "bow down"
+    }
+  ],
+  "31:11": [
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "judges",
+      "tw_match": "judge"
+    }
+  ],
+  "31:12": [
+    {
+      "surface": "consumes",
+      "tw_match": "consume"
+    },
+    {
+      "surface": "harvest",
+      "tw_match": "harvest"
+    }
+  ],
+  "31:13": [
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    }
+  ],
+  "31:14": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "31:15": [
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    }
+  ],
+  "31:16": [],
+  "31:17": [],
+  "31:18": [],
+  "31:19": [
+    {
+      "surface": "perishing",
+      "tw_match": "perish"
+    }
+  ],
+  "31:20": [
+    {
+      "surface": "loins",
+      "tw_match": "loins"
+    },
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    },
+    {
+      "surface": "sheep",
+      "tw_match": "sheep"
+    }
+  ],
+  "31:21": [
+    {
+      "surface": "gate",
+      "tw_match": "gate"
+    }
+  ],
+  "31:22": [],
+  "31:23": [
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "dread",
+      "tw_match": "dread"
+    },
+    {
+      "surface": "majesty",
+      "tw_match": "majesty"
+    }
+  ],
+  "31:24": [
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    }
+  ],
+  "31:25": [
+    {
+      "surface": "rejoiced",
+      "tw_match": "rejoice"
+    }
+  ],
+  "31:26": [
+    {
+      "surface": "splendor",
+      "tw_match": "splendor"
+    }
+  ],
+  "31:27": [
+    {
+      "surface": "kissed",
+      "tw_match": "kiss"
+    }
+  ],
+  "31:28": [
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    },
+    {
+      "surface": "judges",
+      "tw_match": "judge"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "31:29": [
+    {
+      "surface": "rejoiced",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "destruction",
+      "tw_match": "destruction"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "31:30": [
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "curse",
+      "tw_match": "curse"
+    }
+  ],
+  "31:31": [
+    {
+      "surface": "tent",
+      "tw_match": "tent"
+    }
+  ],
+  "31:32": [],
+  "31:33": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "sins",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "guilt",
+      "tw_match": "guilt"
+    }
+  ],
+  "31:34": [
+    {
+      "surface": "feared",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "contempt",
+      "tw_match": "contempt"
+    },
+    {
+      "surface": "clans",
+      "tw_match": "clan"
+    }
+  ],
+  "31:35": [
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "scroll",
+      "tw_match": "scroll"
+    }
+  ],
+  "31:36": [
+    {
+      "surface": "bear",
+      "tw_match": "bear"
+    },
+    {
+      "surface": "bind",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "crowns",
+      "tw_match": "crown"
+    }
+  ],
+  "31:37": [
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "noble",
+      "tw_match": "noble"
+    }
+  ],
+  "31:38": [
+    {
+      "surface": "cries",
+      "tw_match": "cry"
+    }
+  ],
+  "31:39": [
+    {
+      "surface": "silver",
+      "tw_match": "silver"
+    },
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    },
+    {
+      "surface": "masters",
+      "tw_match": "master"
+    }
+  ],
+  "31:40": [
+    {
+      "surface": "thorn",
+      "tw_match": "thorn"
+    },
+    {
+      "surface": "wheat",
+      "tw_match": "wheat"
+    },
+    {
+      "surface": "barley",
+      "tw_match": "barley"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "32:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    }
+  ],
+  "32:2": [
+    {
+      "surface": "clan",
+      "tw_match": "clan"
+    },
+    {
+      "surface": "Ram",
+      "tw_match": "ram"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "declaring",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "32:3": [
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "wrong",
+      "tw_match": "wrong"
+    }
+  ],
+  "32:4": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "32:5": [],
+  "32:6": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "aged",
+      "tw_match": "aged"
+    },
+    {
+      "surface": "afraid",
+      "tw_match": "afraid"
+    },
+    {
+      "surface": "telling",
+      "tw_match": "tell"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    }
+  ],
+  "32:7": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    },
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    }
+  ],
+  "32:8": [
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "32:9": [
+    {
+      "surface": "wise",
+      "tw_match": "wise"
+    },
+    {
+      "surface": "aged",
+      "tw_match": "aged"
+    },
+    {
+      "surface": "understand",
+      "tw_match": "understand"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    }
+  ],
+  "32:10": [
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    }
+  ],
+  "32:11": [
+    {
+      "surface": "searched",
+      "tw_match": "search"
+    }
+  ],
+  "32:12": [
+    {
+      "surface": "proving",
+      "tw_match": "proving"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "wrong",
+      "tw_match": "wrong"
+    }
+  ],
+  "32:13": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "32:14": [],
+  "32:15": [],
+  "32:16": [],
+  "32:17": [
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    }
+  ],
+  "32:18": [
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    }
+  ],
+  "32:19": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "wine",
+      "tw_match": "wine"
+    },
+    {
+      "surface": "wineskins",
+      "tw_match": "wineskin"
+    }
+  ],
+  "32:20": [],
+  "32:21": [],
+  "32:22": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "Maker",
+      "tw_match": "Maker"
+    }
+  ],
+  "33:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    }
+  ],
+  "33:2": [
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    }
+  ],
+  "33:3": [
+    {
+      "surface": "uprightness",
+      "tw_match": "uprightness"
+    },
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    }
+  ],
+  "33:4": [
+    {
+      "surface": "Spirit of God",
+      "tw_match": "Spirit of God"
+    },
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "33:5": [],
+  "33:6": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "33:7": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "terrify",
+      "tw_match": "terrify"
+    }
+  ],
+  "33:8": [],
+  "33:9": [
+    {
+      "surface": "pure",
+      "tw_match": "pure"
+    },
+    {
+      "surface": "transgression",
+      "tw_match": "transgression"
+    },
+    {
+      "surface": "innocent",
+      "tw_match": "innocent"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "33:10": [
+    {
+      "surface": "enemy",
+      "tw_match": "enemy"
+    }
+  ],
+  "33:11": [
+    {
+      "surface": "watches",
+      "tw_match": "watch"
+    }
+  ],
+  "33:12": [
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "33:13": [],
+  "33:14": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "33:15": [
+    {
+      "surface": "dream",
+      "tw_match": "dream"
+    },
+    {
+      "surface": "vision",
+      "tw_match": "vision"
+    }
+  ],
+  "33:16": [
+    {
+      "surface": "seals",
+      "tw_match": "seal"
+    }
+  ],
+  "33:17": [
+    {
+      "surface": "pride",
+      "tw_match": "pride"
+    }
+  ],
+  "33:18": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "pit",
+      "tw_match": "pit"
+    },
+    {
+      "surface": "crossing",
+      "tw_match": "cross"
+    }
+  ],
+  "33:19": [],
+  "33:20": [
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    }
+  ],
+  "33:21": [
+    {
+      "surface": "wastes",
+      "tw_match": "waste"
+    }
+  ],
+  "33:22": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "pit",
+      "tw_match": "pit"
+    }
+  ],
+  "33:23": [
+    {
+      "surface": "angel",
+      "tw_match": "angel"
+    },
+    {
+      "surface": "interpreter",
+      "tw_match": "interpreter"
+    },
+    {
+      "surface": "declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "uprightness",
+      "tw_match": "uprightness"
+    }
+  ],
+  "33:24": [
+    {
+      "surface": "gracious",
+      "tw_match": "gracious"
+    },
+    {
+      "surface": "Redeem",
+      "tw_match": "redeem"
+    },
+    {
+      "surface": "pit",
+      "tw_match": "pit"
+    },
+    {
+      "surface": "ransom",
+      "tw_match": "ransom"
+    }
+  ],
+  "33:25": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "33:26": [
+    {
+      "surface": "pray",
+      "tw_match": "pray"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "joy",
+      "tw_match": "joy"
+    },
+    {
+      "surface": "restore",
+      "tw_match": "restore"
+    },
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    }
+  ],
+  "33:27": [
+    {
+      "surface": "sinned",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "uprightness",
+      "tw_match": "uprightness"
+    }
+  ],
+  "33:28": [
+    {
+      "surface": "redeemed",
+      "tw_match": "redeem"
+    },
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "pit",
+      "tw_match": "pit"
+    }
+  ],
+  "33:29": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "33:30": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "pit",
+      "tw_match": "pit"
+    }
+  ],
+  "33:31": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "33:32": [
+    {
+      "surface": "justify",
+      "tw_match": "justify"
+    }
+  ],
+  "33:33": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    }
+  ],
+  "34:1": [],
+  "34:2": [
+    {
+      "surface": "wise",
+      "tw_match": "wise"
+    },
+    {
+      "surface": "knowing",
+      "tw_match": "know"
+    }
+  ],
+  "34:3": [
+    {
+      "surface": "tests",
+      "tw_match": "test"
+    }
+  ],
+  "34:4": [
+    {
+      "surface": "choose",
+      "tw_match": "choose"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    }
+  ],
+  "34:5": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    }
+  ],
+  "34:6": [
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "transgression",
+      "tw_match": "transgression"
+    }
+  ],
+  "34:7": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "34:8": [
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "34:9": [
+    {
+      "surface": "delights",
+      "tw_match": "delight"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "34:10": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "34:11": [],
+  "34:12": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "truly",
+      "tw_match": "truly"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "pervert",
+      "tw_match": "pervert"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    }
+  ],
+  "34:13": [
+    {
+      "surface": "appointed",
+      "tw_match": "appointed"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "world",
+      "tw_match": "world"
+    }
+  ],
+  "34:14": [
+    {
+      "surface": "gathered",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "Spirit",
+      "tw_match": "Spirit"
+    },
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    }
+  ],
+  "34:15": [],
+  "34:16": [
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "34:17": [
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "govern",
+      "tw_match": "govern"
+    },
+    {
+      "surface": "condemn",
+      "tw_match": "condemn"
+    },
+    {
+      "surface": "Righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "Mighty",
+      "tw_match": "mighty"
+    }
+  ],
+  "34:18": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "nobles",
+      "tw_match": "noble"
+    }
+  ],
+  "34:19": [
+    {
+      "surface": "princes",
+      "tw_match": "prince"
+    },
+    {
+      "surface": "acknowledge",
+      "tw_match": "acknowledge"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "34:20": [
+    {
+      "surface": "moment",
+      "tw_match": "moment"
+    },
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    }
+  ],
+  "34:21": [],
+  "34:22": [
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "34:23": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "judgment",
+      "tw_match": "judgment"
+    }
+  ],
+  "34:24": [
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    }
+  ],
+  "34:25": [],
+  "34:26": [],
+  "34:27": [],
+  "34:28": [
+    {
+      "surface": "cry",
+      "tw_match": "cry"
+    },
+    {
+      "surface": "lowly",
+      "tw_match": "lowly"
+    }
+  ],
+  "34:29": [
+    {
+      "surface": "condemn",
+      "tw_match": "condemn"
+    },
+    {
+      "surface": "nation",
+      "tw_match": "nation"
+    },
+    {
+      "surface": "alike",
+      "tw_match": "alike"
+    }
+  ],
+  "34:30": [
+    {
+      "surface": "reigning",
+      "tw_match": "reign"
+    },
+    {
+      "surface": "godless",
+      "tw_match": "godless"
+    },
+    {
+      "surface": "snares",
+      "tw_match": "snare"
+    }
+  ],
+  "34:31": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "borne",
+      "tw_match": "borne"
+    }
+  ],
+  "34:32": [
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "34:33": [
+    {
+      "surface": "choose",
+      "tw_match": "choose"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "34:34": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    }
+  ],
+  "34:35": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "34:36": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "tested",
+      "tw_match": "tested"
+    },
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "34:37": [
+    {
+      "surface": "transgression",
+      "tw_match": "transgression"
+    },
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "multiplies",
+      "tw_match": "multiply"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "35:1": [],
+  "35:2": [
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "35:3": [
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    }
+  ],
+  "35:4": [
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    }
+  ],
+  "35:5": [
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "35:6": [
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "transgressions",
+      "tw_match": "transgression"
+    },
+    {
+      "surface": "multiply",
+      "tw_match": "multiply"
+    }
+  ],
+  "35:7": [
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "receive",
+      "tw_match": "receive"
+    }
+  ],
+  "35:8": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    },
+    {
+      "surface": "son of man",
+      "tw_match": "son of man"
+    }
+  ],
+  "35:9": [
+    {
+      "surface": "cry",
+      "tw_match": "cry"
+    },
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    }
+  ],
+  "35:10": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Maker",
+      "tw_match": "Maker"
+    }
+  ],
+  "35:11": [
+    {
+      "surface": "teaching",
+      "tw_match": "teaching"
+    },
+    {
+      "surface": "beasts",
+      "tw_match": "beast"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    }
+  ],
+  "35:12": [
+    {
+      "surface": "cry out",
+      "tw_match": "cry out"
+    },
+    {
+      "surface": "pride",
+      "tw_match": "pride"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "35:13": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "vanity",
+      "tw_match": "vanity"
+    },
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    }
+  ],
+  "35:14": [],
+  "35:15": [
+    {
+      "surface": "transgression",
+      "tw_match": "transgression"
+    }
+  ],
+  "35:16": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "vain",
+      "tw_match": "vain"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    },
+    {
+      "surface": "multiplies",
+      "tw_match": "multiply"
+    }
+  ],
+  "36:1": [],
+  "36:2": [
+    {
+      "surface": "patient",
+      "tw_match": "patient"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "36:3": [
+    {
+      "surface": "carry",
+      "tw_match": "carry"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    },
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    },
+    {
+      "surface": "Maker",
+      "tw_match": "Maker"
+    }
+  ],
+  "36:4": [
+    {
+      "surface": "truly",
+      "tw_match": "truly"
+    },
+    {
+      "surface": "complete",
+      "tw_match": "complete"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    }
+  ],
+  "36:5": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    }
+  ],
+  "36:6": [
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "lowly",
+      "tw_match": "lowly"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    }
+  ],
+  "36:7": [
+    {
+      "surface": "righteous",
+      "tw_match": "righteous"
+    },
+    {
+      "surface": "throne",
+      "tw_match": "throne"
+    },
+    {
+      "surface": "kings",
+      "tw_match": "king"
+    },
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    }
+  ],
+  "36:8": [
+    {
+      "surface": "bound",
+      "tw_match": "bound"
+    },
+    {
+      "surface": "affliction",
+      "tw_match": "affliction"
+    }
+  ],
+  "36:9": [
+    {
+      "surface": "declares",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "transgressions",
+      "tw_match": "transgression"
+    }
+  ],
+  "36:10": [
+    {
+      "surface": "iniquity",
+      "tw_match": "iniquity"
+    }
+  ],
+  "36:11": [
+    {
+      "surface": "serve",
+      "tw_match": "serve"
+    },
+    {
+      "surface": "complete",
+      "tw_match": "complete"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "good",
+      "tw_match": "good"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    }
+  ],
+  "36:12": [
+    {
+      "surface": "cross",
+      "tw_match": "cross"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    }
+  ],
+  "36:13": [
+    {
+      "surface": "godless",
+      "tw_match": "godless"
+    },
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "cry out",
+      "tw_match": "cry out"
+    },
+    {
+      "surface": "binds",
+      "tw_match": "bind"
+    }
+  ],
+  "36:14": [
+    {
+      "surface": "soul",
+      "tw_match": "soul"
+    },
+    {
+      "surface": "prostitutes",
+      "tw_match": "prostitute"
+    }
+  ],
+  "36:15": [
+    {
+      "surface": "delivers",
+      "tw_match": "deliver"
+    },
+    {
+      "surface": "afflicted",
+      "tw_match": "afflict"
+    },
+    {
+      "surface": "affliction",
+      "tw_match": "affliction"
+    }
+  ],
+  "36:16": [
+    {
+      "surface": "distress",
+      "tw_match": "distress"
+    }
+  ],
+  "36:17": [
+    {
+      "surface": "judgment",
+      "tw_match": "judgment"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    }
+  ],
+  "36:18": [
+    {
+      "surface": "wrath",
+      "tw_match": "wrath"
+    },
+    {
+      "surface": "ransom",
+      "tw_match": "ransom"
+    },
+    {
+      "surface": "deliver",
+      "tw_match": "deliver"
+    }
+  ],
+  "36:19": [
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "36:20": [],
+  "36:21": [
+    {
+      "surface": "Watch",
+      "tw_match": "watch"
+    },
+    {
+      "surface": "sin",
+      "tw_match": "sin"
+    },
+    {
+      "surface": "chosen",
+      "tw_match": "chosen"
+    },
+    {
+      "surface": "affliction",
+      "tw_match": "affliction"
+    }
+  ],
+  "36:22": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "teacher",
+      "tw_match": "teacher"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "36:23": [
+    {
+      "surface": "appointed",
+      "tw_match": "appointed"
+    },
+    {
+      "surface": "committed",
+      "tw_match": "committed"
+    },
+    {
+      "surface": "unrighteousness",
+      "tw_match": "unrighteousness"
+    }
+  ],
+  "36:24": [
+    {
+      "surface": "work",
+      "tw_match": "work"
+    }
+  ],
+  "36:25": [],
+  "36:26": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    },
+    {
+      "surface": "searching",
+      "tw_match": "search"
+    }
+  ],
+  "36:27": [],
+  "36:28": [],
+  "36:29": [
+    {
+      "surface": "understand",
+      "tw_match": "understand"
+    }
+  ],
+  "36:30": [
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "36:31": [
+    {
+      "surface": "judges",
+      "tw_match": "judge"
+    }
+  ],
+  "36:32": [],
+  "36:33": [
+    {
+      "surface": "declares",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "cattle",
+      "tw_match": "cattle"
+    }
+  ],
+  "37:1": [
+    {
+      "surface": "trembles",
+      "tw_match": "tremble"
+    }
+  ],
+  "37:2": [],
+  "37:3": [
+    {
+      "surface": "heavens",
+      "tw_match": "heavens"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "37:4": [
+    {
+      "surface": "majesty",
+      "tw_match": "majesty"
+    }
+  ],
+  "37:5": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "37:6": [
+    {
+      "surface": "snow",
+      "tw_match": "snow"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "37:7": [
+    {
+      "surface": "seals",
+      "tw_match": "seal"
+    },
+    {
+      "surface": "knowing",
+      "tw_match": "know"
+    }
+  ],
+  "37:8": [
+    {
+      "surface": "beast",
+      "tw_match": "beast"
+    }
+  ],
+  "37:9": [
+    {
+      "surface": "winds",
+      "tw_match": "wind"
+    }
+  ],
+  "37:10": [
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "37:11": [
+    {
+      "surface": "scatters",
+      "tw_match": "scatter"
+    }
+  ],
+  "37:12": [
+    {
+      "surface": "counsels",
+      "tw_match": "counsels"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "37:13": [
+    {
+      "surface": "rod",
+      "tw_match": "rod"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "37:14": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "37:15": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "37:16": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "wonders",
+      "tw_match": "wonder"
+    },
+    {
+      "surface": "perfect",
+      "tw_match": "perfect"
+    },
+    {
+      "surface": "knowledges",
+      "tw_match": "knowledge"
+    }
+  ],
+  "37:17": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "37:18": [
+    {
+      "surface": "sky",
+      "tw_match": "sky"
+    }
+  ],
+  "37:19": [],
+  "37:20": [],
+  "37:21": [
+    {
+      "surface": "skies",
+      "tw_match": "sky"
+    },
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    }
+  ],
+  "37:22": [
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "awesome",
+      "tw_match": "awesome"
+    },
+    {
+      "surface": "majesty",
+      "tw_match": "majesty"
+    }
+  ],
+  "37:23": [
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "justice",
+      "tw_match": "justice"
+    },
+    {
+      "surface": "righteousness",
+      "tw_match": "righteousness"
+    }
+  ],
+  "37:24": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "wise",
+      "tw_match": "wise"
+    }
+  ],
+  "38:1": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "38:2": [
+    {
+      "surface": "counsel",
+      "tw_match": "counsel"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    }
+  ],
+  "38:3": [
+    {
+      "surface": "gird",
+      "tw_match": "gird"
+    },
+    {
+      "surface": "loins",
+      "tw_match": "loins"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "38:4": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "Declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "38:5": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "38:6": [
+    {
+      "surface": "foundations",
+      "tw_match": "foundation"
+    },
+    {
+      "surface": "cornerstone",
+      "tw_match": "cornerstone"
+    }
+  ],
+  "38:7": [
+    {
+      "surface": "sons of God",
+      "tw_match": "sons of God"
+    }
+  ],
+  "38:8": [
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    }
+  ],
+  "38:9": [],
+  "38:10": [],
+  "38:11": [
+    {
+      "surface": "pride",
+      "tw_match": "pride"
+    }
+  ],
+  "38:12": [
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "38:13": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "38:14": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "seal",
+      "tw_match": "seal"
+    }
+  ],
+  "38:15": [
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "38:16": [
+    {
+      "surface": "springs",
+      "tw_match": "spring"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "38:17": [
+    {
+      "surface": "gates",
+      "tw_match": "gate"
+    }
+  ],
+  "38:18": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "Declare",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "38:19": [],
+  "38:20": [
+    {
+      "surface": "house",
+      "tw_match": "house"
+    }
+  ],
+  "38:21": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "38:22": [
+    {
+      "surface": "storehouses",
+      "tw_match": "storehouse"
+    },
+    {
+      "surface": "snow",
+      "tw_match": "snow"
+    },
+    {
+      "surface": "hail",
+      "tw_match": "hail"
+    }
+  ],
+  "38:23": [
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "trouble",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    }
+  ],
+  "38:24": [
+    {
+      "surface": "distributed",
+      "tw_match": "distributed"
+    },
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    },
+    {
+      "surface": "scatters",
+      "tw_match": "scatter"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "38:25": [],
+  "38:26": [
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "wilderness",
+      "tw_match": "wilderness"
+    }
+  ],
+  "38:27": [
+    {
+      "surface": "waste",
+      "tw_match": "waste"
+    },
+    {
+      "surface": "desolation",
+      "tw_match": "desolation"
+    }
+  ],
+  "38:28": [
+    {
+      "surface": "begets",
+      "tw_match": "beget"
+    }
+  ],
+  "38:29": [
+    {
+      "surface": "womb",
+      "tw_match": "womb"
+    },
+    {
+      "surface": "skies",
+      "tw_match": "sky"
+    },
+    {
+      "surface": "bears",
+      "tw_match": "bears"
+    }
+  ],
+  "38:30": [
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    }
+  ],
+  "38:31": [],
+  "38:32": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "Bear",
+      "tw_match": "bear"
+    }
+  ],
+  "38:33": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "statutes",
+      "tw_match": "statute"
+    },
+    {
+      "surface": "skies",
+      "tw_match": "sky"
+    },
+    {
+      "surface": "rule",
+      "tw_match": "rule"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "38:34": [],
+  "38:35": [],
+  "38:36": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "38:37": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    },
+    {
+      "surface": "skies",
+      "tw_match": "sky"
+    }
+  ],
+  "38:38": [
+    {
+      "surface": "hardening",
+      "tw_match": "harden"
+    }
+  ],
+  "38:39": [
+    {
+      "surface": "prey",
+      "tw_match": "prey"
+    },
+    {
+      "surface": "lioness",
+      "tw_match": "lioness"
+    }
+  ],
+  "38:40": [
+    {
+      "surface": "lie",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "shelter",
+      "tw_match": "shelter"
+    }
+  ],
+  "38:41": [
+    {
+      "surface": "cry out",
+      "tw_match": "cry out"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "stagger",
+      "tw_match": "stagger"
+    }
+  ],
+  "39:1": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "bearing",
+      "tw_match": "bearing"
+    },
+    {
+      "surface": "goats",
+      "tw_match": "goat"
+    },
+    {
+      "surface": "watch",
+      "tw_match": "watch"
+    },
+    {
+      "surface": "fawning",
+      "tw_match": "fawn"
+    }
+  ],
+  "39:2": [
+    {
+      "surface": "months",
+      "tw_match": "month"
+    },
+    {
+      "surface": "fulfill",
+      "tw_match": "fulfill"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "bearing",
+      "tw_match": "bearing"
+    }
+  ],
+  "39:3": [
+    {
+      "surface": "deliver",
+      "tw_match": "deliver"
+    },
+    {
+      "surface": "labor",
+      "tw_match": "labor"
+    }
+  ],
+  "39:4": [],
+  "39:5": [
+    {
+      "surface": "donkey",
+      "tw_match": "donkey"
+    },
+    {
+      "surface": "free",
+      "tw_match": "free"
+    }
+  ],
+  "39:6": [
+    {
+      "surface": "house",
+      "tw_match": "house"
+    },
+    {
+      "surface": "Arabah",
+      "tw_match": "Arabah"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "39:7": [],
+  "39:8": [
+    {
+      "surface": "seeks",
+      "tw_match": "seek"
+    }
+  ],
+  "39:9": [
+    {
+      "surface": "ox",
+      "tw_match": "ox"
+    },
+    {
+      "surface": "serve",
+      "tw_match": "serve"
+    }
+  ],
+  "39:10": [
+    {
+      "surface": "bind",
+      "tw_match": "bind"
+    },
+    {
+      "surface": "ox",
+      "tw_match": "ox"
+    }
+  ],
+  "39:11": [
+    {
+      "surface": "trust",
+      "tw_match": "trust"
+    },
+    {
+      "surface": "leave",
+      "tw_match": "leave"
+    },
+    {
+      "surface": "labor",
+      "tw_match": "labor"
+    }
+  ],
+  "39:12": [
+    {
+      "surface": "seed",
+      "tw_match": "seed"
+    },
+    {
+      "surface": "gather",
+      "tw_match": "gather"
+    },
+    {
+      "surface": "threshing",
+      "tw_match": "thresh"
+    }
+  ],
+  "39:13": [],
+  "39:14": [
+    {
+      "surface": "leaves",
+      "tw_match": "leave"
+    },
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    }
+  ],
+  "39:15": [
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "beast",
+      "tw_match": "beast"
+    },
+    {
+      "surface": "trample",
+      "tw_match": "trample"
+    }
+  ],
+  "39:16": [
+    {
+      "surface": "as if",
+      "tw_match": "as if"
+    },
+    {
+      "surface": "vain",
+      "tw_match": "vain"
+    },
+    {
+      "surface": "labor",
+      "tw_match": "labor"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "39:17": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    },
+    {
+      "surface": "understanding",
+      "tw_match": "understanding"
+    }
+  ],
+  "39:18": [
+    {
+      "surface": "time",
+      "tw_match": "time"
+    },
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    }
+  ],
+  "39:19": [
+    {
+      "surface": "horse",
+      "tw_match": "horse"
+    }
+  ],
+  "39:20": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "locust",
+      "tw_match": "locust"
+    },
+    {
+      "surface": "majesty",
+      "tw_match": "majesty"
+    },
+    {
+      "surface": "terrifying",
+      "tw_match": "terrify"
+    }
+  ],
+  "39:21": [
+    {
+      "surface": "rejoices",
+      "tw_match": "rejoice"
+    }
+  ],
+  "39:22": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "frightened",
+      "tw_match": "frighten"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "39:23": [
+    {
+      "surface": "spear",
+      "tw_match": "spear"
+    }
+  ],
+  "39:24": [
+    {
+      "surface": "shaking",
+      "tw_match": "shake"
+    },
+    {
+      "surface": "rage",
+      "tw_match": "rage"
+    },
+    {
+      "surface": "horn",
+      "tw_match": "horn"
+    }
+  ],
+  "39:25": [
+    {
+      "surface": "horn",
+      "tw_match": "horn"
+    },
+    {
+      "surface": "princes",
+      "tw_match": "prince"
+    },
+    {
+      "surface": "cry",
+      "tw_match": "cry"
+    }
+  ],
+  "39:26": [
+    {
+      "surface": "wisdom",
+      "tw_match": "wisdom"
+    }
+  ],
+  "39:27": [
+    {
+      "surface": "eagle",
+      "tw_match": "eagle"
+    }
+  ],
+  "39:28": [
+    {
+      "surface": "stronghold",
+      "tw_match": "stronghold"
+    }
+  ],
+  "39:29": [
+    {
+      "surface": "seeks",
+      "tw_match": "seek"
+    }
+  ],
+  "39:30": [
+    {
+      "surface": "slain",
+      "tw_match": "slain"
+    }
+  ],
+  "40:1": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "40:2": [
+    {
+      "surface": "Almighty",
+      "tw_match": "Almighty"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "40:3": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "40:4": [
+    {
+      "surface": "hand over",
+      "tw_match": "hand over"
+    }
+  ],
+  "40:5": [],
+  "40:6": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "40:7": [
+    {
+      "surface": "gird",
+      "tw_match": "gird"
+    },
+    {
+      "surface": "loins",
+      "tw_match": "loins"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "40:8": [
+    {
+      "surface": "judgment",
+      "tw_match": "judgment"
+    },
+    {
+      "surface": "condemn",
+      "tw_match": "condemn"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "40:9": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "40:10": [
+    {
+      "surface": "majesty",
+      "tw_match": "majesty"
+    },
+    {
+      "surface": "glory",
+      "tw_match": "glory"
+    },
+    {
+      "surface": "splendor",
+      "tw_match": "splendor"
+    }
+  ],
+  "40:11": [
+    {
+      "surface": "Scatter",
+      "tw_match": "scatter"
+    },
+    {
+      "surface": "proud",
+      "tw_match": "proud"
+    }
+  ],
+  "40:12": [
+    {
+      "surface": "proud",
+      "tw_match": "proud"
+    },
+    {
+      "surface": "trample",
+      "tw_match": "trample"
+    },
+    {
+      "surface": "wicked",
+      "tw_match": "wicked"
+    }
+  ],
+  "40:13": [],
+  "40:14": [
+    {
+      "surface": "praise",
+      "tw_match": "praise"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "save",
+      "tw_match": "save"
+    }
+  ],
+  "40:15": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "ox",
+      "tw_match": "ox"
+    }
+  ],
+  "40:16": [
+    {
+      "surface": "loins",
+      "tw_match": "loins"
+    }
+  ],
+  "40:17": [
+    {
+      "surface": "bends",
+      "tw_match": "bend"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "cedar",
+      "tw_match": "cedar"
+    }
+  ],
+  "40:18": [
+    {
+      "surface": "bronze",
+      "tw_match": "bronze"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "iron",
+      "tw_match": "iron"
+    }
+  ],
+  "40:19": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Maker",
+      "tw_match": "Maker"
+    },
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    }
+  ],
+  "40:20": [
+    {
+      "surface": "beasts",
+      "tw_match": "beast"
+    }
+  ],
+  "40:21": [
+    {
+      "surface": "lies",
+      "tw_match": "lie"
+    },
+    {
+      "surface": "reed",
+      "tw_match": "reed"
+    }
+  ],
+  "40:22": [],
+  "40:23": [
+    {
+      "surface": "tremble",
+      "tw_match": "tremble"
+    },
+    {
+      "surface": "Jordan",
+      "tw_match": "Jordan"
+    }
+  ],
+  "40:24": [
+    {
+      "surface": "capture",
+      "tw_match": "capture"
+    }
+  ],
+  "41:1": [
+    {
+      "surface": "Leviathan",
+      "tw_match": "Leviathan"
+    },
+    {
+      "surface": "tongue",
+      "tw_match": "tongue"
+    }
+  ],
+  "41:2": [],
+  "41:3": [
+    {
+      "surface": "multiply",
+      "tw_match": "multiply"
+    }
+  ],
+  "41:4": [
+    {
+      "surface": "covenant",
+      "tw_match": "covenant"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    }
+  ],
+  "41:5": [],
+  "41:6": [],
+  "41:7": [
+    {
+      "surface": "spears",
+      "tw_match": "spear"
+    }
+  ],
+  "41:8": [],
+  "41:9": [
+    {
+      "surface": "hope",
+      "tw_match": "hope"
+    },
+    {
+      "surface": "deceived",
+      "tw_match": "deceive"
+    }
+  ],
+  "41:10": [],
+  "41:11": [
+    {
+      "surface": "skies",
+      "tw_match": "sky"
+    }
+  ],
+  "41:12": [
+    {
+      "surface": "keep",
+      "tw_match": "keep"
+    }
+  ],
+  "41:13": [],
+  "41:14": [
+    {
+      "surface": "terror",
+      "tw_match": "terror"
+    }
+  ],
+  "41:15": [
+    {
+      "surface": "shields",
+      "tw_match": "shield"
+    },
+    {
+      "surface": "pride",
+      "tw_match": "pride"
+    },
+    {
+      "surface": "seal",
+      "tw_match": "seal"
+    }
+  ],
+  "41:16": [],
+  "41:17": [],
+  "41:18": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "41:19": [],
+  "41:20": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "reed",
+      "tw_match": "reed"
+    }
+  ],
+  "41:21": [
+    {
+      "surface": "breath",
+      "tw_match": "breath"
+    }
+  ],
+  "41:22": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "41:23": [],
+  "41:24": [
+    {
+      "surface": "hard",
+      "tw_match": "hard"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "stone",
+      "tw_match": "stone"
+    }
+  ],
+  "41:25": [
+    {
+      "surface": "mighty",
+      "tw_match": "mighty"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "41:26": [
+    {
+      "surface": "sword",
+      "tw_match": "sword"
+    },
+    {
+      "surface": "spear",
+      "tw_match": "spear"
+    }
+  ],
+  "41:27": [
+    {
+      "surface": "iron",
+      "tw_match": "iron"
+    },
+    {
+      "surface": "bronze",
+      "tw_match": "bronze"
+    }
+  ],
+  "41:28": [
+    {
+      "surface": "bow",
+      "tw_match": "bow"
+    },
+    {
+      "surface": "stones",
+      "tw_match": "stone"
+    },
+    {
+      "surface": "chaff",
+      "tw_match": "chaff"
+    }
+  ],
+  "41:29": [
+    {
+      "surface": "Clubs",
+      "tw_match": "clubs"
+    },
+    {
+      "surface": "chaff",
+      "tw_match": "chaff"
+    },
+    {
+      "surface": "spear",
+      "tw_match": "spear"
+    }
+  ],
+  "41:30": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "threshing",
+      "tw_match": "thresh"
+    }
+  ],
+  "41:31": [
+    {
+      "surface": "like",
+      "tw_match": "like"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "41:32": [],
+  "41:33": [
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    }
+  ],
+  "41:34": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "pride",
+      "tw_match": "pride"
+    }
+  ],
+  "42:1": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "42:2": [
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "42:3": [
+    {
+      "surface": "counsel",
+      "tw_match": "counsel"
+    },
+    {
+      "surface": "knowledge",
+      "tw_match": "knowledge"
+    },
+    {
+      "surface": "declared",
+      "tw_match": "declare"
+    },
+    {
+      "surface": "understand",
+      "tw_match": "understand"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "42:4": [],
+  "42:5": [],
+  "42:6": [
+    {
+      "surface": "repent",
+      "tw_match": "repent"
+    }
+  ],
+  "42:7": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    }
+  ],
+  "42:8": [
+    {
+      "surface": "bulls",
+      "tw_match": "bull"
+    },
+    {
+      "surface": "rams",
+      "tw_match": "ram"
+    },
+    {
+      "surface": "servant",
+      "tw_match": "servant"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "burnt offering",
+      "tw_match": "burnt offering"
+    },
+    {
+      "surface": "pray",
+      "tw_match": "pray"
+    },
+    {
+      "surface": "folly",
+      "tw_match": "folly"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "like",
+      "tw_match": "like"
+    }
+  ],
+  "42:9": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    }
+  ],
+  "42:10": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "captivity",
+      "tw_match": "captivity"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "prayed",
+      "tw_match": "pray"
+    },
+    {
+      "surface": "friends",
+      "tw_match": "friend"
+    }
+  ],
+  "42:11": [
+    {
+      "surface": "knowing",
+      "tw_match": "know"
+    },
+    {
+      "surface": "bread",
+      "tw_match": "bread"
+    },
+    {
+      "surface": "his house",
+      "tw_match": "his house"
+    },
+    {
+      "surface": "troubles",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "gold",
+      "tw_match": "gold"
+    }
+  ],
+  "42:12": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "blessed",
+      "tw_match": "blessed"
+    },
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "sheep",
+      "tw_match": "sheep"
+    },
+    {
+      "surface": "camels",
+      "tw_match": "camel"
+    },
+    {
+      "surface": "yoke",
+      "tw_match": "yoke"
+    },
+    {
+      "surface": "donkeys",
+      "tw_match": "donkey"
+    }
+  ],
+  "42:13": [],
+  "42:14": [
+    {
+      "surface": "called",
+      "tw_match": "called"
+    }
+  ],
+  "42:15": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "inheritance",
+      "tw_match": "inheritance"
+    }
+  ],
+  "42:16": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "years",
+      "tw_match": "year"
+    },
+    {
+      "surface": "generations",
+      "tw_match": "generation"
+    }
+  ],
+  "42:17": [
+    {
+      "surface": "Job",
+      "tw_match": "Job"
+    },
+    {
+      "surface": "old",
+      "tw_match": "old"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ]
+}

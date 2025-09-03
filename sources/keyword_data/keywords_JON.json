@@ -1,0 +1,885 @@
+{
+  "1:1": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    }
+  ],
+  "1:2": [
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    },
+    {
+      "surface": "call out",
+      "tw_match": "call out"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "1:3": [
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "Tarshish",
+      "tw_match": "Tarshish"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Joppa",
+      "tw_match": "Joppa"
+    }
+  ],
+  "1:4": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "thinking",
+      "tw_match": "thinking"
+    }
+  ],
+  "1:5": [
+    {
+      "surface": "frightened",
+      "tw_match": "frighten"
+    },
+    {
+      "surface": "god",
+      "tw_match": "god"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    }
+  ],
+  "1:6": [
+    {
+      "surface": "Cry",
+      "tw_match": "cry"
+    },
+    {
+      "surface": "god",
+      "tw_match": "god"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    }
+  ],
+  "1:7": [
+    {
+      "surface": "friend",
+      "tw_match": "friend"
+    },
+    {
+      "surface": "lots",
+      "tw_match": "lots"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "lot",
+      "tw_match": "lots"
+    },
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    }
+  ],
+  "1:8": [
+    {
+      "surface": "Please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "1:9": [
+    {
+      "surface": "Hebrew",
+      "tw_match": "Hebrew"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "heaven",
+      "tw_match": "heaven"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "1:10": [
+    {
+      "surface": "feared",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "knew",
+      "tw_match": "knew"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "1:11": [
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "1:12": [
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    }
+  ],
+  "1:13": [
+    {
+      "surface": "hard",
+      "tw_match": "hard"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    }
+  ],
+  "1:14": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "please",
+      "tw_match": "please"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    },
+    {
+      "surface": "innocent",
+      "tw_match": "innocent"
+    },
+    {
+      "surface": "just",
+      "tw_match": "just"
+    }
+  ],
+  "1:15": [
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "the sea",
+      "tw_match": "the sea"
+    },
+    {
+      "surface": "raging",
+      "tw_match": "rage"
+    }
+  ],
+  "1:16": [
+    {
+      "surface": "feared",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "fear",
+      "tw_match": "fear"
+    },
+    {
+      "surface": "sacrificed",
+      "tw_match": "sacrifice"
+    },
+    {
+      "surface": "sacrifice",
+      "tw_match": "sacrifice"
+    },
+    {
+      "surface": "vowed",
+      "tw_match": "vow"
+    },
+    {
+      "surface": "vows",
+      "tw_match": "vow"
+    }
+  ],
+  "1:17": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "appointed",
+      "tw_match": "appointed"
+    },
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "2:1": [
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "prayed",
+      "tw_match": "pray"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "2:2": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "distress",
+      "tw_match": "distress"
+    },
+    {
+      "surface": "Sheol",
+      "tw_match": "Sheol"
+    }
+  ],
+  "2:3": [],
+  "2:4": [
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    },
+    {
+      "surface": "holiness",
+      "tw_match": "holiness"
+    }
+  ],
+  "2:5": [
+    {
+      "surface": "wrapped around",
+      "tw_match": "wrapped around"
+    }
+  ],
+  "2:6": [
+    {
+      "surface": "earth",
+      "tw_match": "earth"
+    },
+    {
+      "surface": "forever",
+      "tw_match": "forever"
+    },
+    {
+      "surface": "pit",
+      "tw_match": "pit"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    }
+  ],
+  "2:7": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "prayer",
+      "tw_match": "prayer"
+    },
+    {
+      "surface": "temple",
+      "tw_match": "temple"
+    },
+    {
+      "surface": "holiness",
+      "tw_match": "holiness"
+    }
+  ],
+  "2:8": [
+    {
+      "surface": "vanities",
+      "tw_match": "vanity"
+    },
+    {
+      "surface": "forsake",
+      "tw_match": "forsake"
+    },
+    {
+      "surface": "covenant faithfulness",
+      "tw_match": "covenant faithfulness"
+    }
+  ],
+  "2:9": [
+    {
+      "surface": "sacrifice",
+      "tw_match": "sacrifice"
+    },
+    {
+      "surface": "fulfill",
+      "tw_match": "fulfill"
+    },
+    {
+      "surface": "vowed",
+      "tw_match": "vow"
+    },
+    {
+      "surface": "Salvation",
+      "tw_match": "salvation"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    }
+  ],
+  "2:10": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "dry",
+      "tw_match": "dry"
+    },
+    {
+      "surface": "land",
+      "tw_match": "land"
+    }
+  ],
+  "3:1": [
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "time",
+      "tw_match": "time"
+    }
+  ],
+  "3:2": [
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    },
+    {
+      "surface": "proclaim",
+      "tw_match": "proclaim"
+    },
+    {
+      "surface": "proclamation",
+      "tw_match": "proclamation"
+    },
+    {
+      "surface": "tell",
+      "tw_match": "tell"
+    }
+  ],
+  "3:3": [
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    },
+    {
+      "surface": "word of Yahweh",
+      "tw_match": "word of Yahweh"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    }
+  ],
+  "3:4": [
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "called out",
+      "tw_match": "called out"
+    },
+    {
+      "surface": "days",
+      "tw_match": "day"
+    },
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    }
+  ],
+  "3:5": [
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    },
+    {
+      "surface": "believed",
+      "tw_match": "believe"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "proclaimed",
+      "tw_match": "proclaim"
+    },
+    {
+      "surface": "fast",
+      "tw_match": "fast"
+    },
+    {
+      "surface": "sackcloth",
+      "tw_match": "sackcloth"
+    }
+  ],
+  "3:6": [
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    },
+    {
+      "surface": "throne",
+      "tw_match": "throne"
+    },
+    {
+      "surface": "robe",
+      "tw_match": "robe"
+    },
+    {
+      "surface": "sackcloth",
+      "tw_match": "sackcloth"
+    }
+  ],
+  "3:7": [
+    {
+      "surface": "proclaimed",
+      "tw_match": "proclaim"
+    },
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    },
+    {
+      "surface": "decree",
+      "tw_match": "decree"
+    },
+    {
+      "surface": "king",
+      "tw_match": "king"
+    },
+    {
+      "surface": "nobles",
+      "tw_match": "noble"
+    },
+    {
+      "surface": "person",
+      "tw_match": "person"
+    },
+    {
+      "surface": "animal",
+      "tw_match": "animals"
+    },
+    {
+      "surface": "herd",
+      "tw_match": "herd"
+    },
+    {
+      "surface": "flock",
+      "tw_match": "flock"
+    }
+  ],
+  "3:8": [
+    {
+      "surface": "beast",
+      "tw_match": "beast"
+    },
+    {
+      "surface": "sackcloth",
+      "tw_match": "sackcloth"
+    },
+    {
+      "surface": "cry out",
+      "tw_match": "cry out"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "3:9": [
+    {
+      "surface": "knows",
+      "tw_match": "know"
+    },
+    {
+      "surface": "god",
+      "tw_match": "god"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    },
+    {
+      "surface": "compassion",
+      "tw_match": "compassion"
+    },
+    {
+      "surface": "perish",
+      "tw_match": "perish"
+    }
+  ],
+  "3:10": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "4:1": [
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    }
+  ],
+  "4:2": [
+    {
+      "surface": "prayed",
+      "tw_match": "pray"
+    },
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "Tarshish",
+      "tw_match": "Tarshish"
+    },
+    {
+      "surface": "knew",
+      "tw_match": "knew"
+    },
+    {
+      "surface": "gracious",
+      "tw_match": "gracious"
+    },
+    {
+      "surface": "compassionate",
+      "tw_match": "compassionate"
+    },
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "covenant faithfulness",
+      "tw_match": "covenant faithfulness"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    }
+  ],
+  "4:3": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "beg",
+      "tw_match": "beg"
+    },
+    {
+      "surface": "better",
+      "tw_match": "better"
+    }
+  ],
+  "4:4": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    }
+  ],
+  "4:5": [
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "shelter",
+      "tw_match": "shelter"
+    },
+    {
+      "surface": "might",
+      "tw_match": "might"
+    }
+  ],
+  "4:6": [
+    {
+      "surface": "Yahweh God",
+      "tw_match": "Yahweh God"
+    },
+    {
+      "surface": "appointed",
+      "tw_match": "appointed"
+    },
+    {
+      "surface": "plant",
+      "tw_match": "plant"
+    },
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "evil",
+      "tw_match": "evil"
+    },
+    {
+      "surface": "rejoiced",
+      "tw_match": "rejoice"
+    },
+    {
+      "surface": "rejoicing",
+      "tw_match": "rejoice"
+    }
+  ],
+  "4:7": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "appointed",
+      "tw_match": "appointed"
+    },
+    {
+      "surface": "day",
+      "tw_match": "day"
+    },
+    {
+      "surface": "plant",
+      "tw_match": "plant"
+    }
+  ],
+  "4:8": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "appointed",
+      "tw_match": "appointed"
+    },
+    {
+      "surface": "wind",
+      "tw_match": "wind"
+    },
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "spirit",
+      "tw_match": "spirit"
+    },
+    {
+      "surface": "better",
+      "tw_match": "better"
+    }
+  ],
+  "4:9": [
+    {
+      "surface": "God",
+      "tw_match": "God"
+    },
+    {
+      "surface": "Jonah",
+      "tw_match": "Jonah"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "plant",
+      "tw_match": "plant"
+    }
+  ],
+  "4:10": [
+    {
+      "surface": "Yahweh",
+      "tw_match": "Yahweh"
+    },
+    {
+      "surface": "troubled",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "plant",
+      "tw_match": "plant"
+    },
+    {
+      "surface": "work",
+      "tw_match": "work"
+    },
+    {
+      "surface": "perished",
+      "tw_match": "perish"
+    }
+  ],
+  "4:11": [
+    {
+      "surface": "troubled",
+      "tw_match": "trouble"
+    },
+    {
+      "surface": "Nineveh",
+      "tw_match": "Nineveh"
+    },
+    {
+      "surface": "know",
+      "tw_match": "know"
+    },
+    {
+      "surface": "right",
+      "tw_match": "right"
+    },
+    {
+      "surface": "animals",
+      "tw_match": "animals"
+    }
+  ]
+}
