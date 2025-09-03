@@ -1242,6 +1242,9 @@ def _resolve_selection_for_single_book(query: str, query_lang: str) -> tuple[str
     selection: PassageSelection = selection_resp.output_parsed
     logger.info("[selection-helper] extracted %d selection(s)", len(selection.selections))
 
+    # Detect books explicitly mentioned in the user input for cross-book guardrails
+    mentioned = _detect_mentioned_books(parse_input)
+
     # Heuristic correction for explicit "chapters X–Y"
     lower_in = parse_input.lower()
     chap_match = re.search(r"\bchapters?\s+(\d+)\s*[-–]\s*(\d+)\b", lower_in)
@@ -1260,12 +1263,7 @@ def _resolve_selection_for_single_book(query: str, query_lang: str) -> tuple[str
     if not selection.selections:
         # If multiple books are clearly mentioned, prefer consistent cross-book guidance,
         # but allow a tie-break fallback when one has explicit digits nearby.
-        mentioned = _detect_mentioned_books(parse_input)
         if len(mentioned) >= 2:
-            primary = _choose_primary_book(parse_input, mentioned)
-            if primary:
-                logger.info("[selection-helper] empty parse; falling back to primary book: %s", primary)
-                return primary, [(1, None, 10_000, None)], None
             msg = (
                 "Please request a selection for one book at a time. "
                 "If you need multiple books, send a separate message for each."
@@ -1284,6 +1282,15 @@ def _resolve_selection_for_single_book(query: str, query_lang: str) -> tuple[str
             "or the whole book (John). Multiple books in one request are not supported — please choose one book."
         )
         logger.info("[selection-helper] no passage detected; returning guidance message")
+        return None, None, msg
+
+    # If multiple books were mentioned in the text, prefer a consistent message
+    if len(mentioned) >= 2:
+        msg = (
+            "Please request a selection for one book at a time. "
+            "If you need multiple books, send a separate message for each."
+        )
+        logger.info("[selection-helper] multiple books mentioned; returning cross-book message")
         return None, None, msg
 
     # Ensure all selections are within the same canonical book and normalize
@@ -1463,7 +1470,8 @@ def create_brain():
     )
     builder.add_edge("query_vector_db_node", "query_open_ai_node")
     builder.add_edge("set_response_language_node", "translate_responses_node")
-    builder.add_edge("chunk_message_node", "translate_responses_node")
+    # After chunking, finish. Do not loop back to translate, which can recreate
+    # the long message and trigger an infinite chunk cycle.
 
     builder.add_edge("handle_unsupported_function_node", "translate_responses_node")
     builder.add_edge("handle_system_information_request_node", "translate_responses_node")
