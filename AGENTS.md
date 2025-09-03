@@ -40,17 +40,18 @@ Recommended workflow
 
 ## Incremental Pre-Commit Checks (Enforced)
 - Purpose: grow toward a strict “full repo clean before every commit” without blocking on legacy warnings.
-- For now, always run the full gambit on `brain.py` before every commit:
-  - `ruff check brain.py`
-  - `pylint -rn -sn brain.py`
-  - `mypy brain.py`
+ - For now, always run the full gambit on the cleaned files list before every commit:
+   - Files: `brain.py`, `user_message.py` (will grow as we clean more)
+   - `ruff check brain.py user_message.py`
+   - `pylint -rn -sn brain.py user_message.py`
+   - `mypy brain.py user_message.py`
 - Tests must still pass: `pytest -q`.
 - As additional files are cleaned of warnings, add them to this enforced list. The end state is to run the full repo checks on every commit:
   - `ruff check . && pylint $(git ls-files '*.py') && mypy .`
 
 ### Git Hook + Helper Scripts
 - One-time install per clone: `git config core.hooksPath .githooks`
-- The versioned pre-commit hook runs `scripts/check_brain.sh` by default.
+- The versioned pre-commit hook runs `scripts/check_brain.sh` by default, which enforces checks on the current cleaned files list (now: brain.py and user_message.py).
 - Bypass in emergencies/CI: `SKIP_CHECKS=1 git commit -m "..."`.
 - When the codebase is clean repo-wide, switch the hook to call `scripts/check_repo.sh`.
 

@@ -17,17 +17,18 @@ if [[ -f .venv/bin/activate ]]; then
   source .venv/bin/activate
 fi
 
-echo -e "${YLW}Running ruff on brain.py...${RST}"
-ruff check brain.py
+CHECK_FILES=(brain.py user_message.py)
 
-echo -e "${YLW}Running pylint on brain.py...${RST}"
-pylint -rn -sn brain.py
+echo -e "${YLW}Running ruff on: ${CHECK_FILES[*]}...${RST}"
+ruff check "${CHECK_FILES[@]}"
 
-echo -e "${YLW}Running mypy on brain.py...${RST}"
-mypy brain.py
+echo -e "${YLW}Running pylint on: ${CHECK_FILES[*]}...${RST}"
+pylint -rn -sn "${CHECK_FILES[@]}"
+
+echo -e "${YLW}Running mypy on: ${CHECK_FILES[*]}...${RST}"
+mypy "${CHECK_FILES[@]}"
 
 echo -e "${YLW}Running tests (pytest -q)...${RST}"
 pytest -q
 
 echo -e "${GRN}brain.py checks and tests passed.${RST}"
-
