@@ -10,15 +10,16 @@ import bt_servant as api
 class DummyEmbeddingFunction:
     """Simple callable stub returning fixed-size zero embeddings for inputs."""
 
-    # Newer Chroma config path checks this attribute to avoid legacy warnings
-    is_legacy = False
-
     def __call__(self, input):  # type: ignore[override]
         return [[0.0, 0.0, 0.0] for _ in input]
 
     def ping(self) -> None:
         """No-op method to satisfy pylint public-methods threshold."""
         return None
+
+    def is_legacy(self) -> bool:
+        """Signal that this is a legacy-style embedder to keep Chroma happy."""
+        return True
 
 
 def make_tmp_client(tmp_path):

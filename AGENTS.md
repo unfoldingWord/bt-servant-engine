@@ -33,7 +33,9 @@
   - `mypy .`
   - `pyright`
 - Do not stop until all findings introduced by your change are resolved. If pre‑existing issues remain, surface them in the PR and get explicit sign‑off before merging.
-- Treat a clean `pylint` and `ruff` run as a pre‑PR requirement. Aim for a clean `mypy` and `pyright` run; add precise annotations or adjust types where practical.
+- Zero warnings policy: treat all linter/type-checker warnings as failures.
+  - `ruff`, `pylint`, `mypy`, and `pyright` must report 0 diagnostics.
+  - If a third‑party library emits unavoidable noise, explicitly filter it with a documented rationale (see pytest warnings policy).
 - Rationale: issues in un-touched files can be missed when running tools on a subset (e.g., a wrong return type annotation in `db/chroma_db.py` wasn’t flagged because only a few files were linted). Running repo‑wide prevents misses.
 
 Recommended workflow
@@ -42,7 +44,7 @@ Recommended workflow
 
 ## Pre-Commit Checks (Full Repo, Enforced)
 - Pre-commit runs full-repo checks on every commit via `.githooks/pre-commit` -> `scripts/check_repo.sh`.
-- Enforced tools: `ruff`, `pylint`, `mypy`, `pyright`, and `pytest`.
+- Enforced tools: `ruff`, `pylint`, `mypy`, `pyright`, and `pytest` (warnings-as-errors).
 - Tests must pass locally: `pytest -q`.
 
 ### Git Hook + Helper Scripts
@@ -105,9 +107,11 @@ Recommended workflow
 - Prefer concise bullets with concrete file paths, commands, and error messages.
 
 ## Testing Policy (Non-Negotiable)
-- Tests must never fail during local runs. If any test fails or errors during
+- Tests and warnings must never fail during local runs. If any test fails or errors during
   collection, the agent must stop new feature work and fix the failure before
   proceeding. It is not acceptable to leave failing tests.
+- Warnings as errors: pytest is configured (`pytest.ini`) to fail on any warning. If external dependencies generate
+  unavoidable deprecation noise, add a targeted `filterwarnings` entry with a short justification in the PR.
 - If a test targets functionality moved to another repo or is obsolete, delete
   or rewrite the test so the suite remains green. Document the rationale here
   in AGENTS.md under the session notes.
