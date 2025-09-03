@@ -1382,14 +1382,8 @@ def _resolve_selection_for_single_book(
         logger.info("[selection-helper] no passage detected; returning guidance message")
         return None, None, msg
 
-    # If multiple books were mentioned in the text, prefer a consistent message
-    if len(mentioned) >= 2:
-        msg = (
-            "Please request a selection for one book at a time. "
-            "If you need multiple books, send a separate message for each."
-        )
-        logger.info("[selection-helper] multiple books mentioned; returning cross-book message")
-        return None, None, msg
+    # Note: Do not veto a successful single-book selection based on mentions.
+    # Mentions are only used for empty-parse fallback above.
 
     # Ensure all selections are within the same canonical book and normalize
     canonical_books: list[str] = []
