@@ -51,7 +51,7 @@ Recommended workflow
 
 ### Git Hook + Helper Scripts
 - One-time install per clone: `git config core.hooksPath .githooks`
-- The versioned pre-commit hook runs `scripts/check_brain.sh` by default, which enforces checks on the current cleaned files list (now: brain.py and user_message.py).
+- The versioned pre-commit hook runs `scripts/check_cleaned.sh` by default, which enforces checks on the current cleaned files list (now: brain.py and user_message.py).
 - Bypass in emergencies/CI: `SKIP_CHECKS=1 git commit -m "..."`.
 - When the codebase is clean repo-wide, switch the hook to call `scripts/check_repo.sh`.
 
