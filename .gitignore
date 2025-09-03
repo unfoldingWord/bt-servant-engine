@@ -1,54 +1,33 @@
-# Byte-compiled / cache files
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-
-# Virtual environments
-venv/
-.env/
-.venv/
-
-# PyCharm project files
-.idea/
-
-# VSCode (just in case)
-.vscode/
-
-# macOS / Windows
-.DS_Store
-Thumbs.db
-
-# Log files
-*.log
-logs/
-
-# Ignore everything in data/
-data/
-
-
-# Docker stuff (optional)
-*.pid
-*.bak
-*.swp
-
-# Python test cache
-.pytest_cache/
-.coverage
-
-# Build / dist folders
+# Build & packaging
 build/
 dist/
 *.egg-info/
 
-# Local dev environment files
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyrightcache/
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE / Editor
+.idea/
+.vscode/
+
+# OS / Misc
+.DS_Store
+.python-version
+
+# Env & secrets
 .env
-.env.*
 
-# Other stuff
-.github/
-
-# Codex related files
-node_modules/
-package-lock.json
-package.json
+# Project-specific
+.requirements.utf8.txt
+data/
+db/data/
+logs/
