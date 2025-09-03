@@ -13,8 +13,8 @@ import operator
 from pathlib import Path
 import re
 from typing import Annotated, Dict, List, cast, Any
-from typing_extensions import TypedDict
 from enum import Enum
+from typing_extensions import TypedDict
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
@@ -616,7 +616,7 @@ class BrainState(TypedDict, total=False):
     translated_responses: List[str]
     stack_rank_collections: List[str]
     user_chat_history: List[Dict[str, str]]
-    user_intents: UserIntents
+    user_intents: List[IntentType]
     passage_selection: list[dict]
 
 
@@ -647,19 +647,21 @@ def determine_intents(state: Any) -> dict:
     ]
     response = open_ai_client.responses.parse(
         model="gpt-4o",
-        input=messages,
+        input=cast(Any, messages),
         text_format=UserIntents,
         store=False
     )
-    user_intents = response.output_parsed
-    logger.info("extracted user intents: %s", ' '.join([i.value for i in user_intents.intents]))
+    user_intents_model = cast(UserIntents, response.output_parsed)
+    logger.info("extracted user intents: %s", ' '.join([i.value for i in user_intents_model.intents]))
 
     return {
-        "user_intents": user_intents.intents,
+        "user_intents": user_intents_model.intents,
     }
 
 
 class PassageRef(BaseModel):
+    """Normalized reference to a passage within a single canonical book."""
+
     book: str
     start_chapter: int | None = None
     start_verse: int | None = None
@@ -668,6 +670,8 @@ class PassageRef(BaseModel):
 
 
 class PassageSelection(BaseModel):
+    """Structured selection consisting of one or more ranges for a book."""
+
     selections: List[PassageRef]
 
 
@@ -691,12 +695,12 @@ def set_response_language(state: Any) -> dict:
     response = open_ai_client.responses.parse(
         model="gpt-4o",
         instructions=SET_RESPONSE_LANGUAGE_AGENT_SYSTEM_PROMPT,
-        input=chat_input,
+        input=cast(Any, chat_input),
         text_format=ResponseLanguage,
         temperature=0,
         store=False,
     )
-    resp_lang: ResponseLanguage = response.output_parsed
+    resp_lang = cast(ResponseLanguage, response.output_parsed)
     if resp_lang.language == Language.OTHER:
         supported_language_list = ", ".join(supported_language_map.keys())
         response_text = (f"I think you're trying to set the response language. The supported languages "
@@ -735,7 +739,7 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=COMBINE_RESPONSES_SYSTEM_PROMPT,
-        input=messages,
+        input=cast(Any, messages),
     )
     combined = response.output_text
     logger.info("combined response from openai: %s", combined)
@@ -825,13 +829,13 @@ def detect_language(text) -> str:
     response = open_ai_client.responses.parse(
         model="gpt-4o",
         instructions=DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
-        input=messages,
+        input=cast(Any, messages),
         text_format=MessageLanguage,
         temperature=0,
         store=False,
     )
-    message_language = response.output_parsed
-    predicted = message_language.language.value
+    message_language = cast(MessageLanguage | None, response.output_parsed)
+    predicted = message_language.language.value if message_language else "en"
     logger.info("language detection (model): %s", predicted)
 
     # Heuristic guard: If we predicted Indonesian ('id') but the text looks like
@@ -902,14 +906,19 @@ def preprocess_user_query(state: Any) -> dict:
     response = open_ai_client.responses.parse(
         model="gpt-4o",
         instructions=PREPROCESSOR_AGENT_SYSTEM_PROMPT,
-        input=messages,
+        input=cast(Any, messages),
         text_format=PreprocessorResult,
         store=False
     )
-    preprocessor_result = response.output_parsed
-    new_message = preprocessor_result.new_message
-    reason_for_decision = preprocessor_result.reason_for_decision
-    message_changed = preprocessor_result.message_changed
+    preprocessor_result = cast(PreprocessorResult | None, response.output_parsed)
+    if preprocessor_result is None:
+        new_message = query
+        reason_for_decision = "no changes"
+        message_changed = False
+    else:
+        new_message = preprocessor_result.new_message
+        reason_for_decision = preprocessor_result.reason_for_decision
+        message_changed = preprocessor_result.message_changed
     logger.info("new_message: %s\nreason_for_decision: %s\nmessage_changed: %s",
                 new_message, reason_for_decision, message_changed)
     return {
@@ -931,7 +940,8 @@ def query_vector_db(state: Any) -> dict:
         if not db_collection:
             logger.warning("collection %s was not found in chroma db.", collection_name)
             continue
-        results = db_collection.query(
+        col = cast(Any, db_collection)
+        results = col.query(
             query_texts=[query],
             n_results=TOP_K
         )
@@ -1006,7 +1016,7 @@ def query_open_ai(state: Any) -> dict:
         response = open_ai_client.responses.create(
             model="gpt-4o",
             instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
-            input=messages
+            input=cast(Any, messages)
         )
         bt_servant_response = response.output_text
         logger.info('response from openai: %s', bt_servant_response)
@@ -1051,9 +1061,11 @@ def chunk_message(state: Any) -> dict:
             model='gpt-4o',
             messages=chat_messages,
         )
-        response = completion.choices[0].message.content
-        chunks = json.loads(response)
-    except Exception:  # broad fallback to ensure we don't loop or fail hard
+        response_content = completion.choices[0].message.content
+        if not isinstance(response_content, str):
+            raise ValueError("empty or non-text content from chat completion")
+        chunks = json.loads(response_content)
+    except (OpenAIError, json.JSONDecodeError, ValueError):
         logger.error("LLM chunking failed. Falling back to deterministic chunking.", exc_info=True)
         chunks = None
 
@@ -1158,7 +1170,7 @@ def handle_unsupported_function(state: Any) -> dict:
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=UNSUPPORTED_FUNCTION_AGENT_SYSTEM_PROMPT,
-        input=messages,
+        input=cast(Any, messages),
         store=False
     )
     unsupported_function_response_text = response.output_text
@@ -1184,7 +1196,7 @@ def handle_system_information_request(state: Any) -> dict:
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=HELP_AGENT_SYSTEM_PROMPT,
-        input=messages,
+        input=cast(Any, messages),
         store=False
     )
     help_response_text = response.output_text
@@ -1210,7 +1222,7 @@ def converse_with_bt_servant(state: Any) -> dict:
     response = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=CONVERSE_AGENT_SYSTEM_PROMPT,
-        input=messages,
+        input=cast(Any, messages),
         store=False
     )
     converse_response_text = response.output_text
@@ -1265,14 +1277,19 @@ def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
         for m in re.finditer(pat, text, flags=re.IGNORECASE):
             spans.append((m.start(), m.end(), can))
     spans.sort(key=lambda t: t[0])
-    for start, end, can in spans:
+    for s_idx, end, can in spans:
+        _ = s_idx  # avoid shadowing outer start() function
         window = text[end:end + 12]
         if re.search(r"\d", window):
             return can
     return None
 
 
-def _resolve_selection_for_single_book(query: str, query_lang: str) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
+def _resolve_selection_for_single_book(
+    query: str,
+    query_lang: str,
+) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
+    # pylint: disable=too-many-return-statements, too-many-branches
     """Parse and normalize a user query into a single canonical book and ranges.
 
     Returns a tuple of (canonical_book, ranges, error_message). On success, the
@@ -1299,11 +1316,11 @@ def _resolve_selection_for_single_book(query: str, query_lang: str) -> tuple[str
     logger.info("[selection-helper] extracting passage selection via LLM")
     selection_resp = open_ai_client.responses.parse(
         model="gpt-4o",
-        input=selection_messages,
+        input=cast(Any, selection_messages),
         text_format=PassageSelection,
         store=False,
     )
-    selection: PassageSelection = selection_resp.output_parsed
+    selection = cast(PassageSelection, selection_resp.output_parsed)
     logger.info("[selection-helper] extracted %d selection(s)", len(selection.selections))
 
     # Detect books explicitly mentioned in the user input for cross-book guardrails
@@ -1451,7 +1468,7 @@ def handle_get_passage_summary(state: Any) -> dict:
         model="gpt-5",
         reasoning=cast(Any, {"effort": "low"}),
         instructions=PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
-        input=sum_messages,
+        input=cast(Any, sum_messages),
         store=False,
     )
     summary_text = summary_resp.output_text
