@@ -269,6 +269,10 @@ Return a normalized, structured selection of book + verse ranges.
   {books}
 - Accept a variety of phrasings (e.g., "John 3:16", "Jn 3:16–18", "1 John 2:1-3", "Psalm 1", "Song of Songs 2").
 - Normalize all book names to the exact canonical name.
+- Numbered books are distinct canonical names. When a leading number precedes a book
+  (e.g., "1 John", "2 Samuel", "3 John"), treat the number as part of the book name —
+  it is NOT a chapter reference. For example, "3 John" means the book "3 John"
+  (and the whole book if no chapter/verse is given), whereas "John 3" means chapter 3 of "John".
 - Support:
   - Single verse (John 3:16)
   - Verse ranges within a chapter (John 3:16-18)
@@ -288,6 +292,8 @@ Return JSON parsable into the provided schema.
 - "What are the keywords in Genesis and Exodus?" -> return empty selection (multiple books; no clear single-book qualifier).
 - "Gen–Exo" -> return empty selection (multiple books; no clear single-book qualifier).
 - "John and Mark 1:1" -> choose Mark 1:1 (explicit qualifier picks Mark over first mention).
+- "summarize 3 John" -> choose book "3 John" with no chapters/verses (whole book selection).
+- "summarize John 3" -> choose book "John" with start_chapter=3 (whole chapter if no verses).
 """
 
 

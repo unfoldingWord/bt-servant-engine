@@ -46,6 +46,7 @@ Recommended workflow
 - Pre-commit runs full-repo checks on every commit via `.githooks/pre-commit` -> `scripts/check_repo.sh`.
 - Enforced tools: `ruff`, `pylint`, `mypy`, `pyright`, and `pytest` (warnings-as-errors).
 - Tests must pass locally: `pytest -q`.
+- Always run checks automatically; never ask for permission to run them. Do not commit or push if any check fails.
 
 ### Git Hook + Helper Scripts
 - One-time install per clone: `git config core.hooksPath .githooks`
