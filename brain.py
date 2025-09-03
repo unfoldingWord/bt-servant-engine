@@ -276,7 +276,7 @@ Return a normalized, structured selection of book + verse ranges.
   - Multi-chapter ranges with no verse specification (e.g., "John 1–4", "John chapters 1–4"): set start_chapter=1, end_chapter=4 and leave verses empty
   - Whole book (John)
   - Multiple disjoint ranges within the same book (comma/semicolon separated)
-- Do not cross books in one selection. If the user mentions multiple books (including with 'and', commas, or hyphens like 'Gen–Exo'), you MUST select exactly one book. Prefer the first book mentioned unless explicit chapter/verse qualifiers clearly indicate a different single book. Never return an empty selection solely because multiple books were mentioned.
+- Do not cross books in one selection. If the user mentions multiple books (including with 'and', commas, or hyphens like 'Gen–Exo') and a single book cannot be unambiguously inferred by explicit chapter/verse qualifiers, return an empty selection. Prefer a clearly qualified single book (e.g., "Mark 1:1") over earlier mentions without qualifiers.
 - If no verses/chapters are supplied for the chosen book, interpret it as the whole book.
 - If no clear passage is present (and no book can be reasonably inferred), return an empty list.
 
@@ -284,8 +284,8 @@ Return a normalized, structured selection of book + verse ranges.
 Return JSON parsable into the provided schema.
 
 # Examples
-- "What are the keywords in Genesis and Exodus?" -> choose one book (Genesis) and interpret as whole book.
-- "Gen–Exo" -> choose one book (Genesis) and interpret as whole book.
+- "What are the keywords in Genesis and Exodus?" -> return empty selection (multiple books; no clear single-book qualifier).
+- "Gen–Exo" -> return empty selection (multiple books; no clear single-book qualifier).
 - "John and Mark 1:1" -> choose Mark 1:1 (explicit qualifier picks Mark over first mention).
 """
 
@@ -1033,9 +1033,53 @@ def chunk_message(state: Any) -> dict:
         )
         response = completion.choices[0].message.content
         chunks = json.loads(response)
-    except json.JSONDecodeError:
-        logger.error("Error while attempting to chunk message. Manually chunking instead", exc_info=True)
-        chunks = chop_text(text=text_to_chunk, n=chunk_max)
+    except Exception:  # broad fallback to ensure we don't loop or fail hard
+        logger.error("LLM chunking failed. Falling back to deterministic chunking.", exc_info=True)
+        chunks = None
+
+    # Deterministic safeguards: if LLM returned a single massive chunk or invalid shape,
+    # or if we skipped to fallback
+    def _pack_items(items: list[str], max_len: int) -> list[str]:
+        out: list[str] = []
+        cur = ""
+        for it in items:
+            sep = (", " if cur else "")
+            if len(cur) + len(sep) + len(it) <= max_len:
+                cur += sep + it
+            else:
+                if cur:
+                    out.append(cur)
+                if len(it) <= max_len:
+                    cur = it
+                else:
+                    # hard-split this long token
+                    for j in range(0, len(it), max_len):
+                        out.append(it[j:j+max_len])
+                    cur = ""
+        if cur:
+            out.append(cur)
+        return out
+
+    if not isinstance(chunks, list) or any(not isinstance(c, str) for c in chunks):
+        # Try delimiter-aware fallback for comma-heavy lists first
+        if text_to_chunk.count(",") >= 10:
+            parts = [p.strip() for p in text_to_chunk.split(",") if p.strip()]
+            chunks = _pack_items(parts, chunk_max)
+        else:
+            chunks = chop_text(text=text_to_chunk, n=chunk_max)
+    else:
+        # Ensure each chunk respects the limit; if not, re-split deterministically
+        fixed: list[str] = []
+        for c in chunks:
+            if len(c) <= chunk_max:
+                fixed.append(c)
+            else:
+                if c.count(",") >= 10:
+                    parts = [p.strip() for p in c.split(",") if p.strip()]
+                    fixed.extend(_pack_items(parts, chunk_max))
+                else:
+                    fixed.extend(chop_text(text=c, n=chunk_max))
+        chunks = fixed
 
     chunks.extend(responses[1:])
     return {"translated_responses": combine_chunks(chunks=chunks, chunk_max=chunk_max)}
