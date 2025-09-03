@@ -6,18 +6,21 @@ keywords detection across a variety of phrasings and tricky books.
 # pylint: disable=missing-function-docstring,line-too-long,wrong-import-order,duplicate-code
 from __future__ import annotations
 
-import os
+from dotenv import load_dotenv
 
 from typing import Any, cast
 
 import pytest
 from brain import determine_intents, IntentType
+from config import config as app_config
 
 
 def _has_real_openai() -> bool:
-    key = os.environ.get("OPENAI_API_KEY", "")
-    return bool(key and key != "test")
+    key = str(app_config.OPENAI_API_KEY)
+    return bool(key and key != "test" and key.startswith("sk-"))
 
+
+load_dotenv(override=True)
 
 pytestmark = [
     pytest.mark.openai,

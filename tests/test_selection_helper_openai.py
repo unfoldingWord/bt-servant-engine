@@ -7,16 +7,19 @@ OPENAI_API_KEY is not configured for networked runs.
 # pylint: disable=missing-function-docstring,line-too-long,duplicate-code
 from __future__ import annotations
 
-import os
+from dotenv import load_dotenv
 import pytest
 
 from brain import _resolve_selection_for_single_book, Language
+from config import config as app_config
 
 
 def _has_real_openai() -> bool:
-    key = os.environ.get("OPENAI_API_KEY", "")
-    return bool(key and key != "test")
+    key = str(app_config.OPENAI_API_KEY)
+    return bool(key and key != "test" and key.startswith("sk-"))
 
+
+load_dotenv(override=True)
 
 pytestmark = [
     pytest.mark.openai,

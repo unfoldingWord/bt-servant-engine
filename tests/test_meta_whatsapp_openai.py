@@ -13,21 +13,29 @@ import hmac
 import hashlib
 import json
 import time
+from dotenv import load_dotenv
 import pytest
 from fastapi.testclient import TestClient
 
 import bt_servant as api
 import messaging
+from config import config as app_config
 
 
 def _has_real_openai() -> bool:
-    key = os.environ.get("OPENAI_API_KEY", "")
-    return bool(key and key != "test")
+    key = str(app_config.OPENAI_API_KEY)
+    return bool(key and key != "test" and key.startswith("sk-"))
 
+
+load_dotenv(override=True)
+
+# Require both a real key and an explicit opt-in for API-level OpenAI test
+_RUN_OPENAI_API = os.environ.get("RUN_OPENAI_API_TESTS", "")
 
 pytestmark = [
     pytest.mark.openai,
-    pytest.mark.skipif(not _has_real_openai(), reason="OPENAI_API_KEY not set for live OpenAI tests"),
+    pytest.mark.skipif(not _has_real_openai() or _RUN_OPENAI_API != "1",
+                       reason="OPENAI_API_KEY missing or RUN_OPENAI_API_TESTS!=1"),
 ]
 
 
@@ -60,7 +68,10 @@ def _meta_text_payload(text: str) -> dict:
     }
 
 
+@pytest.mark.skipif(not _has_real_openai(), reason="OPENAI_API_KEY not set for live OpenAI tests")
 def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch):
+    # Ensure sandbox guard does not block the test sender
+    monkeypatch.setattr(api.config, "IN_META_SANDBOX_MODE", False, raising=True)
     # Record outbound messages instead of hitting Meta
     sent: list[str] = []
 
@@ -87,9 +98,9 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch):
     ua = os.environ.get("FACEBOOK_USER_AGENT", "test")
 
     # POST webhook
-    resp = client.post(  # type: ignore[arg-type]
+    resp = client.post(
         "/meta-whatsapp",
-        data=body,
+        content=body,
         headers={
             "Content-Type": "application/json",
             "X-Hub-Signature-256": sig,
