@@ -107,7 +107,7 @@ async def require_admin_token(
         return
     expected = config.ADMIN_API_TOKEN
     if not expected:
-        # Fail safe if auth is enabled but no token configured
+        # Fail-safe if auth is enabled but no token configured
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                             detail="Admin token not configured",
                             headers={"WWW-Authenticate": "Bearer"})
@@ -164,10 +164,10 @@ async def add_document(document: Document, _: None = Depends(require_admin_token
     )
 
 
-# Back-compat alias used by tests and earlier clients
+# Back-compatibility alias used by tests and earlier clients
 @app.post("/add-document")
 async def add_document_alias(document: Document, _: None = Depends(require_admin_token)):
-    """Back-compat alias for `/chroma/add-document`."""
+    """Back-compatibility alias for `/chroma/add-document`."""
     return await add_document(document)
 
 
@@ -289,7 +289,7 @@ async def delete_document_endpoint(name: str, document_id: str, _: None = Depend
 async def get_document_text_endpoint(name: str, document_id: str, _: None = Depends(require_admin_token)):
     """Return the text of a specific document from a collection by id.
 
-    Returns 200 with `{ "collection": name, "document_id": id, "text": "..." }` on success,
+    Returns 200 with `{"collection": name, "document_id": id, "text": "..."}` on success,
     404 if the collection or document does not exist, and 400 on invalid inputs.
     """
     logger.info(
