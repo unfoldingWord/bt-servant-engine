@@ -132,6 +132,38 @@ Recommended workflow
   - For low-risk edits to prompt text/constants (e.g., `PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT` wording tweaks) or small doc updates, commit directly with a proper `(CODEX)` message without asking for confirmation.
   - Keep diffs minimal and focused; do not batch unrelated changes.
 
+## Session Snapshot (Temp)
+
+- Branch/state:
+  - On `main` at latest commits:
+    - (CODEX) Clean messaging.py; add to enforced checks
+    - (CODEX) Clean db/user.py typing; add to enforced checks
+    - (CODEX) Rename helper to check_commit.sh; add CHECK_ALL support
+    - (CODEX) Rename helper to check_cleaned.sh and update hook/docs
+    - (CODEX) Expand incremental checks to include user_message.py
+- Current guarantees (cleaned files):
+  - `brain.py`, `user_message.py`, `db/user.py`, `messaging.py` pass: `ruff`, `pylint`, `mypy`; tests green.
+  - Pre-commit hook enforces checks on these files plus runs `pytest -q`.
+- Pre-commit setup:
+  - One-time install per clone: `git config core.hooksPath .githooks`
+  - Hook runs `scripts/check_commit.sh`.
+    - Default: checks the “cleaned files” list.
+    - Repo-wide mode: `CHECK_ALL=1` (delegates to `scripts/check_repo.sh`).
+    - Bypass (rare): `SKIP_CHECKS=1 git commit -m "..."`.
+- Cleaned files list (enforced by hook/script):
+  - `brain.py`, `user_message.py`, `db/user.py`, `messaging.py`.
+  - Script: `scripts/check_commit.sh` (edit `CHECK_FILES=(...)` to add newly cleaned files).
+- Test status:
+  - `pytest -q` → 6 passed, warnings from external deps; no failing tests.
+- Outstanding work (next priorities):
+  - `db/chroma_db.py` (mypy):
+    - Don’t use `chromadb.api.models.Collection` as a type; consider Any/Protocol or correct stubs.
+    - `OpenAIEmbeddingFunction` type mismatches `EmbeddingFunction[...]` signatures; use cast or wrapper factory.
+  - `bt_servant.py` (pylint): many long lines, missing docstrings, broad exceptions; style-only clean.
+  - After each file is cleaned: add it to `CHECK_FILES` in `scripts/check_commit.sh` and update the “cleaned files” list above.
+- End goal:
+  - Flip pre-commit to repo-wide by either setting `CHECK_ALL=1` permanently, or changing `.githooks/pre-commit` to call `scripts/check_repo.sh`.
+
 ## Adding a New Intent
 - Update the enum in `brain.py`:
   - Add a new member to `IntentType` (string value matches the wire intent name, e.g., `"get-passage-summary"`).
