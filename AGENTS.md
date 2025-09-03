@@ -136,6 +136,7 @@ Recommended workflow
 
 - Branch/state:
   - On `main` at latest commits:
+    - (CODEX) Relax chroma types and embedder typing in db/chroma_db.py
     - (CODEX) Clean messaging.py; add to enforced checks
     - (CODEX) Clean db/user.py typing; add to enforced checks
     - (CODEX) Rename helper to check_commit.sh; add CHECK_ALL support
@@ -151,14 +152,11 @@ Recommended workflow
     - Repo-wide mode: `CHECK_ALL=1` (delegates to `scripts/check_repo.sh`).
     - Bypass (rare): `SKIP_CHECKS=1 git commit -m "..."`.
 - Cleaned files list (enforced by hook/script):
-  - `brain.py`, `user_message.py`, `db/user.py`, `messaging.py`.
+  - `brain.py`, `user_message.py`, `db/user.py`, `messaging.py`, `db/chroma_db.py`.
   - Script: `scripts/check_commit.sh` (edit `CHECK_FILES=(...)` to add newly cleaned files).
 - Test status:
   - `pytest -q` → 6 passed, warnings from external deps; no failing tests.
 - Outstanding work (next priorities):
-  - `db/chroma_db.py` (mypy):
-    - Don’t use `chromadb.api.models.Collection` as a type; consider Any/Protocol or correct stubs.
-    - `OpenAIEmbeddingFunction` type mismatches `EmbeddingFunction[...]` signatures; use cast or wrapper factory.
   - `bt_servant.py` (pylint): many long lines, missing docstrings, broad exceptions; style-only clean.
   - After each file is cleaned: add it to `CHECK_FILES` in `scripts/check_commit.sh` and update the “cleaned files” list above.
 - End goal:
