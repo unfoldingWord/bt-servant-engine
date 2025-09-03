@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Versioned pre-commit hook. Configure once per clone:
+#   git config core.hooksPath .githooks
+
+set -euo pipefail
+
+# Allow bypass via env var for emergencies/CI:
+#   SKIP_CHECKS=1 git commit -m "..."
+if [[ "${SKIP_CHECKS:-}" == "1" ]]; then
+  echo "[pre-commit] SKIP_CHECKS=1 -> bypassing checks"
+  exit 0
+fi
+
+repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+"$repo_root/scripts/check_brain.sh"
+
