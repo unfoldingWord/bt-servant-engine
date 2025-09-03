@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/pyright/main/packages/pyright/schema/pyrightconfig.schema.json",
+  "include": ["."],
+  "exclude": [
+    "**/.venv",
+    "**/.mypy_cache",
+    "**/.pytest_cache",
+    "**/__pycache__"
+  ],
+  "venvPath": ".",
+  "venv": ".venv",
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "basic",
+  "reportTypedDictNotRequiredAccess": "none",
+  "reportOptionalMemberAccess": "warning",
+  "reportArgumentType": "warning",
+  "reportAssignmentType": "warning"
+}
+

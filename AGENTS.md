@@ -16,6 +16,7 @@
 - Lint (fast): `ruff check .`
 - Lint (strict, all files): `pylint $(git ls-files '*.py')`
 - Type check (all files): `mypy .`
+- Type check (editor-grade): `pyright` (enforced in hooks/CI)
 - Tests: `pytest -q` (tests live under `tests/`).
 
 ## Coding Style & Naming Conventions
@@ -30,30 +31,27 @@
   - `ruff check .`
   - `pylint $(git ls-files '*.py')`
   - `mypy .`
+  - `pyright`
 - Do not stop until all findings introduced by your change are resolved. If pre‑existing issues remain, surface them in the PR and get explicit sign‑off before merging.
-- Treat a clean `pylint` and `ruff` run as a pre‑PR requirement. Aim for a clean `mypy` run; add precise annotations or adjust types where practical.
+- Treat a clean `pylint` and `ruff` run as a pre‑PR requirement. Aim for a clean `mypy` and `pyright` run; add precise annotations or adjust types where practical.
 - Rationale: issues in un-touched files can be missed when running tools on a subset (e.g., a wrong return type annotation in `db/chroma_db.py` wasn’t flagged because only a few files were linted). Running repo‑wide prevents misses.
 
 Recommended workflow
 - Before committing: run `ruff`, `pylint`, and `mypy` repo‑wide. Fix or explicitly document remaining issues.
 - Prefer local casts or minimal docstrings to satisfy static analysis when frameworks (e.g., Pydantic) confuse linters.
 
-## Incremental Pre-Commit Checks (Enforced)
-- Purpose: grow toward a strict “full repo clean before every commit” without blocking on legacy warnings.
- - For now, always run the full gambit on the cleaned files list before every commit:
-   - Files: `brain.py`, `user_message.py`, `db/user.py`, `messaging.py` (will grow as we clean more)
-   - `ruff check brain.py user_message.py db/user.py messaging.py`
-   - `pylint -rn -sn brain.py user_message.py db/user.py messaging.py`
-   - `mypy brain.py user_message.py db/user.py messaging.py`
-- Tests must still pass: `pytest -q`.
-- As additional files are cleaned of warnings, add them to this enforced list. The end state is to run the full repo checks on every commit:
-  - `ruff check . && pylint $(git ls-files '*.py') && mypy .`
+## Pre-Commit Checks (Full Repo, Enforced)
+- Pre-commit runs full-repo checks on every commit via `.githooks/pre-commit` -> `scripts/check_repo.sh`.
+- Enforced tools: `ruff`, `pylint`, `mypy`, `pyright`, and `pytest`.
+- Tests must pass locally: `pytest -q`.
 
 ### Git Hook + Helper Scripts
 - One-time install per clone: `git config core.hooksPath .githooks`
-- The versioned pre-commit hook runs `scripts/check_commit.sh` by default, which enforces checks on the current cleaned files list (now: brain.py and user_message.py).
+- The versioned pre-commit hook runs `scripts/check_repo.sh` to enforce full-repo checks including `pyright`.
 - Bypass in emergencies/CI: `SKIP_CHECKS=1 git commit -m "..."`.
-- Repo-wide mode: set `CHECK_ALL=1` to run full repo checks (or change the hook to call `scripts/check_repo.sh`).
+- Manual runners:
+  - Full repo: `scripts/check_repo.sh`
+  - Legacy cleaned-files runner: `scripts/check_commit.sh` (runs pyright repo-wide as well)
 
 ## Testing Guidelines
 - Place tests in `tests/` as `test_*.py`.
@@ -148,20 +146,15 @@ Recommended workflow
     - (CODEX) Rename helper to check_commit.sh; add CHECK_ALL support
     - (CODEX) Rename helper to check_cleaned.sh and update hook/docs
     - (CODEX) Expand incremental checks to include user_message.py
-- Current guarantees (cleaned files):
-  - `brain.py`, `user_message.py`, `db/user.py`, `messaging.py` pass: `ruff`, `pylint`, `mypy`; tests green.
-  - Pre-commit hook enforces checks on these files plus runs `pytest -q`.
+- Current guarantees:
+  - Pre-commit enforces repo-wide `ruff`, `pylint`, `mypy`, `pyright`, and `pytest`.
 - Pre-commit setup:
   - One-time install per clone: `git config core.hooksPath .githooks`
-  - Hook runs `scripts/check_commit.sh`.
-    - Default: checks the “cleaned files” list.
-    - Repo-wide mode: `CHECK_ALL=1` (delegates to `scripts/check_repo.sh`).
+  - Hook runs `scripts/check_repo.sh` for full-repo checks.
     - Bypass (rare): `SKIP_CHECKS=1 git commit -m "..."`.
   - This clone: hooks configured (core.hooksPath is set to `.githooks`).
   - On Windows, run commits from Git Bash; no chmod needed. If `$'\r'` errors appear, convert scripts to LF.
-- Cleaned files list (enforced by hook/script):
-  - `brain.py`, `user_message.py`, `db/user.py`, `messaging.py`, `db/chroma_db.py`, `bt_servant.py`.
-  - Script: `scripts/check_commit.sh` (edit `CHECK_FILES=(...)` to add newly cleaned files).
+- Cleaned-files list no longer used; full-repo enforcement is active.
 - Test status:
   - `pytest -q` → 6 passed, warnings from external deps; no failing tests.
 - Outstanding work (next priorities):

@@ -26,8 +26,15 @@ pylint -rn -sn $(git ls-files '*.py')
 echo -e "${YLW}Running mypy on repo...${RST}"
 mypy .
 
+echo -e "${YLW}Running pyright on repo...${RST}"
+if command -v pyright >/dev/null 2>&1; then
+  pyright
+else
+  echo -e "${RED}pyright not found in PATH. Install with: pip install pyright${RST}"
+  exit 1
+fi
+
 echo -e "${YLW}Running tests (pytest -q)...${RST}"
 pytest -q
 
 echo -e "${GRN}Repo checks and tests passed.${RST}"
-
