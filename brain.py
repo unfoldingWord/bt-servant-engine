@@ -13,6 +13,7 @@ import operator
 from pathlib import Path
 import re
 from typing import Annotated, Dict, List, cast, Any
+from collections.abc import Hashable
 from enum import Enum
 from typing_extensions import TypedDict
 
@@ -789,8 +790,12 @@ def translate_responses(state: Any) -> dict:
     }
 
 
-def translate_text(response_text, target_language):
-    """Translate a single text into the target ISO 639-1 language code."""
+def translate_text(response_text: str, target_language: str) -> str:
+    """Translate a single text into the target ISO 639-1 language code.
+
+    Returns a plain string. If the OpenAI SDK returns a structured content
+    list or None, normalize it to a string.
+    """
     chat_messages = cast(List[ChatCompletionMessageParam], [
         {
             "role": "system",
@@ -808,9 +813,15 @@ def translate_text(response_text, target_language):
         model="gpt-4o",
         messages=chat_messages,
     )
-    translated_text = completion.choices[0].message.content
-    logger.info('chunk: \n%s\n\ntranslated to:\n%s', response_text, translated_text)
-    return translated_text
+    content = completion.choices[0].message.content
+    if isinstance(content, list):
+        text = "".join(part.get("text", "") if isinstance(part, dict) else "" for part in content)
+    elif content is None:
+        text = ""
+    else:
+        text = content
+    logger.info('chunk: \n%s\n\ntranslated to:\n%s', response_text, text)
+    return cast(str, text)
 
 
 def detect_language(text) -> str:
@@ -1126,14 +1137,14 @@ def needs_chunking(state: BrainState) -> str:
     return END
 
 
-def process_intents(state: Any) -> List[str]:
+def process_intents(state: Any) -> List[Hashable]:
     """Map detected intents to the list of nodes to traverse."""
     s = cast(BrainState, state)
     user_intents = s["user_intents"]
     if not user_intents:
         raise ValueError("no intents found. something went very wrong.")
 
-    nodes_to_traverse = []
+    nodes_to_traverse: List[Hashable] = []
     if IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE in user_intents:
         nodes_to_traverse.append("query_vector_db_node")
     if IntentType.GET_PASSAGE_SUMMARY in user_intents:
@@ -1309,10 +1320,10 @@ def _resolve_selection_for_single_book(
     # Build selection prompt with canonical books
     books = ", ".join(BSB_BOOK_MAP.keys())
     system_prompt = PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT.format(books=books)
-    selection_messages: list[EasyInputMessageParam] = [
+    selection_messages: list[EasyInputMessageParam] = cast(List[EasyInputMessageParam], [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": parse_input},
-    ]
+    ])
     logger.info("[selection-helper] extracting passage selection via LLM")
     selection_resp = open_ai_client.responses.parse(
         model="gpt-4o",
