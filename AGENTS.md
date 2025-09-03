@@ -117,6 +117,15 @@ Recommended workflow
   or rewrite the test so the suite remains green. Document the rationale here
   in AGENTS.md under the session notes.
 
+### OpenAI-Backed Tests (Must Run Before Commit)
+- Certain tests are marked with `@pytest.mark.openai` and intentionally call the real OpenAI APIs to validate model behavior
+  (e.g., passage selection parsing, intent classification, and API flows).
+- Always run these tests (and all other repo checks) locally before committing and pushing when your change touches related logic.
+- Export a valid `OPENAI_API_KEY` so these tests execute; treat skips (due to missing key) as blockers for changes that affect LLM behavior.
+- Commands to run before every commit:
+  - `scripts/check_repo.sh` (runs ruff, pylint, mypy, pyright, pytest repo‑wide)
+  - `pytest -q -m openai` (ensures OpenAI tests run); do not commit/push if any check fails or if OpenAI tests were skipped when applicable.
+
 ## Non‑Negotiable Local Env
 - Do not proceed with any changes if repo checks or tests cannot run locally. If any of `ruff`, `pylint`, `mypy`, `pyright`, or `pytest` are missing (e.g., exit 127 "command not found") or fail to start, STOP and initialize the environment.
 - Baseline initialization:
