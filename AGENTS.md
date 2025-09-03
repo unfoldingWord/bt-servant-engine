@@ -152,12 +152,12 @@ Recommended workflow
     - Repo-wide mode: `CHECK_ALL=1` (delegates to `scripts/check_repo.sh`).
     - Bypass (rare): `SKIP_CHECKS=1 git commit -m "..."`.
 - Cleaned files list (enforced by hook/script):
-  - `brain.py`, `user_message.py`, `db/user.py`, `messaging.py`, `db/chroma_db.py`.
+  - `brain.py`, `user_message.py`, `db/user.py`, `messaging.py`, `db/chroma_db.py`, `bt_servant.py`.
   - Script: `scripts/check_commit.sh` (edit `CHECK_FILES=(...)` to add newly cleaned files).
 - Test status:
   - `pytest -q` → 6 passed, warnings from external deps; no failing tests.
 - Outstanding work (next priorities):
-  - `bt_servant.py` (pylint): many long lines, missing docstrings, broad exceptions; style-only clean.
+  - [none immediately for this area]
   - After each file is cleaned: add it to `CHECK_FILES` in `scripts/check_commit.sh` and update the “cleaned files” list above.
 - End goal:
   - Flip pre-commit to repo-wide by either setting `CHECK_ALL=1` permanently, or changing `.githooks/pre-commit` to call `scripts/check_repo.sh`.

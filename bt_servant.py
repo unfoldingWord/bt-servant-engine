@@ -4,8 +4,7 @@ import json
 import time
 import hmac
 import hashlib
-from typing import Optional, Annotated, Any
-from openai import OpenAI
+from typing import Optional, Annotated, Any, DefaultDict
 from collections import defaultdict
 from fastapi import FastAPI, Request, Response, status, HTTPException, Header, Depends
 from fastapi.responses import JSONResponse
@@ -34,11 +33,10 @@ from user_message import UserMessage
 
 app = FastAPI()
 
-open_ai_client = OpenAI(api_key=config.OPENAI_API_KEY)
-brain = None
+brain: Any | None = None
 
 logger = get_logger(__name__)
-user_locks = defaultdict(asyncio.Lock)
+user_locks: DefaultDict[str, asyncio.Lock] = defaultdict(asyncio.Lock)
 
 
 class Document(BaseModel):
@@ -103,6 +101,7 @@ def init():
 
 @app.get("/")
 def read_root():
+    """Health/info endpoint with a short usage message."""
     return {"message": "Welcome to the API. Refer to /docs for available endpoints."}
 
 
@@ -127,7 +126,7 @@ async def add_document(document: Document, _: None = Depends(require_admin_token
             "document_id": document.document_id,
             "doc_name": document.name
         })
-    except Exception:
+    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
         logger.error("Error handling add_document payload", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
@@ -155,7 +154,7 @@ async def create_collection_endpoint(payload: CollectionCreate, _: None = Depend
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionExistsError:
         return JSONResponse(status_code=status.HTTP_409_CONFLICT, content={"error": "Collection already exists"})
-    except Exception:
+    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
         logger.error("Error creating collection", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
@@ -174,7 +173,7 @@ async def delete_collection_endpoint(name: str, _: None = Depends(require_admin_
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
-    except Exception:
+    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
         logger.error("Error deleting collection", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
@@ -185,7 +184,7 @@ async def list_collections_endpoint(_: None = Depends(require_admin_token)):
     try:
         names = list_chroma_collections()
         return JSONResponse(status_code=status.HTTP_200_OK, content={"collections": names})
-    except Exception:
+    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
         logger.error("Error listing collections", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
@@ -208,7 +207,7 @@ async def count_documents_endpoint(name: str, _: None = Depends(require_admin_to
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
-    except Exception:
+    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
         logger.error("Error counting documents", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
@@ -232,7 +231,7 @@ async def list_document_ids_endpoint(name: str, _: None = Depends(require_admin_
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
-    except Exception:
+    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
         logger.error("Error listing document ids", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
@@ -253,7 +252,7 @@ async def delete_document_endpoint(name: str, document_id: str, _: None = Depend
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
     except DocumentNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Document not found"})
-    except Exception:
+    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
         logger.error("Error deleting document", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
@@ -279,7 +278,7 @@ async def get_document_text_endpoint(name: str, document_id: str, _: None = Depe
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
     except DocumentNotFoundError:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Document not found"})
-    except Exception:
+    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
         logger.error("Error retrieving document", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
@@ -289,6 +288,7 @@ async def get_document_text_endpoint(name: str, document_id: str, _: None = Depe
     "GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS", "HEAD"
 ])
 async def chroma_root(_: None = Depends(require_admin_token)):
+    """Catch-all /chroma root to enforce admin auth and 404 unknown paths."""
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not Found")
 
 
@@ -296,11 +296,13 @@ async def chroma_root(_: None = Depends(require_admin_token)):
     "GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS", "HEAD"
 ])
 async def chroma_catch_all(_path: str, _: None = Depends(require_admin_token)):
+    """Catch-all for any /chroma subpath to enforce admin auth and 404."""
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not Found")
 
 
 @app.get("/meta-whatsapp")
 async def verify_webhook(request: Request):
+    """Meta webhook verification endpoint following the standard handshake."""
     params = dict(request.query_params)
     mode = params.get("hub.mode")
     token = params.get("hub.verify_token")
@@ -321,13 +323,14 @@ async def handle_meta_webhook(
         x_hub_signature: Annotated[Optional[str], Header(alias="X-Hub-Signature")] = None,
         user_agent: Annotated[Optional[str], Header(alias="User-Agent")] = None
 ):
+    """Process Meta webhook events: validate signature/UA and dispatch to brain."""
     try:
 
         body = await request.body()
         if not verify_facebook_signature(config.META_APP_SECRET, body, x_hub_signature_256, x_hub_signature):
             raise HTTPException(status_code=401, detail="Invalid signature")
 
-        if user_agent.strip() != config.FACEBOOK_USER_AGENT:
+        if not user_agent or user_agent.strip() != config.FACEBOOK_USER_AGENT:
             logger.error('received invalid user agent: %s. expected: %s', user_agent, config.FACEBOOK_USER_AGENT)
             raise HTTPException(status_code=401, detail="Invalid User Agent")
 
@@ -354,7 +357,7 @@ async def handle_meta_webhook(
                             return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content={"error": "Unauthorized sender"})
 
                         asyncio.create_task(process_message(user_message=user_message))
-                    except Exception:
+                    except Exception:  # pylint: disable=broad-except  # Defensive: skip bad message batch items
                         logger.error("Error while processing user message...", exc_info=True)
                         continue
         return Response(status_code=200)
@@ -362,18 +365,19 @@ async def handle_meta_webhook(
     except json.JSONDecodeError:
         logger.error("Invalid JSON received", exc_info=True)
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": "Invalid JSON"})
-    except Exception:
+    except Exception:  # pylint: disable=broad-except  # API boundary: return 500 on unknown error
         logger.error("Error handling Meta webhook payload", exc_info=True)
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"error": "Internal server error"})
 
 
 async def process_message(user_message: UserMessage):
+    """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
         try:
             start_time = time.time()
             try:
                 await send_typing_indicator_message(user_message.message_id)
-            except Exception as e:
+            except Exception as e:  # pylint: disable=broad-except  # Non-fatal: typing indicator best-effort
                 logger.warning("Failed to send typing indicator: %s", e)
 
             if user_message.message_type == "audio":
@@ -403,12 +407,12 @@ async def process_message(user_message: UserMessage):
                         # the sleep below is to prevent the (1/3)(3/3)(2/3) situation
                         # in a prod situation we may want to handle this better - IJL
                         await asyncio.sleep(4)
-                    except Exception as send_err:
+                    except Exception as send_err:  # pylint: disable=broad-except  # Non-fatal: keep sending others
                         logger.error("Failed to send message to Meta for user %s: %s", user_message.user_id, send_err)
 
             update_user_chat_history(user_id=user_message.user_id, query=user_message.text, response=full_response_text)
             logger.info("Overall process_message processing time: %.2f seconds", time.time() - start_time)
-        except Exception:
+        except Exception:  # pylint: disable=broad-except  # Keep user-facing error safe
             logger.error("Error handling Meta webhook payload", exc_info=True)
             # TODO: THIS MESSAGE NEEDS TO BE TRANSLATED AT SOME POINT!!! - IJL
             error_message = ("I'm sorry. I'm having a bad day and I'm having trouble responding. "
