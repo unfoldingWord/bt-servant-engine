@@ -5,5 +5,5 @@ line-length = 100
 [tool.ruff.lint]
 # Keep default core rules and add DTZ; ignore E501 (long lines) because
 # prompt constants intentionally exceed the limit and are hard-wrapped elsewhere.
-select = ["E", "F", "B", "DTZ"]
-ignore = ["E501"]
+select = ["E", "F", "W", "B", "DTZ"]
+ignore = ["E501", "W291", "W293"]

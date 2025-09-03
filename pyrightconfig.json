@@ -11,9 +11,12 @@
   "venv": ".venv",
   "pythonVersion": "3.12",
   "typeCheckingMode": "basic",
+  "executionEnvironments": [
+    { "root": "./utils", "typeCheckingMode": "strict" },
+    { "root": "." }
+  ],
   "reportTypedDictNotRequiredAccess": "none",
   "reportOptionalMemberAccess": "warning",
   "reportArgumentType": "warning",
   "reportAssignmentType": "warning"
 }
-
