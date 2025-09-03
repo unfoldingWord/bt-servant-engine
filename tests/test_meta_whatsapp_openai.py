@@ -13,6 +13,7 @@ import hmac
 import hashlib
 import json
 import time
+import re
 from dotenv import load_dotenv
 import pytest
 from fastapi.testclient import TestClient
@@ -117,4 +118,7 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch):
 
     assert sent, "No outbound messages captured from keywords flow"
     combined = "\n".join(sent)
-    assert "Keywords in 3 John" in combined
+    # Allow minor phrasing variations from the LLM combiner, e.g.,
+    # "In 3 John, the keywords are ..." vs "Keywords in 3 John ...".
+    pattern = re.compile(r"(?i)(\bkeywords?\b.*3\s*john|3\s*john.*\bkeywords?\b)")
+    assert pattern.search(combined), f"Combined response did not mention keywords for 3 John: {combined}"
