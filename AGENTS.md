@@ -116,6 +116,20 @@ Recommended workflow
   or rewrite the test so the suite remains green. Document the rationale here
   in AGENTS.md under the session notes.
 
+## Non‑Negotiable Local Env
+- Do not proceed with any changes if repo checks or tests cannot run locally. If any of `ruff`, `pylint`, `mypy`, `pyright`, or `pytest` are missing (e.g., exit 127 "command not found") or fail to start, STOP and initialize the environment.
+- Baseline initialization:
+  - `scripts/init_env.sh` sets up `.venv`, upgrades pip, installs runtime deps from `requirements.txt` (auto‑converting UTF‑16 → UTF‑8 for install), and installs dev tools (`pytest`, `ruff`, `pylint`, `mypy`, `pyright`).
+  - After running it once per machine/clone, activate the venv in new shells: `source .venv/bin/activate`.
+- Full checks to run before and after changes:
+  - `scripts/check_repo.sh` (runs ruff, pylint, mypy, pyright, pytest repo‑wide).
+  - Treat any diagnostics as failures and fix or document with precise, minimal ignores.
+
+## Why The Venv Doesn’t “Persist” Here
+- Codex sessions are stateless shells. Each new session starts without your previous shell state (no activated venv, no PATH changes), unlike an IDE terminal that reuses your environment.
+- The `.venv` directory itself persists on disk, but activation does not carry over across sessions. Always re‑activate (`source .venv/bin/activate`) or rerun `scripts/init_env.sh` if tools are missing.
+- Repo policy consequence: The agent must ensure a runnable environment at the start of each session and must not continue work until all repo checks and tests run green locally.
+
 ## Things To Remember
 - The `db_loaders` module was intentionally removed from this repo (logic lives
   in a separate repository). Do not re-add it. Any tests referencing it should

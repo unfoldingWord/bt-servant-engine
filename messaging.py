@@ -3,7 +3,7 @@
 import os
 import tempfile
 import time
-from datetime import datetime
+import datetime
 import asyncio
 from typing import Mapping, Sequence, Tuple, Optional, IO
 
@@ -154,8 +154,8 @@ def _create_voice_message(user_id: str, text: str) -> str:
     start_time = time.time()
     logger.info("Preparing to transform text to audio file...")
 
-    # Create a safe temp file with .mp3 suffix
-    timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
+    # Create a safe temp file with .mp3 suffix (timezone-aware UTC)
+    timestamp = datetime.datetime.now(datetime.UTC).strftime("%Y%m%dT%H%M%S")
     filename = f"response_{user_id}_{timestamp}.mp3"
     temp_audio_path = os.path.join(tempfile.gettempdir(), filename)
 
