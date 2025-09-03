@@ -1,9 +1,15 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import Field
+"""Runtime configuration via Pydantic BaseSettings.
+
+Loads values from environment (and optional .env) with typed fields.
+"""
 from pathlib import Path
+
+from pydantic import Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Config(BaseSettings):
+    """Typed configuration model sourced from environment variables."""
     # Model settings
     model_config = SettingsConfigDict(env_file=".env")
 

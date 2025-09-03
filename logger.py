@@ -1,9 +1,16 @@
+"""Logging helpers with console and file handlers.
+
+Resolves log level from config and ensures a logs directory exists.
+"""
 import logging
 import sys
 from pathlib import Path
+
 from config import config
 
-LOG_LEVEL = getattr(logging, config.BT_SERVANT_LOG_LEVEL.upper(), logging.INFO)
+# Resolve level name dynamically to appease static analyzers.
+LEVEL_NAME = str(getattr(config, "BT_SERVANT_LOG_LEVEL", "info")).upper()
+LOG_LEVEL = getattr(logging, LEVEL_NAME, logging.INFO)
 
 BASE_DIR = Path(__file__).resolve().parent
 LOGS_DIR = BASE_DIR / "logs"
@@ -12,6 +19,10 @@ log_file_path = LOGS_DIR / "bt_servant.log"
 
 
 def get_logger(name: str) -> logging.Logger:
+    """Return a configured logger for the given name.
+
+    Adds stream and file handlers once per logger instance.
+    """
     logger = logging.getLogger(name)
     logger.setLevel(LOG_LEVEL)
 
