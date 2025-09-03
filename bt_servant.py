@@ -13,6 +13,7 @@ import hashlib
 from typing import Optional, Annotated, Any, DefaultDict
 from contextlib import asynccontextmanager
 from collections import defaultdict
+import os
 import httpx
 from fastapi import FastAPI, Request, Response, status, HTTPException, Header, Depends
 from fastapi.responses import JSONResponse
@@ -391,7 +392,11 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks
                             logger.warning("Unauthorized sender: %s", user_message.user_id)
                             return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content={"error": "Unauthorized sender"})
 
-                        asyncio.create_task(process_message(user_message=user_message))
+                        # In OpenAI API test mode, run synchronously to avoid background flakiness
+                        if os.environ.get("RUN_OPENAI_API_TESTS", "") == "1":
+                            await process_message(user_message=user_message)
+                        else:
+                            asyncio.create_task(process_message(user_message=user_message))
                     except ValueError:
                         logger.error("Error while processing user message...", exc_info=True)
                         continue
@@ -406,6 +411,12 @@ async def process_message(user_message: UserMessage):
     """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
         start_time = time.time()
+        # Lazily initialize brain if lifespan didn't run (e.g., certain test harnesses)
+        global brain  # pylint: disable=global-statement
+        if brain is None:
+            logger.warning("Brain not initialized at message time; initializing lazily.")
+            brain = create_brain()
+
         try:
             await send_typing_indicator_message(user_message.message_id)
         except httpx.HTTPError as e:
@@ -417,7 +428,7 @@ async def process_message(user_message: UserMessage):
             text = user_message.text
 
         loop = asyncio.get_event_loop()
-        assert brain is not None  # mypy: brain set during startup
+        assert brain is not None  # mypy: brain set during startup or lazily above
         result = await loop.run_in_executor(None, brain.invoke, {
             "user_id": user_message.user_id,
             "user_query": text,

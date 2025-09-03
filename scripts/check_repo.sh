@@ -34,7 +34,8 @@ else
   exit 1
 fi
 
-echo -e "${YLW}Running tests (pytest -q)...${RST}"
-pytest -q
+echo -e "${YLW}Running tests (pytest -q -m 'not openai')...${RST}"
+# Exclude OpenAI-costly tests by default; run them on-demand only.
+pytest -q -m "not openai"
 
 echo -e "${GRN}Repo checks and tests passed.${RST}"

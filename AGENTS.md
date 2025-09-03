@@ -17,7 +17,8 @@
 - Lint (strict, all files): `pylint $(git ls-files '*.py')`
 - Type check (all files): `mypy .`
 - Type check (editor-grade): `pyright` (enforced in hooks/CI)
-- Tests: `pytest -q` (tests live under `tests/`).
+- Tests (default): `pytest -q -m "not openai"` (excludes networked OpenAI tests).
+- OpenAI tests (on-demand): `RUN_OPENAI_API_TESTS=1 pytest -q -m openai`.
 
 ## Coding Style & Naming Conventions
 - Python 3.12+, 4-space indentation, UTF-8 files.
@@ -45,7 +46,7 @@ Recommended workflow
 ## Pre-Commit Checks (Full Repo, Enforced)
 - Pre-commit runs full-repo checks on every commit via `.githooks/pre-commit` -> `scripts/check_repo.sh`.
 - Enforced tools: `ruff`, `pylint`, `mypy`, `pyright`, and `pytest` (warnings-as-errors).
-- Tests must pass locally: `pytest -q`.
+- Tests must pass locally: `pytest -q -m "not openai"`.
 - Always run checks automatically; never ask for permission to run them. Do not commit or push if any check fails.
 
 ### Git Hook + Helper Scripts
@@ -53,7 +54,7 @@ Recommended workflow
 - The versioned pre-commit hook runs `scripts/check_repo.sh` to enforce full-repo checks including `pyright`.
 - Bypass in emergencies/CI: `SKIP_CHECKS=1 git commit -m "..."`.
 - Manual runners:
-  - Full repo: `scripts/check_repo.sh`
+  - Full repo: `scripts/check_repo.sh` (runs `pytest -q -m "not openai"`)
   - Legacy cleaned-files runner: `scripts/check_commit.sh` (runs pyright repo-wide as well)
 
 ## Testing Guidelines
@@ -117,14 +118,19 @@ Recommended workflow
   or rewrite the test so the suite remains green. Document the rationale here
   in AGENTS.md under the session notes.
 
-### OpenAI-Backed Tests (Must Run Before Commit)
+### OpenAI-Backed Tests (On-Demand Only)
 - Certain tests are marked with `@pytest.mark.openai` and intentionally call the real OpenAI APIs to validate model behavior
   (e.g., passage selection parsing, intent classification, and API flows).
-- Always run these tests (and all other repo checks) locally before committing and pushing when your change touches related logic.
-- Export a valid `OPENAI_API_KEY` so these tests execute; treat skips (due to missing key) as blockers for changes that affect LLM behavior.
-- Commands to run before every commit:
-  - `scripts/check_repo.sh` (runs ruff, pylint, mypy, pyright, pytest repo‑wide)
-  - `pytest -q -m openai` (ensures OpenAI tests run); do not commit/push if any check fails or if OpenAI tests were skipped when applicable.
+- Default policy: Do not run these tests automatically in pre-commit or routine local checks.
+  - The pre-commit hook and `scripts/check_repo.sh` exclude them via `-m "not openai"`.
+- Run them only when explicitly requested or when validating changes that affect LLM behavior.
+  - Required env: `OPENAI_API_KEY` set to a real key (starts with `sk-`).
+  - Some API-level tests also require opt-in: set `RUN_OPENAI_API_TESTS=1`.
+  - Command: `RUN_OPENAI_API_TESTS=1 pytest -q -m openai`.
+  - Treat failures as blockers for the related change; otherwise, they remain opt-in.
+  - For the Meta WhatsApp API test, the server processes the message synchronously when
+    `RUN_OPENAI_API_TESTS=1` is set (see `bt_servant.handle_meta_webhook`). This avoids
+    background-task flakiness in CI and ensures deterministic test completion.
 
 ## Non‑Negotiable Local Env
 - Do not proceed with any changes if repo checks or tests cannot run locally. If any of `ruff`, `pylint`, `mypy`, `pyright`, or `pytest` are missing (e.g., exit 127 "command not found") or fail to start, STOP and initialize the environment.

@@ -18,7 +18,6 @@ import pytest
 from fastapi.testclient import TestClient
 
 import bt_servant as api
-import messaging
 from config import config as app_config
 
 
@@ -84,9 +83,10 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch):
     async def _fake_typing_indicator_message(message_id: str) -> None:  # message_id unused in test
         return None
 
-    monkeypatch.setattr(messaging, "send_text_message", _fake_send_text_message)
-    monkeypatch.setattr(messaging, "send_voice_message", _fake_send_voice_message)
-    monkeypatch.setattr(messaging, "send_typing_indicator_message", _fake_typing_indicator_message)
+    # Patch the functions as imported into the API module to ensure the endpoint uses fakes
+    monkeypatch.setattr(api, "send_text_message", _fake_send_text_message)
+    monkeypatch.setattr(api, "send_voice_message", _fake_send_voice_message)
+    monkeypatch.setattr(api, "send_typing_indicator_message", _fake_typing_indicator_message)
 
     client = TestClient(api.app)
 
@@ -109,8 +109,9 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch):
     )
     assert resp.status_code == 200
 
-    # Poll for side-effect (background task) to finish
-    deadline = time.time() + 20
+    # Poll for side-effect (background task) to finish.
+    # OpenAI-backed paths can occasionally exceed 20s; allow up to 60s.
+    deadline = time.time() + 60
     while time.time() < deadline and not sent:
         time.sleep(0.25)
 
