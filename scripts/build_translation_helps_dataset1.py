@@ -243,7 +243,8 @@ def _build_book(tsv_path: Path, ctx: BookCtx) -> tuple[Path, int, int, int]:
     )
     out_path = ctx.out_dir / f"{ctx.stem}.json"
     with out_path.open("w", encoding="utf-8") as f:
-        json.dump(out_items, f, ensure_ascii=False)
+        f.write(json.dumps(out_items, ensure_ascii=False, indent=2))
+        f.write("\n")
     return out_path, len(out_items), missing_bsb_count, missing_ult_count
 
 
