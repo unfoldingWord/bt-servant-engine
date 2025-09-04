@@ -26,7 +26,13 @@ from pydantic import BaseModel
 from logger import get_logger
 from config import config
 from utils import chop_text, combine_chunks
-from utils.bsb import BOOK_MAP as BSB_BOOK_MAP, normalize_book_name, select_verses, label_ranges
+from utils.bsb import (
+    BOOK_MAP as BSB_BOOK_MAP,
+    normalize_book_name,
+    select_verses,
+    label_ranges,
+    clamp_ranges_by_verse_limit,
+)
 from utils.keywords import select_keywords
 from utils.translation_helps import select_translation_helps
 from db import (
@@ -1596,7 +1602,12 @@ def handle_get_translation_helps(state: Any) -> dict:
     th_root = Path("sources") / "translation_helps"
     ta_root = Path("sources") / "ta_data"
     logger.info("[translation-helps] loading helps from %s", th_root)
-    helps = select_translation_helps(th_root, canonical_book, ranges)
+    # Enforce verse-count limit to control context/token size
+    limited_ranges = clamp_ranges_by_verse_limit(Path("sources") / "bsb", canonical_book, ranges, max_verses=300)
+    if not limited_ranges:
+        msg = "I couldn't identify verses for that selection in the BSB index. Please try another reference."
+        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
+    helps = select_translation_helps(th_root, canonical_book, limited_ranges)
     logger.info("[translation-helps] selected %d help entries", len(helps))
     if not helps:
         msg = (
@@ -1639,7 +1650,7 @@ def handle_get_translation_helps(state: Any) -> dict:
         ta_articles.append(obj)
         seen_sr.add(sr)
 
-    ref_label = label_ranges(canonical_book, ranges)
+    ref_label = label_ranges(canonical_book, limited_ranges)
     context_obj = {
         "reference_label": ref_label,
         "selection": {
@@ -1651,7 +1662,7 @@ def handle_get_translation_helps(state: Any) -> dict:
                     "end_chapter": ec,
                     "end_verse": ev,
                 }
-                for (sc, sv, ec, ev) in ranges
+                for (sc, sv, ec, ev) in limited_ranges
             ],
         },
         "translation_helps": helps,
