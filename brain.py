@@ -1686,7 +1686,6 @@ def handle_get_translation_helps(state: Any) -> dict:
     logger.info("[translation-helps] invoking LLM with %d helps and %d TA articles", len(helps), len(ta_articles))
     resp = open_ai_client.responses.create(
         model="gpt-4o",
-        reasoning=cast(Any, {"effort": "low"}),
         instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
         input=cast(Any, messages),
         store=False,
