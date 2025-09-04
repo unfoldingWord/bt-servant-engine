@@ -1575,7 +1575,9 @@ Use only the provided context to write a coherent, actionable guide for translat
 - any cross-references or constraints hinted by support references.
 
 Style:
-- Write in clear prose paragraphs (no bullet lists unless the content is naturally a list of short items).
+- Be concise. Prefer tight, information-dense phrasing without repetition.
+- Aim for at most 5–6 short paragraphs; merge closely related points.
+- Write in clear prose (avoid lists unless the content is inherently a short list).
 - Cite verse numbers inline (e.g., “1:1–3”, “3:16”) where helpful.
 - Be faithful and restrained; do not speculate beyond the provided context.
 """
@@ -1603,7 +1605,12 @@ def handle_get_translation_helps(state: Any) -> dict:
     ta_root = Path("sources") / "ta_data"
     logger.info("[translation-helps] loading helps from %s", th_root)
     # Enforce verse-count limit to control context/token size
-    limited_ranges = clamp_ranges_by_verse_limit(Path("sources") / "bsb", canonical_book, ranges, max_verses=300)
+    limited_ranges = clamp_ranges_by_verse_limit(
+        Path("sources") / "bsb",
+        canonical_book,
+        ranges,
+        max_verses=config.TRANSLATION_HELPS_VERSE_LIMIT,
+    )
     if not limited_ranges:
         msg = "I couldn't identify verses for that selection in the BSB index. Please try another reference."
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
@@ -1678,7 +1685,7 @@ def handle_get_translation_helps(state: Any) -> dict:
 
     logger.info("[translation-helps] invoking LLM with %d helps and %d TA articles", len(helps), len(ta_articles))
     resp = open_ai_client.responses.create(
-        model="gpt-5",
+        model="gpt-4o",
         reasoning=cast(Any, {"effort": "low"}),
         instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
         input=cast(Any, messages),
