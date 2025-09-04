@@ -91,6 +91,19 @@ Recommended workflow
 - PRs: include description, rationale, screenshots/logs when useful, and a test plan.
 - Link related issues; note any follow-ups or known limitations.
 
+### Commit & Push Discipline (Non‑Negotiable)
+- Always run local checks BEFORE every commit:
+  - `scripts/check_repo.sh` (runs ruff, pylint, mypy, pyright, and `pytest -q -m "not openai"`).
+  - If any step fails, STOP and fix the issue before attempting to commit.
+- Treat pre‑commit hook failures as blockers:
+  - Do not proceed or claim success until the hook passes and the commit is created.
+  - If the hook reports linter/test failures (e.g., pylint “too‑many‑locals”), address them or add the minimal, justified disable in test code.
+- Only state that changes are committed/pushed after verifying success:
+  - Confirm the commit exists locally: `git log -n 1`.
+  - Confirm it exists remotely: `git push` succeeds and `git rev-parse --short origin/<branch>` matches, or inspect the file on the remote branch:
+    - `git show origin/<branch>:.github/workflows/ci-pr.yml` (or the changed file path) to verify the content landed.
+- Never claim a push if any step failed or was blocked by hooks; surface the failure immediately with the error output and next steps.
+
 ## Security & Configuration Tips
 - Secrets via `.env` (see `env.example`); never commit secrets.
 - Required vars include `OPENAI_API_KEY` and Meta tokens (see README).
@@ -163,6 +176,11 @@ Recommended workflow
 - Auto-commit small prompt fixes:
   - For low-risk edits to prompt text/constants (e.g., `PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT` wording tweaks) or small doc updates, commit directly with a proper `(CODEX)` message without asking for confirmation.
   - Keep diffs minimal and focused; do not batch unrelated changes.
+
+- OpenAI Responses API model capabilities:
+  - `reasoning` parameters (e.g., `reasoning={"effort": "low"}`) are supported by GPT‑5 models, but not by `gpt-4o`.
+  - When using `gpt-4o` with `open_ai_client.responses.create(...)`, do not pass `reasoning`; doing so yields 400 `unsupported_parameter`.
+  - We currently use `gpt-4o` for translation-helps; the handler omits `reasoning` and relies on concise system instructions instead.
 
 ## Session Snapshot (Temp)
 
