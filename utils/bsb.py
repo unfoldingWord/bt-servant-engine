@@ -146,16 +146,25 @@ def build_index(entries: List[Dict[str, str]]) -> Dict[Tuple[int, int], Tuple[st
     idx: Dict[Tuple[int, int], Tuple[str, str]] = {}
     for e in entries:
         ref = e["reference"]  # e.g., "Joh 3:16"
-        try:
-            _, cv = ref.split(" ", 1)
-            ch_s, vs_s = cv.split(":", 1)
-            ch = int(ch_s)
-            vs = int(vs_s)
-        except (ValueError, KeyError):
-            # Ignore malformed lines
+        parsed = parse_ch_verse_from_reference(ref)
+        if parsed is None:
             continue
+        ch, vs = parsed
         idx[(ch, vs)] = (ref, e["text"])
     return idx
+
+
+def parse_ch_verse_from_reference(ref: str) -> Tuple[int, int] | None:
+    """Parse a reference token like "Joh 3:16" to (chapter, verse).
+
+    Returns None if parsing fails.
+    """
+    try:
+        _, cv = ref.split(" ", 1)
+        ch_s, vs_s = cv.split(":", 1)
+        return int(ch_s), int(vs_s)
+    except (ValueError, KeyError):
+        return None
 
 
 def select_range(
