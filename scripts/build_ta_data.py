@@ -29,7 +29,7 @@ import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Set
+from typing import Optional
 
 import httpx
 
@@ -51,8 +51,14 @@ def _normalize_support_reference(ref: str) -> Optional[str]:
     return m.group("stem") if m else None
 
 
-def _collect_ta_stems() -> Set[str]:
-    stems: Set[str] = set()
+def _collect_ta_stems() -> dict[str, str]:
+    """Collect mapping of TA stem -> original support_reference.
+
+    If multiple support_reference values map to the same stem, prefer the
+    variant that contains the wildcard language segment ("rc://*/...") to
+    maximize alignment with the translation_helps dataset.
+    """
+    stems: dict[str, str] = {}
     for path in sorted(TH_DIR.glob("*.json")):
         with path.open("r", encoding="utf-8") as f:
             try:
@@ -64,8 +70,14 @@ def _collect_ta_stems() -> Set[str]:
             for note in obj.get("notes", []):
                 sr = note.get("support_reference")
                 stem = _normalize_support_reference(sr) if isinstance(sr, str) else None
-                if stem:
-                    stems.add(stem)
+                if stem and isinstance(sr, str):
+                    if stem not in stems:
+                        stems[stem] = sr
+                    else:
+                        # Prefer wildcard version if present
+                        existing = stems[stem]
+                        if "rc://*/" in sr and "rc://*/" not in existing:
+                            stems[stem] = sr
     return stems
 
 
@@ -76,10 +88,16 @@ class TAEntry:
     title: str
     sub_title: str
     text: str
+    support_reference: str
 
     def to_json_obj(self) -> dict:
         """Serialize to the required shape."""
-        return {"title": self.title, "sub-title": self.sub_title, "text": self.text}
+        return {
+            "title": self.title,
+            "sub-title": self.sub_title,
+            "text": self.text,
+            "support_reference": self.support_reference,
+        }
 
 
 def _fetch_text(client: httpx.Client, url: str) -> Optional[str]:
@@ -92,7 +110,9 @@ def _fetch_text(client: httpx.Client, url: str) -> Optional[str]:
         return None
 
 
-def _build_one(client: httpx.Client, stem: str) -> tuple[Optional[TAEntry], list[str]]:
+def _build_one(
+    client: httpx.Client, stem: str, support_reference: str
+) -> tuple[Optional[TAEntry], list[str]]:
     base = f"{DOOR43_BASE}{stem}"
     errs: list[str] = []
     title = _fetch_text(client, f"{base}/title.md")
@@ -103,17 +123,25 @@ def _build_one(client: httpx.Client, stem: str) -> tuple[Optional[TAEntry], list
     if missing:
         errs.append(f"missing files for {stem}: {', '.join(missing)}")
         return None, errs
-    return TAEntry(title=title or "", sub_title=sub_title or "", text=text or ""), errs
+    return (
+        TAEntry(
+            title=title or "",
+            sub_title=sub_title or "",
+            text=text or "",
+            support_reference=support_reference,
+        ),
+        errs,
+    )
 
 
 def build_ta_dataset() -> None:
     """Build TA dataset into `sources/ta_data` from collected stems."""
     TA_OUT_DIR.mkdir(parents=True, exist_ok=True)
-    stems = _collect_ta_stems()
-    if not stems:
+    stems_map = _collect_ta_stems()
+    if not stems_map:
         print("[warn] No TA stems collected from translation_helps; nothing to do")
         return
-    print(f"[info] Collected {len(stems)} unique TA stems")
+    print(f"[info] Collected {len(stems_map)} unique TA stems")
 
     # Door43 availability check
     try:
@@ -125,8 +153,9 @@ def build_ta_dataset() -> None:
     created = 0
     errors = 0
     with httpx.Client(headers={"User-Agent": "bt-servant/ta-builder"}) as client:
-        for stem in sorted(stems):
-            entry, errs = _build_one(client, stem)
+        for stem in sorted(stems_map.keys()):
+            support_reference = stems_map[stem]
+            entry, errs = _build_one(client, stem, support_reference)
             if errs:
                 errors += 1
                 print("[warn] " + "; ".join(errs))
