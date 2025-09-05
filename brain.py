@@ -369,9 +369,12 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     requests keywords, important words, or pivotal words to focus on during translation.
   </intent>
   <intent name="get-translation-helps">
-    The user is asking for translation challenges, considerations, or guidance for a given passage or book.
+    The user is asking for translation challenges, considerations, guidance, or alternate renderings for a given
+    passage or book. Prefer this when the user mentions verse ranges and asks about "alternate translations",
+    "other ways to translate", or translation options for specific words/phrases in context.
     Examples include: "Help me translate Titus 1:1–5", "translation challenges for Exo 1",
-    or "what to consider when translating the book of Ruth".
+    "what to consider when translating the book of Ruth", "alternate translations for 'only begotten' in John 3:16",
+    or "what are other ways to translate 'flesh' in Gal 5:19–21?".
   </intent>
   <intent name="set-response-language">
     The user wants to change the language in which the system responds. They might ask for responses in 
@@ -456,6 +459,18 @@ Here are a few examples to guide you:
   <example>
     <message>what words are pivotal from a translation perspective in John 1-3</message>
     <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>What are alternate translations for "only begotten" in John 3:16?</message>
+    <intent>get-translation-helps</intent>
+  </example>
+  <example>
+    <message>What are other ways to translate "flesh" in Gal 5:19-21?</message>
+    <intent>get-translation-helps</intent>
+  </example>
+  <example>
+    <message>Alternate renderings in Rom 3:25-26</message>
+    <intent>get-translation-helps</intent>
   </example>
   <example>
     <message>Help me translate Titus 1:1-5</message>
