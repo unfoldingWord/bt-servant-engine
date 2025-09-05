@@ -1601,9 +1601,17 @@ def handle_get_translation_helps(state: Any) -> dict:
 
     th_root = Path("sources") / "translation_helps"
     logger.info("[translation-helps] loading helps from %s", th_root)
+    # Count total verses first; if above limit, return a user-facing error instead of truncating
+    bsb_root = Path("sources") / "bsb"
+    verse_count = len(select_verses(bsb_root, canonical_book, ranges))
+    if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
+        msg = (
+            f"I can only provide translate help for ({config.TRANSLATION_HELPS_VERSE_LIMIT}) verses at a time."
+        )
+        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
     # Enforce verse-count limit to control context/token size
     limited_ranges = clamp_ranges_by_verse_limit(
-        Path("sources") / "bsb",
+        bsb_root,
         canonical_book,
         ranges,
         max_verses=config.TRANSLATION_HELPS_VERSE_LIMIT,
