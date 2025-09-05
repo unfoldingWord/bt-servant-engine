@@ -1565,11 +1565,10 @@ You are a careful assistant helping Bible translators anticipate and address tra
 
 You will receive a structured JSON context containing:
 - selection metadata (book and ranges),
-- per-verse translation helps (with BSB/ULT verse text and notes), and
-- Translation Academy (TA) articles relevant to those notes (title, sub-title, and text).
+- per-verse translation helps (with BSB/ULT verse text and notes).
 
 Use only the provided context to write a coherent, actionable guide for translators. Focus on:
-- key translation issues surfaced by the notes and TA articles,
+- key translation issues surfaced by the notes,
 - clarifications about original-language expressions noted in the helps,
 - concrete guidance and options for difficult terms, and
 - any cross-references or constraints hinted by support references.
@@ -1584,11 +1583,10 @@ Style:
 
 
 def handle_get_translation_helps(state: Any) -> dict:
-    """Handle get-translation-helps: extract refs, load helps and TA, and guide.
+    """Handle get-translation-helps: extract refs, load helps, and guide.
 
     - Parse and validate a single-book selection via the shared helper.
     - Load per-verse translation helps from sources/translation_helps.
-    - Collect unique support references, load corresponding TA articles from sources/ta_data.
     - Provide a structured JSON context to the LLM and return a guidance response.
     """
     s = cast(BrainState, state)
@@ -1602,7 +1600,6 @@ def handle_get_translation_helps(state: Any) -> dict:
     assert canonical_book is not None and ranges is not None
 
     th_root = Path("sources") / "translation_helps"
-    ta_root = Path("sources") / "ta_data"
     logger.info("[translation-helps] loading helps from %s", th_root)
     # Enforce verse-count limit to control context/token size
     limited_ranges = clamp_ranges_by_verse_limit(
@@ -1622,41 +1619,6 @@ def handle_get_translation_helps(state: Any) -> dict:
         )
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
 
-    # Collect unique support references from notes
-    sr_set: set[str] = set()
-    for entry in helps:
-        for note in entry.get("notes", []) or []:
-            sr = note.get("support_reference")
-            if isinstance(sr, str) and sr:
-                sr_set.add(sr)
-    logger.info("[translation-helps] unique TA refs: %d", len(sr_set))
-
-    # Load TA articles; map rc://*/ta/man/<stem> -> ta_data/<stem>.json
-    def _stem_from_rc(ref: str) -> str | None:
-        m = re.match(r"^rc://[^/]+/ta/man(?P<stem>/.*)$", ref)
-        return m.group("stem") if m else None
-
-    ta_articles: list[dict] = []
-    seen_sr: set[str] = set()
-    for sr in sorted(sr_set):
-        stem = _stem_from_rc(sr)
-        if not stem or sr in seen_sr:
-            continue
-        path = ta_root / (stem.lstrip("/") + ".json")
-        if not path.exists():
-            logger.warning("[translation-helps] missing TA article for %s at %s", sr, path)
-            continue
-        try:
-            obj = json.loads(path.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
-            logger.warning("[translation-helps] TA JSON decode failed for %s", path)
-            continue
-        # Ensure support_reference is present; if not, add from sr
-        if "support_reference" not in obj:
-            obj["support_reference"] = sr
-        ta_articles.append(obj)
-        seen_sr.add(sr)
-
     ref_label = label_ranges(canonical_book, limited_ranges)
     context_obj = {
         "reference_label": ref_label,
@@ -1673,7 +1635,6 @@ def handle_get_translation_helps(state: Any) -> dict:
             ],
         },
         "translation_helps": helps,
-        "ta_articles": ta_articles,
     }
 
     messages: list[EasyInputMessageParam] = [
@@ -1683,7 +1644,7 @@ def handle_get_translation_helps(state: Any) -> dict:
         {"role": "user", "content": "Using the provided context, explain the translation challenges and give actionable guidance for this selection."},
     ]
 
-    logger.info("[translation-helps] invoking LLM with %d helps and %d TA articles", len(helps), len(ta_articles))
+    logger.info("[translation-helps] invoking LLM with %d helps", len(helps))
     resp = open_ai_client.responses.create(
         model="gpt-4o",
         instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
