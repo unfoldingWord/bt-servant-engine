@@ -1574,8 +1574,6 @@ Use only the provided context to write a coherent, actionable guide for translat
 - any cross-references or constraints hinted by support references.
 
 Style:
-- Be concise. Prefer tight, information-dense phrasing without repetition.
-- Aim for at most 5–6 short paragraphs; merge closely related points.
 - Write in clear prose (avoid lists unless the content is inherently a short list).
 - Cite verse numbers inline (e.g., “1:1–3”, “3:16”) where helpful.
 - Be faithful and restrained; do not speculate beyond the provided context.
