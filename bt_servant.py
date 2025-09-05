@@ -417,49 +417,63 @@ async def process_message(user_message: UserMessage):
             logger.warning("Brain not initialized at message time; initializing lazily.")
             brain = create_brain()
 
+        # Top-level guard: ensure any unexpected errors result in a friendly reply
         try:
-            await send_typing_indicator_message(user_message.message_id)
-        except httpx.HTTPError as e:
-            logger.warning("Failed to send typing indicator: %s", e)
+            try:
+                await send_typing_indicator_message(user_message.message_id)
+            except httpx.HTTPError as e:
+                logger.warning("Failed to send typing indicator: %s", e)
 
-        if user_message.message_type == "audio":
-            text = await transcribe_voice_message(user_message.media_id)
-        else:
-            text = user_message.text
+            if user_message.message_type == "audio":
+                text = await transcribe_voice_message(user_message.media_id)
+            else:
+                text = user_message.text
 
-        loop = asyncio.get_event_loop()
-        assert brain is not None  # mypy: brain set during startup or lazily above
-        result = await loop.run_in_executor(None, brain.invoke, {
-            "user_id": user_message.user_id,
-            "user_query": text,
-            "user_chat_history": get_user_chat_history(user_id=user_message.user_id),
-            "user_response_language": get_user_response_language(user_id=user_message.user_id)
-        })
-        responses = result["translated_responses"]
-        full_response_text = "\n\n".join(responses).rstrip()
-        if user_message.message_type == "audio":
-            await send_voice_message(user_id=user_message.user_id, text=full_response_text)
-        else:
-            response_count = len(responses)
-            if response_count > 1:
-                responses = [f'({i}/{response_count}) {r}' for i, r in enumerate(responses, start=1)]
-            for response in responses:
-                logger.info("Response from bt_servant: %s", response)
-                try:
-                    await send_text_message(user_id=user_message.user_id, text=response)
-                    await asyncio.sleep(4)
-                except httpx.HTTPError as send_err:
-                    logger.error("Failed to send message to Meta for user %s: %s", user_message.user_id, send_err)
+            loop = asyncio.get_event_loop()
+            assert brain is not None  # mypy: brain set during startup or lazily above
+            result = await loop.run_in_executor(None, brain.invoke, {
+                "user_id": user_message.user_id,
+                "user_query": text,
+                "user_chat_history": get_user_chat_history(user_id=user_message.user_id),
+                "user_response_language": get_user_response_language(user_id=user_message.user_id)
+            })
+            responses = result["translated_responses"]
+            full_response_text = "\n\n".join(responses).rstrip()
+            if user_message.message_type == "audio":
+                await send_voice_message(user_id=user_message.user_id, text=full_response_text)
+            else:
+                response_count = len(responses)
+                if response_count > 1:
+                    responses = [f'({i}/{response_count}) {r}' for i, r in enumerate(responses, start=1)]
+                for response in responses:
+                    logger.info("Response from bt_servant: %s", response)
+                    try:
+                        await send_text_message(user_id=user_message.user_id, text=response)
+                        await asyncio.sleep(4)
+                    except httpx.HTTPError as send_err:
+                        logger.error("Failed to send message to Meta for user %s: %s", user_message.user_id, send_err)
 
-        update_user_chat_history(
-            user_id=user_message.user_id,
-            query=user_message.text,
-            response=full_response_text,
-        )
-        logger.info(
-            "Overall process_message processing time: %.2f seconds",
-            time.time() - start_time,
-        )
+            update_user_chat_history(
+                user_id=user_message.user_id,
+                query=user_message.text,
+                response=full_response_text,
+            )
+        except Exception:  # pylint: disable=broad-except
+            # Catch-all for any failure during processing (e.g., upstream rate-limits, unexpected errors)
+            logger.error("Unhandled error during process_message; sending fallback to user.", exc_info=True)
+            fallback_msg = (
+                "It looks like I'm having trouble processing your message. "
+                "Please report this issue to my creators."
+            )
+            try:
+                await send_text_message(user_id=user_message.user_id, text=fallback_msg)
+            except httpx.HTTPError as send_err:
+                logger.error("Failed to send fallback message to Meta for user %s: %s", user_message.user_id, send_err)
+        finally:
+            logger.info(
+                "Overall process_message processing time: %.2f seconds",
+                time.time() - start_time,
+            )
 
 
 def verify_facebook_signature(app_secret: str, payload: bytes,
