@@ -16,8 +16,14 @@ from .bsb import BOOK_MAP, parse_ch_verse_from_reference
 
 @lru_cache(maxsize=128)
 def load_book_json(data_root: Path, file_stem: str) -> List[Dict[str, Any]]:
-    """Load a single book JSON file from sources/translation_helps (cached)."""
+    """Load a single book JSON file from sources/translation_helps (cached).
+
+    Returns an empty list if the file does not exist so callers can gracefully
+    detect the absence of translation helps for a given book without raising.
+    """
     path = data_root / f"{file_stem}.json"
+    if not path.exists():
+        return []
     return json.loads(path.read_text(encoding="utf-8"))
 
 
