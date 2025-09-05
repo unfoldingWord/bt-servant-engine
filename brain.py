@@ -1606,7 +1606,7 @@ def handle_get_translation_helps(state: Any) -> dict:
     verse_count = len(select_verses(bsb_root, canonical_book, ranges))
     if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
         msg = (
-            f"I can only provide translate help for ({config.TRANSLATION_HELPS_VERSE_LIMIT}) verses at a time."
+            f"I can only provide translate help for {config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time."
         )
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
     # Enforce verse-count limit to control context/token size
