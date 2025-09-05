@@ -1518,8 +1518,7 @@ def handle_get_passage_summary(state: Any) -> dict:
     ]
     logger.info("[passage-summary] summarizing %d verses", len(verses))
     summary_resp = open_ai_client.responses.create(
-        model="gpt-5",
-        reasoning=cast(Any, {"effort": "low"}),
+        model="gpt-4o",
         instructions=PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
         input=cast(Any, sum_messages),
         store=False,
