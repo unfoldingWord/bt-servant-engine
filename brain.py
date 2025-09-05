@@ -1617,7 +1617,7 @@ def handle_get_translation_helps(state: Any) -> dict:
     # Special-case: book entirely missing from translation helps dataset
     missing_books = set(get_missing_th_books(th_root))
     if canonical_book in missing_books:
-        abbrs = [BSB_BOOK_MAP[b]["ref_abbr"] for b in sorted(missing_books)]
+        abbrs = sorted(BSB_BOOK_MAP[b]["ref_abbr"] for b in missing_books)
         requested_abbr = BSB_BOOK_MAP[canonical_book]["ref_abbr"]
         msg = (
             f"Translation helps for {requested_abbr} are not available yet. "
