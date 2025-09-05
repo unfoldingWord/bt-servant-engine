@@ -26,8 +26,15 @@ from pydantic import BaseModel
 from logger import get_logger
 from config import config
 from utils import chop_text, combine_chunks
-from utils.bsb import BOOK_MAP as BSB_BOOK_MAP, normalize_book_name, select_verses, label_ranges
+from utils.bsb import (
+    BOOK_MAP as BSB_BOOK_MAP,
+    normalize_book_name,
+    select_verses,
+    label_ranges,
+    clamp_ranges_by_verse_limit,
+)
 from utils.keywords import select_keywords
+from utils.translation_helps import select_translation_helps
 from db import (
     get_chroma_collection,
     is_first_interaction,
@@ -361,6 +368,11 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     or entire book (e.g., "Hebrews 1:1–11", "Joel", "John 1–3"). Prefer this when the user clearly
     requests keywords, important words, or pivotal words to focus on during translation.
   </intent>
+  <intent name="get-translation-helps">
+    The user is asking for translation challenges, considerations, or guidance for a given passage or book.
+    Examples include: "Help me translate Titus 1:1–5", "translation challenges for Exo 1",
+    or "what to consider when translating the book of Ruth".
+  </intent>
   <intent name="set-response-language">
     The user wants to change the language in which the system responds. They might ask for responses in 
     Spanish, French, Arabic, etc.
@@ -444,6 +456,18 @@ Here are a few examples to guide you:
   <example>
     <message>what words are pivotal from a translation perspective in John 1-3</message>
     <intent>get-passage-keywords</intent>
+  </example>
+  <example>
+    <message>Help me translate Titus 1:1-5</message>
+    <intent>get-translation-helps</intent>
+  </example>
+  <example>
+    <message>What are some translation challenges I should consider when translating Exo 1?</message>
+    <intent>get-translation-helps</intent>
+  </example>
+  <example>
+    <message>What do I need to worry about when translating the book of Ruth?</message>
+    <intent>get-translation-helps</intent>
   </example>
   <example>
     <message>Give me a summary of John 3:16-18.</message>
@@ -599,6 +623,7 @@ class IntentType(str, Enum):
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
     GET_PASSAGE_SUMMARY = "get-passage-summary"
     GET_PASSAGE_KEYWORDS = "get-passage-keywords"
+    GET_TRANSLATION_HELPS = "get-translation-helps"
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
     SET_RESPONSE_LANGUAGE = "set-response-language"
@@ -1157,6 +1182,8 @@ def process_intents(state: Any) -> List[Hashable]:
         nodes_to_traverse.append("handle_get_passage_summary_node")
     if IntentType.GET_PASSAGE_KEYWORDS in user_intents:
         nodes_to_traverse.append("handle_get_passage_keywords_node")
+    if IntentType.GET_TRANSLATION_HELPS in user_intents:
+        nodes_to_traverse.append("handle_get_translation_helps_node")
     if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
         nodes_to_traverse.append("set_response_language_node")
     if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
@@ -1529,6 +1556,107 @@ def handle_get_passage_keywords(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": response_text}]}
 
 
+TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT = """
+# Identity
+
+You are a careful assistant helping Bible translators anticipate and address translation issues.
+
+# Instructions
+
+You will receive a structured JSON context containing:
+- selection metadata (book and ranges),
+- per-verse translation helps (with BSB/ULT verse text and notes).
+
+Use only the provided context to write a coherent, actionable guide for translators. Focus on:
+- key translation issues surfaced by the notes,
+- clarifications about original-language expressions noted in the helps,
+- concrete guidance and options for difficult terms, and
+- any cross-references or constraints hinted by support references.
+
+Style:
+- Be concise. Prefer tight, information-dense phrasing without repetition.
+- Aim for at most 5–6 short paragraphs; merge closely related points.
+- Write in clear prose (avoid lists unless the content is inherently a short list).
+- Cite verse numbers inline (e.g., “1:1–3”, “3:16”) where helpful.
+- Be faithful and restrained; do not speculate beyond the provided context.
+"""
+
+
+def handle_get_translation_helps(state: Any) -> dict:
+    """Handle get-translation-helps: extract refs, load helps, and guide.
+
+    - Parse and validate a single-book selection via the shared helper.
+    - Load per-verse translation helps from sources/translation_helps.
+    - Provide a structured JSON context to the LLM and return a guidance response.
+    """
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    query_lang = s["query_language"]
+    logger.info("[translation-helps] start; query_lang=%s; query=%s", query_lang, query)
+
+    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    if err:
+        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": err}]}
+    assert canonical_book is not None and ranges is not None
+
+    th_root = Path("sources") / "translation_helps"
+    logger.info("[translation-helps] loading helps from %s", th_root)
+    # Enforce verse-count limit to control context/token size
+    limited_ranges = clamp_ranges_by_verse_limit(
+        Path("sources") / "bsb",
+        canonical_book,
+        ranges,
+        max_verses=config.TRANSLATION_HELPS_VERSE_LIMIT,
+    )
+    if not limited_ranges:
+        msg = "I couldn't identify verses for that selection in the BSB index. Please try another reference."
+        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
+    helps = select_translation_helps(th_root, canonical_book, limited_ranges)
+    logger.info("[translation-helps] selected %d help entries", len(helps))
+    if not helps:
+        msg = (
+            "I couldn't locate translation helps for that selection. Please check the reference and try again."
+        )
+        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
+
+    ref_label = label_ranges(canonical_book, limited_ranges)
+    context_obj = {
+        "reference_label": ref_label,
+        "selection": {
+            "book": canonical_book,
+            "ranges": [
+                {
+                    "start_chapter": sc,
+                    "start_verse": sv,
+                    "end_chapter": ec,
+                    "end_verse": ev,
+                }
+                for (sc, sv, ec, ev) in limited_ranges
+            ],
+        },
+        "translation_helps": helps,
+    }
+
+    messages: list[EasyInputMessageParam] = [
+        {"role": "developer", "content": f"Selection: {ref_label}"},
+        {"role": "developer", "content": "Use the JSON context below strictly:"},
+        {"role": "developer", "content": json.dumps(context_obj, ensure_ascii=False)},
+        {"role": "user", "content": "Using the provided context, explain the translation challenges and give actionable guidance for this selection."},
+    ]
+
+    logger.info("[translation-helps] invoking LLM with %d helps", len(helps))
+    resp = open_ai_client.responses.create(
+        model="gpt-4o",
+        instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
+        input=cast(Any, messages),
+        store=False,
+    )
+    text = resp.output_text
+    header = f"Translation helps for {ref_label}\n\n"
+    response_text = header + (text or "")
+    return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": response_text}]}
+
+
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
@@ -1550,6 +1678,7 @@ def create_brain():
     builder.add_node("converse_with_bt_servant_node", converse_with_bt_servant)
     builder.add_node("handle_get_passage_summary_node", handle_get_passage_summary)
     builder.add_node("handle_get_passage_keywords_node", handle_get_passage_keywords)
+    builder.add_node("handle_get_translation_helps_node", handle_get_translation_helps)
     builder.add_node("translate_responses_node", translate_responses, defer=True)
 
     builder.set_entry_point("start_node")
@@ -1570,6 +1699,7 @@ def create_brain():
     builder.add_edge("converse_with_bt_servant_node", "translate_responses_node")
     builder.add_edge("handle_get_passage_summary_node", "translate_responses_node")
     builder.add_edge("handle_get_passage_keywords_node", "translate_responses_node")
+    builder.add_edge("handle_get_translation_helps_node", "translate_responses_node")
     builder.add_edge("query_open_ai_node", "translate_responses_node")
 
     builder.add_conditional_edges(

@@ -1,0 +1,2011 @@
+[
+  {
+    "reference": "Joe 1:1",
+    "bsb_verse_text": "This is the word of the LORD that came to Joel son of Pethuel:",
+    "ult_verse_text": "The word of Yahweh that was to Joel, the son of Pethuel.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "פְּתוּאֵֽל",
+        "note": "The word **Pethuel** is the name of a man."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "דְּבַר־יְהוָה֙ אֲשֶׁ֣ר הָיָ֔ה",
+        "note": "This is a common expression of this culture that means that Yahweh spoke a message to Joel. If this phrase does not have that meaning in your language, you could use a comparable expression from your language that does have that meaning, or you could state the meaning plainly. Alternate translation: [The message that Yahweh spoke]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:2",
+    "bsb_verse_text": "Hear this, O elders; and give ear, all who dwell in the land. Has anything like this ever happened in your days or in the days of your fathers?",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "שִׁמְעוּ־זֹאת֙ הַ⁠זְּקֵנִ֔ים וְ⁠הַֽאֲזִ֔ינוּ כֹּ֖ל יוֹשְׁבֵ֣י הָ⁠אָ֑רֶץ",
+        "note": "See the discussion in the introduction to Joel of how Hebrew poetry consisted of paired phrases that meant basically the same thing. Decide as a translation team how you will represent this poetry in your translation throughout the book of Joel. Alternate translation: [Hear this, you elders! Yes, listen, all of the dwellers of the land!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הֶ⁠הָ֤יְתָה זֹּאת֙ בִּֽ⁠ימֵי⁠כֶ֔ם וְ⁠אִ֖ם בִּ⁠ימֵ֥י אֲבֹֽתֵי⁠כֶֽם",
+        "note": "Joel is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [This has not happened in your days or in the days of your fathers!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "בִּֽ⁠ימֵי⁠כֶ֔ם וְ⁠אִ֖ם בִּ⁠ימֵ֥י",
+        "note": "Joel is using the term **days** to mean a period of time by association with the way days make up longer periods of time. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [in your time or in the time of]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אֲבֹֽתֵי⁠כֶֽם",
+        "note": "Joel is not referring to the literal **fathers** of the Israelites whom he is addressing. He is using that term to mean their ancestors. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [your ancestors]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:3",
+    "bsb_verse_text": "Tell it to your children; let your children tell it to their children, and their children to the next generation.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וּ⁠בְנֵי⁠כֶם֙ לִ⁠בְנֵי⁠הֶ֔ם וּ⁠בְנֵי⁠הֶ֖ם לְ⁠ד֥וֹר אַחֵֽר",
+        "note": "Joel is leaving out some of the words that in many languages a sentence would need to be complete. You could supply these words from the context if that would be clearer in your language. Alternate translation: [and let your sons recount about it to their sons, and let their sons recount about it to the generation after]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "לִ⁠בְנֵי⁠כֶ֣ם & וּ⁠בְנֵי⁠כֶם֙ לִ⁠בְנֵי⁠הֶ֔ם וּ⁠בְנֵי⁠הֶ֖ם",
+        "note": "Here the masculine term **sons** has a generic sense that includes both male and female children. If it would be helpful to your readers, you could use language in your translation that is clearly inclusive of both men and women. Alternate translation: [to your children, and your children to their children, and their children]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "עָלֶ֖⁠יהָ לִ⁠בְנֵי⁠כֶ֣ם סַפֵּ֑רוּ וּ⁠בְנֵי⁠כֶם֙",
+        "note": "The imperative **Recount** and the word **your** are plural here because Joel is addressing the “elders” and “dwellers” mentioned in the previous verse. So use plural forms in your translation if your language marks that distinction."
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:4",
+    "bsb_verse_text": "What the devouring locust has left, the swarming locust has eaten; what the swarming locust has left, the young locust has eaten; and what the young locust has left, the destroying locust has eaten.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "יֶ֤תֶר הַ⁠גָּזָם֙ אָכַ֣ל הָֽ⁠אַרְבֶּ֔ה וְ⁠יֶ֥תֶר הָ⁠אַרְבֶּ֖ה אָכַ֣ל הַ⁠יָּ֑לֶק וְ⁠יֶ֣תֶר הַ⁠יֶּ֔לֶק אָכַ֖ל הֶ⁠חָסִֽיל",
+        "note": "Joel is not referring to specific locusts of these types. He means locusts of these types in general. It may be more natural in your language to express this meaning by using plural forms. Alternate translation: [The residue of the cutting locusts, swarming locusts have eaten, and the residue of the swarming locusts, hopping locusts have eaten, and the residue of the hopping locusts, destroying locusts have eaten]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-litany",
+        "orig_language_quote": "יֶ֤תֶר הַ⁠גָּזָם֙ אָכַ֣ל הָֽ⁠אַרְבֶּ֔ה וְ⁠יֶ֥תֶר הָ⁠אַרְבֶּ֖ה אָכַ֣ל הַ⁠יָּ֑לֶק וְ⁠יֶ֣תֶר הַ⁠יֶּ֔לֶק אָכַ֖ל הֶ⁠חָסִֽיל",
+        "note": "In the introduction to Joel, see the discussion of the litany form and how you might format this verse in your translation to show that Joel is using that form."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "יֶ֤תֶר הַ⁠גָּזָם֙ אָכַ֣ל הָֽ⁠אַרְבֶּ֔ה וְ⁠יֶ֥תֶר הָ⁠אַרְבֶּ֖ה אָכַ֣ל הַ⁠יָּ֑לֶק וְ⁠יֶ֣תֶר הַ⁠יֶּ֔לֶק אָכַ֖ל הֶ⁠חָסִֽיל",
+        "note": "The terms **cutting**, **swarming**, **hopping**, and **destroying** describe different kinds of locusts. Interpreters are not certain specifically what kinds of locusts these were. You may wish to use more general expressions in your translation. Alternate translation: [The residue of one kind of locust, another kind of locust has eaten, and the residue of that kind of locust, yet another kind of locust has eaten, and the residue of that kind of locust, still another kind of locust has eaten]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:5",
+    "bsb_verse_text": "Wake up, you drunkards, and weep; wail, all you drinkers of wine, because of the sweet wine, for it has been cut off from your mouth.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "הָקִ֤יצוּ שִׁכּוֹרִים֙ וּ⁠בְכ֔וּ וְ⁠הֵילִ֖לוּ כָּל־שֹׁ֣תֵי יָ֑יִן עַל־עָסִ֕יס כִּ֥י נִכְרַ֖ת מִ⁠פִּי⁠כֶֽם",
+        "note": "See the discussion in the introduction to Joel of places such as this where the speaker describes a result before giving the reason for it. If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [The sweet wine has been cut off from your mouth, so wail upon it, all of the drinkers of wine]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "נִכְרַ֖ת מִ⁠פִּי⁠כֶֽם",
+        "note": "This is an expression that means that something is no longer available. Your language may have a comparable expression that you could use in your translation. Alternate translation: [it is no longer available for you to drink]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "מִ⁠פִּי⁠כֶֽם",
+        "note": "Since Joel is referring to a group of people, it might be more natural in your language to use the plural form of **mouth**. Alternate translation: [from your mouths]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "נִכְרַ֖ת מִ⁠פִּי⁠כֶֽם",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [the locusts have cut it off from your mouth]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:6",
+    "bsb_verse_text": "For a nation has invaded My land, powerful and without number; its teeth are the teeth of a lion, and its fangs are the fangs of a lioness.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-words-phrases",
+        "orig_language_quote": "כִּֽי",
+        "note": "Joel is using the word **For** to introduce the reason for what he described in the previous verse. Alternate translation: [This has happened because]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "גוֹי֙ עָלָ֣ה עַל־אַרְצִ֔⁠י",
+        "note": "See the discussion in the introduction to Joel of travel descriptions marked for change in elevation. Alternate translation: [a nation has come against my land]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "גוֹי֙",
+        "note": "Joel is speaking as if this locust swarm were literally a **nation**, meaning, in this context, an “army.” If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [a great swarm of locusts]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אַרְצִ֔⁠י",
+        "note": "Since Joel and the people he is addressing live in the same land, it may be more natural in your language to say “our” instead of **my**. Alternate translation: [our land]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "וְ⁠אֵ֣ין מִסְפָּ֑ר",
+        "note": "Joel is making an overstatement for emphasis. If it would be clearer in your language, you could express the emphasis in a different way. Alternate translation: [and in huge numbers]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "שִׁנָּי⁠ו֙ שִׁנֵּ֣י אַרְיֵ֔ה וּֽ⁠מְתַלְּע֥וֹת לָבִ֖יא לֽ⁠וֹ",
+        "note": "Joel is describing the locusts as if they literally had the teeth of lions and lionesses. He means that they have strong teeth that can chew even the toughest of plants. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [Like a lion or lioness, these locusts have strong teeth that powerfully grind and chew]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "שִׁנָּי⁠ו֙ שִׁנֵּ֣י אַרְיֵ֔ה וּֽ⁠מְתַלְּע֥וֹת לָבִ֖יא לֽ⁠וֹ",
+        "note": "These two phrases, **Its teeth {are} the teeth of a lion, and the fangs of a lioness {are} to it**, mean similar things. Joel is using repetition to emphasize the idea that the phrases express. If it would be helpful to your readers, you could combine the phrases and express the emphasis in another way. Alternate translation: [Its teeth are as strong and sharp as the teeth of a lion] or [Its teeth, like the teeth of a lion, can tear through anything]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-possession",
+        "orig_language_quote": "וּֽ⁠מְתַלְּע֥וֹת לָבִ֖יא לֽ⁠וֹ",
+        "note": "Joel is using a particular possessive form here. A different kind of possessive form may be more natural in your language. Alternate translation: [and it has the fangs of a lioness]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:7",
+    "bsb_verse_text": "It has laid waste My grapevine and splintered My fig tree. It has stripped off the bark and thrown it away; the branches have turned white.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "שָׂ֤ם גַּפְנִ⁠י֙ לְ⁠שַׁמָּ֔ה וּ⁠תְאֵנָתִ֖⁠י לִ⁠קְצָפָ֑ה",
+        "note": "Since Joel and the people whom he is addressing eat the same crops, it may be more natural in your language to say “our” instead of **my**. Alternate translation: [It has made our vines into a waste and our fig trees into splinters]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "שָׂ֤ם גַּפְנִ⁠י֙ לְ⁠שַׁמָּ֔ה",
+        "note": "If your language does not use an abstract noun for the idea of **waste**, you could express the same idea in another way. Alternate translation: [It has wasted my vine] or [It has ruined my vine]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-reduplication",
+        "orig_language_quote": "חָשֹׂ֤ף חֲשָׂפָ⁠הּ֙",
+        "note": "Joel is repeating the verb “strip” in order to intensify the idea that it expresses. If your language can repeat words for intensification, it would be appropriate to do that here in your translation. If not, your language may have another way of expressing the emphasis. Alternate translation: [It has stripped it completely]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠הִשְׁלִ֔יךְ",
+        "note": "Joel is speaking as if the locusts had literally **thrown … away** the vegetation they had finished eating. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [spit it out]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "הִלְבִּ֖ינוּ שָׂרִיגֶֽי⁠הָ",
+        "note": "Joel is using the term **have become white** to mean that the branches have been stripped of their bark, by association with the way the wood underneath the bark is white in color. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [its branches have been stripped of their bark]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:8",
+    "bsb_verse_text": "Wail like a virgin dressed in sackcloth, grieving for the husband of her youth.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אֱלִ֕י",
+        "note": "The imperative **Mourn** is feminine singular because Joel is telling the community to mourn as it would as if it were a young woman whose fiancé had died. It may be more natural in your language to use a plural imperative."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כִּ⁠בְתוּלָ֥ה חֲגֻֽרַת־שַׂ֖ק עַל־בַּ֥עַל נְעוּרֶֽי⁠הָ",
+        "note": "The point of this comparison is that just as a virgin dresses in sackcloth to express her grief, so the Israelites should mourn to express their grief. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [like a virgin dressed in sackcloth to express her grief for the husband of her youth]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "כִּ⁠בְתוּלָ֥ה חֲגֻֽרַת־שַׂ֖ק",
+        "note": "To wear **sackcloth**, which is clothing made of rough, uncomfortable fabric, is a symbolic action that expresses grief. If it would be helpful to your readers, you could explain the significance of this action. Alternate translation: [like a virgin dressed in sackcloth to express her grief]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "כִּ⁠בְתוּלָ֥ה חֲגֻֽרַת־שַׂ֖ק",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [like a virgin who has dressed herself in sackcloth]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "בַּ֥עַל נְעוּרֶֽי⁠הָ",
+        "note": "Joel assumes that his listeners will know that by **the husband of her youth**, he means the fiancé to whom a young woman was betrothed. The word **virgin** indicates that this woman was not yet married, but in this culture, engagement was tanatmount to marriage and a fiancé was considered a **husband**. You could express this relationship with your own culture’s characteristic terms if that would be helpful to your readers. Alternate translation: [the fiancé of her youth]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "בַּ֥עַל נְעוּרֶֽי⁠הָ",
+        "note": "If your language does not use an abstract noun for the idea of **youth**, you could express the same idea in another way. Alternate translation: [the man she became engaged to while she was young]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:9",
+    "bsb_verse_text": "Grain and drink offerings have been cut off from the house of the LORD; the priests are in mourning, those who minister before the LORD.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "הָכְרַ֥ת מִנְחָ֛ה וָ⁠נֶ֖סֶךְ",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [The locusts have cut off the grain offering and the drink offering]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הָכְרַ֥ת & מִ⁠בֵּ֣ית",
+        "note": "The phrase **have been cut off** is an expression that means that something is no longer available. Your language may have a comparable expression that you could use in your translation. Alternate translation: [are no longer available for the house]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מִ⁠בֵּ֣ית יְהוָ֑ה",
+        "note": "As the introduction to this chapter discusses, here and often in this chapter, Joel is using the word **house** to mean “temple.” Alternate translation: [from the temple of Yahweh]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:10",
+    "bsb_verse_text": "The field is ruined; the land mourns. For the grain is destroyed, the new wine is dried up, and the oil fails.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "שֻׁדַּ֣ד שָׂדֶ֔ה אָבְלָ֖ה אֲדָמָ֑ה כִּ֚י שֻׁדַּ֣ד דָּגָ֔ן",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [The locusts have destroyed the field, the ground mourns, for the locusts have destroyed the grain]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "שֻׁדַּ֣ד שָׂדֶ֔ה & שֻׁדַּ֣ד",
+        "note": "Joel is not referring to a specific **field**. He means fields in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [The fields have been destroyed]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "אָבְלָ֖ה אֲדָמָ֑ה",
+        "note": "Joel is speaking of **the ground** as if it were a living thing that could **mourn** because it was bare of crops. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the ground is bare]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הוֹבִ֥ישׁ תִּיר֖וֹשׁ",
+        "note": "Joel is speaking as if the **new wine** the Israelites would have gotten from this harvest had literally dried up. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [the new wine disappears as if it had evaporated] or [the new wine runs out]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "אֻמְלַ֥ל יִצְהָֽר",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [the oil has become weak]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אֻמְלַ֥ל יִצְהָֽר",
+        "note": "Here Joel is speaking of the supply of **oil** as if it had been strong and now was **weak**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the supply of oil is low] or [the oil runs out]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:11",
+    "bsb_verse_text": "Be dismayed, O farmers, wail, O vinedressers, over the wheat and barley, because the harvest of the field has perished.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "שָׂדֶֽה",
+        "note": "Joel is not referring to a specific **field**. He means fields in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [the fields]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:12",
+    "bsb_verse_text": "The grapevine is dried up, and the fig tree is withered; the pomegranate, palm, and apple—all the trees of the orchard—are withered. Surely the joy of mankind has dried up.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "הַ⁠גֶּ֣פֶן הוֹבִ֔ישָׁה וְ⁠הַ⁠תְּאֵנָ֖ה אֻמְלָ֑לָה רִמּ֞וֹן גַּם־תָּמָ֣ר וְ⁠תַפּ֗וּחַ",
+        "note": "Joel is not referring to a specific **vine**, **fig tree**, **pomegranate tree**, **palm tree**, or **apple tree**. He is talking about these kinds of trees in general. It may be more natural in your language to express this meaning by using plural forms. Alternate translation: [The vines have dried up and the fig trees have been made weak. The pomegranate trees, also the palm trees and the apple trees]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "אֻמְלָ֑לָה",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [has become weak]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠הַ⁠תְּאֵנָ֖ה אֻמְלָ֑לָה",
+        "note": "Here Joel is speaking of **the fig tree** as if it had been strong and now was **weak**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the fig tree is withered] or [the fig tree is dying]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "כָּל־עֲצֵ֤י הַ⁠שָּׂדֶה֙ יָבֵ֔שׁוּ",
+        "note": "Joel is making an overstatement for emphasis. If it would be clearer in your language, you could express the emphasis in a different way. Alternate translation: [trees of the field of every kind have dried up]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הֹבִ֥ישׁ שָׂשׂ֖וֹן מִן־בְּנֵ֥י אָדָֽם",
+        "note": "Joel is speaking of **joy** as if it were a liquid that had literally **dried up**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [people no longer feel joyful]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "בְּנֵ֥י אָדָֽם",
+        "note": "Here the masculine terms **sons** and **man** have a generic sense that includes both men and women. If it would be helpful to your readers, you could use language in your translation that is clearly inclusive of both men and women. Alternate translation: [human beings]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:13",
+    "bsb_verse_text": "Put on sackcloth and lament, O priests; wail, O ministers of the altar. Come, spend the night in sackcloth, O ministers of my God, because the grain and drink offerings are withheld from the house of your God.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "חִגְר֨וּ",
+        "note": "Joel assumes that his listeners will know that by **Dress**, he means “Dress in sackcloth.” You could say that explicitly if that would be helpful to your readers. Alternate translation: [Dress in sackcloth]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "לִ֣ינוּ בַ⁠שַּׂקִּ֔ים",
+        "note": "To **lodge in sackcloth** is a symbolic action that expresses deep mourning and repentance. If it would be helpful to your readers, you could explain the significance of this action. Alternate translation: [spend the night wearing sackcloth to show your deep sorrow and repentance]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "נִמְנַ֛ע & מִנְחָ֥ה וָ⁠נָֽסֶךְ",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [the locusts have taken away the grain offering and the drink offering]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אֱלֹהָ֑⁠י",
+        "note": "Since Joel and the people he is addressing worship the same God, it may be more natural in your language to say “our” instead of **my**. Languages that mark the distinction should use the inclusive form of “our.” Alternate translation: [our God]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אֱלֹהֵי⁠כֶ֖ם",
+        "note": "Since Joel and the people whom he is addressing worship the same God, it may be more natural in your language to say “our” instead of **your**. Languages that mark the distinction should use the inclusive form of “our.” Alternate translation: [our God]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:14",
+    "bsb_verse_text": "Consecrate a fast; proclaim a solemn assembly! Gather the elders and all the residents of the land to the house of the LORD your God, and cry out to the LORD.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "קַדְּשׁוּ־צוֹם֙",
+        "note": "A **fast** is a time of going without eating. In this context, not eating would be a symbolic action to express sorrow for the sins that had caused Yahweh to punish the Israelites. If it would be helpful to your readers, you could explain the significance of this action. Alternate translation: [Consecrate a fast to show your sorrow for your sin]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אֱלֹהֵי⁠כֶ֑ם",
+        "note": "Since Joel and the people he is addressing worship the same God, it may be more natural in your language to say “our” instead of **your**. Languages that mark the distinction should use the inclusive form of “our.” Alternate translation: [our God]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:15",
+    "bsb_verse_text": "Alas for the day! For the Day of the LORD is near, and it will come as destruction from the Almighty.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclamations",
+        "orig_language_quote": "אֲהָ֖הּ לַ⁠יּ֑וֹם",
+        "note": "Joel is using this phrase as an exclamation to express a strong feeling. There may be an equivalent phrase in your language that you could use in your translation to convey this strong feeling. If not, you could say what Joel was feeling. Alternate translation: [Oh, what a terrible day] or [What a distressing day]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "אֲהָ֖הּ לַ⁠יּ֑וֹם",
+        "note": "Joel is using the term **day** to mean “this particular time of trouble,” by association with the way a day is a specific period of time. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [Alas for this time]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "י֣וֹם יְהוָ֔ה",
+        "note": "Joel is using the term **day** to mean the time when Yahweh will judge and punish his enemies, by association with the way days make up specific periods of time. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the time when Yahweh will judge and punish his enemies]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וּ⁠כְ⁠שֹׁ֖ד מִ⁠שַׁדַּ֥י יָבֽוֹא",
+        "note": "If your language does not use an abstract noun for the idea of **destruction**, you could express the same idea in another way. Alternate translation: [when Shaddai will destroy many things]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "מִ⁠שַׁדַּ֥י",
+        "note": "The word **Shaddai** is another name for God. Some versions choose to translate the name as “the Almighty,” as in the UST."
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:16",
+    "bsb_verse_text": "Has not the food been cut off before our very eyes—joy and gladness from the house of our God?",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הֲ⁠ל֛וֹא נֶ֥גֶד עֵינֵ֖י⁠נוּ אֹ֣כֶל נִכְרָ֑ת מִ⁠בֵּ֥ית אֱלֹהֵ֖י⁠נוּ שִׂמְחָ֥ה וָ⁠גִֽיל",
+        "note": "Joel is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [Food has been cut off before our eyes, and joy and gladness from the house of our God!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "הֲ⁠ל֛וֹא נֶ֥גֶד עֵינֵ֖י⁠נוּ אֹ֣כֶל נִכְרָ֑ת",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [Have not the locusts cut off food before our eyes]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "נֶ֥גֶד עֵינֵ֖י⁠נוּ",
+        "note": "Joel is using the term **eyes** to mean sight, by association with the way eyes are used for seeing. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [from our sight]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "מִ⁠בֵּ֥ית אֱלֹהֵ֖י⁠נוּ שִׂמְחָ֥ה וָ⁠גִֽיל",
+        "note": "Joel is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words from the context if that would be clearer in your language. Alternate translation: [and have not joy and gladness been cut off from the house of our God]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "שִׂמְחָ֥ה וָ⁠גִֽיל",
+        "note": "The terms **joy** and **gladness** mean similar things. Joel is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [all celebration]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:17",
+    "bsb_verse_text": "The seeds lie shriveled beneath the clods; the storehouses are in ruins; the granaries are broken down, for the grain has withered away.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "נֶהֶרְס֖וּ מַמְּגֻר֑וֹת",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [the granaries have broken down]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הֹבִ֖ישׁ דָּגָֽן",
+        "note": "Joel is speaking of **grain** as if it were a liquid that had **dried up**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [the grain has disappeared as if it had evaporated] or [the supply of grain has run out]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:18",
+    "bsb_verse_text": "How the cattle groan! The herds wander in confusion because they have no pasture. Even the flocks of sheep are suffering.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclamations",
+        "orig_language_quote": "מַה־נֶּאֶנְחָ֣ה בְהֵמָ֗ה",
+        "note": "Joel is using this phrase as an exclamation to express a strong feeling. There may be an equivalent phrase in your language that you could use in your translation to convey this strong feeling. If not, you could say what Joel was feeling. Alternate translation: [Listen to the animals’ pitiful cries] or [How sad to hear the beasts groan]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "מַה־נֶּאֶנְחָ֣ה בְהֵמָ֗ה",
+        "note": "Joel is not referring to a specific **beast**. He means beasts in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [How the beasts groan]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "נָבֹ֨כוּ֙ עֶדְרֵ֣י בָקָ֔ר",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [The locusts have perplexed the herds of cattle]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "עֶדְרֵ֥י הַ⁠צֹּ֖אן נֶאְשָֽׁמוּ",
+        "note": "Joel is speaking of the sheep dying from hunger as if they were literally being punished. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [the flocks of sheep die from hunger, perishing as if they were being punished]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "עֶדְרֵ֥י הַ⁠צֹּ֖אן נֶאְשָֽׁמוּ",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [the locusts have punished the flocks of sheep]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:19",
+    "bsb_verse_text": "To You, O LORD, I call, for fire has consumed the open pastures and flames have scorched all the trees of the field.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-youformal",
+        "orig_language_quote": "אֵלֶ֥י⁠ךָ יְהוָ֖ה אֶקְרָ֑א",
+        "note": "Joel is appealing to God here, so use the form of “you” that speakers of your language would use to address God."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "כִּ֣י אֵ֗שׁ אָֽכְלָה֙ נְא֣וֹת מִדְבָּ֔ר",
+        "note": "Joel is speaking of the locusts’ destruction as if it were literally a fire consuming the **pastures**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [and the locusts have eaten up the grass in the pastures of the wilderness]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "וְ⁠לֶ֣הָבָ֔ה לִהֲטָ֖ה כָּל־עֲצֵ֥י הַ⁠שָּׂדֶֽה",
+        "note": "Joel is not referring to a specific **flame** or **field**. He means flames and fields in general. It may be more natural in your language to express this meaning by using plural forms. Alternate translation: [and flames have burned all of the trees of the fields]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠לֶ֣הָבָ֔ה לִהֲטָ֖ה כָּל־עֲצֵ֥י הַ⁠שָּׂדֶֽה",
+        "note": "Joel is speaking of the locusts’ destruction as if it were literally a flame burning the **trees**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [yes, the locusts have eaten all of the leaves and bark from the trees of the field]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 1:20",
+    "bsb_verse_text": "Even the beasts of the field pant for You, for the streams of water have dried up, and fire has consumed the open pastures.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-youformal",
+        "orig_language_quote": "אֵלֶ֑י⁠ךָ",
+        "note": "By **you**, Joel means Yahweh, so use the same form of “you” as you used in the previous verse."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠אֵ֕שׁ אָכְלָ֖ה נְא֥וֹת הַ⁠מִּדְבָּֽר",
+        "note": "See how you translated this similar expression in [1:19](../01/19.md)."
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:1",
+    "bsb_verse_text": "Blow the ram’s horn in Zion; sound the alarm on My holy mountain! Let all who dwell in the land tremble, for the Day of the LORD is coming; indeed, it is near—",
+    "ult_verse_text": "Blow the shofar in Zion,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "תִּקְע֨וּ שׁוֹפָ֜ר בְּ⁠צִיּ֗וֹן וְ⁠הָרִ֨יעוּ֙ בְּ⁠הַ֣ר קָדְשִׁ֔⁠י",
+        "note": "Joel assumes that his listeners will know that he wants them to do the things he describes in order to sound an alarm. You could say that explicitly if that would be helpful to your readers. Alternate translation: [Blow the shofar in Zion, and shout on the mountain of my holiness in order to sound an alarm]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "שׁוֹפָ֜ר",
+        "note": "A **shofar** is a trumpet made from a ram’s horn. If your readers would not be familiar with what a shofar is, in your translation you could use the name of a similar thing that your readers would recognize, or you could use a general expression. Alternate translation: [a trumpet] or [a ram’s horn]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "שׁוֹפָ֜ר",
+        "note": "The phrase **the shofar** refers to shofars in general, not to any particular shofar. If it would be helpful in your language, you could use a more natural expression. Alternate translation: [a shofar] or [shofars]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "בְּ⁠הַ֣ר קָדְשִׁ֔⁠י",
+        "note": "If your language does not use an abstract noun for the idea of **holiness**, you could express the same idea in another way. Alternate translation: [on my holy mountain]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "יִרְגְּז֕וּ",
+        "note": "Joel assumes that his listeners will know that by **tremble** he means to tremble in fear or awe. You could say that explicitly if that would be helpful to your readers. Alternate translation: [tremble in fear] or [tremble in awe]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "יוֹם־יְהוָ֖ה",
+        "note": "See how you translated the same expression in [1:15](../01/15.md)."
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:2",
+    "bsb_verse_text": "a day of darkness and gloom, a day of clouds and blackness. Like the dawn overspreading the mountains a great and strong army appears, such as never was of old, nor will ever be in ages to come.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "י֧וֹם חֹ֣שֶׁךְ וַ⁠אֲפֵלָ֗ה י֤וֹם עָנָן֙ וַ⁠עֲרָפֶ֔ל",
+        "note": "Joel is using the term **day** to mean a period of time, by association with the way days make up specific periods of time. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [a time of darkness and gloom, a time of clouds and thick darkness]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "חֹ֣שֶׁךְ וַ⁠אֲפֵלָ֗ה",
+        "note": "The terms **darkness** and **gloom** mean similar things. Joel is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [deep darkness]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "עָנָן֙ וַ⁠עֲרָפֶ֔ל",
+        "note": "The terms **clouds** and **thick darkness** mean similar things. Joel is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [very dark clouds]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כְּ⁠שַׁ֖חַר פָּרֻ֣שׂ עַל־הֶֽ⁠הָרִ֑ים",
+        "note": "The point of this comparison is that just as the dawn spreads in a steady and unstoppable way across the mountains, so the army of locusts spreads in the same way across the land. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [Like the dawn spreading in a steady and unstoppable way upon the mountains]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "כְּ⁠שַׁ֖חַר פָּרֻ֣שׂ עַל־הֶֽ⁠הָרִ֑ים",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [Like the dawn spreading upon the mountains]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "כְּ⁠שַׁ֖חַר",
+        "note": "Joel is using the term **dawn** by association to mean the light that appears at dawn. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [like the light of dawn] or [like the early morning sunlight]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "עַ֚ם רַ֣ב וְ⁠עָצ֔וּם",
+        "note": "Joel is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [a great and mighty people is coming]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "עַ֚ם רַ֣ב וְ⁠עָצ֔וּם",
+        "note": "The terms **great** and **mighty** mean similar things. Joel is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [a very strong people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "כָּמֹ֗⁠הוּ לֹ֤א נִֽהְיָה֙ מִן־הָ֣⁠עוֹלָ֔ם וְ⁠אַֽחֲרָי⁠ו֙ לֹ֣א יוֹסֵ֔ף עַד־שְׁנֵ֖י דּ֥וֹר וָ⁠דֽוֹר",
+        "note": "Joel is making an overstatement for emphasis. If it would be clearer in your language, you could express the emphasis in a different way. Alternate translation: [It is worse than anything that has happened in living memory, and nothing like it will happen again for many generations]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "עַד־שְׁנֵ֖י דּ֥וֹר וָ⁠דֽוֹר",
+        "note": "This is an expression that means “for a very long time.” Your language may have a comparable expression that you can use in your translation. Alternate translation: [for many generations to come]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:3",
+    "bsb_verse_text": "Before them a fire devours, and behind them a flame scorches. The land before them is like the Garden of Eden, but behind them, it is like a desert wasteland—surely nothing will escape them.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "לְ⁠פָנָי⁠ו֙ אָ֣כְלָה אֵ֔שׁ וְ⁠אַחֲרָ֖י⁠ו תְּלַהֵ֣ט לֶֽהָבָ֑ה כְּ⁠גַן־עֵ֨דֶן הָ⁠אָ֜רֶץ לְ⁠פָנָ֗י⁠ו וְ⁠אַֽחֲרָי⁠ו֙ מִדְבַּ֣ר שְׁמָמָ֔ה וְ⁠גַם־פְּלֵיטָ֖ה לֹא־הָ֥יְתָה לּֽ⁠וֹ",
+        "note": "The pronouns **its** and **it** refer to the locust swarm, described in the previous verse as a “people,” that is, an “army.” It may be more natural in your language to use plural pronouns. Alternate translation: [A fire is devouring in front of them, and behind them a flame is burning. In front of them the land is like the garden of Eden, but behind them is a wilderness of desolation, and indeed there is no escape from them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "לְ⁠פָנָי⁠ו֙ אָ֣כְלָה אֵ֔שׁ וְ⁠אַחֲרָ֖י⁠ו תְּלַהֵ֣ט לֶֽהָבָ֑ה",
+        "note": "Joel is speaking of the locusts’ destruction as if it were literally a **fire** consuming everything in front of it and leaving **burning** land behind. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [The locusts eat up the vegetation in front of them as if they were a fire consuming it, and after they have passed, the land looks as if a flame has burned it]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "לְ⁠פָנָי⁠ו֙ אָ֣כְלָה אֵ֔שׁ",
+        "note": "See the discussion in the introduction to this chapter of how several phrases with the word **face** mean “in front of.” Alternate translation: [A fire is devouring in front of it]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כְּ⁠גַן־עֵ֨דֶן הָ⁠אָ֜רֶץ לְ⁠פָנָ֗י⁠ו",
+        "note": "The point of this comparison is that just as the garden of Eden was very lush, so the land of Israel ahead of the locust invasion is lush. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [To its face the land is lush, like the garden of Eden]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "מִדְבַּ֣ר שְׁמָמָ֔ה",
+        "note": "If your language does not use an abstract noun for the idea of **desolation**, you could express the same idea in another way. Alternate translation: [is a desolate wilderness]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "וְ⁠גַם־פְּלֵיטָ֖ה לֹא־הָ֥יְתָה לּֽ⁠וֹ",
+        "note": "Joel is making an overstatement for emphasis. If it would be clearer in your language, you could express the emphasis in a different way. Alternate translation: [and indeed, it is extremely difficult to escape from it]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "פְּלֵיטָ֖ה לֹא־הָ֥יְתָה לּֽ⁠וֹ",
+        "note": "If your language does not use an abstract noun for the idea of **escape**, you could express the same idea in another way. Alternate translation: [no one can escape from it] or [no one can get away from it]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:4",
+    "bsb_verse_text": "Their appearance is like that of horses, and they gallop like swift steeds.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כְּ⁠מַרְאֵ֥ה סוּסִ֖ים מַרְאֵ֑⁠הוּ",
+        "note": "The point of this comparison is that just like war horses, the locusts appear to be strong and fearless. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [Like the appearance of strong, fearless war horses is their appearance]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "כְּ⁠מַרְאֵ֥ה & מַרְאֵ֑⁠הוּ",
+        "note": "Since the locust swarm is described in [verse 2](../02/02.md) as a “people” or “army,” it may be more natural in your language to use a plural pronoun. Alternate translation: [is their appearance]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "וּ⁠כְ⁠פָרָשִׁ֖ים כֵּ֥ן יְרוּצֽוּ⁠ן",
+        "note": "The point of this comparison is that just as galloping steeds travel very quickly and seem to be flying as they are running, so the locusts travels quickly as it flies. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [and like galloping steeds that seem almost to be flying, thus they fly]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:5",
+    "bsb_verse_text": "With a sound like that of chariots they bound over the mountaintops, like the crackling of fire consuming stubble, like a mighty army deployed for battle.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כְּ⁠ק֣וֹל מַרְכָּב֗וֹת עַל־רָאשֵׁ֤י הֶֽ⁠הָרִים֙ יְרַקֵּד֔וּ⁠ן",
+        "note": "The point of this comparison is that just as chariots make a loud, rumbling noise, so the locusts make a loud noise as they move across the land. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [Making a loud sound like that of chariots, they leap on the tops of the hills]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כְּ⁠קוֹל֙ לַ֣הַב אֵ֔שׁ אֹכְלָ֖ה קָ֑שׁ",
+        "note": "The point of this comparison is that just as a fire makes a crackling sound as it quickly consumes dry stubble, so the locusts make a similar sound as they quickly consume the vegetation. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [making a crackling sound like a flame of fire devouring stubble]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "כְּ⁠עַ֣ם עָצ֔וּם עֱר֖וּךְ מִלְחָמָֽה",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [like a mighty people who have arrayed themselves for war]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "כְּ⁠עַ֣ם עָצ֔וּם עֱר֖וּךְ מִלְחָמָֽה",
+        "note": "Joel is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words from earlier in the sentence if it would be clearer in your language. Alternate translation: [like the sound of a mighty people arrayed for war]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כְּ⁠עַ֣ם עָצ֔וּם עֱר֖וּךְ מִלְחָמָֽה",
+        "note": "The point of this comparison is that just as a mighty army gives a loud shout once it is arrayed for war, so the locusts are making a loud and terrifying noise. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [making a loud, terrifying sound as a mighty people does when it is arrayed for war]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:6",
+    "bsb_verse_text": "Nations writhe in horror before them; every face turns pale.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "יָחִ֣ילוּ",
+        "note": "Joel assumes that his listeners will know that by **writhe** he means to writhe in agony or fear. You could say that explicitly if that would be helpful to your readers. Alternate translation: [twist and contort in agony] or [squirm in fear]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "קִבְּצ֥וּ פָארֽוּר",
+        "note": "Joel is using the term **beauty** to mean paleness by association with the way pale skin was considered beautiful in that culture. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [become pale]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:7",
+    "bsb_verse_text": "They charge like mighty men; they scale the walls like men of war. Each one marches in formation, not swerving from the course.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כְּ⁠גִבּוֹרִ֣ים יְרֻצ֔וּ⁠ן",
+        "note": "The point of this comparison is that the locusts rush forward irresistibly, just as warriors do. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [They rush forward, unstoppable, like mighty warriors]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כְּ⁠אַנְשֵׁ֥י מִלְחָמָ֖ה יַעֲל֣וּ חוֹמָ֑ה",
+        "note": "The point of this comparison is that just as men of war skillfully scale walls in battle, so the locusts surmount obstacles without difficulty. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [like men of war, they swarm over walls without difficulty]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-possession",
+        "orig_language_quote": "כְּ⁠אַנְשֵׁ֥י מִלְחָמָ֖ה",
+        "note": "Joel is using this possessive form to describe **men** who take part in **war**. Your language may have a comparable expression that you can use in your translation. Alternate translation: [warriors]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "חוֹמָ֑ה",
+        "note": "Joel is not referring to a specific **wall**. He means walls in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [the walls]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וְ⁠אִ֤ישׁ בִּ⁠דְרָכָי⁠ו֙",
+        "note": "In this context, **man** means “each one” and **ways** refers to the ways that a locust is traveling. Your language may have a comparable expression that you can use in your translation. Alternate translation: [each one in its direction] or [each one according to its pattern]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠לֹ֥א יְעַבְּט֖וּ⁠ן אֹרְחוֹתָֽ⁠ם",
+        "note": "Joel is speaking of the locusts staying on their paths as if those paths were literally something they could give in pledge. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [they do not part from their paths]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-textvariants",
+        "orig_language_quote": "וְ⁠לֹ֥א יְעַבְּט֖וּ⁠ן אֹרְחוֹתָֽ⁠ם",
+        "note": "See the discussion in the introduction to this chapter of an alternate reading for this phrase. Alternate translation: [and they do not turn from their paths]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:8",
+    "bsb_verse_text": "They do not jostle one another; each proceeds in his path. They burst through the defenses, never breaking ranks.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וְ⁠אִ֤ישׁ אָחִי⁠ו֙ לֹ֣א יִדְחָק֔וּ⁠ן",
+        "note": "Here, **man** means “each one” and **brother** means “another one.” This expression describes how the locusts move in an orderly manner. Your language may have a comparable expression that you can use in your translation. Alternate translation: [And they do not crowd each other]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "גֶּ֥בֶר בִּ⁠מְסִלָּת֖⁠וֹ יֵֽלֵכ֑וּ⁠ן",
+        "note": "As in the previous clause, **man** means “each one” and **road** refers to the direction of travel. Your language may have a comparable expression that you can use in your translation. Alternate translation: [they move, each one in its own path]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וּ⁠בְעַ֥ד הַ⁠שֶּׁ֛לַח יִפֹּ֖לוּ לֹ֥א יִבְצָֽעוּ",
+        "note": "This could mean: (1) Alternate translation: [They jump in among the weapons without breaking ranks] or (2) Alternate translation: [Even though weapons may kill some of them, the swarm keeps coming]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:9",
+    "bsb_verse_text": "They storm the city; they run along the wall; they climb into houses, entering through windows like thieves.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-litany",
+        "orig_language_quote": "בָּ⁠עִ֣יר יָשֹׁ֗קּוּ בַּֽ⁠חוֹמָה֙ יְרֻצ֔וּ⁠ן בַּ⁠בָּתִּ֖ים יַעֲל֑וּ בְּעַ֧ד הַ⁠חַלּוֹנִ֛ים יָבֹ֖אוּ כַּ⁠גַּנָּֽב",
+        "note": "See the discussion in the introduction to Joel of the litany form and how you might format this verse in your translation to show that Joel is using litany."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "בְּעַ֧ד הַ⁠חַלּוֹנִ֛ים יָבֹ֖אוּ כַּ⁠גַּנָּֽב",
+        "note": "The point of this comparison is that just as thieves enter unexpectedly and undetected through windows, so the locusts get into homes in ways that people do not anticipate and so, cannot prevent. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [they get into homes in unexpected ways, just as thieves sneak in through windows]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:10",
+    "bsb_verse_text": "Before them the earth quakes; the heavens tremble. The sun and moon grow dark, and the stars lose their brightness.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "לְ⁠פָנָי⁠ו֙ רָ֣גְזָה אֶ֔רֶץ רָעֲשׁ֖וּ שָׁמָ֑יִם",
+        "note": "Joel is speaking as if the locust swarm were so powerful that it was causing the **earth** to shake and the **heavens** to **tremble**. He means that the locusts make such a loud sound and cause such vibration that it seems like this is happening. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [They make such a loud sound and cause such vibration that it is as if the earth is shaking and the heavens are trembling]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "שֶׁ֤מֶשׁ וְ⁠יָרֵ֨חַ֙ קָדָ֔רוּ",
+        "note": "Joel is speaking as if **the sun and the moon** had literally become **dark**. He means that the locust swarm is blocking their light. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [the locust swarm blocks the light of the sun and moon]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "וְ⁠כוֹכָבִ֖ים אָסְפ֥וּ נָגְהָֽ⁠ם",
+        "note": "Joel is speaking of **the stars** as if they were living things that could **withdraw their brightness**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the light of the stars is no longer visible]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:11",
+    "bsb_verse_text": "The LORD raises His voice in the presence of His army. Indeed, His camp is very large, for mighty are those who obey His command. For the Day of the LORD is great and very dreadful. Who can endure it?",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "קוֹל⁠וֹ֙",
+        "note": "Joel is using the term **voice** to mean Yahweh’s commands, by association with the way authorities use their voices to give commands. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [his commands]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "מַחֲנֵ֔⁠הוּ",
+        "note": "Joel is using the term **camp** to mean Yahweh’s army, by association with the way armies stay in camps. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [is his army]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "דְבָר֑⁠וֹ",
+        "note": "Joel is using the term **word** to mean Yahweh’s orders, by association with the way people use words to give orders or instructions. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [his commands]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "כִּֽי־גָד֧וֹל יוֹם־יְהוָ֛ה וְ⁠נוֹרָ֥א מְאֹ֖ד וּ⁠מִ֥י יְכִילֶֽ⁠נּוּ",
+        "note": "Joel is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [For the day of Yahweh is great and very fearful, and very few will endure it!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "יוֹם־יְהוָ֛ה",
+        "note": "See how you translated the same expression in [1:15](../01/15.md)."
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:12",
+    "bsb_verse_text": "“Yet even now,” declares the LORD, “return to Me with all your heart, with fasting, weeping, and mourning.”",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-quotations",
+        "orig_language_quote": "וְ⁠גַם־עַתָּה֙ נְאֻם־יְהוָ֔ה שֻׁ֥בוּ עָדַ֖⁠י",
+        "note": "The phrase **the declaration of Yahweh** indicates that this is a direct quotation from Yahweh. You may wish to indicate that in your translation using a natural way of introducing direct quotations in your language. Alternate translation: [Yahweh declares, “Yet even now, return to me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "שֻׁ֥בוּ",
+        "note": "The imperative **return** is plural here because Yahweh is addressing the people of Judah. For the same reason, the imperatives and the word “your” are plural in [verses 13–16](../02/13.md), in which Joel is speaking. So use plural forms in your translation if your language marks that distinction."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "שֻׁ֥בוּ עָדַ֖⁠י בְּ⁠כָל־לְבַבְ⁠כֶ֑ם",
+        "note": "Here, Yahweh is speaking of people repenting of their sin as a **return** to him, and he is speaking of their **heart** to represent their thoughts and motives. You may have a similar way to talk about these things, or you could state the meaning plainly. Alternate translation: [sincerely repent of disobeying me in your thoughts and motives] or [come back to me in genuine and complete repentance]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "לְבַבְ⁠כֶ֑ם",
+        "note": "Since Yahweh is referring to a group of people, it might be more natural in your language to use the plural form of **heart**. Alternate translation: [your hearts]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:13",
+    "bsb_verse_text": "So rend your hearts and not your garments, and return to the LORD your God. For He is gracious and compassionate, slow to anger, abounding in loving devotion. And He relents from sending disaster.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠קִרְע֤וּ לְבַבְ⁠כֶם֙ וְ⁠אַל־בִּגְדֵי⁠כֶ֔ם",
+        "note": "Joel is speaking as if people could literally tear their hearts. He is using the contrast with tearing garments, which was a literal sign of mourning, to emphasize internal repentance. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [And do not only tear your garments; repent in your hearts]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotations",
+        "orig_language_quote": "וְ⁠קִרְע֤וּ לְבַבְ⁠כֶם֙ וְ⁠אַל־בִּגְדֵי⁠כֶ֔ם וְ⁠שׁ֖וּבוּ אֶל־יְהוָ֣ה אֱלֹֽהֵי⁠כֶ֑ם",
+        "note": "Some versions end the quotation that begins in [verse 12](../02/12.md) after this sentence instead of at the end of [verse 12](../02/12.md). If a translation of the Bible exists in your region, you may wish to follow the quotation boundaries that it has. If a translation of the Bible does not exist in your region, you may wish to use the same boundaries as the ULT."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "אֶ֤רֶךְ אַפַּ֨יִם֙",
+        "note": "Here, **long of nostrils** is an idiom meaning that the person is slow to get angry. If this phrase does not have that meaning in your language, use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: [long-tempered] or [slow to become angry]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠רַב־חֶ֔סֶד",
+        "note": "If your language does not use an abstract noun for the idea of **kindness**, you could express the same idea in another way. Alternate translation: [and very kind]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:14",
+    "bsb_verse_text": "Who knows? He may turn and relent and leave a blessing behind Him—grain and drink offerings for the LORD your God.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "מִ֥י יוֹדֵ֖עַ יָשׁ֣וּב וְ⁠נִחָ֑ם וְ⁠הִשְׁאִ֤יר אַֽחֲרָי⁠ו֙ בְּרָכָ֔ה",
+        "note": "Joel is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [For all anyone knows, he may turn and relent and leave a blessing after him]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "יָשׁ֣וּב וְ⁠נִחָ֑ם",
+        "note": "The terms **turn** and **relent** mean similar things. Joel is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [He may indeed change his mind]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠הִשְׁאִ֤יר & בְּרָכָ֔ה",
+        "note": "If your language does not use an abstract noun for the idea of **blessing**, you could express the same idea in another way. Alternate translation: [and leave something to bless you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אֱלֹהֵי⁠כֶֽם",
+        "note": "Since Joel and the people he is addressing worship the same God, it may be more natural in your language to say “our” instead of **your**. Languages that mark the distinction should use the inclusive form of “our.” Alternate translation: [our God]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:15",
+    "bsb_verse_text": "Blow the ram’s horn in Zion, consecrate a fast, proclaim a sacred assembly.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "צ֖וֹם",
+        "note": "Joel assumes that his readers will understand that the purpose of **a fast** was to show repentance for sin. You could include this information if that would be helpful to your readers. Alternate translation: [a fast to show your repentance]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-infostructure",
+        "orig_language_quote": "קַדְּשׁוּ־צ֖וֹם קִרְא֥וּ עֲצָרָֽה",
+        "note": "If it would be more natural in your language, you could mention calling the assembly and then telling the people to fast. Alternate translation: [call an assembly, consecrate a fast]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:16",
+    "bsb_verse_text": "Gather the people, sanctify the congregation, assemble the aged, gather the children, even those nursing at the breast. Let the bridegroom leave his room, and the bride her chamber.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "קִבְצ֣וּ זְקֵנִ֔ים אִסְפוּ֙ עֽוֹלָלִ֔ים וְ⁠יֹנְקֵ֖י שָׁדָ֑יִם",
+        "note": "Joel is speaking of two things in order to mean those two extremes and everything in between. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [assemble people of all ages]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "יֵצֵ֤א חָתָן֙ מֵֽ⁠חֶדְר֔⁠וֹ וְ⁠כַלָּ֖ה מֵ⁠חֻפָּתָֽ⁠הּ",
+        "note": "Joel means implicitly that while newlyweds are ordinarily excused from public duties, this is an exceptional circumstance that calls for even their attendance. Alternate translation: [Even newly married men and women should come to the assembly under these exceptional circumstances]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:17",
+    "bsb_verse_text": "Let the priests who minister before the LORD weep between the portico and the altar, saying, “Spare Your people, O LORD, and do not make Your heritage a reproach, an object of scorn among the nations. Why should they say among the peoples, ‘Where is their God?’”",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "בֵּ֤ין הָ⁠אוּלָם֙ וְ⁠לַ⁠מִּזְבֵּ֔חַ",
+        "note": "Joel is speaking of these two things that are at the far extremes of the courtyard of the temple in order to refer to them and to everything in between them. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [throughout the entire court of the priests]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠אַל־תִּתֵּ֨ן נַחֲלָתְ⁠ךָ֤ לְ⁠חֶרְפָּה֙",
+        "note": "If your language does not use an abstract noun for the idea of **reproach**, you could express the same idea in another way. Alternate translation: [and do not let other nations reproach your inheritance]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "נַחֲלָתְ⁠ךָ֤",
+        "note": "Joel is speaking of the Israelites as if they were literally something that Yahweh had inherited. Joel means that the Israelites are the people whom Yahweh has chosen. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [the people whom you have chosen]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-textvariants",
+        "orig_language_quote": "לִ⁠מְשָׁל־בָּ֣⁠ם גּוֹיִ֔ם",
+        "note": "See the discussion in the introduction to this chapter of an alternate reading for this phrase. Alternate translation: [for the nations to use a proverb against them] or [for them to become a byword to the nations]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "לָ֚⁠מָּה יֹאמְר֣וּ בָֽ⁠עַמִּ֔ים אַיֵּ֖ה אֱלֹהֵי⁠הֶֽם",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Why should the peoples ask where our God is?]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "לָ֚⁠מָּה יֹאמְר֣וּ",
+        "note": "Here, **they** is an indefinite pronoun that refers to people in general. If it would be helpful in your language, you could translate this with a different expression that does not use an indefinite pronoun. Alternate translation: [Why should it be said]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "לָ֚⁠מָּה יֹאמְר֣וּ בָֽ⁠עַמִּ֔ים",
+        "note": "Joel is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [Do not allow the peoples to say]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "אַיֵּ֖ה אֱלֹהֵי⁠הֶֽם",
+        "note": "This example of mockery is also using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [Their God does not care about them] or [Their God must be far away!]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:18",
+    "bsb_verse_text": "Then the LORD became jealous for His land, and He spared His people.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-pastforfuture",
+        "orig_language_quote": "וַ⁠יְקַנֵּ֥א יְהוָ֖ה לְ⁠אַרְצ֑⁠וֹ וַ⁠יַּחְמֹ֖ל עַל־עַמּֽ⁠וֹ",
+        "note": "Joel is using the past tense to describe something that is going to happen in the future, after the people repent. He may be doing this to show that the event will certainly happen. Alternatively, there may have been a gap of time between the writing of [verse 17](../02/17.md) and [verse 18](../02/18.md), and in that time, the people repented. If it would be clearer in your language, you could use the future tense in your translation of these two verses and express the emphasis in another way. Alternate translation: [Then Yahweh will be jealous for his land, and he will have pity on his people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "לְ⁠אַרְצ֑⁠וֹ",
+        "note": "Joel is using the term **land** by association to mean the people living on the land. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [for his people]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:19",
+    "bsb_verse_text": "And the LORD answered His people: “Behold, I will send you grain, new wine, and oil, and by them you will be satisfied. I will never again make you a reproach among the nations.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-pastforfuture",
+        "orig_language_quote": "וַ⁠יַּ֨עַן יְהוָ֜ה וַ⁠יֹּ֣אמֶר",
+        "note": "Joel continues using the past tense here to describe something that is going to happen in the future, after the people repent. Alternatively, the people already repented and so Joel tells Yahweh’s response here. If you chose to use the future tense in [verse 18](../02/18.md), then you should also do so here. Alternate translation: [Then Yahweh will answer and say]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hendiadys",
+        "orig_language_quote": "וַ⁠יַּ֨עַן יְהוָ֜ה וַ⁠יֹּ֣אמֶר",
+        "note": "This phrase expresses a single idea by using two words connected with **and**. The word **answered** tells for what purpose Yahweh **said** this. Alternate translation: [And Yahweh replied]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-quotations",
+        "orig_language_quote": "הִנְ⁠נִ֨י שֹׁלֵ֤חַ לָ⁠כֶם֙ אֶת־הַ⁠דָּגָן֙ וְ⁠הַ⁠תִּיר֣וֹשׁ וְ⁠הַ⁠יִּצְהָ֔ר",
+        "note": "This verse begins a direct quotation from Yahweh. You may wish to indicate that in your translation, using a natural way of introducing direct quotations in your language. Alternate translation: [saying, “Behold me, sending to you grain and new wine and oil]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הִנְ⁠נִ֨י שֹׁלֵ֤חַ",
+        "note": "The expression **Behold me** doing something means “I am going to do” what is described. Your language may have a comparable expression that you can use in your translation. Alternate translation: [I am going to send]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אֹת֑⁠וֹ",
+        "note": "Yahweh is using the pronoun **it** to refer to what he will send to the Israelites. But since he lists **grain**, **wine**, and **oil**, it may be more natural in your language to use a plural pronoun. Alternate translation: [of them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠לֹא־אֶתֵּ֨ן אֶתְ⁠כֶ֥ם ע֛וֹד חֶרְפָּ֖ה בַּ⁠גּוֹיִֽם",
+        "note": "If your language does not use an abstract noun for the idea of **reproach**, you could express the same idea in another way. Alternate translation: [and I will no longer make the nations reproach you]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:20",
+    "bsb_verse_text": "The northern army I will drive away from you, banishing it to a barren and desolate land, its front ranks into the Eastern Sea, and its rear guard into the Western Sea. And its stench will rise; its foul odor will ascend. For He has done great things.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וְֽ⁠אֶת־הַ⁠צְּפוֹנִ֞י",
+        "note": "Yahweh is using the term **northerner** to refer to an invading army of some kind, by association with the direction from which invasions often came. It seems that this term is purposely vague so that it can refer to the current locust invasion as well as to a future military invasion on “the day of Yahweh” ([verse 11](../02/11.md)). If possible, use a term that could refer to both. Alternate translation: [the invaders]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "אֶ֣רֶץ צִיָּ֣ה וּ⁠שְׁמָמָה֒",
+        "note": "If your language does not use abstract nouns for the ideas of **dryness** and **desolation**, you could express the same ideas in another way. Alternate translation: [a dry and desolate land]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "אֶ֣רֶץ צִיָּ֣ה וּ⁠שְׁמָמָה֒",
+        "note": "The terms **dryness** and **desolation** mean similar things. Yahweh is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [a completely barren land]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "אֶל & אֶת־פָּנָ֗י⁠ו אֶל־הַ⁠יָּם֙ הַ⁠קַּדְמֹנִ֔י וְ⁠סֹפ֖⁠וֹ אֶל־הַ⁠יָּ֣ם הָ⁠אַֽחֲר֑וֹן",
+        "note": "Yahweh is speaking of the invading army or locust swarm as if it were a living thing that had a **face** and a **back**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the invaders at the front of the group will fall into the eastern sea and die, and the invaders at the back of the group will fall into the western sea and die]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "אֶל & אֶת־פָּנָ֗י⁠ו אֶל־הַ⁠יָּם֙ הַ⁠קַּדְמֹנִ֔י וְ⁠סֹפ֖⁠וֹ אֶל־הַ⁠יָּ֣ם הָ⁠אַֽחֲר֑וֹן",
+        "note": "Yahweh is speaking to the Judeans from the perspective of their own culture and location. By **eastern sea**, he means the Dead Sea, and by **western sea**, he means the Mediterranean Sea. You could say that explicitly if that would be helpful to your readers. Alternate translation: [his face into the Dead Sea and his back into the Mediterranean Sea]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "וְ⁠עָלָ֣ה בָאְשׁ֗⁠וֹ וְ⁠תַ֨עַל֙ צַחֲנָת֔⁠וֹ",
+        "note": "These two phrases mean the same thing. The second emphasizes the meaning of the first by repeating the same idea with different words. Hebrew poetry was based on this kind of repetition, and it would be good to show this to your readers by including both phrases in your translation rather than combining them. However, if this might be unclear in your language, you could connect the phrases with a word other than **and** in order to show that the second phrase is repeating the first one, not saying something additional. Alternatively, you could combine the phrases and express the emphasis in another way. Alternate translation: [And his stench will rise, yes, his odor will rise]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הִגְדִּ֖יל לַ⁠עֲשֽׂוֹת",
+        "note": "This expression means “he has in some way done more than would be expected.” The implication is that the locust swarm has perhaps destroyed more crops than it ordinarily would, or that the army that will invade will be more destructive than usual. Your language may have a comparable expression that you can use in your translation. Alternate translation: [he has caused excessive destruction]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotations",
+        "orig_language_quote": "כִּ֥י הִגְדִּ֖יל לַ⁠עֲשֽׂוֹת",
+        "note": "Some versions end the quotation that begins in [verse 19](../02/19.md) before this clause. Other versions end that quotation after this clause. Some other versions do not end that quotation in this verse, so that it continues through [3:8](../03/08.md). If a translation of the Bible exists in your region, you may wish to follow the quotation boundaries that it has. If a translation of the Bible does not exist in your region, you may wish to use the same boundaries as the ULT."
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:21",
+    "bsb_verse_text": "Do not be afraid, O land; rejoice and be glad, for the LORD has done great things.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-apostrophe",
+        "orig_language_quote": "אַל־תִּֽירְאִ֖י אֲדָמָ֑ה גִּ֣ילִי וּ⁠שְׂמָ֔חִי",
+        "note": "Joel is speaking to the **land** as if it were a person who could hear him. He is doing this to show in a strong way how he feels about what Yahweh will do for the land. Joel is actually speaking to the people who can hear him. If your readers might not understand this kind of figurative speech, you could translate what Joel is saying as if he were speaking directly to the Judeans. Alternate translation: [You Judeans should not be afraid because of what has happened to the land. Be glad and rejoice]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "גִּ֣ילִי וּ⁠שְׂמָ֔חִי",
+        "note": "The terms **glad** and **rejoice** mean similar things. Joel is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [Celebrate with great joy]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-pastforfuture",
+        "orig_language_quote": "הִגְדִּ֥יל יְהוָ֖ה לַ⁠עֲשֽׂוֹת",
+        "note": "Joel is using the past tense to describe something that is going to happen in the future in order to show that the event will certainly happen. If it would be clearer in your language, you could use the future tense. Alternate translation: [Yahweh will be great in doing]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הִגְדִּ֥יל יְהוָ֖ה לַ⁠עֲשֽׂוֹת",
+        "note": "Unlike the use in the previous verse, here this expression means “he has done more good things for us than we would have imagined.” Your language may have a comparable expression that you can use in your translation. Alternate translation: [Yahweh has done wonderful things]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:22",
+    "bsb_verse_text": "Do not be afraid, O beasts of the field, for the open pastures have turned green, the trees bear their fruit, and the fig tree and vine yield their best.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-apostrophe",
+        "orig_language_quote": "אַל־תִּֽירְאוּ֙ בַּהֲמ֣וֹת שָׂדַ֔י",
+        "note": "Joel is once again speaking to the **beasts of the field** as if they were people who could hear him. He is doing this to show his Judean listeners in a strong way how he feels about what Yahweh will do for them by restoring the pastures and the trees. If your readers might not understand this kind of figurative speech, you could translate what Joel is saying as if he were speaking directly to the Judeans. Alternate translation: [You Judeans should also not be afraid of what will happen to the beasts of the field]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-pastforfuture",
+        "orig_language_quote": "דָשְׁא֖וּ נְא֣וֹת מִדְבָּ֑ר כִּֽי־עֵץ֙ נָשָׂ֣א פִרְי֔⁠וֹ תְּאֵנָ֥ה וָ⁠גֶ֖פֶן נָתְנ֥וּ חֵילָֽ⁠ם",
+        "note": "Joel is using the past tense to describe something that is going to happen in the future in order to show that the event will certainly happen. If it would be clearer in your language, you could use the future tense. Alternate translation: [the pastures of the wilderness will sprout, for the tree will bear its fruit, the fig tree and the vine will yield their strength]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "עֵץ֙ נָשָׂ֣א פִרְי֔⁠וֹ תְּאֵנָ֥ה וָ⁠גֶ֖פֶן נָתְנ֥וּ חֵילָֽ⁠ם",
+        "note": "Joel is not referring to a specific **tree**, **fig tree**, or **vine**. He is referring to these plants in general. It may be more natural in your language to express this meaning by using plural forms. Alternate translation: [the trees have borne their fruit, the fig trees and the vines have yielded their strength]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "חֵילָֽ⁠ם",
+        "note": "Joel is using the term **strength** to mean the harvest, by association with the way the land has the capacity to produce crops. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [their harvest]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:23",
+    "bsb_verse_text": "Be glad, O children of Zion, and rejoice in the LORD your God, for He has given you the autumn rains for your vindication. He sends you showers, both autumn and spring rains, as before.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וּ⁠בְנֵ֣י צִיּ֗וֹן",
+        "note": "Joel is speaking as if **Zion**, meaning Jerusalem, were literally the mother of the people who lived in that city. Alternate translation: [residents of Zion] or [citizens of Jerusalem]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אֱלֹֽהֵי⁠כֶ֔ם",
+        "note": "Since Joel and the people whom he is addressing worship the same God, it may be more natural in your language to say “our” instead of **your**. Languages that mark the distinction should use the inclusive form of “our.” Alternate translation: [our God]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-pastforfuture",
+        "orig_language_quote": "נָתַ֥ן לָ⁠כֶ֛ם אֶת־הַ⁠מּוֹרֶ֖ה לִ⁠צְדָקָ֑ה וַ⁠יּ֣וֹרֶד לָ⁠כֶ֗ם גֶּ֛שֶׁם",
+        "note": "Joel is using the past tense to describe something that is going to happen in the future in order to show that the event will certainly happen. If it would be clearer in your language, you could use the future tense. Alternate translation: [he will give to you the early rain for vindication and will bring down the shower to you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "לִ⁠צְדָקָ֑ה",
+        "note": "If your language does not use an abstract noun for the idea of **vindication**, you could express the same idea in another way. Alternate translation: [to vindicate you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "גֶּ֛שֶׁם",
+        "note": "Joel is not referring to a specific **shower**. He means showers in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [showers]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "מוֹרֶ֥ה וּ⁠מַלְק֖וֹשׁ",
+        "note": "Joel is speaking from the perspective of his own culture and location. By **early rain** he means the fall rains, and by **late rain** he means the spring rains. You could say that explicitly if that would be helpful to your readers. Alternate translation: [the fall rains and the spring rains]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "בָּ⁠רִאשֽׁוֹן",
+        "note": "Joel is speaking from the perspective of his own culture. By **in the first**, he could mean either (1) Alternate translation: [as at first] or [as before] or (2) Alternate translation: [in the first month of the year]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:24",
+    "bsb_verse_text": "The threshing floors will be full of grain, and the vats will overflow with new wine and oil.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "וְ⁠הֵשִׁ֥יקוּ הַ⁠יְקָבִ֖ים תִּיר֥וֹשׁ וְ⁠יִצְהָֽר",
+        "note": "Joel is making an overstatement for emphasis. If it would be clearer in your language, you could express the emphasis in a different way. Alternate translation: [and the vats will be very full of new wine and oil]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:25",
+    "bsb_verse_text": "I will repay you for the years eaten by locusts—the swarming locust, the young locust, the destroying locust, and the devouring locust—My great army that I sent against you.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-quotations",
+        "orig_language_quote": "וְ⁠שִׁלַּמְתִּ֤י לָ⁠כֶם֙ אֶת־הַ⁠שָּׁנִ֔ים",
+        "note": "This verse begins a direct quotation from Yahweh. You may wish to indicate that in your translation, using a natural way of introducing direct quotations in your language. Alternate translation: [Then Yahweh said, “And I will restore to you the years]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "אֶת־הַ⁠שָּׁנִ֔ים",
+        "note": "Yahweh is using the term **years** by association to mean the crops produced in those years. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the crops]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "חֵילִ⁠י֙ הַ⁠גָּד֔וֹל",
+        "note": "Yahweh is speaking of the locust swarm as if it were literally his **army**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [the great swarm]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:26",
+    "bsb_verse_text": "You will have plenty to eat, until you are satisfied. You will praise the name of the LORD your God, who has worked wonders for you. My people will never again be put to shame.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-reduplication",
+        "orig_language_quote": "וַ⁠אֲכַלְתֶּ֤ם אָכוֹל֙",
+        "note": "Yahweh is repeating the verb “eat” in order to intensify the idea that it expresses. If your language can repeat words for intensification, it would be appropriate to do that here in your translation. If not, your language may have another way of expressing the emphasis. Alternate translation: [And you will eat abundantly]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "אֶת־שֵׁ֤ם יְהוָה֙ אֱלֹ֣הֵי⁠כֶ֔ם",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [my name. I am Yahweh your God]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "אֶת־שֵׁ֤ם",
+        "note": "Yahweh is using the term **name** to mean character or reputation, by association with the way a name represents a person’s identity. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the character] or [the reputation]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicitinfo",
+        "orig_language_quote": "אֲשֶׁר־עָשָׂ֥ה עִמָּ⁠כֶ֖ם לְ⁠הַפְלִ֑יא",
+        "note": "It might seem that the expression **who has done with you, working wondrously** contains extra information that would be unnatural to express in your language. If so, you can shorten it. Alternate translation: [who has done wondrously with you] or [who has done wonderful things for you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠לֹא־יֵבֹ֥שׁוּ עַמִּ֖⁠י לְ⁠עוֹלָֽם",
+        "note": "The word translated as **forever** means “to indefinite futurity.” Alternate translation: [and for as long as anyone can imagine, my people will not feel shame]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:27",
+    "bsb_verse_text": "Then you will know that I am present in Israel and that I am the LORD your God, and there is no other. My people will never again be put to shame.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "יִשְׂרָאֵל֙",
+        "note": "While it is not known precisely where or when Joel prophesied, he appears to have lived in the southern kingdom of Judah before the exile or in the province of Judah (Judea) after the exile. So the term **Israel** probably does not mean the northern kingdom of Israel. It seems to be a reference to the people of Judah as Israelites. Alternate translation: [the people of Israel]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠לֹא־יֵבֹ֥שׁוּ עַמִּ֖⁠י לְ⁠עוֹלָֽם",
+        "note": "The word translated as **forever** means “to indefinite futurity.” Alternate translation: [and for as long as anyone can imagine, my people will not feel shame]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:28",
+    "bsb_verse_text": "And afterward, I will pour out My Spirit on all people. Your sons and daughters will prophesy, your old men will dream dreams, your young men will see visions.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-newevent",
+        "orig_language_quote": "וְ⁠הָיָ֣ה אַֽחֲרֵי־כֵ֗ן",
+        "note": "Yahweh is using this phrase to introduce a new event in the story that he goes on to describe. Use a word, phrase, or other method in your language that is natural for introducing a new event."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אֶשְׁפּ֤וֹךְ אֶת־רוּחִ⁠י֙ עַל־כָּל־בָּשָׂ֔ר",
+        "note": "Yahweh is speaking as if he would literally pour out his Spirit like a liquid. He means that he will give his Spirit generously. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [I will generously give my Spirit to very many people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "עַל־כָּל־בָּשָׂ֔ר",
+        "note": "Yahweh is using the term **flesh** to mean people, by association with the way human bodies are made of flesh. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [on very many people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "עַל־כָּל־בָּשָׂ֔ר",
+        "note": "Yahweh says **all** here as a generalization for emphasis. If it would be helpful in your language, you could use a different way to express the emphasis. Alternate translation: [on very many people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "וְ⁠נִבְּא֖וּ בְּנֵי⁠כֶ֣ם וּ⁠בְנֽוֹתֵי⁠כֶ֑ם",
+        "note": "Yahweh is speaking of the two major components of something in order to mean everything it includes. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [all of your children will prophesy]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "זִקְנֵי⁠כֶם֙ חֲלֹמ֣וֹת יַחֲלֹמ֔וּ⁠ן בַּח֣וּרֵי⁠כֶ֔ם חֶזְיֹנ֖וֹת יִרְאֽוּ",
+        "note": "Yahweh is speaking of two things in order to refer to them and everything in between. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [your men of all ages will see prophetic images]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "חֲלֹמ֣וֹת",
+        "note": "Joel assumes that his listeners will know that by **dreams** he means dreams with prophetic significance. You could say that explicitly if that would be helpful to your readers. Alternate translation: [dreams with prophetic significance]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:29",
+    "bsb_verse_text": "Even on My menservants and maidservants, I will pour out My Spirit in those days.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "וְ⁠גַ֥ם עַל־הָֽ⁠עֲבָדִ֖ים וְ⁠עַל־הַ⁠שְּׁפָח֑וֹת",
+        "note": "Yahweh is speaking of two things in order to mean them and everything in between. This verse continues the thought of the previous verse, that the Spirit will come to a great variety of people. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [Yes, even on people of low social status and of both genders]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "בַּ⁠יָּמִ֣ים הָ⁠הֵ֔מָּה",
+        "note": "Yahweh is using the term **days** to mean a period of time, by association with the way days make up longer periods of time. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [at that time]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אֶשְׁפּ֖וֹךְ אֶת־רוּחִֽ⁠י",
+        "note": "See how you translated this in [2:28](../02/28.md)."
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:30",
+    "bsb_verse_text": "I will show wonders in the heavens and on the earth, blood and fire and columns of smoke.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠נָֽתַתִּי֙ מֽוֹפְתִ֔ים",
+        "note": "If your language does not use an abstract noun for the idea of **wonders**, you could express the same idea in another way. Alternate translation: [I will do wonderful things] or [I will do amazing things]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:31",
+    "bsb_verse_text": "The sun will be turned to darkness and the moon to blood before the coming of the great and awesome Day of the LORD.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הַ⁠שֶּׁ֨מֶשׁ֙ יֵהָפֵ֣ךְ לְ⁠חֹ֔שֶׁךְ וְ⁠הַ⁠יָּרֵ֖חַ לְ⁠דָ֑ם",
+        "note": "Yahweh is speaking as if the sun and moon would literally turn into darkness and blood. He means that they will appear as they do during eclipses. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [The sun and the moon will appear as they do during eclipses]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "הַ⁠שֶּׁ֨מֶשׁ֙ יֵהָפֵ֣ךְ לְ⁠חֹ֔שֶׁךְ וְ⁠הַ⁠יָּרֵ֖חַ לְ⁠דָ֑ם",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [The sun will become darkness and the moon will become blood]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וְ⁠הַ⁠יָּרֵ֖חַ לְ⁠דָ֑ם",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [and the moon will be turned into blood]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "לִ⁠פְנֵ֗י בּ֚וֹא י֣וֹם יְהוָ֔ה הַ⁠גָּד֖וֹל וְ⁠הַ⁠נּוֹרָֽא",
+        "note": "Here, **to the face of** is an idiom that means “before.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: [before the great and terrible day of Yahweh comes]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "י֣וֹם יְהוָ֔ה הַ⁠גָּד֖וֹל וְ⁠הַ⁠נּוֹרָֽא",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [my great and terrible day]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "י֣וֹם יְהוָ֔ה הַ⁠גָּד֖וֹל וְ⁠הַ⁠נּוֹרָֽא",
+        "note": "See how you translated the similar expression in [1:15](../01/15.md)."
+      }
+    ]
+  },
+  {
+    "reference": "Joe 2:32",
+    "bsb_verse_text": "And everyone who calls on the name of the LORD will be saved; for on Mount Zion and in Jerusalem there will be deliverance, as the LORD has promised, among the remnant called by the LORD.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-newevent",
+        "orig_language_quote": "וְ⁠הָיָ֗ה",
+        "note": "Yahweh is using this phrase to introduce a new or special event in the story that he goes on to describe. Use a word, phrase, or other method in your language that is natural for introducing a new or special event. Alternate translation: [And not only that]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "כֹּ֧ל אֲשֶׁר־יִקְרָ֛א בְּ⁠שֵׁ֥ם יְהוָ֖ה יִמָּלֵ֑ט & יְהוָ֔ה",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [Yahweh will save everyone who calls on his name]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "בְּ⁠שֵׁ֥ם יְהוָ֖ה & יְהוָ֔ה",
+        "note": "Yahweh is using one aspect of Yahweh, his **name**, to represent all of Yahweh. If it would be clearer in your language, you could express this meaning plainly. Alternate translation: [on Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "בְּ⁠שֵׁ֥ם יְהוָ֖ה & יְהוָ֔ה",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [my name]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "כִּ֠י בְּ⁠הַר־צִיּ֨וֹן וּ⁠בִ⁠ירוּשָׁלִַ֜ם תִּֽהְיֶ֣ה פְלֵיטָ֗ה",
+        "note": "If your language does not use an abstract noun for the idea of **escape**, you could express the same idea in another way. Alternate translation: [For on Mount Zion and in Jerusalem Yahweh will provide a way for people to escape]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "בְּ⁠הַר־צִיּ֨וֹן וּ⁠בִ⁠ירוּשָׁלִַ֜ם",
+        "note": "The terms **Mount Zion** and **Jerusalem** mean similar things. Yahweh is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [in the holy city of Jerusalem]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "כַּֽ⁠אֲשֶׁר֙ אָמַ֣ר יְהוָ֔ה",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [as I have said]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "יְהוָ֖ה & וּ⁠בַ֨⁠שְּׂרִידִ֔ים אֲשֶׁ֥ר יְהוָ֖ה קֹרֵֽא",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [and there will be escape among the survivors whom Yahweh is calling]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "יְהוָ֖ה & אֲשֶׁ֥ר יְהוָ֖ה קֹרֵֽא",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [whom I am calling]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:1",
+    "bsb_verse_text": "“Yes, in those days and at that time, when I restore Judah and Jerusalem from captivity,",
+    "ult_verse_text": "For behold, in those days and at that time,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-quotations",
+        "orig_language_quote": "כִּ֗י הִנֵּ֛ה בַּ⁠יָּמִ֥ים הָ⁠הֵ֖מָּה וּ⁠בָ⁠עֵ֣ת הַ⁠הִ֑יא",
+        "note": "This verse continues a direct quotation from Yahweh. You may wish to indicate that in your translation, using a natural way of continuing direct quotations in your language. Alternate translation: [Yahweh also said, “For behold, in those days and at that time]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "כִּ֗י הִנֵּ֛ה",
+        "note": "Yahweh is using the term **behold** to focus his listeners’ attention on what he is about to say. Your language may have a comparable expression that you can use in your translation. Alternate translation: [Now look] or [Now listen]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "בַּ⁠יָּמִ֥ים הָ⁠הֵ֖מָּה וּ⁠בָ⁠עֵ֣ת הַ⁠הִ֑יא",
+        "note": "The expressions **in those days** and **at that time** mean similar things. Yahweh is using the two expressions together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [when that wonderful time comes]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "אֲשֶׁ֥ר אָשִׁ֛יב אֶת־שְׁב֥וּת יְהוּדָ֖ה וִ⁠ירוּשָׁלִָֽם",
+        "note": "If your language does not use an abstract noun for the idea of **captivity**, you could express the same idea in another way. Alternate translation: [when I bring back the captives of Judah and Jerusalem]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-textvariants",
+        "orig_language_quote": "אֲשֶׁ֥ר אָשִׁ֛יב אֶת־שְׁב֥וּת יְהוּדָ֖ה וִ⁠ירוּשָׁלִָֽם",
+        "note": "See the discussion in the introduction to this chapter of an alternate reading for this phrase. Alternate translation: [when I restore the fortunes of Judah and Jerusalem]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:2",
+    "bsb_verse_text": "I will gather all the nations and bring them down to the Valley of Jehoshaphat. There I will enter into judgment against them concerning My people, My inheritance, Israel, whom they have scattered among the nations as they divided up My land.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-transliterate",
+        "orig_language_quote": "עֵ֖מֶק יְהֽוֹשָׁפָ֑ט",
+        "note": "The word **Jehoshaphat** is the name of a valley. In your translation, you could spell it the way it sounds in your language, as the ULT does, or you could use a word or phrase from your language that expresses the meaning of this name, which is “Yahweh judges.” Alternate translation: [the Valley of Yahweh-Judges]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hendiadys",
+        "orig_language_quote": "עַמִּ֨⁠י וְ⁠נַחֲלָתִ֤⁠י יִשְׂרָאֵל֙",
+        "note": "This phrase expresses a single idea by using two words connected with **and**. The word **inheritance** tells what kind of **people** the Israelites are to Yahweh. In this context, the word **inheritance** refers to a portion that someone would choose for himself. Alternate translation: [my chosen people, Israel]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וְ⁠אֶת־אַרְצִ֖⁠י חִלֵּֽקוּ",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [and because they divided up my land]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:3",
+    "bsb_verse_text": "They cast lots for My people; they bartered a boy for a prostitute and sold a girl for wine to drink.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "גוֹרָ֑ל",
+        "note": "Yahweh is not referring to a specific **lot**. He means “lots” in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [lots]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "וַ⁠יִּתְּנ֤וּ הַ⁠יֶּ֨לֶד֙ בַּ⁠זּוֹנָ֔ה וְ⁠הַ⁠יַּלְדָּ֛ה מָכְר֥וּ",
+        "note": "The words **a boy**, **a prostitute**, and **a girl** represent these people in general, not one particular boy or prostitute or girl. If it would be helpful in your language, you could use a more natural expression. Alternate translation: [and they traded boys for prostitutes, and they sold girls]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:4",
+    "bsb_verse_text": "Now what do you have against Me, O Tyre, Sidon, and all the regions of Philistia? Are you rendering against Me a recompense? If you retaliate against Me, I will swiftly and speedily return your recompense upon your heads.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "וְ֠⁠גַם מָה־אַתֶּ֥ם לִ⁠י֙ צֹ֣ר וְ⁠צִיד֔וֹן וְ⁠כֹ֖ל גְּלִיל֣וֹת פְּלָ֑שֶׁת הַ⁠גְּמ֗וּל אַתֶּם֙ מְשַׁלְּמִ֣ים עָלָ֔⁠י & אַתֶּם֙",
+        "note": "Yahweh is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [And indeed, you have nothing to hold against me, Tyre, Sidon, and all of the regions of Philistia! There is no recompense that you need to pay back to me!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "מָה־אַתֶּ֥ם לִ⁠י֙",
+        "note": "This is an expression that a person in this culture would commonly use to ask another person why he was treating him with hostility. Your language may have a comparable expression that you can use in your translation. You could also use plain language. Alternate translation: [what do you have against me] or [why are you treating me with hostility]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הַ⁠גְּמ֗וּל אַתֶּם֙ מְשַׁלְּמִ֣ים עָלָ֔⁠י וְ⁠אִם־גֹּמְלִ֤ים אַתֶּם֙ עָלַ֔⁠י",
+        "note": "Yahweh is speaking as if the nations were literally paying him back for something bad that he had done to them. He is asking if they have a grudge against him that they are carrying out. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [Do you have some grudge against me that you are carrying out? And if you are carrying out a grudge against me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "קַ֣ל מְהֵרָ֔ה",
+        "note": "The terms **swiftly** and **speedily** mean similar things. Yahweh is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [very quickly]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "אָשִׁ֥יב גְּמֻלְ⁠כֶ֖ם בְּ⁠רֹאשְׁ⁠כֶֽם",
+        "note": "Yahweh is using one part of a person, his **head**, to mean the entire person. If it would be clearer in your language, you could express this meaning with a more general term. Alternate translation: [I will turn your recompense onto you] or [I will directly pay you back]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "בְּ⁠רֹאשְׁ⁠כֶֽם",
+        "note": "Since Yahweh is referring to multiple nations, it might be more natural in your language to use the plural form of **head**. Alternate translation: [onto your heads]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:6",
+    "bsb_verse_text": "You sold the people of Judah and Jerusalem to the Greeks, to send them far from their homeland.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וּ⁠בְנֵ֤י יְהוּדָה֙ וּ⁠בְנֵ֣י יְרוּשָׁלִַ֔ם",
+        "note": "See how you translated the term **sons** in [2:23](../02/23.md). Alternate translation: [the people who lived in the province of Judah and the city of Jerusalem]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "לִ⁠בְנֵ֣י הַ⁠יְּוָנִ֑ים",
+        "note": "Here the word **sons** does not mean literal first-generation offspring but “descendants.” The phrase **the sons of Javan** refers to the Ionians, that is, the Greeks. Alternate translation: [to the Greeks]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "הַ⁠יְּוָנִ֑ים",
+        "note": "The word **Javan** is the name of a man."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "לְמַ֥עַן הַרְחִיקָ֖⁠ם מֵ⁠עַ֥ל גְּבוּלָֽ⁠ם",
+        "note": "While this phrase seems to describe a purpose or goal, it is actually describing a result. Alternate translation: [and as a result, they were removed far from their territory]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:7",
+    "bsb_verse_text": "Behold, I will rouse them from the places to which you sold them; I will return your recompense upon your heads.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הִנְ⁠נִ֣י מְעִירָ֔⁠ם",
+        "note": "As in [2:19](../02/19.md), this expression means “I am going to rouse them.” Your language may have a comparable expression that you can use in your translation. Alternate translation: [But I am going to stir them up]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicitinfo",
+        "orig_language_quote": "אֲשֶׁר־מְכַרְתֶּ֥ם אֹתָ֖⁠ם שָׁ֑מָּ⁠ה",
+        "note": "It may seem that this expression contains extra information that would be unnatural to express in your language. If so, you can shorten it. Alternate translation: [to which you sold them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "וַ⁠הֲשִׁבֹתִ֥י גְמֻלְ⁠כֶ֖ם בְּ⁠רֹאשְׁ⁠כֶֽם",
+        "note": "See how you translated the same expression in [3:4](../03/04.md)."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "בְּ⁠רֹאשְׁ⁠כֶֽם",
+        "note": "Since Yahweh is referring to multiple nations, it might be more natural in your language to use the plural form of “head.” Alternate translation: [onto your heads]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:8",
+    "bsb_verse_text": "I will sell your sons and daughters into the hands of the people of Judah, and they will sell them to the Sabeans—to a distant nation.” Indeed, the LORD has spoken.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-words-phrases",
+        "orig_language_quote": "וּ⁠מָכַרְתִּ֞י",
+        "note": "Yahweh is using the word **For** to introduce more specific information about what he described in the previous verse. Alternate translation: [This will happen when I sell]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "בְּ⁠יַד֙ בְּנֵ֣י יְהוּדָ֔ה",
+        "note": "Since Yahweh is referring to a group of people, it might be more natural in your language to use the plural form of **hand**. Alternate translation: [into the hands of the sons of Judah]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "וּ⁠מָכַרְתִּ֞י אֶת־בְּנֵי⁠כֶ֣ם וְ⁠אֶת־בְּנֽוֹתֵי⁠כֶ֗ם בְּ⁠יַד֙ בְּנֵ֣י יְהוּדָ֔ה",
+        "note": "Yahweh is using one part of a person, the **hand**, to represent the whole person in the act of taking possession of something. If it would be clearer in your language, you could express this meaning with more general terms. Alternate translation: [For I will sell your sons and your daughters to the sons of Judah]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "בְּנֵ֣י יְהוּדָ֔ה",
+        "note": "Here the word **sons** does not mean literal first-generation offspring but “descendants.” The phrase **the sons of Judah** refers to the Judeans. Alternate translation: [the Judeans]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "לִ⁠שְׁבָאיִ֖ם",
+        "note": "The word **Sabeans** is the name of a people group."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-quotations",
+        "orig_language_quote": "אֶל־גּ֣וֹי רָח֑וֹק כִּ֥י יְהוָ֖ה דִּבֵּֽר",
+        "note": "The phrase **For Yahweh has spoken** indicates that this is a direct quotation from Yahweh. You may wish to indicate that in your translation, using a natural way of introducing direct quotations in your language. Alternate translation: [to a faraway nation,” says Yahweh]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:9",
+    "bsb_verse_text": "Proclaim this among the nations: “Prepare for war; rouse the mighty men; let all the men of war advance and attack!",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "קִרְאוּ",
+        "note": "The imperative **Proclaim** is plural here, so use the plural form in your translation if your language marks that distinction. Joel is addressing generally all those who would be in a position to make this proclamation."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "קַדְּשׁ֖וּ מִלְחָמָ֑ה",
+        "note": "Joel assumes that his listeners will know that by **Consecrate a war** he means to perform the rites with which they would begin a war. You could say that explicitly if that would be helpful to your readers. Alternate translation: [Perform the rites with which you would begin a war]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:10",
+    "bsb_verse_text": "Beat your plowshares into swords and your pruning hooks into spears. Let the weak say, ‘I am strong!’",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "אִתֵּי⁠כֶם֙",
+        "note": "The word **plowshares** describes blades for plows, which are tools used to break up soil for planting. If your readers would not be familiar with what a plowshare is, in your translation you could use the name of a similar thing that your readers would recognize, or you could use a general expression. Alternate translation: [your plow blades] or [your farming tools]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "וּ⁠מַזְמְרֹֽתֵי⁠כֶ֖ם",
+        "note": "The expression **pruning hooks** describes curved blades used for trimming trees and vines. If your readers would not be familiar with what a pruning hook is, in your translation you could use the name of a similar thing that your readers would recognize, or you could use a general expression. Alternate translation: [your curved trimming blades] or [your gardening tools]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "הַֽ⁠חַלָּ֔שׁ יֹאמַ֖ר גִּבּ֥וֹר אָֽנִי",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Let the weak say that they are strong]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-nominaladj",
+        "orig_language_quote": "הַֽ⁠חַלָּ֔שׁ",
+        "note": "Joel is using the adjective **weak** as a noun to mean a certain kind of person. Your language may use adjectives in the same way. If not, you can translate this adjective with an equivalent phrase. Alternate translation: [anyone who is weak]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:11",
+    "bsb_verse_text": "Come quickly, all you surrounding nations, and gather yourselves. Bring down Your mighty ones, O LORD.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hendiadys",
+        "orig_language_quote": "ע֣וּשׁוּ וָ⁠בֹ֧אוּ",
+        "note": "This phrase expresses a single idea by using two words connected with **and**. The word **Hurry** tells in what way the nations should **come**. Alternate translation: [Come quickly]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:12",
+    "bsb_verse_text": "Let the nations be roused and advance to the Valley of Jehoshaphat, for there I will sit down to judge all the nations on every side.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotations",
+        "orig_language_quote": "יֵע֨וֹרוּ֙ & הַ⁠גּוֹיִ֔ם",
+        "note": "Most versions treat [verses 12](../03/12.md) and [13](../03/13.md) as a direct quotation of Yahweh, but some do not. If a translation of the Bible exists in your region, you may wish to follow the quotation boundaries that it has. If a translation of the Bible does not exist in your region, you may wish to use the same boundaries as the ULT."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-transliterate",
+        "orig_language_quote": "עֵ֖מֶק יְהֽוֹשָׁפָ֑ט",
+        "note": "See how you translated this name in [3:2](../03/02.md)."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "אֵשֵׁ֛ב לִ⁠שְׁפֹּ֥ט",
+        "note": "To **sit to judge** means to sit down as a symbolic action that represents taking an official position of authority to make judgments. If it would be helpful to your readers, you could explain the significance of this action. Alternate translation: [I will take my place as judge]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:13",
+    "bsb_verse_text": "Swing the sickle, for the harvest is ripe. Come, trample the grapes, for the winepress is full; the wine vats overflow because their wickedness is great.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "שִׁלְח֣וּ מַגָּ֔ל כִּ֥י בָשַׁ֖ל קָצִ֑יר & כִּֽי",
+        "note": "Yahweh is speaking as if he literally wanted the “warriors” mentioned in [3:11](../03/11.md) to harvest grain. He means that he wants them to punish the nations. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [Strike the nations, just as harvesters cut down grain with a sickle]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "שִׁלְח֣וּ מַגָּ֔ל",
+        "note": "Yahweh is using the first action that someone would do in order to use a sickle, **Stretch** it out, to refer to the entire act of using it. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [Use the sickle]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "שִׁלְח֣וּ מַגָּ֔ל",
+        "note": "Yahweh is not referring to a specific **sickle**. He means the sickles that his “warriors” of [verse 11](../03/11.md) symbolically have. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [Use your sickles]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "שִׁלְח֣וּ",
+        "note": "The imperatives **Stretch out**, **Come**, and **go down** are plural here, so use the plural form in your translation if your language marks that distinction. These imperatives seems to be addressing the “warriors” mentioned in [3:11](../03/11.md)."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "בֹּ֤אֽוּ רְדוּ֙ כִּֽי־מָ֣לְאָה גַּ֔ת",
+        "note": "Yahweh is speaking as if he literally wanted those “warriors” to press grapes. He means once again that he wants them to punish the nations. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [Yes, come and punish the nations, just as harvesters tread down the grapes that fill a winepress]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "כִּ֥י & כִּ֥י רַבָּ֖ה רָעָתָֽ⁠ם",
+        "note": "If your language does not use an abstract noun for the idea of **wickedness**, you could express the same idea in another way. Alternate translation: [for they are very wicked]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:14",
+    "bsb_verse_text": "Multitudes, multitudes in the valley of decision! For the Day of the LORD is near in the valley of decision.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-reduplication",
+        "orig_language_quote": "הֲמוֹנִ֣ים הֲמוֹנִ֔ים בְּ⁠עֵ֖מֶק הֶֽ⁠חָר֑וּץ & בְּ⁠עֵ֖מֶק",
+        "note": "Joel is repeating the word **multitudes** in order to intensify the idea that it expresses. If your language can repeat words for intensification, it would be appropriate to do that here in your translation. If not, your language may have another way of expressing the emphasis. Alternate translation: [Vast multitudes in the valley of decision]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "הֲמוֹנִ֣ים הֲמוֹנִ֔ים בְּ⁠עֵ֖מֶק הֶֽ⁠חָר֑וּץ & בְּ⁠עֵ֖מֶק",
+        "note": "Joel is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [Multitudes, multitudes are in the valley of decision]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "בְּ⁠עֵ֖מֶק הֶֽ⁠חָר֑וּץ & בְּ⁠עֵ֖מֶק",
+        "note": "If your language does not use an abstract noun for the idea of **decision**, you could express the same idea in another way. Alternate translation: [in the valley where I will decide their fate]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:15",
+    "bsb_verse_text": "The sun and moon will grow dark, and the stars will no longer shine.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "שֶׁ֥מֶשׁ וְ⁠יָרֵ֖חַ קָדָ֑רוּ וְ⁠כוֹכָבִ֖ים אָסְפ֥וּ נָגְהָֽ⁠ם",
+        "note": "These are the same phrases as in [2:10](../02/10.md), where Joel used them to describe the locust swarm blocking the light of the sun, moon, and stars. Here, in Joel’s description of the final judgment, these phrases could: (1) have a literal meaning, describing how the creation will disintegrate at the end of history. See the UST. Or (2) be symbolic of earthly rulers and nations losing their power. Alternate translation: [All earthly powers fade before the power of Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "וְ⁠כוֹכָבִ֖ים אָסְפ֥וּ נָגְהָֽ⁠ם",
+        "note": "See how you translated the same expression in [2:10](../02/10.md)."
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:16",
+    "bsb_verse_text": "The LORD will roar from Zion and raise His voice from Jerusalem; heaven and earth will tremble. But the LORD will be a refuge for His people, a stronghold for the people of Israel.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וַ⁠יהוָ֞ה מִ⁠צִּיּ֣וֹן יִשְׁאָ֗ג",
+        "note": "Joel is speaking as if Yahweh would literally **roar** like a lion. He means that Yahweh will powerfully proclaim his judgments. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [Yahweh will powerfully proclaim his judgments from Zion, just as a lion roars powerfully]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠רָעֲשׁ֖וּ שָׁמַ֣יִם וָ⁠אָ֑רֶץ",
+        "note": "Joel is speaking as if the **heavens** and the **earth** would literally shake. This could be: (1) a literal description of how the creation will disintegrate at the end of history. See the UST. Or (2) a symbolic description of how powers on earth and in heaven will give way before the power of Yahweh. Alternate translation: [Yes, powers on earth and in heaven will give way before the power of Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וַֽ⁠יהוָה֙ מַֽחֲסֶ֣ה לְ⁠עַמּ֔⁠וֹ וּ⁠מָע֖וֹז לִ⁠בְנֵ֥י יִשְׂרָאֵֽל",
+        "note": "Joel is describing Yahweh as a **shelter** and a **stronghold**. He means that Yahweh will protect his people. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [But Yahweh will protect his people, yes, he will guard the sons of Israel]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "לִ⁠בְנֵ֥י יִשְׂרָאֵֽל",
+        "note": "See how you translated the term **sons** in [2:23](../02/23.md). Alternate translation: [the people of Israel]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:17",
+    "bsb_verse_text": "Then you will know that I am the LORD your God, who dwells in Zion, My holy mountain. Jerusalem will be holy, never again to be overrun by foreigners.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-quotations",
+        "orig_language_quote": "וִֽ⁠ידַעְתֶּ֗ם",
+        "note": "This verse begins a direct quotation from Yahweh. You may wish to indicate that in your translation, using a natural way of introducing direct quotations in your language. Alternate translation: [He says, “Then you will know]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "הַר־קָדְשִׁ֑⁠י",
+        "note": "If your language does not use an abstract noun for the idea of **holiness**, you could express the same idea in another way. Alternate translation: [my holy mountain]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:18",
+    "bsb_verse_text": "And in that day the mountains will drip with sweet wine, and the hills will flow with milk. All the streams of Judah will run with water, and a spring will flow from the house of the LORD to water the Valley of Acacias.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotations",
+        "orig_language_quote": "וְ⁠הָיָה֩ בַ⁠יּ֨וֹם הַ⁠ה֜וּא",
+        "note": "Some versions do not treat this verse as part of the direct quotation of Yahweh in [3:17–21](../03/17.md). If a translation of the Bible exists in your region, you may wish to follow the quotation boundaries that it has. If a translation of the Bible does not exist in your region, you may wish to use the same boundaries as the ULT."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "בַ⁠יּ֨וֹם הַ⁠ה֜וּא",
+        "note": "Yahweh is using the term **day** to mean a specific time, by association with the way a day is a specific period of time. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [at that time]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "יִטְּפ֧וּ הֶ⁠הָרִ֣ים עָסִ֗יס וְ⁠הַ⁠גְּבָעוֹת֙ תֵּלַ֣כְנָה חָלָ֔ב",
+        "note": "Yahweh is describing the **mountains** and **hills** as producing **wine** and **milk**. He means that the land will be very productive. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [the grapevines on the mountains will produce grapes for wine abundantly, and the pastures on the hills will nourish cattle that will produce much milk]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-go",
+        "orig_language_quote": "וּ⁠מַעְיָ֗ן & יֵצֵ֔א",
+        "note": "In a context such as this, your language might say “come” instead of **go**. Alternate translation: [and a spring will come out]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וּ⁠מַעְיָ֗ן",
+        "note": "Yahweh is using the term **spring** by association to mean the water that comes from a spring. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [water from a spring]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מִ⁠בֵּ֤ית יְהוָה֙",
+        "note": "See how you translated the same expression in [1:9](../01/09.md). Alternate translation: [from the temple of Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-transliterate",
+        "orig_language_quote": "אֶת־נַ֥חַל הַ⁠שִּׁטִּֽים",
+        "note": "The word **Shittim** is the name of a valley. In your translation, you could spell it the way it sounds in your language, as the ULT does, or you could use a word or phrase from your language that expresses the meaning of this name. Alternate translation: [the Valley of the Acacias]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:19",
+    "bsb_verse_text": "Egypt will become desolate, and Edom a desert wasteland, because of the violence done to the people of Judah, in whose land they shed innocent blood.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "מִצְרַ֨יִם֙ לִ⁠שְׁמָמָ֣ה תִֽהְיֶ֔ה",
+        "note": "If your language does not use an abstract noun for the idea of **desolation**, you could express the same idea in another way. Alternate translation: [Egypt will become desolate]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-possession",
+        "orig_language_quote": "מֵֽ⁠חֲמַס֙ בְּנֵ֣י יְהוּדָ֔ה",
+        "note": "Yahweh is using this possessive form to describe not **violence** that the **sons of Judah** committed but violence that was committed against them. It may be helpful to clarify this for your readers. Alternate translation: [for the violence that they committed against the sons of Judah]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "שָׁפְכ֥וּ דָם־נָקִ֖יא",
+        "note": "Yahweh is using the term **blood** to mean the lives of people, by association with the way people’s blood may be shed when they are killed. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [killed innocent people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "בְּ⁠אַרְצָֽ⁠ם",
+        "note": "The word **their** could refer to: (1) **the sons of Judah**, and would mean that the violence was done in Judah. Alternate translation: [in the land of Judah] or (2) **Egypt** and **Edom**, and would mean that the violence was done in those countries. Alternate translation: [in their lands]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:20",
+    "bsb_verse_text": "But Judah will be inhabited forever, and Jerusalem from generation to generation.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וִ⁠יהוּדָ֖ה",
+        "note": "Yahweh is using the term **Judah** by association to mean the people living in Judah. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the people of Judah]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וִ⁠ירוּשָׁלִַ֖ם לְ⁠ד֥וֹר וָ⁠דֽוֹר",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [and Jerusalem will dwell to generation and generation]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "לְ⁠ד֥וֹר וָ⁠דֽוֹר",
+        "note": "Like the expression in [2:2](../02/02.md), this means “for a very long time.” Your language may have a comparable expression that you can use in your translation. Alternate translation: [for all generations to come]"
+      }
+    ]
+  },
+  {
+    "reference": "Joe 3:21",
+    "bsb_verse_text": "For I will avenge their blood, which I have not yet avenged.” For the LORD dwells in Zion.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-textvariants",
+        "orig_language_quote": "וְ⁠נִקֵּ֖יתִי דָּמָ֣⁠ם לֹֽא־נִקֵּ֑יתִי",
+        "note": "See the discussion in the introduction to this chapter of an alternate reading for this phrase. Alternate translation: [And I will avenge their blood {that} I have not avenged]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "דָּמָ֣⁠ם",
+        "note": "Yahweh is using the term **blood** to mean the deaths of people, by association with the loss of blood that usually occurs when people die violently. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [their deaths]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotations",
+        "orig_language_quote": "וַֽ⁠יהוָ֖ה שֹׁכֵ֥ן בְּ⁠צִיּֽוֹן",
+        "note": "Some versions do not treat this clause as part of the direct quotation of Yahweh in [3:17–21](../03/17.md). If a translation of the Bible exists in your region, you may wish to follow the quotation boundaries that it has. If a translation of the Bible does not exist in your region, you may wish to use the same boundaries as the ULT."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "וַֽ⁠יהוָ֖ה שֹׁכֵ֥ן בְּ⁠צִיּֽוֹן",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [for I am dwelling in Zion]"
+      }
+    ]
+  }
+]

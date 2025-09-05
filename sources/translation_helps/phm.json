@@ -1,0 +1,630 @@
+[
+  {
+    "reference": "Phm 1:1",
+    "bsb_verse_text": "Paul, a prisoner of Christ Jesus, and Timothy our brother, To Philemon our beloved fellow worker,",
+    "ult_verse_text": "Paul, a prisoner of Christ Jesus, and our brother Timothy to Philemon, the beloved and our fellow worker,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "Παῦλος",
+        "note": "Your language may have a particular way of introducing the author of a letter. Use that here. Alternate translation: [From me, Paul] or [I, Paul]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δέσμιος Χριστοῦ Ἰησοῦ",
+        "note": "Paul was in prison because people in authority did not want him to preach about Jesus. They put him there in order to stop him and to punish him. This does not mean that Jesus had put Paul in prison. Alternate translation: [a prisoner for the sake of Christ Jesus]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὁ ἀδελφὸς",
+        "note": "Paul is using the term **brother** to mean someone who shares the same faith. Alternate translation: [our fellow Christian] or [our companion in the faith] (See: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "ὁ ἀδελφὸς",
+        "note": "Here, the word **our** is not in the original, but was necessary for English, which requires that a relationship word indicate who the person is related to. In this case, **our** would be inclusive, relating Timothy to Paul and the readers as a brother in Christ. If your language requires this, you could do the same. If not, you could follow the original wording, which says, “the brother.”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Φιλήμονι",
+        "note": "**Philemon** is the name of a man."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "Φιλήμονι",
+        "note": "If it would be more natural in your language, you could include the information that this is a letter in which Paul is speaking directly to **Philemon**, as in the UST."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "ἡμῶν",
+        "note": "The word **our** here refers to Paul and those with him, but not to the reader."
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καὶ συνεργῷ ἡμῶν",
+        "note": "If it would be helpful in your language, you could state explicitly how Philemon worked with Paul. Alternate translation: [who, like us, works to spread the gospel] or [who works as we do to serve Jesus]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:2",
+    "bsb_verse_text": "to Apphia our sister, to Archippus our fellow soldier, and to the church that meets at your house:",
+    "ult_verse_text": "and to Apphia our sister, and to Archippus our fellow soldier, and to the church in your house.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Ἀπφίᾳ",
+        "note": "**Apphia** is the name of a woman."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "τῇ ἀδελφῇ",
+        "note": "Here, the word **our** is not in the original, but was necessary for English, which requires that a relationship word indicate who the person is related to. In this case, **our** would be inclusive, relating Apphia to Paul and the readers as a sister in Christ. If your language requires this, you could do the same. If not, you could do the same as the original, which says, “the sister.”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τῇ ἀδελφῇ",
+        "note": "Paul is using the term **sister** to mean a woman who shares the same faith. Alternate translation: [our fellow Christian] or [our spiritual sister]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "ἡμῶν",
+        "note": "The word **our** here refers to Paul and those with him, but not to the reader."
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "Ἀπφίᾳ & Ἀρχίππῳ & τῇ & ἐκκλησίᾳ",
+        "note": "The letter is predominantly addressed to Philemon. It could be misleading to suggest Paul is writing to **Apphia**, **Archippus**, and **the church** in Philemon’s house, on the same level as he is writing to Philemon."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Ἀρχίππῳ",
+        "note": "**Archippus** is the name of a man in the church with Philemon."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τῷ συνστρατιώτῃ ἡμῶν",
+        "note": "Paul speaks here of Archippus as if he and Archippus were both soldiers in an army. He means that Archippus works hard, as Paul himself works hard, to spread the gospel. Alternate translation: [our fellow spiritual warrior] or [who also fights the spiritual battle with us]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καὶ τῇ κατ’ οἶκόν σου ἐκκλησίᾳ",
+        "note": "Apphia and Archippus were probably also members of the **church** that met at Philemon’s house. If mentioning them separately would imply that they were not part of the church, you could include a word like “other.” Alternate translation: [to the other members of the church in your house]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:3",
+    "bsb_verse_text": "Grace and peace to you from God our Father and the Lord Jesus Christ.",
+    "ult_verse_text": "Grace to you and peace from God our Father and our Lord Jesus Christ.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-blessing",
+        "orig_language_quote": "χάρις ὑμῖν καὶ εἰρήνη, ἀπὸ Θεοῦ Πατρὸς ἡμῶν καὶ Κυρίου ἡμῶν Ἰησοῦ Χριστοῦ",
+        "note": "After introducing the senders and recipients of the letter, Paul gives a blessing. Use a form that people would recognize as a blessing in your language. Alternate translation: [May God our Father and the Lord Jesus Christ give you grace and peace.]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "χάρις ὑμῖν καὶ εἰρήνη, ἀπὸ Θεοῦ Πατρὸς ἡμῶν καὶ Κυρίου ἡμῶν Ἰησοῦ Χριστοῦ.",
+        "note": "If it would be helpful in your language, you could express the idea behind the abstract nouns **Grace** and **peace** with adjectives such as “gracious” and “peaceful.” Alternate translation: [May God our Father and our Lord Jesus Christ be gracious to you and make you peaceful]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "ἡμῶν & ἡμῶν",
+        "note": "The word **our** here is inclusive, referring to Paul, those with him, and the reader."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "ὑμῖν",
+        "note": "Here, **you** is plural, referring to all of the recipients named in [verses 1–2](../01/01.md)."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/guidelines-sonofgodprinciples",
+        "orig_language_quote": "Πατρὸς",
+        "note": "**Father** is an important title for God."
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:4",
+    "bsb_verse_text": "I always thank my God, remembering you in my prayers,",
+    "ult_verse_text": "I always thank my God, making mention of you in my prayers,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "σου",
+        "note": "Here, the word **you** is singular and refers to Philemon."
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:5",
+    "bsb_verse_text": "because I hear about your faith in the Lord Jesus and your love for all the saints.",
+    "ult_verse_text": "hearing of your love and the faith that you have in the Lord Jesus and for all the saints,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἀκούων σου τὴν ἀγάπην καὶ τὴν πίστιν, ἣν ἔχεις πρὸς τὸν Κύριον Ἰησοῦν, καὶ εἰς πάντας τοὺς ἁγίους",
+        "note": "If it would be helpful in your language, you could express the abstract nouns **love** and **faith** by stating the ideas behind them with verbs instead. Alternate translation: [hearing how much you love and believe in the Lord Jesus and all the saints]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-poetry",
+        "orig_language_quote": "ἀκούων σου τὴν ἀγάπην καὶ τὴν πίστιν, ἣν ἔχεις πρὸς τὸν Κύριον Ἰησοῦν, καὶ εἰς πάντας τοὺς ἁγίους",
+        "note": "Paul is using a poetic structure here in which the first and last parts relate and the second and third parts relate. Therefore, the meaning is: “hearing of the faith that you have in the Lord Jesus and of your love for all the saints.”Paul said exactly that in [Colossians 1:4](../../col/01/04.md) without the poetic structure."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "σου & ἔχεις",
+        "note": "Here, the words **your** and **you** are singular and refer to Philemon."
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:6",
+    "bsb_verse_text": "I pray that your partnership in the faith may become effective as you fully acknowledge every good thing that is ours in Christ.",
+    "ult_verse_text": "that the fellowship of your faith may become effective through the knowledge of everything good {that is} among us for Christ.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "ὅπως",
+        "note": "Here, **that** introduces the content of the prayer that Paul mentions in [verse 4](../01/04.md). If it would be helpful in your language, you could repeat the idea of prayer here. Alternate translation: [I pray that]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἡ κοινωνία τῆς πίστεώς σου",
+        "note": "The word translated **fellowship** means a sharing or a partnership in something. Paul probably intends both meanings, but if you must choose, it could mean: (1) that Philemon shares the same faith in Christ as Paul and others. Alternate translation: [the faith that you share with us]; (2) that Philemon is a partner with Paul and others in working for Christ. Alternate translation: [your working together with us as believers]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἡ κοινωνία τῆς πίστεώς σου, ἐνεργὴς γένηται ἐν ἐπιγνώσει παντὸς ἀγαθοῦ τοῦ ἐν ἡμῖν εἰς Χριστόν.",
+        "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **faith** with a verb such as “trust” or “believe,” and behind **knowledge** with a verb such as “know” or “learn.” Alternate translation: [as you trust in the Messiah along with us, you may become increasingly better at serving the Messiah, as you learn about all of the good things that he has given us to use for him]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἐν ἐπιγνώσει παντὸς ἀγαθοῦ",
+        "note": "This could mean: (1) “and will result in you knowing every good thing” (2) “so that those you share your faith with will know every good thing” Alternate translation: [by knowing everything good]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "εἰς Χριστόν",
+        "note": "If it would be helpful in your language, you could state explicitly how “everything good” is **for Christ**. Alternate translation: [for the sake of Christ] or [for the benefit of Christ]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:7",
+    "bsb_verse_text": "I take great joy and encouragement in your love, because you, brother, have refreshed the hearts of the saints.",
+    "ult_verse_text": "For I had much joy and comfort because of your love, because the inner parts of the saints are being refreshed by you, brother.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "χαρὰν γὰρ πολλὴν ἔσχον καὶ παράκλησιν",
+        "note": "If it would be helpful in your language, you could express the idea behind the abstract nouns **joy** and **comfort** with adjectives. Alternate translation: [For you made me very joyful and comforted]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἐπὶ τῇ ἀγάπῃ σου",
+        "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **love** with a verb. Alternate translation: [because you love people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "τὰ σπλάγχνα τῶν ἁγίων ἀναπέπαυται διὰ σοῦ",
+        "note": "If your language does not use this passive form, you can state this in active form. Alternate translation: [you have refreshed the inward parts of the saints]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "τὰ σπλάγχνα τῶν ἁγίων",
+        "note": "Here, **inward parts** refers to a person’s emotions or inner being. Use the figure that is normal in your language for this, such as “hearts” or “livers,” or give the plain meaning. Alternate translation: [the thoughts and feelings of the saints]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὰ σπλάγχνα τῶν ἁγίων ἀναπέπαυται διὰ σοῦ",
+        "note": "Here, **being refreshed** refers to the feeling of encouragement or relief. Alternate translation: [you have encouraged the saints] or [you have helped the believers]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "σοῦ, ἀδελφέ",
+        "note": "Paul called Philemon **brother** because they were both believers, and he wanted to emphasize their friendship. Alternate translation: [you, dear brother] or [you, dear friend]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:8",
+    "bsb_verse_text": "So although in Christ I am bold enough to order you to do what is proper,",
+    "ult_verse_text": "Therefore, having much boldness in Christ to command you the {thing that} is proper {to do},",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/checking/headings",
+        "orig_language_quote": "διό",
+        "note": "Here Paul begins his plea and the reason for his letter. If you are using section headings, you could put one here before [verse 8](../01/08.md). Suggested heading: “Paul’s Request”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πολλὴν ἐν Χριστῷ παρρησίαν",
+        "note": "This could mean: (1) “all authority because of Christ” (2) “all courage because of Christ.”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "διό",
+        "note": "The word **Therefore** signals that what Paul has just said in [verses 4–7](../01/04.md) is the reason for what he is about to say. Use a connecting word or another way that your language uses to signal this relationship. Alternate translation: [Because of this]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:9",
+    "bsb_verse_text": "I prefer to appeal on the basis of love. For I, Paul, am now aged, and a prisoner of Christ Jesus as well.",
+    "ult_verse_text": "because of love I appeal to you instead—being such a one as Paul, an elder, and now also a prisoner of Christ Jesus.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "διὰ τὴν ἀγάπην",
+        "note": "Paul does not say for whom this **love** is. If you need to use a verb here and say who loves whom, this could refer to: (1) the mutual love between him and Philemon. See the UST. (2) Paul’s love for Philemon. Alternate translation: [because I love you]; (3) Philemon’s love for his fellow believers. Alternate translation: [because I know that you love God’s people]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δέσμιος Χριστοῦ Ἰησοῦ",
+        "note": "Paul was in prison because people in authority did not want him to preach about Jesus. They put him there in order to stop him and to punish him. This does not mean that Jesus had put Paul in prison. Alternate translation: [a prisoner for the sake of Christ Jesus]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:10",
+    "bsb_verse_text": "I appeal to you for my child Onesimus, whose father I became while I was in chains.",
+    "ult_verse_text": "I am appealing to you on behalf of my child Onesimus, whom I have fathered in my chains.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Ὀνήσιμον",
+        "note": "**Onesimus** is the name of a man."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "Ὀνήσιμον",
+        "note": "The name **Onesimus** means “profitable” or “useful.” If it would be helpful to your readers, you could include this information in the text or in a footnote."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὃν ἐγέννησα",
+        "note": "Here, **fathered** is a metaphor that means that Onesimus became a believer as Paul taught him about Christ. Alternate translation: [who received new life and became my spiritual son when I taught him about Christ] or [who became a spiritual son to me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐν τοῖς δεσμοῖς",
+        "note": "Prisoners were often bound in **chains**. Paul was in prison when he taught Onesimus and was still in prison when he wrote this letter. Alternate translation: [here in prison]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:12",
+    "bsb_verse_text": "I am sending back to you him who is my very heart.",
+    "ult_verse_text": "whom I have sent back to you—him—this one is my inner parts;",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὃν ἀνέπεμψά σοι",
+        "note": "Paul was probably sending Onesimus with another believer who carried this letter."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τοῦτ’ ἔστιν τὰ ἐμὰ σπλάγχνα",
+        "note": "The phrase **this one is my inward parts** is a metaphor for deep feelings about someone. Paul was saying this about Onesimus. Alternate translation: [this is a person whom I love dearly] or [this person is very special to me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "τὰ ἐμὰ σπλάγχνα",
+        "note": "Here, ** inward parts** is figurative for the place of a person’s emotions. If your language has a similar figure, then use that. If not, use plain language. Alternate translation: [my heart] or [my liver] or [my deepest feelings]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:13",
+    "bsb_verse_text": "I would have liked to keep him with me, so that on your behalf he could minister to me in my chains for the gospel.",
+    "ult_verse_text": "whom I desired to keep with me, so that he might serve me on behalf of you in the chains of the gospel.",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἵνα ὑπὲρ σοῦ μοι διακονῇ",
+        "note": "Paul knows that Philemon wants to help him, and so he suggests that a way to do that would be to allow Onesimus to serve Paul in prison. Alternate translation: [so that, since you could not be here, he might help me] or [so that he could help me in your place]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐν τοῖς δεσμοῖς",
+        "note": "Prisoners were often bound in **chains**. Paul was in prison when he told Onesimus about the Messiah, and he was still in prison when he wrote this letter."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "ἐν τοῖς δεσμοῖς τοῦ εὐαγγελίου",
+        "note": "Paul was in prison because he preached **the gospel** publicly. You can state this explicitly. Alternate translation: [in the chains that they put on me because I preach the gospel]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:14",
+    "bsb_verse_text": "But I did not want to do anything without your consent, so that your goodness will not be out of compulsion, but by your own free will.",
+    "ult_verse_text": "But I did not want to do anything without your consent, so that your good {deed} might not be as according to compulsion but according to good will.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἵνα μὴ ὡς κατὰ ἀνάγκην τὸ ἀγαθόν σου ᾖ",
+        "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **compulsion** with a verb. Alternate translation: [for I did not want you to do this good deed because I commanded you to do it]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἀλλὰ κατὰ ἑκούσιον.",
+        "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **will** with a verb. Alternate translation: [but because you wanted to do it] or [but because you freely chose to do the right thing]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:15",
+    "bsb_verse_text": "For perhaps this is why he was separated from you for a while, so that you might have him back for good—",
+    "ult_verse_text": "For perhaps because of this he was separated from {you} for an hour, so that you might have him back forever,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "τάχα γὰρ διὰ τοῦτο, ἐχωρίσθη πρὸς ὥραν, ἵνα",
+        "note": "If your language does not use this passive form, you can state this in active form. Alternate translation: [For perhaps the reason that God took Onesimus away from you for a time was so that]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "πρὸς ὥραν",
+        "note": "Here, the phrase **for an hour** is an idiom meaning “for a short time.” If it would be helpful in your language, you could use an equivalent idiom or use plain language. Alternate translation: [for this short time]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:16",
+    "bsb_verse_text": "no longer as a slave, but better than a slave, as a beloved brother. He is especially beloved to me, but even more so to you, both in person and in the Lord.",
+    "ult_verse_text": "no longer as a slave, but better than a slave—a beloved brother, especially to me, but much more so to you, in both the flesh and in the Lord.",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὑπὲρ δοῦλον",
+        "note": "Alternate translation: [more valuable than a slave] or [more dear than a slave]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "οὐκέτι ὡς δοῦλον",
+        "note": "This does not mean that Onesimus will no longer be a **slave** to Philemon. If it would be helpful in your language, you could use a word such as “just” or “only.” Alternate translation: [no longer only as a slave]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὑπὲρ δοῦλον",
+        "note": "Alternate translation: [more valuable than a slave]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀδελφὸν ἀγαπητόν",
+        "note": "Here, **brother** is a metaphor for a fellow believer. Alternate translation: [a beloved spiritual brother] or [a brother whom we love in Christ]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀγαπητόν",
+        "note": "Alternate translation: [dear] or [precious]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν Κυρίῳ",
+        "note": "Alternate translation: [in the fellowship of brotherhood through Jesus] or [in the fellowship of believers in the Lord]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:17",
+    "bsb_verse_text": "So if you consider me a partner, receive him as you would receive me.",
+    "ult_verse_text": "Therefore, if you have me {as} a partner, receive him as me.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-condition-fact",
+        "orig_language_quote": "εἰ & με ἔχεις κοινωνόν",
+        "note": "Paul is writing in a way that makes it seem as though it is possible that Philemon does not consider that Paul is his partner, but he knows that Philemon does consider Paul to be his partner. This is a way of getting Philemon to agree on one thing (that Paul is a partner) so that he will agree to the other thing (to receive Onesimus). If your language does not state something as uncertain if it is certain or true, and if your readers might think that what Paul is saying is not certain, then you could translate his words as an affirmative statement. Alternate translation: [since you have me as a partner]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "οὖν",
+        "note": "**Therefore** means that what came before this word is the reason for what comes after it. It may be that Paul intends for everything that came before to be the reason, because this word also indicates that Paul is now coming to the main point of the letter. Use a natural method in your language to indicate this transition. Alternate translation: [Because of all of these things]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "προσλαβοῦ αὐτὸν ὡς ἐμέ.",
+        "note": "Paul is leaving out some of the words here that a sentence would need in many languages to be complete. If it would be helpful in your language, you could supply these words from the context. Alternate translation: [receive him just as you would receive me]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:18",
+    "bsb_verse_text": "But if he has wronged you in any way or owes you anything, charge it to my account.",
+    "ult_verse_text": "But if he has wronged you or owes {you} anything, charge that to me.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-condition-fact",
+        "orig_language_quote": "εἰ δέ τι ἠδίκησέν σε ἢ ὀφείλει",
+        "note": "Onesimus certainly did wrong to Philemon by running away, and he probably also stole some of Philemon’s property. But Paul is stating these things as uncertain in order to be polite. If your language does not use a conditional statement in this way, then use a more natural way to state this. Alternate translation: [But whatever he has taken or whatever wrong he has done to you]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰ δέ τι ἠδίκησέν σε ἢ ὀφείλει",
+        "note": "These two phrases mean similar things, although **wronged you** is more general than **owes {you}**. If it would be more natural in your language, you could put the more general phrase second. Alternate translation: [But if he owes you anything or has wronged you in any way]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τοῦτο ἐμοὶ ἐλλόγα.",
+        "note": "Alternate translation: [I will take responsibility for repaying you] or [say that I am the one who owes you]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:19",
+    "bsb_verse_text": "I, Paul, write this with my own hand. I will repay it—not to mention that you owe me your very self.",
+    "ult_verse_text": "I, Paul, wrote this with my own hand. I myself will pay it back—in order not to say to you that you also owe me even your own self!",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐγὼ Παῦλος ἔγραψα τῇ ἐμῇ χειρί",
+        "note": "Paul wrote this part with his **own hand** so that Philemon would know that these words were really from Paul, and that Paul really would pay him. He used the past tense here because the action of writing would be in the past when Philemon read the letter. Use the tense that is most natural in your language. Alternate translation: [I, Paul, write this myself.]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-irony",
+        "orig_language_quote": "ἵνα μὴ λέγω σοι",
+        "note": "Paul says that he will not say something to Philemon while saying it. This is a polite way of emphasizing the truth of what Paul is telling him. If your language would not use irony like this, then use a more natural expression. Alternate translation: [I do not need to remind you] or [You already know]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "καὶ σεαυτόν μοι προσοφείλεις",
+        "note": "Paul was implying that whatever Onesimus or Paul owed to Philemon was canceled by the larger amount that Philemon owed to Paul, which was Philemon’s own life. The reason that Philemon owed Paul his life can be made explicit. Alternate translation: [you even owe me your own life] or [you owe me much more because I saved your life] or [you owe me your own life because I told you about Jesus]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:20",
+    "bsb_verse_text": "Yes, brother, let me have some benefit from you in the Lord. Refresh my heart in Christ.",
+    "ult_verse_text": "Yes, brother, may I benefit from you in the Lord; refresh my inner parts in Christ.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀδελφέ",
+        "note": "Here, **brother** is a metaphor for a fellow believer. Alternate translation: [spiritual brother] or [brother in Christ]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐν Κυρίῳ",
+        "note": "See how you translated **in the Lord** in [verse 16](../01/16.md). This metaphor refers to being a believer in Jesus and means the same as **in Christ**. Alternate translation: [as you serve the Lord] or [because we are fellow believers in the Lord]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "ἀνάπαυσόν μου τὰ σπλάγχνα ἐν Χριστῷ",
+        "note": "How Paul wanted Philemon to refresh him can be made explicit. Alternate translation: [refresh my inward parts in Christ by accepting Onesimus kindly]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀνάπαυσόν μου τὰ σπλάγχνα",
+        "note": "Here, **refresh** is a metaphor for comfort or encourage. Alternate translation: [encourage me] or [comfort me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἀνάπαυσόν μου τὰ σπλάγχνα",
+        "note": "Here, **inward parts** is a metonym for a person’s feelings, thoughts, or inner being. Alternate translation: [encourage me] or [comfort me]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:21",
+    "bsb_verse_text": "Confident of your obedience, I write to you, knowing that you will do even more than I ask.",
+    "ult_verse_text": "Having become confident in your obedience, I wrote to you, having known that you will do even beyond what I am saying.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "πεποιθὼς τῇ ὑπακοῇ σου",
+        "note": "If it would be helpful in your language, you could express the idea behind the abstract nouns **confidence** and **obedience** with verbs. Alternate translation: [Because I am confident that you will obey]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἔγραψά σοι",
+        "note": "Paul used the past tense here because the action of writing would be in the past when Philemon read the letter. Use the tense that is most natural in your language. Alternate translation: [I write to you]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:22",
+    "bsb_verse_text": "In the meantime, prepare a guest room for me, because I hope that through your prayers I will be restored to you.",
+    "ult_verse_text": "But at the same time, also prepare a guest room for me, for I hope that through your prayers I will be given back to you.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/checking/headings",
+        "orig_language_quote": "δὲ",
+        "note": "Here Paul closes his letter and gives final instruction to Philemon and a blessing on Philemon and on the believers that met for church in Philemon’s house. If you are using section headings, you could put one here before [verse 22](../01/22.md). Suggested heading: “Final Instruction and Blessing”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-time-simultaneous",
+        "orig_language_quote": "ἅμα",
+        "note": "The word translated **at the same time** indicates that Paul wants Philemon to do something else for him while he does the first thing. You can make this clear in your translation with an appropriate connecting word or phrase. Alternate translation: [while doing that] or [in addition to that]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "χαρισθήσομαι ὑμῖν",
+        "note": "Alternate translation: [those who are keeping me in prison will set me free so that I can go to you.]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἑτοίμαζέ μοι ξενίαν",
+        "note": "The word translated **guest room** refers to any hospitality that is provided for a guest. So the kind of space is unspecified. Alternate translation: [also prepare a place in your house for me.]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "διὰ τῶν προσευχῶν ὑμῶν",
+        "note": "Alternate translation: [God will answer your prayers so]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "χαρισθήσομαι ὑμῖν.",
+        "note": "If it would be helpful in your language, you could express this explicitly with an active form. Alternate translation: [God will bring me back to you] or [those who are keeping me in prison will set me free so that I can come to you.]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "ὑμῶν & ὑμῖν",
+        "note": "The words **your** and **you** here are plural, referring to Philemon and all the believers who met in his house."
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:23",
+    "bsb_verse_text": "Epaphras, my fellow prisoner in Christ Jesus, sends you greetings,",
+    "ult_verse_text": "Epaphras, my fellow prisoner in Christ Jesus, greets you,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Ἐπαφρᾶς",
+        "note": "**Epaphras** was the name of a man who was a fellow believer and prisoner with Paul."
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν Χριστῷ Ἰησοῦ",
+        "note": "Here, **in Christ Jesus** means something similar to the phrases “in the Lord” and “in Christ” in [verse 20](../01/20.md). See how you translated those there. Alternate translation: [who is here with me because he serves Christ Jesus]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:24",
+    "bsb_verse_text": "as do Mark, Aristarchus, Demas, and Luke, my fellow workers.",
+    "ult_verse_text": "Mark, Aristarchus, Demas, {and} Luke, my fellow workers.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Μᾶρκος, Ἀρίσταρχος, Δημᾶς, Λουκᾶς",
+        "note": "These are names of men."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "Μᾶρκος, Ἀρίσταρχος, Δημᾶς, Λουκᾶς",
+        "note": "Paul is leaving out some of the words here that a sentence would need in many languages to be complete. If it would be helpful in your language, you could supply these words from the context. Alternate translation: [as do Mark, Aristarchus, Demas, and Luke, my fellow workers] or [Mark, Aristarchus, Demas, and Luke, my fellow workers, also greet you]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "οἱ συνεργοί μου",
+        "note": "Alternate translation: [the men who work with me] or [who all work with me.]"
+      }
+    ]
+  },
+  {
+    "reference": "Phm 1:25",
+    "bsb_verse_text": "The grace of the Lord Jesus Christ be with your spirit.",
+    "ult_verse_text": "The grace of our Lord Jesus Christ {be} with your spirit. Amen.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "μετὰ τοῦ πνεύματος ὑμῶν",
+        "note": "The words **your spirit** are a synecdoche and represent the people themselves. Paul is referring to Philemon and all who met in his house."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἡ χάρις τοῦ Κυρίου ἡμῶν, Ἰησοῦ Χριστοῦ",
+        "note": "If it would be helpful in your language, you could express the idea behind the abstract noun **grace** with an adjective or verb. Alternate translation: [May our Lord Jesus Christ be gracious to you and] or [May our Lord Jesus Christ be kind to you and]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "ὑμῶν",
+        "note": "The word **your** here is plural and refers to Philemon and all who met in his house. Alternate translation: [your spirits]"
+      }
+    ]
+  }
+]

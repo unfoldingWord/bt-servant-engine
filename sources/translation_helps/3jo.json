@@ -1,0 +1,348 @@
+[
+  {
+    "reference": "3Jo 1:1",
+    "bsb_verse_text": "The elder, To the beloved Gaius, whom I love in the truth:",
+    "ult_verse_text": "The elder, to the beloved Gaius, whom I love in truth.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "ὁ πρεσβύτερος",
+        "note": "John assumes that Gaius will know who he is when he calls himself **The elder.** If it would be helpful to your readers, you could make John’s name explicit. (See the Introduction to 3 John for a discussion of how to translate the term **elder**.) Alternate translation: [I, John the elder, am writing]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Γαΐῳ",
+        "note": "**Gaius** is the name of a man, a fellow believer to whom John is writing this letter."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ὃν ἐγὼ ἀγαπῶ ἐν ἀληθείᾳ",
+        "note": "If your language does not use an abstract noun for the idea of **truth**, you could express the same idea in another way. Alternate translation: [whom I love sincerely]"
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:3",
+    "bsb_verse_text": "For I was overjoyed when the brothers came and testified about your devotion to the truth, in which you continue to walk.",
+    "ult_verse_text": "For I rejoiced greatly when brothers came and attested to your truth, just as you are walking in truth.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "γὰρ",
+        "note": "John is using word translated as **For** to introduce the reason for what he said at the end of the previous verse. Use a connector in your language that makes this clear. Alternate translation: [I know that your soul prospers because]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀδελφῶν",
+        "note": "John is using the term **brothers** to mean people who share the same faith. If it would be helpful in your language, you could state the meaning plainly. In this case, these **brothers** were probably all male. Alternate translation: [fellow believers]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "σὺ ἐν ἀληθείᾳ περιπατεῖς",
+        "note": "Here, **walking** on a path is a metaphor for how a person lives his life. Alternate translation: [you are living your life according to God’s truth]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἀληθείᾳ & ἀληθείᾳ",
+        "note": "If your language does not use an abstract noun for the idea of **truth**, you could express the same idea in another way. The UST models one way to do this."
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:4",
+    "bsb_verse_text": "I have no greater joy than to hear that my children are walking in the truth.",
+    "ult_verse_text": "I have no greater joy than these things, that I hear my children are walking in the truth.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "μειζοτέραν & οὐκ ἔχω χαράν",
+        "note": "If your language does not use an abstract noun for the idea of **joy**, you could express the same idea in another way. Alternate translation: [Nothing makes me more joyful]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὰ ἐμὰ τέκνα",
+        "note": "John speaks of those whom he taught to believe in Jesus as though they were his **children**. This also emphasizes his love and concern for them. Alternate translation: [my spiritual children]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐν τῇ ἀληθείᾳ περιπατοῦντα",
+        "note": "Here, **walking** on a path is a metaphor for how a person lives his life. Alternate translation: [are living according to God’s truth]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἐν τῇ ἀληθείᾳ",
+        "note": "If your language does not use an abstract noun for the idea of **truth**, you could express the same idea in another way. Alternate translation: [in God’s true ways]"
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:5",
+    "bsb_verse_text": "Beloved, you are faithful in what you are doing for the brothers, and especially since they are strangers to you.",
+    "ult_verse_text": "Beloved, you are doing a faithful thing whenever you might work for the brothers, and this {for} strangers,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τοὺς ἀδελφοὺς",
+        "note": "John is using the term **brothers** to mean people who share the same faith. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [other believers]"
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:6",
+    "bsb_verse_text": "They have testified to the church about your love. You will do well to send them on their way in a manner worthy of God.",
+    "ult_verse_text": "who have attested your love before the church, whom you will do well to send on worthily of God,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "σου τῇ ἀγάπῃ",
+        "note": "If your language does not use an abstract noun for the idea of **love**, you could express the same idea in another way. Alternate translation: [that you love them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "προπέμψας",
+        "note": "Here, **to send on** is an idiom that means to provide people with what they need for a journey. If this phrase does not have that meaning in your language, you could use an idiom from your language that does have this meaning or state the meaning plainly. Alternate translation: [to supply with what they need for their trip]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "οὓς καλῶς ποιήσεις, προπέμψας ἀξίως τοῦ Θεοῦ; ὑπὲρ γὰρ τοῦ ὀνόματος ἐξῆλθον, μηδὲν λαμβάνοντες ἀπὸ τῶν ἐθνικῶν",
+        "note": "If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the action that the first phrase describes. If you do so, you will need create a verse bridge in order to combine [verses 6](../01/06.md) and [7](../01/07.md), as described in the Introduction to 3 John. It may be helpful to begin a new sentence here. Alternate translation: [Because they went out for the sake of the name, accepting nothing from the Gentiles, you will do well to send them on in a manner worthy of God]"
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:7",
+    "bsb_verse_text": "For they went out on behalf of the Name, accepting nothing from the Gentiles.",
+    "ult_verse_text": "for they went out for the sake of the name, receiving nothing from the Gentiles.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ὑπὲρ & τοῦ ὀνόματος",
+        "note": "John is referring specifically to the name of Jesus. He is using the term **name** by association to mean Jesus himself. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [to tell people about Jesus]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "μηδὲν λαμβάνοντες ἀπὸ τῶν ἐθνικῶν",
+        "note": "John assumes that Gaius will know what he means by **receiving nothing from the Gentiles**. If it would be helpful to your readers, you could indicate that explicitly. This could mean: (1) that the traveling believers had resolved not to accept any help from unbelievers. Alternate translation: [and they have resolved not to accept any help from unbelievers]; (2) that people who did not believe in Jesus would not help these traveling believers. Alternate translation: [and no unbelievers are assisting them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "τῶν ἐθνικῶν",
+        "note": "Here, **Gentiles** does not mean people who are not Jewish. It refers to any people who do not trust in Jesus. Alternate translation: [unbelievers]"
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:8",
+    "bsb_verse_text": "Therefore we ought to support such men, so that we may be fellow workers for the truth.",
+    "ult_verse_text": "Therefore we ourselves ought to support such ones so that we may become fellow workers with the truth.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "οὖν",
+        "note": "John is using the word translated as **Therefore** to introduce the result that should follow from the reason he gave at the end of the previous verse. Because **such ones** are accepting nothing from “the Gentiles” ([verse 7](../01/07.md)), believers ought to help them. Use a connector in your language that makes this relationship clear. Alternate translation: [This is why]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "ἡμεῖς & ὀφείλομεν ὑπολαμβάνειν",
+        "note": "John is stating the pronoun **we**, whose meaning is already present in the verb translated **ought**, to emphasize it. If your language can state implied pronouns explicitly for emphasis, you may want to use that construction here in your translation. Other languages may have other ways of bringing out this emphasis. The ULT does so by using the intensive pronoun **ourselves**. Alternate translation: [we certainly should welcome]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "ἡμεῖς & ὀφείλομεν",
+        "note": "John is using the words translated as **we** and **ourselves** to refer to Gaius, himself, and all believers. So use the inclusive forms of those words if your language marks that distinction."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "ὑπολαμβάνειν",
+        "note": "John assumes that Gaius will know that when he tells him to **support** these believers, he means that Gaius should provide hospitality, including giving them what they need for their journey. You could include this information if that would be helpful to your readers. Alternate translation: [to help] or [to provide for]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-goal",
+        "orig_language_quote": "ἵνα",
+        "note": "Here, **so that** marks becoming **fellow workers** as a goal or purpose of supporting **such ones** as the traveling teachers. Use a natural way in your language that makes it clear that this is a purpose. Alternate translation: [and in this way]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "ἵνα συνεργοὶ γινώμεθα τῇ ἀληθείᾳ",
+        "note": "John is speaking as if the **truth** were a living thing that he and his fellow Christians could become **workers** with. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [so that we can cooperate with them in announcing God’s truth to people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "τῇ ἀληθείᾳ",
+        "note": "John is using the term **truth** to represent something or someone associated with the truth. If it would be helpful in your language, you could use an equivalent expression or state the meaning plainly. This could mean: (1) the true message from God. Alternate translation: [God’s true message]; (2) God himself, who is Truth. Alternate translation: [the true God]"
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:9",
+    "bsb_verse_text": "I have written to the church about this, but Diotrephes, who loves to be first, will not accept our instruction.",
+    "ult_verse_text": "I wrote something to the church, but Diotrephes, the one loving to be first among them, does not receive us.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "τι",
+        "note": "What John wrote was a letter, probably containing instructions about helping traveling Christian teachers. You could include this information if that would be helpful to your readers. Alternate translation: [a letter about this]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "τῇ ἐκκλησίᾳ",
+        "note": "Here, **the church** refers to Gaius and the group of believers who regularly met together with him to worship God. You could include this information if that would be helpful to your readers. Alternate translation: [to the assembly of believers in your place]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Διοτρέφης",
+        "note": "**Diotrephes** is the name of a man who was a leader of the church."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "ὁ φιλοπρωτεύων αὐτῶν",
+        "note": "John is using the word **first** in the sense of “most important” or “in charge.” Alternate translation: [who loves to be the most important one among them] or [who loves to act as though he is their leader]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "οὐκ ἐπιδέχεται ἡμᾶς",
+        "note": "John is using the word **us** to represent someone or something associated with himself and those with him. This could mean: (1) that Diotrephes opposes providing hospitality and support to the traveling believers whom John endorses. (The word translated **receive** in this verse is the same one as in the phrase “he does not receive the brothers” in the next verse.) Alternate translation: [opposes helping these traveling believers]; (2) that Diotrephes does not accept John’s authority and so will not do what he says. Alternate translation: [rejects our instructions]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "ἡμᾶς",
+        "note": "Here the word **us** refers to John and those with him but not to Gaius, so use the exclusive form of that word in your translation if your language marks that distinction."
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:10",
+    "bsb_verse_text": "So if I come, I will call attention to his malicious slander against us. And unsatisfied with that, he refuses to welcome the brothers and forbids those who want to do so, even putting them out of the church.",
+    "ult_verse_text": "Because of this, if I come, I will call attention to his works that he is doing—accusing us with evil words. And not being satisfied with these things, he does not receive the brothers, and he stops the ones willing and puts them out of the church.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "διὰ τοῦτο",
+        "note": "**Because of this** indicates that what follows is a result of what came before. Because Diotrephes “does not receive” John and those with him ([verse 9](../01/09.md)), John will expose his evil works. Use a natural way in your language that makes this relationship clear. Alternate translation: [Therefore] or [This is why]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-condition-fact",
+        "orig_language_quote": "ἐὰν ἔλθω",
+        "note": "John speaks as if he were uncertain about this, but he means that he is planning to come. If your readers might think that what John is saying is uncertain, then you could translate his words as a confident statement. Alternate translation: [when I come] or [at the time that I come]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-go",
+        "orig_language_quote": "ἔλθω",
+        "note": "In a context such as this, your language might say “go” instead of **come**. Alternate translation: [I go to you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "λόγοις πονηροῖς φλυαρῶν ἡμᾶς",
+        "note": "John is using the term **words** to mean what Diotrephes has been saying by using words. These **words** are an example of the **works that he is doing**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [slandering us maliciously]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "μὴ ἀρκούμενος ἐπὶ τούτοις",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [even these things do not satisfy him. In addition]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τοὺς ἀδελφοὺς",
+        "note": "John is using the term **brothers** to mean people who share the same faith. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [these fellow believers]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "καὶ τοὺς βουλομένους κωλύει",
+        "note": "John is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [and he stops the ones who are willing to receive the believers]"
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:11",
+    "bsb_verse_text": "Beloved, do not imitate what is evil, but what is good. The one who does good is of God; the one who does evil has not seen God.",
+    "ult_verse_text": "Beloved, do not imitate the evil, but the good. The one doing good is from God; the one doing evil has not seen God.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-nominaladj",
+        "orig_language_quote": "μὴ μιμοῦ τὸ κακὸν, ἀλλὰ τὸ ἀγαθόν",
+        "note": "John is using the adjectives **evil** and **good** as nouns in a general sense. Your language may use adjectives in the same way. If not, you could translate these words with an equivalent phrase. Alternate translation: [do not imitate evil things that people do, but imitate good things]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "ἀλλὰ τὸ ἀγαθόν",
+        "note": "John is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [but imitate the good things that people do]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "οὐχ ἑώρακεν τὸν Θεόν",
+        "note": "John is using the word **seen** to mean “believed in” or “experienced.” If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [has not experienced God] or [has not believed in God]"
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:12",
+    "bsb_verse_text": "Demetrius has received a good testimony from everyone, and from the truth itself. We also testify for him, and you know that our testimony is true.",
+    "ult_verse_text": "Demetrius has been attested to by all and by the truth itself. And we ourselves also attest, and you know that our testimony is true.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "Δημητρίῳ μεμαρτύρηται ὑπὸ πάντων",
+        "note": "If your language does not use this passive form, you can state this in active form. Alternate translation: [All attest to Demetrius] or [Everyone praises Demetrius as a good person]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Δημητρίῳ",
+        "note": "**Demetrius** is the name of a man."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "ὑπὸ πάντων",
+        "note": "John says **all** here as a generalization for emphasis. If it would be helpful in your language, you could use a different way to express the emphasis. Alternate translation: [by those who know him]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "καὶ ὑπὸ αὐτῆς τῆς ἀληθείας",
+        "note": "John is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [and he has been attested to by the truth itself]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ὑπὸ αὐτῆς τῆς ἀληθείας",
+        "note": "If your language does not use an abstract noun for the idea of **truth**, you could express the same idea in another way. Alternate translation: [by the way he truly obeys Jesus]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "ὑπὸ αὐτῆς τῆς ἀληθείας",
+        "note": "John is speaking of **the truth** as if it were a living thing that could testify that Demetrius is a good person. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [by his right way of living]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "καὶ ἡμεῖς & μαρτυροῦμεν",
+        "note": "For emphasis, John is stating the pronoun **we**, whose meaning is already present in the verb translated **attest**. If your language can state implied pronouns explicitly for emphasis, you may want to use that construction here in your translation. Other languages may have other ways of bringing out this emphasis. The ULT does so by using the intensive pronoun **ourselves**. Alternate translation: [we too firmly attest]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "ἡμεῖς & μαρτυροῦμεν & ἡμῶν",
+        "note": "Here the words **we ourselves** and **our** refer to John and those with him but do not include Gaius, so use the exclusive form of those words in your translation if your language marks that distinction."
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:13",
+    "bsb_verse_text": "I have many things to write to you, but I would prefer not to do so with pen and ink.",
+    "ult_verse_text": "I have many things to write to you, but I do not wish to write them to you with ink and pen.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "διὰ μέλανος καὶ καλάμου",
+        "note": "John is using something associated with a letter, the **ink and pen** he would use to write a letter, to represent the letter itself. If it would be helpful in your language, you could use an equivalent expression or state the meaning plainly. Alternate translation, as in UST: [in a letter]"
+      }
+    ]
+  },
+  {
+    "reference": "3Jo 1:14",
+    "bsb_verse_text": "Instead, I hope to see you soon and speak with you face to face. Peace to you. The friends here send you greetings. Greet each of our friends there by name.",
+    "ult_verse_text": "But I expect to see you soon, and we will speak mouth to mouth.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "στόμα πρὸς στόμα",
+        "note": "Here, **mouth to mouth** is an idiom meaning “in person.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have this meaning or state the meaning plainly. Alternate translation: [face to face] or [in person]"
+      }
+    ]
+  }
+]

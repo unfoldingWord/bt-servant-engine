@@ -1,0 +1,1311 @@
+[
+  {
+    "reference": "Nah 1:1",
+    "bsb_verse_text": "This is the burden against Nineveh, the book of the vision of Nahum the Elkoshite:",
+    "ult_verse_text": "The burden of Nineveh. The book of the vision of Nahum, the Elkoshite.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מַשָּׂ֖א",
+        "note": "The author is speaking of a message as though it were a **burden**, that is, a heavy load to carry. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [The pronouncement about]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "הָ⁠אֶלְקֹשִֽׁי",
+        "note": "An **Elkoshite** is someone from a place called Elkosh. If your readers would not be familiar with this place, you could use a more general term. Alternate translation: [who lived at Elkosh]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:2",
+    "bsb_verse_text": "The LORD is a jealous and avenging God; the LORD is avenging and full of wrath. The LORD takes vengeance on His foes and reserves wrath for His enemies.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "נֹקֵ֤ם & לְ⁠צָרָ֔י⁠ו",
+        "note": "If your language does not use an abstract noun for the idea of **vengeance**, you could express the same idea in another way. Alternate translation: [avenges himself on his adversaries]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "אֵ֣ל קַנּ֤וֹא וְ⁠נֹקֵם֙ יְהוָ֔ה נֹקֵ֥ם יְהוָ֖ה וּ⁠בַ֣עַל חֵמָ֑ה",
+        "note": "These two phrases mean basically the same thing. The second emphasizes the meaning of the first by repeating the same idea with different words. Hebrew poetry was based on this kind of repetition, and it would be good to show this to your readers by including both phrases in your translation rather than combining them. However, if it would be helpful to your readers, you could connect the phrases in a way that shows that the second phrase is repeating the first one, not saying something additional. Alternate translation: [Yahweh is a jealous and avenging God; yes, Yahweh is an avenger and master of wrath]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וּ⁠בַ֣עַל חֵמָ֑ה",
+        "note": "Here, **master of wrath** is an expression that means that Yahweh is extremely angry. If this phrase does not have that meaning in your language, use a comparable expression from your language that does have that meaning, or state the meaning plainly. Alternate translation: [and wrathful beyond human ability] or [and is supremely angry]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "נֹקֵ֤ם יְהוָה֙ לְ⁠צָרָ֔י⁠ו וְ⁠נוֹטֵ֥ר ה֖וּא לְ⁠אֹיְבָֽי⁠ו",
+        "note": "These two phrases mean basically the same thing. The second emphasizes the meaning of the first by repeating the same idea with different words. Hebrew poetry was based on this kind of repetition, and it would be good to show this to your readers by including both phrases in your translation rather than combining them. However, if it would be helpful to your readers, you could connect the phrases with a word other than **and** in order to show that the second phrase is repeating the first one, not saying something additional. Alternate translation: [Yahweh takes vengeance on his adversaries, indeed, he maintains against his enemies]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וְ⁠נוֹטֵ֥ר ה֖וּא לְ⁠אֹיְבָֽי⁠ו",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply **wrath** from earlier in the sentence if it would be clearer in your language. Alternate translation: [and he maintains wrath against his enemies]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:3",
+    "bsb_verse_text": "The LORD is slow to anger and great in power; the LORD will by no means leave the guilty unpunished. His path is in the whirlwind and storm, and clouds are the dust beneath His feet.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "אֶ֤רֶךְ אַפַּ֨יִם֙",
+        "note": "Here, **long of nostrils** is an idiom that means “slow to become angry.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: [is patient] or [is slow to anger]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ו⁠גדול־כֹּ֔חַ",
+        "note": "If your language does not use an abstract noun for the idea of **power**, you could express the same idea in another way. Alternate translation: [and very strong] or [and very mighty]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-reduplication",
+        "orig_language_quote": "וְ⁠נַקֵּ֖ה לֹ֣א יְנַקֶּ֑ה",
+        "note": "The author is repeating the verb **acquit** in order to intensify the idea that it expresses. If your language can repeat words for intensification, it would be appropriate to do that here in your translation. If not, your language may have another way of expressing the emphasis. Alternate translation: [he will certainly not leave the guilty unpunished] or [he surely does not clear the guilty]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:4",
+    "bsb_verse_text": "He rebukes the sea and dries it up; He makes all the rivers run dry. Bashan and Carmel wither, and the flower of Lebanon wilts.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "גּוֹעֵ֤ר",
+        "note": "The author says that Yahweh **rebukes** the sea as if Yahweh were scolding the sea as one might scold a person. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [He controls]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "אֻמְלַ֤ל בָּשָׁן֙",
+        "note": "Nahum assumes that his readers will understand that **Bashan** refers to a region with which they would be familiar, and more specifically, refers to the plant life growing there. You could include this information if that would be helpful to your readers. Alternate translation: [The plants growing at Bashan wither]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "וְ⁠כַרְמֶ֔ל",
+        "note": "**Carmel** is the name of a mountain with many plants. If your readers would not be familiar with this place, you could include an explanation. Alternate translation: [also the plants of Mount Carmel]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וְ⁠כַרְמֶ֔ל",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply “wither” from other parts of the sentence if it would be clearer in your language. Alternate translation: [the plants growing on Mount Carmel wither]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:5",
+    "bsb_verse_text": "The mountains quake before Him, and the hills melt away; the earth trembles at His presence—the world and all its dwellers.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "וְ⁠הַ⁠גְּבָע֖וֹת הִתְמֹגָ֑גוּ",
+        "note": "The author is using extreme language of physical events to emphasize how powerful Yahweh is. If it would be clearer in your language, you could express this in a non-figurative way. Alternate translation: [and the hills crumble]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "יֹ֥שְׁבֵי בָֽ⁠הּ",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply **shake** from earlier in the sentence if it would be clearer in your language. Alternate translation: [the dwellers in it shake before his face]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:6",
+    "bsb_verse_text": "Who can withstand His indignation? Who can endure His burning anger? His wrath is poured out like fire; even rocks are shattered before Him.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "לִ⁠פְנֵ֤י זַעְמ⁠וֹ֙ מִ֣י יַֽעֲמ֔וֹד וּ⁠מִ֥י יָק֖וּם בַּ⁠חֲר֣וֹן אַפּ֑⁠וֹ",
+        "note": "These two phrases mean basically the same thing. The second emphasizes the meaning of the first by repeating the same idea with different words. Hebrew poetry was based on this kind of repetition, and you may choose to show this to your readers by including both phrases in your translation rather than combining them. If it would be helpful to your readers, you could connect the phrases with a word other than **And** in order to show that the second phrase is repeating the first one, not saying something additional. Alternate translation: [To the face of his indignation, who can stand? I say again, who can arise against the burning of his nose]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "לִ⁠פְנֵ֤י",
+        "note": "Here, **To the face of** is an idiom that means “In the presence of.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: [In the presence of] or [Confronted with] or [Before]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "בַּ⁠חֲר֣וֹן אַפּ֑⁠וֹ",
+        "note": "Here, **the burning of his nose** is an idiom meaning that someone is angry. If this phrase does not have that meaning in your language, use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: [against his fierce anger]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "לִ⁠פְנֵ֤י זַעְמ⁠וֹ֙ & חֲמָת⁠וֹ֙ נִתְּכָ֣ה כָ⁠אֵ֔שׁ",
+        "note": "If your language does not use abstract nouns for the ideas of **indignation** and **wrath**, you could express the same ideas in other ways. Alternate translation: [When he is furious at someone … When he is wrathful, it is as though fire pours out from him]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "לִ⁠פְנֵ֤י זַעְמ⁠וֹ֙ מִ֣י יַֽעֲמ֔וֹד",
+        "note": "The author is using the question form to emphasize that no one can endure when Yahweh is angry. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [No one can endure when he is angry!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "וּ⁠מִ֥י יָק֖וּם בַּ⁠חֲר֣וֹן אַפּ֑⁠וֹ",
+        "note": "The author is using the question form to emphasize that no one can resist when Yahweh is angry. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [No one can resist his fierce anger!]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:7",
+    "bsb_verse_text": "The LORD is good, a stronghold in the day of distress; He cares for those who trust in Him.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "לְ⁠מָע֖וֹז",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply “he is” from earlier in the sentence if it would be clearer in your language. Alternate translation: [for he is a stronghold]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-possession",
+        "orig_language_quote": "בְּ⁠י֣וֹם צָרָ֑ה",
+        "note": "The author is using the possessive form to describe a **day** that is characterized by **trouble**. If your language would not use the possessive form for this, you could express this as a time when trouble happens. Alternate translation: [in a time when there is trouble]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "חֹ֥סֵי בֽ⁠וֹ",
+        "note": "The author is speaking of Yahweh as if he were a **refuge**, that is, a safe place to hide. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [those who come to him for protection]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:8",
+    "bsb_verse_text": "But with an overwhelming flood He will make an end of Nineveh and pursue His enemies into darkness.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "מְקוֹמָ֑⁠הּ",
+        "note": "The pronoun **its** refers to Nineveh. If this is not clear for your readers, you could use the city’s name here. Alternate translation: [to Nineveh’s place]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "וְ⁠אֹיְבָ֖י⁠ו יְרַדֶּף־חֹֽשֶׁךְ",
+        "note": "Here, **darkness** represents all kinds of bad things, and Nahum speaks of it as if it were a person pursuing his enemies. It means that Yahweh will not allow his enemies to escape their punishment. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [his enemies will not escape their punishment]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:9",
+    "bsb_verse_text": "Whatever you plot against the LORD, He will bring to an end. Affliction will not rise up a second time.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "מַה־תְּחַשְּׁבוּ⁠ן֙ אֶל־יְהוָ֔ה",
+        "note": "Nahum is using the question form to strongly communicate that it is useless to plot against Yahweh. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [Whatever you are plotting against Yahweh, it does not matter]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "תְּחַשְּׁבוּ⁠ן֙",
+        "note": "The pronoun **you** refers to the Ninevites. If this is not clear for your readers, you could use the people’s name here. Alternate translation: [are you Ninevites plotting]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "תְּחַשְּׁבוּ⁠ן֙",
+        "note": "Here, **you** is plural. It refers to the Ninevites, so use the plural form in your translation if your language marks that distinction."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "צָרָֽה",
+        "note": "If your language does not use an abstract noun for the idea of **trouble**, you could express the same idea in another way. Alternate translation: [troubling events]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "לֹֽא־תָק֥וּם",
+        "note": "The author is speaking of **trouble** as if it were a person who could **rise up**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [will not happen] or [will not come upon you]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:10",
+    "bsb_verse_text": "For they will be entangled as with thorns and consumed like the drink of a drunkard—like stubble that is fully dry.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "עַד־סִירִ֣ים סְבֻכִ֔ים וּ⁠כְ⁠סָבְאָ֖⁠ם סְבוּאִ֑ים אֻ֨כְּל֔וּ",
+        "note": "The author is saying that the Ninevites are like tangled thorn bushes and dried stubble in a fire and like the drink in their own hands, because all of these things are quickly consumed. If it would be helpful in your language, you could state that explicitly. Alternate translation: [as tangled thorn bushes are in a fire and as a drink is in the hands of a Ninevite, they are quickly consumed]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "וּ⁠כְ⁠סָבְאָ֖⁠ם & אֻ֨כְּל֔וּ",
+        "note": "The pronouns **their** and **they** refer to the Ninevites. If this is not clear for your readers, you could use the people’s name here. Alternate translation: [and the Ninevites’ drink … the Ninevites are devoured]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "אֻ֨כְּל֔וּ",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. If you need to say who did the action, it is clear from the context that it was God. Alternate translation: [God will destroy them]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:11",
+    "bsb_verse_text": "From you, O Nineveh, comes forth a plotter of evil against the LORD, a counselor of wickedness.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "מִמֵּ֣⁠ךְ",
+        "note": "The pronoun **you** refers to Nineveh. If this is not clear for your readers, you could add the city’s name here. Alternate translation: [From you, Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "מִמֵּ֣⁠ךְ",
+        "note": "Here, **you** is singular. It refers to Nineveh, so use the singular form in your translation if your language marks that distinction."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-apostrophe",
+        "orig_language_quote": "מִמֵּ֣⁠ךְ יָצָ֔א",
+        "note": "Nahum has been referring to Nineveh in the third person, but now he addresses the city directly in the second person. He does this even though he knows that the people of Nineveh cannot hear him. He does this in order to more powerfully express his prophecy against the people of Nineveh to his audience, the people of Judah. If it would be helpful in your language, you could express the transition here more clearly or add the name of the city. Alternate translation: [This is what I say to Nineveh: From you came out] or [From you, Nineveh, came out]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "חֹשֵׁ֥ב & רָעָ֑ה יֹעֵ֖ץ בְּלִיָּֽעַל",
+        "note": "These two clauses mean basically the same thing. The second clause emphasizes the meaning of the first by repeating the same idea with different words. If it would be helpful to your readers, you could combine the clauses or connect them with a word that shows that the second clause is repeating the first one, not saying something additional. Alternate translation: [a plotter of evil … indeed, an advisor of wickedness]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "חֹשֵׁ֥ב & רָעָ֑ה יֹעֵ֖ץ בְּלִיָּֽעַל",
+        "note": "If your language does not use abstract nouns for the ideas of **evil** and **wickedness**, you could express the same ideas in another way. Alternate translation: [an evil plotter … a wicked advisor]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:12",
+    "bsb_verse_text": "This is what the LORD says: “Though they are allied and numerous, yet they will be cut down and pass away. Though I have afflicted you, O Judah, I will afflict you no longer.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "שְׁלֵמִים֙",
+        "note": "The pronoun **they** refers to the Ninevites. If this is not clear for your readers, you could use the people’s name here. Alternate translation: [the Ninevites are full]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "שְׁלֵמִים֙",
+        "note": "The implication is that **they are full** in strength. You could include this information if that would be helpful to your readers. Alternate translation: [they are at full strength]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-tense",
+        "orig_language_quote": "נָגֹ֖זּוּ וְ⁠עָבָ֑ר",
+        "note": "The author uses the past tense here in order to refer to something that will certainly happen in the future. If it would not be natural to do that in your language, you could use the future tense. Alternate translation: [they will be sheared, and he will pass away]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "נָגֹ֖זּוּ",
+        "note": "The implication is that they are **sheared** like sheep. You could include this information if that would be helpful to your readers. Alternate translation: [they have been sheared like sheep]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "נָגֹ֖זּוּ",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. If you need to say who did the action, it is clear from the context that it was God. Alternate translation: [God has sheared them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "וְ⁠עָבָ֑ר",
+        "note": "In this verse, the word **he** refers to the “plotter of evil” in [verse 10](../01/10.md). It is probable, however, that this person represents the many plotters of evil in Nineveh, and so **he** here refers to all of them as a group. If it would be helpful in your language, you could say this plainly. Alternate translation: [and those plotters have passed away]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "וְ⁠עִ֨נִּתִ֔⁠ךְ",
+        "note": "The pronoun **you** refers to the people of Judah. If this is not clear for your readers, you could use the nation’s name here. Alternate translation: [Though I have afflicted you, Judah]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:13",
+    "bsb_verse_text": "For I will now break their yoke from your neck and tear away your shackles.”",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "מֹטֵ֖⁠הוּ",
+        "note": "In this verse, the word **his** continues to refer to the “plotter of evil” in [verse 10](../01/10.md), who represents the many plotters of evil in Nineveh, and so, as in [verse 12](../01/12.md), **his** here refers to all of them as a group. If it would be helpful in your language, you could use a plural pronoun. Alternate translation: [their yoke]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מֹטֵ֖⁠הוּ",
+        "note": "The author is speaking of oppression as if it were a **yoke** that weighs down a work animal. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [their control over you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "מֵֽ⁠עָלָ֑יִ⁠ךְ וּ⁠מוֹסְרֹתַ֖יִ⁠ךְ",
+        "note": "The pronouns **you** and **your** refer to the people of Judah. If this is not clear for your readers, you could use the nation’s name here. Alternate translation: [from upon you, Judah, and your shackles] or [off of you, people of Judah, and your shackles]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וּ⁠מוֹסְרֹתַ֖יִ⁠ךְ אֲנַתֵּֽק",
+        "note": "The author is speaking of oppression as if it were **shackles** that bind a prisoner. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [and I will relieve your oppression]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:14",
+    "bsb_verse_text": "The LORD has issued a command concerning you, O Nineveh: “There will be no descendants to carry on your name. I will cut off the carved image and cast idol from the house of your gods; I will prepare your grave, for you are contemptible.”",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "עָלֶ֨י⁠ךָ֙",
+        "note": "The pronoun **you** here refers to the people of Nineveh. If this is not clear for your readers, you could use the city’s name here. Alternate translation: [concerning you, Nineveh] or [concerning you, people of Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "לֹֽא־יִזָּרַ֥ע מִ⁠שִּׁמְ⁠ךָ֖",
+        "note": "Here, **sown from your name** is an idiom that means “descendants who will carry on your name.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have that meaning, or you could state the meaning plainly. Alternate translation: [There will not be descendants to carry on your name]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אַכְרִ֨ית",
+        "note": "The author is speaking of destroying something as if it were **cut off**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [I will eliminate]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 1:15",
+    "bsb_verse_text": "Look to the mountains—the feet of one who brings good news, who proclaims peace! Celebrate your feasts, O Judah; fulfill your vows. For the wicked will never again march through you; they will be utterly cut off.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הִנֵּ֨ה",
+        "note": "The author is using the term **Behold** to: (1) tell his readers to actually look toward the mountains, from which a messenger will come. (2) focus his readers‘ attention on what he is about to say. Your language may have a comparable expression that you could use in your translation. Alternate translation: [Listen] or [See]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "רַגְלֵ֤י מְבַשֵּׂר֙",
+        "note": "Here, **feet** represents the action that the herald does with his feet, that is, he is coming. Alternate translation: [a herald is coming]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-poetry",
+        "orig_language_quote": "חָגִּ֧י & חַגַּ֖יִ⁠ךְ",
+        "note": "Here, **Celebrate your celebrations** is an emphatic construction that uses a verb and its object that come from the same root. You may be able to use the same construction in your language to express the meaning here. Alternatively, your language may have another way of showing the emphasis."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "יְהוּדָ֛ה",
+        "note": "Here, **Judah** represents the people who live in Judah. Alternate translation: [people of Judah]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "בְּלִיַּ֖עַל",
+        "note": "The word **wicked** represents evil people in general, not one particular person. If it would be helpful in your language, you could use a more natural expression. Alternate translation: [wicked people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "כֻּלֹּ֥⁠ה נִכְרָֽת",
+        "note": "The author is speaking of destroying someone as if they were **cut off**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [he is completely eliminated]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "כֻּלֹּ֥⁠ה נִכְרָֽת",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. If you need to say who did the action, it is clear from the context that it was God. Alternate translation: [God has completely eliminated him]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "כֻּלֹּ֥⁠ה נִכְרָֽת",
+        "note": "The pronoun **he** refers to the wicked. If you have decided to use a plural form for **wicked**, you could use a plural pronoun here, or repeat your form for **wicked**. Alternate translation: [they are completely cut off] or [those wicked people are completely cut off]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:1",
+    "bsb_verse_text": "One who scatters advances against you, O Nineveh. Guard the fortress! Watch the road! Brace yourselves! Summon all your strength!",
+    "ult_verse_text": "A scatterer has come up against your face.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-apostrophe",
+        "orig_language_quote": "עָלָ֥ה מֵפִ֛יץ עַל־פָּנַ֖יִ⁠ךְ",
+        "note": "Nahum turns from addressing Judah to addressing Nineveh. He does this even though he knows that the people of Nineveh cannot hear him. His purpose is to more powerfully express his prophecy against the people of Nineveh to his audience, the people of Judah. If it would be helpful in your language, you could express the transition here more clearly or add the name of the city. Alternate translation: [To Nineveh, I say: A scatterer has come up against your face] or [A scatterer has come up against your face, Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-tense",
+        "orig_language_quote": "עָלָ֥ה",
+        "note": "The author uses the past tense here in order to refer to something that will certainly happen in the future. If it would not be natural to do that in your language, you could use the future tense. Alternate translation: [will come up]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "פָּנַ֖יִ⁠ךְ",
+        "note": "The pronoun **your** refers to the Ninevites. If this is not clear for your readers, you could use the people’s name here. Alternate translation: [your face, Ninevites]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "פָּנַ֖יִ⁠ךְ",
+        "note": "Here, **face** represents the whole person. Alternate translation: [you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "אַמֵּ֥ץ כֹּ֖חַ מְאֹֽד",
+        "note": "If your language does not use an abstract noun for the idea of **power**, you could express the same idea in another way. Alternate translation: [make yourself much more powerful]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "חַזֵּ֣ק מָתְנַ֔יִם",
+        "note": "Here, **strengthen {your} loins** is a common expression that means to prepare yourself to do something that is physically demanding, in this case, to fight. If this phrase does not have that meaning in your language, you could use a comparable expression from your language that does have that meaning or state the meaning plainly. Alternate translation: [summon your strength] or [prepare yourself for battle]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:2",
+    "bsb_verse_text": "For the LORD will restore the splendor of Jacob like the splendor of Israel, though destroyers have laid them waste and ruined the branches of their vine.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-tense",
+        "orig_language_quote": "שָׁ֤ב",
+        "note": "The author uses the past tense here in order to refer to something that will certainly happen in the future. If it would not be natural to do that in your language, you could use the future tense. Alternate translation: [will restore]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "שָׁ֤ב יְהוָה֙ אֶת־גְּא֣וֹן יַעֲקֹ֔ב כִּ⁠גְא֖וֹן יִשְׂרָאֵ֑ל",
+        "note": "If your language does not use an abstract noun for the idea of **majesty**, you could express the same idea in another way. Alternate translation: [Yahweh has made Jacob great again; he has made Israel great as well]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-poetry",
+        "orig_language_quote": "בְקָקוּ⁠ם֙ בֹּֽקְקִ֔ים",
+        "note": "Here, **plunderers plundered** is an emphatic construction that uses a verb and its object that come from the same root. You may be able to use the same construction in your language to express the meaning here. Alternatively, your language may have another way of showing the emphasis."
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:3",
+    "bsb_verse_text": "The shields of his mighty men are red; the valiant warriors are dressed in scarlet. The fittings of the chariots flash like fire on the day they are prepared, and the spears of cypress have been brandished.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "גִּבֹּרֵ֜י⁠הוּ",
+        "note": "The pronoun **his** refers to Yahweh. If this is not clear for your readers, you could use the name. Alternate translation: [Yahweh’s mighty men]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "מְתֻלָּעִ֔ים",
+        "note": "The author is leaving out a word that in many languages a sentence would need in order to be complete. You could supply a word for the clothing if that would be clearer in your language. Alternate translation: [are clothed in scarlet uniforms]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "בְּ⁠אֵשׁ & הָ⁠רֶ֖כֶב",
+        "note": "In this verse, the word **chariot** is singular in form, but it refers to all of the chariots as a group. If it would be helpful in your language, you could say this plainly. Alternate translation: [the chariots flash with fire of]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "בְּ⁠אֵשׁ־פְּלָד֥וֹת",
+        "note": "The author is speaking of **metal** as if it were **fire** because of how it gleams in the sunlight. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [has metal that flashes like fire in the sunlight]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וְ⁠הַ⁠בְּרֹשִׁ֖ים",
+        "note": "Here, the word **cypresses** represents spears made from shafts of cypress wood. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [and the spears made with cypress shafts]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:4",
+    "bsb_verse_text": "The chariots dash through the streets; they rush around the plazas, appearing like torches, darting about like lightning.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "יִתְהוֹלְל֣וּ",
+        "note": "The implication is that the chariots are rushing wildly and without control. You could include this information if that would be helpful to your readers. Alternate translation: [rush wildly and uncontrollably]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כַּ⁠לַּפִּידִ֔ם",
+        "note": "The author is saying that the chariots are like torches because they shine brightly. If it would be helpful in your language, you could state that explicitly. Alternate translation: [bright, like blazing torches]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כַּ⁠בְּרָקִ֖ים יְרוֹצֵֽצוּ",
+        "note": "The author is saying that the chariots are like lightning because they move with great speed. If it would be helpful in your language, you could state that explicitly. Alternate translation: [they flash quickly from one place to another like lightning]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:5",
+    "bsb_verse_text": "He summons his nobles; they stumble as they advance. They race to its wall; the protective shield is set in place.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "יִזְכֹּר֙",
+        "note": "The pronoun **He** could refer to: (1) Yahweh or Yahweh’s chosen commander, the “scatterer” from [verse 1](../02/01.md). Alternate translation: [The attacker calls]; (2) The commander of Nineveh’s army. Alternate translation: [Nineveh’s commander calls]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "חֽוֹמָתָ֔⁠הּ",
+        "note": "The pronoun **her** refers to Nineveh. If this is not clear for your readers, you could use the name. Alternate translation: [to Nineveh’s wall]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "וְ⁠הֻכַ֖ן הַ⁠סֹּכֵֽךְ",
+        "note": "If your language does not use a passive form like **is prepared**, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [They prepare the siege shelter]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:6",
+    "bsb_verse_text": "The river gates are thrown open and the palace collapses.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-tense",
+        "orig_language_quote": "שַׁעֲרֵ֥י הַ⁠נְּהָר֖וֹת נִפְתָּ֑חוּ וְ⁠הַֽ⁠הֵיכָ֖ל נָמֽוֹג",
+        "note": "The author uses the past tense here in order to refer to something that will certainly happen in the future. If it would not be natural to do that in your language, you could use the future tense. Alternate translation: [The gates of the rivers will open, and the palace will melt away]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "שַׁעֲרֵ֥י הַ⁠נְּהָר֖וֹת",
+        "note": "This refers to the gates that controlled the flow and direction of the river."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "נִפְתָּ֑חוּ",
+        "note": "If your language does not use a passive form like **have been opened**, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [have opened] or [stand open]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠הַֽ⁠הֵיכָ֖ל נָמֽוֹג",
+        "note": "The author is speaking of **the palace** as if it could melt to express how the flood of water will destroy the palace. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [and the floodwaters have destroyed the palace]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:7",
+    "bsb_verse_text": "It is decreed that the city be exiled and carried away; her maidservants moan like doves, and beat upon their breasts.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "וְ⁠הֻצַּ֖ב",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. If you need to say who did the action, it is clear from the context that it was God. Alternate translation: [God has established it]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "גֻּלְּתָ֣ה",
+        "note": "If your language does not use a passive form like **she is taken**, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [her enemies take her into exile]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "הֹֽעֲלָ֑תָה",
+        "note": "If your language does not use a passive form like **she is led away**, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [they lead her away]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "גֻּלְּתָ֣ה הֹֽעֲלָ֑תָה וְ⁠אַמְהֹתֶ֗י⁠הָ",
+        "note": "The pronouns **she** and **her** refer to Nineveh. If this is not clear for your readers, you could use the name. Alternate translation: [Nineveh is taken into exile; Nineveh is led away, and Nineveh’s female servants]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "גֻּלְּתָ֣ה הֹֽעֲלָ֑תָה וְ⁠אַמְהֹתֶ֗י⁠הָ",
+        "note": "Nahum speaks of Nineveh as if the city were a woman who had female servants and who could be led away into exile. He also speaks of the female inhabitants of the city as if they served this woman. If it would be helpful in your language, you could express the meaning plainly. Alternate translation: [the inhabitants of Nineveh are taken into exile; they are led away, and the women of Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "לִבְבֵ⁠הֶֽן",
+        "note": "Here, **hearts** represents chests. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [their chests]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "מְתֹפְפֹ֖ת עַל־לִבְבֵ⁠הֶֽן",
+        "note": "When people beat on their hearts or chests it was a symbolic action to show that they were sad. If this would not be clear to your readers, you could explain the significance of this action in the text or in a footnote. Alternate translation: [beating on their hearts in sadness]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:8",
+    "bsb_verse_text": "Nineveh has been like a pool of water throughout her days, but now it is draining away. “Stop! Stop!” they cry, but no one turns back.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כִ⁠בְרֵֽכַת־מַ֖יִם",
+        "note": "The author is saying that Nineveh was like a pool of water because it was calm and undisturbed. If it would be helpful in your language, you could state that explicitly. Alternate translation: [was undisturbed, like a smooth pool of water]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "מִ֣⁠ימֵי הִ֑יא",
+        "note": "Here, **her days** represents the time when Nineveh was a city. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [during the time when Nineveh was a city]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "וְ⁠הֵ֣מָּה",
+        "note": "The pronoun **they** refers to the people of Nineveh. If this is not clear for your readers, you could use the name. Alternate translation: [now the people of Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "עִמְד֥וּ עֲמֹ֖דוּ",
+        "note": "The implication is that the officials are the ones calling out to the people. You could include this information if that would be helpful to your readers. Alternate translation: [The officials call out, “Stop, stop]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:9",
+    "bsb_verse_text": "“Plunder the silver! Plunder the gold!” There is no end to the treasure, an abundance of every precious thing.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "בֹּ֥זּוּ כֶ֖סֶף בֹּ֣זּוּ זָהָ֑ב וְ⁠אֵ֥ין קֵ֨צֶה֙ לַ⁠תְּכוּנָ֔ה כָּבֹ֕ד מִ⁠כֹּ֖ל כְּלִ֥י חֶמְדָּֽה",
+        "note": "The implication is that these are the words of the attackers. You could include this information if that would be helpful to your readers. Alternate translation: [The attackers say, “Plunder silver, plunder gold, for there is no end to the supply; a wealth of all things of delight”]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "וְ⁠אֵ֥ין קֵ֨צֶה֙ לַ⁠תְּכוּנָ֔ה",
+        "note": "The author is using an exaggeration to emphasize how much wealth Nineveh had. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [for there is an abundance available]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-possession",
+        "orig_language_quote": "כְּלִ֥י חֶמְדָּֽה",
+        "note": "The author is using the possessive form to describe **things** that are characterized by **delight**. If your language would not use the possessive form for this, you could use an adjective. Alternate translation: [delightful things]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:10",
+    "bsb_verse_text": "She is emptied! Yes, she is desolate and laid waste! Hearts melt, knees knock, bodies tremble, and every face grows pale!",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "בּוּקָ֥ה וּ⁠מְבוּקָ֖ה וּ⁠מְבֻלָּקָ֑ה",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [Nineveh is empty and desolate and ruined]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "וְ⁠לֵ֨ב",
+        "note": "In this verse, the word **heart** is singular in form, but it refers to each person’s heart as a group. If it would be helpful in your language, you could say this plainly. Alternate translation: [And everyone’s heart]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠לֵ֨ב נָמֵ֜ס",
+        "note": "Nahum is speaking of a **heart** as if it could melt, using this expression to communicate how people have lost their courage. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [The people experience a loss of courage]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וְ⁠חַלְחָלָה֙ בְּ⁠כָל־מָתְנַ֔יִם",
+        "note": "Here, **loins** represents the abdomen area where people feel strong emotions. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [everyone feels anguish inside them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "קִבְּצ֥וּ פָארֽוּר",
+        "note": "Nahum is using the term **beauty** to mean paleness by association with the way pale skin was considered beautiful in that culture. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [become pale]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:11",
+    "bsb_verse_text": "Where is the lions’ lair or the feeding ground of the young lions, where the lion and lioness prowled with their cubs, with nothing to frighten them away?",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "אַיֵּה֙ מְע֣וֹן אֲרָי֔וֹת וּ⁠מִרְעֶ֥ה ה֖וּא לַ⁠כְּפִרִ֑ים אֲשֶׁ֣ר הָלַךְ֩ אַרְיֵ֨ה לָבִ֥יא שָׁ֛ם גּ֥וּר אַרְיֵ֖ה וְ⁠אֵ֥ין מַחֲרִֽיד",
+        "note": "The author is using the question form to emphasize that this place is gone. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [That lions’ den, that feeding place for the young lions, where the lion walked, the lioness there, and the cubs of the lion, where nothing made them afraid—that place is gone!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exmetaphor",
+        "orig_language_quote": "מְע֣וֹן אֲרָי֔וֹת",
+        "note": "Here through [verse 13](../02/13.md) Nahum uses an extended metaphor in which he speaks of the people of Nineveh as though they were lions, and of their victims as though they were the lion’s prey. See the discussion in the chapter introduction."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "לָבִ֥יא שָׁ֛ם",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words from earlier in the sentence if it would be clearer in your language. Alternate translation: [the lioness also walked there]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "גּ֥וּר אַרְיֵ֖ה",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words from earlier in the sentence if it would be clearer in your language. Alternate translation: [the cubs of the lion also walked there]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:12",
+    "bsb_verse_text": "The lion mauled enough for its cubs and strangled prey for the lioness. It filled its dens with the kill, and its lairs with mauled prey.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "טֹרֵף֙ בְּ⁠דֵ֣י",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [tearing enough prey]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וּ⁠מְחַנֵּ֖ק",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [and strangling victims]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "וַ⁠יְמַלֵּא־טֶ֣רֶף חֹרָ֔י⁠ו וּ⁠מְעֹֽנֹתָ֖י⁠ו טְרֵפָֽה",
+        "note": "These two clauses mean basically the same thing. The second clause emphasizes the meaning of the first by repeating the same idea with different words. If it would be helpful to your readers, you could connect the clauses with a word that shows that the second clause is repeating the first one, not saying something additional. Alternate translation: [he filled his caves with prey, that is, his dens with torn carcasses]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וּ⁠מְעֹֽנֹתָ֖י⁠ו",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words from earlier in the sentence if it would be clearer in your language. Alternate translation: [he filled his dens]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 2:13",
+    "bsb_verse_text": "“Behold, I am against you,” declares the LORD of Hosts. “I will reduce your chariots to cinders, and the sword will devour your young lions. I will cut off your prey from the earth, and the voices of your messengers will no longer be heard.”",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "הִנְ⁠נִ֣י אֵלַ֗יִ⁠ךְ",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [Behold, I am against you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הִנְ⁠נִ֣י אֵלַ֗יִ⁠ךְ",
+        "note": "Yahweh is using the term **Behold** to focus attention on what he is about to say. Your language may have a comparable expression that you could use in your translation. Alternate translation: [Listen carefully—I am against you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "נְאֻם֙",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [this is the declaration of]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "רִכְבָּ֔⁠הּ",
+        "note": "The pronoun **her** refers to the city of Nineveh. Since Yahweh is speaking directly to the city of Nineveh in the rest of the verse, it may be more natural in your language to continue using direct address here. Alternate translation: [your chariot]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "רִכְבָּ֔⁠הּ",
+        "note": "In this verse, the word **chariot** is singular in form, but it refers to all of the chariots as a group. If it would be helpful in your language, you could say this plainly. Alternate translation: [her chariots] or [your chariots]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "תֹּ֣אכַל חָ֑רֶב",
+        "note": "Yahweh is speaking of **the sword** as if it could **devour** like an animal. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [soldiers will kill]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וְ⁠הִכְרַתִּ֤י",
+        "note": "The phrase **I will cut off** is an expression that means that Yahweh will take it away. Your language may have a comparable expression that you could use in your translation. Alternate translation: [I will take away]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:1",
+    "bsb_verse_text": "Woe to the city of blood, full of lies, full of plunder, never without prey.",
+    "ult_verse_text": "Woe to the city of bloodshed!",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "עִ֣יר דָּמִ֑ים",
+        "note": "The phrase **the city of bloodshed** represents the murderous people in Nineveh. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [to the murderous people in Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "כֻּלָּ֗⁠הּ כַּ֤חַשׁ",
+        "note": "Here, **lies** represents lying people. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [It is full of lying people]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:2",
+    "bsb_verse_text": "The crack of the whip, the rumble of the wheel, galloping horse and bounding chariot!",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "שׁ֔וֹט & רַ֣עַשׁ אוֹפָ֑ן וְ⁠ס֣וּס דֹּהֵ֔ר וּ⁠מֶרְכָּבָ֖ה מְרַקֵּדָֽה",
+        "note": "In this verse, the words **whip**, **wheel**, **horse**, and **chariot** are singular in form, but each refers to multiple items as a group. If it would be helpful in your language, you could say this plainly. Alternate translation: [whips … rattling wheels and galloping horses and bounding chariots]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:3",
+    "bsb_verse_text": "Charging horseman, flashing sword, shining spear; heaps of slain, mounds of corpses, dead bodies without end—they stumble over their dead—",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "פָּרָ֣שׁ מַעֲלֶ֗ה וְ⁠לַ֤הַב חֶ֨רֶב֙ וּ⁠בְרַ֣ק חֲנִ֔ית",
+        "note": "In this verse, the words **horseman**, **sword**, and **spear** are singular in form, but each refers to multiple items as a group. If it would be helpful in your language, you could say this plainly. Alternate translation: [The charging horsemen and flashing swords and gleaming spears]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "פָּרָ֣שׁ מַעֲלֶ֗ה וְ⁠לַ֤הַב חֶ֨רֶב֙ וּ⁠בְרַ֣ק חֲנִ֔ית",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [There are charging horsemen and flashing swords and gleaming spears]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "וְ⁠אֵ֥ין קֵ֨צֶה֙ לַ⁠גְּוִיָּ֔ה",
+        "note": "The author is using an exaggeration to emphasize how many bodies there are. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [The dead bodies are endless] or [The dead bodies never stop]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "וְכָשְׁל֖וּ",
+        "note": "The pronoun **they** refers to the attackers. If this is not clear for your readers, you could use the name. Alternate translation: [the attackers stumble over]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "בִּ⁠גְוִיָּתָֽ⁠ם",
+        "note": "The pronoun **their** refers to the Ninevites. If this is not clear for your readers, you could use the name. Alternate translation: [the Ninevites’ dead bodies]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:4",
+    "bsb_verse_text": "because of the many harlotries of the harlot, the seductive mistress of sorcery, who betrays nations by her prostitution and clans by her witchcraft.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exmetaphor",
+        "orig_language_quote": "זְנוּנֵ֣י זוֹנָ֔ה",
+        "note": "From here through [verse 7](../03/07.md), Nahum uses an extended metaphor in which he speaks of the people of Nineveh as though they were a prostitute who is also a witch. See the discussion in the chapter introduction."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "מֵ⁠רֹב֙",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [This is happening from the many]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וּ⁠מִשְׁפָּח֖וֹת",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words from earlier in the sentence if it would be clearer in your language. Alternate translation: [and she sells peoples]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:5",
+    "bsb_verse_text": "“Behold, I am against you,” declares the LORD of Hosts. “I will lift your skirts over your face. I will show your nakedness to the nations and your shame to the kingdoms.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הִנְ⁠נִ֣י אֵלַ֗יִ⁠ךְ",
+        "note": "Yahweh is using the term **Behold** to focus attention on what he is about to say. Your language may have a comparable expression that you could use in your translation. See how you translated this in [2:13](../02/13.md). Alternate translation: [Listen carefully—I am against you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אֵלַ֗יִ⁠ךְ",
+        "note": "The pronoun **you** refers to Nineveh, which Yahweh has been describing as a prostitute. If this is not clear for your readers, you could use the name. Alternate translation: [against you, Nineveh the prostitute]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "נְאֻם֙",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [this is the declaration of]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וּ⁠מַמְלָכ֖וֹת קְלוֹנֵֽ⁠ךְ",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words from earlier in the sentence if it would be clearer in your language. Alternate translation: [and I will show the kingdoms your shame]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "קְלוֹנֵֽ⁠ךְ",
+        "note": "If your language does not use an abstract noun for the idea of **shame**, you could express the same idea in another way. Alternate translation: [how shameful you are]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:6",
+    "bsb_verse_text": "I will pelt you with filth and treat you with contempt; I will make a spectacle of you.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "עָלַ֛יִ⁠ךְ",
+        "note": "The pronoun **you** refers to Nineveh, which Yahweh described as a prostitute in [3:4](../03/04.md). If this is not clear for your readers, you could use the name. Alternate translation: [on you, Nineveh the prostitute]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "וְ⁠הִשְׁלַכְתִּ֥י עָלַ֛יִ⁠ךְ שִׁקֻּצִ֖ים",
+        "note": "The word translated as **filth** refers to all kinds of garbage. Throwing garbage on a person was a sign of strong contempt. Alternate translation: [I will show utter contempt for you]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:7",
+    "bsb_verse_text": "Then all who see you will recoil from you and say, ‘Nineveh is devastated; who will grieve for her?’ Where can I find comforters for you?”",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "שָׁדְּדָ֣ה נִֽינְוֵ֔ה",
+        "note": "If your language does not use a passive form like **is destroyed**, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [Attackers have destroyed Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-tense",
+        "orig_language_quote": "שָׁדְּדָ֣ה נִֽינְוֵ֔ה",
+        "note": "The author uses the past tense here in order to refer to something that will certainly happen in the future. If it would not be natural to do that in your language, you could use the future tense. Alternate translation: [Nineveh will be destroyed]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "מִ֖י יָנ֣וּד לָ֑⁠הּ",
+        "note": "The author is using the question form to emphasize that no one will sympathize with Nineveh. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [no one will sympathize with her!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "מֵ⁠אַ֛יִן אֲבַקֵּ֥שׁ מְנַחֲמִ֖ים לָֽ⁠ךְ",
+        "note": "The author is using the question form to emphasize that no one will comfort Nineveh. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [I cannot find anyone to comfort you!]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:8",
+    "bsb_verse_text": "Are you better than Thebes, stationed by the Nile with water around her, whose rampart was the sea, whose wall was the water?",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הֲ⁠תֵֽיטְבִי֙ מִ⁠נֹּ֣א אָמ֔וֹן הַ⁠יֹּֽשְׁבָה֙ בַּ⁠יְאֹרִ֔ים מַ֖יִם סָבִ֣יב לָ֑⁠הּ אֲשֶׁר־חֵ֣יל יָ֔ם מִ⁠יָּ֖ם חוֹמָתָֽ⁠הּ",
+        "note": "The author is using the question form to emphasize that Nineveh is not better than Thebes. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [You are not better than Thebes, which was situated on the Nile River, with water all around her, whose defense was the sea, with water as her wall!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "מִ⁠נֹּ֣א אָמ֔וֹן",
+        "note": "**Thebes** refers to the powerful capital city of ancient Egypt in North Africa. It was conquered by Assyria in 663 B.C. If your readers would not be familiar with this place, you could describe it in a footnote."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "אֲשֶׁר־חֵ֣יל יָ֔ם מִ⁠יָּ֖ם חוֹמָתָֽ⁠הּ",
+        "note": "These two phrases mean basically the same thing. The second phrase emphasizes the meaning of the first by repeating the same idea with different words. If it would be helpful to your readers, you could connect the phrases with a word other than **and** in order to show that the second phrase is repeating the first one, not saying something additional. Alternate translation: [whose defense was the sea, that is, water was her wall]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מִ⁠יָּ֖ם חוֹמָתָֽ⁠הּ",
+        "note": "The author is speaking of **water** as if it were a **wall** because it protected the city. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [protected by water like a wall]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "מִ⁠יָּ֖ם חוֹמָתָֽ⁠הּ",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [whose wall was water]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:9",
+    "bsb_verse_text": "Cush and Egypt were her boundless strength; Put and Libya were her allies.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "עָצְמָ֛⁠ה",
+        "note": "If your language does not use an abstract noun for the idea of **strength**, you could express the same idea in another way. Alternate translation: [made her strong]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וְ⁠אֵ֣ין קֵ֑צֶה",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [and there was no end to that strength]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "וְ⁠אֵ֣ין קֵ֑צֶה",
+        "note": "The author is using an exaggeration to emphasize how much strength Egypt and Cush provided to Thebes. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [and their strength seemed limitless]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "פּ֣וּט",
+        "note": "**Put** was a region in North Africa, probably bordering the Mediterranean Sea west of Egypt. If your readers would not be familiar with this place, you could use a more general term. Alternate translation: [the region of Put]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "וְ⁠לוּבִ֔ים",
+        "note": "**Libya** refers to a region in North Africa west of Egypt that contained several related kingdoms. If your readers would not be familiar with this place, you could use a more general term. Alternate translation: [and the kingdoms of Libya]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "בְּ⁠עֶזְרָתֵֽ⁠ךְ",
+        "note": "The pronoun **your** refers to Thebes. If this is not clear for your readers, you could use the name or continue with a third-person pronoun. Alternate translation: [among Thebes’ allies] or [among her allies]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:10",
+    "bsb_verse_text": "Yet she became an exile; she went into captivity. Her infants were dashed to pieces at the head of every street. They cast lots for her dignitaries, and all her nobles were bound in chains.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "הִ֗יא לַ⁠גֹּלָה֙",
+        "note": "The pronoun **she** refers to the people of Thebes. If this is not clear for your readers, you could use the name. Alternate translation: [Thebes as an exile] or [the people of Thebes as exiles]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-nominaladj",
+        "orig_language_quote": "גְּדוֹלֶ֖י⁠הָ",
+        "note": "The author is using the adjective **great** as a noun to mean important people. Your language may use adjectives in the same way. If not, you could translate this word with an equivalent phrase. Alternate translation: [her important people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "עֹלָלֶ֛י⁠הָ יְרֻטְּשׁ֖וּ",
+        "note": "If your language does not use a passive form like **were dashed in pieces**, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [her enemies dashed her young children in pieces]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "בְּ⁠רֹ֣אשׁ כָּל־חוּצ֑וֹת",
+        "note": "Here, **head of every street** is an idiom that means “every intersection of streets.” If this phrase does not have that meaning in your language, you could use an idiom from your language that does have that meaning or state the meaning plainly. Alternate translation: [at every intersection]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "יַדּ֣וּ",
+        "note": "The pronoun **they** refers to the enemies of Thebes. If this is not clear for your readers, you could use the name. Alternate translation: [the enemies of Thebes cast]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "וְ⁠כָל־גְּדוֹלֶ֖י⁠הָ רֻתְּק֥וּ",
+        "note": "If your language does not use a passive form like **were bound**, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [and her enemies bound all her great ones]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:11",
+    "bsb_verse_text": "You too will become drunk; you will go into hiding and seek refuge from the enemy.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אַ֣תְּ",
+        "note": "The pronoun **You** refers to the people of the city of Nineveh. If this is not clear for your readers, you could use the name. Alternate translation: [You, Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "תִּשְׁכְּרִ֔י",
+        "note": "The author is speaking of the people being **drunk** to express how they will stagger and be confused when their enemies attack them. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [stagger around in confusion]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "תְּהִ֖י נַֽעֲלָמָ֑ה",
+        "note": "If your language does not use a passive form like **be hidden**, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [you will hide yourself]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:12",
+    "bsb_verse_text": "All your fortresses are fig trees with the first ripe figs; when shaken, they fall into the mouth of the eater!",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "כָּ֨ל־מִבְצָרַ֔יִ⁠ךְ תְּאֵנִ֖ים עִם־בִּכּוּרִ֑ים",
+        "note": "The author is speaking of **fortresses** as if they were **fig trees with first fruits** because they will be easy to capture, just as ripe figs are easy to pick. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [All of your fortresses will be as easy to capture as ripe figs are to pick]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:13",
+    "bsb_verse_text": "Look at your troops—they are like your women! The gates of your land are wide open to your enemies; fire consumes their bars.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הִנֵּ֨ה",
+        "note": "The author is using the term **Behold** to focus attention on what he is about to say. Your language may have a comparable expression that you could use in your translation. Alternate translation: [Listen carefully]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "עַמֵּ֤⁠ךְ",
+        "note": "The pronoun **your** refers to Nineveh. If this is not clear for your readers, you could use the name. Alternate translation: [your people, Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "נָשִׁים֙",
+        "note": "The author is speaking of **people** as if they were **women** because women did not have the physical strength or training to be a soldier and so, would not be able to defend the city. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [are weak and unable to fight] or [are ineffective] or [are powerless]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-reduplication",
+        "orig_language_quote": "פָּת֥וֹחַ נִפְתְּח֖וּ",
+        "note": "Nahum is repeating forms of the verb **open** here in order to intensify the idea that it expresses. If your language can repeat words for intensification, it would be appropriate to do that here in your translation. If not, your language may have another way of expressing the emphasis. Alternate translation: [have been opened wide]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-tense",
+        "orig_language_quote": "נִפְתְּח֖וּ & אָכְלָ֥ה",
+        "note": "The author uses the past tense here in order to refer to something that will certainly happen in the future. If it would not be natural to do that in your language, you could use the future tense. Alternate translation: [will be opened … will devour]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "בְּרִיחָֽיִ⁠ך",
+        "note": "The implication is that these **bars** are the wooden beams that secure the gates. You could include this information if that would be helpful to your readers. Alternate translation: [the wooden beams that secure your gates]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:14",
+    "bsb_verse_text": "Draw your water for the siege; strengthen your fortresses. Work the clay and tread the mortar; repair the brick kiln!",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "מֵ֤י מָצוֹר֙ שַֽׁאֲבִי־לָ֔⁠ךְ",
+        "note": "The phrase **siege water** refers to water that is stored to last through a time when enemies surround a city, separating the people in the city from their normal source of water. If your readers would not be familiar with this concept, you could explain the idea. Alternate translation: [Draw water to store for when enemies surround the city]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "לָ֔⁠ךְ",
+        "note": "The pronoun **yourself** refers to Nineveh. If this is not clear for your readers, you could use the name. Alternate translation: [for yourself, Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "מַלְבֵּֽן",
+        "note": "The phrase **brick mold** represents brick molds in general, not one particular mold. If it would be helpful in your language, you could use a more natural expression. Alternate translation: [the brick molds]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:15",
+    "bsb_verse_text": "There the fire will devour you; the sword will cut you down and consume you like a young locust. Make yourself many like the young locust; make yourself many like the swarming locust!",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "שָׁ֚ם תֹּאכְלֵ֣⁠ךְ אֵ֔שׁ",
+        "note": "The pronoun **you** in this verse refers to Nineveh. If this is not clear for your readers, you could add the name. Alternate translation: [Fire will devour you there, Nineveh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "תַּכְרִיתֵ֣⁠ךְ",
+        "note": "The author is using the phrase **the sword will cut you off** to mean “the sword will end your life.” If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [will end your life]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "כַּ⁠יָּ֑לֶק",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [as completely as the creeping locust devours plants]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "כַּ⁠יֶּ֔לֶק",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [as the creeping locust multiplies itself]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "כָּ⁠אַרְבֶּֽה",
+        "note": "The author is leaving out some of the words that in many languages a sentence would need in order to be complete. You could supply these words if it would be clearer in your language. Alternate translation: [as the swarming locust multiplies itself]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:16",
+    "bsb_verse_text": "You have multiplied your merchants more than the stars of the sky. The young locust strips the land and flies away.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "הִרְבֵּית֙",
+        "note": "The pronoun **You** refers to Nineveh. If this is not clear for your readers, you could add the name. Alternate translation: [You, Nineveh, have multiplied]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "מִ⁠כּוֹכְבֵ֖י הַ⁠שָּׁמָ֑יִם",
+        "note": "The author is using an extreme comparison to emphasize how many merchants Nineveh has. If it would be clearer in your language, you could express this in a non-figurative way. Alternate translation: [to a very great number]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "יֶ֥לֶק פָּשַׁ֖ט וַ⁠יָּעֹֽף",
+        "note": "The author is saying that the merchants will be like locusts because they will take everything valuable and leave, as locusts do, and they will do this suddenly, as locusts strip off their skin and fly away. If it would be helpful in your language, you could state that explicitly. Alternate translation: [they will be like locusts that strip the land and themselves and then fly away]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "פָּשַׁ֖ט",
+        "note": "Here, **stripped** seems to have a double meaning. It can refer to the locust stripping itself of its outer skin, which releases its wings so that it can fly, but it also can refer to stripping a land or city of its valuable things. If possible, use a term that could have either meaning."
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:17",
+    "bsb_verse_text": "Your guards are like the swarming locust, and your scribes like clouds of locusts that settle on the walls on a cold day. When the sun rises, they fly away, and no one knows where.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "מִנְּזָרַ֨יִ⁠ךְ֙ כָּֽ⁠אַרְבֶּ֔ה וְ⁠טַפְסְרַ֖יִ⁠ךְ כְּ⁠ג֣וֹב גֹּבָ֑י",
+        "note": "The author is saying that the guards and generals are like locusts because they are unreliable and disloyal, just as locusts fly away when conditions change. If it would be helpful in your language, you could state that explicitly. Alternate translation: [Your guards and generals are as unreliable and disloyal as locusts]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "מִנְּזָרַ֨יִ⁠ךְ֙ כָּֽ⁠אַרְבֶּ֔ה וְ⁠טַפְסְרַ֖יִ⁠ךְ כְּ⁠ג֣וֹב גֹּבָ֑י",
+        "note": "These two phrases mean basically the same thing. The second phrase emphasizes the meaning of the first by repeating the same idea with different words. If it would be helpful to your readers, you could combine the phrases as in the UST, or connect the phrases with a word other than **and** in order to show that the second phrase is repeating the first one, not saying something additional. Alternate translation: [Your guards are like the locust, indeed, your generals, like a swarm of locusts]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וְ⁠טַפְסְרַ֖יִ⁠ךְ כְּ⁠ג֣וֹב גֹּבָ֑י",
+        "note": "The author is leaving out a word that in many languages a sentence would need in order to be complete. You could supply this word if it would be clearer in your language. Alternate translation: [and your generals are like a swarm of locusts]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "וְ⁠נוֹדַ֔ד & מְקוֹמ֖⁠וֹ",
+        "note": "The pronouns **it** and **its** here refer to the locust swarm. If it would be helpful in your language, you could use plural forms to refer to the locusts. Alternate translation: [and they fly away and their place]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:18",
+    "bsb_verse_text": "O king of Assyria, your shepherds slumber; your officers sleep. Your people are scattered on the mountains with no one to gather them.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-apostrophe",
+        "orig_language_quote": "נָמ֤וּ רֹעֶ֨י⁠ךָ֙ מֶ֣לֶךְ אַשּׁ֔וּר",
+        "note": "Nahum has been addressing the people of Nineveh, which is the capital city of the nation of Assyria, but now he addresses the king who rules in Nineveh. He does this even though he knows that the king cannot hear him, in order to more powerfully express his prophecy against the people of Assyria and its leaders. If it would be helpful in your language, you could introduce this more clearly and put the rest of this address (through [verse 19](../03/19.md)) in quote marks. Alternate translation: [This is what I would say to the king of Assyria: “Your shepherds are asleep]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "נָמ֤וּ רֹעֶ֨י⁠ךָ֙ & יִשְׁכְּנ֖וּ אַדִּירֶ֑י⁠ךָ",
+        "note": "These two phrases mean basically the same thing. The second phrase emphasizes the meaning of the first by repeating the same idea with different words. If it would be helpful to your readers, you could connect the phrases with a word other than **and** in order to show that the second phrase is repeating the first one, not saying something additional. Alternate translation: [your shepherds are asleep; that is, your nobles are lying down]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "רֹעֶ֨י⁠ךָ֙",
+        "note": "The author is speaking of **shepherds** as if they were leaders because they guide and protect people as shepherds guide and protect sheep. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [your leaders]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-euphemism",
+        "orig_language_quote": "נָמ֤וּ & יִשְׁכְּנ֖וּ",
+        "note": "The author is referring to death in a polite way by using the phrases **asleep** and **lying down**. If it would be helpful in your language, you could use a more normal polite way of referring to this in your language, or you could state this plainly. Alternate translation: [have died … are dead]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "נָפֹ֧שׁוּ עַמְּ⁠ךָ֛",
+        "note": "If your language does not use a passive form like **are scattered**, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [Enemies have scattered your people]"
+      }
+    ]
+  },
+  {
+    "reference": "Nah 3:19",
+    "bsb_verse_text": "There is no healing for your injury; your wound is severe. All who hear the news of you applaud your downfall, for who has not experienced your constant cruelty?",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "אֵין־כֵּהָ֣ה לְ⁠שִׁבְרֶ֔⁠ךָ",
+        "note": "If your language does not use abstract nouns for the ideas of **relief** and **destruction**, you could express the same ideas in other ways. Alternate translation: [No one can help you when you are destroyed]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "נַחְלָ֖ה מַכָּתֶ֑⁠ךָ",
+        "note": "The author is speaking of Nineveh as though it were a person with a deadly **wound**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [The end of your kingdom is very soon]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-poetry",
+        "orig_language_quote": "שֹׁמְעֵ֣י שִׁמְעֲ⁠ךָ֗",
+        "note": "Here, **hearing the news** is an emphatic construction that uses a verb and its object, both of which come from the same root. You may be able to use the same construction in your language to express the meaning here. Alternatively, your language may have another way of showing the emphasis."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "תָּ֤קְעוּ כַף֙",
+        "note": "People clap their hands as a symbolic action to show that they are joyful. If this would not be clear to your readers, you could explain the significance of this action in the text or in a footnote. Alternate translation: [will clap their hands with joy]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "כִּ֗י עַל־מִ֛י לֹֽא־עָבְרָ֥ה רָעָתְ⁠ךָ֖ תָּמִֽיד",
+        "note": "The author is using the question form to emphasize that Nineveh has done evil to everyone. If you would not use the question form for this purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [For you have done endless evil to everyone!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "רָעָתְ⁠ךָ֖ תָּמִֽיד",
+        "note": "Nahum is using an exaggeration to emphasize how much evil Nineveh and her king did to people of other nations. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [your great abundance of evil deeds]"
+      }
+    ]
+  }
+]

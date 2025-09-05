@@ -1,0 +1,1018 @@
+[
+  {
+    "reference": "Hag 1:1",
+    "bsb_verse_text": "In the second year of the reign of Darius, on the first day of the sixth month, the word of the LORD came through Haggai the prophet to Zerubbabel son of Shealtiel, governor of Judah, and to Joshua son of Jehozadak, the high priest, stating",
+    "ult_verse_text": "In the second year of Darius the king, in the sixth month, on the first day of the month, the word of Yahweh was by the hand of Haggai the prophet to the governor of Judah, Zerubbabel son of Shealtiel, and to the high priest, Joshua son of Jehozadak, saying,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "בִּ⁠שְׁנַ֤ת שְׁתַּ֨יִם֙ לְ⁠דָרְיָ֣וֶשׁ הַ⁠מֶּ֔לֶךְ",
+        "note": "The **second year of Darius the king** implicitly means the second year of the reign of Darius as king. You could include this information if that would be helpful to your readers, here and in [1:15](../01/15.md) and [2:10](../02/10.md). Alternate translation: [In the second year of the reign of King Darius]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-ordinal",
+        "orig_language_quote": "בִּ⁠שְׁנַ֤ת שְׁתַּ֨יִם֙ & בַּ⁠חֹ֨דֶשׁ֙ הַ⁠שִּׁשִּׁ֔י בְּ⁠י֥וֹם אֶחָ֖ד לַ⁠חֹ֑דֶשׁ",
+        "note": "If your language does not use ordinal numbers, in your translation you could use cardinal numbers or equivalent expressions. Alternate translation: [In year two of … on day one of month six]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-hebrewmonths",
+        "orig_language_quote": "בַּ⁠חֹ֨דֶשׁ֙ הַ⁠שִּׁשִּׁ֔י בְּ⁠י֥וֹם אֶחָ֖ד לַ⁠חֹ֑דֶשׁ",
+        "note": "The **sixth** month of the Hebrew calendar includes August and September on Western calendars. See the introduction to Haggai for a discussion of how you might express this date in your translation."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "הָיָ֨ה דְבַר־יְהוָ֜ה בְּ⁠יַד־חַגַּ֣י הַ⁠נָּבִ֗יא",
+        "note": "Here one part of the prophet Haggai, his **hand**, represents all of him in bringing the **word of Yahweh** to the returned exiles. If it would be helpful in your language, you could use an equivalent expression from your culture or state the meaning plainly. Alternate translation: [Haggai the prophet brought the word of Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "דְבַר־יְהוָ֜ה",
+        "note": "The term **word** represents a message that Yahweh conveyed by using words. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [a message from Yahweh]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:2",
+    "bsb_verse_text": "that this is what the LORD of Hosts says: “These people say, ‘The time has not yet come to rebuild the house of the LORD.’”",
+    "ult_verse_text": "“Thus says Yahweh of Armies, saying: ‘This people, they say, “The time has not come to rebuild the house of Yahweh.”’”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "כֹּ֥ה אָמַ֛ר יְהוָ֥ה צְבָא֖וֹת לֵ⁠אמֹ֑ר הָ⁠עָ֤ם הַ⁠זֶּה֙ אָֽמְר֔וּ לֹ֥א עֶת־בֹּ֛א עֶת־בֵּ֥ית יְהוָ֖ה לְ⁠הִבָּנֽוֹת",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Yahweh of hosts is concerned that these people are saying that the time has not come to rebuild the house of Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "יְהוָ֥ה צְבָא֖וֹת",
+        "note": "The phrase **Yahweh of Armies** is a title for God that indicates his great power. It describes him as the commander of heavenly armies. If a translation of the Bible exists in your region, it may have a particular way of translating this phrase, and you may wish to use that in your translation. If a translation of the Bible does not exist in your region, you may wish to express the meaning of this phrase in some other way, here and throughout the book. Alternate translation: [Yahweh the Almighty]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "הָ⁠עָ֤ם הַ⁠זֶּה֙",
+        "note": "The phrase **This people** refers to the people of Judah who had returned from exile in Babylon. You could indicate that in your translation if it would be helpful to your readers. Alternate translation: [These returned Judean exiles]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "עֶת־בֵּ֥ית יְהוָ֖ה",
+        "note": "As the introduction to Haggai discusses, here and often throughout the book of Haggai, the word **house** means “temple.” The people are speaking of the temple as if it would be a house in which God lived, since God’s presence would be there. Alternate translation: [the temple of Yahweh]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:3",
+    "bsb_verse_text": "Then the word of the LORD came through Haggai the prophet, saying:",
+    "ult_verse_text": "Then the word of Yahweh came by the hand of Haggai the prophet, saying,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַֽ⁠יְהִי֙ דְּבַר־יְהוָ֔ה בְּ⁠יַד־חַגַּ֥י הַ⁠נָּבִ֖יא",
+        "note": "See how you translated this in [1:1](../01/01.md). Alternate translation: [Then Haggai the prophet brought this message from Yahweh]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:4",
+    "bsb_verse_text": "“Is it a time for you yourselves to live in your paneled houses, while this house lies in ruins?”",
+    "ult_verse_text": "“{Is it} a time for you yourselves to live in your paneled houses, while this house {is} desolate?",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הַ⁠עֵ֤ת לָ⁠כֶם֙ אַתֶּ֔ם לָ⁠שֶׁ֖בֶת בְּ⁠בָתֵּי⁠כֶ֣ם סְפוּנִ֑ים וְ⁠הַ⁠בַּ֥יִת הַ⁠זֶּ֖ה חָרֵֽב",
+        "note": "Yahweh is using the question form for emphasis. If you would not use the question form for that purpose in your language, you could translate this as a statement or as an exclamation. Alternate translation: [Now is not a time for you yourselves to live in your paneled houses, while this house is desolate!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "לָ⁠כֶם֙ אַתֶּ֔ם & בְּ⁠בָתֵּי⁠כֶ֣ם",
+        "note": "As the introduction to Haggai discusses, here and throughout the book except for in the last verse, the words **you**, **yourselves**, and **your** are plural because Yahweh is addressing the returned exiles, so use the plural form in your translation if your language marks that distinction."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "סְפוּנִ֑ים",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. The term **paneled** could describe: (1) houses whose walls are covered with panels of costly wood. Alternate translation: [in houses whose walls you have paneled with costly wood]; (2) houses that have roofs. Alternate translation: [in your houses that have roofs]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:5",
+    "bsb_verse_text": "Now this is what the LORD of Hosts says: “Consider carefully your ways.",
+    "ult_verse_text": "So now, thus says Yahweh of Armies: ‘Set your heart upon your ways!",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וְ⁠עַתָּ֕ה כֹּ֥ה אָמַ֖ר יְהוָ֣ה צְבָא֑וֹת שִׂ֥ימוּ לְבַבְ⁠כֶ֖ם עַל־דַּרְכֵי⁠כֶֽם",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [So now Yahweh of Armies is telling you to set your heart upon your ways]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "שִׂ֥ימוּ לְבַבְ⁠כֶ֖ם עַל־דַּרְכֵי⁠כֶֽם",
+        "note": "Here, the **heart** figuratively represents the thoughts. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [Focus your thoughts on your ways] or [Consider your ways carefully]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "לְבַבְ⁠כֶ֖ם",
+        "note": "Since Yahweh is speaking to many people, it may be more natural in your language to use the plural form of **heart**. Alternate translation: [your hearts]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "דַּרְכֵי⁠כֶֽם",
+        "note": "Yahweh is speaking of how the returned exiles have been living as if that were a series of **ways** or paths that they were walking along. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [how you have been living]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:6",
+    "bsb_verse_text": "You have planted much but harvested little. You eat but never have enough. You drink but never have your fill. You put on clothes but never get warm. You earn wages to put into a bag pierced through.”",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠אֵין־לְ⁠שָׂבְעָה֙",
+        "note": "If your language does not use an abstract noun for the idea of **satiety**, you could express the same idea in another way. Alternate translation: [but not enough to satisfy your hunger]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠אֵין־לְ⁠שָׁכְרָ֔ה",
+        "note": "In this culture, as in many cultures today, the water was not safe to drink, so people drank wine made from grapes. This wine contained a low level of alcohol. Yahweh is emphasizing that the people do not have enough to drink to satisfy their thirst. If they did, they would also experience a slight stimulating sensation. Yahweh is not suggesting that drunkenness is a good thing. It may be helpful to clarify the intended meaning of this statement. Alternate translation: [but you cannot drink enough to satisfy your thirst]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "לָב֖וֹשׁ וְ⁠אֵין־לְ⁠חֹ֣ם ל֑⁠וֹ",
+        "note": "Since to this point Yahweh has been speaking to the Judeans in the second person, it may be natural in your language to translate this sentence in the second person as well. Alternate translation: [You wear clothes, but you are not able to warm yourselves]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וְ⁠הַ֨⁠מִּשְׂתַּכֵּ֔ר מִשְׂתַּכֵּ֖ר אֶל־צְר֥וֹר נָקֽוּב",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [And the wage earner earns wages, only to put them into a punctured bag]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠הַ֨⁠מִּשְׂתַּכֵּ֔ר מִשְׂתַּכֵּ֖ר אֶל־צְר֥וֹר נָקֽוּב",
+        "note": "Yahweh is speaking as if the returned exiles were literally putting their **wages** in a **punctured bag**. The image suggests that when they have expenses, they do not have money available to meet them. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [And the money you earn seems to disappear quickly]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "צְר֥וֹר נָקֽוּב",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [a bag that someone has punctured] or [a bag that has a hole in it]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:7",
+    "bsb_verse_text": "This is what the LORD of Hosts says: “Consider carefully your ways.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "כֹּ֥ה אָמַ֖ר יְהוָ֣ה צְבָא֑וֹת שִׂ֥ימוּ לְבַבְ⁠כֶ֖ם עַל־דַּרְכֵי⁠כֶֽם",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Yahweh of Armies is telling you to set your heart upon your ways]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "שִׂ֥ימוּ לְבַבְ⁠כֶ֖ם עַל־דַּרְכֵי⁠כֶֽם",
+        "note": "See how you translated this in [1:5](../01/05.md). Alternate translation: [Focus your thoughts on how you have been living] or [Consider carefully how you have been living]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:8",
+    "bsb_verse_text": "Go up into the hills, bring down lumber, and build the house, so that I may take pleasure in it and be glorified, says the LORD.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "עֲל֥וּ הָ⁠הָ֛ר וַ⁠הֲבֵאתֶ֥ם עֵ֖ץ וּ⁠בְנ֣וּ הַ⁠בָּ֑יִת וְ⁠אֶרְצֶה־בּ֥⁠וֹ ו⁠אכבד אָמַ֥ר יְהוָֽה",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Yes, Yahweh is telling you to go up to the mountain and bring timber and build the house, and he will take pleasure in it and he will be glorified]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "הָ⁠הָ֛ר",
+        "note": "Yahweh is not referring to a specific **mountain**. He means the various mountains around the city of Jerusalem, where his temple was located. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [to the mountains]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ו⁠אכבד",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. In the introduction to this chapter, see the discussion of the concept of God being **glorified**. Alternate translation: [and this will glorify me] or [and in this way you will honor me]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:9",
+    "bsb_verse_text": "You expected much, but behold, it amounted to little. And what you brought home, I blew away. Why? declares the LORD of Hosts. Because My house still lies in ruins, while each of you is busy with his own house.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "פָּנֹ֤ה אֶל־הַרְבֵּה֙ וְ⁠הִנֵּ֣ה לִ⁠מְעָ֔ט וַ⁠הֲבֵאתֶ֥ם הַ⁠בַּ֖יִת וְ⁠נָפַ֣חְתִּי ב֑⁠וֹ יַ֣עַן מֶ֗ה נְאֻם֙ יְהוָ֣ה צְבָא֔וֹת יַ֗עַן בֵּיתִ⁠י֙ אֲשֶׁר־ה֣וּא חָרֵ֔ב וְ⁠אַתֶּ֥ם רָצִ֖ים אִ֥ישׁ לְ⁠בֵיתֽ⁠וֹ",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [You looked for much, but behold, little! And you brought it home, but he blew upon it! And Yahweh of Armies wants you to know why this happened. It is because of his house, that it is desolate, but you are running, a man to his house]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠הִנֵּ֣ה",
+        "note": "Yahweh is using the term **behold** to focus his listeners’ attention on what he is about to say. Your language may have a comparable expression that you can use in your translation."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וְ⁠הִנֵּ֣ה לִ⁠מְעָ֔ט",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [but you found only a little]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠נָפַ֣חְתִּי ב֑⁠וֹ",
+        "note": "Yahweh is speaking as if he had literally blown on the crops that the Judeans brought home. The image is of the wind blowing hard and carrying off grain. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [but it was as if the wind carried it away]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "יַ֣עַן מֶ֗ה & יַ֗עַן בֵּיתִ⁠י֙",
+        "note": "Yahweh is using the question form for emphasis. If you would not use the question form for that purpose in your language, you could translate this as a statement or an exclamation. Alternate translation: [There is an important reason for this! … It is because of my house]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "נְאֻם֙ יְהוָ֣ה צְבָא֔וֹת",
+        "note": "As the introduction to Haggai discusses, if your language does not use an abstract noun for the idea of **declaration**, you could express the same idea in another way, here and in the other occurrences of this phrase throughout the book. Alternate translation: [this is what Yahweh of Armies declares]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "וְ⁠אַתֶּ֥ם רָצִ֖ים אִ֥ישׁ לְ⁠בֵיתֽ⁠וֹ",
+        "note": "Although the term **man** is masculine, Yahweh is using the word in a generic sense that includes both men and women. In this context, it means “each one of you.” If it would be helpful to your readers, you could use language in your translation that indicates this. Alternate translation: [each one of you is running to his or her own house]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠אַתֶּ֥ם רָצִ֖ים אִ֥ישׁ לְ⁠בֵיתֽ⁠וֹ",
+        "note": "Yahweh is speaking as if the Judeans were literally **running** back to their homes whenever they had the opportunity to return to them. He means that they are eager to improve their own homes, even though they do not care about the temple. If it would be helpful to your readers, you could state the meaning plainly. Alternate translation: [while you are eager to improve your own homes]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:10",
+    "bsb_verse_text": "Therefore, on account of you the heavens have withheld their dew and the earth has withheld its crops.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "כָּלְא֥וּ שָמַ֖יִם מִ⁠טָּ֑ל וְ⁠הָ⁠אָ֖רֶץ כָּלְאָ֥ה יְבוּלָֽ⁠הּ",
+        "note": "Yahweh is speaking as if the **heavens** and the **earth** were living things that could actively withhold **dew** and **produce** from the Judeans. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [there is no dew from the heavens above you and there is no produce from the earth]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "עֲלֵי⁠כֶ֔ם כָּלְא֥וּ שָמַ֖יִם מִ⁠טָּ֑ל",
+        "note": "Yahweh is speaking as if **dew** fell from the **heavens**, that is, from the sky. He means implicitly that not only has rain not been falling from the sky, dew has not even been forming on the ground overnight. You could indicate that in your translation if it would be helpful to your readers. Alternate translation: [not only has it not been raining, dew has not even been forming,]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:11",
+    "bsb_verse_text": "I have summoned a drought on the fields and on the mountains, on the grain, new wine, and oil, and on whatever the ground yields, on man and beast, and on all the labor of your hands.”",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-litany",
+        "orig_language_quote": "עַל־הָ⁠אָ֣רֶץ וְ⁠עַל־הֶ⁠הָרִ֗ים וְ⁠עַל־הַ⁠דָּגָן֙ וְ⁠עַל־הַ⁠תִּיר֣וֹשׁ וְ⁠עַל־הַ⁠יִּצְהָ֔ר וְ⁠עַ֛ל אֲשֶׁ֥ר תּוֹצִ֖יא הָ⁠אֲדָמָ֑ה וְ⁠עַל־הָֽ⁠אָדָם֙ וְ⁠עַל־הַ⁠בְּהֵמָ֔ה וְ⁠עַ֖ל כָּל־יְגִ֥יעַ כַּפָּֽיִם",
+        "note": "In this verse, Yahweh uses a series of repetitive phrases to show that the effects of the **desolation** he has **called for** are comprehensive. A series of phrases like this is called a litany. If your readers would not be familiar with this form, to help them appreciate it, you could put each of the phrases on a separate line in your translation, for example:\\n“And I have called for desolation\\n upon the land and upon the mountains and upon the grain and upon the new wine …”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וָ⁠אֶקְרָ֨א חֹ֜רֶב עַל־הָ⁠אָ֣רֶץ וְ⁠עַל־הֶ⁠הָרִ֗ים וְ⁠עַל־הַ⁠דָּגָן֙ וְ⁠עַל־הַ⁠תִּיר֣וֹשׁ וְ⁠עַל־הַ⁠יִּצְהָ֔ר וְ⁠עַ֛ל אֲשֶׁ֥ר תּוֹצִ֖יא הָ⁠אֲדָמָ֑ה וְ⁠עַל־הָֽ⁠אָדָם֙ וְ⁠עַל־הַ⁠בְּהֵמָ֔ה וְ⁠עַ֖ל כָּל־יְגִ֥יעַ כַּפָּֽיִם",
+        "note": "If your language does not use an abstract noun for the idea of **desolation**, you could express the same idea in another way. The word “desolation” is the noun form of the word whose adjective form “desolate” Yahweh uses in [verses 4](../01/04.md) and [9](../01/09.md). Yahweh is saying that the land of Judah is experiencing desolation because the people have left his temple desolate. So if you would not use the abstract noun “desolation” in your language, an adjective such as “desolate” may be suitable here. Alternate translation: [And I have called for the land and the mountains and the grain and the new wine and the oil and what the ground produces and the man and the beast and all the labor of your hands to become desolate]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וָ⁠אֶקְרָ֨א",
+        "note": "If you have been translating this chapter so that there are not quotations within a quotation, for consistency you would say here, “And he has called for.”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וְ⁠עַל־הַ⁠דָּגָן֙ וְ⁠עַל־הַ⁠תִּיר֣וֹשׁ וְ⁠עַל־הַ⁠יִּצְהָ֔ר",
+        "note": "Here, **grain**, **new wine**, and **oil** represent wheat and barley, grapes, and olives, of which they are the products. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [and upon the wheat and barley and upon the grapes and upon the olives]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "וְ⁠עַל־הָֽ⁠אָדָם֙ וְ⁠עַל־הַ⁠בְּהֵמָ֔ה",
+        "note": "Yahweh is not referring to a specific **man** or to a specific **beast**. He means people and animals in general. It may be more natural in your language to express this meaning by using plural forms. Alternate translation: [and upon people and upon animals]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "כַּפָּֽיִם",
+        "note": "Yahweh is using one part of the Judeans, their **hands**, to mean all of them in the act of working. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [everything that you do]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:12",
+    "bsb_verse_text": "Then Zerubbabel son of Shealtiel and Joshua son of Jehozadak, the high priest, as well as all the remnant of the people, obeyed the voice of the LORD their God and the words of the prophet Haggai, because the LORD their God had sent him. So the people feared the LORD.",
+    "ult_verse_text": "Then Zerubbabel son of Shealtiel and Joshua son of Jehozadak, the high priest, and all of the remnant of the people listened to the voice of Yahweh their God and to the words of Haggai the prophet, because Yahweh their God had sent him and the people feared the face of Yahweh.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַ⁠יִּשְׁמַ֣ע & בְּ⁠קוֹל֙ יְהוָ֣ה אֱלֹֽהֵי⁠הֶ֔ם וְ⁠עַל־דִּבְרֵי֙ חַגַּ֣י הַ⁠נָּבִ֔יא",
+        "note": "Here the word **listened** implicitly means “obeyed.” If it would be helpful to your readers, you could state the meaning plainly. Alternate translation: [Then … obeyed the voice of Yahweh their God and the words of Haggai the prophet]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וַ⁠יִּשְׁמַ֣ע & בְּ⁠קוֹל֙ יְהוָ֣ה אֱלֹֽהֵי⁠הֶ֔ם וְ⁠עַל־דִּבְרֵי֙ חַגַּ֣י הַ⁠נָּבִ֔יא",
+        "note": "Here the term **voice** represents what Yahweh said by using his voice and the term **words** represents what Haggai said by using words. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [Then … obeyed what Yahweh their God and Haggai the prophet had said]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hendiadys",
+        "orig_language_quote": "בְּ⁠קוֹל֙ יְהוָ֣ה אֱלֹֽהֵי⁠הֶ֔ם וְ⁠עַל־דִּבְרֵי֙ חַגַּ֣י הַ⁠נָּבִ֔יא",
+        "note": "Here a single idea is expressed through two phrases connected with **and**. The second phrase tells by what means the action of the first phrase was accomplished. If it would be more natural in your language, you could convey this meaning with an equivalent expression that does not use “and.” Alternate translation: [what Yahweh their God had said through Haggai the prophet]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "וַ⁠יִּֽירְא֥וּ הָ⁠עָ֖ם מִ⁠פְּנֵ֥י יְהוָֽה",
+        "note": "Here one part of Yahweh, his **face**, represents all of him. Alternate translation: [and the people feared Yahweh] or [and the people respected Yahweh]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:13",
+    "bsb_verse_text": "Haggai, the messenger of the LORD, delivered the message of the LORD to the people: “I am with you,” declares the LORD.",
+    "ult_verse_text": "Then Haggai, the messenger of Yahweh, spoke the message of Yahweh to the people, saying, “‘I {am} with you!’—the declaration of Yahweh.”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "אֲנִ֥י אִתְּ⁠כֶ֖ם נְאֻם־יְהוָֽה",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Yahweh declares that he is with you!]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:14",
+    "bsb_verse_text": "So the LORD stirred the spirit of Zerubbabel son of Shealtiel, governor of Judah, and the spirit of Joshua son of Jehozadak, the high priest, as well as the spirit of all the remnant of the people. And they came and began the work on the house of the LORD of Hosts, their God,",
+    "ult_verse_text": "And Yahweh awakened the spirit of the governor of Judah, Zerubbabel son of Shealtiel, and the spirit of Joshua son of Jehozadak, the high priest, and the spirit of all of the remnant of the people, and they came and did the work on the house of Yahweh of Armies, their God,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "וַ⁠יָּ֣עַר יְהוָ֡ה אֶת־רוּחַ֩ זְרֻבָּבֶ֨ל בֶּן־שַׁלְתִּיאֵ֜ל פַּחַ֣ת יְהוּדָ֗ה וְ⁠אֶת־ר֨וּחַ֙ יְהוֹשֻׁ֤עַ בֶּן־יְהוֹצָדָק֙ הַ⁠כֹּהֵ֣ן הַ⁠גָּד֔וֹל וְֽ⁠אֶת־ר֔וּחַ כֹּ֖ל שְׁאֵרִ֣ית הָ⁠עָ֑ם",
+        "note": "Here one part of Zerubbabel, Joshua, and the people, their **spirit** in each case, represents all of them. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [And Yahweh awakened the governor of Judah, Zerubbabel son of Shealtiel, and Joshua son of Jehozadak, the high priest, and all of the remnant of the people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וַ⁠יָּ֣עַר יְהוָ֡ה אֶת־רוּחַ֩ זְרֻבָּבֶ֨ל בֶּן־שַׁלְתִּיאֵ֜ל פַּחַ֣ת יְהוּדָ֗ה וְ⁠אֶת־ר֨וּחַ֙ יְהוֹשֻׁ֤עַ בֶּן־יְהוֹצָדָק֙ הַ⁠כֹּהֵ֣ן הַ⁠גָּד֔וֹל וְֽ⁠אֶת־ר֔וּחַ כֹּ֖ל שְׁאֵרִ֣ית הָ⁠עָ֑ם",
+        "note": "Here Zerubbabel, Joshua, and the people are described as if they had literally been asleep and Yahweh woke them up. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [And Yahweh motivated the governor of Judah, Zerubbabel son of Shealtiel, and Joshua son of Jehozadak, the high priest, and all of the remnant of the people]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 1:15",
+    "bsb_verse_text": "on the twenty-fourth day of the sixth month, in the second year of King Darius.",
+    "ult_verse_text": "on the twenty-fourth day of the sixth month in the second year of Darius the king,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-hebrewmonths",
+        "orig_language_quote": "בְּ⁠י֨וֹם עֶשְׂרִ֧ים וְ⁠אַרְבָּעָ֛ה לַ⁠חֹ֖דֶשׁ בַּ⁠שִּׁשִּׁ֑י",
+        "note": "The **sixth month** of the Hebrew calendar includes August and September on Western calendars. See how you decided to translate the similar reference to a day, month, and year in [1:1](../01/01.md)."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-ordinal",
+        "orig_language_quote": "בְּ⁠י֨וֹם עֶשְׂרִ֧ים וְ⁠אַרְבָּעָ֛ה לַ⁠חֹ֖דֶשׁ בַּ⁠שִּׁשִּׁ֑י בִּ⁠שְׁנַ֥ת שְׁתַּ֖יִם",
+        "note": "If your language does not use ordinal numbers, you could use cardinal numbers here. Alternate translation: [on day 24 of month six. In year two]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:1",
+    "bsb_verse_text": "On the twenty-first day of the seventh month, the word of the LORD came through Haggai the prophet, saying:",
+    "ult_verse_text": "in the seventh, on the twenty-first of the month, the word of Yahweh was by the hand of Haggai the prophet, saying,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "בַּ⁠שְּׁבִיעִ֕י בְּ⁠עֶשְׂרִ֥ים וְ⁠אֶחָ֖ד לַ⁠חֹ֑דֶשׁ",
+        "note": "Here some words are omitted that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [in the seventh month, on the twenty-first day of the month]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-ordinal",
+        "orig_language_quote": "בַּ⁠שְּׁבִיעִ֕י בְּ⁠עֶשְׂרִ֥ים וְ⁠אֶחָ֖ד לַ⁠חֹ֑דֶשׁ",
+        "note": "If your language does not use ordinal numbers, you could use cardinal numbers here. Alternate translation: [on day 21 of month seven]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-hebrewmonths",
+        "orig_language_quote": "בַּ⁠שְּׁבִיעִ֕י בְּ⁠עֶשְׂרִ֥ים וְ⁠אֶחָ֖ד לַ⁠חֹ֑דֶשׁ",
+        "note": "The **twenty-first** day of the **seventh** month on the Hebrew calendar is near the middle of October on Western calendars. See how you decided to translate the similar reference to a day and month in [1:1](../01/01.md)."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "הָיָה֙ דְּבַר־יְהוָ֔ה בְּ⁠יַד־חַגַּ֥י הַ⁠נָּבִ֖יא",
+        "note": "See how you translated this same statement in [1:1](../01/01.md). Alternate translation: [Haggai the prophet brought a message from Yahweh]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:2",
+    "bsb_verse_text": "“Speak to Zerubbabel son of Shealtiel, governor of Judah, and to Joshua son of Jehozadak, the high priest, and also to the remnant of the people. Ask them,",
+    "ult_verse_text": "“Speak now to Zerubbabel son of Shealtiel, the governor of Judah, and to Joshua son of Jehozadak, the high priest, and to the remnant of the people, saying,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "הָ⁠עָ֖ם לֵ⁠אמֹֽר",
+        "note": "You may decide to translate the rest of this oracle, through [verse 9](../02/09.md), so that there is not a direct quotation within a quotation. If so, you can translate this so that it does not introduce a direct quotation. Alternate translation, with no comma following: [the people and ask them]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:3",
+    "bsb_verse_text": "‘Who is left among you who saw this house in its former glory? How does it look to you now? Does it not appear to you like nothing in comparison?’",
+    "ult_verse_text": "‘Who is the one left among you who saw this house in its former glory? How are you seeing it now? Compared with that, {is it} not like nothing in your eyes?",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "מִ֤י בָ⁠כֶם֙ הַ⁠נִּשְׁאָ֔ר אֲשֶׁ֤ר רָאָה֙ אֶת־הַ⁠בַּ֣יִת הַ⁠זֶּ֔ה בִּ⁠כְבוֹד֖⁠וֹ הָ⁠רִאשׁ֑וֹן וּ⁠מָ֨ה אַתֶּ֜ם רֹאִ֤ים אֹת⁠וֹ֙ עַ֔תָּה הֲ⁠ל֥וֹא כָמֹ֛⁠הוּ כְּ⁠אַ֖יִן בְּ⁠עֵינֵי⁠כֶֽם",
+        "note": "If you have decided to translate this oracle so that it does not contain direct quotations within a quotation, you can translate this verse as an indirect quotation, continuing the sentence that begins in the previous verse. Alternate translation: [who is left among them who saw this house in its former glory. Ask them how they are seeing it now and whether, compared with it, it is not like nothing in their eyes]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "מִ֤י בָ⁠כֶם֙ הַ⁠נִּשְׁאָ֔ר אֲשֶׁ֤ר רָאָה֙ אֶת־הַ⁠בַּ֣יִת הַ⁠זֶּ֔ה בִּ⁠כְבוֹד֖⁠וֹ הָ⁠רִאשׁ֑וֹן וּ⁠מָ֨ה אַתֶּ֜ם רֹאִ֤ים אֹת⁠וֹ֙ עַ֔תָּה הֲ⁠ל֥וֹא כָמֹ֛⁠הוּ כְּ⁠אַ֖יִן בְּ⁠עֵינֵי⁠כֶֽם",
+        "note": "Yahweh is using the question form for emphasis. If you would not use the question form for that purpose in your language, you could translate these questions as statements or as exclamations. Alternate translation: [Some of you saw this temple in its former glory. I know that you are not pleased with the way it looks now. Compared with the way it looked before, it seems like nothing in your eyes.]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "בָ⁠כֶם֙ הַ⁠נִּשְׁאָ֔ר אֲשֶׁ֤ר רָאָה֙ אֶת־הַ⁠בַּ֣יִת הַ⁠זֶּ֔ה",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [the one among you who still remembers what this temple looked like]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "אֲשֶׁ֤ר רָאָה֙ אֶת־הַ⁠בַּ֣יִת הַ⁠זֶּ֔ה בִּ⁠כְבוֹד֖⁠וֹ הָ⁠רִאשׁ֑וֹן",
+        "note": "If your language does not use an abstract noun for the idea of **glory**, you could express the same idea in another way. Alternate translation: [who saw how glorious this temple formerly was]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "כָמֹ֛⁠הוּ",
+        "note": "The pronoun **that** refers to the former glory of the temple. It may be helpful to clarify this for your readers. Alternate translation: [Compared with its former glory]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "הֲ⁠ל֥וֹא כָמֹ֛⁠הוּ כְּ⁠אַ֖יִן בְּ⁠עֵינֵי⁠כֶֽם",
+        "note": "Yahweh is using the term **eyes** by association to mean sight. Sight, in turn, represents attention, perspective, and judgment. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [Compared with that, do you not regard it as nothing]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:4",
+    "bsb_verse_text": "But now be strong, O Zerubbabel, declares the LORD. Be strong, O Joshua son of Jehozadak, the high priest. And be strong, all you people of the land, declares the LORD. Work! For I am with you, declares the LORD of Hosts.",
+    "ult_verse_text": "But now, be strong, Zerubbabel!’—the declaration of Yahweh—‘and be strong, Joshua son of Jehozadak, you high priest, and be strong, all people of the land!’—the declaration of Yahweh—‘and work, for I {am} with you!’—the declaration of Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וְ⁠עַתָּ֣ה חֲזַ֣ק זְרֻבָּבֶ֣ל ׀ נְאֻם־יְהוָ֡ה וַ⁠חֲזַ֣ק יְהוֹשֻׁ֣עַ בֶּן־יְהוֹצָדָק֩ הַ⁠כֹּהֵ֨ן הַ⁠גָּד֜וֹל וַ⁠חֲזַ֨ק כָּל־עַ֥ם הָ⁠אָ֛רֶץ נְאֻם־יְהוָ֖ה וַֽ⁠עֲשׂ֑וּ כִּֽי־אֲנִ֣י אִתְּ⁠כֶ֔ם נְאֻ֖ם יְהוָ֥ה צְבָאֽוֹת",
+        "note": "If you have decided to translate this oracle so that it does not contain direct quotations within a quotation, you can translate the second-level quotations in this verse as indirect quotations. Alternate translation: [But tell Zerubbabel that I, Yahweh, declare that he should now be strong, and that I, Yahweh, declare to Joshua son of Jehozadak, the high priest, and to all the people of the land that they should be strong, and that I, Yahweh of Armies, declare that they should work, for I am with them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "כָּל־עַ֥ם הָ⁠אָ֛רֶץ",
+        "note": "Yahweh is using this expression to refer to the Judeans who have returned from exile. The phrase means the same thing as the term “remnant” in [1:12](../01/12.md) and [1:14](../01/14.md). However, the phrase “the people of the land” often has a different meaning elsewhere in the Bible. In other passages, it refers to the Canaanites who were living in the region before the Israelites arrived. So it may be helpful to your readers to state the plainly what “the people of the land” means here. Alternate translation: [all you Judeans who have returned from exile]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:5",
+    "bsb_verse_text": "This is the promise I made to you when you came out of Egypt. And My Spirit remains among you; do not be afraid.”",
+    "ult_verse_text": "‘The word that I covenanted with you when you came out of Egypt, and my Spirit remains in your midst. Do not fear!’",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "אֶֽת־הַ⁠דָּבָ֞ר אֲשֶׁר־כָּרַ֤תִּי אִתְּ⁠כֶם֙ בְּ⁠צֵאתְ⁠כֶ֣ם מִ⁠מִּצְרַ֔יִם וְ⁠רוּחִ֖⁠י עֹמֶ֣דֶת בְּ⁠תוֹכְ⁠כֶ֑ם אַל־תִּירָֽאוּ",
+        "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate this verse as an indirect quotation. Alternate translation: [Tell them that this is the word that I covenanted with them when they came out of Egypt, and my Spirit remains in their midst, so they should not fear]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "אֶֽת־הַ⁠דָּבָ֞ר אֲשֶׁר־כָּרַ֤תִּי אִתְּ⁠כֶם֙",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [This is the word that I covenanted with you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "אֶֽת־הַ⁠דָּבָ֞ר אֲשֶׁר־כָּרַ֤תִּי אִתְּ⁠כֶם֙",
+        "note": "Yahweh is using the term **word** to mean what he said to the Israelites by using words when he made a covenant with them. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [This is the covenant promise that I made to you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "אֶֽת־הַ⁠דָּבָ֞ר אֲשֶׁר־כָּרַ֤תִּי אִתְּ⁠כֶם֙ בְּ⁠צֵאתְ⁠כֶ֣ם מִ⁠מִּצְרַ֔יִם",
+        "note": "By **The word that I covenanted with you**, Yahweh is referring to what he has just said, “I am with you.” Yahweh made this promise to the Israelites when they **came out of Egypt**. See, for example, [Exodus 29:45–46](../../exo/29/45.md), “And I will live among the sons of Israel and will be their God. And they will know that I am Yahweh their God, who brought them out from the land of Egypt to live among them.” You could indicate this in your translation if it would be helpful to your readers. Alternate translation: [This is the covenant promise that I made to you when you came out of Egypt, that I would be with you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠רוּחִ֖⁠י עֹמֶ֣דֶת בְּ⁠תוֹכְ⁠כֶ֑ם",
+        "note": "With this statement, Yahweh is asserting that he is indeed fulfilling his covenant promise to be with the Israelites. If it would be helpful to your readers, you could indicate that explicitly. Alternate translation: [and indeed I am present in your midst through my Spirit, just as I promised]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:6",
+    "bsb_verse_text": "For this is what the LORD of Hosts says: “Once more, in a little while, I will shake the heavens and the earth, the sea and the dry land.",
+    "ult_verse_text": "For thus says Yahweh of Armies: ‘Yet once, it {will be} a little {while},",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "כִּ֣י כֹ֤ה אָמַר֙ יְהוָ֣ה צְבָא֔וֹת ע֥וֹד אַחַ֖ת מְעַ֣ט הִ֑יא וַ⁠אֲנִ֗י מַרְעִישׁ֙ אֶת־הַ⁠שָּׁמַ֣יִם וְ⁠אֶת־הָ⁠אָ֔רֶץ וְ⁠אֶת־הַ⁠יָּ֖ם וְ⁠אֶת־הֶ⁠חָרָבָֽה",
+        "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [For I, Yahweh of Armies, say that yet once, it will be a little while, and I will be shaking the heavens and the earth and the sea and the dry land]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "ע֥וֹד אַחַ֖ת מְעַ֣ט הִ֑יא וַ⁠אֲנִ֗י מַרְעִישׁ֙",
+        "note": "These phrases **Yet once** and **it will be a little while** may mean similar things. The first phrase may mean “after only one more period of time.” The second phrase says basically the same thing but adds the information that this will be a brief period of time. Yahweh may be using the two phrases together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [I can assure you that after only a short time, I will be shaking]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וַ⁠אֲנִ֗י מַרְעִישׁ֙",
+        "note": "Yahweh is speaking as if he would literally be **shaking** all of creation. The image is that of a great earthquake. (People in this culture considered the sky to be a solid object above the earth, so Yahweh could shake that as well as the earth with a great quake.) It becomes clear in the next verse that Yahweh is actually using all of creation to represent “all nations” in their relationship to his chosen people. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [and I will bring about such changes in the attitude of the nations toward you that it will be as if I am shaking]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "אֶת־הַ⁠שָּׁמַ֣יִם וְ⁠אֶת־הָ⁠אָ֔רֶץ וְ⁠אֶת־הַ⁠יָּ֖ם וְ⁠אֶת־הֶ⁠חָרָבָֽה",
+        "note": "Yahweh is using the two main components of creation, the **heavens** (the sky) and the **earth**, to mean all of creation. He is then using the two main components of creation below the sky, the **sea** and the **dry land**, to mean the entire world in which humans live. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [everything that I have created]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:7",
+    "bsb_verse_text": "I will shake all the nations, and they will come with all their treasures, and I will fill this house with glory, says the LORD of Hosts.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וְ⁠הִרְעַשְׁתִּי֙ אֶת־כָּל־הַ⁠גּוֹיִ֔ם וּ⁠בָ֖אוּ חֶמְדַּ֣ת כָּל־הַ⁠גּוֹיִ֑ם וּ⁠מִלֵּאתִ֞י אֶת־הַ⁠בַּ֤יִת הַ⁠זֶּה֙ כָּב֔וֹד אָמַ֖ר יְהוָ֥ה צְבָאֽוֹת",
+        "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [I, Yahweh of Armies, say that I will shake all of the nations, and they will come with the treasure of all of the nations, and I will fill this house with glory]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠הִרְעַשְׁתִּי֙ אֶת־כָּל־הַ⁠גּוֹיִ֔ם",
+        "note": "Yahweh is speaking as if he were literally going to **shake** the **nations** with an earthquake. It is clear from the context that this represents Yahweh changing the attitude of the nations. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [And I will change the attitude of all the nations toward you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וּ⁠מִלֵּאתִ֞י אֶת־הַ⁠בַּ֤יִת הַ⁠זֶּה֙ כָּב֔וֹד",
+        "note": "If your language does not use an abstract noun for the idea of **glory**, you could express the same idea in another way. In this context, the word **glory** could mean: (1) the **treasure** that the **nations** will bring to the temple as an offering to Yahweh. The next verse suggests that this may be the meaning. Alternate translation: [and I will fill this temple with glorious treasure]; (2) the reputation that the temple would have. Alternate translation: [and I will give this temple a glorious reputation]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:8",
+    "bsb_verse_text": "The silver is Mine, and the gold is Mine, declares the LORD of Hosts.",
+    "ult_verse_text": "‘The silver is mine, and the gold is mine’—the declaration of Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "לִ֥⁠י הַ⁠כֶּ֖סֶף וְ⁠לִ֣⁠י הַ⁠זָּהָ֑ב נְאֻ֖ם יְהוָ֥ה צְבָאֽוֹת",
+        "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [I, Yahweh of Armies, declare that the silver is mine, and the gold is mine]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "לִ֥⁠י הַ⁠כֶּ֖סֶף וְ⁠לִ֣⁠י הַ⁠זָּהָ֑ב",
+        "note": "The implication of this statement seems to be that Yahweh can promise that the nations will bring their treasure to the rebuilt temple because all of that treasure actually belongs to him. You could indicate that in your translation if it would be helpful to your readers. Alternate translation: [I can promise you this because the silver and gold that the nations will bring to the temple actually belongs to me]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:9",
+    "bsb_verse_text": "The latter glory of this house will be greater than the former, says the LORD of Hosts. And in this place I will provide peace, declares the LORD of Hosts.”",
+    "ult_verse_text": "‘The latter glory of this house {will be} greater than the former,’ says Yahweh of Armies, ‘and in this place I will give peace’—the declaration of Yahweh of Armies.”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "גָּד֣וֹל יִֽהְיֶ֡ה כְּבוֹד֩ הַ⁠בַּ֨יִת הַ⁠זֶּ֤ה הָ⁠אַֽחֲרוֹן֙ מִן־הָ֣⁠רִאשׁ֔וֹן אָמַ֖ר יְהוָ֣ה צְבָא֑וֹת וּ⁠בַ⁠מָּק֤וֹם הַ⁠זֶּה֙ אֶתֵּ֣ן שָׁל֔וֹם נְאֻ֖ם יְהוָ֥ה צְבָאֽוֹת",
+        "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotations in this verse as indirect quotations. Alternate translation: [I, Yahweh of Armies, say that the latter glory of this house will be greater than the former, and I, Yahweh of Armies, declare that in this place I will give peace]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "גָּד֣וֹל יִֽהְיֶ֡ה כְּבוֹד֩ הַ⁠בַּ֨יִת הַ⁠זֶּ֤ה הָ⁠אַֽחֲרוֹן֙ מִן־הָ֣⁠רִאשׁ֔וֹן",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [The latter glory of this temple will be greater than the former glory of this temple] or [The latter glory of this temple will be greater than its former glory]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "גָּד֣וֹל יִֽהְיֶ֡ה כְּבוֹד֩ הַ⁠בַּ֨יִת הַ⁠זֶּ֤ה הָ⁠אַֽחֲרוֹן֙ מִן־הָ֣⁠רִאשׁ֔וֹן",
+        "note": "If your language does not use an abstract noun for the idea of **glory**, you could express the same idea in another way. Alternate translation: [This temple will become more glorious now than it was before]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הַ⁠בַּ֨יִת",
+        "note": "Here, as in many other instances throughout the book, Yahweh is speaking of his temple as if it were a **house** in which he lived. If you decided to translate the word **house** as “temple,” look back over your translation to make sure that you have done this consistently. Alternate translation: [temple]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וּ⁠בַ⁠מָּק֤וֹם הַ⁠זֶּה֙ אֶתֵּ֣ן שָׁל֔וֹם",
+        "note": "By **this place**, Yahweh most likely means Judea and especially Jerusalem. The enemies of the Judeans destroyed the previous temple, but Yahweh is promising here that he will now cause the nations to be at **peace** with them so that enemy armies do not destroy the rebuilt temple. You could indicate that in your translation if it would be helpful to your readers. Alternate translation: [and here in Jerusalem I will give peace] or [and I will not allow your enemies to come here to Jerusalem and destroy this temple again]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:10",
+    "bsb_verse_text": "On the twenty-fourth day of the ninth month, in the second year of Darius, the word of the LORD came to Haggai the prophet, saying,",
+    "ult_verse_text": "On the twenty-fourth of the ninth, in the second year of Darius, the word of Yahweh was to Haggai the prophet, saying,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "בְּ⁠עֶשְׂרִ֤ים וְ⁠אַרְבָּעָה֙ לַ⁠תְּשִׁיעִ֔י",
+        "note": "Here some words are omitted that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [On the twenty-fourth day of the ninth month]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-ordinal",
+        "orig_language_quote": "בְּ⁠עֶשְׂרִ֤ים וְ⁠אַרְבָּעָה֙ לַ⁠תְּשִׁיעִ֔י בִּ⁠שְׁנַ֥ת שְׁתַּ֖יִם לְ⁠דָרְיָ֑וֶשׁ",
+        "note": "If your language does not use ordinal numbers, you could use cardinal numbers here. Alternate translation: [on day 24 of month nine in year two of Darius]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-hebrewmonths",
+        "orig_language_quote": "בְּ⁠עֶשְׂרִ֤ים וְ⁠אַרְבָּעָה֙ לַ⁠תְּשִׁיעִ֔י",
+        "note": "The **twenty-fourth day** of the **ninth month** on the Hebrew calendar is near the middle of December on Western calendars. See how you decided to translate the similar reference to a day and month in [1:1](../01/01.md)."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הָיָה֙ דְּבַר־יְהוָ֔ה אֶל־חַגַּ֥י הַ⁠נָּבִ֖יא לֵ⁠אמֹֽר",
+        "note": "See how you translated the similar statement in [1:1](../01/01.md). Alternate translation: [Haggai the prophet received a message from Yahweh, who told him]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:11",
+    "bsb_verse_text": "“This is what the LORD of Hosts says: ‘Ask the priests for a ruling.",
+    "ult_verse_text": "“Thus says Yahweh of Armies: ‘Now ask the priests {about} the law, saying,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotemarks",
+        "orig_language_quote": "כֹּ֥ה אָמַ֖ר יְהוָ֣ה צְבָא֑וֹת שְׁאַל־נָ֧א אֶת־הַ⁠כֹּהֲנִ֛ים תּוֹרָ֖ה לֵ⁠אמֹֽר",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Yahweh of Armies says to ask the priests about the law. Ask them]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:12",
+    "bsb_verse_text": "If a man carries consecrated meat in the fold of his garment, and it touches bread, stew, wine, oil, or any other food, does that item become holy?’” “No,” replied the priests.",
+    "ult_verse_text": "“If a man carries holy flesh in the fold of his garment and he touches with his fold upon bread or upon stew or upon wine or upon oil or upon any food, does it become holy?”’” And the priests answered and said, “No.”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "הֵ֣ן ׀ יִשָּׂא־אִ֨ישׁ בְּשַׂר־קֹ֜דֶשׁ בִּ⁠כְנַ֣ף בִּגְד֗⁠וֹ וְ⁠נָגַ֣ע בִּ֠⁠כְנָפ⁠וֹ אֶל־הַ⁠לֶּ֨חֶם וְ⁠אֶל־הַ⁠נָּזִ֜יד וְ⁠אֶל־הַ⁠יַּ֧יִן וְ⁠אֶל־שֶׁ֛מֶן וְ⁠אֶל־כָּל־מַאֲכָ֖ל הֲ⁠יִקְדָּ֑שׁ",
+        "note": "If you have decided to translate this oracle so that it does not contain direct quotations within a quotation, you can translate this verse as an indirect quotation, continuing the sentence that begins in the previous verse. Alternate translation: [whether bread or stew or wine or oil or any other food becomes holy if a man carries holy flesh in the fold of his garment and he touches with his fold upon it]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hypo",
+        "orig_language_quote": "הֵ֣ן ׀ יִשָּׂא־אִ֨ישׁ בְּשַׂר־קֹ֜דֶשׁ בִּ⁠כְנַ֣ף בִּגְד֗⁠וֹ וְ⁠נָגַ֣ע בִּ֠⁠כְנָפ⁠וֹ אֶל־הַ⁠לֶּ֨חֶם וְ⁠אֶל־הַ⁠נָּזִ֜יד וְ⁠אֶל־הַ⁠יַּ֧יִן וְ⁠אֶל־שֶׁ֛מֶן וְ⁠אֶל־כָּל־מַאֲכָ֖ל הֲ⁠יִקְדָּ֑שׁ",
+        "note": "Yahweh is using a hypothetical situation in order to teach. Alternate translation: [Suppose a man carries holy flesh in the fold of his garment. And suppose that man touches bread or stew or wine or oil or any other food with that fold. Would that make the food holy?]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "בְּשַׂר־קֹ֜דֶשׁ",
+        "note": "The expression **holy flesh** refers implicitly to meat that has been offered to Yahweh as a sacrifice. Only priests could eat such meat. If it would be helpful to your readers, you could indicate that explicitly in your translation. Alternate translation: [meat that is set apart for the priests to eat because it has been offered to Yahweh as a sacrifice]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "לֹֽא",
+        "note": "The priests mean implicitly that while touching **holy flesh** makes a person holy (and therefore conveys certain privileges but also makes the person subject to certain restrictions, see [Leviticus 6:27](../../lev/06/27.md)), that person does not communicate this holy state to objects that he touches. If it would be helpful to your readers, you could indicate that explicitly in your translation. Alternate translation: [No, a person who becomes holy by touching meat sacrificed to Yahweh does not communicate that holy state to objects that he touches]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:13",
+    "bsb_verse_text": "So Haggai asked, “If one who is defiled by contact with a corpse touches any of these, does it become defiled?” “Yes, it becomes defiled,” the priests answered.",
+    "ult_verse_text": "Then Haggai said, “If the unclean by a person touches any of these, will it be unclean?” And the priests answered and said, “It will be unclean.”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "טְמֵא־נֶ֛פֶשׁ",
+        "note": "Haggai implicitly means a **person** who has died, and he is speaking specifically of that dead person’s body. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [the unclean by contact with a dead body]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-nominaladj",
+        "orig_language_quote": "טְמֵא־נֶ֛פֶשׁ",
+        "note": "Haggai is using the adjective **unclean** as a noun to mean a certain kind of person. Your language may use adjectives in the same way. If not, you can translate this word with an equivalent phrase. Alternate translation: [a person who has become unclean by touching a dead body]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "טְמֵא־נֶ֛פֶשׁ",
+        "note": "Haggai and the priests share the knowledge that if an Israelite touches a dead body, something that is ritually unclean, then that Israelite becomes ritually unclean himself for a certain period of time (see [Numbers 19:13](../../num/19/13.md)). Such a person is not allowed to take part in public worship. It may be helpful to state this explicitly in your translation. Alternate translation: [someone who has become ritually impure by contact with a dead body] or [someone who is unable to join in public worship because he has touched a dead body]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "בְּ⁠כָל־אֵ֖לֶּה הֲ⁠יִטְמָ֑א",
+        "note": "The pronoun **these** refers to the foods that Haggai described in the previous verse, and the pronoun **it** refers to one of those foods that an unclean person might touch. It may be helpful to clarify this for your readers. Alternate translation: [any of these foods, will the food that he touched become unclean] or [any of these foods, would that make the food that he touched unclean]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "יִטְמָֽא",
+        "note": "This is the counterpart to the priests’ answer in the previous verse. It may be helpful to indicate the implications of this answer explicitly in your translation. Alternate translation: [While a holy person does not communicate a holy state to objects that he touches, an unclean person does communicate an unclean state to objects that he touches, so any food that an unclean person touches does become unclean]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:14",
+    "bsb_verse_text": "Then Haggai replied, “So it is with this people and this nation before Me, declares the LORD, and so it is with every work of their hands; whatever they offer there is defiled.",
+    "ult_verse_text": "And Haggai answered and said, “‘Thus {is} this people and thus {is} this nation to my face!’—the declaration of Yahweh—‘and thus {is} every work of their hands, and what they offer there, it {is} unclean!",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "כֵּ֣ן הָֽ⁠עָם־הַ֠⁠זֶּה וְ⁠כֵן־הַ⁠גּ֨וֹי הַ⁠זֶּ֤ה לְ⁠פָנַ⁠י֙ נְאֻם־יְהוָ֔ה וְ⁠כֵ֖ן כָּל־מַעֲשֵׂ֣ה יְדֵי⁠הֶ֑ם וַ⁠אֲשֶׁ֥ר יַקְרִ֛יבוּ שָׁ֖ם טָמֵ֥א הֽוּא",
+        "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [Yahweh of Armies declares that this people and this nation are thus to his face, and that every work of their hands is thus, and that what they offer there is unclean]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "כֵּ֣ן הָֽ⁠עָם־הַ֠⁠זֶּה וְ⁠כֵן־הַ⁠גּ֨וֹי הַ⁠זֶּ֤ה",
+        "note": "The word **Thus** refers implicitly to a state of uncleanness. It may be helpful to indicate this in your translation. Alternate translation: [This people is unclean and this nation is unclean]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "כֵּ֣ן הָֽ⁠עָם־הַ֠⁠זֶּה וְ⁠כֵן־הַ⁠גּ֨וֹי הַ⁠זֶּ֤ה",
+        "note": "In this context, the terms **people** and **nation** both refer to the Judeans who have returned from exile. Yahweh is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [These Judeans who have returned from exile are unclean]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "לְ⁠פָנַ⁠י֙",
+        "note": "Here Yahweh is using the term **face** to mean his presence, by association with the way people can see the face of someone who is present. Presence, in turn, represents Yahweh’s judgment by association with the way that he would assess anything that came to his attention in front of him. Alternate translation: [in my judgment]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "לְ⁠פָנַ⁠י֙",
+        "note": "Yahweh means implicitly that the Judeans are unclean because they have not obeyed him and rebuilt his temple. You could indicate that in your translation if it would be helpful to your readers. Alternate translation: [in my judgment because they have not obeyed me and rebuilt my temple]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "וְ⁠כֵ֖ן כָּל־מַעֲשֵׂ֣ה יְדֵי⁠הֶ֑ם",
+        "note": "Yahweh is using one part of the Judeans, their **hands**, to mean all of them in the act of working. The reference is specifically to their **work** of growing crops and raising animals. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [and thus is all of the food that they produce] or [and all of the food that they produce is therefore unclean as well]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וַ⁠אֲשֶׁ֥ר יַקְרִ֛יבוּ שָׁ֖ם טָמֵ֥א הֽוּא",
+        "note": "By **there**, Haggai implicitly means an altar that the returned exiles had set up at the temple site. This is described in [Ezra 3:1–6](../../ezr/03/01.md). You can say that in your translation if it would be helpful to your readers. Alternate translation: [and so what they offer on the altar that they have set up at the temple site is also unclean]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:15",
+    "bsb_verse_text": "Now consider carefully from this day forward: Before one stone was placed on another in the temple of the LORD,",
+    "ult_verse_text": "And now, do set your hearts from before until this day, from before the placing of stone upon stone in the temple of Yahweh.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "שִֽׂימוּ־נָ֣א לְבַבְ⁠כֶ֔ם",
+        "note": "See how you translated this expression in [1:5](../01/05.md). Alternate translation: [consider carefully what has been happening]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "מִן־הַ⁠יּ֥וֹם הַ⁠זֶּ֖ה וָ⁠מָ֑עְלָ⁠ה",
+        "note": "The word **before** refers back in time to the whole period after the Judeans returned from exile. Alternate translation: [from the time you returned from exile until now]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "מִ⁠טֶּ֧רֶם שֽׂוּם־אֶ֛בֶן אֶל־אֶ֖בֶן בְּ⁠הֵיכַ֥ל יְהוָֽה",
+        "note": "Yahweh is using one part of the building process to represent the entire process of rebuilding the temple. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [before you began to rebuild the temple of Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "בְּ⁠הֵיכַ֥ל יְהוָֽה",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [in my temple]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:16",
+    "bsb_verse_text": "from that time, when one came expecting a heap of twenty ephahs of grain, there were but ten. When one came to the winepress to draw out fifty baths, there were but twenty.",
+    "ult_verse_text": "From their being, one came to a heap of twenty but there were ten; one came to a vat to draw out fifty {from} the press but there were twenty.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "מִֽ⁠הְיוֹתָ֥⁠ם",
+        "note": "The pronoun **their** likely refers to the days that Haggai described in the previous verse, beginning with “this day” (the day on which he is speaking) and including all of the days since the return from exile before the Judeans began rebuilding the temple. Alternate translation: [During those days] or [During that whole time period]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "בָּא֙ אֶל־עֲרֵמַ֣ת עֶשְׂרִ֔ים וְ⁠הָיְתָ֖ה עֲשָׂרָ֑ה",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [when a person came to a heap of grain that he expected to contain twenty measures, he found that it contained only ten measures]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-bvolume",
+        "orig_language_quote": "בָּא֙ אֶל־עֲרֵמַ֣ת עֶשְׂרִ֔ים וְ⁠הָיְתָ֖ה עֲשָׂרָ֑ה",
+        "note": "By **twenty**, Yahweh most likely means twenty ephahs. An ephah was equivalent to about 22 liters. If it would be helpful to your readers, you could express the quantity in modern measurements. Alternatively, to help your readers recognize that the biblical writings come from a long time ago when people used different measures, you could express the amount using the ancient measurement, the ephah, and explain the equivalent in modern measurements in a footnote. Alternate translation: [when a person came to a heap of grain that he expected to contain twenty ephahs, he found that it contained only ten ephahs] or [when a person came to a heap that he expected to contain over 400 kilograms of grain, he found that it contained only about 200 kilograms]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "בָּ֣א אֶל־הַ⁠יֶּ֗קֶב לַ⁠חְשֹׂף֙ חֲמִשִּׁ֣ים פּוּרָ֔ה וְ⁠הָיְתָ֖ה עֶשְׂרִֽים",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [when a person came to a wine vat from which he expected he could draw fifty press-measures, he found that it contained only twenty press-measures]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-bvolume",
+        "orig_language_quote": "חֲמִשִּׁ֣ים פּוּרָ֔ה",
+        "note": "The expression **from the press** probably describes a certain quantity of wine, a “press-measure,” the amount that a winepress would produce from a single pressing of a full load of grapes. However, it is no longer clear exactly what this quantity was. In your translation, you could use a liquid measure that your readers would recognize that would approximate this quantity, or you could use a general expression. Alternate translation: [fifty gallons] or [fifty measures of wine]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:17",
+    "bsb_verse_text": "I struck you—all the work of your hands—with blight, mildew, and hail, but you did not turn to Me, declares the LORD.",
+    "ult_verse_text": "I struck you with blight and with mildew and with hail, all of the work of your hands, but it was not you to me’—the declaration of Yahweh.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "הִכֵּ֨יתִי אֶתְ⁠כֶ֜ם בַּ⁠שִּׁדָּפ֤וֹן וּ⁠בַ⁠יֵּֽרָקוֹן֙ וּ⁠בַ⁠בָּרָ֔ד אֵ֖ת כָּל־מַעֲשֵׂ֣ה יְדֵי⁠כֶ֑ם וְ⁠אֵין־אֶתְ⁠כֶ֥ם אֵלַ֖⁠י נְאֻם־יְהוָֽה",
+        "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [Yahweh declares that he struck you with blight and with mildew and with hail, all of the work of your hands, but it was not you to him]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "אֵ֖ת כָּל־מַעֲשֵׂ֣ה יְדֵי⁠כֶ֑ם",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [I struck all of the work of your hands]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "אֵ֖ת כָּל־מַעֲשֵׂ֣ה יְדֵי⁠כֶ֑ם",
+        "note": "See how you translated the similar expression in [2:14](../02/14.md). Alternate translation: [all of the food that you were producing]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וְ⁠אֵין־אֶתְ⁠כֶ֥ם אֵלַ֖⁠י",
+        "note": "Yahweh is using this expression to mean that the Judeans did not obey him and rebuild the temple. Instead, they continued to disobey, as if they had nothing to do with Yahweh. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [but you still did not return to me] or [but it was as if you wanted to have nothing to do with me]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:18",
+    "bsb_verse_text": "Consider carefully from this day forward—from the twenty-fourth day of the ninth month, the day the foundation of the LORD’s temple was laid—consider carefully:",
+    "ult_verse_text": "‘Now set your hearts from before until this day, from the day that the temple of Yahweh was founded until this twenty-fourth day of the ninth. Set your hearts!",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "שִׂימוּ & לְבַבְ⁠כֶ֔ם",
+        "note": "See how you translated the similar phrase in [1:5](../01/05.md). Alternate translation: [consider carefully what has been happening]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "מִן־הַ⁠יּ֥וֹם הַ⁠זֶּ֖ה וָ⁠מָ֑עְלָ⁠ה מִ⁠יּוֹם֩ עֶשְׂרִ֨ים וְ⁠אַרְבָּעָ֜ה לַ⁠תְּשִׁיעִ֗י לְ⁠מִן־הַ⁠יּ֛וֹם אֲשֶׁר־יֻסַּ֥ד הֵֽיכַל־יְהוָ֖ה",
+        "note": "As in [2:15](../02/15.md), the word **before** refers back in time to the whole period after the Judeans returned from exile. The ** twenty-fourth day of the ninth month** means that date in the second year of Darius, as [2:10](../02/10.md) indicates. Alternate translation: [from the time you returned from exile until this day, that is, from the day that the temple of Yahweh was founded until this twenty-fourth day of the ninth month in the second year of Darius]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "מִ⁠יּוֹם֩ עֶשְׂרִ֨ים וְ⁠אַרְבָּעָ֜ה לַ⁠תְּשִׁיעִ֗י",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [from the twenty-fourth day of the ninth month]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-ordinal",
+        "orig_language_quote": "מִ⁠יּוֹם֩ עֶשְׂרִ֨ים וְ⁠אַרְבָּעָ֜ה לַ⁠תְּשִׁיעִ֗י",
+        "note": "If your language does not use ordinal numbers, you could use cardinal numbers here. See what you did in [2:10](../02/10.md). Alternate translation: [from day 24 of month nine]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "יֻסַּ֥ד הֵֽיכַל־יְהוָ֖ה",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [you laid the foundation of the temple of Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "הֵֽיכַל־יְהוָ֖ה",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [my temple]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "שִׂ֥ימוּ לְבַבְ⁠כֶֽם",
+        "note": "See how you translated this phrase in [1:5](../01/05.md). Alternate translation: [Consider carefully]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:19",
+    "bsb_verse_text": "Is there still seed in the barn? The vine, the fig, the pomegranate, and the olive tree have not yet yielded fruit. But from this day on, I will bless you.”",
+    "ult_verse_text": "{Is} the seed yet in the storehouse? And the vine and the fig tree and the pomegranate tree and the olive tree have not yet produced! From this day I will bless {you}!’”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הַ⁠ע֤וֹד הַ⁠זֶּ֨רַע֙ בַּ⁠מְּגוּרָ֔ה",
+        "note": "Yahweh is using the question form for emphasis. If you would not use the question form for that purpose in your language, you could translate this as a statement or as an exclamation. Alternate translation: [The seed is not yet in the storehouse!] or [There is no seed in the storehouse!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "מִן־הַ⁠יּ֥וֹם הַ⁠זֶּ֖ה אֲבָרֵֽךְ",
+        "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotation in this verse as an indirect quotation. Alternate translation: [From this day he will bless you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
+        "orig_language_quote": "מִן־הַ⁠יּ֥וֹם הַ⁠זֶּ֖ה",
+        "note": "Yahweh is drawing a strong contrast. If it would be helpful to your readers, you could indicate this in your translation by using a word that introduces a strong contrast. Alternate translation: [Nevertheless, from this day]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:20",
+    "bsb_verse_text": "For the second time that day, the twenty-fourth day of the month, the word of the LORD came to Haggai, saying,",
+    "ult_verse_text": "And the word of Yahweh was to Haggai a second time on the twenty-fourth of the month, saying,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַ⁠יְהִ֨י דְבַר־יְהוָ֤ה ׀ שֵׁנִית֙ אֶל־חַגַּ֔י",
+        "note": "See how you translated the similar phrase in [2:10](../02/10.md). Alternate translation: [And Haggai received another message from Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-ordinal",
+        "orig_language_quote": "שֵׁנִית֙",
+        "note": "If your language does not use ordinal numbers, you can use a cardinal number here or an equivalent expression. Alternate translation: [again]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "בְּ⁠עֶשְׂרִ֧ים וְ⁠אַרְבָּעָ֛ה לַ⁠חֹ֖דֶשׁ",
+        "note": "Here some of the words are omitted that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [on the twenty-fourth day of the ninth month]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-ordinal",
+        "orig_language_quote": "בְּ⁠עֶשְׂרִ֧ים וְ⁠אַרְבָּעָ֛ה לַ⁠חֹ֖דֶשׁ",
+        "note": "If your language does not use ordinal numbers, you can use a cardinal number here or an equivalent expression. Alternate translation: [on day 24 of month nine] or [on day 24 of the same month]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-hebrewmonths",
+        "orig_language_quote": "בְּ⁠עֶשְׂרִ֧ים וְ⁠אַרְבָּעָ֛ה לַ⁠חֹ֖דֶשׁ",
+        "note": "See how you translated the name of the Hebrew month in [2:10](../02/10.md)."
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:21",
+    "bsb_verse_text": "“Tell Zerubbabel governor of Judah that I am about to shake the heavens and the earth:",
+    "ult_verse_text": "“Speak to Zerubbabel, the governor of Judah, saying,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "אֱמֹ֕ר אֶל־זְרֻבָּבֶ֥ל פַּֽחַת־יְהוּדָ֖ה לֵ⁠אמֹ֑ר אֲנִ֣י מַרְעִ֔ישׁ אֶת־הַ⁠שָּׁמַ֖יִם וְ⁠אֶת־הָ⁠אָֽרֶץ",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [Speak to Zerubbabel, the governor of Judah, and tell him that I am shaking the heavens and the earth]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אֲנִ֣י מַרְעִ֔ישׁ אֶת־הַ⁠שָּׁמַ֖יִם וְ⁠אֶת־הָ⁠אָֽרֶץ",
+        "note": "See how you translated the similar expression in [2:6](../02/06.md). Alternate translation: [I am bringing about such changes in the situation of the nations around you that it is as if I am shaking]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "אֶת־הַ⁠שָּׁמַ֖יִם וְ⁠אֶת־הָ⁠אָֽרֶץ",
+        "note": "Yahweh is using the two main components of creation, the **heavens** (that is, the sky) and the **earth**, to represent all of creation. See how you translated the similar expression in [2:6](../02/06.md). Alternate translation: [everything that I have created]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:22",
+    "bsb_verse_text": "I will overturn royal thrones and destroy the power of the kingdoms of the nations. I will overturn chariots and their riders; horses and their riders will fall, each by the sword of his brother.",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "כִּסֵּ֣א מַמְלָכ֔וֹת",
+        "note": "Yahweh is not referring to a specific **throne**. He means the thrones of all of the **kingdoms** in the world. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [the thrones of kingdoms]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "כִּסֵּ֣א מַמְלָכ֔וֹת",
+        "note": "Yahweh is referring to the ruling authority of **kingdoms** by association with the royal **throne** on which the rulers of those kingdoms sit. If it would be helpful in your language, you could use an equivalent expression or express the meaning plainly. Alternate translation: [the ruling authority of kingdoms]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "וְ⁠הָפַכְתִּ֤י מֶרְכָּבָה֙ וְ⁠רֹ֣כְבֶ֔י⁠הָ וְ⁠יָרְד֤וּ סוּסִים֙ וְ⁠רֹ֣כְבֵי⁠הֶ֔ם",
+        "note": "Yahweh is using two components of an army, its chariot teams (the chariots and their riders) and its cavalry troops (the horses and their riders), to mean the entire army. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [I will destroy the entire armies of the kingdoms that oppose you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "מֶרְכָּבָה֙ וְ⁠רֹ֣כְבֶ֔י⁠הָ",
+        "note": "Yahweh is not referring to a specific **chariot** and **rider**. He means all of the chariots and riders in the armies of the kingdoms opposed to the Judeans. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [the chariots and their riders]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וְ⁠יָרְד֤וּ",
+        "note": "Here the word **fall** means “die” by association with the way someone who dies will fall to the ground. Be sure that it is clear in your translation that these **horses** and **riders** will not fall down accidentally. Alternate translation: [and … will die]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "אִ֖ישׁ בְּ⁠חֶ֥רֶב אָחִֽי⁠ו",
+        "note": "See how you translated the similar use of the phrase “a man” in [1:9](../01/09.md). Alternate translation: [each one of them by the sword of his brother]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "אִ֖ישׁ בְּ⁠חֶ֥רֶב אָחִֽי⁠ו",
+        "note": "Here, **the sword** represents a violent death. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [each one when his brother kills him]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אָחִֽי⁠ו",
+        "note": "Yahweh is speaking of a fellow soldier as if he were literally the **brother** of another soldier whom he killed. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [his fellow solider]"
+      }
+    ]
+  },
+  {
+    "reference": "Hag 2:23",
+    "bsb_verse_text": "On that day, declares the LORD of Hosts, I will take you, My servant, Zerubbabel son of Shealtiel, declares the LORD, and I will make you like My signet ring, for I have chosen you, declares the LORD of Hosts.”",
+    "ult_verse_text": "",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "בַּ⁠יּ֣וֹם הַ⁠ה֣וּא נְאֻם־יְהוָ֣ה צְבָא֡וֹת אֶ֠קָּחֲ⁠ךָ זְרֻבָּבֶ֨ל בֶּן־שְׁאַלְתִּיאֵ֤ל עַבְדִּ⁠י֙ נְאֻם־יְהוָ֔ה וְ⁠שַׂמְתִּ֖י⁠ךָ כַּֽ⁠חוֹתָ֑ם כִּֽי־בְ⁠ךָ֣ בָחַ֔רְתִּי נְאֻ֖ם יְהוָ֥ה צְבָאֽוֹת",
+        "note": "If you have decided to translate this oracle so that it does not contain quotations within a quotation, you can translate the second-level quotations in this verse as indirect quotations. Alternate translation: [I, Yahweh of Armies, declare that on that day I will take him, Zerubbabel son of Shealtiel, my servant, and I, Yahweh of Armies, declare that I will make him like a signet ring, for I have chosen him]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "בַּ⁠יּ֣וֹם הַ⁠ה֣וּא",
+        "note": "Yahweh is using the term **day** to refer to a specific time. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [At that time] or [After I have done that]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "אֶ֠קָּחֲ⁠ךָ & וְ⁠שַׂמְתִּ֖י⁠ךָ & בְ⁠ךָ֣ בָחַ֔רְתִּי",
+        "note": "The word **you** is singular here because it refers to Zerubbabel, so use the singular form in your translation if your language marks that distinction."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "כַּֽ⁠חוֹתָ֑ם",
+        "note": "A **signet ring** was a special ring that a ruler could use to imprint an official seal on a document. This ring bore the ruler’s name or some symbol representing him. The ruler would roll up an important document and put wax on it, then press the ring into the wax to create an official seal. If the document had this mark on its seal, people would know that what was written in the document was written with the king’s authority and had to be obeyed. You could describe this as “like a ring that a ruler uses to create official seals”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כַּֽ⁠חוֹתָ֑ם",
+        "note": "The point of this comparison is that **Zerubbabel** would be an instrument of Yahweh’s authority, just as a ruler uses a **signet ring** as an instrument of his authority. All the nations would have to obey Zerubbabel’s commands because Zerubbabel would be commanding them with authority that Yahweh had entrusted to him. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [an instrument of my authority, like a signet ring]"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1622 @@
+[
+  {
+    "reference": "Mal 1:1",
+    "bsb_verse_text": "This is the burden of the word of the LORD to Israel through Malachi:",
+    "ult_verse_text": "The burden of the word of Yahweh to Israel by the hand of Malachi.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מַשָּׂ֥א דְבַר־יְהוָ֖ה",
+        "note": "The editor of the book is speaking as if the **word of Yahweh** were a **burden** that Malachi was carrying. This is likely a reference to the serious nature of what Yahweh told Malachi to say. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [The serious word from Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "דְבַר־יְהוָ֖ה",
+        "note": "The editor is using the word **word** by association to mean what Yahweh said by using words. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [what Yahweh said]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "אֶל־יִשְׂרָאֵ֑ל",
+        "note": "Since Malachi is referring to a group of people, it might be more natural in your language to use the plural form of **Israel**. Alternate translation: [to the Israelites]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "בְּ⁠יַ֖ד",
+        "note": "The author is using one part of Malachi, his **hand**, to mean all of him in the act of bringing Yahweh’s message to the Israelites. If it would be helpful in your language, you could use an equivalent expression from your culture or plain language. Alternate translation: [through]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "מַלְאָכִֽי",
+        "note": "These notes follow the interpretation that the word **Malachi** is the name of a man. See the further discussion in the  introduction to Malachi."
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:2",
+    "bsb_verse_text": "“I have loved you,” says the LORD. But you ask, “How have You loved us?” “Was not Esau Jacob’s brother?” declares the LORD. “Yet Jacob I have loved,",
+    "ult_verse_text": "“I have loved you,” says Yahweh. But you say, “In what have you loved us?” “{Was} not Esau a brother to Jacob?” the declaration of Yahweh. “Yet I loved Jacob,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-quotations",
+        "orig_language_quote": "אָהַ֤בְתִּי אֶתְ⁠כֶם֙ אָמַ֣ר יְהוָ֔ה",
+        "note": "In your translation, use a natural way of introducing direct quotations in your language. Alternate translation: [Yahweh says, “I have loved you”]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "אֶתְ⁠כֶם֙",
+        "note": "The word **you** is plural here because Yahweh is addressing the Israelites as a group, so use the plural form in your translation if your language marks that distinction. The words “you,” “your,” and “yourselves” are usually plural in this book when they refer to the Israelites. These notes will indicate any exceptions. The word “you” is always singular when it refers to Yahweh."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וַ⁠אֲמַרְתֶּ֖ם",
+        "note": "Malachi is probably not quoting an actual response from the Judeans. Rather, he is anticipating an objection, stating it, and then answering it. See the further discussion in the introduction to Malachi. Alternate translation: [Now you may object]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-infostructure",
+        "orig_language_quote": "הֲ⁠לוֹא־אָ֨ח עֵשָׂ֤ו לְ⁠יַֽעֲקֹב֙ נְאֻם־יְהוָ֔ה וָ⁠אֹהַ֖ב אֶֽת־יַעֲקֹֽב",
+        "note": "If it would be more natural in your language, you could change the order of these phrases so that the speaker, **Yahweh**, is identified before we read the words which he speaks. Alternate translation: [Yahweh declares, “Was not Esau a brother to Jacob? Yet I loved Jacob”]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הֲ⁠לוֹא־אָ֨ח עֵשָׂ֤ו לְ⁠יַֽעֲקֹב֙",
+        "note": "Yahweh is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [Now Esau was Jacob’s brother]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "הֲ⁠לוֹא־אָ֨ח עֵשָׂ֤ו לְ⁠יַֽעֲקֹב֙",
+        "note": "Yahweh is using the names **Esau** and **Jacob** by association to mean their descendants. Alternate translation: [Are the Edomites not a related people group to you Israelites?] or [Now the Edomites are a related people group to you Israelites]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-quotations",
+        "orig_language_quote": "נְאֻם־יְהוָ֔ה",
+        "note": "This phrase indicates that this is a direct quotation from Yahweh. In your translation, use a natural way of introducing direct quotations in your language. Alternate translation: [Yahweh declares]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "וָ⁠אֹהַ֖ב אֶֽת־יַעֲקֹֽב",
+        "note": "Yahweh is referring to the Israelites as a group by using the name of their ancestor, **Jacob**. Alternate translation: [Yet I loved you Israelites]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-poetry",
+        "orig_language_quote": "וָ⁠אֹהַ֖ב אֶֽת־יַעֲקֹֽב׃ וְ⁠אֶת־עֵשָׂ֖ו שָׂנֵ֑אתִי",
+        "note": "Here the author uses a poetic device called a chiasm, which Hebrew writers often used in poetry and literature. The outer phrases **I loved** and **I hated** parallel each other and the inner words, **Jacob** and **Esau** parallel each other. So the pattern is ABBA. If it is possible in your language you should try to retain this order."
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:3",
+    "bsb_verse_text": "but Esau I have hated, and I have made his mountains a wasteland and left his inheritance to the desert jackals.”",
+    "ult_verse_text": "but Esau I hated. And I made his mountains a desolation and his inheritance for the jackals of the wilderness.”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠אֶת־עֵשָׂ֖ו שָׂנֵ֑אתִי",
+        "note": "The word translated as **hated** does not always indicate a strong antipathy or loathing. In a comparison such as this one, it can mean “loved less” or “favored less.” If it would help your readers, you could indicate that explicitly. Alternate translation: [but I have not favored Esau or his descendants, the Edomites]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "שְׁמָמָ֔ה",
+        "note": "If your language does not use an abstract noun for the idea of **desolation**, you could express the same idea in another way. Alternate translation: [a desolate place]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "לְ⁠תַנּ֥וֹת",
+        "note": "A **jackal** is a wild dog that lives in the desert. If your readers would not be familiar with what a jackal is, in your translation you could use the name of a similar animal that your readers would recognize, or you could use a general expression. Alternate translation: [desert scavengers]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:4",
+    "bsb_verse_text": "Though Edom may say, “We have been devastated, but we will rebuild the ruins,” this is what the LORD of Hosts says: “They may build, but I will demolish. They will be called the Land of Wickedness, and a people with whom the LORD is indignant forever.",
+    "ult_verse_text": "Though Edom says, “We are beaten down, but we will return and build the ruins,” thus says Yahweh of Armies: “They themselves may build, but I myself will tear down. And they will call them ‘the territory of wickedness’ and ‘the people whom Yahweh abhors forever.’",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "כִּֽי־תֹאמַ֨ר אֱד֜וֹם",
+        "note": "The word **Edom** is another name for “Esau.” Yahweh uses the word **Edom** by association to mean Esau’s descendants. If it would be helpful to your readers you could state this plainly. Alternate translation: [Though the Edomites say]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "רֻשַּׁ֗שְׁנוּ",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [Our enemies have beaten us down]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וְ⁠קָרְא֤וּ לָ⁠הֶם֙ גְּב֣וּל רִשְׁעָ֔ה וְ⁠הָ⁠עָ֛ם אֲשֶׁר־זָעַ֥ם יְהוָ֖ה עַד־עוֹלָֽם",
+        "note": "If it would be clearer in your language, you could translate this so that there are not quotations within a quotation. Alternate translation: [And people will say that they are a territory where wicked people live and that they are a people whom Yahweh abhors forever]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "וְ⁠קָרְא֤וּ לָ⁠הֶם֙",
+        "note": "Here, **they** is an indefinite pronoun that does not have a specific referent in the immediate context. If it would be helpful in your language, you could translate this with a different expression that does not use an indefinite pronoun, as modeled by the UST."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "גְּב֣וּל רִשְׁעָ֔ה",
+        "note": "If your language does not use an abstract noun for the idea of **wickedness**, you could express the same idea in another way. Alternate translation: [the wicked territory] or [the territory where wicked people live]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:5",
+    "bsb_verse_text": "You will see this with your own eyes, and you yourselves will say, ‘The LORD is great—even beyond the borders of Israel.’”",
+    "ult_verse_text": "And your eyes will see, and you yourselves will say, ‘Great is Yahweh beyond the border of Israel!’",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וְ⁠עֵינֵי⁠כֶ֖ם תִּרְאֶ֑ינָה וְ⁠אַתֶּ֤ם תֹּֽאמְרוּ֙ יִגְדַּ֣ל יְהוָ֔ה מֵ⁠עַ֖ל לִ⁠גְב֥וּל יִשְׂרָאֵֽל",
+        "note": "The words in this verse could: (1) be a continuation of Yahweh’s words that began in the previous verse. If you treat this as a quotation from Yahweh, it may be more natural in your language not to have a quotation within a quotation. Alternate translation: [And your eyes will see, and you yourselves will say that Yahweh is great beyond the border of Israel]; (2) the words of Malachi. If you choose this option, you will need to add closing quotes at the end of the previous verse or whatever means your language uses to end a quotation, and use whatever punctuation your language requires to indicate that Malachi is speaking. Alternate translation: [And your eyes will see, and you yourselves will say, “Great is Yahweh beyond the border of Israel”]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "וְ⁠עֵינֵי⁠כֶ֖ם תִּרְאֶ֑ינָה",
+        "note": "Yahweh is using one part of the Judeans, their **eyes**, to represent all of them in the act of seeing. The emphasis is on their eyewitness experience. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [And you will see for yourselves]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "וְ⁠עֵינֵי⁠כֶ֖ם תִּרְאֶ֑ינָה וְ⁠אַתֶּ֤ם תֹּֽאמְרוּ֙ יִגְדַּ֣ל יְהוָ֔ה מֵ⁠עַ֖ל לִ⁠גְב֥וּל יִשְׂרָאֵֽל",
+        "note": "It may be more natural in your language to have Yahweh speak of himself in the first person rather than in the third person. Alternate translation: [And your eyes will see, and you yourselves will say that I am great beyond the border of Israel!]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:6",
+    "bsb_verse_text": "“A son honors his father, and a servant his master. But if I am a father, where is My honor? And if I am a master, where is your fear of Me?” says the LORD of Hosts to you priests who despise My name. “But you ask, ‘How have we despised Your name?’",
+    "ult_verse_text": "A son honors a father, and a servant his master. So if I am a father, where is my honor? And if I am a master, where is my fear?” says Yahweh of Armies to you, O priests, despisers of my name. But you say, “In what have we despised your name?”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "וְ⁠אִם־אָ֣ב אָ֣נִי אַיֵּ֣ה כְבוֹדִ֡⁠י וְ⁠אִם־אֲדוֹנִ֣ים אָנִי֩ אַיֵּ֨ה מוֹרָאִ֜⁠י",
+        "note": "Yahweh is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [Since I am a father, you should honor me. And since I am a master, you should fear me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "שְׁמִ֔⁠י & אֶת־שְׁמֶֽ⁠ךָ",
+        "note": "Yahweh is using the word **name** by association to mean his reputation and authority. Alternate translation: [my reputation … your reputation] or [my authority … your authority]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:7",
+    "bsb_verse_text": "By presenting defiled food on My altar. But you ask, ‘How have we defiled You?’ By saying that the table of the LORD is contemptible.",
+    "ult_verse_text": "“{You are} presenting defiled food upon my altar. But you say, ‘In what have we defiled you?’ In your saying, ‘The table of Yahweh, it is despised.’",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "לֶ֣חֶם מְגֹאָ֔ל",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [food that people have made unfit for sacrifice]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וַ⁠אֲמַרְתֶּ֖ם בַּ⁠מֶּ֣ה גֵֽאַלְנ֑וּ⁠ךָ בֶּ⁠אֱמָרְ⁠כֶ֕ם שֻׁלְחַ֥ן יְהוָ֖ה נִבְזֶ֥ה הֽוּא",
+        "note": "If it would be clearer in your language, you could translate this so that there are not quotations within a quotation. Alternate translation: [But you ask how you have defiled me. You defile me by saying that you can despise the table of Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "שֻׁלְחַ֥ן יְהוָ֖ה נִבְזֶ֥ה הֽוּא",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [One may despise the table of Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "שֻׁלְחַ֥ן יְהוָ֖ה",
+        "note": "Yahweh is speaking as if the altar on which the priests offered sacrifices to him were a **table** at which he ate food. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [The altar of Yahweh]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:8",
+    "bsb_verse_text": "When you offer blind animals for sacrifice, is it not wrong? And when you present the lame and sick ones, is it not wrong? Try offering them to your governor! Would he be pleased with you or show you favor?” asks the LORD of Hosts.",
+    "ult_verse_text": "And when you present the blind for sacrifice, is it not evil? And when you present the lame and the sick, is it not evil? Present it now to your governor. Will he accept you or lift up your face?” says Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "וְ⁠כִֽי־תַגִּשׁ֨וּ⁠ן עִוֵּ֤ר לִ⁠זְבֹּ֨חַ֙ אֵ֣ין רָ֔ע וְ⁠כִ֥י תַגִּ֛ישׁוּ פִּסֵּ֥חַ וְ⁠חֹלֶ֖ה אֵ֣ין רָ֑ע",
+        "note": "Yahweh is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [When you present blind animals for sacrifice, that is evil! And when you present lame and sick animals, that is also evil!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "עִוֵּ֤ר & פִּסֵּ֥חַ וְ⁠חֹלֶ֖ה",
+        "note": "Yahweh is not referring to specific blind, lame, or sick animals. He means animals with these conditions in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [blind animals … lame and sick animals]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "הַקְרִיבֵ֨⁠הוּ",
+        "note": "The pronoun **it** refers to the blind, lame, and sick animals. It may be more natural in your language to use a plural expression. Alternate translation: [Present these animals]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "לְ⁠פֶחָתֶ֗⁠ךָ הֲ⁠יִּרְצְ⁠ךָ֙ & פָנֶ֔י⁠ךָ",
+        "note": "The words **you** and **your** are singular here because Yahweh is addressing the priests as a collective group. This suits the context, since that is how they were ruled by their **governor**. It may be natural for you to use the singular form in your translation if your language marks that distinction."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הֲ⁠יִּרְצְ⁠ךָ֙ א֚וֹ הֲ⁠יִשָּׂ֣א פָנֶ֔י⁠ךָ",
+        "note": "Yahweh is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [He certainly will not accept you or lift up your face!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "הֲ⁠יִּרְצְ⁠ךָ֙ א֚וֹ הֲ⁠יִשָּׂ֣א פָנֶ֔י⁠ךָ",
+        "note": "The terms **accept you** and **lift up your face** mean similar things. Yahweh is using the two terms together for emphasis. If it would be clearer for your readers, you could express the emphasis with a single phrase. Alternate translation: [He certainly will not show you any favor at all!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "א֚וֹ הֲ⁠יִשָּׂ֣א פָנֶ֔י⁠ךָ",
+        "note": "This is an expression that people of this culture would commonly use to mean “show favor.” If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [or show you favor]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:9",
+    "bsb_verse_text": "“But ask now for God’s favor. Will He be gracious? Since this has come from your hands, will He show you favor?” asks the LORD of Hosts.",
+    "ult_verse_text": "“And now, please entreat the face of God, that he may be gracious to us. This has been from your hand. Will he lift up your faces?” says Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-words-phrases",
+        "orig_language_quote": "וְ⁠עַתָּ֛ה",
+        "note": "The word the ULT translated as **And now** is an expression that was used in messages of this time to introduce important points. If your language has a comparable expression that it uses for this same purpose, you can use it in your translation."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "פְנֵי־אֵ֖ל וִֽ⁠יחָנֵ֑⁠נוּ",
+        "note": "Malachi attributes this quotation to Yahweh, but it is something that Yahweh told him to say to the priests. So you could translate it with Malachi as the speaker. However, if you translate it with Yahweh as the speaker, he would be speaking about himself in the third person. If it would be more natural in your language, you could translate it in the first person. Alternate translation: [my face, that I may be gracious to you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "פְנֵי־אֵ֖ל",
+        "note": "Yahweh is using one part of himself, his **face**, to mean all of him in the act of looking with favor on someone who was praying to him. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [God]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "פְנֵי־אֵ֖ל",
+        "note": "Malachi is probably using the term **God** here to contrast with the mention of “the governor” in the previous verse. The implication is that if people would not offer inferior gifts to a human being, they should certainly not offer them to God. So here it would be appropriate to use your language’s term for the true God who created the world rather than using the name Yahweh."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "וִֽ⁠יחָנֵ֑⁠נוּ",
+        "note": "Malachi is using the pronoun **us** to refer to himself and his listeners, so use the inclusive form of that word if your language marks that distinction. (If you are treating this as a direct quotation from Yahweh, you may use the plural form of “you.”)"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "מִ⁠יֶּדְ⁠כֶם֙ הָ֣יְתָה זֹּ֔את",
+        "note": "The pronoun **This** refers to the unacceptable sacrifices. It may be helpful to clarify the referent for your readers. Alternate translation: [These unacceptable sacrifices have been from your hand]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "מִ⁠יֶּדְ⁠כֶם֙",
+        "note": "Malachi is using one part of the priests‘ bodies, the **hand**, to mean all of themselves in the act of offering sacrifices. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [from you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "מִ⁠יֶּדְ⁠כֶם֙",
+        "note": "Since Malachi is referring to a group of people, it might be more natural in your language to use the plural form of **hand**. Alternate translation: [from your hands]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הֲ⁠יִשָּׂ֤א מִ⁠כֶּם֙ פָּנִ֔ים",
+        "note": "See how you translated the similar expression in [1:8](../01/08.md)."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הֲ⁠יִשָּׂ֤א מִ⁠כֶּם֙ פָּנִ֔ים",
+        "note": "Yahweh is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [He certainly will not lift your faces!] or [He will certainly not show you favor!]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:10",
+    "bsb_verse_text": "“Oh, that one of you would shut the temple doors, so that you would no longer kindle useless fires on My altar! I take no pleasure in you,” says the LORD of Hosts, “and I will accept no offering from your hands.",
+    "ult_verse_text": "“Who even among you will shut the doors, that you might not kindle {fire} on my altar in vain? Pleasure in you is not to me,” says Yahweh of Armies, “and I will not accept an offering from your hand.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "מִ֤י גַם־בָּ⁠כֶם֙ וְ⁠יִסְגֹּ֣ר דְּלָתַ֔יִם וְ⁠לֹֽא־תָאִ֥ירוּ מִזְבְּחִ֖⁠י חִנָּ֑ם",
+        "note": "Yahweh is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [I wish one of you would shut the temple doors, so that you would not kindle useless fires on my altar!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "דְּלָתַ֔יִם",
+        "note": "Yahweh assumes that his listeners will know that by **the doors** he means the doors of the temple. You could say that explicitly if it would be helpful to your readers. Alternate translation: [the doors of the temple]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "אֶרְצֶ֥ה מִ⁠יֶּדְ⁠כֶֽם",
+        "note": "Since Yahweh is referring to a group of people, it might be more natural in your language to use the plural form of **hand**. Alternate translation: [offerings from your hands]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "מִ⁠יֶּדְ⁠כֶֽם",
+        "note": "Yahweh is using one part of the priests‘ bodies, the **hand**, to mean all of themselves in the act of offering sacrifices. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [that you give]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:11",
+    "bsb_verse_text": "For My name will be great among the nations, from where the sun rises to where it sets. In every place, incense and pure offerings will be presented in My name, because My name will be great among the nations,” says the LORD of Hosts.",
+    "ult_verse_text": "For from the rising of the sun and unto its setting, my name {will be} great among the nations. And in every place incense will be offered to my name, and a pure offering. For my name {will be} great among the nations,” says Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "מִ⁠מִּזְרַח־שֶׁ֜מֶשׁ וְ⁠עַד־מְבוֹא֗⁠וֹ",
+        "note": "Yahweh is using the **rising** and **setting** of the **sun** by association to mean the east and the west. Alternate translation: [from the east to the west]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "מִ⁠מִּזְרַח־שֶׁ֜מֶשׁ וְ⁠עַד־מְבוֹא֗⁠וֹ",
+        "note": "Yahweh is speaking of two extremes in order to include them and everything in between. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [everywhere in the world]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "גָּד֤וֹל שְׁמִ⁠י֙ & גָד֤וֹל שְׁמִ⁠י֙",
+        "note": "Yahweh is using the word **name** by association to mean his reputation. See how you translated the same expression in [1:6](../01/06.md). Alternate translation: [my reputation will be great … my reputation will be great]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "גָּד֤וֹל שְׁמִ⁠י֙",
+        "note": "The Hebrew text leaves out a verb in this phrase. Many languages require a verb to make this phrase complete. If it would be helpful in your language, you could supply the verb from the context. The verb that needs to be supplied could be: (1) future tense, “will be.” (2) present tense, “is.” Alternate translation: [my name is great]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "לִ⁠שְׁמִ֖⁠י",
+        "note": "Yahweh is using one part of himself, his **name**, to mean all of him. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [to me]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:12",
+    "bsb_verse_text": "“But you profane it when you say, ‘The table of the Lord is defiled, and as for its fruit, its food is contemptible.’",
+    "ult_verse_text": "“But you are profaning it in your saying, ‘The table of the Lord, it {is} defiled, and its fruit, its food, is despised.’",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "וְ⁠אַתֶּ֖ם מְחַלְּלִ֣ים אוֹת֑⁠וֹ",
+        "note": "Here, the pronoun **it** refers to Yahweh’s name or reputation. It may be helpful to clarify this for your readers. Alternate translation: [But you are profaning my name] or [But you are making my reputation no more than ordinary]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וְ⁠אַתֶּ֖ם מְחַלְּלִ֣ים אוֹת֑⁠וֹ בֶּ⁠אֱמָרְ⁠כֶ֗ם שֻׁלְחַ֤ן אֲדֹנָ⁠י֙ מְגֹאָ֣ל ה֔וּא וְ⁠נִיב֖⁠וֹ נִבְזֶ֥ה אָכְלֽ⁠וֹ",
+        "note": "If your language would not use a direct quotation inside of a direct quotation, you could translate the second direct quotation as an indirect quotation. Alternate translation: [But you are profaning it when you say that my table is defiled, and its fruit, its food, is despised]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "שֻׁלְחַ֤ן אֲדֹנָ⁠י֙",
+        "note": "See how you translated the same expression in [1:7](../01/07.md). Alternate translation: [The altar of the Lord]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "אֲדֹנָ⁠י֙",
+        "note": "In the same phrase in [1:7](../01/07.md), the name “Yahweh” is used. Here a title, **the Lord**, is used instead. It may be that in the earlier instance Yahweh is speaking of himself in the third person, while in this instance Yahweh is quoting what the priests would say. (In order not to misuse his name, Jews would use this title instead.) Some versions of the Bible use their representation of the divine name here, since that is what the priests meant. Other versions use the title **Lord** to reflect this Jewish practice and the original text of the book. If a translation of the Bible exists in your region, you may wish to use the reading that it uses. If a translation of the Bible does not exist in your region, you may wish to use the reading of the ULT."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "מְגֹאָ֣ל ה֔וּא",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [it is not holy] or [it is nothing special]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠נִיב֖⁠וֹ",
+        "note": "Yahweh is speaking as if the altar were a tree that produced **fruit**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [what we get from it]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "אָכְלֽ⁠וֹ",
+        "note": "Yahweh assumes that his listeners will know that by **its food** he means the food allowance the priests receive from the altar. You could say that explicitly if it would be helpful to your readers. Alternate translation: [our food allowance]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "נִבְזֶ֥ה",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [is contemptible]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:13",
+    "bsb_verse_text": "You also say: ‘Oh, what a nuisance!’ And you turn up your nose at it,” says the LORD of Hosts. “You bring offerings that are stolen, lame, or sick! Should I accept these from your hands?” asks the LORD.",
+    "ult_verse_text": "But you say, ‘Behold, what a weariness!’ And you puff at it,” says Yahweh of Armies. “And you bring the stolen and the lame and the sick—thus you bring the offering! Should I accept this from your hand?” says Yahweh.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וַ⁠אֲמַרְתֶּם֩ הִנֵּ֨ה מַ⁠תְּלָאָ֜ה",
+        "note": "If your language would not use a direct quotation inside of a direct quotation, you could translate the second direct quotation as an indirect quotation. Alternate translation: [But you say that it is a weariness]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הִנֵּ֨ה",
+        "note": "The priests are speaking as if they wanted their listeners to **Behold** or look at something. They are using this term to focus their listeners’ attention on what they are about to say. Your language may have a comparable expression that you can use in your translation."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclamations",
+        "orig_language_quote": "מַ⁠תְּלָאָ֜ה",
+        "note": "The priests are using a phrase that expresses a strong feeling of tiredness or boredom. There may be an equivalent word or phrase in your language that you can use in your translation to convey this same feeling. You could also state what the priests were feeling. Alternate translation: [what drudgery] or [we are tired of doing this]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "וְ⁠הִפַּחְתֶּ֣ם אוֹת֗⁠וֹ",
+        "note": "In this culture, to **puff** at something, blowing a small breath at it, was a symbolic action that showed contempt. If it would be helpful to your readers, you could express this in terms of an action that has the same significance in your culture. You could also state the meaning plainly. Alternate translation: [And you sniff at it] or [And you show contempt for it]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "גָּז֗וּל וְ⁠אֶת־הַ⁠פִּסֵּ֨חַ֙ וְ⁠אֶת־הַ֣⁠חוֹלֶ֔ה",
+        "note": "Yahweh is not referring to specific **stolen**, **lame**, or **sick** animals. He means animals that have been **stolen** or are **lame** or **sick** in general. It may be more natural in your language to express this meaning by using plural forms. Alternate translation: [stolen animals, lame animals, and sick animals]"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "גָּז֗וּל",
+        "note": "The word the ULT translates as **the stolen** could refer to: (1) animals that have been stolen. Alternate translation: [animals that are stolen]; (2) animals that have been attacked and as a result are mutilated or torn. Alternate translation: [the torn] or [the injured]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "גָּז֗וּל",
+        "note": "If your language does not use the passive form in this way, you can state this in active form or in another way that is natural in your language. Alternate translation: [animals that you have obtained by theft]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הַ⁠אֶרְצֶ֥ה אוֹתָ֛⁠הּ מִ⁠יֶּדְ⁠כֶ֖ם",
+        "note": "Yahweh is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [I will certainly not accept this from you!]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 1:14",
+    "bsb_verse_text": "“But cursed is the deceiver who has an acceptable male in his flock and vows to give it, but sacrifices a defective animal to the Lord. For I am a great King,” says the LORD of Hosts, “and My name is to be feared among the nations.",
+    "ult_verse_text": "“But cursed {be} the deceiver if a male is in his flock and he vows {it}, but he sacrifices the blemished to the Lord. For I {am} a great King, says Yahweh of Armies, and my name is feared among the nations.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-events",
+        "orig_language_quote": "וְ⁠אָר֣וּר נוֹכֵ֗ל וְ⁠יֵ֤שׁ בְּ⁠עֶדְר⁠וֹ֙ זָכָ֔ר וְ⁠נֹדֵ֛ר וְ⁠זֹבֵ֥חַ מָשְׁחָ֖ת לַֽ⁠אדֹנָ֑⁠י",
+        "note": "Yahweh is describing one event before describing another event that would precede it. In your translation, you may wish to relate these events in the order in which they would happen. Alternate translation: [But if someone has a male in his flock and he vows it, but he sacrifices the blemished to the Lord, then that deceiver will be cursed]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "וְ⁠אָר֣וּר",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [But I will curse]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠יֵ֤שׁ בְּ⁠עֶדְר⁠וֹ֙ זָכָ֔ר",
+        "note": "Yahweh assumes that his listeners will know that by **a male**, he means a healthy, unblemished male animal. You could say that explicitly if it would be helpful to your readers. Alternate translation: [if a healthy, unblemished male is in his flock]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "מָשְׁחָ֖ת",
+        "note": "Yahweh is not referring to a specific **blemished** animal. He means blemished animals in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [blemished animals]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "לַֽ⁠אדֹנָ֑⁠י & אָמַר֙ יְהוָ֣ה צְבָא֔וֹת",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate these in the first person. Alternate translation: [to me … says, I, Yahweh of Armies]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "וּ⁠שְׁמִ֖⁠י נוֹרָ֥א בַ⁠גּוֹיִֽם",
+        "note": "Yahweh is using one part of himself, his **name**, to mean all of him in the act of being feared. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [and I am feared among the nations because of my reputation]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:1",
+    "bsb_verse_text": "“And now this decree is for you, O priests:",
+    "ult_verse_text": "And now, this commandment {is} for you, O priests.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-words-phrases",
+        "orig_language_quote": "וְ⁠עַתָּ֗ה",
+        "note": "See how you translated the same expression in [1:9](../01/09.md)."
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:2",
+    "bsb_verse_text": "If you do not listen, and if you do not take it to heart to honor My name,” says the LORD of Hosts, “I will send a curse among you, and I will curse your blessings. Yes, I have already begun to curse them, because you are not taking it to heart.",
+    "ult_verse_text": "If you will not listen, and if you will not set {it} upon the heart to give glory to my name,” says Yahweh of Armies, “then I will send a curse upon you, and I will curse your blessings. And indeed, I have cursed it, for you are not setting {this} upon the heart.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "לֹ֣א תִשְׁמְע֡וּ",
+        "note": "In contexts such as this, the word translated as **listen** has the specific sense of complying with what someone has said. Alternate translation: [you will not obey]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "לֹא֩ תָשִׂ֨ימוּ עַל־לֵ֜ב & אֵינְ⁠כֶ֖ם שָׂמִ֥ים עַל־לֵֽב",
+        "note": "This is an expression that people of this culture would commonly use to mean to take something seriously or to pay attention to it. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [you will not take it seriously … you are not taking this seriously] or [you will not pay attention to it … you are not paying attention to this]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "לָ⁠תֵ֧ת כָּב֣וֹד לִ⁠שְׁמִ֗⁠י",
+        "note": "If your language does not use an abstract noun for the idea of **glory**, you could express the same idea with a or in some other way that is natural in your language. Alternate translation: [to glorify my name]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "לִ⁠שְׁמִ֗⁠י",
+        "note": "Yahweh is using one part of himself, his **name**, to mean all of him. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [to me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠שִׁלַּחְתִּ֤י בָ⁠כֶם֙ אֶת־הַ⁠מְּאֵרָ֔ה",
+        "note": "Yahweh is speaking as if a **curse** were an object that he could **send**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [then I will curse you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠אָרוֹתִ֖י אֶת־בִּרְכֽוֹתֵי⁠כֶ֑ם",
+        "note": "If your language does not use an abstract noun for the idea of **blessings**, you could express the same idea in another way. This term could: (1) refer to the blessings that the priests spoke to the Israelites. Alternate translation: [and I will make ineffective what you say to bless the Israelites]; (2) have the sense of “gift,” the portion of the people’s tithes, atonement money, and sacrifices that the priests received. Alternate translation: [and I will reduce what the people bring, so that you will receive very few gifts]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "אָרוֹתִ֔י⁠הָ",
+        "note": "Since the pronoun **it** refers back to **blessings**, it may be more natural in your language to use a plural form. Alternate translation: [I have cursed them]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:3",
+    "bsb_verse_text": "Behold, I will rebuke your descendants, and I will spread dung on your faces, the waste from your feasts, and you will be carried off with it.",
+    "ult_verse_text": "Behold me, rebuking the seed {that is} to you, and I will spread dung on your faces, the dung of your festivals, and one will take you away with it.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הִנְ⁠נִ֨י גֹעֵ֤ר",
+        "note": "**Behold me** is an expression that people of this culture would commonly use to mean that they were about to do something. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [Now I am about to rebuke]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "גֹעֵ֤ר לָ⁠כֶם֙ אֶת־הַ⁠זֶּ֔רַע",
+        "note": "The author is speaking of **seed** as if it were a living thing that he could rebuke. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [making your crops fail]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠זֵרִ֤יתִי פֶ֨רֶשׁ֙ עַל־פְּנֵי⁠כֶ֔ם",
+        "note": "Yahweh is speaking as if he would **spread dung** on the priests’ faces. This is a vivid way of saying that he will humiliate them. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [I will humiliate you terribly]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "פֶּ֖רֶשׁ חַגֵּי⁠כֶ֑ם",
+        "note": "Yahweh is using the word **dung** by association to mean the entrails of the animals that were sacrificed during festivals. Alternate translation: [the entrails of the animals you sacrifice during festivals]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "וְ⁠נָשָׂ֥א אֶתְ⁠כֶ֖ם אֵלָֽי⁠ו",
+        "note": "Here, **one** is an indefinite pronoun that does not have a specific referent in the immediate context. If it would be helpful in your language, you could translate this with a different expression that does not use an indefinite pronoun. Alternate translation: [and you will be taken away with it]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:4",
+    "bsb_verse_text": "Then you will know that I have sent you this commandment so that My covenant with Levi may continue,” says the LORD of Hosts.",
+    "ult_verse_text": "And you will know that I have sent this commandment to you, for my covenant to be with Levi,” says Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "שִׁלַּ֣חְתִּי אֲלֵי⁠כֶ֔ם אֵ֖ת הַ⁠מִּצְוָ֣ה הַ⁠זֹּ֑את",
+        "note": "Yahweh is speaking as if his **commandment** were an object that he could have **sent**. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [I have given you this commandment]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "לִֽ⁠הְי֤וֹת בְּרִיתִ⁠י֙ אֶת־לֵוִ֔י",
+        "note": "Yahweh means implicitly that he has given this commandment so that his **covenant** with **Levi** will continue. He says in [3:3](../03/03.md) that he will “purify the sons of Levi” so that they will once again perform their duties “in righteousness.” You could indicate the meaning here explicitly if it would be helpful to your readers. Alternate translation: [so that my covenant with Levi will continue]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "לֵוִ֔י",
+        "note": "Yahweh is using the name **Levi** by association to mean the priests who descended from that man and who served in the tabernacle and temple in subsequent generations. Alternate translation: [the descendants of Levi who became priests]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:5",
+    "bsb_verse_text": "“My covenant with him was one of life and peace, which I gave to him; it called for reverence, and he revered Me and stood in awe of My name.",
+    "ult_verse_text": "“My covenant was with him, life and peace, and I gave them to him {for} fear, and he feared me, and before my name he was dismayed.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "בְּרִיתִ֣⁠י ׀ הָיְתָ֣ה אִתּ֗⁠וֹ הַֽ⁠חַיִּים֙ וְ⁠הַ֨⁠שָּׁל֔וֹם",
+        "note": "If your language does not use abstract nouns for the ideas of **life** and **peace**, you could express the same idea in another way. See the further discussion in the introduction to this chapter. Alternate translation: [I made a covenant with him that made conditions peaceful and allowed people to live]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "הָיְתָ֣ה אִתּ֗⁠וֹ & ל֥⁠וֹ & וַ⁠יִּֽירָאֵ֑⁠נִי & נִחַ֥ת הֽוּא",
+        "note": "Since Yahweh is referring to a group of people, it might be more natural in your language to use the plural form. Alternate translation: [was with them … to them … and they feared me … they were dismayed]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "וַ⁠יִּֽירָאֵ֑⁠נִי וּ⁠מִ⁠פְּנֵ֥י שְׁמִ֖⁠י נִחַ֥ת הֽוּא",
+        "note": "These two phrases mean basically the same thing. If it would be clearer in your language, you could combine them. Alternate translation: [and he had great reverence for me and my reputation]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "שְׁמִ֖⁠י",
+        "note": "Yahweh is using one part of himself, his **name**, to mean all of himself. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [me]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:6",
+    "bsb_verse_text": "True instruction was in his mouth, and nothing false was found on his lips. He walked with Me in peace and uprightness, and he turned many from iniquity.",
+    "ult_verse_text": "The instruction of truth was in his mouth, and iniquity was not found on his lips. In peace and in uprightness he walked with me, and he turned many from iniquity.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "בְּ⁠פִ֔י⁠הוּ & בִ⁠שְׂפָתָ֑י⁠ו & הָלַ֣ךְ & הֵשִׁ֥יב",
+        "note": "Since Yahweh is referring to a group of people, it might be more natural in your language to use the plural form. Alternate translation: [in the mouths of the earlier priests … on their lips … they walked … they turned]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "תּוֹרַ֤ת אֱמֶת֙ הָיְתָ֣ה בְּ⁠פִ֔י⁠הוּ",
+        "note": "Yahweh is using the word **mouth** by association to mean what the priests said. Alternate translation: [He spoke the instruction of truth]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "תּוֹרַ֤ת אֱמֶת֙ הָיְתָ֣ה בְּ⁠פִ֔י⁠הוּ",
+        "note": "If your language does not use an abstract noun for the idea of **truth**, you could express the same idea in another way. Alternate translation: [He taught the people true things]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וְ⁠עַוְלָ֖ה לֹא־נִמְצָ֣א בִ⁠שְׂפָתָ֑י⁠ו",
+        "note": "The people of this culture commonly said that something **was … found** to mean that it existed. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [and there was no iniquity on his lips]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וְ⁠עַוְלָ֖ה לֹא־נִמְצָ֣א בִ⁠שְׂפָתָ֑י⁠ו",
+        "note": "Yahweh is using the word **lips** by association to mean what the priests said. Alternate translation: [and there was no iniquity in what he said] or [and there was no iniquity found in what he said]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠עַוְלָ֖ה לֹא־נִמְצָ֣א בִ⁠שְׂפָתָ֑י⁠ו",
+        "note": "If your language does not use an abstract noun for the idea of **iniquity**, you could express the same idea in another way. Alternate translation: [and he did not say things that led people to do what was wrong]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "בְּ⁠שָׁל֤וֹם וּ⁠בְ⁠מִישׁוֹר֙",
+        "note": "If your language does not use abstract nouns for the ideas of **peace** and **uprightness**, you could express the same idea in another way. Alternate translation: [Peacefully and righteously]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הָלַ֣ךְ אִתִּ֔⁠י",
+        "note": "Yahweh is speaking of how a person lives as if that were a path that he would **walk** along. Your language may have a comparable expression that you can use in your translation. You could also use plain language. Alternate translation: [he lived as I want people to live] or [he lived in fellowship with me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠רַבִּ֖ים הֵשִׁ֥יב מֵ⁠עָוֺֽן",
+        "note": "Yahweh is speaking as if **iniquity** were a place from which people could be **turned** away. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [and he influenced many to stop committing iniquity]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "מֵ⁠עָוֺֽן",
+        "note": "If your language does not use an abstract noun for the idea of **iniquity**, you could express the same idea in another way. Alternate translation: [from doing what is wrong]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:7",
+    "bsb_verse_text": "For the lips of a priest should preserve knowledge, and people should seek instruction from his mouth, because he is the messenger of the LORD of Hosts.",
+    "ult_verse_text": "For the lips of a priest should guard knowledge, and they should seek instruction from his mouth, for he {is} the messenger of Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "שִׂפְתֵ֤י כֹהֵן֙ יִשְׁמְרוּ־דַ֔עַת",
+        "note": "Yahweh is using one part of a priest, his **lips**, to mean all of him in the act of speaking. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [a priest, through what he says, should give people better knowledge of how to obey Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "יִשְׁמְרוּ־דַ֔עַת",
+        "note": "Yahweh is speaking as if **knowledge** were something that one could **guard** or protect. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [should preserve and promote knowledge]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "יִשְׁמְרוּ־דַ֔עַת",
+        "note": "If your language does not use an abstract noun for the idea of **knowledge**, you could express the same idea in another way. Alternate translation: [should help people to know how to obey Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "יְבַקְשׁ֣וּ",
+        "note": "The pronoun **they** refers to people in general. It may be helpful to clarify this for your readers. Alternate translation: [people should seek]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠תוֹרָ֖ה יְבַקְשׁ֣וּ",
+        "note": "If your language does not use an abstract noun for the idea of **instruction**, you could express the same idea in another way. Alternate translation: [and they should seek to be instructed]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "מִ⁠פִּ֑י⁠הוּ",
+        "note": "Yahweh is using the word **mouth** by association to mean what the priest says. Alternate translation: [by what he says]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "מַלְאַ֥ךְ יְהוָֽה־צְבָא֖וֹת",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [is the messenger of me, Yahweh of Armies]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:8",
+    "bsb_verse_text": "But you have departed from the way, and your instruction has caused many to stumble. You have violated the covenant of Levi,” says the LORD of Hosts.",
+    "ult_verse_text": "But you yourselves have turned from the way. You have caused many to stumble by {your} instruction. You have corrupted the covenant of Levi,” says Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠אַתֶּם֙ סַרְתֶּ֣ם מִן־הַ⁠דֶּ֔רֶךְ",
+        "note": "See how you translated the similar image in [2:6](../02/06.md). Alternate translation: [But you yourselves have stopped living as I want people to live]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הִכְשַׁלְתֶּ֥ם רַבִּ֖ים",
+        "note": "Yahweh is speaking as if the priests had caused people to **stumble** or trip and fall. This image represents leading people to sin. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [You have led many people to sin]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "בַּ⁠תּוֹרָ֑ה",
+        "note": "If your language does not use an abstract noun for the idea of **instruction**, you could express the same idea in another way. Alternate translation: [by what you have taught them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "שִֽׁחַתֶּם֙",
+        "note": "Yahweh is speaking as if his **covenant** with the priests descended from Levi were something that they had **corrupted**, that is, physically spoiled and made useless, like the crops eaten by pests described with the same term in [3:11](../03/11.md). If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [You have failed to fulfill the purpose of]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "הַ⁠לֵּוִ֔י",
+        "note": "See how you translated the same expression in [2:4](../02/04.md). Alternate translation: [the descendants of Levi who became priests]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:9",
+    "bsb_verse_text": "“So I in turn have made you despised and humiliated before all the people, because you have not kept My ways, but have shown partiality in matters of the law.”",
+    "ult_verse_text": "“So I myself have also made you despised and humiliated before all the people, because you {are} not keeping my ways and {are} lifting faces regarding the instruction.”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וְ⁠נֹשְׂאִ֥ים פָּנִ֖ים",
+        "note": "See how you translated the similar expression in [1:8](../01/08.md). Alternate translation: [and you are showing favoritism]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "בַּ⁠תּוֹרָֽה",
+        "note": "Yahweh assumes that the priests will know that in this instance, the expression **the instruction** implicitly means the law of Moses and how the priests have been applying it in individual cases. (Elsewhere in the chapter, the term has a more general meaning.) You could say that explicitly if it would be helpful to your readers. Alternate translation: [regarding how you apply the law of Moses]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:10",
+    "bsb_verse_text": "Do we not all have one Father? Did not one God create us? Why then do we break faith with one another so as to profane the covenant of our fathers?",
+    "ult_verse_text": "{Is} not one father to all of us? Did not one God create us? Why do we deal treacherously, a man against his brother, to profane the covenant of our fathers?",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הֲ⁠ל֨וֹא אָ֤ב אֶחָד֙ לְ⁠כֻלָּ֔⁠נוּ הֲ⁠ל֛וֹא אֵ֥ל אֶֽחָ֖ד בְּרָאָ֑⁠נוּ",
+        "note": "Malachi is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate these questions as statements or as exclamations. Alternate translation: [We all have one father; one God created us!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "הֲ⁠ל֨וֹא אָ֤ב אֶחָד֙ לְ⁠כֻלָּ֔⁠נוּ הֲ⁠ל֛וֹא אֵ֥ל אֶֽחָ֖ד בְּרָאָ֑⁠נוּ",
+        "note": "These two phrases mean basically the same thing. If it would be clearer in your language, you could combine them. However, since the first uses an image and the second explains the image, you might keep both phrases in your translation and show how the second explains the first. Alternate translation: [The same God created all of us. And so it is as if we all had the same father]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "מַדּ֗וּעַ נִבְגַּד֙ אִ֣ישׁ בְּ⁠אָחִ֔י⁠ו לְ⁠חַלֵּ֖ל בְּרִ֥ית אֲבֹתֵֽי⁠נוּ",
+        "note": "Malachi is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [We should not deal treacherously, a man against his brother, profaning the covenant of our fathers!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "אִ֣ישׁ בְּ⁠אָחִ֔י⁠ו",
+        "note": "This is an expression that people of this culture would commonly use to mean that people were acting against others of their own community. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [people against others of their own community]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אֲבֹתֵֽי⁠נוּ",
+        "note": "Malachi is speaking of the ancestors of the Israelites as if they were the **fathers** of the current generation. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [our forefathers]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:11",
+    "bsb_verse_text": "Judah has broken faith; an abomination has been committed in Israel and in Jerusalem. For Judah has profaned the LORD’s beloved sanctuary by marrying the daughter of a foreign god.",
+    "ult_verse_text": "Judah has dealt treacherously, and an abomination has been done in Israel and in Jerusalem. For Judah has profaned the holy place of Yahweh, which he loves, and has married the daughter of a foreign god.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "בָּגְדָ֣ה יְהוּדָ֔ה וְ⁠תוֹעֵבָ֛ה נֶעֶשְׂתָ֥ה בְ⁠יִשְׂרָאֵ֖ל וּ⁠בִ⁠ירֽוּשָׁלִָ֑ם",
+        "note": "These two phrases mean basically the same thing. If it would be clearer in your language, you could combine them. Alternate translation: [The people of Judah are doing treacherous things in Israel and in Jerusalem]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "בָּגְדָ֣ה יְהוּדָ֔ה & חִלֵּ֣ל יְהוּדָ֗ה",
+        "note": "Since Malachi is referring to a group of people, it might be more natural in your language to use the plural form. Alternate translation: [The people of Judah have dealt treacherously … The people of Judah have profaned]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "וְ⁠תוֹעֵבָ֛ה נֶעֶשְׂתָ֥ה בְ⁠יִשְׂרָאֵ֖ל וּ⁠בִ⁠ירֽוּשָׁלִָ֑ם",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [and the people have done an abomination in Israel and in Jerusalem] or [and the people have committed an abomination in Israel and in Jerusalem]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וּ⁠בָעַ֖ל בַּת־אֵ֥ל נֵכָֽר",
+        "note": "Malachi is speaking as if foreign gods had **daughters** that the people of Judah could **marry**. If it would be clearer in your language, you could state the meaning plainly. This could mean: (1) that the Judeans have allied themselves closely with foreign gods as their worshipers, as if they had made a marriage alliance the way kingdoms did. Alternate translation: [and has worshiped foreign gods]; (2) that Judean men have married foreign women, and this has led them to worship foreign gods. Alternate translation: [and Judean men have married foreign women and begun to worship their gods]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:12",
+    "bsb_verse_text": "As for the man who does this, may the LORD cut off from the tents of Jacob everyone who is awake and aware—even if he brings an offering to the LORD of Hosts.",
+    "ult_verse_text": "May Yahweh cut off from the tents of Jacob the man who does this, the one being awake and the one answering, even the one bringing an offering to Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "יַכְרֵ֨ת יְהוָ֜ה & מֵ⁠אָהֳלֵ֖י יַֽעֲקֹ֑ב",
+        "note": "Malachi is describing the people of Israel by association with their ancestor **Jacob**, who was also known as Israel. Alternate translation: [May Yahweh cut off from the tents of the people of Israel]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "יַכְרֵ֨ת יְהוָ֜ה",
+        "note": "The expression **cut off** is one that people of this culture would commonly use to mean to “remove.” If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [May Yahweh remove]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "מֵ⁠אָהֳלֵ֖י יַֽעֲקֹ֑ב",
+        "note": "Malachi is using the word **tents** by association to mean the community of **Israel**. Alternate translation: [from the community of Israel]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "לָ⁠אִ֨ישׁ",
+        "note": "Here the masculine term **man** has a generic sense that includes both men and women. If it would be helpful to your readers, you could use language in your translation that is clearly inclusive of both men and women. Alternate translation: [anyone]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "עֵ֣ר וְ⁠עֹנֶ֔ה",
+        "note": "Malachi is speaking of two extremes in order to include them and everything in between. He is alluding to a watchman guarding a city at night (**the one being awake**) and someone approaching the city who is responding to the challenge, “Who is there?” (**the one answering**). If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [no matter who he is]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:13",
+    "bsb_verse_text": "And this is another thing you do: You cover the altar of the LORD with tears, with weeping and groaning, because He no longer regards your offerings or receives them gladly from your hands.",
+    "ult_verse_text": "And this second {thing} you do: covering the altar of Yahweh {with} tears, {with} weeping and groaning, because there is no longer turning to the offering or taking {it} with favor {from} your hand.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "כַּסּ֤וֹת דִּמְעָה֙ אֶת־מִזְבַּ֣ח יְהוָ֔ה",
+        "note": "Malachi is making an overstatement for emphasis. If it would be clearer in your language, you could express the emphasis in a different way. Alternate translation: [weeping profusely at the altar of Yahweh]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "פְּנוֹת֙ אֶל־הַ⁠מִּנְחָ֔ה וְ⁠לָ⁠קַ֥חַת רָצ֖וֹן מִ⁠יֶּדְ⁠כֶֽם",
+        "note": "These two phrases mean basically the same thing. Malachi uses them together to emphasize how Yahweh is rejecting the offerings. If it would be clearer in your language, you could combine these phrases. Alternate translation: [accepting your offerings favorably]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "פְּנוֹת֙ אֶל־הַ⁠מִּנְחָ֔ה",
+        "note": "The phrase **turning to** is an expression that people of this culture would commonly use to mean “to pay attention to” or “to accept something.” If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [accepting the offering]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "מִ⁠יֶּדְ⁠כֶֽם",
+        "note": "Malachi is using one part of the people, their **hand**, to mean all of them in the act of offering sacrifices. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [from you] or [that you give]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:14",
+    "bsb_verse_text": "Yet you ask, “Why?” It is because the LORD has been a witness between you and the wife of your youth, against whom you have broken faith, though she is your companion and your wife by covenant.",
+    "ult_verse_text": "But you say, “For what?” Because Yahweh is a witness between you and between the wife of your youth, {with} whom you yourself have dealt treacherously, though she {was} your companion and the wife of your covenant.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "יְהוָה֩ הֵעִ֨יד בֵּינְ⁠ךָ֜ וּ⁠בֵ֣ין ׀ אֵ֣שֶׁת נְעוּרֶ֗י⁠ךָ",
+        "note": "In this culture, when people made promises to one another, they often did this with witnesses watching. The role of those witnesses included holding the people to their promises. The Judean men had made covenant promises to their wives when they married them. Malachi assumes that those men will know that when he refers to Yahweh as a **witness**, he means that Yahweh is holding them to those promises. Yahweh is doing that by showing his disfavor through not accepting their offerings. You could indicate this explicitly in your translation if that would be helpful to your readers. Alternate translation: [Because Yahweh is enforcing the covenant promises you made to the wife of your youth]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-yousingular",
+        "orig_language_quote": "בֵּינְ⁠ךָ֜ & נְעוּרֶ֗י⁠ךָ & אַתָּה֙ בָּגַ֣דְתָּה & חֲבֶרְתְּ⁠ךָ֖ & בְּרִיתֶֽ⁠ךָ",
+        "note": "Except for the first occurrence of the the word **you**, the words **you**, **your**, and **yourself** are singular in this verse because, even though Malachi is speaking to the Judeans as a group, he is addressing an individual situation. So use singular forms in your translation if your language marks that distinction."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "אֵ֣שֶׁת נְעוּרֶ֗י⁠ךָ",
+        "note": "If your language does not use an abstract noun for the idea of **youth**, you could express the same idea in another way. Alternate translation: [the wife you married when you were young]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:15",
+    "bsb_verse_text": "Has not the LORD made them one, having a portion of the Spirit? And why one? Because He seeks godly offspring. So guard yourselves in your spirit and do not break faith with the wife of your youth.",
+    "ult_verse_text": "And did he not make one, and a remnant of spirit {was} to him? And why one? {He was} seeking seed of God. So guard yourselves in your spirit, and do not deal treacherously with the wife of your youth.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "וְ⁠לֹא־אֶחָ֣ד עָשָׂ֗ה וּ⁠שְׁאָ֥ר ר֨וּחַ֙ ל֔⁠וֹ",
+        "note": "Malachi is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. See the introduction to this chapter for a discussion of this sentence. Alternate translation: [After all, he made one, and a remnant of spirit was to him!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "וּ⁠שְׁאָ֥ר ר֨וּחַ֙ ל֔⁠וֹ",
+        "note": "The pronoun **him** refers back to the pronoun **one**, meaning the husband and the wife. It may be more natural in your language to use a plural pronoun. See the introduction to this chapter for a discussion of this clause. Alternate translation: [and a remnant of spirit was to them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "וּ⁠מָה֙ הָֽ⁠אֶחָ֔ד מְבַקֵּ֖שׁ זֶ֣רַע אֱלֹהִ֑ים",
+        "note": "Malachi is not asking the question **And why one?** to get information. Rather, he is asking and then answering his own question. This was a common practice of Jewish public speakers in this time period (and also in New Testament times). Alternate translation: [And I will tell you why he made one: he was seeking seed of God]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-possession",
+        "orig_language_quote": "זֶ֣רַע אֱלֹהִ֑ים",
+        "note": "Malachi is using this possessive form to mean offspring that would be faithful to God. It may be helpful to clarify this for your readers. Alternate translation: [offspring that would be faithful to God]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠נִשְׁמַרְתֶּם֙ בְּ⁠ר֣וּחֲ⁠כֶ֔ם",
+        "note": "Malachi is speaking as if a person’s **spirit** were a physical place where they could be **guarded**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [So be careful about your attitudes]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:16",
+    "bsb_verse_text": "“For I hate divorce,” says the LORD, the God of Israel. “He who divorces his wife covers his garment with violence,” says the LORD of Hosts. So guard yourselves in your spirit and do not break faith.",
+    "ult_verse_text": "“For I hate divorce,” says Yahweh, the God of Israel, “and one {who} covers over his garment with violence,” says Yahweh of Armies. “So guard yourselves in your spirit and do not deal treacherously.”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠כִסָּ֤ה חָמָס֙ עַל־לְבוּשׁ֔⁠וֹ",
+        "note": "For a discussion of the phrase **covers his garment with violence** and suggestions for how to translate it, see the introduction to this chapter."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠נִשְׁמַרְתֶּ֥ם בְּ⁠רוּחֲ⁠כֶ֖ם",
+        "note": "See how you translated this in the previous verse."
+      }
+    ]
+  },
+  {
+    "reference": "Mal 2:17",
+    "bsb_verse_text": "You have wearied the LORD with your words; yet you ask, “How have we wearied Him?” By saying, “All who do evil are good in the sight of the LORD, and in them He delights,” or, “Where is the God of justice?”",
+    "ult_verse_text": "You have wearied Yahweh with your words. But you say, “How have we wearied {him}?” In your saying, “All of the doers of evil {are} good in the eyes of Yahweh, and he delights in them,” or, “Where {is} the God of justice?”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "בְּ⁠דִבְרֵי⁠כֶ֔ם",
+        "note": "Yahweh is using the term **words** by association to mean what the people are saying. Alternate translation: [by what you are saying]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "עֹ֨שֵׂה רָ֜ע",
+        "note": "If your language does not use an abstract noun for the idea of **evil**, you could express the same idea in another way. Alternate translation: [the people who do evil things]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "בְּ⁠עֵינֵ֣י יְהוָ֗ה",
+        "note": "Malachi is using the word **eyes** by association to mean sight. Sight, by association, represents judgment and perspective. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [in Yahweh’s perspective]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "אַיֵּ֖ה אֱלֹהֵ֥י הַ⁠מִּשְׁפָּֽט",
+        "note": "If your language does not use an abstract noun for the idea of **justice**, you could express the same idea in another way. Alternate translation: [Where is the God who judges fairly?]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "אַיֵּ֖ה אֱלֹהֵ֥י הַ⁠מִּשְׁפָּֽט",
+        "note": "The people are using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [God is not punishing people who do not act justly]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:1",
+    "bsb_verse_text": "“Behold, I will send My messenger, who will prepare the way before Me. Then the Lord whom you seek will suddenly come to His temple—the Messenger of the covenant, in whom you delight—see, He is coming,” says the LORD of Hosts.",
+    "ult_verse_text": "“Behold me, sending my messenger, and he will prepare the way to my face. Then suddenly he will come to his temple, the Lord whom you {are} seeking. And the messenger of the covenant, whom you {are} desiring, behold, {he is} coming,” says Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הִנְ⁠נִ֤י שֹׁלֵחַ֙",
+        "note": "**Behold me** is an expression that people of this culture would commonly use to mean that they were about to do something. See how you translated the similar expression in [2:3](../02/03.md). Alternate translation: [Now I am about to send]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וּ⁠פִנָּה־דֶ֖רֶךְ לְ⁠פָנָ֑⁠י",
+        "note": "Yahweh is using the word **face** to mean his presence by association with the way people can see the face of someone who is present. Alternate translation: [and he will prepare the way for me to be present among you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וּ⁠פִנָּה־דֶ֖רֶךְ לְ⁠פָנָ֑⁠י",
+        "note": "Yahweh is speaking of his coming as if it were a journey for which a **way** needed to be prepared. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [and he will get things ready for my coming]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הִנֵּה",
+        "note": "Yahweh uses this word to get the people’s attention. See how you translated a similar use of this word in [1:13](../01/13.md). Alternate translation: [pay attention]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:2",
+    "bsb_verse_text": "But who can endure the day of His coming? And who can stand when He appears? For He will be like a refiner’s fire, like a launderer’s soap.",
+    "ult_verse_text": "“But who {will be} enduring the day of his coming? And who {will be} the one standing in his appearing? For he {will be} like the fire of a refiner and like the soap of launderers.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "וּ⁠מִ֤י מְכַלְכֵּל֙ אֶת־י֣וֹם בּוֹא֔⁠וֹ וּ⁠מִ֥י הָ⁠עֹמֵ֖ד בְּ⁠הֵרָֽאוֹת֑⁠וֹ כִּֽי־הוּא֙ כְּ⁠אֵ֣שׁ מְצָרֵ֔ף וּ⁠כְ⁠בֹרִ֖ית מְכַבְּסִֽים",
+        "note": "If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [He will be like the fire of a refiner and like the soap of launderers. So who will be able to endure the day of his coming? And who will be able to stand when he appears?]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "וּ⁠מִ֤י מְכַלְכֵּל֙ אֶת־י֣וֹם בּוֹא֔⁠וֹ וּ⁠מִ֥י הָ⁠עֹמֵ֖ד בְּ⁠הֵרָֽאוֹת֑⁠וֹ",
+        "note": "Yahweh is using the question form for emphasis. If a speaker of your language would not use the question form for that purpose, you could translate this as a statement or as an exclamation. Alternate translation: [No one will be able to endure the day of his coming! No one will be able to stand when he appears!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "וּ⁠מִ֤י מְכַלְכֵּל֙ אֶת־י֣וֹם בּוֹא֔⁠וֹ וּ⁠מִ֥י הָ⁠עֹמֵ֖ד בְּ⁠הֵרָֽאוֹת֑⁠וֹ",
+        "note": "These two phrases mean basically the same thing. The second emphasizes the meaning of the first by repeating the same idea with different words. Hebrew poetry was based on this kind of repetition, and it would be good to show this to your readers by including both phrases in your translation rather than combining them. It may be clearer in your language to connect the phrases with a word other than “and” in order to show that the second phrase is repeating the first one, not saying something additional. Alternate translation: [No one will be able to endure the day of his coming! Indeed, no one will be able to stand when he appears!]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הָ⁠עֹמֵ֖ד",
+        "note": "Yahweh is using the image of **standing** to speak of a person being declared innocent. The idea is that if he were declared guilty, that would be like a weight too heavy for the person to carry, and the person would sink down under it. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [will be declared innocent]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "הוּא֙ כְּ⁠אֵ֣שׁ מְצָרֵ֔ף וּ⁠כְ⁠בֹרִ֖ית מְכַבְּסִֽים",
+        "note": "The point of this comparison is that just as fire refines metal and soap cleans clothes, so the messenger will purify the people, that is, he will help them forsake the sins they have been committing. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [just as fire refines metal and soap cleans clothes, he will purify people by helping them stop sinning]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:3",
+    "bsb_verse_text": "And He will sit as a refiner and purifier of silver; He will purify the sons of Levi and refine them like gold and silver. Then they will present offerings to the LORD in righteousness.",
+    "ult_verse_text": "And he will sit refining and purifying silver, and he will purify the sons of Levi and refine them like gold and like silver. And they will be to Yahweh bringers of an offering in righteousness.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠יָשַׁ֨ב מְצָרֵ֤ף וּ⁠מְטַהֵר֙ כֶּ֔סֶף",
+        "note": "Yahweh is speaking as if the messenger were going to be a metalworker who was **refining** and **purifying** precious metals. Since he expresses this same image as a comparison in the next clause, you may wish to present it as a comparison here as well. Alternate translation: [Yes, in that way he will be like someone who sits refining and purifying silver]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אֶת־בְּנֵֽי־לֵוִי֙",
+        "note": "Yahweh is speaking as if these priests were the **sons** of their ancestor **Levi**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [the descendants of Levi who are priests]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "וְ⁠זִקַּ֣ק אֹתָ֔⁠ם כַּ⁠זָּהָ֖ב וְ⁠כַ⁠כָּ֑סֶף",
+        "note": "The point of this comparison is that just as gold and silver are refined to remove impurities, so the messenger will purify the people. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [and he will purify the people from sin just as gold and silver are refined to remove impurities from them]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:4",
+    "bsb_verse_text": "Then the offerings of Judah and Jerusalem will please the LORD, as in days of old and years gone by.",
+    "ult_verse_text": "Then the offering of Judah and Jerusalem will be pleasing to Yahweh, as {in} the days of old and as {in} former years.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "מִנְחַ֥ת יְהוּדָ֖ה וִ⁠ירֽוּשָׁלִָ֑ם",
+        "note": "Since Yahweh is referring to a group of people, it might be more natural in your language to use the plural form. Alternate translation: [the offerings of the people of Judah and Jerusalem]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "כִּ⁠ימֵ֣י עוֹלָ֔ם וּ⁠כְ⁠שָׁנִ֖ים קַדְמֹנִיּֽוֹת",
+        "note": "These two phrases mean basically the same thing. If it would be clearer in your language, you could combine these phrases. Alternate translation: [as in the past]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:5",
+    "bsb_verse_text": "“Then I will draw near to you for judgment. And I will be a swift witness against sorcerers and adulterers and perjurers, against oppressors of the widowed and fatherless, and against those who defraud laborers of their wages and deny justice to the foreigner but do not fear Me,” says the LORD of Hosts.",
+    "ult_verse_text": "And I will draw near to you for judgment. And I will be a swift witness against the sorcerers, and against the adulterers, and against the ones swearing to a lie, and against the ones oppressing the wage of the hired worker, the widow, and the orphan, and the ones turning aside the foreigner, and they do not fear me,” says Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "בַּֽ⁠מְכַשְּׁפִים֙ וּ⁠בַ⁠מְנָ֣אֲפִ֔ים וּ⁠בַ⁠נִּשְׁבָּעִ֖ים לַ⁠שָּׁ֑קֶר וּ⁠בְ⁠עֹשְׁקֵ֣י שְׂכַר־שָׂ֠כִיר אַלְמָנָ֨ה וְ⁠יָת֤וֹם וּ⁠מַטֵּי־גֵר֙ וְ⁠לֹ֣א יְרֵא֔וּ⁠נִי",
+        "note": "If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [against those who, because they do not fear me, are sorcerers or adulterers or swear to a lie or oppress the wage of the hired worker, the widow, and the orphan or turn aside the foreigner]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "לַ⁠מִּשְׁפָּט֒",
+        "note": "If your language does not use an abstract noun for the idea of **judgment**, you could express the same idea in another way. Alternate translation: [as a judge]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "וְ⁠הָיִ֣יתִי ׀ עֵ֣ד מְמַהֵ֗ר בַּֽ⁠מְכַשְּׁפִים֙ וּ⁠בַ⁠מְנָ֣אֲפִ֔ים וּ⁠בַ⁠נִּשְׁבָּעִ֖ים לַ⁠שָּׁ֑קֶר וּ⁠בְ⁠עֹשְׁקֵ֣י שְׂכַר־שָׂ֠כִיר אַלְמָנָ֨ה וְ⁠יָת֤וֹם וּ⁠מַטֵּי־גֵר֙",
+        "note": "Yahweh is using the idea of being a **witness** to represent the entire process of judging and punishing. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [And I will declare people guilty and punish them for what they have done wrong, including sorcerers, adulterers, those who swear to a lie, those who oppress the wage of the hired worker, the widow, and the orphan, and those who turn aside the foreigner]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "וּ⁠בְ⁠עֹשְׁקֵ֣י שְׂכַר",
+        "note": "Yahweh is speaking of **wage** as if it were a person who could be oppressed. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [and against those who do not pay fair wages to]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "שָׂ֠כִיר אַלְמָנָ֨ה וְ⁠יָת֤וֹם & גֵר֙",
+        "note": "Here, **the hired worker** and **the widow** and **the orphan** and **the foreigner** represent hired workers, widows, orphans, and foreigners in general, not a specific **hired worker** or **widow** or **orphan** or **foreigner**. If it would be helpful in your language, you could use more natural expressions. Alternate translation: [hired workers, widows, orphans … foreigners]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וּ⁠מַטֵּי־גֵר֙",
+        "note": "Yahweh is speaking of denying justice to foreigners as if people who did that were **turning** them **aside** from a road they were walking on and needed to stay on. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [and those who deny justice to foreigners]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:6",
+    "bsb_verse_text": "“Because I, the LORD, do not change, you descendants of Jacob have not been destroyed.",
+    "ult_verse_text": "“For I, Yahweh, do not change, so you, sons of Jacob, have not come to an end.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublenegatives",
+        "orig_language_quote": "כִּ֛י אֲנִ֥י יְהוָ֖ה לֹ֣א שָׁנִ֑יתִי וְ⁠אַתֶּ֥ם בְּנֵֽי־יַעֲקֹ֖ב לֹ֥א כְלִיתֶֽם",
+        "note": "If it would be clearer in your language, you could use a positive expression to translate the double negatives **do not change** and **have not come to an end**. Alternate translation: [It is only because I, Yahweh, have remained the same that you, sons of Jacob, are still a people group]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "לֹ֣א שָׁנִ֑יתִי",
+        "note": "Yahweh assumes that the Judeans will understand that when he says that he does **not change**, he means that he always keeps his promises. He promised Abraham that he would bless his descendants, and so he is still taking care of them, even though they have been disobedient. You could say that explicitly if it would be helpful to your readers. Alternate translation: [always keep my promises] or [intend to keep my promise to Abraham to bless his descendants]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "בְּנֵֽי־יַעֲקֹ֖ב",
+        "note": "Yahweh is speaking of the Israelites as if they were the **sons** of their ancestor Jacob. See how you translated the similar expression in [3:3](../03/03.md). Alternate translation: [descendants of Jacob]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:7",
+    "bsb_verse_text": "Yet from the days of your fathers, you have turned away from My statutes and have not kept them. Return to Me, and I will return to you,” says the LORD of Hosts. “But you ask, ‘How can we return?’",
+    "ult_verse_text": "From the days of your fathers you have turned aside from my statutes and have not kept {them}. Return to me, and I will return to you,” says Yahweh of Armies. “But you say, ‘In what shall we return?’",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אֲבֹתֵי⁠כֶ֜ם",
+        "note": "Yahweh is speaking of the ancestors of the Israelites as if they were the literal **fathers** of the current generation. Alternate translation: [forefathers]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "סַרְתֶּ֤ם מֵֽ⁠חֻקַּ⁠י֙ וְ⁠לֹ֣א שְׁמַרְתֶּ֔ם",
+        "note": "These two phrases mean basically the same thing. Yahweh uses them together to emphasize how the people have disobeyed him. If it would be clearer in your language, you could combine these phrases. Alternate translation: [you have completely disobeyed my statutes]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "סַרְתֶּ֤ם מֵֽ⁠חֻקַּ⁠י֙",
+        "note": "Yahweh is speaking of disobeying his **statutes** as if that were turning **aside** from a path on which one needed to walk. Alternate translation: [you have disobeyed my statutes]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וַ⁠אֲמַרְתֶּ֖ם בַּ⁠מֶּ֥ה נָשֽׁוּב",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [But you ask how you should return]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:8",
+    "bsb_verse_text": "Will a man rob God? Yet you are robbing Me! But you ask, ‘How do we rob You?’ In tithes and offerings.",
+    "ult_verse_text": "“Will a human rob God? Yet you {are} robbing me.” But you say, ‘In what have we robbed you?’ “{In} the tithe and the contribution.”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הֲ⁠יִקְבַּ֨ע אָדָ֜ם אֱלֹהִ֗ים כִּ֤י אַתֶּם֙ קֹבְעִ֣ים אֹתִ֔⁠י",
+        "note": "Yahweh is not asking the question **Will a human rob God?** to get information. Rather, he is asking and then answering his own question. See how you translated the similar instance in [2:15](../02/15.md). Alternate translation: [It does not seem that a human would dare to rob God, yet you are robbing me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וַ⁠אֲמַרְתֶּ֖ם בַּ⁠מֶּ֣ה קְבַעֲנ֑וּ⁠ךָ",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [But you ask how you have robbed me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "הַֽ⁠מַּעֲשֵׂ֖ר וְ⁠הַ⁠תְּרוּמָֽה",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [You have robbed me in the tithe and the contribution]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:9",
+    "bsb_verse_text": "You are cursed with a curse, yet you—the whole nation—are still robbing Me.",
+    "ult_verse_text": "With a curse you {are} cursed, for you {are} robbing me, the nation, all of it.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "בַּ⁠מְּאֵרָה֙ אַתֶּ֣ם נֵֽאָרִ֔ים וְ⁠אֹתִ֖⁠י אַתֶּ֣ם קֹבְעִ֑ים",
+        "note": "If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [Because you are robbing me, you are cursed with a curse]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "בַּ⁠מְּאֵרָה֙ אַתֶּ֣ם נֵֽאָרִ֔ים",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [I have cursed you with a curse]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-poetry",
+        "orig_language_quote": "בַּ⁠מְּאֵרָה֙ אַתֶּ֣ם נֵֽאָרִ֔ים",
+        "note": "For emphasis, Yahweh is using a construction in which a verb and its object come from the same root. You may be able to use the same construction in your language to express the meaning here. Alternatively, your language may have another way of showing the emphasis. Alternate translation: [You are solemnly cursed] or [I have solemnly cursed you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-pronouns",
+        "orig_language_quote": "הַ⁠גּ֖וֹי כֻּלּֽ⁠וֹ",
+        "note": "The pronoun **it** refers to the nation of Israel and specifically to the Judeans of that nationality whom Yahweh is addressing. Since Yahweh is addressing them directly, it may be more natural in your language to use the pronoun “you.” Alternate translation: [the nation, all of you] or [every one of you Israelites]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:10",
+    "bsb_verse_text": "Bring the full tithe into the storehouse, so that there may be food in My house. Test Me in this,” says the LORD of Hosts. “See if I will not open the windows of heaven and pour out for you blessing without measure.",
+    "ult_verse_text": "Bring all of the tithe to the house of treasure, and let there be food in my house. And test me now in this,” says Yahweh of Armies, “if I will not open for you the windows of the heavens and pour out for you a blessing until there is no sufficiency.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "בֵּ֣ית הָ⁠אוֹצָ֗ר",
+        "note": "If your language does not use an abstract noun for the idea of **treasure**, you could express the same idea in another way. Alternate translation: [the temple treasury]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "טֶ֨רֶף֙ בְּ⁠בֵיתִ֔⁠י",
+        "note": "Yahweh is speaking of the temple as if it were his **house**. Alternate translation: [provision for the priests who serve in my temple]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אִם־לֹ֧א אֶפְתַּ֣ח לָ⁠כֶ֗ם אֵ֚ת אֲרֻבּ֣וֹת הַ⁠שָּׁמַ֔יִם וַ⁠הֲרִיקֹתִ֥י לָ⁠כֶ֛ם בְּרָכָ֖ה",
+        "note": "Yahweh is speaking of giving blessings as if he were opening windows in the sky and pouring them out. Alternate translation: [if I will not give you abundant blessings]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "בְּרָכָ֖ה",
+        "note": "Yahweh assumes that the people will understand that by **a blessing** he means abundant crops. You could say that explicitly if it would be helpful to your readers. Alternate translation: [abundant crops]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "עַד־בְּלִי־דָֽי",
+        "note": "If your language does not use an abstract noun for the idea of **sufficiency**, you could express the same idea in another way. Yahweh is not saying that there will not be sufficient crops; he means that there will be so many crops that the storehouses of the Judeans will not be sufficient to contain them. Alternate translation: [until you no longer have sufficient room to contain it]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:11",
+    "bsb_verse_text": "I will rebuke the devourer for you, so that it will not destroy the fruits of your land, and the vine in your field will not fail to produce fruit,” says the LORD of Hosts.",
+    "ult_verse_text": "And I will rebuke the devourer for you, and it will not corrupt for you the fruit of the ground. And the vine in the field will not be barren for you,” says Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "וְ⁠גָעַרְתִּ֤י לָ⁠כֶם֙ בָּֽ⁠אֹכֵ֔ל",
+        "note": "Yahweh is not speaking about a specific **devourer**, that is, not about a specific insect or animal that would eat the Judeans’ crops. He means such pests in general. It may be more natural in your language to express this meaning by using a plural form. Alternate translation: [And I will rebuke the devourers for you] or [And I will rebuke the pests that would eat your crops]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "וְ⁠גָעַרְתִּ֤י לָ⁠כֶם֙ בָּֽ⁠אֹכֵ֔ל",
+        "note": "Yahweh is speaking of pests as if they were a person he could **rebuke**. Alternate translation: [And I will keep pests from eating your crops]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "אֶת־פְּרִ֣י הָ⁠אֲדָמָ֑ה",
+        "note": "Yahweh is speaking of crops as if they were the **fruit** of the ground. Alternate translation: [the crops that grow from the ground]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "וְ⁠לֹא־תְשַׁכֵּ֨ל לָ⁠כֶ֤ם הַ⁠גֶּ֨פֶן֙ בַּ⁠שָּׂדֶ֔ה",
+        "note": "Yahweh is speaking of vines as if they were women who could be **barren** or unable to have children. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [And your vines will steadily produce grapes]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:12",
+    "bsb_verse_text": "“Then all the nations will call you blessed, for you will be a land of delight,” says the LORD of Hosts.",
+    "ult_verse_text": "“And all of the nations will bless you, for you will be a land of delight,” says Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "אֶ֣רֶץ חֵ֔פֶץ",
+        "note": "If your language does not use an abstract noun for the idea of **delight**, you could express the same idea in another way. Alternate translation: [a land that delights people]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:13",
+    "bsb_verse_text": "“Your words against Me have been harsh,” says the LORD. “Yet you ask, ‘What have we spoken against You?’",
+    "ult_verse_text": "“Your words have been strong against me,” says Yahweh. “But you say, ‘What have we spoken {among ourselves} against you?’",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "חָזְק֥וּ עָלַ֛⁠י דִּבְרֵי⁠כֶ֖ם",
+        "note": "Yahweh is using the term **words** by association to mean what the people have been saying. Alternate translation: [You have been speaking strongly against me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וַ⁠אֲמַרְתֶּ֕ם מַה־נִּדְבַּ֖רְנוּ עָלֶֽי⁠ךָ",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [But you ask what you have spoken among yourselves against me]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:14",
+    "bsb_verse_text": "You have said, ‘It is futile to serve God. What have we gained by keeping His requirements and walking mournfully before the LORD of Hosts?",
+    "ult_verse_text": "You have said, ‘Serving God {is} worthless. And what profit, that we have kept his charge and that we have walked mournfully to the face of Yahweh of Armies?",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "אֲמַרְתֶּ֕ם שָׁ֖וְא עֲבֹ֣ד אֱלֹהִ֑ים וּ⁠מַה־בֶּ֗צַע כִּ֤י שָׁמַ֨רְנוּ֙ מִשְׁמַרְתּ֔⁠וֹ וְ⁠כִ֤י הָלַ֨כְנוּ֙ קְדֹ֣רַנִּ֔ית מִ⁠פְּנֵ֖י יְהוָ֥ה צְבָאֽוֹת",
+        "note": "If it would be clearer in your language, you could translate this so that there is not a quotation within a quotation. Alternate translation: [You have said that it is worthless to serve God, and you have asked how it has profited you that you have kept his charge and that you have walked mournfully to the face of Yahweh of Armies]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הָלַ֨כְנוּ֙",
+        "note": "Yahweh is speaking of how the people have lived as if they had **walked** on a path. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [we have lived]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "מִ⁠פְּנֵ֖י יְהוָ֥ה צְבָאֽוֹת",
+        "note": "The people are using the word **face** to mean presence by association with the way people can see the face of someone who is present. Alternate translation: [in the presence of Yahweh of Armies]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:15",
+    "bsb_verse_text": "So now we call the arrogant blessed. Not only do evildoers prosper, they even test God and escape.’”",
+    "ult_verse_text": "So now we ourselves {are} blessing the arrogant. Even doers of wickedness are built up; they even test God and escape.’”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-quotesinquotes",
+        "orig_language_quote": "וְ⁠עַתָּ֕ה אֲנַ֖חְנוּ מְאַשְּׁרִ֣ים זֵדִ֑ים גַּם־נִבְנוּ֙ עֹשֵׂ֣י רִשְׁעָ֔ה גַּ֧ם בָּחֲנ֛וּ אֱלֹהִ֖ים וַ⁠יִּמָּלֵֽטוּ",
+        "note": "If you decided to translate the previous verse so that there would not be a quotation within a quotation, you can do the same thing here. Alternate translation: [You have said that you yourselves are blessing the arrogant. You say that even doers of wickedness are built up, they even test God and escape]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "נִבְנוּ֙ עֹשֵׂ֣י רִשְׁעָ֔ה",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [doers of wickedness gain in stature]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "עֹשֵׂ֣י רִשְׁעָ֔ה",
+        "note": "If your language does not use an abstract noun for the idea of **wickedness**, you could express the same idea in another way. Alternate translation: [people who do wicked things]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:16",
+    "bsb_verse_text": "At that time those who feared the LORD spoke with one another, and the LORD listened and heard them. So a scroll of remembrance was written before Him regarding those who feared the LORD and honored His name.",
+    "ult_verse_text": "Then the ones fearing Yahweh spoke {among themselves}, a man with his neighbor. And Yahweh paid attention and heard. And a book of remembrance was written to his face for the ones fearing Yahweh and for the ones esteeming his name.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "אִ֣ישׁ אֶת־רֵעֵ֑⁠הוּ",
+        "note": "This is an expression that people of this culture would commonly use to describe people speaking with one another. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [discussing things with one another]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "וַ⁠יַּקְשֵׁ֤ב יְהוָה֙ וַ⁠יִּשְׁמָ֔ע",
+        "note": "These two phrases mean basically the same thing. The author uses them together to emphasize how closely Yahweh listened. If it would be clearer in your language, you could combine these phrases. Alternate translation: [And Yahweh paid close attention as they spoke]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "וַ֠⁠יִּכָּתֵב סֵ֣פֶר זִכָּר֤וֹן",
+        "note": "If your language does not use this passive form, you could express the idea in active form or in another way that is natural in your language. Alternate translation: [And those people wrote a book of remembrance]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "לְ⁠פָנָי⁠ו֙",
+        "note": "The author is using the word **face** to mean presence by association with the way people can see the face of someone who is present. Alternate translation: [in his presence]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "לְ⁠יִרְאֵ֣י יְהוָ֔ה וּ⁠לְ⁠חֹשְׁבֵ֖י שְׁמֽ⁠וֹ",
+        "note": "These two phrases mean basically the same thing. If it would be clearer in your language, you could combine them. Alternate translation: [for the ones who feared Yahweh and esteemed his name]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וּ⁠לְ⁠חֹשְׁבֵ֖י שְׁמֽ⁠וֹ",
+        "note": "The author is using the word **name** to represent Yahweh’s reputation. Alternate translation: [and for the ones who were concerned for the honor of his reputation]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:17",
+    "bsb_verse_text": "“They will be Mine,” says the LORD of Hosts, “on the day when I prepare My treasured possession. And I will spare them as a man spares his own son who serves him.",
+    "ult_verse_text": "“And they will be to me,” says Yahweh of Armies, “a special possession on the day that I {am} preparing. And I will have compassion on them just as a man has compassion on his son, the one serving him.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠הָ֣יוּ לִ֗⁠י אָמַר֙ יְהוָ֣ה צְבָא֔וֹת & סְגֻלָּ֑ה",
+        "note": "If your language does not use abstract nouns for the ideas of **possession**, you could express the same idea in another way. Alternate translation: [“And I will possess them” says Yahweh of Armies, “in a special way”]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "לַ⁠יּ֕וֹם אֲשֶׁ֥ר אֲנִ֖י עֹשֶׂ֣ה",
+        "note": "Yahweh speaks as if he is **preparing** a **day**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [at the time when I act, as I am now preparing to do]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כַּֽ⁠אֲשֶׁר֙",
+        "note": "The point of this comparison is that **just as** a father tenderly cares for his son who serves him, so Yahweh will tenderly care for those who serve him. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [in the same way that]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 3:18",
+    "bsb_verse_text": "So you will again distinguish between the righteous and the wicked, between those who serve God and those who do not.”",
+    "ult_verse_text": "And you will return and see between the righteous and to the wicked, between the one serving God and to {one} who does not serve him.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וְ⁠שַׁבְתֶּם֙ וּ⁠רְאִיתֶ֔ם",
+        "note": "This is an expression that people of this culture would commonly use to mean to seeing something again. If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [And you will see once again]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠שַׁבְתֶּם֙ וּ⁠רְאִיתֶ֔ם",
+        "note": "Yahweh assumes that the people will understand that by **see**, he means acknowledge. You could say that explicitly if it would be helpful to your readers. Alternate translation: [And once again you will acknowledge]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "בֵּ֥ין צַדִּ֖יק לְ⁠רָשָׁ֑ע",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [that there is a difference between the righteous and the wicked]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "בֵּ֥ין צַדִּ֖יק לְ⁠רָשָׁ֑ע בֵּ֚ין עֹבֵ֣ד אֱלֹהִ֔ים לַ⁠אֲשֶׁ֖ר לֹ֥א עֲבָדֽ⁠וֹ",
+        "note": "These two phrases mean basically the same thing. If it would be clearer in your language, you could combine them. Alternate translation: [between the righteous, who serve God, and the wicked, who do not serve him]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-nominaladj",
+        "orig_language_quote": "צַדִּ֖יק לְ⁠רָשָׁ֑ע",
+        "note": "Yahweh is using the adjectives **righteous** and **wicked** as nouns to mean certain kinds of people. Your language may use adjectives in the same way. If not, you can translate these adjectives with equivalent phrases. Alternate translation: [righteous people and wicked people]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 4:1",
+    "bsb_verse_text": "“For behold, the day is coming, burning like a furnace, when all the arrogant and every evildoer will be stubble; the day is coming when I will set them ablaze,” says the LORD of Hosts. “Not a root or branch will be left to them.”",
+    "ult_verse_text": "For behold, the day is coming, burning like an oven, when all of the arrogant and all of the doers of wickedness will be stubble. And the coming day will kindle them,” says Yahweh of Armies, “so that it will not leave to them root or branch.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הִנֵּ֤ה",
+        "note": "Yahweh is speaking as if he wanted his listeners to **behold** or look at something. He is using this term to focus his listeners’ attention on what he is about to say. Your language may have a comparable expression that you can use in your translation."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "בֹּעֵ֖ר כַּ⁠תַּנּ֑וּר וְ⁠הָי֨וּ כָל־זֵדִ֜ים וְ⁠כָל־עֹשֵׂ֤ה רִשְׁעָה֙ קַ֔שׁ",
+        "note": "Yahweh is speaking of the day of judgment as if it were an **oven** that would be **burning** people. If it would be clearer in your language, you could express this image as a comparison. Alternate translation: [when I will destroy all of the arrogant people and all of the doers of wickedness as if they were stubble being burned in an oven]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-nominaladj",
+        "orig_language_quote": "כָל־זֵדִ֜ים",
+        "note": "Yahweh is using the adjective **arrogant** as a noun to mean a certain kind of person. Your language may use adjectives in the same way. If not, you can translate this adjective with an equivalent phrase. Alternate translation: [all arrogant people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "וְ⁠כָל־עֹשֵׂ֤ה רִשְׁעָה֙",
+        "note": "If your language does not use an abstract noun for the idea of **wickedness**, you could express the same idea in another way. Alternate translation: [all of the people who do wicked things]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠הָי֨וּ כָל־זֵדִ֜ים וְ⁠כָל־עֹשֵׂ֤ה רִשְׁעָה֙ קַ֔שׁ",
+        "note": "Yahweh is speaking of wicked people as if they were **stubble** that his judgment would **kindle** and burn up. If it would be clearer in your language, you could express this image as a comparison. Alternate translation: [when all of the arrogant and all of the doers of wickedness will be completely destroyed, as if they were stubble that was burned up]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "לָ⁠הֶ֖ם שֹׁ֥רֶשׁ וְ⁠עָנָֽף",
+        "note": "Yahweh is speaking of two extremes in order to include them and everything in between. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [any part of them remaining]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 4:2",
+    "bsb_verse_text": "“But for you who fear My name, the sun of righteousness will rise with healing in its wings, and you will go out and leap like calves from the stall.",
+    "ult_verse_text": "But for you fearers of my name, the sun of righteousness will rise, and healing {will be} upon its wings. And you will go out and skip like calves of the stall.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠זָרְחָ֨ה לָ⁠כֶ֜ם יִרְאֵ֤י שְׁמִ⁠י֙ שֶׁ֣מֶשׁ צְדָקָ֔ה",
+        "note": "Yahweh is speaking as if **righteousness** were the **sun** and that it would **rise** over the **fearers** of his **name**. He means that he will establish his righteous rule so that those who obey him are vindicated, honored, and blessed. If it would be clearer in your language, you could express this image as a comparison. Alternate translation: [But when I establish my righteous rule, you who fear my name will be honored as if the sun were shining brightly on you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "יִרְאֵ֤י שְׁמִ⁠י֙",
+        "note": "Yahweh is using his **name** to represent all of him. Alternate translation: [who fear me]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וּ⁠מַרְפֵּ֖א בִּ⁠כְנָפֶ֑י⁠הָ",
+        "note": "Yahweh is speaking as if the **sun** had **wings**. He is using the image to speak of the arrival of the sun, which represents the effects of his establishing his reign. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [and it will bring healing to you]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וִֽ⁠יצָאתֶ֥ם וּ⁠פִשְׁתֶּ֖ם",
+        "note": "Yahweh is speaking as if the people would be so happy that they would **go out** and **skip**. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [And you will be very joyful]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "כְּ⁠עֶגְלֵ֥י מַרְבֵּֽק",
+        "note": "The point of this comparison is that just as calves that have been kept in a stall are very playful when they are let out, so the people will act very joyfully. If it would be helpful in your language, you could make this point explicitly. Alternate translation: [and feel as playful as calves that have been let out of their stall]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 4:3",
+    "bsb_verse_text": "Then you will trample the wicked, for they will be ashes under the soles of your feet on the day I am preparing,” says the LORD of Hosts.",
+    "ult_verse_text": "And you will trample the wicked, for they will be ashes under the soles of your feet on the day that I {am} preparing,” says Yahweh of Armies.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "וְ⁠עַסּוֹתֶ֣ם רְשָׁעִ֔ים כִּֽי־יִהְי֣וּ אֵ֔פֶר תַּ֖חַת כַּפּ֣וֹת רַגְלֵי⁠כֶ֑ם",
+        "note": "If it would be more natural in your language, you could reverse the order of these phrases, since the second phrase gives the reason for the result that the first phrase describes. Alternate translation: [The wicked will be like ashes under the soles of your feet, so you will trample them]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וְ⁠עַסּוֹתֶ֣ם רְשָׁעִ֔ים",
+        "note": "Yahweh is speaking of the people’s victory over the wicked as if they would **trample** them. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [And you will be triumphant over the wicked]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-nominaladj",
+        "orig_language_quote": "רְשָׁעִ֔ים",
+        "note": "Yahweh is using the adjective **wicked** as a noun to mean a certain kind of person. Your language may use adjectives in the same way. If not, you can translate this adjective with an equivalent phrase. Alternate translation: [wicked people]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "כִּֽי־יִהְי֣וּ אֵ֔פֶר תַּ֖חַת כַּפּ֣וֹת רַגְלֵי⁠כֶ֑ם",
+        "note": "Yahweh is speaking of the complete defeat of the wicked as if they literally become **ashes** under the people’s feet. If it would be clearer in your language, you could state the meaning plainly. Alternate translation: [for you will defeat them completely]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "בַּ⁠יּוֹם֙ אֲשֶׁ֣ר אֲנִ֣י עֹשֶׂ֔ה",
+        "note": "See how you translated this expression in [3:17](../03/17.md). Alternate translation: [at the time when I act, as I am now preparing to do]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 4:4",
+    "bsb_verse_text": "“Remember the law of My servant Moses, the statutes and ordinances I commanded him for all Israel at Horeb.",
+    "ult_verse_text": "“Remember the instruction of Moses my servant, which I commanded him at Horeb for all of Israel, the statutes and the judgments.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "זִכְר֕וּ",
+        "note": "Yahweh is using the word **Remember** to mean obey by association with the way people need to remember something in order to obey it. Alternate translation: [Obey]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "חֻקִּ֖ים וּ⁠מִשְׁפָּטִֽים",
+        "note": "Yahweh is speaking of two types of laws in order to include them and all other types of laws. If it would be helpful in your language, you could use an equivalent expression or plain language. Alternate translation: [including all of its laws]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 4:5",
+    "bsb_verse_text": "Behold, I will send you Elijah the prophet before the coming of the great and awesome Day of the LORD.",
+    "ult_verse_text": "Behold, I {am} sending to you Elijah the prophet to the face of the coming of the great and fearsome day of Yahweh.",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הִנֵּ֤ה",
+        "note": "See how you translated this expression in [4:1](../04/01.md). Alternate translation (ending with a period): [Pay attention to what I am about to say]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "לִ⁠פְנֵ֗י בּ֚וֹא",
+        "note": "Malachi is using the phrase **to the face** to represent what is in front of someone or something. Here, the thing is a **day** that is described as though it were a person who is **coming**, so what is in front of the day is there before the day arrives. Therefore, **to the face of the coming of** means “before the coming of” the day. If it would be helpful in your language, you could use an equivalent expression from your language or state the meaning plainly. Alternate translation: [before the coming of]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-123person",
+        "orig_language_quote": "י֣וֹם יְהוָ֔ה הַ⁠גָּד֖וֹל וְ⁠הַ⁠נּוֹרָֽא",
+        "note": "Yahweh is speaking about himself in the third person. If it would be helpful in your language, you could translate this in the first person. Alternate translation: [my great and fearsome day]"
+      }
+    ]
+  },
+  {
+    "reference": "Mal 4:6",
+    "bsb_verse_text": "And he will turn the hearts of the fathers to their children, and the hearts of the children to their fathers. Otherwise, I will come and strike the land with a curse.”",
+    "ult_verse_text": "And he will turn the heart of the fathers to the sons, and the heart of the sons to their fathers, lest I come and strike the land {with} a curse.”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "וְ⁠הֵשִׁ֤יב לֵב־אָבוֹת֙ עַל־בָּנִ֔ים וְ⁠לֵ֥ב בָּנִ֖ים עַל־אֲבוֹתָ֑⁠ם",
+        "note": "Here the masculine terms **fathers** and **sons** have a generic sense that includes both men and women. If it would be helpful to your readers, you could use language in your translation that is clearly inclusive of both men and women. Alternate translation: [And he will turn the heart of parents to their children and the heart of children to their parents]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וְ⁠הֵשִׁ֤יב לֵב־אָבוֹת֙ עַל־בָּנִ֔ים וְ⁠לֵ֥ב בָּנִ֖ים עַל־אֲבוֹתָ֑⁠ם",
+        "note": "This is an expression that people of this culture would commonly use to mean “to reconcile people to one another.” If it would be helpful in your language, you could state the meaning plainly. Alternate translation: [And he will reconcile fathers to their sons]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "וְ⁠לֵ֥ב בָּנִ֖ים עַל־אֲבוֹתָ֑⁠ם",
+        "note": "Yahweh is leaving out some of the words that in many languages a sentence would need in order to be complete. You can supply these words from the context if that would be clearer in your language. Alternate translation: [and he will turn the heart of the sons to their fathers]"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-collectivenouns",
+        "orig_language_quote": "לֵב & וְ⁠לֵ֥ב",
+        "note": "Since Yahweh is referring to a group of people, it might be more natural in your language to use the plural form of **heart**. Alternate translation: [the hearts of … and the hearts of]"
+      }
+    ]
+  }
+]

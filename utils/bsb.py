@@ -146,16 +146,25 @@ def build_index(entries: List[Dict[str, str]]) -> Dict[Tuple[int, int], Tuple[st
     idx: Dict[Tuple[int, int], Tuple[str, str]] = {}
     for e in entries:
         ref = e["reference"]  # e.g., "Joh 3:16"
-        try:
-            _, cv = ref.split(" ", 1)
-            ch_s, vs_s = cv.split(":", 1)
-            ch = int(ch_s)
-            vs = int(vs_s)
-        except (ValueError, KeyError):
-            # Ignore malformed lines
+        parsed = parse_ch_verse_from_reference(ref)
+        if parsed is None:
             continue
+        ch, vs = parsed
         idx[(ch, vs)] = (ref, e["text"])
     return idx
+
+
+def parse_ch_verse_from_reference(ref: str) -> Tuple[int, int] | None:
+    """Parse a reference token like "Joh 3:16" to (chapter, verse).
+
+    Returns None if parsing fails.
+    """
+    try:
+        _, cv = ref.split(" ", 1)
+        ch_s, vs_s = cv.split(":", 1)
+        return int(ch_s), int(vs_s)
+    except (ValueError, KeyError):
+        return None
 
 
 def select_range(
@@ -253,3 +262,58 @@ def label_ranges(
         parts.append(f"{left}-{right}")
 
     return f"{canonical_book} " + "; ".join(parts)
+
+
+def clamp_ranges_by_verse_limit(
+    data_root: Path,
+    canonical_book: str,
+    ranges: List[Tuple[int, int | None, int | None, int | None]],
+    max_verses: int,
+) -> List[Tuple[int, int | None, int | None, int | None]]:
+    """Return new ranges clamped to the first `max_verses` verses in reading order.
+
+    Strategy:
+    - Expand the input ranges into an ordered list of (chapter, verse) pairs using
+      the book's available verse index.
+    - Take the first `max_verses` pairs.
+    - Compress into chapter-local contiguous verse spans to form ranges of the form
+      (ch, start_vs, ch, end_vs). We do not attempt to create cross-chapter spans.
+    """
+    mapping = BOOK_MAP[canonical_book]
+    entries = load_book_json(data_root, mapping["file_stem"])  # cached
+    idx = build_index(entries)
+
+    def _in_ranges(ch: int, vs: int) -> bool:
+        for sc, sv, ec, ev in ranges:
+            s_ch = sc
+            s_vs = sv if sv is not None else 1
+            e_ch = ec if ec is not None else s_ch
+            e_vs = ev if ev is not None else 10_000
+            if (ch < s_ch) or (ch == s_ch and vs < s_vs):
+                continue
+            if (ch > e_ch) or (ch == e_ch and vs > e_vs):
+                continue
+            return True
+        return False
+
+    coords: List[Tuple[int, int]] = []
+    for (ch, vs) in sorted(idx.keys()):
+        if _in_ranges(ch, vs):
+            coords.append((ch, vs))
+            if len(coords) >= max_verses:
+                break
+
+    if not coords:
+        return []
+
+    out: List[Tuple[int, int | None, int | None, int | None]] = []
+    cur_ch, start_vs = coords[0]
+    prev_vs = start_vs
+    for (ch, vs) in coords[1:]:
+        if ch == cur_ch and vs == prev_vs + 1:
+            prev_vs = vs
+            continue
+        out.append((cur_ch, start_vs, cur_ch, prev_vs))
+        cur_ch, start_vs, prev_vs = ch, vs, vs
+    out.append((cur_ch, start_vs, cur_ch, prev_vs))
+    return out
