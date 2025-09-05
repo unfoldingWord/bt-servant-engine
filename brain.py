@@ -34,7 +34,7 @@ from utils.bsb import (
     clamp_ranges_by_verse_limit,
 )
 from utils.keywords import select_keywords
-from utils.translation_helps import select_translation_helps
+from utils.translation_helps import select_translation_helps, get_missing_th_books
 from db import (
     get_chroma_collection,
     is_first_interaction,
@@ -1614,6 +1614,17 @@ def handle_get_translation_helps(state: Any) -> dict:
 
     th_root = Path("sources") / "translation_helps"
     logger.info("[translation-helps] loading helps from %s", th_root)
+    # Special-case: book entirely missing from translation helps dataset
+    missing_books = set(get_missing_th_books(th_root))
+    if canonical_book in missing_books:
+        abbrs = [BSB_BOOK_MAP[b]["ref_abbr"] for b in sorted(missing_books)]
+        requested_abbr = BSB_BOOK_MAP[canonical_book]["ref_abbr"]
+        msg = (
+            f"Translation helps for {requested_abbr} are not available yet. "
+            f"Currently missing books: {', '.join(abbrs)}. "
+            "Would you like translation help for one of the supported books instead?"
+        )
+        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
     # Count total verses first; if above limit, return a user-facing error instead of truncating
     bsb_root = Path("sources") / "bsb"
     verse_count = len(select_verses(bsb_root, canonical_book, ranges))

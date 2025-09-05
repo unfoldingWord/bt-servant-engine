@@ -73,3 +73,26 @@ def select_translation_helps(
     for sc, sv, ec, ev in ranges:
         out.extend(_select_range(idx, sc, sv, ec, ev))
     return out
+
+
+def _present_file_stems(data_root: Path) -> set[str]:
+    """Return a set of available file stems under sources/translation_helps."""
+    stems: set[str] = set()
+    if not data_root.exists():
+        return stems
+    for p in data_root.glob("*.json"):
+        stems.add(p.stem)
+    return stems
+
+
+def get_missing_th_books(data_root: Path) -> list[str]:
+    """Return canonical book names that are missing from translation_helps.
+
+    Compares canonical mapping stems to present files under the data_root.
+    """
+    present = _present_file_stems(data_root)
+    missing: list[str] = []
+    for canonical, mapping in BOOK_MAP.items():
+        if mapping["file_stem"] not in present:
+            missing.append(canonical)
+    return missing
