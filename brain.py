@@ -12,7 +12,7 @@ import json
 import operator
 from pathlib import Path
 import re
-from typing import Annotated, Dict, List, cast, Any
+from typing import Annotated, Dict, List, cast, Any, Optional
 from collections.abc import Hashable
 from enum import Enum
 from typing_extensions import TypedDict
@@ -35,6 +35,7 @@ from utils.bsb import (
 )
 from utils.keywords import select_keywords
 from utils.translation_helps import select_translation_helps, get_missing_th_books
+from utils.perf import time_block, set_current_trace
 from db import (
     get_chroma_collection,
     is_first_interaction,
@@ -1709,27 +1710,35 @@ def handle_get_translation_helps(state: Any) -> dict:
 
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
+    def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-def]
+        def wrapped(state: Any) -> dict:
+            trace_id = cast(dict, state).get("perf_trace_id")
+            if trace_id:
+                set_current_trace(cast(Optional[str], trace_id))
+            with time_block(f"brain:{node_name}"):
+                return node_fn(state)
+        return wrapped
     def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
         # Accept Any to satisfy IDE variance on schema param; schema is BrainState
         return StateGraph(schema)
 
     builder: StateGraph[BrainState] = _make_state_graph(BrainState)
 
-    builder.add_node("start_node", start)
-    builder.add_node("determine_query_language_node", determine_query_language)
-    builder.add_node("preprocess_user_query_node", preprocess_user_query)
-    builder.add_node("determine_intents_node", determine_intents)
-    builder.add_node("set_response_language_node", set_response_language)
-    builder.add_node("query_vector_db_node", query_vector_db)
-    builder.add_node("query_open_ai_node", query_open_ai)
-    builder.add_node("chunk_message_node", chunk_message)
-    builder.add_node("handle_unsupported_function_node", handle_unsupported_function)
-    builder.add_node("handle_system_information_request_node", handle_system_information_request)
-    builder.add_node("converse_with_bt_servant_node", converse_with_bt_servant)
-    builder.add_node("handle_get_passage_summary_node", handle_get_passage_summary)
-    builder.add_node("handle_get_passage_keywords_node", handle_get_passage_keywords)
-    builder.add_node("handle_get_translation_helps_node", handle_get_translation_helps)
-    builder.add_node("translate_responses_node", translate_responses, defer=True)
+    builder.add_node("start_node", wrap_node_with_timing(start, "start_node"))
+    builder.add_node("determine_query_language_node", wrap_node_with_timing(determine_query_language, "determine_query_language_node"))
+    builder.add_node("preprocess_user_query_node", wrap_node_with_timing(preprocess_user_query, "preprocess_user_query_node"))
+    builder.add_node("determine_intents_node", wrap_node_with_timing(determine_intents, "determine_intents_node"))
+    builder.add_node("set_response_language_node", wrap_node_with_timing(set_response_language, "set_response_language_node"))
+    builder.add_node("query_vector_db_node", wrap_node_with_timing(query_vector_db, "query_vector_db_node"))
+    builder.add_node("query_open_ai_node", wrap_node_with_timing(query_open_ai, "query_open_ai_node"))
+    builder.add_node("chunk_message_node", wrap_node_with_timing(chunk_message, "chunk_message_node"))
+    builder.add_node("handle_unsupported_function_node", wrap_node_with_timing(handle_unsupported_function, "handle_unsupported_function_node"))
+    builder.add_node("handle_system_information_request_node", wrap_node_with_timing(handle_system_information_request, "handle_system_information_request_node"))
+    builder.add_node("converse_with_bt_servant_node", wrap_node_with_timing(converse_with_bt_servant, "converse_with_bt_servant_node"))
+    builder.add_node("handle_get_passage_summary_node", wrap_node_with_timing(handle_get_passage_summary, "handle_get_passage_summary_node"))
+    builder.add_node("handle_get_passage_keywords_node", wrap_node_with_timing(handle_get_passage_keywords, "handle_get_passage_keywords_node"))
+    builder.add_node("handle_get_translation_helps_node", wrap_node_with_timing(handle_get_translation_helps, "handle_get_translation_helps_node"))
+    builder.add_node("translate_responses_node", wrap_node_with_timing(translate_responses, "translate_responses_node"), defer=True)
 
     builder.set_entry_point("start_node")
     builder.add_edge("start_node", "determine_query_language_node")

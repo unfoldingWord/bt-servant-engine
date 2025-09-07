@@ -11,6 +11,7 @@ import httpx
 from openai import OpenAI
 
 from logger import get_logger
+from utils.perf import record_timing
 from config import config
 
 logger = get_logger(__name__)
@@ -25,6 +26,7 @@ FileItem = Tuple[
 FilesParam = Sequence[FileItem]
 
 
+@record_timing("messaging:send_text_message")
 async def send_text_message(user_id: str, text: str) -> None:
     """Send a plain text WhatsApp message to a user."""
     url = f"https://graph.facebook.com/v23.0/{config.META_PHONE_NUMBER_ID}/messages"
@@ -46,6 +48,7 @@ async def send_text_message(user_id: str, text: str) -> None:
             logger.info("Sent Meta message to %s: %s", user_id, text)
 
 
+@record_timing("messaging:send_voice_message")
 async def send_voice_message(user_id: str, text: str) -> None:
     """Synthesize `text` to speech and send as a WhatsApp audio message."""
     loop = asyncio.get_running_loop()
@@ -75,6 +78,7 @@ async def send_voice_message(user_id: str, text: str) -> None:
             os.remove(path_to_voice_message)
 
 
+@record_timing("messaging:send_typing_indicator_message")
 async def send_typing_indicator_message(message_id: str) -> None:
     """Send a typing indicator (simulated via read status) for a message id."""
     url = f"https://graph.facebook.com/v23.0/{config.META_PHONE_NUMBER_ID}/messages"
@@ -98,6 +102,7 @@ async def send_typing_indicator_message(message_id: str) -> None:
             logger.info("Sent typing indicator via message_id=%s", message_id)
 
 
+@record_timing("messaging:transcribe_voice_message")
 async def transcribe_voice_message(media_id: str) -> str:
     """Download and transcribe a voice message by Meta media id."""
     voice_message_url = await _get_media_message_url(media_id=media_id)
@@ -133,6 +138,7 @@ async def transcribe_voice_message(media_id: str) -> str:
             os.remove(temp_audio_path)
 
 
+@record_timing("messaging:_get_media_message_url")
 async def _get_media_message_url(media_id: str) -> str:
     """Return the direct download URL for a Meta media id."""
     url = f"https://graph.facebook.com/v23.0/{media_id}"
@@ -177,6 +183,7 @@ async def _upload_voice_message(audio_file_path: str) -> str:
     return await loop.run_in_executor(None, _upload_voice_message_sync, audio_file_path)
 
 
+@record_timing("messaging:_upload_voice_message_sync")
 def _upload_voice_message_sync(audio_file_path: str) -> str:
     """Blocking upload of a voice message file to Meta; returns the media id."""
     if not os.path.exists(audio_file_path):

@@ -21,6 +21,12 @@ from pydantic import BaseModel
 from brain import create_brain
 from logger import get_logger
 from config import config
+from utils.perf import (
+    set_current_trace,
+    time_block,
+    record_external_span,
+    log_final_report,
+)
 from db import (
     get_user_chat_history,
     update_user_chat_history,
@@ -359,8 +365,11 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks
     try:
 
         body = await request.body()
+        # measure signature verification time and attach it to each message trace below
+        _sig_t0 = time.time()
         if not verify_facebook_signature(config.META_APP_SECRET, body, x_hub_signature_256, x_hub_signature):
             raise HTTPException(status_code=401, detail="Invalid signature")
+        _sig_t1 = time.time()
 
         if not user_agent or user_agent.strip() != config.FACEBOOK_USER_AGENT:
             logger.error(
@@ -378,6 +387,15 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks
                 for message_data in messages:
                     try:
                         user_message = UserMessage.from_data(message_data)
+                        # Correlate timing to the specific WhatsApp message id
+                        set_current_trace(user_message.message_id)
+                        # Attribute earlier signature verification time to this trace
+                        record_external_span(
+                            name="bt_servant:verify_facebook_signature",
+                            start=_sig_t0,
+                            end=_sig_t1,
+                            trace_id=user_message.message_id,
+                        )
                         logger.info("%s message from %s with id %s and timestamp %s received.",
                                     user_message.message_type, user_message.user_id, user_message.message_id,
                                     user_message.timestamp)
@@ -392,11 +410,13 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks
                             logger.warning("Unauthorized sender: %s", user_message.user_id)
                             return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content={"error": "Unauthorized sender"})
 
-                        # In OpenAI API test mode, run synchronously to avoid background flakiness
-                        if os.environ.get("RUN_OPENAI_API_TESTS", "") == "1":
-                            await process_message(user_message=user_message)
-                        else:
-                            asyncio.create_task(process_message(user_message=user_message))
+                        # Time the per-message portion of webhook handling
+                        async with time_block("bt_servant:handle_meta_webhook"):
+                            # In OpenAI API test mode, run synchronously to avoid background flakiness
+                            if os.environ.get("RUN_OPENAI_API_TESTS", "") == "1":
+                                await process_message(user_message=user_message)
+                            else:
+                                asyncio.create_task(process_message(user_message=user_message))
                     except ValueError:
                         logger.error("Error while processing user message...", exc_info=True)
                         continue
@@ -407,10 +427,12 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": "Invalid JSON"})
 
 
-async def process_message(user_message: UserMessage):
+async def process_message(user_message: UserMessage):  # pylint: disable=too-many-branches
     """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
         start_time = time.time()
+        # ensure all spans produced in this coroutine are associated to this message
+        set_current_trace(user_message.message_id)
         # Lazily initialize brain if lifespan didn't run (e.g., certain test harnesses)
         global brain  # pylint: disable=global-statement
         if brain is None:
@@ -419,45 +441,48 @@ async def process_message(user_message: UserMessage):
 
         # Top-level guard: ensure any unexpected errors result in a friendly reply
         try:
-            try:
-                await send_typing_indicator_message(user_message.message_id)
-            except httpx.HTTPError as e:
-                logger.warning("Failed to send typing indicator: %s", e)
+            async with time_block("bt_servant:process_message"):
+                try:
+                    await send_typing_indicator_message(user_message.message_id)
+                except httpx.HTTPError as e:
+                    logger.warning("Failed to send typing indicator: %s", e)
 
-            if user_message.message_type == "audio":
-                text = await transcribe_voice_message(user_message.media_id)
-            else:
-                text = user_message.text
+                if user_message.message_type == "audio":
+                    text = await transcribe_voice_message(user_message.media_id)
+                else:
+                    text = user_message.text
 
-            loop = asyncio.get_event_loop()
-            assert brain is not None  # mypy: brain set during startup or lazily above
-            result = await loop.run_in_executor(None, brain.invoke, {
-                "user_id": user_message.user_id,
-                "user_query": text,
-                "user_chat_history": get_user_chat_history(user_id=user_message.user_id),
-                "user_response_language": get_user_response_language(user_id=user_message.user_id)
-            })
-            responses = result["translated_responses"]
-            full_response_text = "\n\n".join(responses).rstrip()
-            if user_message.message_type == "audio":
-                await send_voice_message(user_id=user_message.user_id, text=full_response_text)
-            else:
-                response_count = len(responses)
-                if response_count > 1:
-                    responses = [f'({i}/{response_count}) {r}' for i, r in enumerate(responses, start=1)]
-                for response in responses:
-                    logger.info("Response from bt_servant: %s", response)
-                    try:
-                        await send_text_message(user_id=user_message.user_id, text=response)
-                        await asyncio.sleep(4)
-                    except httpx.HTTPError as send_err:
-                        logger.error("Failed to send message to Meta for user %s: %s", user_message.user_id, send_err)
+                loop = asyncio.get_event_loop()
+                assert brain is not None  # mypy: brain set during startup or lazily above
+                result = await loop.run_in_executor(None, brain.invoke, {
+                    "user_id": user_message.user_id,
+                    "user_query": text,
+                    "user_chat_history": get_user_chat_history(user_id=user_message.user_id),
+                    "user_response_language": get_user_response_language(user_id=user_message.user_id),
+                    # Attach perf trace id for cross-thread node timing
+                    "perf_trace_id": user_message.message_id,
+                })
+                responses = result["translated_responses"]
+                full_response_text = "\n\n".join(responses).rstrip()
+                if user_message.message_type == "audio":
+                    await send_voice_message(user_id=user_message.user_id, text=full_response_text)
+                else:
+                    response_count = len(responses)
+                    if response_count > 1:
+                        responses = [f'({i}/{response_count}) {r}' for i, r in enumerate(responses, start=1)]
+                    for response in responses:
+                        logger.info("Response from bt_servant: %s", response)
+                        try:
+                            await send_text_message(user_id=user_message.user_id, text=response)
+                            await asyncio.sleep(4)
+                        except httpx.HTTPError as send_err:
+                            logger.error("Failed to send message to Meta for user %s: %s", user_message.user_id, send_err)
 
-            update_user_chat_history(
-                user_id=user_message.user_id,
-                query=user_message.text,
-                response=full_response_text,
-            )
+                update_user_chat_history(
+                    user_id=user_message.user_id,
+                    query=user_message.text,
+                    response=full_response_text,
+                )
         except Exception:  # pylint: disable=broad-except
             # Catch-all for any failure during processing (e.g., upstream rate-limits, unexpected errors)
             logger.error("Unhandled error during process_message; sending fallback to user.", exc_info=True)
@@ -474,6 +499,11 @@ async def process_message(user_message: UserMessage):
                 "Overall process_message processing time: %.2f seconds",
                 time.time() - start_time,
             )
+            # Emit a structured performance report for this message id
+            try:
+                log_final_report(logger, trace_id=user_message.message_id, user_id=user_message.user_id)
+            except Exception:  # pylint: disable=broad-except  # guard logging path
+                logger.warning("Failed to emit performance report for message_id=%s", user_message.message_id, exc_info=True)
 
 
 def verify_facebook_signature(app_secret: str, payload: bytes,
