@@ -182,6 +182,12 @@ Recommended workflow
   - When using `gpt-4o` with `open_ai_client.responses.create(...)`, do not pass `reasoning`; doing so yields 400 `unsupported_parameter`.
   - We currently use `gpt-4o` for translation-helps; the handler omits `reasoning` and relies on concise system instructions instead.
 
+## Session Notes (Perf Tracing PR)
+
+- Root cause: The first push for `feature/performace_metrics_logging` introduced a new `utils/perf.py` with pylint issues (line length, missing docstrings, import-outside-toplevel, broad-except). The GitHub Action failed on pylint. Although the pre-commit hook printed the errors, the commit still landed; we immediately fixed the issues, amended, and force-pushed.
+- Resolution: Added concise docstrings, wrapped long lines to <=100 chars, moved imports to module scope, and removed broad exception patterns. Re-ran full repo checks locally: `ruff`, `pylint`, `mypy`, `pyright`, and `pytest -q -m "not openai"` all green. PR #77 updated and checks now pass.
+- Preventive: Before every commit, explicitly run `scripts/check_repo.sh` and ensure zero diagnostics. Treat any pre-commit output as a hard blocker. If hooks appear to allow a commit despite failures, stop and re-run the checks manually; do not push until green.
+
 ## Session Snapshot (Temp)
 
 - Branch/state:
