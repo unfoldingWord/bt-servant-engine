@@ -166,7 +166,7 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:
                 "name": s.name,
                 "duration_ms": dur_ms,
                 "duration_se": round((s.end - s.start), 2),
-                "duration_percentage": round(dur_ms / denom, 2),
+                "duration_percentage": f"{round((dur_ms / denom) * 100.0, 1)}%",
                 "start_offset_ms": round((s.start - t0) * 1000.0, 2),
             }
         )
