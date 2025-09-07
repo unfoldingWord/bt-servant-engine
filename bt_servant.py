@@ -355,7 +355,7 @@ async def verify_webhook(request: Request):
 
 
 @app.post("/meta-whatsapp")
-async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks
+async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-many-locals,too-many-branches
         request: Request,
         x_hub_signature_256: Annotated[Optional[str], Header(alias="X-Hub-Signature-256")] = None,
         x_hub_signature: Annotated[Optional[str], Header(alias="X-Hub-Signature")] = None,
@@ -410,13 +410,30 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks
                             logger.warning("Unauthorized sender: %s", user_message.user_id)
                             return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content={"error": "Unauthorized sender"})
 
-                        # Time the per-message portion of webhook handling
-                        async with time_block("bt_servant:handle_meta_webhook"):
-                            # In OpenAI API test mode, run synchronously to avoid background flakiness
-                            if os.environ.get("RUN_OPENAI_API_TESTS", "") == "1":
+                        # Attribute total handling time per message, including background task duration.
+                        _msg_t0 = time.time()
+                        # In OpenAI API test mode, run synchronously to avoid background flakiness
+                        if os.environ.get("RUN_OPENAI_API_TESTS", "") == "1":
+                            try:
                                 await process_message(user_message=user_message)
-                            else:
-                                asyncio.create_task(process_message(user_message=user_message))
+                            finally:
+                                record_external_span(
+                                    name="bt_servant:handle_meta_webhook",
+                                    start=_msg_t0,
+                                    end=time.time(),
+                                    trace_id=user_message.message_id,
+                                )
+                        else:
+                            task = asyncio.create_task(process_message(user_message=user_message))
+                            # Record span when the background task completes
+                            def _on_done(_: asyncio.Task, start: float = _msg_t0, trace_id: str = user_message.message_id) -> None:
+                                record_external_span(
+                                    name="bt_servant:handle_meta_webhook",
+                                    start=start,
+                                    end=time.time(),
+                                    trace_id=trace_id,
+                                )
+                            task.add_done_callback(_on_done)
                     except ValueError:
                         logger.error("Error while processing user message...", exc_info=True)
                         continue
