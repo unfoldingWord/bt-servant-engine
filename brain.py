@@ -57,6 +57,12 @@ BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE = f"""
     Which of these would you like me to do?
 """
 
+# Short safety/accuracy disclaimer for responses that used vector RAG context.
+RAG_WARNING_PREFIX = (
+    "Warning: at least part of my response was generated using resources in the vector database. "
+    "Such responses can be less accurate than those generated from supported/fully-tested functions."
+)
+
 FIRST_INTERACTION_MESSAGE = f"""
 Hello! I am the BT Servant. This is our first conversation. Let's work together to understand and translate God's word!
 
@@ -124,6 +130,12 @@ message.
 
 (9) If it doesn't make sense to say "hello!" to the user, based on their most recent message, there's no need to say 
 'Hello!  I'm here to assist with Bible translation tasks' again.
+
+(10) Preserve any safety or accuracy warnings verbatim and place them at the very top of the combined message,
+immediately after any required first-interaction greeting.
+
+(11) Remove duplicated boilerplate or repeated feature lists if multiple nodes include similar guidance; keep only one
+concise version where appropriate.
 
 Don't worry about the combined response being too big. A downstream node will chunk the message if needed.
 """
@@ -1087,6 +1099,10 @@ def query_open_ai(state: Any) -> dict:
             f"bt servant used the following resources to generate its response: {resource_list}."
         )
         logger.info(cascade_info)
+
+        # Prefix a short RAG disclaimer when vector resources were used to form the answer.
+        if len(docs) > 0:
+            bt_servant_response = f"{RAG_WARNING_PREFIX}\n\n{bt_servant_response}"
 
         return {"responses": [
             {"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": bt_servant_response}]}
