@@ -53,7 +53,7 @@ class _TraceStore:
         """Clear all spans for the given trace id."""
         with self._lock:
             if trace_id in self._spans:
-                del self._spans
+                del self._spans[trace_id]
 
 
 _store = _TraceStore()
