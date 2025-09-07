@@ -141,23 +141,40 @@ def record_external_span(
 
 
 def summarize_report(trace_id: str) -> Dict[str, Any]:
-    """Return an ordered summary of spans for the given trace id."""
+    """Return an ordered summary of spans for the given trace id.
+
+    Adds both millisecond and second totals, and augments each span with
+    seconds and a duration_percentage (duration_ms / total_ms).
+    """
     spans = sorted(_store.get(trace_id), key=lambda s: s.start)
     if not spans:
-        return {"trace_id": trace_id, "total_ms": 0.0, "spans": []}
+        return {"trace_id": trace_id, "total_ms": 0.0, "total_s": 0.0, "spans": []}
+
     t0 = spans[0].start
     t1 = max(s.end for s in spans)
-    items = [
-        {
-            "name": s.name,
-            "duration_ms": round((s.end - s.start) * 1000.0, 2),
-            "start_offset_ms": round((s.start - t0) * 1000.0, 2),
-        }
-        for s in spans
-    ]
+    total_ms = round((t1 - t0) * 1000.0, 2)
+    total_s = round((t1 - t0), 2)
+
+    # Guard against divide-by-zero if timestamps are identical
+    denom = total_ms if total_ms > 0 else 1.0
+
+    items: List[Dict[str, Any]] = []
+    for s in spans:
+        dur_ms = round((s.end - s.start) * 1000.0, 2)
+        items.append(
+            {
+                "name": s.name,
+                "duration_ms": dur_ms,
+                "duration_se": round((s.end - s.start), 2),
+                "duration_percentage": round(dur_ms / denom, 2),
+                "start_offset_ms": round((s.start - t0) * 1000.0, 2),
+            }
+        )
+
     return {
         "trace_id": trace_id,
-        "total_ms": round((t1 - t0) * 1000.0, 2),
+        "total_ms": total_ms,
+        "total_s": total_s,
         "spans": items,
     }
 
