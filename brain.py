@@ -668,6 +668,9 @@ class BrainState(TypedDict, total=False):
     """State carried through the LangGraph execution."""
     user_id: str
     user_query: str
+    # Perf tracing: preserve trace id throughout the graph so node wrappers
+    # can attach spans even when running in a thread pool.
+    perf_trace_id: str
     query_language: str
     user_response_language: str
     transformed_query: str

@@ -169,6 +169,6 @@ def log_final_report(logger: Any, trace_id: str, **metadata: Any) -> None:
     """
     report = summarize_report(trace_id)
     payload = {**metadata, **report}
-    text = json.dumps(payload, separators=(",", ":"))
+    text = json.dumps(payload, separators=(",", ":"), indent=3)
     logger.info("PerfReport %s", text)
     _store.clear(trace_id)
