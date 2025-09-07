@@ -1644,8 +1644,10 @@ def handle_get_translation_helps(state: Any) -> dict:
     bsb_root = Path("sources") / "bsb"
     verse_count = len(select_verses(bsb_root, canonical_book, ranges))
     if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
+        ref_label_over = label_ranges(canonical_book, ranges)
         msg = (
-            f"I can only provide translate help for {config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time."
+            f"I can only provide translate help for {config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time. "
+            f"Your selection {ref_label_over} includes {verse_count} verses. Please narrow the range (e.g., a chapter or a shorter span)."
         )
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
     # Enforce verse-count limit to control context/token size
