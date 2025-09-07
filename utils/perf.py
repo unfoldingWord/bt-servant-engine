@@ -7,6 +7,8 @@ behavior changes while giving a final per-trace report.
 from __future__ import annotations
 
 import time
+import json
+import asyncio
 import threading
 from contextvars import ContextVar
 from dataclasses import dataclass
@@ -19,12 +21,14 @@ _current_trace_id: ContextVar[Optional[str]] = ContextVar("perf_current_trace_id
 
 @dataclass
 class Span:
+    """A single timed span with a name and timestamps."""
     name: str
     start: float
     end: float
 
     @property
     def duration_ms(self) -> float:
+        """Return the span duration in milliseconds."""
         return (self.end - self.start) * 1000.0
 
 
@@ -36,14 +40,17 @@ class _TraceStore:
         self._spans: Dict[str, List[Span]] = {}
 
     def add(self, trace_id: str, span: Span) -> None:
+        """Append a span to the trace's list."""
         with self._lock:
             self._spans.setdefault(trace_id, []).append(span)
 
     def get(self, trace_id: str) -> List[Span]:
+        """Return a shallow copy of spans for the trace id."""
         with self._lock:
             return list(self._spans.get(trace_id, []))
 
     def clear(self, trace_id: str) -> None:
+        """Clear all spans for the given trace id."""
         with self._lock:
             if trace_id in self._spans:
                 del self._spans
@@ -58,6 +65,7 @@ def set_current_trace(trace_id: Optional[str]) -> None:
 
 
 def get_current_trace() -> Optional[str]:
+    """Return the current ContextVar-based trace id if set."""
     return _current_trace_id.get()
 
 
@@ -82,7 +90,7 @@ class PerfBlock:
         self._start = time.time()
         return self
 
-    def __exit__(self, exc_type, exc, tb) -> None:  # noqa: ANN001 - follow context manager protocol
+    def __exit__(self, exc_type, exc, tb) -> None:
         self._end = time.time()
         _record_span(self.name, self._start, self._end, self.trace_id)
 
@@ -91,7 +99,7 @@ class PerfBlock:
         self._start = time.time()
         return self
 
-    async def __aexit__(self, exc_type, exc, tb) -> None:  # noqa: ANN001 - follow context manager protocol
+    async def __aexit__(self, exc_type, exc, tb) -> None:
         self._end = time.time()
         _record_span(self.name, self._start, self._end, self.trace_id)
 
@@ -104,11 +112,7 @@ def time_block(name: str, trace_id: Optional[str] = None) -> PerfBlock:
 def record_timing(name: str):
     """Decorator to record sync or async function execution time as a span."""
     def decorator(func):  # type: ignore[no-untyped-def]
-        try:
-            import asyncio as _asyncio  # local import to avoid unconditional dependency
-            is_async = _asyncio.iscoroutinefunction(func)
-        except Exception:
-            is_async = False
+        is_async = asyncio.iscoroutinefunction(func)
 
         if is_async:
             async def wrapper(*args, **kwargs):  # type: ignore[no-untyped-def]
@@ -129,7 +133,9 @@ def record_timing(name: str):
     return decorator
 
 
-def record_external_span(name: str, start: float, end: float, trace_id: Optional[str] = None) -> None:
+def record_external_span(
+    name: str, start: float, end: float, trace_id: Optional[str] = None
+) -> None:
     """Record a span using externally measured timestamps."""
     _record_span(name, start, end, trace_id=trace_id)
 
@@ -156,21 +162,13 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:
     }
 
 
-def log_final_report(logger: Any, trace_id: str, **metadata: Any) -> None:  # noqa: ANN401 - logger type varies
+def log_final_report(logger: Any, trace_id: str, **metadata: Any) -> None:
     """Emit a single log.info line with the report and optional metadata.
 
     Cleans up stored spans for the trace afterwards to avoid memory growth.
     """
-    try:
-        import json as _json
-    except Exception:  # pragma: no cover - json always present but guard anyway
-        _json = None  # type: ignore[assignment]
-
     report = summarize_report(trace_id)
     payload = {**metadata, **report}
-    if _json is not None:
-        text = _json.dumps(payload, separators=(",", ":"))
-    else:
-        text = str(payload)
+    text = json.dumps(payload, separators=(",", ":"))
     logger.info("PerfReport %s", text)
     _store.clear(trace_id)

@@ -188,6 +188,8 @@ Recommended workflow
 - Resolution: Added concise docstrings, wrapped long lines to <=100 chars, moved imports to module scope, and removed broad exception patterns. Re-ran full repo checks locally: `ruff`, `pylint`, `mypy`, `pyright`, and `pytest -q -m "not openai"` all green. PR #77 updated and checks now pass.
 - Preventive: Before every commit, explicitly run `scripts/check_repo.sh` and ensure zero diagnostics. Treat any pre-commit output as a hard blocker. If hooks appear to allow a commit despite failures, stop and re-run the checks manually; do not push until green.
 
+- 2025-09-07: Added a no-op doc touch to retrigger CI after the workflow fetched an outdated `refs/pull/77/merge` commit. Current branch head is clean locally; the no-op commit forces GitHub to rebuild the merge ref against HEAD.
+
 ## Session Snapshot (Temp)
 
 - Branch/state:
