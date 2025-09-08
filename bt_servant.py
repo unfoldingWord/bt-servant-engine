@@ -512,6 +512,21 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
                 dest_col.add(ids=add_ids, documents=add_docs, metadatas=add_metas, embeddings=add_embs)
             else:
                 dest_col.add(ids=add_ids, documents=add_docs, metadatas=add_metas)
+            # Log each successful insertion mapping from source -> destination id
+            try:
+                for i in to_add_indexes:
+                    src_id = src_ids[i]
+                    dst_id = dest_ids[i]
+                    logger.info(
+                        "doc_id %s from %s inserted into %s with id %s",
+                        src_id,
+                        req.source,
+                        task.dest,
+                        dst_id,
+                    )
+            except Exception:  # pylint: disable=broad-except
+                # Avoid impacting merge on logging issues
+                pass
             task.completed += len(add_ids)
             _update_eta_metrics(task)
 
