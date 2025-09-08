@@ -11,7 +11,7 @@ import httpx
 from openai import OpenAI
 
 from logger import get_logger
-from utils.perf import record_timing
+from utils.perf import record_timing, add_tokens
 from config import config
 
 logger = get_logger(__name__)
@@ -102,13 +102,32 @@ async def send_typing_indicator_message(message_id: str) -> None:
             logger.info("Sent typing indicator via message_id=%s", message_id)
 
 
+def _record_stt_usage(usage: object) -> None:
+    """Best-effort extraction of token usage from STT responses."""
+    try:
+        it = getattr(usage, "input_tokens", None) or getattr(usage, "prompt_tokens", None)
+        ot = getattr(usage, "output_tokens", None) or getattr(usage, "completion_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        ait = getattr(usage, "audio_tokens", None) or getattr(usage, "input_audio_tokens", None)
+        aot = getattr(usage, "output_audio_tokens", None)
+        add_tokens(
+            it,
+            ot,
+            tt,
+            model="gpt-4o-transcribe",
+            audio_input_tokens=ait,
+            audio_output_tokens=aot,
+        )
+    except (AttributeError, TypeError, ValueError):
+        # Defensive: ignore unknown usage shapes
+        pass
+
+
 @record_timing("messaging:transcribe_voice_message")
 async def transcribe_voice_message(media_id: str) -> str:
     """Download and transcribe a voice message by Meta media id."""
     voice_message_url = await _get_media_message_url(media_id=media_id)
-    headers = {
-        "Authorization": f"Bearer {config.META_WHATSAPP_TOKEN}"
-    }
+    headers = {"Authorization": f"Bearer {config.META_WHATSAPP_TOKEN}"}
     temp_audio_path = os.path.join(tempfile.gettempdir(), "temp_audio.ogg")
     try:
         async with httpx.AsyncClient() as client:
@@ -117,8 +136,7 @@ async def transcribe_voice_message(media_id: str) -> str:
                 logger.error("Failed to download voice message audio file: %s", response.text)
                 raise RuntimeError("Media retrieval failed")
 
-            loop = asyncio.get_running_loop()
-            await loop.run_in_executor(
+            await asyncio.get_running_loop().run_in_executor(
                 None, _write_audio_to_disk, temp_audio_path, response.content
             )
 
@@ -130,6 +148,10 @@ async def transcribe_voice_message(media_id: str) -> str:
                 model="gpt-4o-transcribe",
                 file=audio_file
             )
+        # Attempt to capture usage for token/cost accounting (text + audio tokens if available)
+        usage = getattr(transcript, "usage", None)
+        if usage is not None:
+            _record_stt_usage(usage)
         transcribed_text = transcript.text
         logger.info("transcription from openAi: %s", transcribed_text)
         return transcribed_text
@@ -172,6 +194,14 @@ def _create_voice_message(user_id: str, text: str) -> str:
             instructions="Speak in a cheerful and positive tone."
     ) as response:
         response.stream_to_file(temp_audio_path)
+
+    # Attribute text input tokens for TTS based on a simple heuristic when SDK usage is not exposed
+    try:
+        est_tokens = max(1, int(len(text) / 4))
+        add_tokens(input_tokens=est_tokens, model="gpt-4o-mini-tts")
+    except (TypeError, ValueError):
+        # Ignore if text length or add_tokens inputs are unexpected
+        pass
 
     logger.info("Voice message created in %.2f seconds", time.time() - start_time)
     return temp_audio_path  # return path to temp file

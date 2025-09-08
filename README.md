@@ -113,20 +113,19 @@ Other acceptable values for log level: critical, error, warning, and debug
 
 ## Pricing Defaults
 
-- The engine computes token and cost totals in its performance reports. By default, it uses the following pricing for `gpt-4o` if no environment override is provided:
+- The engine computes token and cost totals in its performance reports. By default, it includes pricing for `gpt-4o` and voice flows (`gpt-4o-transcribe`, `gpt-4o-mini-tts`) if no environment override is provided.
 
 ```
-OPENAI_PRICING_JSON='{"gpt-4o": {"input_per_million": 2.5, "output_per_million": 10.0, "cached_input": 1.25}}'
+OPENAI_PRICING_JSON='{"gpt-4o": {"input_per_million": 2.5, "output_per_million": 10.0, "cached_input": 1.25}, "gpt-4o-transcribe": {"input_per_million": 2.5, "output_per_million": 10.0, "audio_input_per_million": 6.0}, "gpt-4o-mini-tts": {"input_per_million": 0.6, "audio_output_per_million": 12.0}}'
 ```
 
-- To override (e.g., if pricing changes), set `OPENAI_PRICING_JSON` in your environment or `.env` to a JSON object mapping model names to per‑million rates:
-
-```
-OPENAI_PRICING_JSON='{"gpt-4o": {"input_per_million": 2.5, "output_per_million": 10.0, "cached_input": 1.25}, "gpt-4o-mini": {"input_per_million": 0.15, "output_per_million": 0.6}}'
-```
+- To override (e.g., if pricing changes), set `OPENAI_PRICING_JSON` in your environment or `.env` to a JSON object mapping model names to per‑million rates. Recognized keys per model:
+  - `input_per_million`, `output_per_million` (text tokens)
+  - `cached_input` or `cached_input_per_million` (optional discounted text input)
+  - `audio_input_per_million`, `audio_output_per_million` (audio tokens)
 
 - Notes:
-  - Extra keys like `cached_input` are optional; when provided and the SDK reports cache-read tokens, discounted costs are included.
+  - Extra keys are optional; when provided and the SDK reports corresponding token counts, those costs are included.
   - Explicit env values always override the built-in default.
 
 

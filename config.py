@@ -37,7 +37,17 @@ class Config(BaseSettings):
     DATA_DIR: Path = Field(default=Path("/data"))
     # Default OpenAI pricing JSON to enable cost accounting even without .env override
     OPENAI_PRICING_JSON: str = Field(
-        default='{"gpt-4o":{"input_per_million":2.5,"output_per_million":10.0,"cached_input":1.25}}'
+        default=(
+            '{'
+            '"gpt-4o": {"input_per_million": 2.5, '
+            '"output_per_million": 10.0, "cached_input": 1.25}, '
+            '"gpt-4o-transcribe": {"input_per_million": 2.5, '
+            '"output_per_million": 10.0, '
+            '"audio_input_per_million": 6.0}, '
+            '"gpt-4o-mini-tts": {"input_per_million": 0.6, '
+            '"audio_output_per_million": 12.0}'
+            '}'
+        )
     )
 
 

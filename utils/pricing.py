@@ -40,6 +40,8 @@ def _load_pricing() -> Dict[str, Dict[str, float]]:
             inp = cfg.get("input_per_million")
             out = cfg.get("output_per_million")
             cached_in = cfg.get("cached_input") or cfg.get("cached_input_per_million")
+            ain = cfg.get("audio_input_per_million") or cfg.get("audio_input")
+            aout = cfg.get("audio_output_per_million") or cfg.get("audio_output")
             if isinstance(inp, (int, float)) and isinstance(out, (int, float)):
                 entry: Dict[str, float] = {
                     "input_per_million": float(inp),
@@ -47,6 +49,10 @@ def _load_pricing() -> Dict[str, Dict[str, float]]:
                 }
                 if isinstance(cached_in, (int, float)):
                     entry["cached_input_per_million"] = float(cached_in)
+                if isinstance(ain, (int, float)):
+                    entry["audio_input_per_million"] = float(ain)
+                if isinstance(aout, (int, float)):
+                    entry["audio_output_per_million"] = float(aout)
                 table[str(model)] = entry
     _PRICING_CACHE = table
     return table
