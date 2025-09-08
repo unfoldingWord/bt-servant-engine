@@ -25,6 +25,9 @@ class Span:
     name: str
     start: float
     end: float
+    input_tokens_expended: Optional[int] = None
+    output_tokens_expended: Optional[int] = None
+    total_tokens_expended: Optional[int] = None
 
     @property
     def duration_ms(self) -> float:
@@ -59,6 +62,19 @@ class _TraceStore:
 _store = _TraceStore()
 
 
+@dataclass
+class _OpenSpan:
+    name: str
+    start: float
+    input_tokens_expended: int = 0
+    output_tokens_expended: int = 0
+    total_tokens_expended: int = 0
+
+
+# Stack of open spans (per-task via ContextVar) to attribute tokens
+_active_spans: ContextVar[List[_OpenSpan] | tuple] = ContextVar("perf_active_spans", default=())
+
+
 def set_current_trace(trace_id: Optional[str]) -> None:
     """Set the ContextVar-based current trace id for downstream spans."""
     _current_trace_id.set(trace_id)
@@ -73,7 +89,30 @@ def _record_span(name: str, start: float, end: float, trace_id: Optional[str] = 
     tid = trace_id or get_current_trace()
     if not tid:
         return
-    _store.add(tid, Span(name=name, start=start, end=end))
+    # If there is an active open span matching this name at the top, merge token totals
+    stack = _active_spans.get()
+    tokens: Dict[str, Optional[int]] = {
+        "input": None,
+        "output": None,
+        "total": None,
+    }
+    if stack and stack[-1].name == name and abs(stack[-1].start - start) < 1e-6:
+        os = stack[-1]
+        # Normalize zero totals to None when no tokens were added at all
+        tokens["input"] = os.input_tokens_expended or None
+        tokens["output"] = os.output_tokens_expended or None
+        tokens["total"] = os.total_tokens_expended or None
+    _store.add(
+        tid,
+        Span(
+            name=name,
+            start=start,
+            end=end,
+            input_tokens_expended=tokens["input"],
+            output_tokens_expended=tokens["output"],
+            total_tokens_expended=tokens["total"],
+        ),
+    )
 
 
 class PerfBlock:
@@ -88,20 +127,38 @@ class PerfBlock:
     # sync protocol
     def __enter__(self) -> "PerfBlock":
         self._start = time.time()
+        # Push open span to the stack
+        cur = _active_spans.get()
+        stack = list(cur)  # default may be tuple()
+        stack.append(_OpenSpan(name=self.name, start=self._start))
+        _active_spans.set(stack)
         return self
 
     def __exit__(self, exc_type, exc, tb) -> None:
         self._end = time.time()
+        # Record before popping so tokens are visible to recorder
         _record_span(self.name, self._start, self._end, self.trace_id)
+        stack = list(_active_spans.get())
+        if stack:
+            stack.pop()
+            _active_spans.set(stack)
 
     # async protocol
     async def __aenter__(self) -> "PerfBlock":
         self._start = time.time()
+        cur = _active_spans.get()
+        stack = list(cur)
+        stack.append(_OpenSpan(name=self.name, start=self._start))
+        _active_spans.set(stack)
         return self
 
     async def __aexit__(self, exc_type, exc, tb) -> None:
         self._end = time.time()
         _record_span(self.name, self._start, self._end, self.trace_id)
+        stack = list(_active_spans.get())
+        if stack:
+            stack.pop()
+            _active_spans.set(stack)
 
 
 def time_block(name: str, trace_id: Optional[str] = None) -> PerfBlock:
@@ -140,6 +197,34 @@ def record_external_span(
     _record_span(name, start, end, trace_id=trace_id)
 
 
+def add_tokens(
+    input_tokens: Optional[int] = None,
+    output_tokens: Optional[int] = None,
+    total_tokens: Optional[int] = None,
+) -> None:
+    """Attach token counts to the current open span (if any).
+
+    - Sums values if called multiple times within the same span.
+    - If ``total_tokens`` is not provided, a sum of available inputs is computed
+      when both input and output tokens are present.
+    """
+    stack = _active_spans.get()
+    if not stack:
+        return
+    os = stack[-1]
+    if input_tokens is not None:
+        os.input_tokens_expended += int(input_tokens)
+    if output_tokens is not None:
+        os.output_tokens_expended += int(output_tokens)
+    if total_tokens is not None:
+        os.total_tokens_expended += int(total_tokens)
+    elif input_tokens is not None or output_tokens is not None:
+        # Estimate total for this call if both parts available; otherwise leave
+        # accumulation to future calls when the missing part arrives.
+        if input_tokens is not None and output_tokens is not None:
+            os.total_tokens_expended += int(input_tokens) + int(output_tokens)
+
+
 def summarize_report(trace_id: str) -> Dict[str, Any]:
     """Return an ordered summary of spans for the given trace id.
 
@@ -161,15 +246,20 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:
     items: List[Dict[str, Any]] = []
     for s in spans:
         dur_ms = round((s.end - s.start) * 1000.0, 2)
-        items.append(
-            {
-                "name": s.name,
-                "duration_ms": dur_ms,
-                "duration_se": round((s.end - s.start), 2),
-                "duration_percentage": f"{round((dur_ms / denom) * 100.0, 1)}%",
-                "start_offset_ms": round((s.start - t0) * 1000.0, 2),
-            }
-        )
+        item: Dict[str, Any] = {
+            "name": s.name,
+            "duration_ms": dur_ms,
+            "duration_se": round((s.end - s.start), 2),
+            "duration_percentage": f"{round((dur_ms / denom) * 100.0, 1)}%",
+            "start_offset_ms": round((s.start - t0) * 1000.0, 2),
+        }
+        if s.input_tokens_expended is not None:
+            item["input_tokens_expended"] = s.input_tokens_expended
+        if s.output_tokens_expended is not None:
+            item["output_tokens_expended"] = s.output_tokens_expended
+        if s.total_tokens_expended is not None:
+            item["total_tokens_expended"] = s.total_tokens_expended
+        items.append(item)
 
     return {
         "trace_id": trace_id,

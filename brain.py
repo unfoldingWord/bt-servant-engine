@@ -35,7 +35,7 @@ from utils.bsb import (
 )
 from utils.keywords import select_keywords
 from utils.translation_helps import select_translation_helps, get_missing_th_books
-from utils.perf import time_block, set_current_trace
+from utils.perf import time_block, set_current_trace, add_tokens
 from db import (
     get_chroma_collection,
     is_first_interaction,
@@ -805,6 +805,14 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
         instructions=COMBINE_RESPONSES_SYSTEM_PROMPT,
         input=cast(Any, messages),
     )
+    usage = getattr(response, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        add_tokens(it, ot, tt)
     combined = response.output_text
     logger.info("combined response from openai: %s", combined)
     return combined
@@ -876,6 +884,12 @@ def translate_text(response_text: str, target_language: str) -> str:
         model="gpt-4o",
         messages=chat_messages,
     )
+    usage = getattr(completion, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "prompt_tokens", None)
+        ot = getattr(usage, "completion_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        add_tokens(it, ot, tt)
     content = completion.choices[0].message.content
     if isinstance(content, list):
         text = "".join(part.get("text", "") if isinstance(part, dict) else "" for part in content)
@@ -908,6 +922,14 @@ def detect_language(text) -> str:
         temperature=0,
         store=False,
     )
+    usage = getattr(response, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        add_tokens(it, ot, tt)
     message_language = cast(MessageLanguage | None, response.output_parsed)
     predicted = message_language.language.value if message_language else "en"
     logger.info("language detection (model): %s", predicted)
@@ -1092,6 +1114,14 @@ def query_open_ai(state: Any) -> dict:
             instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
             input=cast(Any, messages)
         )
+        usage = getattr(response, "usage", None)
+        if usage is not None:
+            it = getattr(usage, "input_tokens", None)
+            ot = getattr(usage, "output_tokens", None)
+            tt = getattr(usage, "total_tokens", None)
+            if tt is None and (it is not None or ot is not None):
+                tt = (it or 0) + (ot or 0)
+            add_tokens(it, ot, tt)
         bt_servant_response = response.output_text
         logger.info('response from openai: %s', bt_servant_response)
         logger.debug("%d characters returned from openAI", len(bt_servant_response))
@@ -1139,6 +1169,12 @@ def chunk_message(state: Any) -> dict:
             model='gpt-4o',
             messages=chat_messages,
         )
+        usage = getattr(completion, "usage", None)
+        if usage is not None:
+            it = getattr(usage, "prompt_tokens", None)
+            ot = getattr(usage, "completion_tokens", None)
+            tt = getattr(usage, "total_tokens", None)
+            add_tokens(it, ot, tt)
         response_content = completion.choices[0].message.content
         if not isinstance(response_content, str):
             raise ValueError("empty or non-text content from chat completion")
@@ -1253,6 +1289,14 @@ def handle_unsupported_function(state: Any) -> dict:
         input=cast(Any, messages),
         store=False
     )
+    usage = getattr(response, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        add_tokens(it, ot, tt)
     unsupported_function_response_text = response.output_text
     logger.info('converse_with_bt_servant response from openai: %s', unsupported_function_response_text)
     return {"responses": [{"intent": IntentType.PERFORM_UNSUPPORTED_FUNCTION, "response": unsupported_function_response_text}]}
@@ -1279,6 +1323,14 @@ def handle_system_information_request(state: Any) -> dict:
         input=cast(Any, messages),
         store=False
     )
+    usage = getattr(response, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        add_tokens(it, ot, tt)
     help_response_text = response.output_text
     logger.info('help response from openai: %s', help_response_text)
     return {"responses": [{"intent": IntentType.RETRIEVE_SYSTEM_INFORMATION, "response": help_response_text}]}
@@ -1305,6 +1357,14 @@ def converse_with_bt_servant(state: Any) -> dict:
         input=cast(Any, messages),
         store=False
     )
+    usage = getattr(response, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        add_tokens(it, ot, tt)
     converse_response_text = response.output_text
     logger.info('converse_with_bt_servant response from openai: %s', converse_response_text)
     return {"responses": [{"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}]}
@@ -1544,6 +1604,14 @@ def handle_get_passage_summary(state: Any) -> dict:
         input=cast(Any, sum_messages),
         store=False,
     )
+    usage = getattr(summary_resp, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        add_tokens(it, ot, tt)
     summary_text = summary_resp.output_text
     logger.info("[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0)
 
@@ -1705,6 +1773,14 @@ def handle_get_translation_helps(state: Any) -> dict:
         input=cast(Any, messages),
         store=False,
     )
+    usage = getattr(resp, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        add_tokens(it, ot, tt)
     text = resp.output_text
     header = f"Translation helps for {ref_label}\n\n"
     response_text = header + (text or "")
