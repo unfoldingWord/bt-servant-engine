@@ -2,6 +2,7 @@
 
 Loads values from environment (and optional .env) with typed fields.
 """
+import os
 from pathlib import Path
 
 from pydantic import Field
@@ -34,8 +35,15 @@ class Config(BaseSettings):
 
     # Optional with default value
     DATA_DIR: Path = Field(default=Path("/data"))
+    # Default OpenAI pricing JSON to enable cost accounting even without .env override
+    OPENAI_PRICING_JSON: str = Field(
+        default='{"gpt-4o":{"input_per_million":2.5,"output_per_million":10.0,"cached_input":1.25}}'
+    )
 
 
 # Create a single instance to import elsewhere
 # mypy cannot infer environment-based initialization for BaseSettings
 config = Config()  # type: ignore[call-arg]
+
+# Ensure utils.pricing (which reads from environment) can see a default when .env omits it
+os.environ.setdefault("OPENAI_PRICING_JSON", config.OPENAI_PRICING_JSON)
