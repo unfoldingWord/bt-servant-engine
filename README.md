@@ -105,10 +105,30 @@ uvicorn bt_servant:app --reload
 | `BT_SERVANT_LOG_LEVEL` | (Optional) Defaults to info log level if not present            |
 | `IN_META_SANDBOX_MODE` | (Optional) Set to true when testing in sandbox mode             |
 | `META_SANDBOX_PHONE_NUMBER` | Only accept requests from this phonenumber when testing locally |
+| `OPENAI_PRICING_JSON`  | (Optional) Per-million token pricing to compute costs in perf reports |
 
 Other acceptable values for log level: critical, error, warning, and debug
 
 ---
+
+## Pricing Defaults
+
+- The engine computes token and cost totals in its performance reports. By default, it uses the following pricing for `gpt-4o` if no environment override is provided:
+
+```
+OPENAI_PRICING_JSON='{"gpt-4o": {"input_per_million": 2.5, "output_per_million": 10.0, "cached_input": 1.25}}'
+```
+
+- To override (e.g., if pricing changes), set `OPENAI_PRICING_JSON` in your environment or `.env` to a JSON object mapping model names to per‑million rates:
+
+```
+OPENAI_PRICING_JSON='{"gpt-4o": {"input_per_million": 2.5, "output_per_million": 10.0, "cached_input": 1.25}, "gpt-4o-mini": {"input_per_million": 0.15, "output_per_million": 0.6}}'
+```
+
+- Notes:
+  - Extra keys like `cached_input` are optional; when provided and the SDK reports cache-read tokens, discounted costs are included.
+  - Explicit env values always override the built-in default.
+
 
 ## Webhook Setup
 
