@@ -462,6 +462,7 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
                     "audio_input_cost_usd": 0.0,
                     "audio_output_cost_usd": 0.0,
                     "total_cost_usd": 0.0,
+                    "duration_ms": 0.0,
                 })
                 agg["input_tokens"] += itok
                 agg["output_tokens"] += otok
@@ -475,6 +476,7 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
                 agg["audio_input_cost_usd"] += span_cost_audio_input
                 agg["audio_output_cost_usd"] += span_cost_audio_output
                 agg["total_cost_usd"] += span_cost_total
+                agg["duration_ms"] += dur_ms
 
         items.append(item)
 
@@ -507,6 +509,18 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
             "audio_input_cost_usd": round(v["audio_input_cost_usd"], 6),
             "audio_output_cost_usd": round(v["audio_output_cost_usd"], 6),
             "total_cost_usd": round(v["total_cost_usd"], 6),
+            "duration_percentage": (
+                f"{round((
+                    (v.get('duration_ms', 0.0) or 0.0)
+                    / (total_ms or 1.0)
+                ) * 100.0, 1)}%"
+            ),
+            "token_percentage": (
+                f"{round((
+                    (v.get('total_tokens', 0.0) or 0.0)
+                    / (token_total_denominator or 1.0)
+                ) * 100.0, 1)}%"
+            ),
         } for k, v in grouped.items()},
         "spans": items,
     }
