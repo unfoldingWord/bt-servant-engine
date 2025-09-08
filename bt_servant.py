@@ -10,10 +10,12 @@ import json
 import time
 import hmac
 import hashlib
-from typing import Optional, Annotated, Any, DefaultDict
+from typing import Optional, Annotated, Any, DefaultDict, cast
 from contextlib import asynccontextmanager
 from collections import defaultdict
 import os
+import uuid
+from datetime import datetime, timezone
 import httpx
 from fastapi import FastAPI, Request, Response, status, HTTPException, Header, Depends
 from fastapi.responses import JSONResponse
@@ -39,6 +41,9 @@ from db import (
     count_documents_in_collection,
     get_document_text,
     list_document_ids_in_collection,
+    iter_collection_batches,
+    get_chroma_collections_pair,
+    max_numeric_id_in_collection,
     CollectionExistsError,
     CollectionNotFoundError,
     DocumentNotFoundError,
@@ -75,6 +80,15 @@ brain: Any | None = None
 
 logger = get_logger(__name__)
 user_locks: DefaultDict[str, asyncio.Lock] = defaultdict(asyncio.Lock)
+merge_global_semaphore = asyncio.Semaphore(1)
+merge_collection_locks: DefaultDict[str, asyncio.Lock] = defaultdict(asyncio.Lock)
+
+# Dedicated single-worker executor for merge operations to avoid competing
+# with other background work configured on the default executor.
+_merge_executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+
+_merge_tasks: dict[str, Any] = {}
+_merge_task_cancel_flags: dict[str, asyncio.Event] = {}
 
 
 def init() -> None:
@@ -98,6 +112,41 @@ class Document(BaseModel):
 class CollectionCreate(BaseModel):
     """Payload schema for creating a Chroma collection."""
     name: str
+
+
+class MergeRequest(BaseModel):
+    """Payload schema for merging one Chroma collection into another."""
+    source: str
+    mode: str = "copy"  # "copy" | "move"
+    on_duplicate: str = "fail"  # "fail" | "skip" | "overwrite"
+    create_new_id: bool = False
+    batch_size: int = 1000
+    use_source_embeddings: bool = False  # default re-embed
+    dry_run: bool = False
+    duplicates_preview_limit: int = 100
+    tag_metadata: bool = True
+    tag_metadata_key: str = "_merged_from"
+    tag_metadata_timestamp: bool = True
+    sleep_between_batches_ms: int = 0
+
+
+class MergeTaskStatus(BaseModel):
+    """Status model for a merge task."""
+    task_id: str
+    source: str
+    dest: str
+    status: str  # pending | running | completed | failed | cancelled
+    total: int = 0
+    completed: int = 0
+    skipped: int = 0
+    overwritten: int = 0
+    deleted_from_source: int = 0
+    duplicates_found: bool | None = None
+    duplicate_preview: list[str] | None = None
+    error: str | None = None
+    started_at: float | None = None
+    finished_at: float | None = None
+    next_id_start: int | None = None
 
 
 async def require_admin_token(
@@ -268,6 +317,297 @@ async def list_document_ids_endpoint(name: str, _: None = Depends(require_admin_
             "ids": ids,
         },
     )
+
+
+def _now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _apply_metadata_tags(  # pylint: disable=too-many-arguments
+    metadatas: list[dict[str, Any]] | None,
+    *,
+    enabled: bool,
+    tag_key: str,
+    source: str,
+    task_id: str,
+    tag_timestamp: bool,
+) -> list[dict[str, Any]] | None:
+    if not enabled:
+        return metadatas
+    if metadatas is None:
+        return None
+    stamped: list[dict[str, Any]] = []
+    ts = _now_iso() if tag_timestamp else None
+    for md in metadatas:
+        m = dict(md) if md is not None else {}
+        m[tag_key] = source
+        m["_merge_task_id"] = task_id
+        if ts is not None:
+            m["_merged_at"] = ts
+        stamped.append(m)
+    return stamped
+
+
+def _compute_duplicate_preview(
+    source_col: Any,
+    dest_col: Any,
+    *,
+    limit: int,
+    batch_size: int,
+) -> tuple[bool, list[str]]:
+    """Return (duplicates_found, preview_ids_up_to_limit)."""
+    preview: list[str] = []
+    # Build a set of existing dest ids for fast lookup
+    dest_ids: set[str] = set()
+    for batch in iter_collection_batches(dest_col, batch_size=10000, include_embeddings=False):
+        for _id in batch.get("ids") or []:
+            dest_ids.add(str(_id))
+    if not dest_ids:
+        return False, []
+    # Scan source until we collect up to limit duplicates
+    for batch in iter_collection_batches(source_col, batch_size=batch_size, include_embeddings=False):
+        for _id in batch.get("ids") or []:
+            sid = str(_id)
+            if sid in dest_ids:
+                preview.append(sid)
+                if len(preview) >= limit:
+                    return True, preview
+    return (len(preview) > 0), preview
+
+
+def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-many-branches,too-many-statements
+    task: MergeTaskStatus,
+    req: MergeRequest,
+) -> None:
+    """Synchronous merge worker executed in dedicated thread."""
+    try:
+        task.started_at = time.time()
+        source_col, dest_col = get_chroma_collections_pair(req.source, task.dest)
+        if req.source.strip() == task.dest.strip():
+            raise ValueError("source and dest must be different collections")
+        # Preflight counts
+        try:
+            source_count = source_col.count()
+        except TypeError:
+            # Some clients require no args
+            source_count = source_col.count
+        try:
+            dest_col.count()
+        except TypeError:
+            _ = dest_col.count
+        task.total = int(source_count)
+
+        # Dry-run: compute duplicates preview and/or next id
+        if req.dry_run:
+            if not req.create_new_id and req.on_duplicate == "fail":
+                dup_found, preview = _compute_duplicate_preview(
+                    source_col, dest_col, limit=req.duplicates_preview_limit, batch_size=req.batch_size
+                )
+                task.duplicates_found = dup_found
+                task.duplicate_preview = preview
+            if req.create_new_id:
+                start_id = max_numeric_id_in_collection(task.dest) + 1
+                task.next_id_start = start_id
+            task.status = "completed"
+            task.finished_at = time.time()
+            return
+
+        # If on_duplicate=fail and not creating new ids, preflight for any duplicate
+        if not req.create_new_id and req.on_duplicate == "fail":
+            dup_found, _ = _compute_duplicate_preview(
+                source_col, dest_col, limit=1, batch_size=req.batch_size
+            )
+            if dup_found:
+                raise ValueError("Duplicate ids detected; aborting due to on_duplicate=fail")
+
+        # Prepare ID allocator when create_new_id
+        next_id = None
+        if req.create_new_id:
+            next_id = max_numeric_id_in_collection(task.dest) + 1
+
+        # Begin batch processing
+        for batch in iter_collection_batches(
+            source_col,
+            batch_size=req.batch_size,
+            include_embeddings=req.use_source_embeddings,
+        ):
+            # Cancellation check
+            cancel_evt = _merge_task_cancel_flags.get(task.task_id)
+            if cancel_evt and cancel_evt.is_set():
+                task.status = "cancelled"
+                task.finished_at = time.time()
+                return
+
+            src_ids = [str(i) for i in (batch.get("ids") or [])]
+            documents = cast(list[str] | None, batch.get("documents"))
+            metadatas = cast(list[dict[str, Any]] | None, batch.get("metadatas"))
+            embeddings = cast(list[list[float]] | None, batch.get("embeddings")) if req.use_source_embeddings else None
+
+            # Determine destination ids
+            if req.create_new_id:
+                assert next_id is not None
+                dest_ids = [str(i) for i in range(next_id, next_id + len(src_ids))]
+                next_id += len(src_ids)
+            else:
+                dest_ids = src_ids
+
+            # On duplicates handling when not create_new_id
+            to_add_indexes = list(range(len(dest_ids)))
+            if not req.create_new_id and req.on_duplicate in ("skip", "overwrite"):
+                # Check which dest ids already exist
+                existing = dest_col.get(ids=dest_ids)
+                existing_ids = set(str(i) for i in (existing.get("ids") or []))
+                if req.on_duplicate == "skip" and existing_ids:
+                    to_add_indexes = [i for i, did in enumerate(dest_ids) if did not in existing_ids]
+                    task.skipped += len(existing_ids)
+                elif req.on_duplicate == "overwrite" and existing_ids:
+                    # delete existing before add
+                    dest_col.delete(ids=list(existing_ids))
+                    task.overwritten += len(existing_ids)
+
+            if not to_add_indexes:
+                continue
+
+            add_ids = [dest_ids[i] for i in to_add_indexes]
+            add_docs = [documents[i] for i in to_add_indexes] if documents else None
+            add_metas = [metadatas[i] for i in to_add_indexes] if metadatas else None
+            add_metas = _apply_metadata_tags(
+                add_metas,
+                enabled=req.tag_metadata,
+                tag_key=req.tag_metadata_key,
+                source=req.source,
+                task_id=task.task_id,
+                tag_timestamp=req.tag_metadata_timestamp,
+            )
+            add_embs = [embeddings[i] for i in to_add_indexes] if embeddings else None
+
+            # Perform add
+            if add_embs is not None:
+                dest_col.add(ids=add_ids, documents=add_docs, metadatas=add_metas, embeddings=add_embs)
+            else:
+                dest_col.add(ids=add_ids, documents=add_docs, metadatas=add_metas)
+            task.completed += len(add_ids)
+
+            # Move semantics: delete source docs after successful add
+            if req.mode == "move":
+                source_col.delete(ids=src_ids)
+                task.deleted_from_source += len(src_ids)
+
+            # Optional throttle between batches
+            if req.sleep_between_batches_ms > 0:
+                # Check for cancellation before and after sleeping
+                cancel_evt = _merge_task_cancel_flags.get(task.task_id)
+                if cancel_evt and cancel_evt.is_set():
+                    task.status = "cancelled"
+                    task.finished_at = time.time()
+                    return
+                time.sleep(max(0.0, req.sleep_between_batches_ms / 1000.0))
+                cancel_evt = _merge_task_cancel_flags.get(task.task_id)
+                if cancel_evt and cancel_evt.is_set():
+                    task.status = "cancelled"
+                    task.finished_at = time.time()
+                    return
+
+        task.status = "completed"
+        task.finished_at = time.time()
+    except Exception as exc:  # pylint: disable=broad-except
+        task.status = "failed"
+        task.error = str(exc)
+        task.finished_at = time.time()
+
+
+async def _start_merge_task(dest: str, req: MergeRequest) -> MergeTaskStatus:
+    """Create and start a merge task; returns the initial status."""
+    task_id = str(uuid.uuid4())
+    status_obj = MergeTaskStatus(
+        task_id=task_id,
+        source=req.source,
+        dest=dest,
+        status="pending",
+        total=0,
+        completed=0,
+        skipped=0,
+        overwritten=0,
+        deleted_from_source=0,
+        duplicates_found=None,
+        duplicate_preview=None,
+        error=None,
+        started_at=None,
+        finished_at=None,
+    )
+    _merge_tasks[task_id] = status_obj
+    _merge_task_cancel_flags[task_id] = asyncio.Event()
+
+    async def runner() -> None:
+        async with merge_global_semaphore:
+            async with merge_collection_locks[dest]:
+                status_obj.status = "running"
+                # Run in dedicated single-worker pool
+                await asyncio.get_event_loop().run_in_executor(_merge_executor, _merge_worker, status_obj, req)
+
+    asyncio.create_task(runner())
+    return status_obj
+
+
+@app.post("/chroma/collections/{dest}/merge")
+async def merge_collections_endpoint(  # pylint: disable=too-many-return-statements
+    dest: str, payload: MergeRequest, _: None = Depends(require_admin_token)
+):
+    """Merge one collection into another with background processing and dry-run support."""
+    # Quick validation of mode/on_duplicate
+    if payload.mode not in ("copy", "move"):
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": "mode must be 'copy' or 'move'"})
+    if payload.on_duplicate not in ("fail", "skip", "overwrite"):
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": "on_duplicate must be one of 'fail','skip','overwrite'"})
+    if payload.source.strip() == dest.strip():
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": "source and dest must differ"})
+
+    # For dry-run, perform preflight synchronously in thread and return summary
+    if payload.dry_run:
+        # Reuse the worker but with a temporary task to compute summary only
+        temp = MergeTaskStatus(task_id=str(uuid.uuid4()), source=payload.source, dest=dest, status="pending")
+        try:
+            await asyncio.get_event_loop().run_in_executor(_merge_executor, _merge_worker, temp, payload)
+        except CollectionNotFoundError as ce:
+            return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": str(ce)})
+        except ValueError as ve:
+            return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
+        return JSONResponse(status_code=status.HTTP_200_OK, content=temp.model_dump())
+
+    # Non-dry-run: start background task
+    try:
+        # Validate collections exist up front
+        get_chroma_collections_pair(payload.source, dest)
+    except CollectionNotFoundError as ce:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": str(ce)})
+    except ValueError as ve:
+        return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
+
+    status_obj = await _start_merge_task(dest, payload)
+    return JSONResponse(status_code=status.HTTP_202_ACCEPTED, content=status_obj.model_dump())
+
+
+@app.get("/chroma/merge-tasks/{task_id}")
+async def get_merge_task_status(task_id: str, _: None = Depends(require_admin_token)):
+    """Return the status of a merge task by id."""
+    status_obj = _merge_tasks.get(task_id)
+    if not status_obj:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "task not found"})
+    return JSONResponse(status_code=status.HTTP_200_OK, content=status_obj.model_dump())
+
+
+@app.delete("/chroma/merge-tasks/{task_id}")
+async def cancel_merge_task(task_id: str, _: None = Depends(require_admin_token)):
+    """Request cancellation of a running/pending merge task."""
+    status_obj = _merge_tasks.get(task_id)
+    if not status_obj:
+        return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "task not found"})
+    if status_obj.status not in ("pending", "running"):
+        return JSONResponse(status_code=status.HTTP_409_CONFLICT, content={"error": f"cannot cancel task in status {status_obj.status}"})
+    cancel_evt = _merge_task_cancel_flags.get(task_id)
+    if cancel_evt:
+        cancel_evt.set()
+    return JSONResponse(status_code=status.HTTP_202_ACCEPTED, content={"status": "cancelling"})
 
 
 @app.delete("/chroma/collections/{name}/documents/{document_id}")

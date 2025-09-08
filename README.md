@@ -135,6 +135,9 @@ These endpoints manage and inspect ChromaDB collections used by the assistant. W
 - `GET /chroma/collections/{name}/count`: Return document count in a collection.
 - `GET /chroma/collection/{name}/ids`: Return all document IDs in a collection.
 - `DELETE /chroma/collections/{name}/documents/{document_id}`: Delete a specific document.
+- `POST /chroma/collections/{dest}/merge`: Start a background merge of one collection into another.
+- `GET /chroma/merge-tasks/{task_id}`: Get status of a merge task.
+- `DELETE /chroma/merge-tasks/{task_id}`: Cancel a merge task (best-effort).
 - `POST /chroma/add-document` (alias: `POST /add-document`) body:
   `{ "document_id": "<id>", "collection": "<name>", "name": "<doc name>", "text": "...", "metadata": { ... } }`
 
@@ -154,4 +157,58 @@ Response
   "count": 67819,
   "ids": ["tn_ACT_vcsw", "..."]
 }
+```
+
+### Merge collections
+
+Start a merge with dry-run to preview duplicates and plan:
+
+```bash
+curl -s \
+  -H "Authorization: Bearer $ADMIN_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -X POST http://localhost:8000/chroma/collections/dest/merge \
+  -d '{
+        "source": "src",
+        "on_duplicate": "fail",
+        "dry_run": true,
+        "duplicates_preview_limit": 100
+      }' | jq .
+```
+
+Run a merge that creates unified numeric IDs in the dest, with modest throttling and default re-embed:
+
+```bash
+curl -s \
+  -H "Authorization: Bearer $ADMIN_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -X POST http://localhost:8000/chroma/collections/dest/merge \
+  -d '{
+        "source": "src",
+        "mode": "copy",
+        "create_new_id": true,
+        "batch_size": 1000,
+        "sleep_between_batches_ms": 100
+      }' | jq .
+```
+
+Faster copy that reuses source embeddings (dimensions must match), skipping duplicates:
+
+```bash
+curl -s \
+  -H "Authorization: Bearer $ADMIN_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -X POST http://localhost:8000/chroma/collections/dest/merge \
+  -d '{
+        "source": "src",
+        "use_source_embeddings": true,
+        "on_duplicate": "skip"
+      }' | jq .
+```
+
+Poll or cancel a running merge task:
+
+```bash
+curl -s -H "Authorization: Bearer $ADMIN_API_TOKEN" http://localhost:8000/chroma/merge-tasks/<task_id> | jq .
+curl -s -H "Authorization: Bearer $ADMIN_API_TOKEN" -X DELETE http://localhost:8000/chroma/merge-tasks/<task_id> | jq .
 ```

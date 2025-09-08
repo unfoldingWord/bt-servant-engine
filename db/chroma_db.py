@@ -5,7 +5,7 @@ retrieve or create collections, along with small helper utilities.
 """
 
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Optional, Iterator, Sequence, Tuple, cast
 import chromadb
 from chromadb.utils import embedding_functions
 from chromadb.config import Settings
@@ -202,3 +202,81 @@ def list_document_ids_in_collection(name: str) -> list[str]:
             break
         offset += page_size
     return all_ids
+
+
+def iter_collection_batches(
+    collection: Any,
+    *,
+    batch_size: int = 1000,
+    include_embeddings: bool = False,
+) -> Iterator[dict[str, Any]]:
+    """Yield batches of documents from a Chroma collection.
+
+    Each yielded batch is a mapping resembling the structure returned by
+    ``collection.get(...)`` with keys like "ids", "documents",
+    "metadatas", and optionally "embeddings" when requested.
+
+    We attempt to use offset-based pagination when available and fall back
+    to a simple limit-only call otherwise.
+    """
+    kwargs: dict[str, Any] = {"limit": batch_size}
+    includes: list[str] = ["ids", "documents", "metadatas"]
+    if include_embeddings:
+        includes.append("embeddings")
+    # Not all clients support include=..., so be defensive
+    kwargs_with_include = dict(kwargs)
+    kwargs_with_include["include"] = includes
+
+    offset = 0
+    while True:
+        try:
+            result = collection.get(offset=offset, **kwargs_with_include)
+        except TypeError:
+            # Fallback for older clients without offset/include support
+            try:
+                result = collection.get(**kwargs)
+            except TypeError:
+                # Last resort: no kwargs supported
+                result = collection.get()
+        ids: Sequence[str] = cast(Sequence[str], result.get("ids") or [])
+        if not ids:
+            break
+        yield result
+        if len(ids) < batch_size:
+            break
+        offset += batch_size
+
+
+def max_numeric_id_in_collection(name: str) -> int:
+    """Return the maximum numeric document id in the collection or 0 if none.
+
+    Non-numeric ids are ignored. Raises CollectionNotFoundError if the
+    collection is missing.
+    """
+    cleaned = _validate_collection_name(name)
+    existing = list_chroma_collections()
+    if cleaned not in existing:
+        raise CollectionNotFoundError(f"Collection '{cleaned}' not found")
+    collection = _aquifer_chroma_db.get_collection(name=cleaned, embedding_function=openai_ef)
+    max_id = 0
+    for batch in iter_collection_batches(collection, batch_size=10000, include_embeddings=False):
+        ids = batch.get("ids") or []
+        for _id in ids:
+            if _id.isdigit():
+                value = int(_id)
+                max_id = max(max_id, value)
+    return max_id
+
+
+def get_chroma_collections_pair(source: str, dest: str) -> Tuple[Any, Any]:
+    """Return (source_collection, dest_collection) if both exist, else raise."""
+    src_name = _validate_collection_name(source)
+    dst_name = _validate_collection_name(dest)
+    existing = list_chroma_collections()
+    if src_name not in existing:
+        raise CollectionNotFoundError(f"Collection '{src_name}' not found")
+    if dst_name not in existing:
+        raise CollectionNotFoundError(f"Collection '{dst_name}' not found")
+    source_col = _aquifer_chroma_db.get_collection(name=src_name, embedding_function=openai_ef)
+    dest_col = _aquifer_chroma_db.get_collection(name=dst_name, embedding_function=openai_ef)
+    return source_col, dest_col
