@@ -743,6 +743,15 @@ def determine_intents(state: Any) -> dict:
         text_format=UserIntents,
         store=False
     )
+    usage = getattr(response, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     user_intents_model = cast(UserIntents, response.output_parsed)
     logger.info("extracted user intents: %s", ' '.join([i.value for i in user_intents_model.intents]))
 
@@ -1514,6 +1523,15 @@ def _resolve_selection_for_single_book(
         text_format=PassageSelection,
         store=False,
     )
+    usage = getattr(selection_resp, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     selection = cast(PassageSelection, selection_resp.output_parsed)
     logger.info("[selection-helper] extracted %d selection(s)", len(selection.selections))
 
