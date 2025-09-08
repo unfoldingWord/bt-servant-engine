@@ -28,6 +28,8 @@ class Span:
     input_tokens_expended: Optional[int] = None
     output_tokens_expended: Optional[int] = None
     total_tokens_expended: Optional[int] = None
+    # Optional model-level token breakdown: { model: {"input": int, "output": int, "total": int} }
+    model_token_breakdown: Optional[Dict[str, Dict[str, int]]] = None
 
     @property
     def duration_ms(self) -> float:
@@ -69,6 +71,7 @@ class _OpenSpan:
     input_tokens_expended: int = 0
     output_tokens_expended: int = 0
     total_tokens_expended: int = 0
+    model_token_breakdown: Dict[str, Dict[str, int]] | None = None
 
 
 # Stack of open spans (per-task via ContextVar) to attribute tokens
@@ -96,12 +99,14 @@ def _record_span(name: str, start: float, end: float, trace_id: Optional[str] = 
         "output": None,
         "total": None,
     }
+    mtb: Optional[Dict[str, Dict[str, int]]] = None
     if stack and stack[-1].name == name and abs(stack[-1].start - start) < 1e-6:
         os = stack[-1]
         # Normalize zero totals to None when no tokens were added at all
         tokens["input"] = os.input_tokens_expended or None
         tokens["output"] = os.output_tokens_expended or None
         tokens["total"] = os.total_tokens_expended or None
+        mtb = os.model_token_breakdown
     _store.add(
         tid,
         Span(
@@ -111,6 +116,7 @@ def _record_span(name: str, start: float, end: float, trace_id: Optional[str] = 
             input_tokens_expended=tokens["input"],
             output_tokens_expended=tokens["output"],
             total_tokens_expended=tokens["total"],
+            model_token_breakdown=mtb,
         ),
     )
 
@@ -201,6 +207,8 @@ def add_tokens(
     input_tokens: Optional[int] = None,
     output_tokens: Optional[int] = None,
     total_tokens: Optional[int] = None,
+    *,
+    model: Optional[str] = None,
 ) -> None:
     """Attach token counts to the current open span (if any).
 
@@ -223,9 +231,22 @@ def add_tokens(
         # accumulation to future calls when the missing part arrives.
         if input_tokens is not None and output_tokens is not None:
             os.total_tokens_expended += int(input_tokens) + int(output_tokens)
+    # Track per-model breakdown
+    if model:
+        if os.model_token_breakdown is None:
+            os.model_token_breakdown = {}
+        bucket = os.model_token_breakdown.setdefault(model, {"input": 0, "output": 0, "total": 0})
+        if input_tokens is not None:
+            bucket["input"] += int(input_tokens)
+        if output_tokens is not None:
+            bucket["output"] += int(output_tokens)
+        if total_tokens is not None:
+            bucket["total"] += int(total_tokens)
+        elif input_tokens is not None and output_tokens is not None:
+            bucket["total"] += int(input_tokens) + int(output_tokens)
 
 
-def summarize_report(trace_id: str) -> Dict[str, Any]:
+def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-many-locals
     """Return an ordered summary of spans for the given trace id.
 
     Adds both millisecond and second totals, and augments each span with
@@ -243,7 +264,15 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:
     # Guard against divide-by-zero if timestamps are identical
     denom = total_ms if total_ms > 0 else 1.0
 
+    from .pricing import get_pricing  # pylint: disable=import-outside-toplevel
+
     items: List[Dict[str, Any]] = []
+    total_input_tokens = 0
+    total_output_tokens = 0
+    total_tokens = 0
+    total_cost_input_usd = 0.0
+    total_cost_output_usd = 0.0
+    total_cost_usd = 0.0
     for s in spans:
         dur_ms = round((s.end - s.start) * 1000.0, 2)
         item: Dict[str, Any] = {
@@ -259,12 +288,49 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:
             item["output_tokens_expended"] = s.output_tokens_expended
         if s.total_tokens_expended is not None:
             item["total_tokens_expended"] = s.total_tokens_expended
+        # Compute cost per span using model breakdown when available
+        span_cost_input = 0.0
+        span_cost_output = 0.0
+        span_cost_total = 0.0
+        if s.model_token_breakdown:
+            for model_name, tok in s.model_token_breakdown.items():
+                pricing = get_pricing(model_name)
+                if not pricing:
+                    continue
+                in_price, out_price = pricing
+                span_cost_input += (tok.get("input", 0) / 1_000_000.0) * in_price
+                span_cost_output += (tok.get("output", 0) / 1_000_000.0) * out_price
+        # If no per-model breakdown is available, we skip cost for this span.
+        # Pricing requires a model to resolve input/output rates.
+        if span_cost_input or span_cost_output:
+            span_cost_total = span_cost_input + span_cost_output
+            item["input_cost_usd"] = round(span_cost_input, 6)
+            item["output_cost_usd"] = round(span_cost_output, 6)
+            item["total_cost_usd"] = round(span_cost_total, 6)
+
+        # Update top-level totals
+        itok = s.input_tokens_expended or 0
+        otok = s.output_tokens_expended or 0
+        ttok = s.total_tokens_expended or (itok + otok)
+        total_input_tokens += itok
+        total_output_tokens += otok
+        total_tokens += ttok
+        total_cost_input_usd += span_cost_input
+        total_cost_output_usd += span_cost_output
+        total_cost_usd += span_cost_total
+
         items.append(item)
 
     return {
         "trace_id": trace_id,
         "total_ms": total_ms,
         "total_s": total_s,
+        "total_input_tokens": total_input_tokens,
+        "total_output_tokens": total_output_tokens,
+        "total_tokens": total_tokens,
+        "total_input_cost_usd": round(total_cost_input_usd, 6),
+        "total_output_cost_usd": round(total_cost_output_usd, 6),
+        "total_cost_usd": round(total_cost_usd, 6),
         "spans": items,
     }
 

@@ -889,7 +889,7 @@ def translate_text(response_text: str, target_language: str) -> str:
         it = getattr(usage, "prompt_tokens", None)
         ot = getattr(usage, "completion_tokens", None)
         tt = getattr(usage, "total_tokens", None)
-        add_tokens(it, ot, tt)
+        add_tokens(it, ot, tt, model="gpt-4o")
     content = completion.choices[0].message.content
     if isinstance(content, list):
         text = "".join(part.get("text", "") if isinstance(part, dict) else "" for part in content)
@@ -929,7 +929,7 @@ def detect_language(text) -> str:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt)
+        add_tokens(it, ot, tt, model="gpt-4o")
     message_language = cast(MessageLanguage | None, response.output_parsed)
     predicted = message_language.language.value if message_language else "en"
     logger.info("language detection (model): %s", predicted)
@@ -1121,7 +1121,7 @@ def query_open_ai(state: Any) -> dict:
             tt = getattr(usage, "total_tokens", None)
             if tt is None and (it is not None or ot is not None):
                 tt = (it or 0) + (ot or 0)
-            add_tokens(it, ot, tt)
+            add_tokens(it, ot, tt, model="gpt-4o")
         bt_servant_response = response.output_text
         logger.info('response from openai: %s', bt_servant_response)
         logger.debug("%d characters returned from openAI", len(bt_servant_response))
@@ -1296,7 +1296,7 @@ def handle_unsupported_function(state: Any) -> dict:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt)
+        add_tokens(it, ot, tt, model="gpt-4o")
     unsupported_function_response_text = response.output_text
     logger.info('converse_with_bt_servant response from openai: %s', unsupported_function_response_text)
     return {"responses": [{"intent": IntentType.PERFORM_UNSUPPORTED_FUNCTION, "response": unsupported_function_response_text}]}
@@ -1330,7 +1330,7 @@ def handle_system_information_request(state: Any) -> dict:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt)
+        add_tokens(it, ot, tt, model="gpt-4o")
     help_response_text = response.output_text
     logger.info('help response from openai: %s', help_response_text)
     return {"responses": [{"intent": IntentType.RETRIEVE_SYSTEM_INFORMATION, "response": help_response_text}]}
@@ -1364,7 +1364,7 @@ def converse_with_bt_servant(state: Any) -> dict:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt)
+        add_tokens(it, ot, tt, model="gpt-4o")
     converse_response_text = response.output_text
     logger.info('converse_with_bt_servant response from openai: %s', converse_response_text)
     return {"responses": [{"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}]}
@@ -1611,7 +1611,7 @@ def handle_get_passage_summary(state: Any) -> dict:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt)
+        add_tokens(it, ot, tt, model="gpt-4o")
     summary_text = summary_resp.output_text
     logger.info("[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0)
 
