@@ -26,23 +26,28 @@ def _load_pricing() -> Dict[str, Dict[str, float]]:
         return _PRICING_CACHE
     raw = os.environ.get("OPENAI_PRICING_JSON", "").strip()
     table: Dict[str, Dict[str, float]] = {}
-    if raw:
-        try:
-            data = json.loads(raw)
-            if isinstance(data, dict):
-                for model, cfg in data.items():
-                    if not isinstance(cfg, dict):
-                        continue
-                    inp = cfg.get("input_per_million")
-                    out = cfg.get("output_per_million")
-                    if isinstance(inp, (int, float)) and isinstance(out, (int, float)):
-                        table[str(model)] = {
-                            "input_per_million": float(inp),
-                            "output_per_million": float(out),
-                        }
-        except (json.JSONDecodeError, TypeError, ValueError):
-            # Ignore invalid env and leave table empty (no pricing)
-            table = {}
+    if not raw:
+        _PRICING_CACHE = table
+        return table
+    try:
+        data = json.loads(raw)
+    except (json.JSONDecodeError, TypeError, ValueError):
+        data = {}
+    if isinstance(data, dict):
+        for model, cfg in data.items():
+            if not isinstance(cfg, dict):
+                continue
+            inp = cfg.get("input_per_million")
+            out = cfg.get("output_per_million")
+            cached_in = cfg.get("cached_input") or cfg.get("cached_input_per_million")
+            if isinstance(inp, (int, float)) and isinstance(out, (int, float)):
+                entry: Dict[str, float] = {
+                    "input_per_million": float(inp),
+                    "output_per_million": float(out),
+                }
+                if isinstance(cached_in, (int, float)):
+                    entry["cached_input_per_million"] = float(cached_in)
+                table[str(model)] = entry
     _PRICING_CACHE = table
     return table
 
@@ -54,3 +59,15 @@ def get_pricing(model: str) -> Optional[Tuple[float, float]]:
     if not entry:
         return None
     return (entry["input_per_million"], entry["output_per_million"])
+
+
+def get_pricing_details(model: str) -> Optional[Dict[str, float]]:
+    """Return pricing details dict for model (may include cached input).
+
+    Keys: input_per_million, output_per_million, cached_input_per_million (optional)
+    """
+    table = _load_pricing()
+    entry = table.get(model)
+    if not entry:
+        return None
+    return dict(entry)

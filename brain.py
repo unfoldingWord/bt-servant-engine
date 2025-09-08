@@ -601,6 +601,34 @@ TOP_K = 10
 logger = get_logger(__name__)
 
 
+def _extract_cached_input_tokens(usage: Any) -> int | None:
+    """Best-effort extraction of cached input token counts from SDK usage objects.
+
+    Supports:
+    - Responses API: usage.input_token_details.cache_read_input_tokens
+    - Chat Completions: usage.prompt_tokens_details.cached_tokens
+    Returns None when not available.
+    """
+    try:
+        itd = getattr(usage, "input_token_details", None)
+        if itd is not None:
+            val = getattr(itd, "cache_read_input_tokens", None)
+            if val is None and isinstance(itd, dict):
+                val = itd.get("cache_read_input_tokens")
+            if isinstance(val, int) and val > 0:
+                return val
+        ptd = getattr(usage, "prompt_tokens_details", None)
+        if ptd is not None:
+            val2 = getattr(ptd, "cached_tokens", None)
+            if val2 is None and isinstance(ptd, dict):
+                val2 = ptd.get("cached_tokens")
+            if isinstance(val2, int) and val2 > 0:
+                return val2
+    except Exception:  # pylint: disable=broad-except
+        return None
+    return None
+
+
 class Language(str, Enum):
     """Supported ISO 639-1 language codes for responses/messages."""
     ENGLISH = "en"
@@ -764,6 +792,15 @@ def set_response_language(state: Any) -> dict:
         temperature=0,
         store=False,
     )
+    usage = getattr(response, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     resp_lang = cast(ResponseLanguage, response.output_parsed)
     if resp_lang.language == Language.OTHER:
         supported_language_list = ", ".join(supported_language_map.keys())
@@ -812,7 +849,8 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt)
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     combined = response.output_text
     logger.info("combined response from openai: %s", combined)
     return combined
@@ -889,7 +927,8 @@ def translate_text(response_text: str, target_language: str) -> str:
         it = getattr(usage, "prompt_tokens", None)
         ot = getattr(usage, "completion_tokens", None)
         tt = getattr(usage, "total_tokens", None)
-        add_tokens(it, ot, tt, model="gpt-4o")
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     content = completion.choices[0].message.content
     if isinstance(content, list):
         text = "".join(part.get("text", "") if isinstance(part, dict) else "" for part in content)
@@ -929,7 +968,8 @@ def detect_language(text) -> str:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt, model="gpt-4o")
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     message_language = cast(MessageLanguage | None, response.output_parsed)
     predicted = message_language.language.value if message_language else "en"
     logger.info("language detection (model): %s", predicted)
@@ -983,7 +1023,7 @@ def determine_query_language(state: Any) -> dict:
     }
 
 
-def preprocess_user_query(state: Any) -> dict:
+def preprocess_user_query(state: Any) -> dict:  # pylint: disable=too-many-locals
     """Lightly clarify or correct the user's query using conversation history."""
     s = cast(BrainState, state)
     query = s["user_query"]
@@ -1006,6 +1046,15 @@ def preprocess_user_query(state: Any) -> dict:
         text_format=PreprocessorResult,
         store=False
     )
+    usage = getattr(response, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     preprocessor_result = cast(PreprocessorResult | None, response.output_parsed)
     if preprocessor_result is None:
         new_message = query
@@ -1121,7 +1170,8 @@ def query_open_ai(state: Any) -> dict:
             tt = getattr(usage, "total_tokens", None)
             if tt is None and (it is not None or ot is not None):
                 tt = (it or 0) + (ot or 0)
-            add_tokens(it, ot, tt, model="gpt-4o")
+            cit = _extract_cached_input_tokens(usage)
+            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
         bt_servant_response = response.output_text
         logger.info('response from openai: %s', bt_servant_response)
         logger.debug("%d characters returned from openAI", len(bt_servant_response))
@@ -1174,7 +1224,8 @@ def chunk_message(state: Any) -> dict:
             it = getattr(usage, "prompt_tokens", None)
             ot = getattr(usage, "completion_tokens", None)
             tt = getattr(usage, "total_tokens", None)
-            add_tokens(it, ot, tt)
+            cit = _extract_cached_input_tokens(usage)
+            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
         response_content = completion.choices[0].message.content
         if not isinstance(response_content, str):
             raise ValueError("empty or non-text content from chat completion")
@@ -1296,7 +1347,8 @@ def handle_unsupported_function(state: Any) -> dict:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt, model="gpt-4o")
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     unsupported_function_response_text = response.output_text
     logger.info('converse_with_bt_servant response from openai: %s', unsupported_function_response_text)
     return {"responses": [{"intent": IntentType.PERFORM_UNSUPPORTED_FUNCTION, "response": unsupported_function_response_text}]}
@@ -1330,7 +1382,8 @@ def handle_system_information_request(state: Any) -> dict:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt, model="gpt-4o")
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     help_response_text = response.output_text
     logger.info('help response from openai: %s', help_response_text)
     return {"responses": [{"intent": IntentType.RETRIEVE_SYSTEM_INFORMATION, "response": help_response_text}]}
@@ -1364,7 +1417,8 @@ def converse_with_bt_servant(state: Any) -> dict:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt, model="gpt-4o")
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     converse_response_text = response.output_text
     logger.info('converse_with_bt_servant response from openai: %s', converse_response_text)
     return {"responses": [{"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}]}
@@ -1611,7 +1665,8 @@ def handle_get_passage_summary(state: Any) -> dict:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt, model="gpt-4o")
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     summary_text = summary_resp.output_text
     logger.info("[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0)
 
@@ -1780,7 +1835,8 @@ def handle_get_translation_helps(state: Any) -> dict:
         tt = getattr(usage, "total_tokens", None)
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
-        add_tokens(it, ot, tt)
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     text = resp.output_text
     header = f"Translation helps for {ref_label}\n\n"
     response_text = header + (text or "")

@@ -20,7 +20,7 @@ _current_trace_id: ContextVar[Optional[str]] = ContextVar("perf_current_trace_id
 
 
 @dataclass
-class Span:
+class Span:  # pylint: disable=too-many-instance-attributes
     """A single timed span with a name and timestamps."""
     name: str
     start: float
@@ -28,6 +28,7 @@ class Span:
     input_tokens_expended: Optional[int] = None
     output_tokens_expended: Optional[int] = None
     total_tokens_expended: Optional[int] = None
+    cached_input_tokens_expended: Optional[int] = None
     # Optional model-level token breakdown: { model: {"input": int, "output": int, "total": int} }
     model_token_breakdown: Optional[Dict[str, Dict[str, int]]] = None
 
@@ -71,6 +72,7 @@ class _OpenSpan:
     input_tokens_expended: int = 0
     output_tokens_expended: int = 0
     total_tokens_expended: int = 0
+    cached_input_tokens_expended: int = 0
     model_token_breakdown: Dict[str, Dict[str, int]] | None = None
 
 
@@ -100,12 +102,14 @@ def _record_span(name: str, start: float, end: float, trace_id: Optional[str] = 
         "total": None,
     }
     mtb: Optional[Dict[str, Dict[str, int]]] = None
+    cached_input = None
     if stack and stack[-1].name == name and abs(stack[-1].start - start) < 1e-6:
         os = stack[-1]
         # Normalize zero totals to None when no tokens were added at all
         tokens["input"] = os.input_tokens_expended or None
         tokens["output"] = os.output_tokens_expended or None
         tokens["total"] = os.total_tokens_expended or None
+        cached_input = os.cached_input_tokens_expended or None
         mtb = os.model_token_breakdown
     _store.add(
         tid,
@@ -116,6 +120,7 @@ def _record_span(name: str, start: float, end: float, trace_id: Optional[str] = 
             input_tokens_expended=tokens["input"],
             output_tokens_expended=tokens["output"],
             total_tokens_expended=tokens["total"],
+            cached_input_tokens_expended=cached_input,
             model_token_breakdown=mtb,
         ),
     )
@@ -203,12 +208,13 @@ def record_external_span(
     _record_span(name, start, end, trace_id=trace_id)
 
 
-def add_tokens(
+def add_tokens(  # pylint: disable=too-many-branches
     input_tokens: Optional[int] = None,
     output_tokens: Optional[int] = None,
     total_tokens: Optional[int] = None,
     *,
     model: Optional[str] = None,
+    cached_input_tokens: Optional[int] = None,
 ) -> None:
     """Attach token counts to the current open span (if any).
 
@@ -231,11 +237,18 @@ def add_tokens(
         # accumulation to future calls when the missing part arrives.
         if input_tokens is not None and output_tokens is not None:
             os.total_tokens_expended += int(input_tokens) + int(output_tokens)
+    # Track cached input tokens
+    if cached_input_tokens is not None:
+        os.cached_input_tokens_expended += int(cached_input_tokens)
+
     # Track per-model breakdown
     if model:
         if os.model_token_breakdown is None:
             os.model_token_breakdown = {}
-        bucket = os.model_token_breakdown.setdefault(model, {"input": 0, "output": 0, "total": 0})
+        bucket = os.model_token_breakdown.setdefault(
+            model,
+            {"input": 0, "output": 0, "total": 0, "cached_input": 0},
+        )
         if input_tokens is not None:
             bucket["input"] += int(input_tokens)
         if output_tokens is not None:
@@ -244,9 +257,11 @@ def add_tokens(
             bucket["total"] += int(total_tokens)
         elif input_tokens is not None and output_tokens is not None:
             bucket["total"] += int(input_tokens) + int(output_tokens)
+        if cached_input_tokens is not None:
+            bucket["cached_input"] += int(cached_input_tokens)
 
 
-def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-many-locals
+def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
     """Return an ordered summary of spans for the given trace id.
 
     Adds both millisecond and second totals, and augments each span with
@@ -264,7 +279,7 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
     # Guard against divide-by-zero if timestamps are identical
     denom = total_ms if total_ms > 0 else 1.0
 
-    from .pricing import get_pricing  # pylint: disable=import-outside-toplevel
+    from .pricing import get_pricing, get_pricing_details  # pylint: disable=import-outside-toplevel
 
     items: List[Dict[str, Any]] = []
     total_input_tokens = 0
@@ -272,7 +287,23 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
     total_tokens = 0
     total_cost_input_usd = 0.0
     total_cost_output_usd = 0.0
+    total_cost_cached_input_usd = 0.0
     total_cost_usd = 0.0
+    total_cached_input_tokens = 0
+
+    # Intent grouping: map node names to intent identifiers
+    intent_node_map: Dict[str, str] = {
+        "query_vector_db_node": "get-bible-translation-assistance",
+        "query_open_ai_node": "get-bible-translation-assistance",
+        "handle_get_passage_summary_node": "get-passage-summary",
+        "handle_get_passage_keywords_node": "get-passage-keywords",
+        "handle_get_translation_helps_node": "get-translation-helps",
+        "set_response_language_node": "set-response-language",
+        "handle_unsupported_function_node": "perform-unsupported-function",
+        "handle_system_information_request_node": "retrieve-system-information",
+        "converse_with_bt_servant_node": "converse-with-bt-servant",
+    }
+    grouped: Dict[str, Dict[str, float]] = {}
     for s in spans:
         dur_ms = round((s.end - s.start) * 1000.0, 2)
         item: Dict[str, Any] = {
@@ -291,33 +322,69 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
         # Compute cost per span using model breakdown when available
         span_cost_input = 0.0
         span_cost_output = 0.0
+        span_cost_cached_input = 0.0
         span_cost_total = 0.0
         if s.model_token_breakdown:
             for model_name, tok in s.model_token_breakdown.items():
                 pricing = get_pricing(model_name)
+                pricing_details = get_pricing_details(model_name)
                 if not pricing:
                     continue
                 in_price, out_price = pricing
                 span_cost_input += (tok.get("input", 0) / 1_000_000.0) * in_price
                 span_cost_output += (tok.get("output", 0) / 1_000_000.0) * out_price
+                if pricing_details and "cached_input_per_million" in pricing_details:
+                    span_cost_cached_input += (
+                        (tok.get("cached_input", 0) / 1_000_000.0)
+                        * pricing_details["cached_input_per_million"]
+                    )
         # If no per-model breakdown is available, we skip cost for this span.
         # Pricing requires a model to resolve input/output rates.
-        if span_cost_input or span_cost_output:
-            span_cost_total = span_cost_input + span_cost_output
+        if span_cost_input or span_cost_output or span_cost_cached_input:
+            span_cost_total = span_cost_input + span_cost_output + span_cost_cached_input
             item["input_cost_usd"] = round(span_cost_input, 6)
             item["output_cost_usd"] = round(span_cost_output, 6)
+            if span_cost_cached_input:
+                item["cached_input_cost_usd"] = round(span_cost_cached_input, 6)
             item["total_cost_usd"] = round(span_cost_total, 6)
 
         # Update top-level totals
         itok = s.input_tokens_expended or 0
         otok = s.output_tokens_expended or 0
         ttok = s.total_tokens_expended or (itok + otok)
+        citok = s.cached_input_tokens_expended or 0
         total_input_tokens += itok
         total_output_tokens += otok
         total_tokens += ttok
+        total_cached_input_tokens += citok
         total_cost_input_usd += span_cost_input
         total_cost_output_usd += span_cost_output
+        total_cost_cached_input_usd += span_cost_cached_input
         total_cost_usd += span_cost_total
+
+        # Group by intent when the span name matches a known intent node
+        if s.name.startswith("brain:"):
+            node = s.name.split(":", 1)[1]
+            intent = intent_node_map.get(node)
+            if intent:
+                agg = grouped.setdefault(intent, {
+                    "input_tokens": 0.0,
+                    "output_tokens": 0.0,
+                    "total_tokens": 0.0,
+                    "cached_input_tokens": 0.0,
+                    "input_cost_usd": 0.0,
+                    "output_cost_usd": 0.0,
+                    "cached_input_cost_usd": 0.0,
+                    "total_cost_usd": 0.0,
+                })
+                agg["input_tokens"] += itok
+                agg["output_tokens"] += otok
+                agg["total_tokens"] += ttok
+                agg["cached_input_tokens"] += citok
+                agg["input_cost_usd"] += span_cost_input
+                agg["output_cost_usd"] += span_cost_output
+                agg["cached_input_cost_usd"] += span_cost_cached_input
+                agg["total_cost_usd"] += span_cost_total
 
         items.append(item)
 
@@ -328,9 +395,21 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
         "total_input_tokens": total_input_tokens,
         "total_output_tokens": total_output_tokens,
         "total_tokens": total_tokens,
+        "total_cached_input_tokens": total_cached_input_tokens,
         "total_input_cost_usd": round(total_cost_input_usd, 6),
         "total_output_cost_usd": round(total_cost_output_usd, 6),
+        "total_cached_input_cost_usd": round(total_cost_cached_input_usd, 6),
         "total_cost_usd": round(total_cost_usd, 6),
+        "grouped_totals_by_intent": {k: {
+            "input_tokens": int(v["input_tokens"]),
+            "output_tokens": int(v["output_tokens"]),
+            "total_tokens": int(v["total_tokens"]),
+            "cached_input_tokens": int(v["cached_input_tokens"]),
+            "input_cost_usd": round(v["input_cost_usd"], 6),
+            "output_cost_usd": round(v["output_cost_usd"], 6),
+            "cached_input_cost_usd": round(v["cached_input_cost_usd"], 6),
+            "total_cost_usd": round(v["total_cost_usd"], 6),
+        } for k, v in grouped.items()},
         "spans": items,
     }
 
