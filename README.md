@@ -212,3 +212,24 @@ Poll or cancel a running merge task:
 curl -s -H "Authorization: Bearer $ADMIN_API_TOKEN" http://localhost:8000/chroma/merge-tasks/<task_id> | jq .
 curl -s -H "Authorization: Bearer $ADMIN_API_TOKEN" -X DELETE http://localhost:8000/chroma/merge-tasks/<task_id> | jq .
 ```
+
+Status response includes progress and ETA metrics:
+
+```json
+{
+  "task_id": "...",
+  "source": "src",
+  "dest": "dest",
+  "status": "running",
+  "total": 12345,
+  "completed": 2100,
+  "skipped": 0,
+  "overwritten": 0,
+  "deleted_from_source": 0,
+  "docs_per_second": 85.2,
+  "eta_seconds": 120.5,
+  "eta_at": 1736455123.42
+}
+```
+\- `docs_per_second` is an average since the task started.
+\- `eta_seconds` and `eta_at` are estimates; values may fluctuate as batches complete.

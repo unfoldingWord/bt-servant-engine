@@ -147,6 +147,9 @@ class MergeTaskStatus(BaseModel):
     started_at: float | None = None
     finished_at: float | None = None
     next_id_start: int | None = None
+    docs_per_second: float | None = None
+    eta_seconds: float | None = None
+    eta_at: float | None = None
 
 
 async def require_admin_token(
@@ -375,6 +378,29 @@ def _compute_duplicate_preview(
     return (len(preview) > 0), preview
 
 
+def _update_eta_metrics(task: MergeTaskStatus) -> None:
+    """Update docs/sec, remaining seconds, and ETA timestamp based on progress."""
+    if not task.started_at:
+        return
+    now = time.time()
+    elapsed = max(0.0, now - task.started_at)
+    if elapsed <= 0 or task.completed <= 0:
+        task.docs_per_second = None
+        task.eta_seconds = None
+        task.eta_at = None
+        return
+    rate = task.completed / elapsed
+    task.docs_per_second = rate
+    if task.total and task.total > task.completed and rate > 0:
+        remaining = task.total - task.completed
+        eta_sec = remaining / rate
+        task.eta_seconds = eta_sec
+        task.eta_at = now + eta_sec
+    else:
+        task.eta_seconds = 0.0
+        task.eta_at = now
+
+
 def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-many-branches,too-many-statements
     task: MergeTaskStatus,
     req: MergeRequest,
@@ -487,6 +513,7 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
             else:
                 dest_col.add(ids=add_ids, documents=add_docs, metadatas=add_metas)
             task.completed += len(add_ids)
+            _update_eta_metrics(task)
 
             # Move semantics: delete source docs after successful add
             if req.mode == "move":
@@ -500,20 +527,24 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
                 if cancel_evt and cancel_evt.is_set():
                     task.status = "cancelled"
                     task.finished_at = time.time()
+                    _update_eta_metrics(task)
                     return
                 time.sleep(max(0.0, req.sleep_between_batches_ms / 1000.0))
                 cancel_evt = _merge_task_cancel_flags.get(task.task_id)
                 if cancel_evt and cancel_evt.is_set():
                     task.status = "cancelled"
                     task.finished_at = time.time()
+                    _update_eta_metrics(task)
                     return
 
         task.status = "completed"
         task.finished_at = time.time()
+        _update_eta_metrics(task)
     except Exception as exc:  # pylint: disable=broad-except
         task.status = "failed"
         task.error = str(exc)
         task.finished_at = time.time()
+        _update_eta_metrics(task)
 
 
 async def _start_merge_task(dest: str, req: MergeRequest) -> MergeTaskStatus:
