@@ -313,6 +313,14 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
 
     from .pricing import get_pricing, get_pricing_details  # pylint: disable=import-outside-toplevel
 
+    # Precompute total token denominator for token_percentage.
+    token_total_denominator = 0
+    for _s in spans:
+        _itok = _s.input_tokens_expended or 0
+        _otok = _s.output_tokens_expended or 0
+        _ttok = _s.total_tokens_expended or (_itok + _otok)
+        token_total_denominator += _ttok
+
     items: List[Dict[str, Any]] = []
     total_input_tokens = 0
     total_output_tokens = 0
@@ -431,6 +439,10 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
         total_cost_audio_input_usd += span_cost_audio_input
         total_cost_audio_output_usd += span_cost_audio_output
         total_cost_usd += span_cost_total
+
+        # Token percentage: share of total tokens in this trace.
+        token_den = float(token_total_denominator) if token_total_denominator > 0 else 1.0
+        item["token_percentage"] = f"{round((ttok / token_den) * 100.0, 1)}%"
 
         # Group by intent when the span name matches a known intent node
         if s.name.startswith("brain:"):
