@@ -111,3 +111,122 @@ def test_selection_helper_tokens_roll_into_parent_span(monkeypatch: pytest.Monke
     assert span.get("input_tokens_expended") == 30
     assert span.get("output_tokens_expended") == 5
     assert span.get("total_tokens_expended") == 35
+
+
+def test_translate_responses_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> None:
+    """combine + translate LLM usage contributes tokens to translate_responses span."""
+    tid = "trace-translate-responses"
+    perf.set_current_trace(tid)
+
+    # Stub combine_responses Responses.create
+    class _FakeCombine:  # pylint: disable=too-few-public-methods
+        usage = _FakeUsage(it=40, ot=15, tt=55, cached=4)
+        output_text = "Combined response"
+
+    def _fake_resp_create(**_kwargs: Any) -> Any:  # noqa: ARG001
+        return _FakeCombine()
+
+    # Stub translate_text Chat Completions.create
+    class _Msg:  # pylint: disable=too-few-public-methods
+        def __init__(self, content: str) -> None:
+            self.content = content
+
+    class _Choice:  # pylint: disable=too-few-public-methods
+        def __init__(self, content: str) -> None:
+            self.message = _Msg(content)
+
+    class _FakeChat:  # pylint: disable=too-few-public-methods
+        def __init__(self) -> None:
+            # Chat Completions usage exposes prompt_tokens/completion_tokens
+            class _U:  # pylint: disable=too-few-public-methods
+                def __init__(self) -> None:
+                    self.prompt_tokens = 25
+                    self.completion_tokens = 10
+                    self.total_tokens = 35
+                    class _PTD:  # pylint: disable=too-few-public-methods
+                        def __init__(self) -> None:
+                            self.cached_tokens = 3
+                    self.prompt_tokens_details = _PTD()
+            self.usage = _U()
+            self.choices = [_Choice("Hola")]  # translated content
+
+    def _fake_chat_create(**_kwargs: Any) -> Any:  # noqa: ARG001
+        return _FakeChat()
+
+    # Force translation by reporting response language != target language
+    monkeypatch.setattr(brain, "detect_language", lambda _t: "en")
+    monkeypatch.setattr(brain.open_ai_client.responses, "create", _fake_resp_create)
+    monkeypatch.setattr(brain.open_ai_client.chat.completions, "create", _fake_chat_create)
+
+    state = {
+        "responses": [
+            {"intent": "x", "response": "Hello"},
+            {"intent": "y", "response": "World"},
+        ],
+        "user_query": "irrelevant",
+        "user_chat_history": [],
+        "user_response_language": "es",  # target
+        "query_language": "en",
+    }
+
+    with perf.time_block("brain:translate_responses_node"):
+        out = brain.translate_responses(cast(Any, state))
+
+    assert out["translated_responses"], "expected translated responses"
+    report = perf.summarize_report(tid)
+    span = _find_span(report, "brain:translate_responses_node")
+    assert span is not None, "expected a span for translate_responses_node"
+    # Expect at least the sum from combine (40/15/55) plus translate (25/10/35)
+    assert span.get("input_tokens_expended") == 65
+    assert span.get("output_tokens_expended") == 25
+    assert span.get("total_tokens_expended") == 90
+
+
+def test_chunk_message_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> None:
+    """LLM chunking tokens contribute to chunk_message span."""
+    tid = "trace-chunk-message"
+    perf.set_current_trace(tid)
+
+    class _Msg:  # pylint: disable=too-few-public-methods
+        def __init__(self, content: str) -> None:
+            self.content = content
+
+    class _Choice:  # pylint: disable=too-few-public-methods
+        def __init__(self, content: str) -> None:
+            self.message = _Msg(content)
+
+    class _FakeChat:  # pylint: disable=too-few-public-methods
+        def __init__(self) -> None:
+            class _U:  # pylint: disable=too-few-public-methods
+                def __init__(self) -> None:
+                    self.prompt_tokens = 20
+                    self.completion_tokens = 8
+                    self.total_tokens = 28
+                    class _PTD:  # pylint: disable=too-few-public-methods
+                        def __init__(self) -> None:
+                            self.cached_tokens = 1
+                    self.prompt_tokens_details = _PTD()
+            self.usage = _U()
+            # Return valid JSON list to avoid fallback path
+            self.choices = [_Choice('["a","b"]')]
+
+    def _fake_chat_create(**_kwargs: Any) -> Any:  # noqa: ARG001
+        return _FakeChat()
+
+    monkeypatch.setattr(brain.open_ai_client.chat.completions, "create", _fake_chat_create)
+
+    long_text = "x" * (brain.config.MAX_META_TEXT_LENGTH + 50)
+    state = {
+        "translated_responses": [long_text],
+    }
+
+    with perf.time_block("brain:chunk_message_node"):
+        out = brain.chunk_message(cast(Any, state))
+
+    assert out["translated_responses"], "expected chunked responses"
+    report = perf.summarize_report(tid)
+    span = _find_span(report, "brain:chunk_message_node")
+    assert span is not None, "expected a span for chunk_message_node"
+    assert span.get("input_tokens_expended") == 20
+    assert span.get("output_tokens_expended") == 8
+    assert span.get("total_tokens_expended") == 28
