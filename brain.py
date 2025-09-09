@@ -1020,7 +1020,13 @@ def determine_query_language(state: Any) -> dict:
     # If the detected language is not English, also search the matching
     # language-specific resources collection (e.g., "es_resources").
     if query_language and query_language != "en" and query_language != Language.OTHER.value:
-        stack_rank_collections.append(f"{query_language}_resources")
+        localized_collection = f"{query_language}_resources"
+        stack_rank_collections.append(localized_collection)
+        logger.info(
+            "appended localized resources collection: %s (language=%s)",
+            localized_collection,
+            query_language,
+        )
 
     return {
         "query_language": query_language,
