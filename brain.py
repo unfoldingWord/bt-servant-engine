@@ -596,7 +596,7 @@ supported_language_map = {
 LANGUAGE_UNKNOWN = "UNKNOWN"
 
 RELEVANCE_CUTOFF = .6
-TOP_K = 10
+TOP_K = 8
 
 logger = get_logger(__name__)
 
