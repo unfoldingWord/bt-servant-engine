@@ -39,7 +39,7 @@ from db import (
     delete_document,
     list_chroma_collections,
     count_documents_in_collection,
-    get_document_text,
+    get_document_text_and_metadata,
     list_document_ids_in_collection,
     iter_collection_batches,
     get_chroma_collections_pair,
@@ -749,7 +749,7 @@ async def get_document_text_endpoint(name: str, document_id: str, _: None = Depe
         document_id,
     )
     try:
-        text = get_document_text(name, document_id)
+        text, metadata = get_document_text_and_metadata(name, document_id)
     except ValueError as ve:
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": str(ve)})
     except CollectionNotFoundError:
@@ -762,6 +762,7 @@ async def get_document_text_endpoint(name: str, document_id: str, _: None = Depe
             "collection": name.strip(),
             "document_id": str(document_id),
             "text": text,
+            "metadata": metadata,
         },
     )
 

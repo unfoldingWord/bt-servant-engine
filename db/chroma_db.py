@@ -172,6 +172,40 @@ def get_document_text(collection_name: str, document_id: str) -> str:
     return documents[0]
 
 
+def get_document_text_and_metadata(collection_name: str, document_id: str) -> Tuple[str, dict[str, Any]]:
+    """Return (text, metadata) for a document in a specific collection.
+
+    Ensures both documents and metadatas are requested.
+    Raises CollectionNotFoundError if the collection doesn't exist,
+    and DocumentNotFoundError if the id isn't present.
+    """
+    col_name = _validate_collection_name(collection_name)
+    doc_id = str(document_id).strip()
+    if not doc_id:
+        raise ValueError("Document id must be non-empty")
+
+    existing = list_chroma_collections()
+    if col_name not in existing:
+        raise CollectionNotFoundError(f"Collection '{col_name}' not found")
+
+    collection = _aquifer_chroma_db.get_collection(name=col_name, embedding_function=openai_ef)
+    # Request documents and metadatas explicitly for cross-client compatibility
+    try:
+        result = collection.get(ids=[doc_id], include=["documents", "metadatas"])
+    except (TypeError, ValueError):
+        # Older clients may not support include or may reject include arg
+        result = collection.get(ids=[doc_id])
+    if not result.get("ids"):
+        raise DocumentNotFoundError(f"Document '{doc_id}' not found in collection '{col_name}'")
+    documents = cast(list[str] | None, result.get("documents")) or []
+    metadatas = cast(list[dict[str, Any]] | None, result.get("metadatas")) or [{}]
+    if not documents:
+        raise DocumentNotFoundError(f"Document '{doc_id}' has no text in collection '{col_name}'")
+    text = documents[0]
+    metadata = metadatas[0] if metadatas else {}
+    return text, metadata
+
+
 def list_document_ids_in_collection(name: str) -> list[str]:
     """Return all document ids for the given collection.
 
