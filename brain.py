@@ -1015,8 +1015,12 @@ def determine_query_language(state: Any) -> dict:
     logger.info("language code %s detected by gpt-4o.", query_language)
     stack_rank_collections = [
         "knowledgebase",
-        "en_resources"
+        "en_resources",
     ]
+    # If the detected language is not English, also search the matching
+    # language-specific resources collection (e.g., "es_resources").
+    if query_language and query_language != "en" and query_language != Language.OTHER.value:
+        stack_rank_collections.append(f"{query_language}_resources")
 
     return {
         "query_language": query_language,
