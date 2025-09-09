@@ -407,6 +407,18 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
 ) -> None:
     """Synchronous merge worker executed in dedicated thread."""
     try:
+        logger.info(
+            "merge start: task_id=%s source=%s dest=%s mode=%s create_new_id=%s on_duplicate=%s use_source_embeddings=%s batch_size=%d dry_run=%s",
+            task.task_id,
+            req.source,
+            task.dest,
+            req.mode,
+            req.create_new_id,
+            req.on_duplicate,
+            req.use_source_embeddings,
+            req.batch_size,
+            req.dry_run,
+        )
         task.started_at = time.time()
         source_col, dest_col = get_chroma_collections_pair(req.source, task.dest)
         if req.source.strip() == task.dest.strip():
@@ -462,6 +474,14 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
             if cancel_evt and cancel_evt.is_set():
                 task.status = "cancelled"
                 task.finished_at = time.time()
+                logger.info(
+                    "merge cancelled: task_id=%s source=%s dest=%s completed=%d total=%d",
+                    task.task_id,
+                    req.source,
+                    task.dest,
+                    task.completed,
+                    task.total,
+                )
                 return
 
             src_ids = [str(i) for i in (batch.get("ids") or [])]
@@ -543,6 +563,14 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
                     task.status = "cancelled"
                     task.finished_at = time.time()
                     _update_eta_metrics(task)
+                    logger.info(
+                        "merge cancelled: task_id=%s source=%s dest=%s completed=%d total=%d",
+                        task.task_id,
+                        req.source,
+                        task.dest,
+                        task.completed,
+                        task.total,
+                    )
                     return
                 time.sleep(max(0.0, req.sleep_between_batches_ms / 1000.0))
                 cancel_evt = _merge_task_cancel_flags.get(task.task_id)
@@ -550,16 +578,46 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
                     task.status = "cancelled"
                     task.finished_at = time.time()
                     _update_eta_metrics(task)
+                    logger.info(
+                        "merge cancelled: task_id=%s source=%s dest=%s completed=%d total=%d",
+                        task.task_id,
+                        req.source,
+                        task.dest,
+                        task.completed,
+                        task.total,
+                    )
                     return
 
         task.status = "completed"
         task.finished_at = time.time()
         _update_eta_metrics(task)
+        logger.info(
+            "merge completed: task_id=%s source=%s dest=%s completed=%d skipped=%d overwritten=%d deleted_from_source=%d total=%d",
+            task.task_id,
+            req.source,
+            task.dest,
+            task.completed,
+            task.skipped,
+            task.overwritten,
+            task.deleted_from_source,
+            task.total,
+        )
     except Exception as exc:  # pylint: disable=broad-except
         task.status = "failed"
         task.error = str(exc)
         task.finished_at = time.time()
         _update_eta_metrics(task)
+        logger.error(
+            "merge failed: task_id=%s source=%s dest=%s error=%s status=%s completed=%d total=%d",
+            task.task_id,
+            req.source,
+            task.dest,
+            task.error,
+            task.status,
+            task.completed,
+            task.total,
+            exc_info=True,
+        )
 
 
 async def _start_merge_task(dest: str, req: MergeRequest) -> MergeTaskStatus:

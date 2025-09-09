@@ -220,7 +220,10 @@ def iter_collection_batches(
     to a simple limit-only call otherwise.
     """
     kwargs: dict[str, Any] = {"limit": batch_size}
-    includes: list[str] = ["ids", "documents", "metadatas"]
+    # Chroma's include supports: ["documents", "embeddings", "metadatas",
+    # "distances", "uris", "data"]. "ids" are always returned and must NOT
+    # be included, or some servers raise.
+    includes: list[str] = ["documents", "metadatas"]
     if include_embeddings:
         includes.append("embeddings")
     # Not all clients support include=..., so be defensive
@@ -231,11 +234,12 @@ def iter_collection_batches(
     while True:
         try:
             result = collection.get(offset=offset, **kwargs_with_include)
-        except TypeError:
-            # Fallback for older clients without offset/include support
+        except (TypeError, ValueError):
+            # Fallback for clients without offset/include support or that
+            # reject certain include values
             try:
                 result = collection.get(**kwargs)
-            except TypeError:
+            except (TypeError, ValueError):
                 # Last resort: no kwargs supported
                 result = collection.get()
         ids: Sequence[str] = cast(Sequence[str], result.get("ids") or [])
