@@ -369,7 +369,7 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     clarifying language issues; consulting translation resources (ex. Translation Notes, FIA, the Bible, etc); receiving
     explanation of resources; interacting with resource content; asking for transformations of resource content 
     (ex. summaries of resource portions, biblical content, etc); or how to handle specific words, phrases, 
-    or translation challenges.
+    or translation challenges. This also includes asking about biblical people, places, things, or ideas.
   </intent>
   <intent name="get-passage-summary">
     The user is explicitly asking for a summary of a specific Bible passage, verse range, chapter(s), or entire book
@@ -416,6 +416,18 @@ Here are a few examples to guide you:
 <examples>
   <example>
     <message>What is the best way to translate the word 'faith' in this passage?</message>
+    <intent>get-bible-translation-assistance</intent>
+  </example>
+  <example>
+    <message>tell me about ephesus</message>
+    <intent>get-bible-translation-assistance</intent>
+  </example>
+  <example>
+    <message>tell me about Herod</message>
+    <intent>get-bible-translation-assistance</intent>
+  </example>
+  <example>
+    <message>What is a danarius?</message>
     <intent>get-bible-translation-assistance</intent>
   </example>
   <example>
