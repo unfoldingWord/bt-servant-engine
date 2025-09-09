@@ -415,10 +415,6 @@ Here are a few examples to guide you:
 
 <examples>
   <example>
-    <message>What is the best way to translate the word 'faith' in this passage?</message>
-    <intent>get-bible-translation-assistance</intent>
-  </example>
-  <example>
     <message>tell me about ephesus</message>
     <intent>get-bible-translation-assistance</intent>
   </example>
