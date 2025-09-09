@@ -1017,13 +1017,7 @@ def determine_query_language(state: Any) -> dict:
     logger.info("language code %s detected by gpt-4o.", query_language)
     stack_rank_collections = [
         "knowledgebase",
-        "en_resources",
-        "tyndale_dictionary",
-        "uw_translation_words",
-        "uw_translation_notes",
-        "biblica_study_notes_key_terms",
-        "ult",
-        "ust"
+        "en_resources"
     ]
 
     return {
