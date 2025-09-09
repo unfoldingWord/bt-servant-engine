@@ -127,6 +127,9 @@ class MergeRequest(BaseModel):
     tag_metadata: bool = True
     tag_metadata_key: str = "_merged_from"
     tag_metadata_timestamp: bool = True
+    # When enabled, stamp the original source id on each inserted doc
+    tag_source_id: bool = True
+    tag_source_id_key: str = "_source_id"
     sleep_between_batches_ms: int = 0
 
 
@@ -267,7 +270,6 @@ async def delete_collection_endpoint(name: str, _: None = Depends(require_admin_
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"error": "Collection not found"})
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
-
 @app.get("/chroma/collections")
 async def list_collections_endpoint(_: None = Depends(require_admin_token)):
     """List all Chroma collection names."""
@@ -334,6 +336,8 @@ def _apply_metadata_tags(  # pylint: disable=too-many-arguments
     source: str,
     task_id: str,
     tag_timestamp: bool,
+    source_ids: list[str] | None = None,
+    source_id_key: str = "_source_id",
 ) -> list[dict[str, Any]] | None:
     if not enabled:
         return metadatas
@@ -341,12 +345,15 @@ def _apply_metadata_tags(  # pylint: disable=too-many-arguments
         return None
     stamped: list[dict[str, Any]] = []
     ts = _now_iso() if tag_timestamp else None
-    for md in metadatas:
+    for idx, md in enumerate(metadatas):
         m = dict(md) if md is not None else {}
         m[tag_key] = source
         m["_merge_task_id"] = task_id
         if ts is not None:
             m["_merged_at"] = ts
+        if source_ids is not None and 0 <= idx < len(source_ids):
+            # Stamp original source doc id under configurable key
+            m[source_id_key] = source_ids[idx]
         stamped.append(m)
     return stamped
 
@@ -517,6 +524,8 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
             add_ids = [dest_ids[i] for i in to_add_indexes]
             add_docs = [documents[i] for i in to_add_indexes] if documents else None
             add_metas = [metadatas[i] for i in to_add_indexes] if metadatas else None
+            # Build aligned list of source ids for items we will add
+            add_src_ids = [src_ids[i] for i in to_add_indexes]
             add_metas = _apply_metadata_tags(
                 add_metas,
                 enabled=req.tag_metadata,
@@ -524,6 +533,8 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
                 source=req.source,
                 task_id=task.task_id,
                 tag_timestamp=req.tag_metadata_timestamp,
+                source_ids=add_src_ids if req.tag_source_id else None,
+                source_id_key=req.tag_source_id_key,
             )
             add_embs = [embeddings[i] for i in to_add_indexes] if embeddings else None
 

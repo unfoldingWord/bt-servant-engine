@@ -172,7 +172,10 @@ def get_document_text(collection_name: str, document_id: str) -> str:
     return documents[0]
 
 
-def get_document_text_and_metadata(collection_name: str, document_id: str) -> Tuple[str, dict[str, Any]]:
+def get_document_text_and_metadata(
+    collection_name: str,
+    document_id: str,
+) -> Tuple[str, dict[str, Any]]:
     """Return (text, metadata) for a document in a specific collection.
 
     Ensures both documents and metadatas are requested.
