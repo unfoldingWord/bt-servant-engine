@@ -2,7 +2,7 @@
 
 Includes Meta webhook processing and ChromaDB admin utilities.
 """
-# pylint: disable=line-too-long
+# pylint: disable=line-too-long,too-many-lines
 
 import asyncio
 import concurrent.futures
@@ -89,6 +89,66 @@ _merge_executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
 
 _merge_tasks: dict[str, Any] = {}
 _merge_task_cancel_flags: dict[str, asyncio.Event] = {}
+
+
+# Conservative cap for total input tokens per embeddings request.
+# OpenAI currently enforces ~300k tokens per request. Keep a safety margin.
+_EMBEDDING_MAX_TOKENS_PER_REQUEST = int(os.environ.get("OPENAI_EMBED_MAX_TOKENS_PER_REQUEST", "290000"))
+
+
+def _estimate_tokens(text: str | None) -> int:
+    """Rough token estimate from text length.
+
+    Heuristic: ~4 chars per token. Always at least 1 to avoid zeros.
+    """
+    if not text:
+        return 1
+    # Use max(1, n//4) to be conservative without floating math.
+    return max(1, len(text) // 4)
+
+
+def _yield_token_limited_slices(
+    ids: list[str],
+    docs: list[str] | None,
+    metas: list[dict[str, Any]] | None,
+    *,
+    max_tokens: int,
+) -> list[tuple[list[str], list[str], list[dict[str, Any]] | None]]:
+    """Split aligned (ids, docs, metas) into sub-batches under a token budget.
+
+    Returns a list of (ids, docs, metas) tuples ready for add(...).
+    Only used when re-embedding (i.e., embeddings are not supplied).
+    """
+    if not ids:
+        return []
+    if docs is None:
+        # Without documents we cannot estimate tokens; fall back to a single batch.
+        return [(ids, [], metas)]
+
+    out: list[tuple[list[str], list[str], list[dict[str, Any]] | None]] = []
+    cur_ids: list[str] = []
+    cur_docs: list[str] = []
+    cur_metas: list[dict[str, Any]] | None = [] if metas is not None else None
+    budget = 0
+
+    for i, did in enumerate(ids):
+        d = docs[i]
+        t = _estimate_tokens(d)
+        if cur_ids and budget + t > max_tokens:
+            out.append((cur_ids, cur_docs, cur_metas))
+            cur_ids = []
+            cur_docs = []
+            cur_metas = [] if metas is not None else None
+            budget = 0
+        cur_ids.append(did)
+        cur_docs.append(d)
+        if metas is not None:
+            cur_metas.append(metas[i])  # type: ignore[union-attr]
+        budget += t
+
+    if cur_ids:
+        out.append((cur_ids, cur_docs, cur_metas))
+    return out
 
 
 def init() -> None:
@@ -540,9 +600,32 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
 
             # Perform add
             if add_embs is not None:
+                # Using source embeddings: one add call is sufficient.
                 dest_col.add(ids=add_ids, documents=add_docs, metadatas=add_metas, embeddings=add_embs)
+                task.completed += len(add_ids)
+                _update_eta_metrics(task)
             else:
-                dest_col.add(ids=add_ids, documents=add_docs, metadatas=add_metas)
+                # Re-embedding: split into token-limited sub-batches to respect
+                # provider max tokens per request.
+                sub_batches = _yield_token_limited_slices(
+                    add_ids,
+                    add_docs if add_docs is not None else [],
+                    add_metas,
+                    max_tokens=_EMBEDDING_MAX_TOKENS_PER_REQUEST,
+                )
+                # If heuristic returned empty (shouldn't), fallback to single call
+                if not sub_batches:
+                    sub_batches = [(add_ids, add_docs or [], add_metas)]
+                if len(sub_batches) > 1:
+                    logger.info(
+                        "split add into %d sub-batches (max_tokens=%d)",
+                        len(sub_batches),
+                        _EMBEDDING_MAX_TOKENS_PER_REQUEST,
+                    )
+                for sb_ids, sb_docs, sb_metas in sub_batches:
+                    dest_col.add(ids=sb_ids, documents=sb_docs, metadatas=sb_metas)
+                    task.completed += len(sb_ids)
+                    _update_eta_metrics(task)
             # Log each successful insertion mapping from source -> destination id
             try:
                 for i in to_add_indexes:
@@ -558,8 +641,7 @@ def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-man
             except Exception:  # pylint: disable=broad-except
                 # Avoid impacting merge on logging issues
                 pass
-            task.completed += len(add_ids)
-            _update_eta_metrics(task)
+
 
             # Move semantics: delete source docs after successful add
             if req.mode == "move":
