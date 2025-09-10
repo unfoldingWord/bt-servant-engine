@@ -12,7 +12,8 @@ from typing import Dict, Iterable, List, Tuple
 
 
 # Centralized mapping of canonical book names to file stem and reference abbreviation
-# File stems match sources/bsb/<stem>.json and ref_abbr matches the "reference" prefix in files
+# File stems match sources/bible_data/en/<stem>.json and ref_abbr matches the
+# "reference" prefix in files
 BOOK_MAP: Dict[str, Dict[str, str]] = {
     # Pentateuch
     "Genesis": {"file_stem": "gen", "ref_abbr": "Gen"},
@@ -135,7 +136,7 @@ def normalize_book_name(name: str) -> str | None:
 
 @lru_cache(maxsize=128)
 def load_book_json(data_root: Path, file_stem: str) -> List[Dict[str, str]]:
-    """Load a single book JSON file from sources/bsb (cached)."""
+    """Load a single book JSON file from sources/bible_data/en (cached)."""
     path = data_root / f"{file_stem}.json"
     # Intentionally no logging dependency here to keep utils lightweight
     return json.loads(path.read_text(encoding="utf-8"))

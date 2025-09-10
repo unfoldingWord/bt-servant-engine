@@ -1631,7 +1631,7 @@ def handle_get_passage_summary(state: Any) -> dict:
     - Extract passage selection via structured LLM parse with a strict prompt and
       canonical book list.
     - Validate constraints (single book, up to whole book; no cross-book).
-    - Load verses from sources/bsb efficiently and summarize.
+    - Load verses from sources/bible_data/en efficiently and summarize.
     - Return a single combined summary prefixed with a canonical reference echo.
     """
     s = cast(BrainState, state)
@@ -1644,8 +1644,8 @@ def handle_get_passage_summary(state: Any) -> dict:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": err}]}
     assert canonical_book is not None and ranges is not None
 
-    # Retrieve verses from BSB JSONs; data dir is project root / sources/bsb
-    data_root = Path("sources") / "bsb"
+    # Retrieve verses from BSB JSONs; data dir is project root / sources/bible_data/en
+    data_root = Path("sources") / "bible_data" / "en"
     logger.info("[passage-summary] retrieving verses from %s", data_root)
     verses = select_verses(data_root, canonical_book, ranges)
     logger.info("[passage-summary] retrieved %d verse(s)", len(verses))
@@ -1785,7 +1785,7 @@ def handle_get_translation_helps(state: Any) -> dict:
         )
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
     # Count total verses first; if above limit, return a user-facing error instead of truncating
-    bsb_root = Path("sources") / "bsb"
+    bsb_root = Path("sources") / "bible_data" / "en"
     verse_count = len(select_verses(bsb_root, canonical_book, ranges))
     if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
         ref_label_over = label_ranges(canonical_book, ranges)
