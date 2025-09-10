@@ -33,8 +33,10 @@ from utils.bsb import (
     label_ranges,
     clamp_ranges_by_verse_limit,
 )
+from utils.bible_data import resolve_bible_data_root, list_available_sources
 from utils.keywords import select_keywords
 from utils.translation_helps import select_translation_helps, get_missing_th_books
+from utils.bible_locale import get_book_name
 from utils.perf import time_block, set_current_trace, add_tokens
 from db import (
     get_chroma_collection,
@@ -380,6 +382,11 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     "what to consider when translating the book of Ruth", "alternate translations for 'only begotten' in John 3:16",
     or "what are other ways to translate 'flesh' in Gal 5:19–21?".
   </intent>
+  <intent name="retrieve-scripture">
+    The user is asking for the exact text of a Bible passage (verbatim verse text), optionally specifying a
+    language or Bible/version (e.g., "Give me John 1:1 in Indonesian", "Provide the text of Job 1:1-5"). Prefer this
+    when the user wants the scripture text itself, not a summary or guidance.
+  </intent>
   <intent name="set-response-language">
     The user wants to change the language in which the system responds. They might ask for responses in 
     Spanish, French, Arabic, etc.
@@ -499,6 +506,14 @@ Here are a few examples to guide you:
   <example>
     <message>Give me a summary of John 3:16-18.</message>
     <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>Please provide the text of Job 1:1-5</message>
+    <intent>retrieve-scripture</intent>
+  </example>
+  <example>
+    <message>Can you give me John 1:1 from the Indonesian Bible?</message>
+    <intent>retrieve-scripture</intent>
   </example>
   <example>
     <message>Can you reply to me in French from now on?</message>
@@ -673,12 +688,57 @@ class PreprocessorResult(BaseModel):
     message_changed: bool
 
 
+def _is_protected_response_item(item: dict) -> bool:
+    """Return True if a response item carries scripture to protect from changes."""
+    body = cast(dict | str, item.get("response"))
+    if isinstance(body, dict):
+        if body.get("suppress_translation"):
+            return True
+        if isinstance(body.get("segments"), list):
+            segs = cast(list, body.get("segments"))
+            return any(isinstance(seg, dict) and seg.get("type") == "scripture" for seg in segs)
+    return False
+
+
+def _reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[str]) -> str:
+    """Render a response item to plain text, optionally localizing the header book name.
+
+    - If `resp_item` is a plain string, return it.
+    - If structured with segments, rebuild: "<Book> <suffix>:\n\n<scripture>".
+    - If `localize_to` is provided, map the book to that language via get_book_name; else use canonical.
+    """
+    if isinstance(resp_item, str):
+        return resp_item
+    body = cast(dict | str, resp_item.get("response"))
+    if isinstance(body, dict) and isinstance(body.get("segments"), list):
+        segs = cast(list, body.get("segments"))
+        header_book = ""
+        header_suffix = ""
+        scripture_text = ""
+        for seg in segs:
+            if not isinstance(seg, dict):
+                continue
+            st = seg.get("type")
+            txt = cast(str, seg.get("text", ""))
+            if st == "header_book":
+                header_book = txt
+            elif st == "header_suffix":
+                header_suffix = txt
+            elif st == "scripture":
+                scripture_text = txt
+        book = get_book_name(localize_to or "en", header_book) if localize_to else header_book
+        header = (f"{book} {header_suffix}" if header_suffix else book).strip() + ":"
+        return header + ("\n\n" + scripture_text if scripture_text else "")
+    return str(body)
+
+
 class IntentType(str, Enum):
     """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
     GET_PASSAGE_SUMMARY = "get-passage-summary"
     GET_PASSAGE_KEYWORDS = "get-passage-keywords"
     GET_TRANSLATION_HELPS = "get-translation-helps"
+    RETRIEVE_SCRIPTURE = "retrieve-scripture"
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
     SET_RESPONSE_LANGUAGE = "set-response-language"
@@ -702,7 +762,7 @@ class BrainState(TypedDict, total=False):
     transformed_query: str
     docs: List[Dict[str, str]]
     collection_used: str
-    responses: Annotated[List[Dict[str, str]], operator.add]
+    responses: Annotated[List[Dict[str, Any]], operator.add]
     translated_responses: List[str]
     stack_rank_collections: List[str]
     user_chat_history: List[Dict[str, str]]
@@ -827,7 +887,11 @@ def set_response_language(state: Any) -> dict:
 
 
 def combine_responses(chat_history, latest_user_message, responses) -> str:
-    """Ask OpenAI to synthesize multiple node responses into one coherent text."""
+    """Ask OpenAI to synthesize multiple node responses into one coherent text.
+
+    Note: callers should pass only normal responses here; scripture-protected
+    items are excluded earlier to avoid rewriting scripture text.
+    """
     uncombined_responses = json.dumps(responses)
     logger.info("preparing to combine responses:\n\n%s", uncombined_responses)
     messages: list[EasyInputMessageParam] = [
@@ -864,43 +928,66 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
 
 
 def translate_responses(state: Any) -> dict:
-    """Translate the response(s) into the user's desired language if needed."""
+    """Translate the response(s) into the user's desired language if needed.
+
+    Scripture-protected responses are not combined via LLM and are not machine-
+    translated. If present, they are passed through (with optional localized
+    headers) and the remaining responses are combined and translated as needed.
+    """
     s = cast(BrainState, state)
-    uncombined_responses = list(s["responses"])
-    num_responses = len(uncombined_responses)
-    if num_responses > 1:
-        query = s["user_query"]
-        chat_history = s["user_chat_history"]
-        responses = [combine_responses(chat_history, query, uncombined_responses)]
-    elif num_responses == 1:
-        responses = [uncombined_responses[0]["response"]]
-    else:
+    uncombined = list(s["responses"])
+
+    protected_items: list[dict] = [i for i in uncombined if _is_protected_response_item(i)]
+    normal_items: list[dict] = [i for i in uncombined if not _is_protected_response_item(i)]
+
+    responses_for_translation: list[dict | str] = list(protected_items)
+    # Combine normal items (if any) using LLM synthesizer into a single string and append
+    if normal_items:
+        responses_for_translation.append(
+            combine_responses(s["user_chat_history"], s["user_query"], normal_items)
+        )
+    if not responses_for_translation:
         raise ValueError("no responses to translate. something bad happened. bailing out.")
 
-    user_response_language = s["user_response_language"]
-    if user_response_language:
-        target_language = user_response_language
+    if s["user_response_language"]:
+        target_language = s["user_response_language"]
     else:
         target_language = s["query_language"]
         if target_language == LANGUAGE_UNKNOWN:
             logger.warning('target language unknown. bailing out.')
-            supported_language_list = ", ".join(supported_language_map.keys())
-            responses.append(("You haven't set your desired response language and I wasn't able to determine the "
-                              "language of your original message in order to match it. You can set your desired "
-                              "response language at any time by saying: Set my response language to Spanish, or "
-                              f"Indonesian, or any of the supported languages: {supported_language_list}."))
-            return {"translated_responses": responses}
+            # Build pass-through texts for current responses, then append notice
+            passthrough_texts: list[str] = [
+                _reconstruct_structured_text(resp_item=resp, localize_to=None)
+                for resp in responses_for_translation
+            ]
+            passthrough_texts.append(
+                "You haven't set your desired response language and I wasn't able to determine the language of your "
+                "original message in order to match it. You can set your desired response language at any time by "
+                "saying: Set my response language to Spanish, or Indonesian, or any of the supported languages: "
+                f"{', '.join(supported_language_map.keys())}."
+            )
+            return {"translated_responses": passthrough_texts}
 
-    translated_responses = []
-    for response in responses:
-        response_language = detect_language(response)
-        if response_language != target_language:
-            logger.warning("target language: %s but response language: %s", target_language, response_language)
-            logger.info('preparing to translate to %s', target_language)
-            translated_responses.append(translate_text(response_text=response, target_language=target_language))
-        else:
-            logger.info('chunk translation not required. using chunk as is.')
-            translated_responses.append(response)
+    translated_responses: list[str] = []
+    for resp in responses_for_translation:
+        if isinstance(resp, str):
+            if detect_language(resp) != target_language:
+                logger.info('preparing to translate to %s', target_language)
+                translated_responses.append(translate_text(response_text=resp, target_language=target_language))
+            else:
+                logger.info('chunk translation not required. using chunk as is.')
+                translated_responses.append(resp)
+            continue
+
+        # Structured/metadata response
+        body = cast(dict | str, resp.get("response"))
+        if isinstance(body, dict) and isinstance(body.get("segments"), list):
+            final_text2 = _reconstruct_structured_text(resp_item=resp, localize_to=target_language)
+            translated_responses.append(final_text2)
+            continue
+
+        # Unknown structured shape: fall back to string conversion
+        translated_responses.append(str(body))
     return {
         "translated_responses": translated_responses
     }
@@ -1314,6 +1401,8 @@ def process_intents(state: Any) -> List[Hashable]:
         nodes_to_traverse.append("handle_get_passage_keywords_node")
     if IntentType.GET_TRANSLATION_HELPS in user_intents:
         nodes_to_traverse.append("handle_get_translation_helps_node")
+    if IntentType.RETRIEVE_SCRIPTURE in user_intents:
+        nodes_to_traverse.append("handle_retrieve_scripture_node")
     if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
         nodes_to_traverse.append("set_response_language_node")
     if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
@@ -1644,8 +1733,8 @@ def handle_get_passage_summary(state: Any) -> dict:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": err}]}
     assert canonical_book is not None and ranges is not None
 
-    # Retrieve verses from BSB JSONs; data dir is project root / sources/bible_data/en
-    data_root = Path("sources") / "bible_data" / "en"
+    # Retrieve verses from BSB JSONs; data dir is project root / sources/bible_data/en/bsb
+    data_root = Path("sources") / "bible_data" / "en" / "bsb"
     logger.info("[passage-summary] retrieving verses from %s", data_root)
     verses = select_verses(data_root, canonical_book, ranges)
     logger.info("[passage-summary] retrieved %d verse(s)", len(verses))
@@ -1785,7 +1874,7 @@ def handle_get_translation_helps(state: Any) -> dict:
         )
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
     # Count total verses first; if above limit, return a user-facing error instead of truncating
-    bsb_root = Path("sources") / "bible_data" / "en"
+    bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
     verse_count = len(select_verses(bsb_root, canonical_book, ranges))
     if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
         ref_label_over = label_ranges(canonical_book, ranges)
@@ -1859,6 +1948,95 @@ def handle_get_translation_helps(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": response_text}]}
 
 
+def handle_retrieve_scripture(state: Any) -> dict:
+    """Handle retrieve-scripture: extract refs and return exact verse text.
+
+    - Resolve selection via shared helper (single canonical book; ranges allowed).
+    - Resolve data root via response_language → query_language → en, or explicit
+      language mention in the user query (e.g., "Indonesian Bible").
+    - Build a structured response with segments so downstream translation logic
+      can localize only the header while leaving scripture untouched.
+    """
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    query_lang = s["query_language"]
+    logger.info("[retrieve-scripture] start; query_lang=%s; query=%s", query_lang, query)
+
+    # 1) Parse passage selection
+    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    if err:
+        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": err}]}
+    assert canonical_book is not None and ranges is not None
+
+    # 2) Check if the user explicitly asked for a particular language/source
+    requested_lang: Optional[str] = None
+    q_lower = query.lower()
+    # Map language names to codes (simple heuristic); grow over time
+    name_to_code = {name.lower(): code for code, name in supported_language_map.items()}
+    for name_lc, code in name_to_code.items():
+        if name_lc in q_lower:
+            requested_lang = code
+            break
+
+    # 3) Resolve bible data root path with fallbacks
+    try:
+        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
+            response_language=s.get("user_response_language"),
+            query_language=s.get("query_language"),
+            requested_lang=requested_lang,
+            requested_version=None,
+        )
+        logger.info(
+            "[retrieve-scripture] data_root=%s lang=%s version=%s",
+            data_root,
+            resolved_lang,
+            resolved_version,
+        )
+    except FileNotFoundError:
+        # Catalog available options for a friendly message
+        avail = list_available_sources()
+        if not avail:
+            msg = (
+                "Scripture data is not available on this server. Please contact the administrator."
+            )
+            return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
+        options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
+        msg = (
+            f"I couldn't find a Bible source matching your request. Available sources: {options}. "
+            f"Would you like me to use one of these?"
+        )
+        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
+
+    # 4) Retrieve exact verses
+    verses = select_verses(data_root, canonical_book, ranges)
+    if not verses:
+        msg = (
+            "I couldn't locate those verses in the Bible data. Please check the reference and try again."
+        )
+        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
+
+    # 5) Build header segments (book + suffix) and scripture segment
+    ref_label = label_ranges(canonical_book, ranges)
+    # Derive suffix by removing leading book name, when present
+    suffix = ""
+    if ref_label == canonical_book:
+        suffix = ""
+    elif ref_label.startswith(f"{canonical_book} "):
+        suffix = ref_label[len(canonical_book) + 1 :]
+    else:
+        suffix = ref_label
+    scripture_text = "\n".join(f"{ref}: {txt}" for ref, txt in verses)
+    response_obj = {
+        "suppress_translation": True,
+        "segments": [
+            {"type": "header_book", "text": canonical_book},
+            {"type": "header_suffix", "text": suffix},
+            {"type": "scripture", "text": scripture_text},
+        ],
+    }
+    return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
+
+
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-def]
@@ -1889,6 +2067,7 @@ def create_brain():
     builder.add_node("handle_get_passage_summary_node", wrap_node_with_timing(handle_get_passage_summary, "handle_get_passage_summary_node"))
     builder.add_node("handle_get_passage_keywords_node", wrap_node_with_timing(handle_get_passage_keywords, "handle_get_passage_keywords_node"))
     builder.add_node("handle_get_translation_helps_node", wrap_node_with_timing(handle_get_translation_helps, "handle_get_translation_helps_node"))
+    builder.add_node("handle_retrieve_scripture_node", wrap_node_with_timing(handle_retrieve_scripture, "handle_retrieve_scripture_node"))
     builder.add_node("translate_responses_node", wrap_node_with_timing(translate_responses, "translate_responses_node"), defer=True)
 
     builder.set_entry_point("start_node")
@@ -1910,6 +2089,7 @@ def create_brain():
     builder.add_edge("handle_get_passage_summary_node", "translate_responses_node")
     builder.add_edge("handle_get_passage_keywords_node", "translate_responses_node")
     builder.add_edge("handle_get_translation_helps_node", "translate_responses_node")
+    builder.add_edge("handle_retrieve_scripture_node", "translate_responses_node")
     builder.add_edge("query_open_ai_node", "translate_responses_node")
 
     builder.add_conditional_edges(

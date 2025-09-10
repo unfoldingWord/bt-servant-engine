@@ -253,7 +253,7 @@ Recommended workflow
   - Allows multiple disjoint ranges within the same book and up to the entire book.
   - If no clear passage or unsupported book: prompt user with supported examples and canonical book list.
 - Retrieval:
-  - Reads from `sources/bible_data/en/<stem>.json` using a cached per‑book loader.
+  - Reads from `sources/bible_data/en/bsb/<stem>.json` using a cached per‑book loader.
   - Selection is range‑based and efficient; avoids loading unrelated books.
 - Summarization:
   - Summarizes only from provided verses with a faithful, neutral prompt.

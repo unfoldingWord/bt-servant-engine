@@ -3,7 +3,7 @@
 Builds Dataset 1 for the get-translation-helps intent.
 
 Inputs:
-- BSB verse JSONs in `sources/bible_data/en/<stem>.json` (in this repo).
+- BSB verse JSONs in `sources/bible_data/en/bsb/<stem>.json` (in this repo).
 - TN TSVs in `<data_root>/uw_translation_notes/tn_*.tsv`.
 - ULT USFM files in `<data_root>/ult/<nn-CODE>.usfm`.
 
@@ -149,7 +149,7 @@ def _load_bsb_book(stem: str, repo_root: Path) -> Tuple[Dict[VerseKey, str], Dic
     - verse_texts: (chapter, verse)->text
     - verse_labels: (chapter, verse)->reference string (e.g., "1Co 1:1")
     """
-    bsb_path = repo_root / "sources" / "bible_data" / "en" / f"{stem}.json"
+    bsb_path = repo_root / "sources" / "bible_data" / "en" / "bsb" / f"{stem}.json"
     with bsb_path.open("r", encoding="utf-8") as f:
         data = json.load(f)
     verse_texts: Dict[VerseKey, str] = {}

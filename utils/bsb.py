@@ -11,9 +11,10 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Tuple
 
 
-# Centralized mapping of canonical book names to file stem and reference abbreviation
-# File stems match sources/bible_data/en/<stem>.json and ref_abbr matches the
-# "reference" prefix in files
+# Centralized mapping of canonical book names to file stem and reference abbreviation.
+# File stems correspond to per-book JSONs under a chosen data root
+# (e.g., sources/bible_data/en/bsb/<stem>.json). The ref_abbr matches the
+# "reference" prefix in those files.
 BOOK_MAP: Dict[str, Dict[str, str]] = {
     # Pentateuch
     "Genesis": {"file_stem": "gen", "ref_abbr": "Gen"},
