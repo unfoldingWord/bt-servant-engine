@@ -387,6 +387,11 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     language or Bible/version (e.g., "Give me John 1:1 in Indonesian", "Provide the text of Job 1:1-5"). Prefer this
     when the user wants the scripture text itself, not a summary or guidance.
   </intent>
+  <intent name="translate-scripture">
+    The user wants the Bible passage text translated into a specified target language, optionally from a specified
+    source language or version (e.g., "translate John 1:1 into Portuguese", "translate the French version of John 1:1
+    into Spanish"). Prefer this when the user asks to translate scripture itself.
+  </intent>
   <intent name="set-response-language">
     The user wants to change the language in which the system responds. They might ask for responses in 
     Spanish, French, Arabic, etc.
@@ -506,6 +511,14 @@ Here are a few examples to guide you:
   <example>
     <message>Give me a summary of John 3:16-18.</message>
     <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>translate John 1:1 into Portuguese</message>
+    <intent>translate-scripture</intent>
+  </example>
+  <example>
+    <message>translate the French version of John 1:1 into Spanish</message>
+    <intent>translate-scripture</intent>
   </example>
   <example>
     <message>Please provide the text of Job 1:1-5</message>
@@ -739,6 +752,7 @@ class IntentType(str, Enum):
     GET_PASSAGE_KEYWORDS = "get-passage-keywords"
     GET_TRANSLATION_HELPS = "get-translation-helps"
     RETRIEVE_SCRIPTURE = "retrieve-scripture"
+    TRANSLATE_SCRIPTURE = "translate-scripture"
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
     SET_RESPONSE_LANGUAGE = "set-response-language"
@@ -1411,6 +1425,10 @@ def process_intents(state: Any) -> List[Hashable]:
         nodes_to_traverse.append("handle_system_information_request_node")
     if IntentType.CONVERSE_WITH_BT_SERVANT in user_intents:
         nodes_to_traverse.append("converse_with_bt_servant_node")
+    if IntentType.RETRIEVE_SCRIPTURE in user_intents:
+        nodes_to_traverse.append("handle_retrieve_scripture_node")
+    if IntentType.TRANSLATE_SCRIPTURE in user_intents:
+        nodes_to_traverse.append("handle_translate_scripture_node")
 
     return nodes_to_traverse
 
@@ -2037,6 +2055,114 @@ def handle_retrieve_scripture(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
 
 
+def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches
+    """Handle translate-scripture: return verses translated into a target language.
+
+    - Extract passage selection via the shared helper.
+    - Determine target language from the user's message; require it to be one of supported codes.
+    - Optional source language/version parsing (simple language-name heuristic); if absent, use resolver fallbacks.
+    - Load source verse texts, translate only the verse text per line, and return a structured, protected response.
+    """
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    query_lang = s["query_language"]
+    logger.info("[translate-scripture] start; query_lang=%s; query=%s", query_lang, query)
+
+    # Parse passage selection
+    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    if err:
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": err}]}
+    assert canonical_book is not None and ranges is not None
+
+    # Determine target language from message (simple name/code scan)
+    name_to_code = {name.lower(): code for code, name in supported_language_map.items()}
+    q_lower = query.lower()
+    target_language: Optional[str] = None
+    # Prefer explicit pattern "into <lang>" or "to <lang>" or "in <lang>"
+    for name_lc, code in name_to_code.items():
+        if f" into {name_lc}" in q_lower or f" to {name_lc}" in q_lower or f" in {name_lc}" in q_lower:
+            target_language = code
+            break
+    if target_language is None:
+        # Fallback: any direct name mention
+        for name_lc, code in name_to_code.items():
+            if name_lc in q_lower:
+                target_language = code
+                break
+    if not target_language:
+        msg = (
+            "Please specify a target language for the translation (e.g., 'into Spanish'). "
+            f"Supported languages: {', '.join(supported_language_map.keys())}."
+        )
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
+
+    # Optional explicit source language from query
+    requested_src_lang: Optional[str] = None
+    for name_lc, code in name_to_code.items():
+        if f" {name_lc} version" in q_lower or f" {name_lc} bible" in q_lower or f" in {name_lc} bible" in q_lower:
+            requested_src_lang = code
+            break
+
+    # Resolve bible data root for source verses
+    try:
+        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
+            response_language=s.get("user_response_language"),
+            query_language=s.get("query_language"),
+            requested_lang=requested_src_lang,
+            requested_version=None,
+        )
+        logger.info(
+            "[translate-scripture] source data_root=%s lang=%s version=%s",
+            data_root,
+            resolved_lang,
+            resolved_version,
+        )
+    except FileNotFoundError:
+        avail = list_available_sources()
+        if not avail:
+            msg = (
+                "Scripture data is not available on this server. Please contact the administrator."
+            )
+            return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
+        options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
+        msg = (
+            f"I couldn't find a Bible source to translate from. Available sources: {options}. "
+            f"Would you like me to use one of these?"
+        )
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
+
+    # Retrieve verses
+    verses = select_verses(data_root, canonical_book, ranges)
+    if not verses:
+        msg = "I couldn't locate those verses in the Bible data. Please check the reference and try again."
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
+
+    # Translate verse text per line (preserve reference tokens)
+    translated_lines: list[str] = []
+    for ref, txt in verses:
+        translated_txt = translate_text(response_text=txt, target_language=target_language)
+        translated_lines.append(f"{ref}: {translated_txt}")
+
+    # Build structured response with segments for downstream preservation
+    ref_label = label_ranges(canonical_book, ranges)
+    suffix = ""
+    if ref_label == canonical_book:
+        suffix = ""
+    elif ref_label.startswith(f"{canonical_book} "):
+        suffix = ref_label[len(canonical_book) + 1 :]
+    else:
+        suffix = ref_label
+    response_obj = {
+        "suppress_translation": True,
+        "segments": [
+            {"type": "header_book", "text": canonical_book},
+            {"type": "header_suffix", "text": suffix},
+            {"type": "scripture", "text": "\n".join(translated_lines)},
+        ],
+    }
+    return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
+
+
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-def]
@@ -2068,6 +2194,7 @@ def create_brain():
     builder.add_node("handle_get_passage_keywords_node", wrap_node_with_timing(handle_get_passage_keywords, "handle_get_passage_keywords_node"))
     builder.add_node("handle_get_translation_helps_node", wrap_node_with_timing(handle_get_translation_helps, "handle_get_translation_helps_node"))
     builder.add_node("handle_retrieve_scripture_node", wrap_node_with_timing(handle_retrieve_scripture, "handle_retrieve_scripture_node"))
+    builder.add_node("handle_translate_scripture_node", wrap_node_with_timing(handle_translate_scripture, "handle_translate_scripture_node"))
     builder.add_node("translate_responses_node", wrap_node_with_timing(translate_responses, "translate_responses_node"), defer=True)
 
     builder.set_entry_point("start_node")
@@ -2090,6 +2217,7 @@ def create_brain():
     builder.add_edge("handle_get_passage_keywords_node", "translate_responses_node")
     builder.add_edge("handle_get_translation_helps_node", "translate_responses_node")
     builder.add_edge("handle_retrieve_scripture_node", "translate_responses_node")
+    builder.add_edge("handle_translate_scripture_node", "translate_responses_node")
     builder.add_edge("query_open_ai_node", "translate_responses_node")
 
     builder.add_conditional_edges(
