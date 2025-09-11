@@ -2029,14 +2029,21 @@ def handle_get_translation_helps(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": response_text}]}
 
 
-def handle_retrieve_scripture(state: Any) -> dict:
-    """Handle retrieve-scripture: extract refs and return exact verse text.
+def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
+    """Handle retrieve-scripture with optional auto-translation.
 
-    - Resolve selection via shared helper (single canonical book; ranges allowed).
-    - Resolve data root via response_language → query_language → en, or explicit
-      language mention in the user query (e.g., "Indonesian Bible").
-    - Build a structured response with segments so downstream translation logic
-      can localize only the header while leaving scripture untouched.
+    Behavior:
+    - If the user explicitly requests a particular Bible language (e.g., "in Indonesian"),
+      attempt to serve that language verbatim if available. If not available, fall back
+      to auto-translating the retrieved scripture into that requested language.
+    - Otherwise (no explicit language), retrieve from installed sources using
+      response_language → query_language → en for the source. If the chosen source
+      language differs from the user's desired response language (or query language
+      when response language is unset), auto-translate the scripture into the desired
+      target language.
+    - Scripture is returned as a structured response with segments. When auto-translating,
+      the header is pre-localized and the scripture body is translated while preserving
+      line boundaries and verse labels.
     """
     s = cast(BrainState, state)
     query = s["transformed_query"]
@@ -2049,9 +2056,44 @@ def handle_retrieve_scripture(state: Any) -> dict:
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": err}]}
     assert canonical_book is not None and ranges is not None
 
-    # 2) Source language/version: do not infer from surface patterns.
-    #    Defer to configured defaults and user/system preferences via resolver.
+    # 2) Detect explicit requested source language (e.g., "in Indonesian").
+    #    Use the same structured parser used for translate-scripture to keep
+    #    language extraction robust, then fall back to a minimal regex.
     requested_lang: Optional[str] = None
+    try:
+        tl_resp = open_ai_client.responses.parse(
+            model="gpt-4o",
+            instructions=TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
+            input=cast(Any, [{"role": "user", "content": f"message: {query}"}]),
+            text_format=ResponseLanguage,
+            temperature=0,
+            store=False,
+        )
+        tl_usage = getattr(tl_resp, "usage", None)
+        if tl_usage is not None:
+            it = getattr(tl_usage, "input_tokens", None)
+            ot = getattr(tl_usage, "output_tokens", None)
+            tt = getattr(tl_usage, "total_tokens", None)
+            if tt is None and (it is not None or ot is not None):
+                tt = (it or 0) + (ot or 0)
+            cit = _extract_cached_input_tokens(tl_usage)
+            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
+        if tl_parsed and tl_parsed.language != Language.OTHER:
+            requested_lang = str(tl_parsed.language.value)
+    except OpenAIError:
+        logger.info("[retrieve-scripture] requested-language parse failed; will fallback", exc_info=True)
+    except Exception:  # pylint: disable=broad-except
+        logger.info("[retrieve-scripture] requested-language parse failed (generic); will fallback", exc_info=True)
+    if not requested_lang:
+        m = re.search(r"\b(?:in|from the|from)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
+        if m:
+            # Map name → ISO code when possible
+            name = m.group(1).strip().title()
+            for code, friendly in supported_language_map.items():
+                if friendly.lower() == name.lower():
+                    requested_lang = code
+                    break
 
     # 3) Resolve bible data root path with fallbacks
     try:
@@ -2110,9 +2152,52 @@ def handle_retrieve_scripture(state: Any) -> dict:
         ch, vs = parsed
         scripture_lines.append(f"{ch}:{vs} {txt}")
     scripture_text = "\n".join(scripture_lines)
+
+    # 6) Decide on auto-translation target
+    desired_target: Optional[str] = None
+    # If the user explicitly requested a language but the resolved source differs,
+    # prefer translating to that requested language.
+    if requested_lang and requested_lang != resolved_lang:
+        desired_target = requested_lang
+    # Otherwise, use response_language (if set) or query_language when they differ
+    # from the resolved source language.
+    if not desired_target:
+        url = cast(Optional[str], s.get("user_response_language"))
+        ql = cast(Optional[str], s.get("query_language"))
+        target_pref = url or ql
+        if target_pref and target_pref != resolved_lang:
+            desired_target = target_pref
+
+    # If we have a target and it's a supported language code, auto-translate body + header
+    if desired_target and desired_target in supported_language_map:
+        # Translate header book name
+        translated_book = translate_text(response_text=canonical_book, target_language=desired_target)
+        # Translate each verse line while preserving the "ch:vs " prefix if present
+        translated_lines: list[str] = []
+        for line in scripture_lines:
+            m2 = re.match(r"^(\d+:\d+\s+)(.*)$", line)
+            if m2:
+                prefix, txt = m2.group(1), m2.group(2)
+                translated_txt = translate_text(response_text=txt, target_language=desired_target)
+                translated_lines.append(prefix + translated_txt)
+            else:
+                translated_lines.append(translate_text(response_text=line, target_language=desired_target))
+        translated_body = "\n".join(translated_lines)
+        response_obj = {
+            "suppress_translation": True,
+            "content_language": desired_target,
+            "header_is_translated": True,
+            "segments": [
+                {"type": "header_book", "text": translated_book},
+                {"type": "header_suffix", "text": suffix},
+                {"type": "scripture", "text": translated_body},
+            ],
+        }
+        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
+
+    # No auto-translation required; return verbatim with canonical header (to be localized downstream if desired)
     response_obj = {
         "suppress_translation": True,
-        # Ensure downstream header language matches scripture language
         "content_language": str(resolved_lang),
         "header_is_translated": False,
         "segments": [
