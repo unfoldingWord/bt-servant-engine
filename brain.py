@@ -2159,7 +2159,7 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
         desired_target = requested_lang
     # Otherwise, use response_language (if set) or query_language when they differ
     # from the resolved source language.
-    if not desired_target:
+    if not desired_target and not requested_lang:
         url = cast(Optional[str], s.get("user_response_language"))
         ql = cast(Optional[str], s.get("query_language"))
         target_pref = url or ql
