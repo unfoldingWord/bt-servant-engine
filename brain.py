@@ -199,6 +199,23 @@ RESPONSE_TRANSLATOR_SYSTEM_PROMPT = """
     needs to be translated into the language represented by the specified ISO 639-1 code.
 """
 
+TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT = """
+# Task
+
+Translate the provided scripture passage into the specified target language and return a STRICT JSON object
+matching the provided schema. Do not include any extra prose, commentary, code fences, or formatting.
+
+# Rules
+- header_book: translate ONLY the canonical book name into the target language (e.g., "John" -> "Иоанн").
+- header_suffix: DO NOT translate or alter; copy exactly the provided suffix (e.g., "1:1–7").
+- body: translate the passage body into the target language; PRESERVE all newline boundaries exactly; do not add
+  bullets, numbers, verse labels, or extra headings.
+- content_language: the ISO 639-1 code of the target language.
+
+# Output
+Return JSON matching the schema with fields: header_book, header_suffix, body, content_language. No extra keys.
+"""
+
 
 PREPROCESSOR_AGENT_SYSTEM_PROMPT = """
 # Identity
@@ -695,6 +712,21 @@ class MessageLanguage(BaseModel):
     language: Language
 
 
+class TranslatedPassage(BaseModel):
+    """Schema for single-call passage translation output.
+
+    - header_book: translated book name (e.g., "Иоанн").
+    - header_suffix: exact suffix copied from input (e.g., "1:1–7").
+    - body: translated passage body with original newlines preserved.
+    - content_language: ISO 639-1 code (should equal requested target language).
+    """
+
+    header_book: str
+    header_suffix: str
+    body: str
+    content_language: Language
+
+
 class PreprocessorResult(BaseModel):
     """Result type for the preprocessor node output."""
     new_message: str
@@ -997,7 +1029,13 @@ def translate_responses(state: Any) -> dict:
         # Structured/metadata response
         body = cast(dict | str, resp.get("response"))
         if isinstance(body, dict) and isinstance(body.get("segments"), list):
-            final_text2 = _reconstruct_structured_text(resp_item=resp, localize_to=target_language)
+            item_lang = cast(Optional[str], body.get("content_language"))
+            header_is_translated = bool(body.get("header_is_translated"))
+            # If the header was already translated by the producer, do not localize again.
+            # Otherwise, localize the canonical header to the passage's content language when known,
+            # falling back to the target UI language.
+            localize_to = None if header_is_translated else (item_lang or target_language)
+            final_text2 = _reconstruct_structured_text(resp_item=resp, localize_to=localize_to)
             translated_responses.append(final_text2)
             continue
 
@@ -2056,6 +2094,9 @@ def handle_retrieve_scripture(state: Any) -> dict:
     scripture_text = "\n".join(scripture_lines)
     response_obj = {
         "suppress_translation": True,
+        # Ensure downstream header language matches scripture language
+        "content_language": str(resolved_lang),
+        "header_is_translated": False,
         "segments": [
             {"type": "header_book", "text": canonical_book},
             {"type": "header_suffix", "text": suffix},
@@ -2147,34 +2188,71 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
         msg = "I couldn't locate those verses in the Bible data. Please check the reference and try again."
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
 
-    # Translate verse text per line (preserve reference tokens)
-    translated_lines: list[str] = []
-    for ref, txt in verses:
-        translated_txt = translate_text(response_text=txt, target_language=target_language)
-        parsed = parse_ch_verse_from_reference(ref)
-        if parsed is None:
-            translated_lines.append(translated_txt)
-        else:
-            ch, vs = parsed
-            translated_lines.append(f"{ch}:{vs} {translated_txt}")
+    # Join body as continuous text (drop verse labels for single-call translation)
+    body_src = "\n".join(txt for _, txt in verses)
 
-    # Build structured response with segments for downstream preservation
+    # Build header suffix once from the canonical label
     ref_label = label_ranges(canonical_book, ranges)
-    suffix = ""
     if ref_label == canonical_book:
-        suffix = ""
+        header_suffix = ""
     elif ref_label.startswith(f"{canonical_book} "):
-        suffix = ref_label[len(canonical_book) + 1 :]
+        header_suffix = ref_label[len(canonical_book) + 1 :]
     else:
-        suffix = ref_label
-    response_obj = {
-        "suppress_translation": True,
-        "segments": [
-            {"type": "header_book", "text": canonical_book},
-            {"type": "header_suffix", "text": suffix},
-            {"type": "scripture", "text": "\n".join(translated_lines)},
-        ],
-    }
+        header_suffix = ref_label
+
+    # Single parse call to translate book name + body, returning strict JSON
+    messages: list[EasyInputMessageParam] = [
+        {"role": "developer", "content": f"canonical_book: {canonical_book}"},
+        {"role": "developer", "content": f"header_suffix (do not translate): {header_suffix}"},
+        {"role": "developer", "content": f"target_language: {target_language}"},
+        {"role": "developer", "content": "passage body (translate; preserve newlines):"},
+        {"role": "developer", "content": body_src},
+    ]
+    resp = open_ai_client.responses.parse(
+        model="gpt-4o",
+        instructions=TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
+        input=cast(Any, messages),
+        text_format=TranslatedPassage,
+        temperature=0,
+        store=False,
+    )
+    usage = getattr(resp, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+    translated = cast(TranslatedPassage | None, resp.output_parsed)
+
+    # Build structured response (fallback to two-call approach if parse failed)
+    response_obj: dict
+    if translated is None:
+        translated_body = translate_text(response_text=body_src, target_language=target_language)
+        translated_book = translate_text(response_text=canonical_book, target_language=target_language)
+        response_obj = {
+            "suppress_translation": True,
+            "content_language": target_language,
+            "header_is_translated": True,
+            "segments": [
+                {"type": "header_book", "text": translated_book},
+                {"type": "header_suffix", "text": header_suffix},
+                {"type": "scripture", "text": translated_body},
+            ],
+        }
+    else:
+        response_obj = {
+            "suppress_translation": True,
+            "content_language": str(translated.content_language.value),
+            "header_is_translated": True,
+            "segments": [
+                {"type": "header_book", "text": translated.header_book or canonical_book},
+                {"type": "header_suffix", "text": translated.header_suffix or header_suffix},
+                {"type": "scripture", "text": translated.body},
+            ],
+        }
     return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
 
 
