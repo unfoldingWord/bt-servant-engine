@@ -2195,7 +2195,7 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
     supported_lines = "\n".join(f"- {name}" for name in supported_names)
     guidance = (
         f"Translating into {requested_name} is currently not supported.\n\n"
-        "BT Servant supports the following languages:\n\n"
+        "BT Servant can set your response language to any of:\n\n"
         f"{supported_lines}\n\n"
         "Would you like me to set a specific language for your responses?"
     )
