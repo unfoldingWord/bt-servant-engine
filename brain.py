@@ -2349,6 +2349,22 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
 
     body_src = " ".join(_norm_ws(txt) for _, txt in verses)
 
+    # Pass-through guard: if source language equals target language, return verbatim
+    # scripture without running translation. This avoids unnecessary LLM calls and
+    # preserves the original text (e.g., source=fr and target=fr).
+    if target_code and target_code == resolved_lang:
+        response_obj = {
+            "suppress_translation": True,
+            "content_language": str(resolved_lang),
+            "header_is_translated": False,
+            "segments": [
+                {"type": "header_book", "text": canonical_book},
+                {"type": "header_suffix", "text": header_suffix},
+                {"type": "scripture", "text": body_src},
+            ],
+        }
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
+
     # Attempt structured translation (book header + body) via Responses.parse
     translated: TranslatedPassage | None = None
     try:
