@@ -2183,8 +2183,8 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
 
     # If we have a target and it's a supported language code, auto-translate body + header
     if desired_target and desired_target in supported_language_map:
-        # Translate header book name
-        translated_book = translate_text(response_text=canonical_book, target_language=desired_target)
+        # Localize header book name via static mapping when available; fall back to canonical
+        translated_book = get_book_name(desired_target, canonical_book)
         # Translate each verse text and join into a flowing paragraph
         translated_lines: list[str] = [
             _norm_ws(translate_text(response_text=str(txt), target_language=desired_target)) for _ref, txt in verses
@@ -2208,7 +2208,7 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
         "content_language": str(resolved_lang),
         "header_is_translated": False,
         "segments": [
-            {"type": "header_book", "text": canonical_book},
+            {"type": "header_book", "text": get_book_name(str(resolved_lang), canonical_book)},
             {"type": "header_suffix", "text": suffix},
             {"type": "scripture", "text": scripture_text},
         ],

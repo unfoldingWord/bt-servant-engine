@@ -17,6 +17,14 @@ _BOOK_LOCALIZATION: Dict[str, Dict[str, str]] = {
         # "John": "João",  # enable as mappings are confirmed
         # "Genesis": "Gênesis",
     },
+    # Indonesian (partial mapping; expands over time to avoid LLM header translations)
+    "id": {
+        "Genesis": "Kejadian",
+        "Exodus": "Keluaran",
+        "Leviticus": "Imamat",
+        "Numbers": "Bilangan",
+        "Deuteronomy": "Ulangan",
+    },
 }
 
 
