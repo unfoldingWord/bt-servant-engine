@@ -410,6 +410,12 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     language or Bible/version (e.g., "Give me John 1:1 in Indonesian", "Provide the text of Job 1:1-5"). Prefer this
     when the user wants the scripture text itself, not a summary or guidance.
   </intent>
+  <intent name="listen-to-scripture">
+    The user is asking to hear the scripture read aloud (audio output) for a specific Bible passage, verse range,
+    chapter(s), or book. This is equivalent in content to retrieve-scripture, but the response should be delivered as
+    a voice message instead of text. Examples include: "Read John 3 out loud", "Let me listen to John 1:1–5",
+    "Play Genesis 1 in Spanish". Prefer this when the user explicitly requests listening/reading aloud/audio.
+  </intent>
   <intent name="translate-scripture">
     The user wants the Bible passage text translated into a specified target language, optionally from a specified
     source language or version (e.g., "translate John 1:1 into Portuguese", "translate the French version of John 1:1
@@ -550,6 +556,18 @@ Here are a few examples to guide you:
   <example>
     <message>Can you give me John 1:1 from the Indonesian Bible?</message>
     <intent>retrieve-scripture</intent>
+  </example>
+  <example>
+    <message>Read John 3 out loud</message>
+    <intent>listen-to-scripture</intent>
+  </example>
+  <example>
+    <message>Let me listen to John 1:1–5</message>
+    <intent>listen-to-scripture</intent>
+  </example>
+  <example>
+    <message>Play Genesis 1 in Spanish</message>
+    <intent>listen-to-scripture</intent>
   </example>
   <example>
     <message>Can you reply to me in French from now on?</message>
@@ -808,6 +826,7 @@ class IntentType(str, Enum):
     GET_PASSAGE_KEYWORDS = "get-passage-keywords"
     GET_TRANSLATION_HELPS = "get-translation-helps"
     RETRIEVE_SCRIPTURE = "retrieve-scripture"
+    LISTEN_TO_SCRIPTURE = "listen-to-scripture"
     TRANSLATE_SCRIPTURE = "translate-scripture"
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
@@ -838,6 +857,8 @@ class BrainState(TypedDict, total=False):
     user_chat_history: List[Dict[str, str]]
     user_intents: List[IntentType]
     passage_selection: list[dict]
+    # Delivery hint for bt_servant to send a voice message instead of text
+    send_voice_message: bool
 
 
 def start(state: Any) -> dict:
@@ -1461,7 +1482,7 @@ def needs_chunking(state: BrainState) -> str:
     return END
 
 
-def process_intents(state: Any) -> List[Hashable]:
+def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-branches
     """Map detected intents to the list of nodes to traverse."""
     s = cast(BrainState, state)
     user_intents = s["user_intents"]
@@ -1479,6 +1500,8 @@ def process_intents(state: Any) -> List[Hashable]:
         nodes_to_traverse.append("handle_get_translation_helps_node")
     if IntentType.RETRIEVE_SCRIPTURE in user_intents:
         nodes_to_traverse.append("handle_retrieve_scripture_node")
+    if IntentType.LISTEN_TO_SCRIPTURE in user_intents:
+        nodes_to_traverse.append("handle_listen_to_scripture_node")
     if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
         nodes_to_traverse.append("set_response_language_node")
     if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
@@ -1489,6 +1512,8 @@ def process_intents(state: Any) -> List[Hashable]:
         nodes_to_traverse.append("converse_with_bt_servant_node")
     if IntentType.RETRIEVE_SCRIPTURE in user_intents:
         nodes_to_traverse.append("handle_retrieve_scripture_node")
+    if IntentType.LISTEN_TO_SCRIPTURE in user_intents:
+        nodes_to_traverse.append("handle_listen_to_scripture_node")
     if IntentType.TRANSLATE_SCRIPTURE in user_intents:
         nodes_to_traverse.append("handle_translate_scripture_node")
 
@@ -2249,6 +2274,16 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
     return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
 
 
+def handle_listen_to_scripture(state: Any) -> dict:
+    """Delegate to retrieve-scripture and request voice delivery.
+
+    Reuses retrieve-scripture end-to-end (selection, retrieval, translation, formatting)
+    and sets a delivery hint that the API should send a voice message.
+    """
+    out = handle_retrieve_scripture(state)
+    out["send_voice_message"] = True
+    return out
+
 def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
     """Handle translate-scripture: return verses translated into a target language.
 
@@ -2506,6 +2541,7 @@ def create_brain():
     builder.add_node("handle_get_passage_keywords_node", wrap_node_with_timing(handle_get_passage_keywords, "handle_get_passage_keywords_node"))
     builder.add_node("handle_get_translation_helps_node", wrap_node_with_timing(handle_get_translation_helps, "handle_get_translation_helps_node"))
     builder.add_node("handle_retrieve_scripture_node", wrap_node_with_timing(handle_retrieve_scripture, "handle_retrieve_scripture_node"))
+    builder.add_node("handle_listen_to_scripture_node", wrap_node_with_timing(handle_listen_to_scripture, "handle_listen_to_scripture_node"))
     builder.add_node("handle_translate_scripture_node", wrap_node_with_timing(handle_translate_scripture, "handle_translate_scripture_node"))
     builder.add_node("translate_responses_node", wrap_node_with_timing(translate_responses, "translate_responses_node"), defer=True)
 
@@ -2529,6 +2565,7 @@ def create_brain():
     builder.add_edge("handle_get_passage_keywords_node", "translate_responses_node")
     builder.add_edge("handle_get_translation_helps_node", "translate_responses_node")
     builder.add_edge("handle_retrieve_scripture_node", "translate_responses_node")
+    builder.add_edge("handle_listen_to_scripture_node", "translate_responses_node")
     builder.add_edge("handle_translate_scripture_node", "translate_responses_node")
     builder.add_edge("query_open_ai_node", "translate_responses_node")
 

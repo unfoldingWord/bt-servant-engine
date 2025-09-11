@@ -1019,7 +1019,8 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                 })
                 responses = result["translated_responses"]
                 full_response_text = "\n\n".join(responses).rstrip()
-                if user_message.message_type == "audio":
+                send_voice = bool(result.get("send_voice_message")) or user_message.message_type == "audio"
+                if send_voice:
                     await send_voice_message(user_id=user_message.user_id, text=full_response_text)
                 else:
                     response_count = len(responses)
