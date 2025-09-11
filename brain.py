@@ -2142,9 +2142,12 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
     else:
         suffix = ref_label
     # Build a flowing paragraph of verse text without chapter:verse labels
+    def _norm_ws(s: str) -> str:
+        return re.sub(r"\s+", " ", s).strip()
+
     scripture_lines: list[str] = []
     for _ref, txt in verses:
-        scripture_lines.append(str(txt))
+        scripture_lines.append(_norm_ws(str(txt)))
     # Join with a single space to create a continuous block
     scripture_text = " ".join(scripture_lines)
 
@@ -2169,7 +2172,7 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
         translated_book = translate_text(response_text=canonical_book, target_language=desired_target)
         # Translate each verse text and join into a flowing paragraph
         translated_lines: list[str] = [
-            translate_text(response_text=str(txt), target_language=desired_target) for _ref, txt in verses
+            _norm_ws(translate_text(response_text=str(txt), target_language=desired_target)) for _ref, txt in verses
         ]
         translated_body = " ".join(translated_lines)
         response_obj = {
