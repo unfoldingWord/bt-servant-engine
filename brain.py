@@ -2142,16 +2142,12 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
         suffix = ref_label[len(canonical_book) + 1 :]
     else:
         suffix = ref_label
-    # Render as chapter:verse only to avoid repeating the book name from the header
+    # Build a flowing paragraph of verse text without chapter:verse labels
     scripture_lines: list[str] = []
-    for ref, txt in verses:
-        parsed = parse_ch_verse_from_reference(ref)
-        if parsed is None:
-            scripture_lines.append(f"{txt}")
-            continue
-        ch, vs = parsed
-        scripture_lines.append(f"{ch}:{vs} {txt}")
-    scripture_text = "\n".join(scripture_lines)
+    for _ref, txt in verses:
+        scripture_lines.append(str(txt))
+    # Join with a single space to create a continuous block
+    scripture_text = " ".join(scripture_lines)
 
     # 6) Decide on auto-translation target
     desired_target: Optional[str] = None
@@ -2172,17 +2168,11 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
     if desired_target and desired_target in supported_language_map:
         # Translate header book name
         translated_book = translate_text(response_text=canonical_book, target_language=desired_target)
-        # Translate each verse line while preserving the "ch:vs " prefix if present
-        translated_lines: list[str] = []
-        for line in scripture_lines:
-            m2 = re.match(r"^(\d+:\d+\s+)(.*)$", line)
-            if m2:
-                prefix, txt = m2.group(1), m2.group(2)
-                translated_txt = translate_text(response_text=txt, target_language=desired_target)
-                translated_lines.append(prefix + translated_txt)
-            else:
-                translated_lines.append(translate_text(response_text=line, target_language=desired_target))
-        translated_body = "\n".join(translated_lines)
+        # Translate each verse text and join into a flowing paragraph
+        translated_lines: list[str] = [
+            translate_text(response_text=str(txt), target_language=desired_target) for _ref, txt in verses
+        ]
+        translated_body = " ".join(translated_lines)
         response_obj = {
             "suppress_translation": True,
             "content_language": desired_target,
