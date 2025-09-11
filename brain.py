@@ -2192,7 +2192,8 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
 
     # If we have a target and it's a supported language code, auto-translate body + header
     if desired_target and desired_target in supported_language_map:
-        # Localize header book name using target language titles when possible.
+        # Localize header book name using target language titles when possible;
+        # fall back to a static map; finally, LLM-translate as last resort.
         translated_book = None
         try:
             t_root, _t_lang, _t_ver = resolve_bible_data_root(
@@ -2206,7 +2207,14 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
         except FileNotFoundError:
             translated_book = None
         if not translated_book:
-            translated_book = get_book_name(desired_target, canonical_book)
+            static_name = get_book_name(desired_target, canonical_book)
+            if static_name != canonical_book:
+                translated_book = static_name
+            else:
+                # As a last resort, translate the canonical book name with the LLM.
+                translated_book = translate_text(
+                    response_text=canonical_book, target_language=desired_target
+                )
         # Translate each verse text and join into a flowing paragraph
         translated_lines: list[str] = [
             _norm_ws(translate_text(response_text=str(txt), target_language=desired_target)) for _ref, txt in verses
