@@ -2343,8 +2343,11 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
     else:
         header_suffix = ref_label
 
-    # Join body as continuous text (drop verse labels for single-call translation)
-    body_src = "\n".join(txt for _, txt in verses)
+    # Join body as continuous text (drop verse labels; single paragraph)
+    def _norm_ws(s: str) -> str:
+        return re.sub(r"\s+", " ", str(s)).strip()
+
+    body_src = " ".join(_norm_ws(txt) for _, txt in verses)
 
     # Attempt structured translation (book header + body) via Responses.parse
     translated: TranslatedPassage | None = None
@@ -2382,7 +2385,7 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
         translated = None
 
     if translated is None:
-        translated_body = translate_text(response_text=body_src, target_language=cast(str, target_code))
+        translated_body = _norm_ws(translate_text(response_text=body_src, target_language=cast(str, target_code)))
         translated_book = translate_text(response_text=canonical_book, target_language=cast(str, target_code))
         response_obj = {
             "suppress_translation": True,
@@ -2402,7 +2405,7 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
             "segments": [
                 {"type": "header_book", "text": translated.header_book or canonical_book},
                 {"type": "header_suffix", "text": translated.header_suffix or header_suffix},
-                {"type": "scripture", "text": translated.body},
+                {"type": "scripture", "text": _norm_ws(translated.body)},
             ],
         }
     return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
