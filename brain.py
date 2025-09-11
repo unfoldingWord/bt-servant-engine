@@ -2106,7 +2106,7 @@ def handle_retrieve_scripture(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
 
 
-def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches
+def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
     """Handle translate-scripture: return verses translated into a target language.
 
     - Extract passage selection via the shared helper.
@@ -2124,6 +2124,28 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
     if err:
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": err}]}
     assert canonical_book is not None and ranges is not None
+
+    # Enforce one-chapter cap: all ranges must resolve to exactly one chapter,
+    # and all ranges must reference the same chapter.
+    chapters: set[int] = set()
+    multi_chapter = False
+    for (sc, _sv, ec, _ev) in ranges:
+        if sc is None:
+            multi_chapter = True
+            break
+        ch_end = ec if ec is not None else sc
+        if ch_end != sc:
+            multi_chapter = True
+            break
+        chapters.add(sc)
+    if multi_chapter or len(chapters) != 1:
+        ref_label_over = label_ranges(canonical_book, ranges)
+        msg = (
+            "I can only translate one chapter at a time. "
+            f"Your selection {ref_label_over} spans multiple chapters. "
+            f"Please narrow the request to a single chapter (e.g., {canonical_book} 1)."
+        )
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
 
     # Determine target language from message (simple name/code scan)
     name_to_code = {name.lower(): code for code, name in supported_language_map.items()}
