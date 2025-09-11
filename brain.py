@@ -2137,6 +2137,13 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
     query_lang = s["query_language"]
     logger.info("[translate-scripture] start; query_lang=%s; query=%s", query_lang, query)
 
+    # First, validate the passage selection so we can surface selection errors
+    # (e.g., unsupported book like "Enoch") before language guidance.
+    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    if err:
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": err}]}
+    assert canonical_book is not None and ranges is not None
+
     # Determine target language for translation
     # 1) Try to extract an explicit target from the message via structured parse
     try:
