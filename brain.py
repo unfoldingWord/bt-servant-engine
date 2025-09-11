@@ -32,6 +32,7 @@ from utils.bsb import (
     select_verses,
     label_ranges,
     clamp_ranges_by_verse_limit,
+    parse_ch_verse_from_reference,
 )
 from utils.bible_data import resolve_bible_data_root, list_available_sources
 from utils.keywords import select_keywords
@@ -2043,7 +2044,16 @@ def handle_retrieve_scripture(state: Any) -> dict:
         suffix = ref_label[len(canonical_book) + 1 :]
     else:
         suffix = ref_label
-    scripture_text = "\n".join(f"{ref}: {txt}" for ref, txt in verses)
+    # Render as chapter:verse only to avoid repeating the book name from the header
+    scripture_lines: list[str] = []
+    for ref, txt in verses:
+        parsed = parse_ch_verse_from_reference(ref)
+        if parsed is None:
+            scripture_lines.append(f"{txt}")
+            continue
+        ch, vs = parsed
+        scripture_lines.append(f"{ch}:{vs} {txt}")
+    scripture_text = "\n".join(scripture_lines)
     response_obj = {
         "suppress_translation": True,
         "segments": [
@@ -2141,7 +2151,12 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
     translated_lines: list[str] = []
     for ref, txt in verses:
         translated_txt = translate_text(response_text=txt, target_language=target_language)
-        translated_lines.append(f"{ref}: {translated_txt}")
+        parsed = parse_ch_verse_from_reference(ref)
+        if parsed is None:
+            translated_lines.append(translated_txt)
+        else:
+            ch, vs = parsed
+            translated_lines.append(f"{ch}:{vs} {translated_txt}")
 
     # Build structured response with segments for downstream preservation
     ref_label = label_ranges(canonical_book, ranges)
