@@ -2139,7 +2139,6 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
 
     # Determine target language for translation
     # 1) Try to extract an explicit target from the message via structured parse
-    target_language: Optional[str] = None
     try:
         tl_resp = open_ai_client.responses.parse(
             model="gpt-4o",
@@ -2159,32 +2158,27 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
             cit = _extract_cached_input_tokens(tl_usage)
             add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
         tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
-        if tl_parsed and tl_parsed.language != Language.OTHER:
-            target_language = str(tl_parsed.language.value)
     except OpenAIError:
         logger.info("[translate-scripture] target-language parse failed; will fallback", exc_info=True)
 
-    # 2) Fallbacks: user_response_language, then detected query_language
-    if not target_language:
-        url = cast(Optional[str], s.get("user_response_language"))
-        if url and url in supported_language_map:
-            target_language = url
-    if not target_language:
-        ql = cast(Optional[str], s.get("query_language"))
-        if ql and ql in supported_language_map:
-            target_language = ql
     # For now, translating into any language is not supported. Respond with guidance.
-    # Try to present the requested language name when possible.
+    # Prefer the explicitly requested target language for display, not user/response fallbacks.
     requested_name: Optional[str] = None
-    if target_language and target_language in supported_language_map:
-        requested_name = supported_language_map[target_language]
+    # If the structured parse found a supported ISO code, use its display name.
+    try:
+        tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
+        if tl_parsed and tl_parsed.language != Language.OTHER:
+            code = str(tl_parsed.language.value)
+            requested_name = supported_language_map.get(code)
+    except Exception:  # pylint: disable=broad-except
+        requested_name = None
     if not requested_name:
         # Minimal, tightly scoped heuristic for phrases like "into Italian".
         m = re.search(r"\b(?:into|to|in)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
         if m:
             requested_name = m.group(1).strip().title()
     if not requested_name:
-        requested_name = "that language"
+        requested_name = "an unsupported language"
 
     supported_names = [
         supported_language_map[code] for code in [
