@@ -1813,15 +1813,30 @@ def handle_get_passage_summary(state: Any) -> dict:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": err}]}
     assert canonical_book is not None and ranges is not None
 
-    # Retrieve verses from BSB JSONs; data dir is project root / sources/bible_data/en/bsb
-    data_root = Path("sources") / "bible_data" / "en" / "bsb"
-    logger.info("[passage-summary] retrieving verses from %s", data_root)
+    # Retrieve verses from installed sources (response_language → query_language → en)
+    try:
+        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
+            response_language=s.get("user_response_language"),
+            query_language=s.get("query_language"),
+            requested_lang=None,
+            requested_version=None,
+        )
+        logger.info(
+            "[passage-summary] retrieving verses from %s (lang=%s, version=%s)",
+            data_root,
+            resolved_lang,
+            resolved_version,
+        )
+    except FileNotFoundError:
+        msg = (
+            "Scripture data is not available on this server. Please contact the administrator."
+        )
+        return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
+
     verses = select_verses(data_root, canonical_book, ranges)
     logger.info("[passage-summary] retrieved %d verse(s)", len(verses))
     if not verses:
-        msg = (
-            "I couldn't locate those verses in the BSB data. Please check the reference and try again."
-        )
+        msg = "I couldn't locate those verses in the Bible data. Please check the reference and try again."
         logger.info("[passage-summary] no verses found for selection; prompting user")
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
 
