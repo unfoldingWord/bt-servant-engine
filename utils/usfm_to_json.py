@@ -14,7 +14,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 from pathlib import Path
-from typing import Dict, Iterable, List
+from typing import Dict, Iterable, List, Tuple
 
 import re
 
@@ -169,6 +169,31 @@ def parse_usfm_verses(path: Path) -> List[Verse]:
     return verses
 
 
+def extract_book_title(path: Path) -> Tuple[str, str | None]:
+    """Return (canonical_book, localized_title) by scanning the USFM header (\\h).
+
+    Falls back to None when no \\h line is present. Canonical book is derived
+    from the filename USFM code as in parse_usfm_verses.
+    """
+    code = path.stem.split("-", 1)[-1].upper() if "-" in path.stem else path.stem.upper()
+    canonical = USFM_CODE_TO_BOOK.get(code, code)
+    title: str | None = None
+    try:
+        for raw in path.read_text(encoding="utf-8").splitlines():
+            line = raw.strip()
+            if not line:
+                continue
+            if line.startswith("\\h "):
+                title = line[3:].strip()
+                # strip any trailing markers defensively
+                title = re.sub(r"\\[A-Za-z0-9]+\*?", "", title).strip()
+                break
+    except Exception:  # noqa: BLE001 - tolerate malformed headers in some USFM sources
+        # Be permissive; title is optional
+        title = None
+    return canonical, title
+
+
 def format_reference(book: str, chapter: int, verse: int) -> str:
     """Format a BSB-style reference token, e.g., "Gen 1:1"."""
     abbr = BOOK_MAP[book]["ref_abbr"]
@@ -212,8 +237,13 @@ def build_dataset(src_dir: Path, out_root: Path) -> None:
         raise FileNotFoundError(f"No USFM files found under {src_dir}")
 
     all_verses: List[Verse] = []
+    titles: Dict[str, str] = {}
     for fp in files:
-        all_verses.extend(parse_usfm_verses(Path(fp)))
+        p = Path(fp)
+        all_verses.extend(parse_usfm_verses(p))
+        book, t = extract_book_title(p)
+        if t:
+            titles[book] = t
 
     by_book = build_book_entries(all_verses)
     expected = book_output_paths(out_root)
@@ -221,3 +251,8 @@ def build_dataset(src_dir: Path, out_root: Path) -> None:
         entries = by_book.get(book, [])
         content = json.dumps(entries, ensure_ascii=False, indent=2) + "\n"
         out_path.write_text(content, encoding="utf-8")
+    # Write titles mapping if any found
+    if titles:
+        (out_root / "_book_titles.json").write_text(
+            json.dumps(titles, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )

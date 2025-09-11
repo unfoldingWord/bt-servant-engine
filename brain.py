@@ -33,7 +33,7 @@ from utils.bsb import (
     label_ranges,
     clamp_ranges_by_verse_limit,
 )
-from utils.bible_data import resolve_bible_data_root, list_available_sources
+from utils.bible_data import resolve_bible_data_root, list_available_sources, load_book_titles
 from utils.keywords import select_keywords
 from utils.translation_helps import select_translation_helps, get_missing_th_books
 from utils.bible_locale import get_book_name
@@ -2183,8 +2183,21 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
 
     # If we have a target and it's a supported language code, auto-translate body + header
     if desired_target and desired_target in supported_language_map:
-        # Localize header book name via static mapping when available; fall back to canonical
-        translated_book = get_book_name(desired_target, canonical_book)
+        # Localize header book name using target language titles when possible.
+        translated_book = None
+        try:
+            t_root, _t_lang, _t_ver = resolve_bible_data_root(
+                response_language=None,
+                query_language=None,
+                requested_lang=desired_target,
+                requested_version=None,
+            )
+            t_titles = load_book_titles(t_root)
+            translated_book = t_titles.get(canonical_book)
+        except FileNotFoundError:
+            translated_book = None
+        if not translated_book:
+            translated_book = get_book_name(desired_target, canonical_book)
         # Translate each verse text and join into a flowing paragraph
         translated_lines: list[str] = [
             _norm_ws(translate_text(response_text=str(txt), target_language=desired_target)) for _ref, txt in verses
@@ -2203,12 +2216,15 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
 
     # No auto-translation required; return verbatim with canonical header (to be localized downstream if desired)
+    # Load localized titles for the resolved source language (if present)
+    titles_map = load_book_titles(data_root)
+    header_book = titles_map.get(canonical_book) or get_book_name(str(resolved_lang), canonical_book)
     response_obj = {
         "suppress_translation": True,
         "content_language": str(resolved_lang),
         "header_is_translated": False,
         "segments": [
-            {"type": "header_book", "text": get_book_name(str(resolved_lang), canonical_book)},
+            {"type": "header_book", "text": header_book},
             {"type": "header_suffix", "text": suffix},
             {"type": "scripture", "text": scripture_text},
         ],

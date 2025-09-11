@@ -8,7 +8,8 @@ Resolves `sources/bible_data/<lang>/<version>` roots with sensible fallbacks:
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Dict
+import json
 
 _BIBLE_DATA_ROOT = Path("sources") / "bible_data"
 
@@ -47,7 +48,7 @@ def resolve_bible_data_root(
     query_language: Optional[str],
     requested_lang: Optional[str] = None,
     requested_version: Optional[str] = None,
-) -> Tuple[Path, str, str]:
+    ) -> Tuple[Path, str, str]:
     """Resolve the best bible data root and return (path, lang, version).
 
     Precedence:
@@ -86,3 +87,17 @@ def resolve_bible_data_root(
         "No bible data found. Expected at least sources/bible_data/en/<version> "
         "(e.g., en/bsb) with JSON files."
     )
+
+
+def load_book_titles(data_root: Path) -> Dict[str, str]:
+    """Load localized book-title mapping from a dataset root, if present.
+
+    Returns a mapping of canonical English book name → localized title (full name).
+    """
+    p = data_root / "_book_titles.json"
+    if not p.exists():
+        return {}
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001 - tolerate malformed files
+        return {}
