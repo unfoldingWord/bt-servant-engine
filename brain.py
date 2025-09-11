@@ -2049,15 +2049,9 @@ def handle_retrieve_scripture(state: Any) -> dict:
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": err}]}
     assert canonical_book is not None and ranges is not None
 
-    # 2) Check if the user explicitly asked for a particular language/source
+    # 2) Source language/version: do not infer from surface patterns.
+    #    Defer to configured defaults and user/system preferences via resolver.
     requested_lang: Optional[str] = None
-    q_lower = query.lower()
-    # Map language names to codes (simple heuristic); grow over time
-    name_to_code = {name.lower(): code for code, name in supported_language_map.items()}
-    for name_lc, code in name_to_code.items():
-        if name_lc in q_lower:
-            requested_lang = code
-            break
 
     # 3) Resolve bible data root path with fallbacks
     try:
@@ -2217,14 +2211,8 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
         )
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
 
-    # Optional explicit source language from query
+    # Optional explicit source language from query: avoid surface scans.
     requested_src_lang: Optional[str] = None
-    name_to_code = {name.lower(): code for code, name in supported_language_map.items()}
-    q_lower = query.lower()
-    for name_lc, code in name_to_code.items():
-        if f" {name_lc} version" in q_lower or f" {name_lc} bible" in q_lower or f" in {name_lc} bible" in q_lower:
-            requested_src_lang = code
-            break
 
     # Resolve bible data root for source verses
     try:
