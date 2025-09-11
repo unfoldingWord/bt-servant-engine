@@ -25,6 +25,20 @@ FileItem = Tuple[
 ]
 FilesParam = Sequence[FileItem]
 
+VOICE_VIBE_PROMPT = """
+Personality/Affect: A knowledgeable and trustworthy guide, providing Scripture readings and translation support with calm confidence.
+
+Voice: Clear, steady, and professional, with a warm and approachable quality, at conversational speaking pace.
+
+Tone: Respectful and engaging, encouraging thoughtful reflection and supporting understanding without distraction.
+
+Dialect: Neutral and standard, avoiding slang or overly casual phrasing; suitable for an international audience.
+
+Pronunciation: Careful and precise, ensuring proper enunciation of biblical names and terms, while remaining natural and fluid.
+
+Features: Uses measured pacing, appropriate pauses, and gentle emphasis to highlight key points. Conveys reverence when reading Scripture and clarity when giving practical instructions.
+"""
+
 
 @record_timing("messaging:send_text_message")
 async def send_text_message(user_id: str, text: str) -> None:
@@ -189,9 +203,9 @@ def _create_voice_message(user_id: str, text: str) -> str:
 
     with open_ai_client.audio.speech.with_streaming_response.create(
             model="gpt-4o-mini-tts",
-            voice="coral",
+            voice="ash",
             input=text,
-            instructions="Speak in a cheerful and positive tone."
+            instructions=VOICE_VIBE_PROMPT
     ) as response:
         response.stream_to_file(temp_audio_path)
 
