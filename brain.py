@@ -2146,6 +2146,8 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
 
     # Determine target language for translation
     # 1) Try to extract an explicit target from the message via structured parse
+    target_code: Optional[str] = None
+    explicit_mention_name: Optional[str] = None
     try:
         tl_resp = open_ai_client.responses.parse(
             model="gpt-4o",
@@ -2165,41 +2167,168 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
             cit = _extract_cached_input_tokens(tl_usage)
             add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
         tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
+        if tl_parsed and tl_parsed.language != Language.OTHER:
+            target_code = str(tl_parsed.language.value)
     except OpenAIError:
         logger.info("[translate-scripture] target-language parse failed; will fallback", exc_info=True)
 
-    # For now, translating into any language is not supported. Respond with guidance.
-    # Prefer the explicitly requested target language for display, not user/response fallbacks.
-    requested_name: Optional[str] = None
-    # If the structured parse found a supported ISO code, use its display name.
-    try:
-        tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
-        if tl_parsed and tl_parsed.language != Language.OTHER:
-            code = str(tl_parsed.language.value)
-            requested_name = supported_language_map.get(code)
-    except Exception:  # pylint: disable=broad-except
-        requested_name = None
-    if not requested_name:
-        # Minimal, tightly scoped heuristic for phrases like "into Italian".
+    # Minimal, tightly scoped heuristic for phrases like "into Italian" (explicit mention)
+    if not target_code:
         m = re.search(r"\b(?:into|to|in)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
         if m:
-            requested_name = m.group(1).strip().title()
-    if not requested_name:
-        requested_name = "an unsupported language"
+            explicit_mention_name = m.group(1).strip().title()
 
-    supported_names = [
-        supported_language_map[code] for code in [
-            "en", "ar", "fr", "es", "hi", "ru", "id", "sw", "pt", "zh", "nl"
+    # 2) Decide path: if explicit mention exists but unsupported -> guidance; else fall back.
+    if not target_code and explicit_mention_name:
+        # Explicitly requested a language, but it's not in our supported codes.
+        requested_name = explicit_mention_name
+        supported_names = [supported_language_map[c] for c in ["en","ar","fr","es","hi","ru","id","sw","pt","zh","nl"]]
+        supported_lines = "\n".join(f"- {name}" for name in supported_names)
+        guidance = (
+            f"Translating into {requested_name} is currently not supported.\n\n"
+            "BT Servant can set your response language to any of:\n\n"
+            f"{supported_lines}\n\n"
+            "Would you like me to set a specific language for your responses?"
+        )
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": guidance}]}
+
+    # 3) Fallbacks: user_response_language, then detected query_language
+    if not target_code:
+        url = cast(Optional[str], s.get("user_response_language"))
+        if url and url in supported_language_map:
+            target_code = url
+    if not target_code:
+        ql = cast(Optional[str], s.get("query_language"))
+        if ql and ql in supported_language_map:
+            target_code = ql
+
+    # If we still don't know a supported target, return guidance with supported list
+    if not target_code or target_code not in supported_language_map:
+        # Prefer explicit language name if present in the message for clarity
+        requested_name2: Optional[str] = explicit_mention_name
+        if not requested_name2:
+            requested_name2 = "an unsupported language"
+
+        supported_names = [
+            supported_language_map[code] for code in [
+                "en", "ar", "fr", "es", "hi", "ru", "id", "sw", "pt", "zh", "nl"
+            ]
         ]
-    ]
-    supported_lines = "\n".join(f"- {name}" for name in supported_names)
-    guidance = (
-        f"Translating into {requested_name} is currently not supported.\n\n"
-        "BT Servant can set your response language to any of:\n\n"
-        f"{supported_lines}\n\n"
-        "Would you like me to set a specific language for your responses?"
-    )
-    return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": guidance}]}
+        supported_lines = "\n".join(f"- {name}" for name in supported_names)
+        guidance = (
+            f"Translating into {requested_name2} is currently not supported.\n\n"
+            "BT Servant can set your response language to any of:\n\n"
+            f"{supported_lines}\n\n"
+            "Would you like me to set a specific language for your responses?"
+        )
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": guidance}]}
+
+    # Resolve source Bible data (language/version) for retrieval
+    try:
+        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
+            response_language=s.get("user_response_language"),
+            query_language=s.get("query_language"),
+            requested_lang=None,
+            requested_version=None,
+        )
+        logger.info(
+            "[translate-scripture] source data_root=%s lang=%s version=%s",
+            data_root,
+            resolved_lang,
+            resolved_version,
+        )
+    except FileNotFoundError:
+        avail = list_available_sources()
+        if not avail:
+            msg = (
+                "Scripture data is not available on this server. Please contact the administrator."
+            )
+            return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
+        options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
+        msg = (
+            f"I couldn't find a Bible source to translate from. Available sources: {options}. "
+            f"Would you like me to use one of these?"
+        )
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
+
+    # Retrieve verses
+    verses = select_verses(data_root, canonical_book, ranges)
+    if not verses:
+        msg = "I couldn't locate those verses in the Bible data. Please check the reference and try again."
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
+
+    # Build header suffix once from the canonical label
+    ref_label = label_ranges(canonical_book, ranges)
+    if ref_label == canonical_book:
+        header_suffix = ""
+    elif ref_label.startswith(f"{canonical_book} "):
+        header_suffix = ref_label[len(canonical_book) + 1 :]
+    else:
+        header_suffix = ref_label
+
+    # Join body as continuous text (drop verse labels for single-call translation)
+    body_src = "\n".join(txt for _, txt in verses)
+
+    # Attempt structured translation (book header + body) via Responses.parse
+    translated: TranslatedPassage | None = None
+    try:
+        messages: list[EasyInputMessageParam] = [
+            {"role": "developer", "content": f"canonical_book: {canonical_book}"},
+            {"role": "developer", "content": f"header_suffix (do not translate): {header_suffix}"},
+            {"role": "developer", "content": f"target_language: {target_code}"},
+            {"role": "developer", "content": "passage body (translate; preserve newlines):"},
+            {"role": "developer", "content": body_src},
+        ]
+        resp = open_ai_client.responses.parse(
+            model="gpt-4o",
+            instructions=TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
+            input=cast(Any, messages),
+            text_format=TranslatedPassage,
+            temperature=0,
+            store=False,
+        )
+        usage = getattr(resp, "usage", None)
+        if usage is not None:
+            it = getattr(usage, "input_tokens", None)
+            ot = getattr(usage, "output_tokens", None)
+            tt = getattr(usage, "total_tokens", None)
+            if tt is None and (it is not None or ot is not None):
+                tt = (it or 0) + (ot or 0)
+            cit = _extract_cached_input_tokens(usage)
+            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        translated = cast(TranslatedPassage | None, resp.output_parsed)
+    except OpenAIError:
+        logger.warning("[translate-scripture] structured parse failed due to OpenAI error; falling back.", exc_info=True)
+        translated = None
+    except Exception:  # pylint: disable=broad-except
+        logger.warning("[translate-scripture] structured parse failed; falling back to simple translation.", exc_info=True)
+        translated = None
+
+    if translated is None:
+        translated_body = translate_text(response_text=body_src, target_language=cast(str, target_code))
+        translated_book = translate_text(response_text=canonical_book, target_language=cast(str, target_code))
+        response_obj = {
+            "suppress_translation": True,
+            "content_language": cast(str, target_code),
+            "header_is_translated": True,
+            "segments": [
+                {"type": "header_book", "text": translated_book},
+                {"type": "header_suffix", "text": header_suffix},
+                {"type": "scripture", "text": translated_body},
+            ],
+        }
+    else:
+        response_obj = {
+            "suppress_translation": True,
+            "content_language": str(translated.content_language.value),
+            "header_is_translated": True,
+            "segments": [
+                {"type": "header_book", "text": translated.header_book or canonical_book},
+                {"type": "header_suffix", "text": translated.header_suffix or header_suffix},
+                {"type": "scripture", "text": translated.body},
+            ],
+        }
+    return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
 
 
 def create_brain():
