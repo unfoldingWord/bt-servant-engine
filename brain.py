@@ -32,7 +32,6 @@ from utils.bsb import (
     select_verses,
     label_ranges,
     clamp_ranges_by_verse_limit,
-    parse_ch_verse_from_reference,
 )
 from utils.bible_data import resolve_bible_data_root, list_available_sources
 from utils.keywords import select_keywords
