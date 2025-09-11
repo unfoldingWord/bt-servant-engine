@@ -228,7 +228,13 @@ Use past conversation context,
 if supplied and applicable, to disambiguate or clarify the intent or meaning of the user's current message. Change 
 as little as possible. Change nothing unless necessary. If the intent of the user's message is already clear, 
 change nothing. Never greatly expand the user's current message. Changes should be small or none. Feel free to fix 
-obvious spelling mistakes or errors, but not logic errors like incorrect books of the Bible. Return the clarified 
+obvious spelling mistakes or errors, but not logic errors like incorrect books of the Bible. Do NOT narrow the scope of
+explicit scripture selections: if a user requests multiple chapters, verse ranges, or disjoint selections (including
+conjunctions like "and" or comma/semicolon lists), preserve them exactly as written. If the system has constraints
+(for example, only a single chapter can be processed at a time), do NOT modify the user's message to fit those
+constraints — leave the message intact and let downstream nodes handle any rejection or guidance. For translation
+requests, do NOT add or change a target language; preserve only what the user explicitly stated.
+Return the clarified 
 message and the reasons for clarifying or reasons for not changing anything. Examples below.
 
 # Examples
@@ -616,6 +622,24 @@ Disambiguation examples:
 - text: "tolong ringkas Dan 1:1" -> { "language": "id" }
 - text: "explain Joh 3:16" -> { "language": "en" }
 - text: "ringkas Yoh 3:16" -> { "language": "id" }
+"""
+
+TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT = """
+Task: Determine the target language the user is asking the system to translate scripture into, based solely on the
+user's latest message. Return an ISO 639-1 code from the allowed set.
+
+Allowed outputs: en, ar, fr, es, hi, ru, id, sw, pt, zh, nl, Other
+
+Rules:
+- Identify explicit target-language mentions (language names, codes, or phrases like "into Russian", "to es",
+  "in French").
+- If no target language is explicitly specified, return Other. Do NOT infer a target from the message's language.
+- Output must match the provided schema exactly with no extra prose.
+
+Examples:
+- message: "translate John 3:16 into Russian" -> { "language": "ru" }
+- message: "please translate Mark 1 in Spanish" -> { "language": "es" }
+- message: "translate Matthew 2" -> { "language": "Other" }
 """
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -2147,30 +2171,56 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
         )
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
 
-    # Determine target language from message (simple name/code scan)
-    name_to_code = {name.lower(): code for code, name in supported_language_map.items()}
-    q_lower = query.lower()
+    # Determine target language for translation
+    # 1) Try to extract an explicit target from the message via structured parse
     target_language: Optional[str] = None
-    # Prefer explicit pattern "into <lang>" or "to <lang>" or "in <lang>"
-    for name_lc, code in name_to_code.items():
-        if f" into {name_lc}" in q_lower or f" to {name_lc}" in q_lower or f" in {name_lc}" in q_lower:
-            target_language = code
-            break
-    if target_language is None:
-        # Fallback: any direct name mention
-        for name_lc, code in name_to_code.items():
-            if name_lc in q_lower:
-                target_language = code
-                break
+    try:
+        tl_resp = open_ai_client.responses.parse(
+            model="gpt-4o",
+            instructions=TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
+            input=cast(Any, [{"role": "user", "content": f"message: {query}"}]),
+            text_format=ResponseLanguage,
+            temperature=0,
+            store=False,
+        )
+        tl_usage = getattr(tl_resp, "usage", None)
+        if tl_usage is not None:
+            it = getattr(tl_usage, "input_tokens", None)
+            ot = getattr(tl_usage, "output_tokens", None)
+            tt = getattr(tl_usage, "total_tokens", None)
+            if tt is None and (it is not None or ot is not None):
+                tt = (it or 0) + (ot or 0)
+            cit = _extract_cached_input_tokens(tl_usage)
+            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
+        if tl_parsed and tl_parsed.language != Language.OTHER:
+            target_language = str(tl_parsed.language.value)
+    except OpenAIError:
+        logger.info("[translate-scripture] target-language parse failed; will fallback", exc_info=True)
+
+    # 2) Fallbacks: user_response_language, then detected query_language
     if not target_language:
+        url = cast(Optional[str], s.get("user_response_language"))
+        if url and url in supported_language_map:
+            target_language = url
+    if not target_language:
+        ql = cast(Optional[str], s.get("query_language"))
+        if ql and ql in supported_language_map:
+            target_language = ql
+    if not target_language:
+        # Last resort: ask the user to set a response language
+        supported = ", ".join(supported_language_map.keys())
         msg = (
-            "Please specify a target language for the translation (e.g., 'into Spanish'). "
-            f"Supported languages: {', '.join(supported_language_map.keys())}."
+            "I couldn't determine a target language for translation. "
+            "Please specify a target (e.g., 'into Spanish') or set your response language. "
+            f"Supported codes: {supported}."
         )
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
 
     # Optional explicit source language from query
     requested_src_lang: Optional[str] = None
+    name_to_code = {name.lower(): code for code, name in supported_language_map.items()}
+    q_lower = query.lower()
     for name_lc, code in name_to_code.items():
         if f" {name_lc} version" in q_lower or f" {name_lc} bible" in q_lower or f" in {name_lc} bible" in q_lower:
             requested_src_lang = code
