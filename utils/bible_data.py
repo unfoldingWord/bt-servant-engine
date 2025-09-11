@@ -99,5 +99,5 @@ def load_book_titles(data_root: Path) -> Dict[str, str]:
         return {}
     try:
         return json.loads(p.read_text(encoding="utf-8"))
-    except Exception:  # noqa: BLE001 - tolerate malformed files
+    except Exception:  # noqa: BLE001 - tolerate malformed files  # pylint: disable=broad-except
         return {}

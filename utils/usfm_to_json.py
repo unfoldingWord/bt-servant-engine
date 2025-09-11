@@ -188,7 +188,7 @@ def extract_book_title(path: Path) -> Tuple[str, str | None]:
                 # strip any trailing markers defensively
                 title = re.sub(r"\\[A-Za-z0-9]+\*?", "", title).strip()
                 break
-    except Exception:  # noqa: BLE001 - tolerate malformed headers in some USFM sources
+    except Exception:  # noqa: BLE001 - tolerate malformed headers in some USFM sources  # pylint: disable=broad-except
         # Be permissive; title is optional
         title = None
     return canonical, title
