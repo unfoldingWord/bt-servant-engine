@@ -182,6 +182,19 @@ Recommended workflow
   - When using `gpt-4o` with `open_ai_client.responses.create(...)`, do not pass `reasoning`; doing so yields 400 `unsupported_parameter`.
   - We currently use `gpt-4o` for translation-helps; the handler omits `reasoning` and relies on concise system instructions instead.
 
+### Avoid Surface-Level Pattern Scans
+
+- Do not rely on brittle string scans or regexes to extract languages, intents, or options from user text
+  (e.g., checking for phrases like "into <lang>", "in <lang>", or scanning for language names).
+  Natural language is highly variable and ambiguous (code-switching, morphology, synonyms, typos, punctuation), which
+  causes false positives/negatives and inconsistent behavior.
+- Preferred approaches:
+  - Use structured parsing via the OpenAI Responses API with a strict schema when you must extract a value from free text.
+  - Or avoid extraction entirely and fall back to deterministic configuration: user preferences (e.g., `user_response_language`),
+    detected `query_language`, or server defaults. Make the fallback rules explicit and documented.
+- Narrow exceptions: If a minimal, deterministic pattern is absolutely required, keep the scope extremely tight, test it,
+  and document the justification in the PR. Generally, prefer schema-validated parsing or explicit configuration.
+
 ## Session Notes (Perf Tracing PR)
 
 - Root cause: The first push for `feature/performace_metrics_logging` introduced a new `utils/perf.py` with pylint issues (line length, missing docstrings, import-outside-toplevel, broad-except). The GitHub Action failed on pylint. Although the pre-commit hook printed the errors, the commit still landed; we immediately fixed the issues, amended, and force-pushed.
@@ -253,7 +266,7 @@ Recommended workflow
   - Allows multiple disjoint ranges within the same book and up to the entire book.
   - If no clear passage or unsupported book: prompt user with supported examples and canonical book list.
 - Retrieval:
-  - Reads from `sources/bsb/<stem>.json` using a cached per‑book loader.
+  - Reads from `sources/bible_data/en/bsb/<stem>.json` using a cached per‑book loader.
   - Selection is range‑based and efficient; avoids loading unrelated books.
 - Summarization:
   - Summarizes only from provided verses with a faithful, neutral prompt.
