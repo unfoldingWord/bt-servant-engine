@@ -1841,7 +1841,16 @@ def handle_get_passage_summary(state: Any) -> dict:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
 
     # Prepare text for summarization
-    ref_label = label_ranges(canonical_book, ranges)
+    # Localize the book name in the header using titles from the resolved source when available
+    titles_map = load_book_titles(data_root)
+    localized_book = titles_map.get(canonical_book) or get_book_name(str(resolved_lang), canonical_book)
+    ref_label_en = label_ranges(canonical_book, ranges)
+    if ref_label_en == canonical_book:
+        ref_label = localized_book
+    elif ref_label_en.startswith(f"{canonical_book} "):
+        ref_label = f"{localized_book} {ref_label_en[len(canonical_book) + 1:]}"
+    else:
+        ref_label = ref_label_en
     logger.info("[passage-summary] label=%s", ref_label)
     joined = "\n".join(f"{ref}: {txt}" for ref, txt in verses)
 
