@@ -21,7 +21,7 @@ from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
 from langgraph.graph import END, StateGraph
-from pydantic import BaseModel
+from pydantic import BaseModel, ValidationError
 
 from logger import get_logger
 from config import config
@@ -2208,24 +2208,32 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
         {"role": "developer", "content": "passage body (translate; preserve newlines):"},
         {"role": "developer", "content": body_src},
     ]
-    resp = open_ai_client.responses.parse(
-        model="gpt-4o",
-        instructions=TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        text_format=TranslatedPassage,
-        temperature=0,
-        store=False,
-    )
-    usage = getattr(resp, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    translated = cast(TranslatedPassage | None, resp.output_parsed)
+    translated: TranslatedPassage | None = None
+    try:
+        resp = open_ai_client.responses.parse(
+            model="gpt-4o",
+            instructions=TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
+            input=cast(Any, messages),
+            text_format=TranslatedPassage,
+            temperature=0,
+            store=False,
+        )
+        usage = getattr(resp, "usage", None)
+        if usage is not None:
+            it = getattr(usage, "input_tokens", None)
+            ot = getattr(usage, "output_tokens", None)
+            tt = getattr(usage, "total_tokens", None)
+            if tt is None and (it is not None or ot is not None):
+                tt = (it or 0) + (ot or 0)
+            cit = _extract_cached_input_tokens(usage)
+            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        translated = cast(TranslatedPassage | None, resp.output_parsed)
+    except OpenAIError:
+        logger.warning("[translate-scripture] structured parse failed due to OpenAI error; falling back.", exc_info=True)
+        translated = None
+    except (ValidationError, ValueError):
+        logger.warning("[translate-scripture] structured parse failed; falling back to simple translation.", exc_info=True)
+        translated = None
 
     # Build structured response (fallback to two-call approach if parse failed)
     response_obj: dict
