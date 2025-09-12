@@ -2507,6 +2507,17 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
         )
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
 
+    # Enforce verse-count limit before retrieval/translation to avoid oversized selections
+    total_verses = len(select_verses(data_root, canonical_book, ranges))
+    if total_verses > config.TRANSLATE_SCRIPTURE_VERSE_LIMIT:
+        ref_label_over = label_ranges(canonical_book, ranges)
+        msg = (
+            f"I can only translate up to {config.TRANSLATE_SCRIPTURE_VERSE_LIMIT} verses at a time. "
+            f"Your selection {ref_label_over} includes {total_verses} verses. "
+            "Please narrow the range (e.g., a chapter or a shorter span)."
+        )
+        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
+
     # Retrieve verses
     verses = select_verses(data_root, canonical_book, ranges)
     if not verses:

@@ -30,6 +30,8 @@ class Config(BaseSettings):
     TRANSLATION_HELPS_VERSE_LIMIT: int = Field(default=10)
     # Max verses allowed for retrieve-scripture (prevents huge selections like an entire book)
     RETRIEVE_SCRIPTURE_VERSE_LIMIT: int = Field(default=120)
+    # Max verses allowed for translate-scripture (avoid very large translations)
+    TRANSLATE_SCRIPTURE_VERSE_LIMIT: int = Field(default=120)
     # Admin API token for protecting CRUD endpoints
     ADMIN_API_TOKEN: str | None = Field(default=None)
     # Enable admin auth for protected endpoints (default False for local/dev tests)
