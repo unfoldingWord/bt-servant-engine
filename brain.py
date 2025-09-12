@@ -339,6 +339,10 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     The user is asking BT Servant to do something outside the scope of Bible translation help, interacting with the 
     resources in the vector database, or system diagnostics. For example, telling jokes, setting timers, 
     summarizing current news, or anything else COMPLETELY UNRELATED to what BT Servant can do.
+    Also use this when the user asks for corpus-style search queries the system does not support, such as:
+    - "find all occurrences of <word> in <book/chapter>"
+    - "list every verse where the Greek/Hebrew word <lemma> occurs"
+    - "give me a verse that has the word <term> in <book>"
   </intent>
   <intent name="converse-with-bt-servant">
     The user is trying to talk to bt-servant (the bot/system). This represents any attempt to engage in conversation, 
@@ -445,6 +449,18 @@ Here are a few examples to guide you:
   <example>
     <message>Give me a summary of John 3:16-18.</message>
     <intent>get-passage-summary</intent>
+  </example>
+  <example>
+    <message>Can you give me a verse that has word 'Jehovah' in Genesis?</message>
+    <intent>perform-unsupported-function</intent>
+  </example>
+  <example>
+    <message>Find all occurrences of agape in John 1</message>
+    <intent>perform-unsupported-function</intent>
+  </example>
+  <example>
+    <message>List all t he verses where the greek word typically translated faith occurs in John.</message>
+    <intent>perform-unsupported-function</intent>
   </example>
   <example>
     <message>translate John 1:1 into Portuguese</message>
