@@ -28,6 +28,8 @@ class Config(BaseSettings):
     MAX_META_TEXT_LENGTH: int = Field(default=4096)
     # Max verses to include in get-translation-helps context to control token usage
     TRANSLATION_HELPS_VERSE_LIMIT: int = Field(default=10)
+    # Max verses allowed for retrieve-scripture (prevents huge selections like an entire book)
+    RETRIEVE_SCRIPTURE_VERSE_LIMIT: int = Field(default=120)
     # Admin API token for protecting CRUD endpoints
     ADMIN_API_TOKEN: str | None = Field(default=None)
     # Enable admin auth for protected endpoints (default False for local/dev tests)

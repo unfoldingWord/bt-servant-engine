@@ -2257,7 +2257,18 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
         )
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
 
-    # 4) Retrieve exact verses
+    # 4) Enforce verse-count limit before retrieval to avoid oversized selections
+    total_verses = len(select_verses(data_root, canonical_book, ranges))
+    if total_verses > config.RETRIEVE_SCRIPTURE_VERSE_LIMIT:
+        ref_label_over = label_ranges(canonical_book, ranges)
+        msg = (
+            f"I can only retrieve up to {config.RETRIEVE_SCRIPTURE_VERSE_LIMIT} verses at a time. "
+            f"Your selection {ref_label_over} includes {total_verses} verses. "
+            "Please narrow the range (e.g., a chapter or a shorter span)."
+        )
+        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
+
+    # 5) Retrieve exact verses (now known to be within limit)
     verses = select_verses(data_root, canonical_book, ranges)
     if not verses:
         msg = (
@@ -2265,7 +2276,7 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
         )
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
 
-    # 5) Build header segments (book + suffix) and scripture segment
+    # 6) Build header segments (book + suffix) and scripture segment
     ref_label = label_ranges(canonical_book, ranges)
     # Derive suffix by removing leading book name, when present
     suffix = ""
@@ -2285,7 +2296,7 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
     # Join with a single space to create a continuous block
     scripture_text = " ".join(scripture_lines)
 
-    # 6) Decide on auto-translation target
+    # 7) Decide on auto-translation target
     desired_target: Optional[str] = None
     # If the user explicitly requested a language but the resolved source differs,
     # prefer translating to that requested language.
