@@ -27,6 +27,20 @@
 - Docstrings for public functions; keep comments minimal and useful.
 - Tools: `ruff` for style, `pylint` for code hygiene, `mypy` for typing.
 
+### Function Naming (Verb-First)
+- Prefer verb-first names for functions, e.g., `get_passage_summary`, `retrieve_scripture`, `translate_scripture`.
+- Drop the redundant `handle_` prefix for intent handlers and graph node IDs.
+  - Examples: `handle_listen_to_scripture` → `listen_to_scripture`, node `handle_listen_to_scripture_node` → `listen_to_scripture_node`.
+- Exceptions (keep `handle_`):
+  - `handle_unsupported_function` and `handle_system_information_request` (and their corresponding node IDs) are kept to signal their special routing role.
+- When adding new intents, name the function directly as the intent verb (see “Adding a New Intent”).
+
+### Function Size & Single Responsibility
+- Prefer small, focused functions: target ≤ 60 lines; even 60 is a smell to refactor.
+- Each function should do one thing and do it well (single responsibility principle).
+- Higher-level functions should compose behavior by orchestrating calls to lower-level helpers rather than inlining large blocks of logic.
+- Refactor toward helpers when a function starts mixing concerns (e.g., parsing inputs, validation, retrieval, transformation, and formatting).
+
 ### Linting & Type-Checking Policy
 - Always run linters and type-checkers on the entire project, not a subset:
   - `ruff check .`
