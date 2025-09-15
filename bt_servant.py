@@ -468,7 +468,7 @@ def _update_eta_metrics(task: MergeTaskStatus) -> None:
         task.eta_at = now
 
 
-def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-many-branches,too-many-statements
+def _merge_worker(  # pylint: disable=too-many-arguments,too-many-locals,too-many-branches,too-many-statements  # noqa: C901
     task: MergeTaskStatus,
     req: MergeRequest,
 ) -> None:
@@ -893,7 +893,7 @@ async def verify_webhook(request: Request):
 
 
 @app.post("/meta-whatsapp")
-async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-many-locals,too-many-branches
+async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-many-locals,too-many-branches  # noqa: C901
         request: Request,
         x_hub_signature_256: Annotated[Optional[str], Header(alias="X-Hub-Signature-256")] = None,
         x_hub_signature: Annotated[Optional[str], Header(alias="X-Hub-Signature")] = None,
@@ -982,7 +982,7 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": "Invalid JSON"})
 
 
-async def process_message(user_message: UserMessage):  # pylint: disable=too-many-branches
+async def process_message(user_message: UserMessage):  # pylint: disable=too-many-branches  # noqa: C901
     """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
         start_time = time.time()

@@ -16,7 +16,7 @@ from utils.perf import time_block, set_current_trace
 from servant_brain.classifier import IntentType
 
 
-def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-branches
+def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-branches  # noqa: C901
     """Map detected intents to the list of nodes to traverse."""
     s = cast(Dict[str, Any], state)
     intents: List[IntentType] = cast(List[IntentType], s.get("user_intents", []))

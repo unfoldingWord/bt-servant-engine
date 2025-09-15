@@ -266,7 +266,7 @@ def label_ranges(
     return f"{canonical_book} " + "; ".join(parts)
 
 
-def clamp_ranges_by_verse_limit(
+def clamp_ranges_by_verse_limit(  # noqa: C901
     data_root: Path,
     canonical_book: str,
     ranges: List[Tuple[int, int | None, int | None, int | None]],

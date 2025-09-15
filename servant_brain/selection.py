@@ -43,7 +43,7 @@ def _detect_mentioned_books(text: str, books_map: dict[str, Any]) -> list[str]:
     return ordered
 
 
-def resolve_selection_for_single_book(
+def resolve_selection_for_single_book(  # noqa: C901
     *,
     query: str,
     query_lang: str,

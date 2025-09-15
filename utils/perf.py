@@ -221,7 +221,7 @@ def record_external_span(
     _record_span(name, start, end, trace_id=trace_id)
 
 
-def add_tokens(  # pylint: disable=too-many-branches,too-many-arguments
+def add_tokens(  # pylint: disable=too-many-branches,too-many-arguments  # noqa: C901
     input_tokens: Optional[int] = None,
     output_tokens: Optional[int] = None,
     total_tokens: Optional[int] = None,
@@ -293,7 +293,7 @@ def add_tokens(  # pylint: disable=too-many-branches,too-many-arguments
             bucket["audio_output"] += int(audio_output_tokens)
 
 
-def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
+def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-many-locals,too-many-branches,too-many-statements  # noqa: C901
     """Return an ordered summary of spans for the given trace id.
 
     Adds both millisecond and second totals, and augments each span with

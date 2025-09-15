@@ -21,7 +21,7 @@ class UserMessage:
         self.media_id = media_id
 
     @classmethod
-    def from_data(cls, data: Mapping[str, Any]):
+    def from_data(cls, data: Mapping[str, Any]):  # noqa: C901
         """Build a UserMessage from a raw Meta webhook message payload."""
         user_id = data.get("from")
         message_id = data.get("id")

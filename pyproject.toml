@@ -3,9 +3,10 @@ target-version = "py312"
 line-length = 100
 
 [tool.ruff.lint]
-# Keep default core rules and add DTZ; ignore E501 (long lines) because
-# prompt constants intentionally exceed the limit and are hard-wrapped elsewhere.
-select = ["E", "F", "W", "B", "DTZ"]
+# Keep default core rules and add DTZ + C90 (mccabe complexity).
+# Ignore E501 (long lines) because prompt constants intentionally exceed the limit
+# and are hard-wrapped elsewhere.
+select = ["E", "F", "W", "B", "DTZ", "C90"]
 ignore = ["E501", "W291", "W293"]
 
 [tool.ruff.lint.mccabe]

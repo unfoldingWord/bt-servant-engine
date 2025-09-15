@@ -20,7 +20,7 @@ from typing import Optional, Tuple, Dict
 _PRICING_CACHE: Optional[Dict[str, Dict[str, float]]] = None
 
 
-def _load_pricing() -> Dict[str, Dict[str, float]]:
+def _load_pricing() -> Dict[str, Dict[str, float]]:  # noqa: C901
     global _PRICING_CACHE  # pylint: disable=global-statement
     if _PRICING_CACHE is not None:
         return _PRICING_CACHE
