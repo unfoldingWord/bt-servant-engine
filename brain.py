@@ -5,6 +5,8 @@ incoming user messages, classifying intents, querying resources, and producing
 final responses (including translation and chunking when necessary).
 """
 # pylint: disable=line-too-long,too-many-lines,too-many-statements
+# TODO(brain-split): Break this module into a `brain/` package with
+# thin orchestration and small helpers, then remove these disables.
 
 from __future__ import annotations
 

@@ -27,6 +27,14 @@
 - Docstrings for public functions; keep comments minimal and useful.
 - Tools: `ruff` for style, `pylint` for code hygiene, `mypy` for typing.
 
+### Module Size & Complexity Guardrails
+- Module length: target 200–400 LOC; caution 500–800; strong smell >1000. Split or justify with a brief file‑level note linking a tracking issue.
+- Function size: target ≤ 40–50 lines; refactor when approaching the limit.
+- Complexity: cyclomatic ≤ 10, cognitive ≤ 15. Extract helpers early.
+- Public API: exporting > 10–20 names is a smell; keep re‑exports small and stable.
+- Smells that outweigh raw size: “god modules” (kitchen‑sink), multiple responsibilities that need section headers, heavy import‑time work, circular or numerous imports (>~20), tests that must import unrelated concerns, or edits that touch distant regions.
+- How to split: prefer packages and clear boundaries (pure logic vs I/O; domain services vs adapters). Example layout: `myfeature/__init__.py` (re‑exports), `api.py` (public surface), `services.py` (domain logic), `adapters.py` (I/O), `models.py` (types).
+
 ### Function Naming (Verb-First)
 - Prefer verb-first names for functions, e.g., `get_passage_summary`, `retrieve_scripture`, `translate_scripture`.
 - Drop the redundant `handle_` prefix for intent handlers and graph node IDs.

@@ -7,3 +7,17 @@ line-length = 100
 # prompt constants intentionally exceed the limit and are hard-wrapped elsewhere.
 select = ["E", "F", "W", "B", "DTZ"]
 ignore = ["E501", "W291", "W293"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.pylint.main]
+py-version = "3.12"
+
+[tool.pylint.design]
+max-args = 8
+max-locals = 20
+max-branches = 12
+max-returns = 6
+max-statements = 60
+max-module-lines = 800
