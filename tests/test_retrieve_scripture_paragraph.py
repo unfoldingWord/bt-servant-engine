@@ -54,7 +54,7 @@ def test_retrieve_scripture_returns_paragraph_without_labels(monkeypatch: pytest
     state = _state_for("Please provide the text of Genesis 1:1-3")
 
     # Act
-    out = brain.handle_retrieve_scripture(state)
+    out = brain.retrieve_scripture(state)
 
     # Assert: structured scripture response with a flowing paragraph (no ch:vs labels, no newlines)
     item = (out.get("responses") or [])[0]

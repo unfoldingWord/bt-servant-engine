@@ -339,9 +339,9 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
     intent_node_map: Dict[str, str] = {
         "query_vector_db_node": "get-bible-translation-assistance",
         "query_open_ai_node": "get-bible-translation-assistance",
-        "handle_get_passage_summary_node": "get-passage-summary",
-        "handle_get_passage_keywords_node": "get-passage-keywords",
-        "handle_get_translation_helps_node": "get-translation-helps",
+        "get_passage_summary_node": "get-passage-summary",
+        "get_passage_keywords_node": "get-passage-keywords",
+        "get_translation_helps_node": "get-translation-helps",
         "set_response_language_node": "set-response-language",
         "handle_unsupported_function_node": "perform-unsupported-function",
         "handle_system_information_request_node": "retrieve-system-information",

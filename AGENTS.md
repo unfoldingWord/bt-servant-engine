@@ -243,9 +243,9 @@ Recommended workflow
   - In `INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT`, add a new `<intent>` block describing when to use it and include 1–2 examples.
   - Avoid hardcoding the number of intents in the prompt text; prefer “the following intent types”.
 - Add a handler function:
-  - Implement `handle_<intent_name>(state: Any) -> dict` that returns `{ "responses": [{ "intent": IntentType.<…>, "response": <text> }] }`.
+  - Implement `<intent_name>(state: Any) -> dict` that returns `{ "responses": [{ "intent": IntentType.<…>, "response": <text> }] }`.
 - Wire into the graph:
-  - `create_brain()`: `builder.add_node("handle_<intent>_node", handle_<intent>)` and `builder.add_edge("handle_<intent>_node", "translate_responses_node")`.
+  - `create_brain()`: `builder.add_node("<intent>_node", <intent>)` and `builder.add_edge("<intent>_node", "translate_responses_node")`.
   - `process_intents(...)`: append the new handler node when the intent is present.
 - Tests and linting:
   - Run `ruff`, `pylint`, `mypy`, and `pytest -q` repo‑wide. Keep the suite green.

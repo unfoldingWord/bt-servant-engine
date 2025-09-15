@@ -54,7 +54,7 @@ def test_listen_to_scripture_sets_voice_and_formats_paragraph(monkeypatch: pytes
     state = _state_for("Please read Genesis 1:1-3 out loud")
 
     # Act
-    out = brain.handle_listen_to_scripture(state)
+    out = brain.listen_to_scripture(state)
 
     # Assert: voice flag present
     assert out.get("send_voice_message") is True

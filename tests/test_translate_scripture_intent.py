@@ -86,7 +86,7 @@ def test_translate_scripture_translates_with_supported_target(monkeypatch: pytes
     state = _state_for(query)
 
     # Act
-    out = brain.handle_translate_scripture(state)
+    out = brain.translate_scripture(state)
 
     # Assert: structured scripture response
     item = (out.get("responses") or [])[0]
@@ -110,7 +110,7 @@ def test_translate_scripture_unsupported_book_returns_selection_error(monkeypatc
     state = _state_for(query)
 
     # Act
-    out = brain.handle_translate_scripture(state)
+    out = brain.translate_scripture(state)
 
     # Assert: should return selection error about unsupported book, not guidance
     items = out.get("responses") or []
@@ -126,7 +126,7 @@ def test_translate_scripture_guidance_when_unsupported_target(monkeypatch: pytes
     state = _state_for(query)
 
     # Act
-    out = brain.handle_translate_scripture(state)
+    out = brain.translate_scripture(state)
 
     # Assert
     items = out.get("responses") or []

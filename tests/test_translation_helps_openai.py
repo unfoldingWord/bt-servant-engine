@@ -90,13 +90,13 @@ def test_meta_whatsapp_translation_helps_flow_with_openai(monkeypatch, tmp_path,
     monkeypatch.setattr(api, "send_typing_indicator_message", _fake_typing_indicator_message)
 
     invoked: list[bool] = []
-    orig_handler = brain.handle_get_translation_helps
+    orig_handler = brain.get_translation_helps
 
     def _wrapped(state):  # type: ignore[no-redef]
         invoked.append(True)
         return orig_handler(state)
 
-    monkeypatch.setattr(brain, "handle_get_translation_helps", _wrapped)
+    monkeypatch.setattr(brain, "get_translation_helps", _wrapped)
     api.brain = None
 
     def _meta_text_payload(text: str) -> dict:

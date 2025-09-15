@@ -66,7 +66,7 @@ def test_translate_scripture_normalizes_whitespace(monkeypatch: pytest.MonkeyPat
     state = _state_for(query)
 
     # Act
-    out = brain.handle_translate_scripture(state)
+    out = brain.translate_scripture(state)
 
     # Assert: scripture segment has no newlines
     item = (out.get("responses") or [])[0]

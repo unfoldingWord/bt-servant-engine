@@ -103,13 +103,13 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first
 
     # Capture that the keywords handler node actually ran (state-based validation)
     invoked: list[bool] = []
-    orig_keywords = brain.handle_get_passage_keywords
+    orig_keywords = brain.get_passage_keywords
 
     def _wrapped_keywords(state):  # type: ignore[no-redef]
         invoked.append(True)
         return orig_keywords(state)
 
-    monkeypatch.setattr(brain, "handle_get_passage_keywords", _wrapped_keywords)
+    monkeypatch.setattr(brain, "get_passage_keywords", _wrapped_keywords)
     # Force fresh brain compile with the patched node
     api.brain = None
 

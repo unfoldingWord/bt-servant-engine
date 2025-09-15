@@ -24,8 +24,8 @@ The decision graph below defines the flow of a Bible translation assistant that 
 - **handle_unsupported_function_node:** Informs the user that a requested function is not supported and lists what the system can do.
 - **handle_system_information_request_node:** Answers questions about the assistant itself (what it can do, how it works, resources). Uses a dedicated system prompt and help docs.
 - **converse_with_bt_servant_node:** Handles general conversation with the user (e.g., "what's up?").
-- **handle_get_passage_summary_node / handle_get_passage_keywords_node / handle_get_translation_helps_node:** Passage-specific capabilities (see features below).
-- **handle_retrieve_scripture_node / handle_listen_to_scripture_node / handle_translate_scripture_node:** Scripture retrieval, audio, and translation workflows.
+- **get_passage_summary_node / get_passage_keywords_node / get_translation_helps_node:** Passage-specific capabilities (see features below).
+- **retrieve_scripture_node / listen_to_scripture_node / translate_scripture_node:** Scripture retrieval, audio, and translation workflows.
 
 ## How intents are determined and processed
 The assistant uses a dedicated node (determine_intents_node) to classify the user’s message into one or more high-level intents, which are used to determine the next step in the assistant’s response pipeline. This node relies on the OpenAI model (gpt-4o) to parse the message in context. It sends the following structured input to the model:

@@ -1594,15 +1594,15 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
     if IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE in user_intents:
         nodes_to_traverse.append("query_vector_db_node")
     if IntentType.GET_PASSAGE_SUMMARY in user_intents:
-        nodes_to_traverse.append("handle_get_passage_summary_node")
+        nodes_to_traverse.append("get_passage_summary_node")
     if IntentType.GET_PASSAGE_KEYWORDS in user_intents:
-        nodes_to_traverse.append("handle_get_passage_keywords_node")
+        nodes_to_traverse.append("get_passage_keywords_node")
     if IntentType.GET_TRANSLATION_HELPS in user_intents:
-        nodes_to_traverse.append("handle_get_translation_helps_node")
+        nodes_to_traverse.append("get_translation_helps_node")
     if IntentType.RETRIEVE_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("handle_retrieve_scripture_node")
+        nodes_to_traverse.append("retrieve_scripture_node")
     if IntentType.LISTEN_TO_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("handle_listen_to_scripture_node")
+        nodes_to_traverse.append("listen_to_scripture_node")
     if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
         nodes_to_traverse.append("set_response_language_node")
     if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
@@ -1612,11 +1612,11 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
     if IntentType.CONVERSE_WITH_BT_SERVANT in user_intents:
         nodes_to_traverse.append("converse_with_bt_servant_node")
     if IntentType.RETRIEVE_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("handle_retrieve_scripture_node")
+        nodes_to_traverse.append("retrieve_scripture_node")
     if IntentType.LISTEN_TO_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("handle_listen_to_scripture_node")
+        nodes_to_traverse.append("listen_to_scripture_node")
     if IntentType.TRANSLATE_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("handle_translate_scripture_node")
+        nodes_to_traverse.append("translate_scripture_node")
 
     return nodes_to_traverse
 
@@ -1918,7 +1918,7 @@ def _resolve_selection_for_single_book(
     return canonical_book, ranges, None
 
 
-def handle_get_passage_summary(state: Any) -> dict:
+def get_passage_summary(state: Any) -> dict:
     """Handle get-passage-summary: extract refs, retrieve verses, summarize.
 
     - If user query language is not English, translate the transformed query to English
@@ -2010,7 +2010,7 @@ def handle_get_passage_summary(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
 
 
-def handle_get_passage_keywords(state: Any) -> dict:
+def get_passage_keywords(state: Any) -> dict:
     """Handle get-passage-keywords: extract refs, retrieve keywords, and list them.
 
     Mirrors the summary flow for selection parsing and validation, but instead of
@@ -2073,7 +2073,7 @@ Style:
 """
 
 
-def handle_get_translation_helps(state: Any) -> dict:
+def get_translation_helps(state: Any) -> dict:
     """Handle get-translation-helps: extract refs, load helps, and guide.
 
     - Parse and validate a single-book selection via the shared helper.
@@ -2178,7 +2178,7 @@ def handle_get_translation_helps(state: Any) -> dict:
     return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": response_text}]}
 
 
-def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
+def retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
     """Handle retrieve-scripture with optional auto-translation.
 
     Behavior:
@@ -2386,17 +2386,17 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
     return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
 
 
-def handle_listen_to_scripture(state: Any) -> dict:
+def listen_to_scripture(state: Any) -> dict:
     """Delegate to retrieve-scripture and request voice delivery.
 
     Reuses retrieve-scripture end-to-end (selection, retrieval, translation, formatting)
     and sets a delivery hint that the API should send a voice message.
     """
-    out = handle_retrieve_scripture(state)
+    out = retrieve_scripture(state)
     out["send_voice_message"] = True
     return out
 
-def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
+def translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
     """Handle translate-scripture: return verses translated into a target language.
 
     - Extract passage selection via the shared helper.
@@ -2660,12 +2660,12 @@ def create_brain():
     builder.add_node("handle_unsupported_function_node", wrap_node_with_timing(handle_unsupported_function, "handle_unsupported_function_node"))
     builder.add_node("handle_system_information_request_node", wrap_node_with_timing(handle_system_information_request, "handle_system_information_request_node"))
     builder.add_node("converse_with_bt_servant_node", wrap_node_with_timing(converse_with_bt_servant, "converse_with_bt_servant_node"))
-    builder.add_node("handle_get_passage_summary_node", wrap_node_with_timing(handle_get_passage_summary, "handle_get_passage_summary_node"))
-    builder.add_node("handle_get_passage_keywords_node", wrap_node_with_timing(handle_get_passage_keywords, "handle_get_passage_keywords_node"))
-    builder.add_node("handle_get_translation_helps_node", wrap_node_with_timing(handle_get_translation_helps, "handle_get_translation_helps_node"))
-    builder.add_node("handle_retrieve_scripture_node", wrap_node_with_timing(handle_retrieve_scripture, "handle_retrieve_scripture_node"))
-    builder.add_node("handle_listen_to_scripture_node", wrap_node_with_timing(handle_listen_to_scripture, "handle_listen_to_scripture_node"))
-    builder.add_node("handle_translate_scripture_node", wrap_node_with_timing(handle_translate_scripture, "handle_translate_scripture_node"))
+    builder.add_node("get_passage_summary_node", wrap_node_with_timing(get_passage_summary, "get_passage_summary_node"))
+    builder.add_node("get_passage_keywords_node", wrap_node_with_timing(get_passage_keywords, "get_passage_keywords_node"))
+    builder.add_node("get_translation_helps_node", wrap_node_with_timing(get_translation_helps, "get_translation_helps_node"))
+    builder.add_node("retrieve_scripture_node", wrap_node_with_timing(retrieve_scripture, "retrieve_scripture_node"))
+    builder.add_node("listen_to_scripture_node", wrap_node_with_timing(listen_to_scripture, "listen_to_scripture_node"))
+    builder.add_node("translate_scripture_node", wrap_node_with_timing(translate_scripture, "translate_scripture_node"))
     builder.add_node("translate_responses_node", wrap_node_with_timing(translate_responses, "translate_responses_node"), defer=True)
 
     builder.set_entry_point("start_node")
@@ -2684,12 +2684,12 @@ def create_brain():
     builder.add_edge("handle_unsupported_function_node", "translate_responses_node")
     builder.add_edge("handle_system_information_request_node", "translate_responses_node")
     builder.add_edge("converse_with_bt_servant_node", "translate_responses_node")
-    builder.add_edge("handle_get_passage_summary_node", "translate_responses_node")
-    builder.add_edge("handle_get_passage_keywords_node", "translate_responses_node")
-    builder.add_edge("handle_get_translation_helps_node", "translate_responses_node")
-    builder.add_edge("handle_retrieve_scripture_node", "translate_responses_node")
-    builder.add_edge("handle_listen_to_scripture_node", "translate_responses_node")
-    builder.add_edge("handle_translate_scripture_node", "translate_responses_node")
+    builder.add_edge("get_passage_summary_node", "translate_responses_node")
+    builder.add_edge("get_passage_keywords_node", "translate_responses_node")
+    builder.add_edge("get_translation_helps_node", "translate_responses_node")
+    builder.add_edge("retrieve_scripture_node", "translate_responses_node")
+    builder.add_edge("listen_to_scripture_node", "translate_responses_node")
+    builder.add_edge("translate_scripture_node", "translate_responses_node")
     builder.add_edge("query_open_ai_node", "translate_responses_node")
 
     builder.add_conditional_edges(

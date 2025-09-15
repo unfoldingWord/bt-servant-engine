@@ -94,7 +94,7 @@ def test_selection_helper_tokens_roll_into_parent_span(monkeypatch: pytest.Monke
     monkeypatch.setattr(brain.open_ai_client.responses, "parse", _fake_parse)
 
     # Open a span matching the keywords node; helper should add tokens to it
-    with perf.time_block("brain:handle_get_passage_keywords_node"):
+    with perf.time_block("brain:get_passage_keywords_node"):
         # Accessing a protected helper is acceptable in tests for coverage
         # of token attribution in the selection phase.
         book, ranges, err = brain._resolve_selection_for_single_book(  # pylint: disable=protected-access
@@ -106,8 +106,8 @@ def test_selection_helper_tokens_roll_into_parent_span(monkeypatch: pytest.Monke
     assert book == "John" and ranges is not None
 
     report = perf.summarize_report(tid)
-    span = _find_span(report, "brain:handle_get_passage_keywords_node")
-    assert span is not None, "expected a span for handle_get_passage_keywords_node"
+    span = _find_span(report, "brain:get_passage_keywords_node")
+    assert span is not None, "expected a span for get_passage_keywords_node"
     assert span.get("input_tokens_expended") == 30
     assert span.get("output_tokens_expended") == 5
     assert span.get("total_tokens_expended") == 35
