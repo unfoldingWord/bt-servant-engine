@@ -2357,32 +2357,26 @@ def retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches
             _norm_ws(translate_text(response_text=str(txt), target_language=desired_target)) for _ref, txt in verses
         ]
         translated_body = " ".join(translated_lines)
-        response_obj = {
-            "suppress_translation": True,
-            "content_language": desired_target,
-            "header_is_translated": True,
-            "segments": [
-                {"type": "header_book", "text": translated_book},
-                {"type": "header_suffix", "text": suffix},
-                {"type": "scripture", "text": translated_body},
-            ],
-        }
+        response_obj = _make_scripture_response(
+            content_language=desired_target,
+            header_book=translated_book,
+            header_suffix=suffix,
+            scripture_text=translated_body,
+            header_is_translated=True,
+        )
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
 
     # No auto-translation required; return verbatim with canonical header (to be localized downstream if desired)
     # Load localized titles for the resolved source language (if present)
     titles_map = load_book_titles(data_root)
     header_book = titles_map.get(canonical_book) or get_book_name(str(resolved_lang), canonical_book)
-    response_obj = {
-        "suppress_translation": True,
-        "content_language": str(resolved_lang),
-        "header_is_translated": False,
-        "segments": [
-            {"type": "header_book", "text": header_book},
-            {"type": "header_suffix", "text": suffix},
-            {"type": "scripture", "text": scripture_text},
-        ],
-    }
+    response_obj = _make_scripture_response(
+        content_language=str(resolved_lang),
+        header_book=header_book,
+        header_suffix=suffix,
+        scripture_text=scripture_text,
+        header_is_translated=False,
+    )
     return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
 
 
@@ -2508,6 +2502,39 @@ def _fallback_target_language(s: BrainState) -> Optional[str]:  # type: ignore[n
     return None
 
 
+def _make_scripture_response(
+    content_language: str,
+    header_book: str,
+    header_suffix: str,
+    scripture_text: str,
+    header_is_translated: bool,
+) -> dict:
+    return {
+        "suppress_translation": True,
+        "content_language": content_language,
+        "header_is_translated": header_is_translated,
+        "segments": [
+            {"type": "header_book", "text": header_book},
+            {"type": "header_suffix", "text": header_suffix},
+            {"type": "scripture", "text": scripture_text},
+        ],
+    }
+
+
+def _make_scripture_response_from_translated(
+    canonical_book: str,
+    header_suffix: str,
+    translated: TranslatedPassage,
+) -> dict:
+    return _make_scripture_response(
+        content_language=str(translated.content_language.value),
+        header_book=translated.header_book or canonical_book,
+        header_suffix=translated.header_suffix or header_suffix,
+        scripture_text=_norm_ws(translated.body),
+        header_is_translated=True,
+    )
+
+
 def _resolve_source_bible(s: BrainState):  # type: ignore[no-untyped-def]
     try:
         data_root, resolved_lang, resolved_version = resolve_bible_data_root(
@@ -2585,16 +2612,13 @@ def translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branche
 
     # If target is same as source, return verbatim
     if target_code == resolved_lang:
-        response_obj = {
-            "suppress_translation": True,
-            "content_language": str(resolved_lang),
-            "header_is_translated": False,
-            "segments": [
-                {"type": "header_book", "text": canonical_book},
-                {"type": "header_suffix", "text": header_suffix},
-                {"type": "scripture", "text": body_src},
-            ],
-        }
+        response_obj = _make_scripture_response(
+            content_language=str(resolved_lang),
+            header_book=canonical_book,
+            header_suffix=header_suffix,
+            scripture_text=body_src,
+            header_is_translated=False,
+        )
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
 
     # Try structured translation; fall back to simple text translation
@@ -2602,27 +2626,19 @@ def translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branche
     if translated is None:
         translated_body = _norm_ws(translate_text(response_text=body_src, target_language=cast(str, target_code)))
         translated_book = translate_text(response_text=canonical_book, target_language=cast(str, target_code))
-        response_obj = {
-            "suppress_translation": True,
-            "content_language": cast(str, target_code),
-            "header_is_translated": True,
-            "segments": [
-                {"type": "header_book", "text": translated_book},
-                {"type": "header_suffix", "text": header_suffix},
-                {"type": "scripture", "text": translated_body},
-            ],
-        }
+        response_obj = _make_scripture_response(
+            content_language=cast(str, target_code),
+            header_book=translated_book,
+            header_suffix=header_suffix,
+            scripture_text=translated_body,
+            header_is_translated=True,
+        )
     else:
-        response_obj = {
-            "suppress_translation": True,
-            "content_language": str(translated.content_language.value),
-            "header_is_translated": True,
-            "segments": [
-                {"type": "header_book", "text": translated.header_book or canonical_book},
-                {"type": "header_suffix", "text": translated.header_suffix or header_suffix},
-                {"type": "scripture", "text": _norm_ws(translated.body)},
-            ],
-        }
+        response_obj = _make_scripture_response_from_translated(
+            canonical_book=canonical_book,
+            header_suffix=header_suffix,
+            translated=translated,
+        )
     return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
 
 

@@ -41,6 +41,12 @@
 - Higher-level functions should compose behavior by orchestrating calls to lower-level helpers rather than inlining large blocks of logic.
 - Refactor toward helpers when a function starts mixing concerns (e.g., parsing inputs, validation, retrieval, transformation, and formatting).
 
+#### Small Helpers Are Encouraged
+- Extract tiny private helpers (`_helper_name`) for repeated response shapes or micro-transformations.
+  - Example: `_make_scripture_response(...)` centralizes the standard scripture response payload used by multiple intents.
+  - Example: `_make_scripture_response_from_translated(...)` adapts a `TranslatedPassage` to the standard payload.
+- Prefer using these helpers across handlers (e.g., `translate_scripture`, `retrieve_scripture`) to avoid duplication and keep orchestration functions lean.
+
 ### Linting & Type-Checking Policy
 - Always run linters and type-checkers on the entire project, not a subset:
   - `ruff check .`
