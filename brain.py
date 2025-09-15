@@ -2073,6 +2073,59 @@ Style:
 """
 
 
+def _make_translation_helps_context(
+    canonical_book: str,
+    limited_ranges,  # type: ignore[no-untyped-def]
+    helps: list[dict],
+) -> tuple[str, dict]:
+    ref_label = label_ranges(canonical_book, limited_ranges)
+    context_obj = {
+        "reference_label": ref_label,
+        "selection": {
+            "book": canonical_book,
+            "ranges": [
+                {
+                    "start_chapter": sc,
+                    "start_verse": sv,
+                    "end_chapter": ec,
+                    "end_verse": ev,
+                }
+                for (sc, sv, ec, ev) in limited_ranges
+            ],
+        },
+        "translation_helps": helps,
+    }
+    return ref_label, context_obj
+
+
+def _run_translation_helps_llm(ref_label: str, context_obj: dict, helps_count: int) -> str:
+    messages: list[EasyInputMessageParam] = [
+        {"role": "developer", "content": f"Selection: {ref_label}"},
+        {"role": "developer", "content": "Use the JSON context below strictly:"},
+        {"role": "developer", "content": json.dumps(context_obj, ensure_ascii=False)},
+        {"role": "user", "content": "Using the provided context, explain the translation challenges and give actionable guidance for this selection."},
+    ]
+    logger.info("[translation-helps] invoking LLM with %d helps", helps_count)
+    resp = open_ai_client.responses.create(
+        model="gpt-4o",
+        instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
+        input=cast(Any, messages),
+        store=False,
+    )
+    usage = getattr(resp, "usage", None)
+    if usage is not None:
+        it = getattr(usage, "input_tokens", None)
+        ot = getattr(usage, "output_tokens", None)
+        tt = getattr(usage, "total_tokens", None)
+        if tt is None and (it is not None or ot is not None):
+            tt = (it or 0) + (ot or 0)
+        cit = _extract_cached_input_tokens(usage)
+        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+    text = resp.output_text
+    header = f"Translation helps for {ref_label}\n\n"
+    return header + (text or "")
+
+
 def get_translation_helps(state: Any) -> dict:
     """Handle get-translation-helps: extract refs, load helps, and guide.
 
@@ -2092,7 +2145,8 @@ def get_translation_helps(state: Any) -> dict:
 
     th_root = Path("sources") / "translation_helps"
     logger.info("[translation-helps] loading helps from %s", th_root)
-    # Special-case: book entirely missing from translation helps dataset
+
+    # Early exit if the entire book is missing from TH dataset
     missing_books = set(get_missing_th_books(th_root))
     if canonical_book in missing_books:
         abbrs = sorted(BSB_BOOK_MAP[b]["ref_abbr"] for b in missing_books)
@@ -2103,7 +2157,8 @@ def get_translation_helps(state: Any) -> dict:
             "Would you like translation help for one of the supported books instead?"
         )
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
-    # Count total verses first; if above limit, return a user-facing error instead of truncating
+
+    # Enforce verse limit and clamp selection
     bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
     verse_count = len(select_verses(bsb_root, canonical_book, ranges))
     if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
@@ -2113,7 +2168,6 @@ def get_translation_helps(state: Any) -> dict:
             f"Your selection {ref_label_over} includes {verse_count} verses. Please narrow the range (e.g., a chapter or a shorter span)."
         )
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
-    # Enforce verse-count limit to control context/token size
     limited_ranges = clamp_ranges_by_verse_limit(
         bsb_root,
         canonical_book,
@@ -2123,6 +2177,7 @@ def get_translation_helps(state: Any) -> dict:
     if not limited_ranges:
         msg = "I couldn't identify verses for that selection in the BSB index. Please try another reference."
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
+
     helps = select_translation_helps(th_root, canonical_book, limited_ranges)
     logger.info("[translation-helps] selected %d help entries", len(helps))
     if not helps:
@@ -2131,50 +2186,8 @@ def get_translation_helps(state: Any) -> dict:
         )
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
 
-    ref_label = label_ranges(canonical_book, limited_ranges)
-    context_obj = {
-        "reference_label": ref_label,
-        "selection": {
-            "book": canonical_book,
-            "ranges": [
-                {
-                    "start_chapter": sc,
-                    "start_verse": sv,
-                    "end_chapter": ec,
-                    "end_verse": ev,
-                }
-                for (sc, sv, ec, ev) in limited_ranges
-            ],
-        },
-        "translation_helps": helps,
-    }
-
-    messages: list[EasyInputMessageParam] = [
-        {"role": "developer", "content": f"Selection: {ref_label}"},
-        {"role": "developer", "content": "Use the JSON context below strictly:"},
-        {"role": "developer", "content": json.dumps(context_obj, ensure_ascii=False)},
-        {"role": "user", "content": "Using the provided context, explain the translation challenges and give actionable guidance for this selection."},
-    ]
-
-    logger.info("[translation-helps] invoking LLM with %d helps", len(helps))
-    resp = open_ai_client.responses.create(
-        model="gpt-4o",
-        instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        store=False,
-    )
-    usage = getattr(resp, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    text = resp.output_text
-    header = f"Translation helps for {ref_label}\n\n"
-    response_text = header + (text or "")
+    ref_label, context_obj = _make_translation_helps_context(canonical_book, limited_ranges, helps)
+    response_text = _run_translation_helps_llm(ref_label, context_obj, len(helps))
     return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": response_text}]}
 
 
@@ -2206,164 +2219,30 @@ def retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches
     assert canonical_book is not None and ranges is not None
 
     # 2) Detect explicit requested source language (e.g., "in Indonesian").
-    #    Use the same structured parser used for translate-scripture to keep
-    #    language extraction robust, then fall back to a minimal regex.
-    requested_lang: Optional[str] = None
-    try:
-        tl_resp = open_ai_client.responses.parse(
-            model="gpt-4o",
-            instructions=TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
-            input=cast(Any, [{"role": "user", "content": f"message: {query}"}]),
-            text_format=ResponseLanguage,
-            temperature=0,
-            store=False,
-        )
-        tl_usage = getattr(tl_resp, "usage", None)
-        if tl_usage is not None:
-            it = getattr(tl_usage, "input_tokens", None)
-            ot = getattr(tl_usage, "output_tokens", None)
-            tt = getattr(tl_usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(tl_usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-        tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
-        if tl_parsed and tl_parsed.language != Language.OTHER:
-            requested_lang = str(tl_parsed.language.value)
-    except OpenAIError:
-        logger.info("[retrieve-scripture] requested-language parse failed; will fallback", exc_info=True)
-    except Exception:  # pylint: disable=broad-except
-        logger.info("[retrieve-scripture] requested-language parse failed (generic); will fallback", exc_info=True)
-    if not requested_lang:
-        m = re.search(r"\b(?:in|from the|from)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
-        if m:
-            # Map name → ISO code when possible
-            name = m.group(1).strip().title()
-            for code, friendly in supported_language_map.items():
-                if friendly.lower() == name.lower():
-                    requested_lang = code
-                    break
+    requested_lang = _resolve_requested_source_language(query)
 
     # 3) Resolve bible data root path with fallbacks
-    try:
-        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
-            response_language=s.get("user_response_language"),
-            query_language=s.get("query_language"),
-            requested_lang=requested_lang,
-            requested_version=None,
-        )
-        logger.info(
-            "[retrieve-scripture] data_root=%s lang=%s version=%s",
-            data_root,
-            resolved_lang,
-            resolved_version,
-        )
-    except FileNotFoundError:
-        # Catalog available options for a friendly message
-        avail = list_available_sources()
-        if not avail:
-            msg = (
-                "Scripture data is not available on this server. Please contact the administrator."
-            )
-            return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
-        options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
-        msg = (
-            f"I couldn't find a Bible source matching your request. Available sources: {options}. "
-            f"Would you like me to use one of these?"
-        )
-        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
+    src = _resolve_source_bible_with_requested(s, requested_lang)
+    if isinstance(src, str):
+        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": src}]}
+    data_root, resolved_lang, _resolved_version = src
 
     # 4) Enforce verse-count limit before retrieval to avoid oversized selections
-    total_verses = len(select_verses(data_root, canonical_book, ranges))
-    if total_verses > config.RETRIEVE_SCRIPTURE_VERSE_LIMIT:
-        ref_label_over = label_ranges(canonical_book, ranges)
-        msg = (
-            f"I can only retrieve up to {config.RETRIEVE_SCRIPTURE_VERSE_LIMIT} verses at a time. "
-            f"Your selection {ref_label_over} includes {total_verses} verses. "
-            "Please narrow the range (e.g., a chapter or a shorter span)."
-        )
-        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
+    # 4–5) Check limits and retrieve verses
+    verses = _enforce_retrieve_limit_and_select(data_root, canonical_book, ranges)
+    if isinstance(verses, str):
+        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": verses}]}
 
-    # 5) Retrieve exact verses (now known to be within limit)
-    verses = select_verses(data_root, canonical_book, ranges)
-    if not verses:
-        msg = (
-            "I couldn't locate those verses in the Bible data. Please check the reference and try again."
-        )
-        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
-
-    # 6) Build header segments (book + suffix) and scripture segment
-    ref_label = label_ranges(canonical_book, ranges)
-    # Derive suffix by removing leading book name, when present
-    suffix = ""
-    if ref_label == canonical_book:
-        suffix = ""
-    elif ref_label.startswith(f"{canonical_book} "):
-        suffix = ref_label[len(canonical_book) + 1 :]
-    else:
-        suffix = ref_label
-    # Build a flowing paragraph of verse text without chapter:verse labels
-    def _norm_ws(s: str) -> str:
-        return re.sub(r"\s+", " ", s).strip()
-
-    scripture_lines: list[str] = []
-    for _ref, txt in verses:
-        scripture_lines.append(_norm_ws(str(txt)))
-    # Join with a single space to create a continuous block
-    scripture_text = " ".join(scripture_lines)
+    # 6) Header suffix and body paragraph
+    suffix = _compute_header_suffix(canonical_book, ranges)
+    scripture_text = " ".join(_norm_ws(str(txt)) for _ref, txt in verses)
 
     # 7) Decide on auto-translation target
-    desired_target: Optional[str] = None
-    # If the user explicitly requested a language but the resolved source differs,
-    # prefer translating to that requested language.
-    if requested_lang and requested_lang != resolved_lang:
-        desired_target = requested_lang
-    # Otherwise, use response_language (if set) or query_language when they differ
-    # from the resolved source language.
-    if not desired_target and not requested_lang:
-        url = cast(Optional[str], s.get("user_response_language"))
-        ql = cast(Optional[str], s.get("query_language"))
-        target_pref = url or ql
-        if target_pref and target_pref != resolved_lang:
-            desired_target = target_pref
+    desired_target = _decide_retrieve_target(s, requested_lang, resolved_lang)
 
     # If we have a target and it's a supported language code, auto-translate body + header
     if desired_target and desired_target in supported_language_map:
-        # Localize header book name using target language titles when possible;
-        # fall back to a static map; finally, LLM-translate as last resort.
-        translated_book = None
-        try:
-            t_root, _t_lang, _t_ver = resolve_bible_data_root(
-                response_language=None,
-                query_language=None,
-                requested_lang=desired_target,
-                requested_version=None,
-            )
-            t_titles = load_book_titles(t_root)
-            translated_book = t_titles.get(canonical_book)
-        except FileNotFoundError:
-            translated_book = None
-        if not translated_book:
-            static_name = get_book_name(desired_target, canonical_book)
-            if static_name != canonical_book:
-                translated_book = static_name
-            else:
-                # As a last resort, translate the canonical book name with the LLM.
-                translated_book = translate_text(
-                    response_text=canonical_book, target_language=desired_target
-                )
-        # Translate each verse text and join into a flowing paragraph
-        translated_lines: list[str] = [
-            _norm_ws(translate_text(response_text=str(txt), target_language=desired_target)) for _ref, txt in verses
-        ]
-        translated_body = " ".join(translated_lines)
-        response_obj = _make_scripture_response(
-            content_language=desired_target,
-            header_book=translated_book,
-            header_suffix=suffix,
-            scripture_text=translated_body,
-            header_is_translated=True,
-        )
+        response_obj = _autotranslate_scripture_response(verses, canonical_book, suffix, desired_target)
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
 
     # No auto-translation required; return verbatim with canonical header (to be localized downstream if desired)
@@ -2531,6 +2410,132 @@ def _make_scripture_response_from_translated(
         header_book=translated.header_book or canonical_book,
         header_suffix=translated.header_suffix or header_suffix,
         scripture_text=_norm_ws(translated.body),
+        header_is_translated=True,
+    )
+
+
+def _resolve_requested_source_language(query: str) -> Optional[str]:
+    requested_lang: Optional[str] = None
+    try:
+        tl_resp = open_ai_client.responses.parse(
+            model="gpt-4o",
+            instructions=TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
+            input=cast(Any, [{"role": "user", "content": f"message: {query}"}]),
+            text_format=ResponseLanguage,
+            temperature=0,
+            store=False,
+        )
+        tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
+        tl_usage = getattr(tl_resp, "usage", None)
+        if tl_usage is not None:
+            it = getattr(tl_usage, "input_tokens", None)
+            ot = getattr(tl_usage, "output_tokens", None)
+            tt = getattr(tl_usage, "total_tokens", None)
+            if tt is None and (it is not None or ot is not None):
+                tt = (it or 0) + (ot or 0)
+            cit = _extract_cached_input_tokens(tl_usage)
+            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        if tl_parsed and tl_parsed.language != Language.OTHER:
+            requested_lang = str(tl_parsed.language.value)
+    except OpenAIError:
+        logger.info("[retrieve-scripture] requested-language parse failed; will fallback", exc_info=True)
+    except Exception:  # pylint: disable=broad-except
+        logger.info("[retrieve-scripture] requested-language parse failed (generic); will fallback", exc_info=True)
+    if not requested_lang:
+        m = re.search(r"\b(?:in|from the|from)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
+        if m:
+            name = m.group(1).strip().title()
+            for code, friendly in supported_language_map.items():
+                if friendly.lower() == name.lower():
+                    requested_lang = code
+                    break
+    return requested_lang
+
+
+def _resolve_source_bible_with_requested(s: BrainState, requested_lang: Optional[str]):  # type: ignore[no-untyped-def]
+    try:
+        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
+            response_language=s.get("user_response_language"),
+            query_language=s.get("query_language"),
+            requested_lang=requested_lang,
+            requested_version=None,
+        )
+        logger.info(
+            "[retrieve-scripture] data_root=%s lang=%s version=%s",
+            data_root,
+            resolved_lang,
+            resolved_version,
+        )
+        return data_root, resolved_lang, resolved_version
+    except FileNotFoundError:
+        avail = list_available_sources()
+        if not avail:
+            return "Scripture data is not available on this server. Please contact the administrator."
+        options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
+        return (
+            f"I couldn't find a Bible source matching your request. Available sources: {options}. "
+            f"Would you like me to use one of these?"
+        )
+
+
+def _enforce_retrieve_limit_and_select(data_root: Path, canonical_book: str, ranges):  # type: ignore[no-untyped-def]
+    total_verses = len(select_verses(data_root, canonical_book, ranges))
+    if total_verses > config.RETRIEVE_SCRIPTURE_VERSE_LIMIT:
+        ref_label_over = label_ranges(canonical_book, ranges)
+        return (
+            f"I can only retrieve up to {config.RETRIEVE_SCRIPTURE_VERSE_LIMIT} verses at a time. "
+            f"Your selection {ref_label_over} includes {total_verses} verses. "
+            "Please narrow the range (e.g., a chapter or a shorter span)."
+        )
+    verses = select_verses(data_root, canonical_book, ranges)
+    if not verses:
+        return "I couldn't locate those verses in the Bible data. Please check the reference and try again."
+    return verses
+
+
+def _decide_retrieve_target(s: BrainState, requested_lang: Optional[str], resolved_lang: str) -> Optional[str]:  # type: ignore[no-untyped-def]
+    if requested_lang and requested_lang != resolved_lang:
+        return requested_lang
+    url = cast(Optional[str], s.get("user_response_language"))
+    ql = cast(Optional[str], s.get("query_language"))
+    target_pref = url or ql
+    if target_pref and target_pref != resolved_lang:
+        return target_pref
+    return None
+
+
+def _localize_book_name_for_target(canonical_book: str, target_code: str) -> str:
+    try:
+        t_root, _t_lang, _t_ver = resolve_bible_data_root(
+            response_language=None,
+            query_language=None,
+            requested_lang=target_code,
+            requested_version=None,
+        )
+        t_titles = load_book_titles(t_root)
+        translated_book = t_titles.get(canonical_book)
+    except FileNotFoundError:
+        translated_book = None
+    if not translated_book:
+        static_name = get_book_name(target_code, canonical_book)
+        if static_name != canonical_book:
+            translated_book = static_name
+        else:
+            translated_book = translate_text(response_text=canonical_book, target_language=target_code)
+    return cast(str, translated_book)
+
+
+def _autotranslate_scripture_response(verses, canonical_book: str, header_suffix: str, target_code: str):  # type: ignore[no-untyped-def]
+    translated_book = _localize_book_name_for_target(canonical_book, target_code)
+    translated_lines: list[str] = [
+        _norm_ws(translate_text(response_text=str(txt), target_language=target_code)) for _ref, txt in verses
+    ]
+    translated_body = " ".join(translated_lines)
+    return _make_scripture_response(
+        content_language=target_code,
+        header_book=translated_book,
+        header_suffix=header_suffix,
+        scripture_text=translated_body,
         header_is_translated=True,
     )
 
