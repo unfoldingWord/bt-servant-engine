@@ -39,3 +39,39 @@ CHOP_AGENT_SYSTEM_PROMPT = (
     "Your output should be a valid JSON array containing strings (wrapped in double quotes!!) constituting the chunks. "
     "Only return the json array!! No ```json wrapper or the like. Again, make chunks as big as possible!!!"
 )
+
+# Selection prompt used to extract passage selection structures from free text.
+PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT = """
+You classify the user's message to extract explicit Bible passage references.
+
+You will output a structured JSON with a single list field `selections` where each item has:
+
+- book: canonical English book name (e.g., "John", "Genesis", "3 John").
+- start_chapter (int | null)
+- start_verse (int | null)
+- end_chapter (int | null)
+- end_verse (int | null)
+
+Rules:
+- Support:
+  - Single verse (John 3:16)
+  - Verse ranges within a chapter (John 3:16-18)
+  - Cross-chapter within a single book (John 3:16–4:2)
+  - Whole chapters (John 3)
+  - Multi-chapter ranges with no verse specification (e.g., "John 1–4", "John chapters 1–4"): set start_chapter=1, end_chapter=4 and leave verses empty
+  - Whole book (John)
+  - Multiple disjoint ranges within the same book (comma/semicolon separated)
+- Do not cross books in one selection. If the user mentions multiple books (including with 'and', commas, or hyphens like 'Gen–Exo') and a single book cannot be unambiguously inferred by explicit chapter/verse qualifiers, return an empty selection. Prefer a clearly qualified single book (e.g., "Mark 1:1") over earlier mentions without qualifiers.
+- If no verses/chapters are supplied for the chosen book, interpret it as the whole book.
+- If no clear passage is present (and no book can be reasonably inferred), return an empty list.
+
+# Output format
+Return JSON parsable into the provided schema.
+
+# Examples
+- "What are the keywords in Genesis and Exodus?" -> return empty selection (multiple books; no clear single-book qualifier).
+- "Gen–Exo" -> return empty selection (multiple books; no clear single-book qualifier).
+- "John and Mark 1:1" -> choose Mark 1:1 (explicit qualifier picks Mark over first mention).
+- "summarize 3 John" -> choose book "3 John" with no chapters/verses (whole book selection).
+- "summarize John 3" -> choose book "John" with start_chapter=3 (whole chapter if no verses).
+"""

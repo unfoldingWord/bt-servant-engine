@@ -20,7 +20,7 @@ from enum import Enum
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
-from langgraph.graph import END, StateGraph
+from langgraph.graph import END
 from pydantic import BaseModel
 
 from logger import get_logger
@@ -37,12 +37,19 @@ from utils.bible_data import resolve_bible_data_root, list_available_sources, lo
 from utils.keywords import select_keywords
 from utils.translation_helps import select_translation_helps, get_missing_th_books
 from utils.bible_locale import get_book_name
-from utils.perf import time_block, set_current_trace, add_tokens
+from utils.perf import add_tokens
 from servant_brain.prompts import (
     PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
     FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
     CHOP_AGENT_SYSTEM_PROMPT,
+    PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT,
 )
+import servant_brain.selection as selection_helpers
+from servant_brain.responses import (
+    make_scripture_response as _resp_make_scripture_response,
+    make_scripture_response_from_translated as _resp_make_scripture_response_from_translated,
+)
+from servant_brain.graph import process_intents as _graph_process_intents, create_brain as _graph_create
 from servant_brain.state import BrainState, Capability
 from servant_brain.classifier import (
     IntentType,
@@ -208,44 +215,7 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
 """
 
 
-PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT = """
-# Identity
 
-You classify the user's message to extract explicit Bible passage references.
-Return a normalized, structured selection of book + verse ranges.
-
-# Instructions
-
-- Only choose from these canonical book names (exact match):
-  {books}
-- Accept a variety of phrasings (e.g., "John 3:16", "Jn 3:16–18", "1 John 2:1-3", "Psalm 1", "Song of Songs 2").
-- Normalize all book names to the exact canonical name.
-- Numbered books are distinct canonical names. When a leading number precedes a book
-  (e.g., "1 John", "2 Samuel", "3 John"), treat the number as part of the book name —
-  it is NOT a chapter reference. For example, "3 John" means the book "3 John"
-  (and the whole book if no chapter/verse is given), whereas "John 3" means chapter 3 of "John".
-- Support:
-  - Single verse (John 3:16)
-  - Verse ranges within a chapter (John 3:16-18)
-  - Cross-chapter within a single book (John 3:16–4:2)
-  - Whole chapters (John 3)
-  - Multi-chapter ranges with no verse specification (e.g., "John 1–4", "John chapters 1–4"): set start_chapter=1, end_chapter=4 and leave verses empty
-  - Whole book (John)
-  - Multiple disjoint ranges within the same book (comma/semicolon separated)
-- Do not cross books in one selection. If the user mentions multiple books (including with 'and', commas, or hyphens like 'Gen–Exo') and a single book cannot be unambiguously inferred by explicit chapter/verse qualifiers, return an empty selection. Prefer a clearly qualified single book (e.g., "Mark 1:1") over earlier mentions without qualifiers.
-- If no verses/chapters are supplied for the chosen book, interpret it as the whole book.
-- If no clear passage is present (and no book can be reasonably inferred), return an empty list.
-
-# Output format
-Return JSON parsable into the provided schema.
-
-# Examples
-- "What are the keywords in Genesis and Exodus?" -> return empty selection (multiple books; no clear single-book qualifier).
-- "Gen–Exo" -> return empty selection (multiple books; no clear single-book qualifier).
-- "John and Mark 1:1" -> choose Mark 1:1 (explicit qualifier picks Mark over first mention).
-- "summarize 3 John" -> choose book "3 John" with no chapters/verses (whole book selection).
-- "summarize John 3" -> choose book "John" with start_chapter=3 (whole chapter if no verses).
-"""
 
 DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
 Task: Detect the language of the supplied user text and return the ISO 639-1 code from the allowed set.
@@ -1244,41 +1214,8 @@ def needs_chunking(state: BrainState) -> str:
 
 
 def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-branches
-    """Map detected intents to the list of nodes to traverse."""
-    s = cast(BrainState, state)
-    user_intents = s["user_intents"]
-    if not user_intents:
-        raise ValueError("no intents found. something went very wrong.")
-
-    nodes_to_traverse: List[Hashable] = []
-    if IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE in user_intents:
-        nodes_to_traverse.append("query_vector_db_node")
-    if IntentType.GET_PASSAGE_SUMMARY in user_intents:
-        nodes_to_traverse.append("get_passage_summary_node")
-    if IntentType.GET_PASSAGE_KEYWORDS in user_intents:
-        nodes_to_traverse.append("get_passage_keywords_node")
-    if IntentType.GET_TRANSLATION_HELPS in user_intents:
-        nodes_to_traverse.append("get_translation_helps_node")
-    if IntentType.RETRIEVE_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("retrieve_scripture_node")
-    if IntentType.LISTEN_TO_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("listen_to_scripture_node")
-    if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
-        nodes_to_traverse.append("set_response_language_node")
-    if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
-        nodes_to_traverse.append("handle_unsupported_function_node")
-    if IntentType.RETRIEVE_SYSTEM_INFORMATION in user_intents:
-        nodes_to_traverse.append("handle_system_information_request_node")
-    if IntentType.CONVERSE_WITH_BT_SERVANT in user_intents:
-        nodes_to_traverse.append("converse_with_bt_servant_node")
-    if IntentType.RETRIEVE_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("retrieve_scripture_node")
-    if IntentType.LISTEN_TO_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("listen_to_scripture_node")
-    if IntentType.TRANSLATE_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("translate_scripture_node")
-
-    return nodes_to_traverse
+    """Delegate to the split graph helper to decide next nodes."""
+    return _graph_process_intents(state)
 
 
 def handle_unsupported_function(state: Any) -> dict:
@@ -1445,137 +1382,20 @@ def _resolve_selection_for_single_book(
     query: str,
     query_lang: str,
 ) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
-    # pylint: disable=too-many-return-statements, too-many-branches
-    """Parse and normalize a user query into a single canonical book and ranges.
-
-    Returns a tuple of (canonical_book, ranges, error_message). On success, the
-    error_message is None. On failure, canonical_book and ranges are None and
-    error_message contains a user-friendly explanation.
-    """
-    logger.info("[selection-helper] start; query_lang=%s; query=%s", query_lang, query)
-
-    # Translate to English for parsing, if needed
-    if query_lang == Language.ENGLISH.value:
-        parse_input = query
-        logger.info("[selection-helper] parsing in English (no translation needed)")
-    else:
-        logger.info("[selection-helper] translating query to English for parsing")
-        parse_input = translate_text(query, target_language="en")
-
-    # Build selection prompt with canonical books
-    books = ", ".join(BSB_BOOK_MAP.keys())
-    system_prompt = PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT.format(books=books)
-    selection_messages: list[EasyInputMessageParam] = cast(List[EasyInputMessageParam], [
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": parse_input},
-    ])
-    logger.info("[selection-helper] extracting passage selection via LLM")
-    selection_resp = open_ai_client.responses.parse(
-        model="gpt-4o",
-        input=cast(Any, selection_messages),
-        text_format=PassageSelection,
-        store=False,
+    """Thin wrapper delegating to servant_brain.selection with the same contract."""
+    return selection_helpers.resolve_selection_for_single_book(
+        query=query,
+        query_lang=query_lang,
+        open_ai_client=open_ai_client,
+        PassageSelection=PassageSelection,
+        PassageRef=PassageRef,
+        add_tokens=add_tokens,
+        extract_cached_input_tokens=_extract_cached_input_tokens,
+        translate_text=translate_text,
+        books_map=BSB_BOOK_MAP,
+        normalize_book_name=normalize_book_name,
+        selection_prompt_template=PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT,
     )
-    usage = getattr(selection_resp, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    selection = cast(PassageSelection, selection_resp.output_parsed)
-    logger.info("[selection-helper] extracted %d selection(s)", len(selection.selections))
-
-    # Detect books explicitly mentioned in the user input for cross-book guardrails
-    mentioned = _detect_mentioned_books(parse_input)
-
-    # Heuristic correction for explicit "chapters X–Y"
-    lower_in = parse_input.lower()
-    chap_match = re.search(r"\bchapters?\s+(\d+)\s*[-–]\s*(\d+)\b", lower_in)
-    if chap_match and selection.selections:
-        a, b = int(chap_match.group(1)), int(chap_match.group(2))
-        logger.info("[selection-helper] correcting to multi-chapter range: %d-%d due to 'chapters' phrasing", a, b)
-        first = selection.selections[0]
-        selection.selections[0] = PassageRef(
-            book=first.book,
-            start_chapter=a,
-            start_verse=None,
-            end_chapter=b,
-            end_verse=None,
-        )
-
-    if not selection.selections:
-        # If multiple books are clearly mentioned, prefer consistent cross-book guidance,
-        # but allow a tie-break fallback when one has explicit digits nearby.
-        if len(mentioned) >= 2:
-            msg = (
-                "Please request a selection for one book at a time. "
-                "If you need multiple books, send a separate message for each."
-            )
-            logger.info("[selection-helper] empty parse; multiple books detected -> cross-book message")
-            return None, None, msg
-        if len(mentioned) == 1:
-            # Fallback: choose the single detected book as a whole-book selection.
-            primary = mentioned[0]
-            logger.info("[selection-helper] empty parse; falling back to single detected book: %s", primary)
-            return primary, [(1, None, 10_000, None)], None
-        msg = (
-            "I couldn't identify a clear Bible passage in your request. Supported selection types include: "
-            "single verse (e.g., John 3:16); verse range within a chapter (John 3:16-18); cross-chapter within a "
-            "single book (John 3:16–4:2); whole chapter (John 3); multi-chapter span with no verses (John 1–4); "
-            "or the whole book (John). Multiple books in one request are not supported — please choose one book."
-        )
-        logger.info("[selection-helper] no passage detected; returning guidance message")
-        return None, None, msg
-
-    # Note: Do not veto a successful single-book selection based on mentions.
-    # Mentions are only used for empty-parse fallback above.
-
-    # Ensure all selections are within the same canonical book and normalize
-    canonical_books: list[str] = []
-    normalized_selections: list[PassageRef] = []
-    for sel in selection.selections:
-        canonical = normalize_book_name(sel.book) or sel.book
-        if canonical not in BSB_BOOK_MAP:
-            supported = ", ".join(BSB_BOOK_MAP.keys())
-            msg = (
-                f"The book '{sel.book}' is not recognized. Please use a supported canonical book name. "
-                f"Supported books include: {supported}."
-            )
-            logger.info("[selection-helper] unsupported book requested: %s", sel.book)
-            return None, None, msg
-        canonical_books.append(canonical)
-        normalized_selections.append(PassageRef(
-            book=canonical,
-            start_chapter=sel.start_chapter,
-            start_verse=sel.start_verse,
-            end_chapter=sel.end_chapter,
-            end_verse=sel.end_verse,
-        ))
-
-    if len(set(canonical_books)) != 1:
-        msg = (
-            "Please request a selection for one book at a time. "
-            "If you need multiple books, send a separate message for each."
-        )
-        logger.info("[selection-helper] cross-book selection detected")
-        return None, None, msg
-
-    canonical_book = canonical_books[0]
-    logger.info("[selection-helper] canonical_book=%s", canonical_book)
-
-    # Build ranges: if no chapter info, interpret as whole book
-    ranges: list[tuple[int, int | None, int | None, int | None]] = []
-    for sel in normalized_selections:
-        if sel.start_chapter is None:
-            ranges.append((1, None, 10_000, None))
-        else:
-            ranges.append((sel.start_chapter, sel.start_verse, sel.end_chapter, sel.end_verse))
-
-    logger.info("[selection-helper] ranges=%s", ranges)
-    return canonical_book, ranges, None
 
 
 def get_passage_summary(state: Any) -> dict:
@@ -2048,16 +1868,13 @@ def _make_scripture_response(
     scripture_text: str,
     header_is_translated: bool,
 ) -> dict:
-    return {
-        "suppress_translation": True,
-        "content_language": content_language,
-        "header_is_translated": header_is_translated,
-        "segments": [
-            {"type": "header_book", "text": header_book},
-            {"type": "header_suffix", "text": header_suffix},
-            {"type": "scripture", "text": scripture_text},
-        ],
-    }
+    return _resp_make_scripture_response(
+        content_language=content_language,
+        header_book=header_book,
+        header_suffix=header_suffix,
+        scripture_text=scripture_text,
+        header_is_translated=header_is_translated,
+    )
 
 
 def _make_scripture_response_from_translated(
@@ -2065,12 +1882,10 @@ def _make_scripture_response_from_translated(
     header_suffix: str,
     translated: TranslatedPassage,
 ) -> dict:
-    return _make_scripture_response(
-        content_language=str(translated.content_language.value),
-        header_book=translated.header_book or canonical_book,
-        header_suffix=translated.header_suffix or header_suffix,
-        scripture_text=_norm_ws(translated.body),
-        header_is_translated=True,
+    return _resp_make_scripture_response_from_translated(
+        canonical_book=canonical_book,
+        header_suffix=header_suffix,
+        translated=translated,
     )
 
 
@@ -2308,68 +2123,26 @@ def translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branche
 
 
 def create_brain():
-    """Assemble and compile the LangGraph for the BT Servant brain."""
-    def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-def]
-        def wrapped(state: Any) -> dict:
-            trace_id = cast(dict, state).get("perf_trace_id")
-            if trace_id:
-                set_current_trace(cast(Optional[str], trace_id))
-            with time_block(f"brain:{node_name}"):
-                return node_fn(state)
-        return wrapped
-    def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
-        # Accept Any to satisfy IDE variance on schema param; schema is BrainState
-        return StateGraph(schema)
-
-    builder: StateGraph[BrainState] = _make_state_graph(BrainState)
-
-    builder.add_node("start_node", wrap_node_with_timing(start, "start_node"))
-    builder.add_node("determine_query_language_node", wrap_node_with_timing(determine_query_language, "determine_query_language_node"))
-    builder.add_node("preprocess_user_query_node", wrap_node_with_timing(preprocess_user_query, "preprocess_user_query_node"))
-    builder.add_node("determine_intents_node", wrap_node_with_timing(determine_intents, "determine_intents_node"))
-    builder.add_node("set_response_language_node", wrap_node_with_timing(set_response_language, "set_response_language_node"))
-    builder.add_node("query_vector_db_node", wrap_node_with_timing(query_vector_db, "query_vector_db_node"))
-    builder.add_node("query_open_ai_node", wrap_node_with_timing(query_open_ai, "query_open_ai_node"))
-    builder.add_node("chunk_message_node", wrap_node_with_timing(chunk_message, "chunk_message_node"))
-    builder.add_node("handle_unsupported_function_node", wrap_node_with_timing(handle_unsupported_function, "handle_unsupported_function_node"))
-    builder.add_node("handle_system_information_request_node", wrap_node_with_timing(handle_system_information_request, "handle_system_information_request_node"))
-    builder.add_node("converse_with_bt_servant_node", wrap_node_with_timing(converse_with_bt_servant, "converse_with_bt_servant_node"))
-    builder.add_node("get_passage_summary_node", wrap_node_with_timing(get_passage_summary, "get_passage_summary_node"))
-    builder.add_node("get_passage_keywords_node", wrap_node_with_timing(get_passage_keywords, "get_passage_keywords_node"))
-    builder.add_node("get_translation_helps_node", wrap_node_with_timing(get_translation_helps, "get_translation_helps_node"))
-    builder.add_node("retrieve_scripture_node", wrap_node_with_timing(retrieve_scripture, "retrieve_scripture_node"))
-    builder.add_node("listen_to_scripture_node", wrap_node_with_timing(listen_to_scripture, "listen_to_scripture_node"))
-    builder.add_node("translate_scripture_node", wrap_node_with_timing(translate_scripture, "translate_scripture_node"))
-    builder.add_node("translate_responses_node", wrap_node_with_timing(translate_responses, "translate_responses_node"), defer=True)
-
-    builder.set_entry_point("start_node")
-    builder.add_edge("start_node", "determine_query_language_node")
-    builder.add_edge("determine_query_language_node", "preprocess_user_query_node")
-    builder.add_edge("preprocess_user_query_node", "determine_intents_node")
-    builder.add_conditional_edges(
-        "determine_intents_node",
-        process_intents
-    )
-    builder.add_edge("query_vector_db_node", "query_open_ai_node")
-    builder.add_edge("set_response_language_node", "translate_responses_node")
-    # After chunking, finish. Do not loop back to translate, which can recreate
-    # the long message and trigger an infinite chunk cycle.
-
-    builder.add_edge("handle_unsupported_function_node", "translate_responses_node")
-    builder.add_edge("handle_system_information_request_node", "translate_responses_node")
-    builder.add_edge("converse_with_bt_servant_node", "translate_responses_node")
-    builder.add_edge("get_passage_summary_node", "translate_responses_node")
-    builder.add_edge("get_passage_keywords_node", "translate_responses_node")
-    builder.add_edge("get_translation_helps_node", "translate_responses_node")
-    builder.add_edge("retrieve_scripture_node", "translate_responses_node")
-    builder.add_edge("listen_to_scripture_node", "translate_responses_node")
-    builder.add_edge("translate_scripture_node", "translate_responses_node")
-    builder.add_edge("query_open_ai_node", "translate_responses_node")
-
-    builder.add_conditional_edges(
-        "translate_responses_node",
-        needs_chunking
-    )
-    builder.set_finish_point("chunk_message_node")
-
-    return builder.compile()
+    """Compile the LangGraph using the split graph helper."""
+    nodes = {
+        "start_node": start,
+        "determine_query_language_node": determine_query_language,
+        "preprocess_user_query_node": preprocess_user_query,
+        "determine_intents_node": determine_intents,
+        "set_response_language_node": set_response_language,
+        "query_vector_db_node": query_vector_db,
+        "query_open_ai_node": query_open_ai,
+        "chunk_message_node": chunk_message,
+        "handle_unsupported_function_node": handle_unsupported_function,
+        "handle_system_information_request_node": handle_system_information_request,
+        "converse_with_bt_servant_node": converse_with_bt_servant,
+        "get_passage_summary_node": get_passage_summary,
+        "get_passage_keywords_node": get_passage_keywords,
+        "get_translation_helps_node": get_translation_helps,
+        "retrieve_scripture_node": retrieve_scripture,
+        "listen_to_scripture_node": listen_to_scripture,
+        "translate_scripture_node": translate_scripture,
+        "translate_responses_node": translate_responses,
+        "needs_chunking": needs_chunking,
+    }
+    return _graph_create(BrainStateType=BrainState, nodes=nodes)
