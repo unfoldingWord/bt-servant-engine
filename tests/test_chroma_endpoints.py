@@ -21,6 +21,11 @@ class DummyEmbeddingFunction:
         """Signal that this is a legacy-style embedder to keep Chroma happy."""
         return True
 
+    @staticmethod
+    def name() -> str:
+        """Match OpenAI embedding function static interface."""
+        return "dummy-embedding"
+
 
 def make_tmp_client(tmp_path):
     """Create a chromadb PersistentClient rooted at a tmp path."""
