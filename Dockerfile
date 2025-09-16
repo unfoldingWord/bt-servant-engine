@@ -9,7 +9,7 @@ WORKDIR /app
 
 # Install required libraries
 RUN apk update && apk add --no-cache \
-    python-${version} \
+    python-${version}=3.12.11-r6 \
     py${version}-pip \
     py${version}-setuptools
 

@@ -16,7 +16,7 @@ cachetools==5.5.2
 certifi==2025.1.31
 charset-normalizer==3.4.1
 chroma-hnswlib==0.7.6
-chromadb==1.0.6
+chromadb==1.0.21
 click==8.1.8
 colorama==0.4.6
 coloredlogs==15.0.1
@@ -28,7 +28,7 @@ distro==1.9.0
 dnspython==2.7.0
 durationpy==0.9
 email_validator==2.2.0
-fastapi==0.115.9
+fastapi==0.116.1
 fastapi-cli==0.0.7
 filelock==3.18.0
 flatbuffers==25.2.10
@@ -93,7 +93,7 @@ overrides==7.7.0
 packaging==24.2
 posthog==4.0.0
 propcache==0.3.1
-protobuf==5.29.4
+protobuf==5.29.5
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
 pydantic==2.11.3
@@ -111,7 +111,7 @@ python-dotenv==1.1.0
 python-multipart==0.0.20
 PyYAML==6.0.2
 referencing==0.36.2
-requests==2.32.3
+requests==2.32.4
 requests-oauthlib==2.0.0
 requests-toolbelt==1.0.0
 rich==14.0.0
@@ -121,7 +121,7 @@ rsa==4.9.1
 shellingham==1.5.4
 six==1.17.0
 sniffio==1.3.1
-starlette==0.45.3
+starlette==0.47.2
 strawberry-graphql==0.266.0
 sympy==1.13.3
 tenacity==9.1.2
@@ -134,7 +134,7 @@ typing-inspect==0.9.0
 typing-inspection==0.4.0
 typing_extensions==4.13.2
 ujson==5.10.0
-urllib3==2.4.0
+urllib3==2.5.0
 uvicorn==0.34.2
 watchfiles==1.0.5
 websocket-client==1.8.0
