@@ -63,3 +63,5 @@ config = Config()  # type: ignore[call-arg]
 
 # Ensure utils.pricing (which reads from environment) can see a default when .env omits it
 os.environ.setdefault("OPENAI_PRICING_JSON", config.OPENAI_PRICING_JSON)
+# Surface OpenAI credentials for libraries that only check raw environment vars
+os.environ.setdefault("OPENAI_API_KEY", config.OPENAI_API_KEY)
