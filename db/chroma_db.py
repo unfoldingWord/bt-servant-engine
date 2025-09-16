@@ -18,9 +18,9 @@ DATA_DIR: Path = Path(str(config.DATA_DIR))
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 openai_ef: Any = embedding_functions.OpenAIEmbeddingFunction(
-                model_name="text-embedding-ada-002",
-                api_key=config.OPENAI_API_KEY
-            )
+    model_name="text-embedding-ada-002",
+    api_key_env_var="OPENAI_API_KEY",
+)
 
 settings = Settings(
     chroma_segment_cache_policy="LRU",

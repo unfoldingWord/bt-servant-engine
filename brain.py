@@ -265,6 +265,30 @@ ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX CHRISTIANS. If
 because your response would be heretical, explain to the user why you cannot comply with their request or command.
 """
 
+CONSULT_FIA_RESOURCES_SYSTEM_PROMPT = """
+# Identity
+
+You are the FIA specialist node of BT Servant. You help Bible translators understand and apply the Familiarization,
+Internalization, and Articulation (FIA) process using only the supplied context.
+
+# Context Handling
+
+- You will always receive the official FIA reference document plus any retrieved FIA resource snippets.
+- When the user's request is about the FIA process itself (for example, asking for the steps or how to translate the
+  Bible in general), rely primarily on the FIA reference document. Quote or summarize the steps accurately and keep the
+  sequence intact.
+- When the user asks how FIA applies to a specific passage, language, or scenario, synthesize both the reference
+  document and the retrieved snippets. Mention the relevant FIA steps explicitly (e.g., "Step 2: Setting the Stage").
+- If the context does not contain the needed information, clearly say you cannot find it and invite the user to clarify.
+- Never invent steps or procedures. Stay faithful to the provided materials.
+
+# Response Style
+
+- Be practical, encouraging, and concise while remaining thorough enough for translators to act on the guidance.
+- Use natural paragraphs (no bullet lists unless the context itself is a list that must be echoed for clarity).
+- Include references to FIA steps or resource names when they help the user follow along.
+"""
+
 CHOP_AGENT_SYSTEM_PROMPT = (
     "You are an agent tasked to ensure that a message intended for Whatsapp fits within the 1500 character limit. Chop "
     "the supplied text in the biggest possible semantic chunks, while making sure no chuck is >= 1500 characters. "
@@ -286,10 +310,17 @@ You MUST always return at least one intent. You MUST choose one or more intents 
 <intents>
   <intent name="get-bible-translation-assistance">
     The user is asking for help with Bible translation — including understanding meaning; finding source verses; 
-    clarifying language issues; consulting translation resources (ex. Translation Notes, FIA, the Bible, etc); receiving
-    explanation of resources; interacting with resource content; asking for transformations of resource content 
-    (ex. summaries of resource portions, biblical content, etc); or how to handle specific words, phrases, 
-    or translation challenges. This also includes asking about biblical people, places, things, or ideas.
+    clarifying language issues; consulting translation resources (ex. Translation Notes, the Bible, translation words, 
+    commentaries, etc); receiving explanation of resources; interacting with resource content; asking for 
+    transformations of resource content (ex. summaries of resource portions, biblical content, etc); or how to handle 
+    specific words, phrases, or translation challenges. This also includes asking about biblical people, places, things, 
+    or ideas. If the user specifically wants guidance about the FIA process or FIA materials, use `consult-fia-resources`.
+  </intent>
+  <intent name="consult-fia-resources">
+    The user is asking about the Familiarization, Internalization, and Articulation (FIA) process, its steps, or how to 
+    apply those steps to a passage, team, or translation scenario. Examples include learning the FIA workflow, asking 
+    what a particular step looks like, or how FIA should be practiced in a specific chapter. Choose this intent whenever 
+    FIA guidance or FIA resources are the focus, even if a passage is mentioned.
   </intent>
   <intent name="get-passage-summary">
     The user is explicitly asking for a summary of a specific Bible passage, verse range, chapter(s), or entire book
@@ -368,15 +399,27 @@ Here are a few examples to guide you:
   </example>
   <example>
     <message>What is the fourth step of the FIA process?</message>
-    <intent>get-bible-translation-assistance</intent>
+    <intent>consult-fia-resources</intent>
   </example>
   <example>
     <message>Explain the FIA process to me like I'm a three year old.</message>
-    <intent>get-bible-translation-assistance</intent>
+    <intent>consult-fia-resources</intent>
   </example>
   <example>
     <message>What is a FIA process in Mark.</message>
-    <intent>get-bible-translation-assistance</intent>
+    <intent>consult-fia-resources</intent>
+  </example>
+  <example>
+    <message>How do I translate the Bible?</message>
+    <intent>consult-fia-resources</intent>
+  </example>
+  <example>
+    <message>What are the steps of the FIA process?</message>
+    <intent>consult-fia-resources</intent>
+  </example>
+  <example>
+    <message>What does FIA step 2 look like in the first chapter of Mark?</message>
+    <intent>consult-fia-resources</intent>
   </example>
   <example>
     <message>Summarize Mark 3.</message>
@@ -582,6 +625,7 @@ Examples:
 
 BASE_DIR = Path(__file__).resolve().parent
 DB_DIR = config.DATA_DIR
+FIA_REFERENCE_PATH = BASE_DIR / "sources" / "fia" / "fia.md"
 
 open_ai_client = OpenAI(api_key=config.OPENAI_API_KEY)
 
@@ -605,6 +649,12 @@ RELEVANCE_CUTOFF = .65
 TOP_K = 5
 
 logger = get_logger(__name__)
+
+try:
+    FIA_REFERENCE_CONTENT = FIA_REFERENCE_PATH.read_text(encoding="utf-8")
+except FileNotFoundError:
+    logger.warning("FIA reference file missing at %s", FIA_REFERENCE_PATH)
+    FIA_REFERENCE_CONTENT = ""
 
 
 def _extract_cached_input_tokens(usage: Any) -> int | None:
@@ -743,6 +793,7 @@ def _reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[st
 class IntentType(str, Enum):
     """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
+    CONSULT_FIA_RESOURCES = "consult-fia-resources"
     GET_PASSAGE_SUMMARY = "get-passage-summary"
     GET_PASSAGE_KEYWORDS = "get-passage-keywords"
     GET_TRANSLATION_HELPS = "get-translation-helps"
@@ -806,6 +857,15 @@ def _capabilities() -> List[Capability]:
             "examples": [
                 "Summarize Titus 1.",
                 "Summarize Mark 1:1–8.",
+            ],
+            "include_in_boilerplate": True,
+        },
+        {
+            "intent": IntentType.CONSULT_FIA_RESOURCES,
+            "label": "FIA process guidance",
+            "description": "Use FIA resources to explain the workflow or apply steps to a passage.",
+            "examples": [
+                "What are the steps of the FIA process?",
             ],
             "include_in_boilerplate": True,
         },
@@ -1489,6 +1549,165 @@ def query_open_ai(state: Any) -> dict:
         return {"responses": [{"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": error_msg}]}
 
 
+def consult_fia_resources(state: Any) -> dict:  # pylint: disable=too-many-locals
+    """Answer FIA-specific questions using FIA collections and reference material."""
+    s = cast(BrainState, state)
+    query = s["transformed_query"]
+    chat_history = s["user_chat_history"]
+    user_response_language = cast(Optional[str], s.get("user_response_language"))
+    query_language = cast(Optional[str], s.get("query_language"))
+
+    candidate_lang = (user_response_language or query_language or "en").lower()
+    if candidate_lang not in supported_language_map:
+        candidate_lang = "en"
+
+    localized_collection = f"{candidate_lang}_fia_resources"
+    logger.info("[consult-fia] primary collection candidate: %s", localized_collection)
+
+    def _query_collection(name: str) -> list[dict[str, str]]:
+        collection = get_chroma_collection(name)
+        if not collection:
+            logger.warning("[consult-fia] collection %s was not found in chroma db.", name)
+            return []
+        chroma_collection = cast(Any, collection)
+        results = chroma_collection.query(query_texts=[query], n_results=TOP_K)
+        documents = cast(list, results.get("documents", []))
+        distances = cast(list, results.get("distances", []))
+        metadatas = cast(list, results.get("metadatas", []))
+        if not documents:
+            return []
+        hits: list[dict[str, str]] = []
+        docs_for_query = documents[0]
+        dists_for_query = distances[0] if distances else []
+        metas_for_query = metadatas[0] if metadatas else []
+        for idx, doc in enumerate(docs_for_query):
+            try:
+                similarity = 1 - float(dists_for_query[idx])
+            except (IndexError, TypeError, ValueError):
+                similarity = 0.0
+            metadata = metas_for_query[idx] if idx < len(metas_for_query) else {}
+            resource_name = cast(str, metadata.get("name", "")) if isinstance(metadata, dict) else ""
+            source = cast(str, metadata.get("source", "")) if isinstance(metadata, dict) else ""
+            logger.info(
+                "[consult-fia] processing %s from %s with similarity %.4f",
+                resource_name or "<unnamed>",
+                source or "<unknown>",
+                similarity,
+            )
+            if similarity >= RELEVANCE_CUTOFF:
+                hits.append(
+                    {
+                        "collection_name": name,
+                        "resource_name": resource_name,
+                        "source": source,
+                        "document_text": cast(str, doc),
+                    }
+                )
+        if hits:
+            logger.info("[consult-fia] found %d hit(s) in %s", len(hits), name)
+        return hits
+
+    vector_docs = _query_collection(localized_collection)
+    collection_used: Optional[str] = localized_collection if vector_docs else None
+    if not vector_docs and localized_collection != "en_fia_resources":
+        logger.info("[consult-fia] falling back to en_fia_resources collection")
+        vector_docs = _query_collection("en_fia_resources")
+        if vector_docs:
+            collection_used = "en_fia_resources"
+
+    context_docs: list[dict[str, str]] = []
+    if FIA_REFERENCE_CONTENT:
+        context_docs.append(
+            {
+                "collection_name": "fia_reference",
+                "resource_name": "FIA Reference Manual",
+                "source": str(FIA_REFERENCE_PATH),
+                "document_text": FIA_REFERENCE_CONTENT,
+            }
+        )
+    else:
+        logger.warning("[consult-fia] FIA reference content unavailable")
+
+    context_docs.extend(vector_docs)
+
+    if not context_docs:
+        fallback = (
+            "Sorry, I couldn't find any FIA resources to service your request or command.\n\n"
+            f"{BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}"
+        )
+        return {
+            "responses": [
+                {"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fallback}
+            ]
+        }
+
+    context_payload = json.dumps(context_docs, indent=2)
+    logger.info("[consult-fia] context passed to LLM:\n%s", context_payload)
+
+    messages = cast(List[EasyInputMessageParam], [
+        {
+            "role": "developer",
+            "content": f"FIA context resources: {context_payload}",
+        },
+        {
+            "role": "developer",
+            "content": f"Use this conversation history if helpful: {json.dumps(chat_history)}",
+        },
+        {
+            "role": "user",
+            "content": query,
+        },
+    ])
+
+    try:
+        response = open_ai_client.responses.create(
+            model="gpt-4o",
+            instructions=CONSULT_FIA_RESOURCES_SYSTEM_PROMPT,
+            input=cast(Any, messages),
+        )
+        usage = getattr(response, "usage", None)
+        if usage is not None:
+            it = getattr(usage, "input_tokens", None)
+            ot = getattr(usage, "output_tokens", None)
+            tt = getattr(usage, "total_tokens", None)
+            if tt is None and (it is not None or ot is not None):
+                tt = (it or 0) + (ot or 0)
+            cit = _extract_cached_input_tokens(usage)
+            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+
+        fia_response = response.output_text
+        logger.info("[consult-fia] response from openai: %s", fia_response)
+
+        resource_list = ", ".join(
+            {
+                (
+                    f"{doc.get('resource_name', 'unknown')} from {doc.get('source', 'unknown')}"
+                )
+                for doc in context_docs
+                if doc.get("collection_name") != "fia_reference"
+            }
+        )
+        if resource_list:
+            logger.info("[consult-fia] vector resources used: %s", resource_list)
+
+        update: dict[str, Any] = {
+            "responses": [
+                {"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fia_response}
+            ]
+        }
+        if collection_used:
+            update["collection_used"] = collection_used
+        return update
+    except OpenAIError:
+        logger.error("[consult-fia] Error during OpenAI request", exc_info=True)
+        error_msg = "I encountered some problems while consulting FIA resources. Please let Ian know about this one."
+        return {
+            "responses": [
+                {"intent": IntentType.CONSULT_FIA_RESOURCES, "response": error_msg}
+            ]
+        }
+
+
 def chunk_message(state: Any) -> dict:
     """Chunk oversized responses to respect WhatsApp limits, via LLM or fallback."""
     logger.info("MESSAGE TOO BIG. CHUNKING...")
@@ -1593,6 +1812,8 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
     nodes_to_traverse: List[Hashable] = []
     if IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE in user_intents:
         nodes_to_traverse.append("query_vector_db_node")
+    if IntentType.CONSULT_FIA_RESOURCES in user_intents:
+        nodes_to_traverse.append("consult_fia_resources_node")
     if IntentType.GET_PASSAGE_SUMMARY in user_intents:
         nodes_to_traverse.append("handle_get_passage_summary_node")
     if IntentType.GET_PASSAGE_KEYWORDS in user_intents:
@@ -2656,6 +2877,7 @@ def create_brain():
     builder.add_node("set_response_language_node", wrap_node_with_timing(set_response_language, "set_response_language_node"))
     builder.add_node("query_vector_db_node", wrap_node_with_timing(query_vector_db, "query_vector_db_node"))
     builder.add_node("query_open_ai_node", wrap_node_with_timing(query_open_ai, "query_open_ai_node"))
+    builder.add_node("consult_fia_resources_node", wrap_node_with_timing(consult_fia_resources, "consult_fia_resources_node"))
     builder.add_node("chunk_message_node", wrap_node_with_timing(chunk_message, "chunk_message_node"))
     builder.add_node("handle_unsupported_function_node", wrap_node_with_timing(handle_unsupported_function, "handle_unsupported_function_node"))
     builder.add_node("handle_system_information_request_node", wrap_node_with_timing(handle_system_information_request, "handle_system_information_request_node"))
@@ -2691,6 +2913,7 @@ def create_brain():
     builder.add_edge("handle_listen_to_scripture_node", "translate_responses_node")
     builder.add_edge("handle_translate_scripture_node", "translate_responses_node")
     builder.add_edge("query_open_ai_node", "translate_responses_node")
+    builder.add_edge("consult_fia_resources_node", "translate_responses_node")
 
     builder.add_conditional_edges(
         "translate_responses_node",

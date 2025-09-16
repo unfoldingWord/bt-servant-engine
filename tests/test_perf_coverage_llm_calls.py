@@ -230,3 +230,58 @@ def test_chunk_message_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> None:
     assert span.get("input_tokens_expended") == 20
     assert span.get("output_tokens_expended") == 8
     assert span.get("total_tokens_expended") == 28
+
+
+def test_consult_fia_resources_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Consult FIA resources should attribute its LLM usage to the node span."""
+
+    tid = "trace-consult-fia"
+    perf.set_current_trace(tid)
+
+    class _FakeCollection:  # pylint: disable=too-few-public-methods
+        def __init__(self) -> None:
+            self._docs = [
+                (
+                    "FIA localized note",
+                    0.05,
+                    {"name": "Localized FIA", "source": "fia/localized.md"},
+                ),
+            ]
+
+        def query(self, **_kwargs: Any) -> dict[str, Any]:  # noqa: ANN401
+            """Return the fake query payload for the test."""
+            documents = [doc for doc, _dist, _meta in self._docs]
+            distances = [dist for _doc, dist, _meta in self._docs]
+            metadatas = [meta for _doc, _dist, meta in self._docs]
+            return {
+                "documents": [documents],
+                "distances": [distances],
+                "metadatas": [metadatas],
+            }
+
+    class _FakeResponse:  # pylint: disable=too-few-public-methods
+        usage = _FakeUsage(it=45, ot=12, tt=57, cached=6)
+        output_text = "fia response"
+
+    monkeypatch.setattr(brain, "get_chroma_collection", lambda _name: _FakeCollection())
+    monkeypatch.setattr(brain, "FIA_REFERENCE_CONTENT", "manual snippet")
+    monkeypatch.setattr(brain.open_ai_client.responses, "create", lambda **_k: _FakeResponse())
+
+    state = {
+        "transformed_query": "How do I translate the Bible?",
+        "user_chat_history": [],
+        "user_response_language": "en",
+        "query_language": "en",
+    }
+
+    with perf.time_block("brain:consult_fia_resources_node"):
+        out = brain.consult_fia_resources(cast(Any, state))
+
+    assert out["responses"], "expected a response payload"
+
+    report = perf.summarize_report(tid)
+    span = _find_span(report, "brain:consult_fia_resources_node")
+    assert span is not None, "expected a span for consult_fia_resources_node"
+    assert span.get("input_tokens_expended") == 45
+    assert span.get("output_tokens_expended") == 12
+    assert span.get("total_tokens_expended") == 57
