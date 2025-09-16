@@ -37,7 +37,7 @@ class Config(BaseSettings):
     # Dedicated token for health check authentication
     HEALTHCHECK_API_TOKEN: str | None = Field(default=None)
     # Enable admin auth for protected endpoints (default False for local/dev tests)
-    ENABLE_ADMIN_AUTH: bool = Field(default=False)
+    ENABLE_ADMIN_AUTH: bool = Field(default=True)
 
     # Optional with default value
     DATA_DIR: Path = Field(default=Path("/data"))
