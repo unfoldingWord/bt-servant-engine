@@ -1,3 +1,5 @@
+"""Passage summary intent handler."""
+# pylint: disable=line-too-long,too-many-locals,duplicate-code
 from __future__ import annotations
 
 from typing import Any, Callable, cast
@@ -105,4 +107,3 @@ def get_passage_summary(  # noqa: D401 - docstring kept concise here
     response_text = f"Summary of {ref_label}:\n\n{summary_text}"
     logger.info("[passage-summary] done")
     return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
-

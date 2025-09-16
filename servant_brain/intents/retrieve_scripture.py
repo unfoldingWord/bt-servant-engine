@@ -1,3 +1,5 @@
+"""Retrieve scripture intent handler."""
+# pylint: disable=line-too-long,too-many-arguments,too-many-locals,duplicate-code
 from __future__ import annotations
 
 import re
@@ -304,4 +306,3 @@ def retrieve_scripture(
         header_is_translated=False,
     )
     return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
-

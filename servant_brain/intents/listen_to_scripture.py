@@ -1,3 +1,5 @@
+"""Listen to scripture intent handler."""
+# pylint: disable=line-too-long
 from __future__ import annotations
 
 from typing import Any, Callable, Dict
@@ -12,4 +14,3 @@ def listen_to_scripture(
     out = retrieve(state)
     out["send_voice_message"] = True
     return out
-

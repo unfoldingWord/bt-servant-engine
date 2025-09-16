@@ -1,6 +1,5 @@
-"""Helpers to parse USFM and emit per-verse JSON entries.
-
 # pylint: disable=duplicate-code
+"""Helpers to parse USFM and emit per-verse JSON entries.
 
 Provides:
 - `USFM_CODE_TO_BOOK`: map from USFM codes (e.g., GEN) to canonical English names.

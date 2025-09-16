@@ -1,3 +1,5 @@
+"""Chunk final response intent handler."""
+# pylint: disable=line-too-long,too-many-locals
 from __future__ import annotations
 
 import json

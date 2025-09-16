@@ -1,3 +1,5 @@
+"""Translate final responses intent handler."""
+# pylint: disable=line-too-long,too-many-locals
 from __future__ import annotations
 
 from typing import Any, Callable, Optional, cast

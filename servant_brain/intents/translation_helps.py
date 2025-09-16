@@ -1,3 +1,5 @@
+"""Translation helps intent handler."""
+# pylint: disable=line-too-long,too-many-locals,duplicate-code
 from __future__ import annotations
 
 import json
@@ -181,4 +183,3 @@ def get_translation_helps(
         extract_cached_input_tokens=extract_cached_input_tokens,
     )
     return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": response_text}]}
-

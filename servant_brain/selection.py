@@ -14,9 +14,26 @@ from typing import Any, Callable, List, Type, cast
 from openai import OpenAI
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 
+from pydantic import BaseModel
 from logger import get_logger
 
 logger = get_logger(__name__)
+
+
+class PassageRef(BaseModel):
+    """Normalized reference to a passage within a single canonical book."""
+
+    book: str
+    start_chapter: int | None = None
+    start_verse: int | None = None
+    end_chapter: int | None = None
+    end_verse: int | None = None
+
+
+class PassageSelection(BaseModel):
+    """Structured selection consisting of one or more ranges for a book."""
+
+    selections: List[PassageRef]
 
 
 def _book_patterns(books_map: dict[str, Any]) -> list[tuple[str, str]]:
@@ -48,8 +65,8 @@ def resolve_selection_for_single_book(  # noqa: C901
     query: str,
     query_lang: str,
     open_ai_client: OpenAI,
-    PassageSelection: Type[Any],
-    PassageRef: Type[Any],
+    passage_selection_model: Type[Any],
+    passage_ref_model: Type[Any],
     add_tokens: Callable[..., None],
     extract_cached_input_tokens: Callable[[Any], int | None],
     translate_text: Callable[[str, str], str],
@@ -82,7 +99,7 @@ def resolve_selection_for_single_book(  # noqa: C901
     selection_resp = open_ai_client.responses.parse(
         model="gpt-4o",
         input=cast(Any, selection_messages),
-        text_format=PassageSelection,
+        text_format=passage_selection_model,
         store=False,
     )
     usage = getattr(selection_resp, "usage", None)
@@ -107,7 +124,7 @@ def resolve_selection_for_single_book(  # noqa: C901
         a, b = int(chap_match.group(1)), int(chap_match.group(2))
         logger.info("[selection-helper] correcting to multi-chapter range: %d-%d due to 'chapters' phrasing", a, b)
         first = selection.selections[0]
-        selection.selections[0] = PassageRef(
+        selection.selections[0] = passage_ref_model(
             book=first.book,
             start_chapter=a,
             start_verse=None,
@@ -150,7 +167,7 @@ def resolve_selection_for_single_book(  # noqa: C901
             logger.info("[selection-helper] unsupported book requested: %s", sel.book)
             return None, None, msg
         canonical_books.append(canonical)
-        normalized_selections.append(PassageRef(
+        normalized_selections.append(passage_ref_model(
             book=canonical,
             start_chapter=sel.start_chapter,
             start_verse=sel.start_verse,
@@ -178,3 +195,10 @@ def resolve_selection_for_single_book(  # noqa: C901
 
     logger.info("[selection-helper] ranges=%s", ranges)
     return canonical_book, ranges, None
+
+
+__all__ = [
+    "PassageRef",
+    "PassageSelection",
+    "resolve_selection_for_single_book",
+]

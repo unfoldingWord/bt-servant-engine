@@ -1,5 +1,8 @@
+"""Translate scripture intent handler."""
+# pylint: disable=line-too-long,too-many-arguments,too-many-locals,too-many-return-statements,duplicate-code
 from __future__ import annotations
 
+import re as _re
 from typing import Any, Callable, Optional, cast
 
 from openai import OpenAI, OpenAIError
@@ -108,8 +111,6 @@ def _resolve_target_language(
         logger.info("[translate-scripture] target-language parse failed; will fallback", exc_info=True)
 
     if not target_code:
-        import re as _re
-
         m = _re.search(r"\b(?:into|to|in)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=_re.IGNORECASE)
         if m:
             explicit_mention_name = m.group(1).strip().title()

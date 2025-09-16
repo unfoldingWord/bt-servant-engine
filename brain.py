@@ -1,1254 +1,112 @@
 """Decision graph and message-processing pipeline for BT Servant.
 
-This module defines the state, nodes, and orchestration logic for handling
-incoming user messages, classifying intents, querying resources, and producing
-final responses (including translation and chunking when necessary).
+This module now serves primarily as a façade that re-exports the LangGraph
+nodes and helper types from the `servant_brain` package. The legacy API
+remains for compatibility while the underlying implementations live in
+smaller, focused modules.
 """
-# pylint: disable=line-too-long,too-many-lines,too-many-statements
-# TODO(brain-split): Break this module into a `brain/` package with
-# thin orchestration and small helpers, then remove these disables.
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
-import re
-from typing import List, cast, Any, Optional
 from collections.abc import Hashable
-from enum import Enum
+from typing import Any, List
 
-from openai import OpenAI, OpenAIError
-from openai.types.responses.easy_input_message_param import EasyInputMessageParam
-from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
-from langgraph.graph import END
-from pydantic import BaseModel
-
-from logger import get_logger
-from config import config
-from utils import chop_text, combine_chunks
-from utils.bsb import (
-    BOOK_MAP as BSB_BOOK_MAP,
-    normalize_book_name,
-    select_verses,
-    label_ranges,
+import servant_brain.selection as selection_helpers
+from servant_brain import dependencies as _deps
+from servant_brain.graph import (
+    create_brain as _graph_create,
+    process_intents as _graph_process_intents,
 )
-from utils.bible_data import resolve_bible_data_root, list_available_sources, load_book_titles
+from servant_brain.classifier import IntentType, UserIntents
+from servant_brain.intents import listen_to_scripture as _intent_listen_to_scripture
+from servant_brain.intents import passage_keywords as _intent_passage_keywords
+from servant_brain.intents import passage_summary as _intent_passage_summary
+from servant_brain.intents import retrieve_scripture as _intent_retrieve_scripture
+from servant_brain.intents import translate_responses as _intent_translate_responses
+from servant_brain.intents import translate_scripture as _intent_translate_scripture
+from servant_brain.intents import translation_helps as _intent_translation_helps
+from servant_brain.models import TranslatedPassage
+from servant_brain.nodes.capabilities import (
+    capabilities,
+    build_boilerplate_message,
+    build_full_help_message,
+    BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
+    CONVERSE_AGENT_SYSTEM_PROMPT,
+    FIRST_INTERACTION_MESSAGE,
+    FULL_HELP_MESSAGE,
+    HELP_AGENT_SYSTEM_PROMPT,
+    UNSUPPORTED_FUNCTION_AGENT_SYSTEM_PROMPT,
+)
+from servant_brain.nodes.classification import determine_intents
+from servant_brain.nodes.conversation import (
+    converse_with_bt_servant,
+    handle_system_information_request,
+    handle_unsupported_function,
+    start,
+)
+from servant_brain.nodes.language import (
+    detect_language,
+    determine_query_language,
+    set_response_language,
+)
+from servant_brain.nodes.preprocess import (
+    PREPROCESSOR_AGENT_SYSTEM_PROMPT,
+    PreprocessorResult,
+    preprocess_user_query,
+)
+from servant_brain.nodes import responses as _responses_nodes
+from servant_brain.nodes.responses import (
+    chunk_message,
+    combine_responses,
+    needs_chunking,
+    translate_text,
+)
+from servant_brain.nodes.retrieval import query_open_ai, query_vector_db
+from servant_brain.prompts import (
+    CHOP_AGENT_SYSTEM_PROMPT as _CHOP_AGENT_SYSTEM_PROMPT,
+    COMBINE_RESPONSES_SYSTEM_PROMPT as _COMBINE_RESPONSES_SYSTEM_PROMPT,
+    FINAL_RESPONSE_AGENT_SYSTEM_PROMPT as _FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
+    PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT as _PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT,
+    RESPONSE_TRANSLATOR_SYSTEM_PROMPT as _RESPONSE_TRANSLATOR_SYSTEM_PROMPT,
+    TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT as _TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
+)
+from servant_brain.state import BrainState, Capability
+from servant_brain.tokens import extract_cached_input_tokens as _extract_cached_input_tokens
+from servant_brain.language import (
+    DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
+    Language,
+    MessageLanguage,
+    ResponseLanguage,
+    SET_RESPONSE_LANGUAGE_AGENT_SYSTEM_PROMPT,
+    TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
+)
+from utils.bsb import BOOK_MAP as BSB_BOOK_MAP, label_ranges, normalize_book_name, select_verses
+from utils.bible_data import list_available_sources, load_book_titles, resolve_bible_data_root
 from utils.bible_locale import get_book_name
 from utils.perf import add_tokens
-from servant_brain.prompts import (
-    FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
-    CHOP_AGENT_SYSTEM_PROMPT,
-    PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT,
-)
-import servant_brain.selection as selection_helpers
-from servant_brain.responses import (
-    make_scripture_response as _resp_make_scripture_response,
-    make_scripture_response_from_translated as _resp_make_scripture_response_from_translated,
-)
-from servant_brain.graph import process_intents as _graph_process_intents, create_brain as _graph_create
-from servant_brain.state import BrainState, Capability
-from servant_brain.classifier import (
-    IntentType,
-    UserIntents,
-    INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT,
-)
-from servant_brain.intents import passage_summary as _intent_passage_summary
-from servant_brain.intents import passage_keywords as _intent_passage_keywords
-from servant_brain.intents import translation_helps as _intent_translation_helps
-from servant_brain.intents import retrieve_scripture as _intent_retrieve_scripture
-from servant_brain.intents import listen_to_scripture as _intent_listen_to_scripture
-from servant_brain.intents import translate_scripture as _intent_translate_scripture
-from servant_brain.intents import translate_responses as _intent_translate_responses
-from servant_brain.intents import chunk_message as _intent_chunk_message
-from db import (
-    get_chroma_collection,
-    is_first_interaction,
-    set_first_interaction,
-    set_user_response_language,
-)
-
-# (Moved dynamic feature messaging and related prompts below IntentType)
-COMBINE_RESPONSES_SYSTEM_PROMPT = """
-# Identity
-
-You are a part of a RAG bot system that assists Bible translators. The decision system is a lang graph with various 
-nodes handling multiple user intents. Your job is to combine the response messages from various intent processing 
-nodes in the graph into one cohesive message that makes sense.
-
-# Instructions
-
-You will be given a json array of objects. Each object will have two properties: (1) the intent of the intent 
-processing node that generated the message. (2) the response message itself. In general, your job is to return a single 
-string representing the combined message. The combined message should be natural sounding, cohesive, and, to the degree 
-possible, contain all the elements of the individual messages. You will also be given the conversation history and the 
-user's most recent message. Leverage this context when combining response messages! Below are six guidelines for you to 
-use when combining messages:
-
-(1) if the first-interaction intent was processed, the information and message related to this intent SHOULD ALWAYS 
-COME FIRST!!!
-
-(2) If the CONVERSE_WITH_BT_SERVANT intent was processed, the combined message should usually start with some version of
-the response message generated by this intent processing node. The only thing that should ever go before this is the 
-information and message related to the "first-interaction" intent.
-
-(3) If the SET_RESPONSE_LANGUAGE intent was processed, the combined message should usually end with some version of 
-the response message generated by this intent processing node.
-
-(4) If the GET_BIBLE_TRANSLATION_ASSISTANCE intent, or the GET_PASSAGE_SUMMARY intent, was processed, the information 
-contained in the response message generated by these intent processing nodes should usually be as close to the 
-beginning as possible, unless that would violate guideline #1 above. 
-
-(5) If some combination of the PERFORM_UNSUPPORTED_FUNCTION and RETRIEVE_SYSTEM_INFORMATION intents were processed, the 
-information from the associated response messages should usually fall in the middle somewhere. 
-
-(6) Make sure to synthesize/remove any repeated or redundant information. This is very important!!!
-
-(7) If there are multiple questions found in the various responses, these must be reduced to one question, and that 
-question must be at the end of the message. Any question in the combined response must come at the very end of the 
-message.
-
-(8) If you detect in conversation history that you've already said hello, there's no need to say it again.
-
-(9) If it doesn't make sense to say "hello!" to the user, based on their most recent message, there's no need to say 
-'Hello!  I'm here to assist with Bible translation tasks' again.
-
-(10) Remove duplicated boilerplate or repeated feature lists if multiple nodes include similar guidance; keep only one
-concise version where appropriate.
-
-Don't worry about the combined response being too big. A downstream node will chunk the message if needed.
-"""
-
-
-RESPONSE_TRANSLATOR_SYSTEM_PROMPT = """
-    You are a translator for the final output in a chatbot system. You will receive text that 
-    needs to be translated into the language represented by the specified ISO 639-1 code.
-"""
-
-TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT = """
-# Task
-
-Translate the provided scripture passage into the specified target language and return a STRICT JSON object
-matching the provided schema. Do not include any extra prose, commentary, code fences, or formatting.
-
-# Rules
-- header_book: translate ONLY the canonical book name into the target language (e.g., "John" -> "Иоанн").
-- header_suffix: DO NOT translate or alter; copy exactly the provided suffix (e.g., "1:1–7").
-- body: translate the passage body into the target language; PRESERVE all newline boundaries exactly; do not add
-  bullets, numbers, verse labels, or extra headings.
-- content_language: the ISO 639-1 code of the target language.
-
-# Output
-Return JSON matching the schema with fields: header_book, header_suffix, body, content_language. No extra keys.
-"""
-
-
-PREPROCESSOR_AGENT_SYSTEM_PROMPT = """
-# Identity
-
-You are a preprocessor agent/node in a retrieval augmented generation (RAG) pipeline. 
-
-# Instructions
-
-Use past conversation context, 
-if supplied and applicable, to disambiguate or clarify the intent or meaning of the user's current message. Change 
-as little as possible. Change nothing unless necessary. If the intent of the user's message is already clear, 
-change nothing. Never greatly expand the user's current message. Changes should be small or none. Feel free to fix 
-obvious spelling mistakes or errors, but not logic errors like incorrect books of the Bible. Do NOT narrow the scope of
-explicit scripture selections: if a user requests multiple chapters, verse ranges, or disjoint selections (including
-conjunctions like "and" or comma/semicolon lists), preserve them exactly as written. If the system has constraints
-(for example, only a single chapter can be processed at a time), do NOT modify the user's message to fit those
-constraints — leave the message intact and let downstream nodes handle any rejection or guidance. For translation
-requests, do NOT add or change a target language; preserve only what the user explicitly stated.
-Return the clarified 
-message and the reasons for clarifying or reasons for not changing anything. Examples below.
-
-# Examples
-
-## Example 1
-
-<past_conversation>
-    user_message: Summarize the book of Titus.
-    assistant_response: The book of titus is about...
-</past_conversation>
-
-<current_message>
-    user_message: Now Mark
-</current_message>
-
-<assistant_response>
-    new_message: Now Summarize the book of Mark.
-    reason_for_decision: Based on previous context, the user wants the system to do the same thing, but this time 
-                         with Mark.
-    message_changed: True
-</assistant_response>
-    
-## Example 2
-
-<past_conversation>
-    user_message: What is going on in 1 Peter 3:7?
-    assistant_response: Peter is instructing Christian husbands to be loving to their wives.
-</past_conversation>
-
-<current_message>
-    user_message: Summarize Mark 3:1
-</current_message>
-    
-<assistant_response>
-    new_message: Summarize Mark 3:1.
-    reason_for_decision: Nothing was changed. The user's current command has nothing to do with past context and
-                         is fine as is.
-    message_changed: False
-</assistant_response>
-
-## Example 3
-
-<past_conversation>
-    user_message: Explain John 1:1
-    assistant_response: John claims that Jesus, the Word, existed in the beginning with God the Father.
-</past_conversation>
-
-<current_message>
-    user_message: Explain John 1:3
-</current_message>
-    
-<assistant_response>
-    new_message: Explain John 1:3.
-    reason_for_decision: The word 'John' was misspelled in the message.
-    message_changed: True
-</assistant_response>
-"""
-
-
-
-
-DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
-Task: Detect the language of the supplied user text and return the ISO 639-1 code from the allowed set.
-
-Allowed outputs: en, ar, fr, es, hi, ru, id, sw, pt, zh, nl, Other
-
-Bible context: Bible book abbreviations are language-neutral (e.g., Gen, Exo, Lev, Num, Deu, Dan, Joh, Rom, 1Co, 2Co,
-Gal, Eph, Php, Col, 1Th, 2Th, 1Ti, 2Ti, Tit, Phm, Heb, Jas, 1Pe, 2Pe, 1Jo, 2Jo, 3Jo, Jud, Rev). The token "Dan"
-often denotes the book Daniel and must NOT be interpreted as Indonesian "dan" ("and") when it appears as a book
-abbreviation near a chapter/verse reference (e.g., "Dan 1:1"). Treat such abbreviations and references as language-
-neutral signal.
-
-Ambiguity rule: If the text is mixed or ambiguous, prefer English (en), especially when common English instruction
-keywords are present (e.g., summarize, explain, what, who, why, how).
-
-Output format: Return only structured output matching the schema { "language": <one of the allowed outputs> } with no
-additional prose.
-
-Disambiguation examples:
-- text: "summarize Dan 1:1" -> { "language": "en" }
-- text: "tolong ringkas Dan 1:1" -> { "language": "id" }
-- text: "explain Joh 3:16" -> { "language": "en" }
-- text: "ringkas Yoh 3:16" -> { "language": "id" }
-"""
-
-TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT = """
-Task: Determine the target language the user is asking the system to translate scripture into, based solely on the
-user's latest message. Return an ISO 639-1 code from the allowed set.
-
-Allowed outputs: en, ar, fr, es, hi, ru, id, sw, pt, zh, nl, Other
-
-Rules:
-- Identify explicit target-language mentions (language names, codes, or phrases like "into Russian", "to es",
-  "in French").
-- If no target language is explicitly specified, return Other. Do NOT infer a target from the message's language.
-- Output must match the provided schema exactly with no extra prose.
-
-Examples:
-- message: "translate John 3:16 into Russian" -> { "language": "ru" }
-- message: "please translate Mark 1 in Spanish" -> { "language": "es" }
-- message: "translate Matthew 2" -> { "language": "Other" }
-"""
-
-BASE_DIR = Path(__file__).resolve().parent
-DB_DIR = config.DATA_DIR
-
-open_ai_client = OpenAI(api_key=config.OPENAI_API_KEY)
-
-supported_language_map = {
-    "en": "English",
-    "ar": "Arabic",
-    "fr": "French",
-    "es": "Spanish",
-    "hi": "Hindi",
-    "ru": "Russian",
-    "id": "Indonesian",
-    "sw": "Swahili",
-    "pt": "Portuguese",
-    "zh": "Mandarin",
-    "nl": "Dutch"
-}
-
-LANGUAGE_UNKNOWN = "UNKNOWN"
-
-RELEVANCE_CUTOFF = .65
-TOP_K = 5
-
-logger = get_logger(__name__)
-
-
-def _extract_cached_input_tokens(usage: Any) -> int | None:
-    """Best-effort extraction of cached input token counts from SDK usage objects.
-
-    Supports:
-    - Responses API: usage.input_token_details.cache_read_input_tokens
-    - Chat Completions: usage.prompt_tokens_details.cached_tokens
-    Returns None when not available.
-    """
-    try:
-        itd = getattr(usage, "input_token_details", None)
-        if itd is not None:
-            val = getattr(itd, "cache_read_input_tokens", None)
-            if val is None and isinstance(itd, dict):
-                val = itd.get("cache_read_input_tokens")
-            if isinstance(val, int) and val > 0:
-                return val
-        ptd = getattr(usage, "prompt_tokens_details", None)
-        if ptd is not None:
-            val2 = getattr(ptd, "cached_tokens", None)
-            if val2 is None and isinstance(ptd, dict):
-                val2 = ptd.get("cached_tokens")
-            if isinstance(val2, int) and val2 > 0:
-                return val2
-    except Exception:  # pylint: disable=broad-except
-        return None
-    return None
-
-
-class Language(str, Enum):
-    """Supported ISO 639-1 language codes for responses/messages."""
-    ENGLISH = "en"
-    ARABIC = "ar"
-    FRENCH = "fr"
-    SPANISH = "es"
-    HINDI = "hi"
-    RUSSIAN = "ru"
-    INDONESIAN = "id"
-    SWAHILI = "sw"
-    PORTUGUESE = "pt"
-    MANDARIN = "zh"
-    DUTCH = "nl"
-    OTHER = "Other"
-
-
-class ResponseLanguage(BaseModel):
-    """Model for parsing/validating the detected response language."""
-    language: Language
-
-
-SET_RESPONSE_LANGUAGE_AGENT_SYSTEM_PROMPT = """
-Task: Determine the language the user wants responses in, based on conversation context and the latest message.
-
-Allowed outputs: en, ar, fr, es, hi, ru, id, sw, pt, zh, nl, Other
-
-Instructions:
-- Use conversation history and the most recent message to infer the user's desired response language.
-- Only return one of the allowed outputs. If unclear or unsupported, return Other.
-- Consider explicit requests like "reply in French" or language names/codes.
-- Output must match the provided schema with no additional prose.
-"""
-
-
-class MessageLanguage(BaseModel):
-    """Model for parsing/validating the detected language of a message."""
-    language: Language
-
-
-class TranslatedPassage(BaseModel):
-    """Schema for single-call passage translation output.
-
-    - header_book: translated book name (e.g., "Иоанн").
-    - header_suffix: exact suffix copied from input (e.g., "1:1–7").
-    - body: translated passage body with original newlines preserved.
-    - content_language: ISO 639-1 code (should equal requested target language).
-    """
-
-    header_book: str
-    header_suffix: str
-    body: str
-    content_language: Language
-
-
-class PreprocessorResult(BaseModel):
-    """Result type for the preprocessor node output."""
-    new_message: str
-    reason_for_decision: str
-    message_changed: bool
-
-
-def _is_protected_response_item(item: dict) -> bool:
-    """Return True if a response item carries scripture to protect from changes."""
-    body = cast(dict | str, item.get("response"))
-    if isinstance(body, dict):
-        if body.get("suppress_translation"):
-            return True
-        if isinstance(body.get("segments"), list):
-            segs = cast(list, body.get("segments"))
-            return any(isinstance(seg, dict) and seg.get("type") == "scripture" for seg in segs)
-    return False
-
-
-def _reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[str]) -> str:
-    """Render a response item to plain text, optionally localizing the header book name.
-
-    - If `resp_item` is a plain string, return it.
-    - If structured with segments, rebuild: "<Book> <suffix>:\n\n<scripture>".
-    - If `localize_to` is provided, map the book to that language via get_book_name; else use canonical.
-    """
-    if isinstance(resp_item, str):
-        return resp_item
-    body = cast(dict | str, resp_item.get("response"))
-    if isinstance(body, dict) and isinstance(body.get("segments"), list):
-        segs = cast(list, body.get("segments"))
-        header_book = ""
-        header_suffix = ""
-        scripture_text = ""
-        for seg in segs:
-            if not isinstance(seg, dict):
-                continue
-            st = seg.get("type")
-            txt = cast(str, seg.get("text", ""))
-            if st == "header_book":
-                header_book = txt
-            elif st == "header_suffix":
-                header_suffix = txt
-            elif st == "scripture":
-                scripture_text = txt
-        book = get_book_name(localize_to or "en", header_book) if localize_to else header_book
-        header = (f"{book} {header_suffix}" if header_suffix else book).strip() + ":"
-        return header + ("\n\n" + scripture_text if scripture_text else "")
-    return str(body)
-
-
-
-
-
-def _capabilities() -> List[Capability]:
-    """Return the list of user-facing capabilities with examples.
-
-    Centralized here so greetings, help, and unsupported-function prompts stay in sync
-    as new intents are added. Update this list to change feature messaging.
-    """
-    return [
-        {
-            "intent": IntentType.GET_PASSAGE_SUMMARY,
-            "label": "Summarize a passage",
-            "description": "Summarize books, chapters, or verse ranges.",
-            "examples": [
-                "Summarize Titus 1.",
-                "Summarize Mark 1:1–8.",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.GET_TRANSLATION_HELPS,
-            "label": "Translation helps",
-            "description": "Point out typical translation challenges.",
-            "examples": [
-                "Translation challenges for John 1:1?",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.GET_PASSAGE_KEYWORDS,
-            "label": "Keywords",
-            "description": "List key terms in a passage.",
-            "examples": [
-                "Important words in Romans 1.",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.RETRIEVE_SCRIPTURE,
-            "label": "Show scripture text",
-            "description": "Display the verse text for a selection.",
-            "examples": [
-                "Show John 3:16–18.",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.LISTEN_TO_SCRIPTURE,
-            "label": "Read aloud",
-            "description": "Hear the passage as audio.",
-            "examples": [
-                "Read Romans 8:1–4 aloud.",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.TRANSLATE_SCRIPTURE,
-            "label": "Translate scripture",
-            "description": "Translate a passage into another language.",
-            "examples": [
-                "Translate John 3:16 into Indonesian.",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.SET_RESPONSE_LANGUAGE,
-            "label": "Set response language",
-            "description": "Choose your preferred reply language.",
-            "examples": [
-                "Set my response language to Spanish.",
-            ],
-            "include_in_boilerplate": True,
-        },
-    ]
-
-
-def build_boilerplate_message() -> str:
-    """Build a concise 'what I can do' list with examples."""
-    caps = [c for c in _capabilities() if c.get("include_in_boilerplate")]
-    lines: list[str] = ["Here’s what I can do:"]
-    for idx, c in enumerate(caps, start=1):
-        example = c["examples"][0] if c.get("examples") else ""
-        lines.append(f"{idx}) {c['label']} (e.g., '{example}')")
-    lines.append("Which would you like me to do?")
-    return "\n".join(lines)
-
-
-def build_full_help_message() -> str:
-    """Build a full help message with descriptions and examples for each capability."""
-    lines: list[str] = ["Features:"]
-    for idx, c in enumerate(_capabilities(), start=1):
-        lines.append(f"{idx}. {c['label']}: {c['description']}")
-        if c.get("examples"):
-            for ex in c["examples"]:
-                lines.append(f"   - Example: '{ex}'")
-    return "\n".join(lines)
-
-
-BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE = build_boilerplate_message()
-FULL_HELP_MESSAGE = build_full_help_message()
-
-FIRST_INTERACTION_MESSAGE = f"""
-Hello! I am the BT Servant. This is our first conversation. Let's work together to understand and translate God's word!
-
-{BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}
-"""
-
-UNSUPPORTED_FUNCTION_AGENT_SYSTEM_PROMPT = f"""
-# Identity
-
-You are a part of a RAG bot system that assists Bible translators. You are one node in the decision/intent processing 
-lang graph. Specifically, your job is to handle the perform-unsupported-function intent. This means the user is trying 
-to perform an unsupported function.
-
-# Instructions
-
-Respond appropriately to the user's request to do something that you currently can't do. Leverage the 
-user's message and the conversation history if needed. Make sure to always end your response with some version of  
-the boiler plate available features message (see below).
-
-<boiler_plate_available_features_message>
-    {BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}
-</boiler_plate_available_features_message>
-"""
-
-CONVERSE_AGENT_SYSTEM_PROMPT = f"""
-# Identity
-
-You are a part of a RAG bot system that assists Bible translators. You are one node in the decision/intent processing 
-lang graph. Specifically, your job is to handle the converse-with-bt-servant intent by responding conversationally to 
-the user based on the provided context.
-
-# Instructions
-
-If we are here in the decision graph, the converse-with-bt-servant intent has been detected. You will be provided with 
-the user's most recent message and conversation history. Your job is to respond conversationally to the user. Unless it 
-doesn't make sense to do so, aim to end your response with some version of  the boiler plate available features message 
-(see below).
-
-<boiler_plate_available_features_message>
-    {BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}
-</boiler_plate_available_features_message>
-"""
-
-HELP_AGENT_SYSTEM_PROMPT = f"""
-# Identity
-
-You are a part of a WhatsApp RAG bot system that assists Bible translators called BT Servant. You sole purpose is to 
-provide help information about the BT Servant system. If this node has been hit, it means the system has already 
-classified the user's most recent message as a desire to receive help or more information about the system. This is 
-typically the result of them saying something like: 'help!' or 'tell me about yourself' or 'how does this work?' Thus, 
-make sure to always provide some help, to the best of your abilities. Always provide help to the user.
-
-# Instructions
-You will be supplied with the user's most recent message and also past conversation history. Using this context,
-provide the user with information detailing how the system works (the features of the BT Servant system). Use the
-feature information below. End your response with a single question inviting the user to pick one capability
-(for example: 'Which of these would you like me to do?').
-
-<features_full_help_message>
-{FULL_HELP_MESSAGE}
-</features_full_help_message>
-
-# Using prior history for better responses
-
-Here are some guidelines for using history for better responses:
-1. If you detect in conversation history that you've already said hello, there's no need to say it again.
-2. If it doesn't make sense to say "hello!" to the user, based on their most recent message, there's no need to say 
-'Hello!  I'm here to assist with Bible translation tasks' again.
-"""
-
-
-def start(state: Any) -> dict:
-    """Handle first interaction greeting, otherwise no-op."""
-    s = cast(BrainState, state)
-    user_id = s["user_id"]
-    if is_first_interaction(user_id):
-        set_first_interaction(user_id, False)
-        return {"responses": [
-            {"intent": "first-interaction", "response": FIRST_INTERACTION_MESSAGE}]}
-    return {}
-
-
-def determine_intents(state: Any) -> dict:
-    """Classify the user's transformed query into one or more intents."""
-    s = cast(BrainState, state)
-    query = s["transformed_query"]
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "system",
-            "content": INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT,
-        },
-        {
-            "role": "user",
-            "content": f"what is your classification of the latest user message: {query}",
-        },
-    ]
-    response = open_ai_client.responses.parse(
-        model="gpt-4o",
-        input=cast(Any, messages),
-        text_format=UserIntents,
-        store=False
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    user_intents_model = cast(UserIntents, response.output_parsed)
-    logger.info("extracted user intents: %s", ' '.join([i.value for i in user_intents_model.intents]))
-
-    return {
-        "user_intents": user_intents_model.intents,
-    }
-
-
-class PassageRef(BaseModel):
-    """Normalized reference to a passage within a single canonical book."""
-
-    book: str
-    start_chapter: int | None = None
-    start_verse: int | None = None
-    end_chapter: int | None = None
-    end_verse: int | None = None
-
-
-class PassageSelection(BaseModel):
-    """Structured selection consisting of one or more ranges for a book."""
-
-    selections: List[PassageRef]
-
-
-def set_response_language(state: Any) -> dict:
-    """Detect and persist the user's desired response language."""
-    s = cast(BrainState, state)
-    chat_input: list[EasyInputMessageParam] = [
-        {
-            "role": "user",
-            "content": f"Past conversation: {json.dumps(s['user_chat_history'])}",
-        },
-        {
-            "role": "user",
-            "content": f"the user's most recent message: {s['user_query']}",
-        },
-        {
-            "role": "user",
-            "content": "What language is the user trying to set their response language to?",
-        },
-    ]
-    response = open_ai_client.responses.parse(
-        model="gpt-4o",
-        instructions=SET_RESPONSE_LANGUAGE_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, chat_input),
-        text_format=ResponseLanguage,
-        temperature=0,
-        store=False,
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    resp_lang = cast(ResponseLanguage, response.output_parsed)
-    if resp_lang.language == Language.OTHER:
-        supported_language_list = ", ".join(supported_language_map.keys())
-        response_text = (f"I think you're trying to set the response language. The supported languages "
-                         f"are: {supported_language_list}. If this is your intent, please clearly tell "
-                         f"me which supported language to use when responding.")
-        return {"responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}]}
-    user_id: str = s["user_id"]
-    response_language_code: str = str(resp_lang.language.value)
-    set_user_response_language(user_id, response_language_code)
-    language_name: str = supported_language_map.get(response_language_code, response_language_code)
-    response_text = f"Setting response language to: {language_name}"
-    return {
-        "responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}],
-        "user_response_language": response_language_code
-    }
-
-
-def combine_responses(chat_history, latest_user_message, responses) -> str:
-    """Ask OpenAI to synthesize multiple node responses into one coherent text.
-
-    Note: callers should pass only normal responses here; scripture-protected
-    items are excluded earlier to avoid rewriting scripture text.
-    """
-    uncombined_responses = json.dumps(responses)
-    logger.info("preparing to combine responses:\n\n%s", uncombined_responses)
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "developer",
-            "content": f"conversation history: {chat_history}",
-        },
-        {
-            "role": "developer",
-            "content": f"latest user message: {latest_user_message}",
-        },
-        {
-            "role": "developer",
-            "content": f"responses to synthesize: {uncombined_responses}",
-        },
-    ]
-    response = open_ai_client.responses.create(
-        model="gpt-4o",
-        instructions=COMBINE_RESPONSES_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    combined = response.output_text
-    logger.info("combined response from openai: %s", combined)
-    return combined
-
-
-def translate_responses(state: Any) -> dict:
-    """Thin wrapper delegating to servant_brain.intents.translate_responses."""
-    return _intent_translate_responses.translate_responses(
-        state,
-        combine_responses=combine_responses,
-        is_protected_response_item=_is_protected_response_item,
-        reconstruct_structured_text=_reconstruct_structured_text,
-        detect_language=detect_language,
-        translate_text=translate_text,
-        supported_language_map=supported_language_map,
-    )
-
-
-def translate_text(response_text: str, target_language: str) -> str:
-    """Translate a single text into the target ISO 639-1 language code.
-
-    Returns a plain string. If the OpenAI SDK returns a structured content
-    list or None, normalize it to a string.
-    """
-    chat_messages = cast(List[ChatCompletionMessageParam], [
-        {
-            "role": "system",
-            "content": RESPONSE_TRANSLATOR_SYSTEM_PROMPT,
-        },
-        {
-            "role": "user",
-            "content": (
-                f"text to translate: {response_text}\n\n"
-                f"ISO 639-1 code representing target language: {target_language}"
-            ),
-        },
-    ])
-    completion = open_ai_client.chat.completions.create(
-        model="gpt-4o",
-        messages=chat_messages,
-    )
-    usage = getattr(completion, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "prompt_tokens", None)
-        ot = getattr(usage, "completion_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    content = completion.choices[0].message.content
-    if isinstance(content, list):
-        text = "".join(part.get("text", "") if isinstance(part, dict) else "" for part in content)
-    elif content is None:
-        text = ""
-    else:
-        text = content
-    logger.info('chunk: \n%s\n\ntranslated to:\n%s', response_text, text)
-    return cast(str, text)
-
-
-def detect_language(text) -> str:
-    """Detect ISO 639-1 language code of the given text via OpenAI.
-
-    Uses a domain-aware prompt with deterministic decoding and a light
-    heuristic to avoid false Indonesian due to Bible abbreviations like
-    "Dan" (Daniel).
-    """
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "user",
-            "content": f"text: {text}",
-        },
-    ]
-    response = open_ai_client.responses.parse(
-        model="gpt-4o",
-        instructions=DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        text_format=MessageLanguage,
-        temperature=0,
-        store=False,
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    message_language = cast(MessageLanguage | None, response.output_parsed)
-    predicted = message_language.language.value if message_language else "en"
-    logger.info("language detection (model): %s", predicted)
-
-    # Heuristic guard: If we predicted Indonesian ('id') but the text looks like
-    # an English instruction paired with a Bible reference, prefer English.
-    # This specifically addresses the common "Dan" (Daniel) vs Indonesian "dan" ambiguity.
-    try:
-        has_english_instruction = bool(
-            re.search(r"\b(summarize|explain|what|who|why|how|list|give|provide)\b", str(text), re.IGNORECASE)
-        )
-        has_verse_pattern = bool(
-            re.search(r"\b[A-Za-z]{2,4}\s+\d+:\d+\b", str(text))
-        )
-        logger.info(
-            "heuristic_guard: predicted=%s english_instruction=%s verse_pattern=%s",
-            predicted,
-            has_english_instruction,
-            has_verse_pattern,
-        )
-        if predicted == "id" and has_english_instruction and has_verse_pattern:
-            logger.info("heuristic_guard: overriding id -> en due to English instruction + verse pattern")
-            predicted = "en"
-    except re.error as err:
-        # If regex fails for any reason, fall back to the model prediction.
-        logger.info("heuristic_guard: regex error (%s); keeping model prediction: %s", err, predicted)
-
-    return predicted
-
-
-def determine_query_language(state: Any) -> dict:
-    """Determine the language of the user's original query and set collection order."""
-    s = cast(BrainState, state)
-    query = s["user_query"]
-    query_language = detect_language(query)
-    logger.info("language code %s detected by gpt-4o.", query_language)
-    stack_rank_collections = [
-        "knowledgebase",
-        "en_resources",
-    ]
-    # If the detected language is not English, also search the matching
-    # language-specific resources collection (e.g., "es_resources").
-    if query_language and query_language != "en" and query_language != Language.OTHER.value:
-        localized_collection = f"{query_language}_resources"
-        stack_rank_collections.append(localized_collection)
-        logger.info(
-            "appended localized resources collection: %s (language=%s)",
-            localized_collection,
-            query_language,
-        )
-
-    return {
-        "query_language": query_language,
-        "stack_rank_collections": stack_rank_collections
-    }
-
-
-def preprocess_user_query(state: Any) -> dict:  # pylint: disable=too-many-locals
-    """Lightly clarify or correct the user's query using conversation history."""
-    s = cast(BrainState, state)
-    query = s["user_query"]
-    chat_history = s["user_chat_history"]
-    history_context_message = f"past_conversation: {json.dumps(chat_history)}"
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "user",
-            "content": history_context_message,
-        },
-        {
-            "role": "user",
-            "content": f"current_message: {query}",
-        },
-    ]
-    response = open_ai_client.responses.parse(
-        model="gpt-4o",
-        instructions=PREPROCESSOR_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        text_format=PreprocessorResult,
-        store=False
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    preprocessor_result = cast(PreprocessorResult | None, response.output_parsed)
-    if preprocessor_result is None:
-        new_message = query
-        reason_for_decision = "no changes"
-        message_changed = False
-    else:
-        new_message = preprocessor_result.new_message
-        reason_for_decision = preprocessor_result.reason_for_decision
-        message_changed = preprocessor_result.message_changed
-    logger.info("new_message: %s\nreason_for_decision: %s\nmessage_changed: %s",
-                new_message, reason_for_decision, message_changed)
-    return {
-        "transformed_query": new_message if message_changed else query
-    }
-
-
-def query_vector_db(state: Any) -> dict:
-    """Query the vector DB (Chroma) across ranked collections and filter by relevance."""
-    # pylint: disable=too-many-locals
-    s = cast(BrainState, state)
-    query = s["transformed_query"]
-    stack_rank_collections = s["stack_rank_collections"]
-    filtered_docs = []
-    # this loop is the current implementation of the "stacked ranked" algorithm
-    for collection_name in stack_rank_collections:
-        logger.info("querying stack collection: %s", collection_name)
-        db_collection = get_chroma_collection(collection_name)
-        if not db_collection:
-            logger.warning("collection %s was not found in chroma db.", collection_name)
-            continue
-        col = cast(Any, db_collection)
-        results = col.query(
-            query_texts=[query],
-            n_results=TOP_K
-        )
-        docs = results["documents"]
-        similarities = results["distances"]
-        metadata = results["metadatas"]
-        logger.info("\nquery: %s\n", query)
-        logger.info("---")
-        hits = 0
-        for i in range(len(docs[0])):
-            cosine_similarity = round(1 - similarities[0][i], 4)
-            doc = docs[0][i]
-            m = metadata[0][i]
-            resource_name = m.get("name", "")
-            source = m.get("source", "")
-            logger.info("processing %s from %s.", resource_name, source)
-            logger.info("Cosine Similarity: %s", cosine_similarity)
-            logger.info("Metadata: %s", resource_name)
-            logger.info("---")
-            if cosine_similarity >= RELEVANCE_CUTOFF:
-                hits += 1
-                filtered_docs.append({
-                    "collection_name": collection_name,
-                    "resource_name": resource_name,
-                    "source": source,
-                    "document_text": doc
-                })
-        if hits > 0:
-            logger.info("found %d hit(s) at stack collection: %s", hits, collection_name)
-
-    return {
-        "docs": filtered_docs
-    }
-
-
-# pylint: disable=too-many-locals
-def query_open_ai(state: Any) -> dict:
-    """Generate the final response text using RAG context and OpenAI."""
-    s = cast(BrainState, state)
-    docs = s["docs"]
-    query = s["transformed_query"]
-    chat_history = s["user_chat_history"]
-    try:
-        if len(docs) == 0:
-            no_docs_msg = (f"Sorry, I couldn't find any information in my resources to service your request "
-                           f"or command.\n\n{BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}")
-            return {"responses": [
-                {"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": no_docs_msg}]}
-
-        # build context from docs
-        # context = "\n\n".join([item["doc"] for item in docs])
-        context = json.dumps(docs, indent=2)
-        logger.info("context passed to final node:\n\n%s", context)
-        rag_context_message = "When answering my next query, use this additional" + \
-            f"  context: {context}"
-        chat_history_context_message = (f"Use this conversation history to understand the user's "
-                                        f"current request only if needed: {json.dumps(chat_history)}")
-        messages = cast(List[EasyInputMessageParam], [
-            {
-                "role": "developer",
-                "content": rag_context_message
-            },
-            {
-                "role": "developer",
-                "content": chat_history_context_message
-            },
-            {
-                "role": "user",
-                "content": query
-            }
-        ])
-        response = open_ai_client.responses.create(
-            model="gpt-4o",
-            instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
-            input=cast(Any, messages)
-        )
-        usage = getattr(response, "usage", None)
-        if usage is not None:
-            it = getattr(usage, "input_tokens", None)
-            ot = getattr(usage, "output_tokens", None)
-            tt = getattr(usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-        bt_servant_response = response.output_text
-        logger.info('response from openai: %s', bt_servant_response)
-        logger.debug("%d characters returned from openAI", len(bt_servant_response))
-
-        resource_list = ", ".join({
-            f"{item.get('resource_name', 'unknown')} from {item.get('source', 'unknown')}"
-            for item in docs
-        })
-        cascade_info = (
-            f"bt servant used the following resources to generate its response: {resource_list}."
-        )
-        logger.info(cascade_info)
-
-        return {"responses": [
-            {"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": bt_servant_response}]}
-    except OpenAIError:
-        logger.error("Error during OpenAI request", exc_info=True)
-        error_msg = "I encountered some problems while trying to respond. Let Ian know about this one."
-        return {"responses": [{"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": error_msg}]}
-
-
-def chunk_message(state: Any) -> dict:
-    """Thin wrapper delegating to servant_brain.intents.chunk_message."""
-    return _intent_chunk_message.chunk_message(
-        state,
-        chop_text=chop_text,
-        combine_chunks=combine_chunks,
-        CHOP_AGENT_SYSTEM_PROMPT=CHOP_AGENT_SYSTEM_PROMPT,
-        open_ai_client=open_ai_client,
-        add_tokens=add_tokens,
-        extract_cached_input_tokens=_extract_cached_input_tokens,
-    )
-
-
-def needs_chunking(state: BrainState) -> str:
-    """Return next node key if chunking is required, otherwise finish."""
-    first_response = state["translated_responses"][0]
-    if len(first_response) > config.MAX_META_TEXT_LENGTH:
-        logger.warning('message to big: %d chars. preparing to chunk.', len(first_response))
-        return "chunk_message_node"
-    return END
+from config import config as _config
+
+open_ai_client = _deps.open_ai_client
+supported_language_map = _deps.supported_language_map
+LANGUAGE_UNKNOWN = _deps.LANGUAGE_UNKNOWN
+RELEVANCE_CUTOFF = _deps.RELEVANCE_CUTOFF
+TOP_K = _deps.TOP_K
+
+CHOP_AGENT_SYSTEM_PROMPT = _CHOP_AGENT_SYSTEM_PROMPT
+COMBINE_RESPONSES_SYSTEM_PROMPT = _COMBINE_RESPONSES_SYSTEM_PROMPT
+FINAL_RESPONSE_AGENT_SYSTEM_PROMPT = _FINAL_RESPONSE_AGENT_SYSTEM_PROMPT
+PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT = _PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT
+RESPONSE_TRANSLATOR_SYSTEM_PROMPT = _RESPONSE_TRANSLATOR_SYSTEM_PROMPT
+TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT = _TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT
+config = _config
+PassageSelection = selection_helpers.PassageSelection
+PassageRef = selection_helpers.PassageRef
 
 
 def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-branches
     """Delegate to the split graph helper to decide next nodes."""
+
     return _graph_process_intents(state)
-
-
-def handle_unsupported_function(state: Any) -> dict:
-    """Generate a helpful response when the user requests unsupported functionality."""
-    s = cast(BrainState, state)
-    query = s["user_query"]
-    chat_history = s["user_chat_history"]
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "developer",
-            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
-        },
-        {
-            "role": "user",
-            "content": query,
-        },
-    ]
-    response = open_ai_client.responses.create(
-        model="gpt-4o",
-        instructions=UNSUPPORTED_FUNCTION_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        store=False
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    unsupported_function_response_text = response.output_text
-    logger.info('converse_with_bt_servant response from openai: %s', unsupported_function_response_text)
-    return {"responses": [{"intent": IntentType.PERFORM_UNSUPPORTED_FUNCTION, "response": unsupported_function_response_text}]}
-
-
-def handle_system_information_request(state: Any) -> dict:
-    """Provide help/about information for the BT Servant system."""
-    s = cast(BrainState, state)
-    query = s["user_query"]
-    chat_history = s["user_chat_history"]
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "developer",
-            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
-        },
-        {
-            "role": "user",
-            "content": query,
-        },
-    ]
-    response = open_ai_client.responses.create(
-        model="gpt-4o",
-        instructions=HELP_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        store=False
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    help_response_text = response.output_text
-    logger.info('help response from openai: %s', help_response_text)
-    return {"responses": [{"intent": IntentType.RETRIEVE_SYSTEM_INFORMATION, "response": help_response_text}]}
-
-
-def converse_with_bt_servant(state: Any) -> dict:
-    """Respond conversationally to the user based on context and history."""
-    s = cast(BrainState, state)
-    query = s["user_query"]
-    chat_history = s["user_chat_history"]
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "developer",
-            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
-        },
-        {
-            "role": "user",
-            "content": query,
-        },
-    ]
-    response = open_ai_client.responses.create(
-        model="gpt-4o",
-        instructions=CONVERSE_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        store=False
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    converse_response_text = response.output_text
-    logger.info('converse_with_bt_servant response from openai: %s', converse_response_text)
-    return {"responses": [{"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}]}
-
-
-def _book_patterns() -> list[tuple[str, str]]:
-    """Return (canonical, regex) patterns to detect book mentions (ordered)."""
-    pats: list[tuple[str, str]] = []
-    for canonical, meta in BSB_BOOK_MAP.items():
-        # canonical name as a whole word/phrase
-        cn = re.escape(canonical)
-        pats.append((canonical, rf"\b{cn}\b"))
-        # short ref abbreviation (e.g., Gen, Exo, 1Sa)
-        abbr = re.escape(meta.get("ref_abbr", ""))
-        if abbr:
-            pats.append((canonical, rf"\b{abbr}\b"))
-    return pats
-
-
-def _detect_mentioned_books(text: str) -> list[str]:
-    """Detect canonical books mentioned in text, preserving order of appearance."""
-    found: list[tuple[int, str]] = []
-    lower = text
-    for canonical, pattern in _book_patterns():
-        for m in re.finditer(pattern, lower, flags=re.IGNORECASE):
-            found.append((m.start(), canonical))
-    # sort by appearance and dedupe preserving order
-    found.sort(key=lambda t: t[0])
-    seen = set()
-    ordered: list[str] = []
-    for _, can in found:
-        if can not in seen:
-            seen.add(can)
-            ordered.append(can)
-    return ordered
-
-
-def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
-    """Heuristic to pick a primary book when multiple are mentioned.
-
-    Prefer the first mentioned that appears near chapter/verse digits; else None.
-    """
-    if not candidates:
-        return None
-    # Build spans for each candidate occurrence
-    spans: list[tuple[int, int, str]] = []
-    for can, pat in _book_patterns():
-        if can not in candidates:
-            continue
-        for m in re.finditer(pat, text, flags=re.IGNORECASE):
-            spans.append((m.start(), m.end(), can))
-    spans.sort(key=lambda t: t[0])
-    for s_idx, end, can in spans:
-        _ = s_idx  # avoid shadowing outer start() function
-        window = text[end:end + 12]
-        if re.search(r"\d", window):
-            return can
-    return None
 
 
 def _resolve_selection_for_single_book(
@@ -1256,12 +114,13 @@ def _resolve_selection_for_single_book(
     query_lang: str,
 ) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
     """Thin wrapper delegating to servant_brain.selection with the same contract."""
+
     return selection_helpers.resolve_selection_for_single_book(
         query=query,
         query_lang=query_lang,
         open_ai_client=open_ai_client,
-        PassageSelection=PassageSelection,
-        PassageRef=PassageRef,
+        passage_selection_model=selection_helpers.PassageSelection,
+        passage_ref_model=selection_helpers.PassageRef,
         add_tokens=add_tokens,
         extract_cached_input_tokens=_extract_cached_input_tokens,
         translate_text=translate_text,
@@ -1271,8 +130,28 @@ def _resolve_selection_for_single_book(
     )
 
 
+def translate_responses(state: Any) -> dict:
+    """Wrapper ensuring detect_language patches against brain module apply."""
+
+    # pylint: disable=protected-access
+    return _intent_translate_responses.translate_responses(
+        state,
+        combine_responses=combine_responses,
+        is_protected_response_item=(
+            _responses_nodes._is_protected_response_item  # type: ignore[attr-defined]
+        ),
+        reconstruct_structured_text=(
+            _responses_nodes._reconstruct_structured_text  # type: ignore[attr-defined]
+        ),
+        detect_language=detect_language,
+        translate_text=translate_text,
+        supported_language_map=supported_language_map,
+    )
+
+
 def get_passage_summary(state: Any) -> dict:
     """Thin wrapper delegating to servant_brain.intents.passage_summary."""
+
     return _intent_passage_summary.get_passage_summary(
         state,
         resolve_selection_for_single_book=_resolve_selection_for_single_book,
@@ -1284,6 +163,7 @@ def get_passage_summary(state: Any) -> dict:
 
 def get_passage_keywords(state: Any) -> dict:
     """Thin wrapper delegating to servant_brain.intents.passage_keywords."""
+
     return _intent_passage_keywords.get_passage_keywords(
         state,
         resolve_selection_for_single_book=_resolve_selection_for_single_book,
@@ -1292,6 +172,7 @@ def get_passage_keywords(state: Any) -> dict:
 
 def get_translation_helps(state: Any) -> dict:
     """Thin wrapper delegating to servant_brain.intents.translation_helps."""
+
     return _intent_translation_helps.get_translation_helps(
         state,
         resolve_selection_for_single_book=_resolve_selection_for_single_book,
@@ -1301,8 +182,9 @@ def get_translation_helps(state: Any) -> dict:
     )
 
 
-def retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
+def retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-arguments
     """Thin wrapper delegating to servant_brain.intents.retrieve_scripture."""
+
     return _intent_retrieve_scripture.retrieve_scripture(
         state,
         resolve_selection_for_single_book=_resolve_selection_for_single_book,
@@ -1318,312 +200,22 @@ def retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches
         extract_cached_input_tokens=_extract_cached_input_tokens,
         ResponseLanguage=ResponseLanguage,
         Language=Language,
-        TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT=TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
+        TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT=(
+            TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT
+        ),
         supported_language_map=supported_language_map,
     )
 
 
 def listen_to_scripture(state: Any) -> dict:
     """Thin wrapper delegating to servant_brain.intents.listen_to_scripture."""
-    return _intent_listen_to_scripture.listen_to_scripture(
-        state,
-        retrieve=retrieve_scripture,
-    )
 
-def _norm_ws(text: str) -> str:
-    return re.sub(r"\s+", " ", str(text)).strip()
+    return _intent_listen_to_scripture.listen_to_scripture(state, retrieve=retrieve_scripture)
 
 
-def _supported_language_guidance(requested_name: Optional[str]) -> str:
-    name = requested_name or "an unsupported language"
-    supported_names = [
-        supported_language_map[code]
-        for code in ["en", "ar", "fr", "es", "hi", "ru", "id", "sw", "pt", "zh", "nl"]
-    ]
-    supported_lines = "\n".join(f"- {n}" for n in supported_names)
-    return (
-        f"Translating into {name} is currently not supported.\n\n"
-        "BT Servant can set your response language to any of:\n\n"
-        f"{supported_lines}\n\n"
-        "Would you like me to set a specific language for your responses?"
-    )
-
-
-def _compute_header_suffix(canonical_book: str, ranges) -> str:  # type: ignore[no-untyped-def]
-    ref_label = label_ranges(canonical_book, ranges)
-    if ref_label == canonical_book:
-        return ""
-    if ref_label.startswith(f"{canonical_book} "):
-        return ref_label[len(canonical_book) + 1 :]
-    return ref_label
-
-
-def _attempt_structured_translation(canonical_book: str, header_suffix: str, target_code: str, body_src: str) -> TranslatedPassage | None:
-    try:
-        messages: list[EasyInputMessageParam] = [
-            {"role": "developer", "content": f"canonical_book: {canonical_book}"},
-            {"role": "developer", "content": f"header_suffix (do not translate): {header_suffix}"},
-            {"role": "developer", "content": f"target_language: {target_code}"},
-            {"role": "developer", "content": "passage body (translate; preserve newlines):"},
-            {"role": "developer", "content": body_src},
-        ]
-        resp = open_ai_client.responses.parse(
-            model="gpt-4o",
-            instructions=TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
-            input=cast(Any, messages),
-            text_format=TranslatedPassage,
-            temperature=0,
-            store=False,
-        )
-        usage = getattr(resp, "usage", None)
-        if usage is not None:
-            it = getattr(usage, "input_tokens", None)
-            ot = getattr(usage, "output_tokens", None)
-            tt = getattr(usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-        return cast(TranslatedPassage | None, resp.output_parsed)
-    except OpenAIError:
-        logger.warning("[translate-scripture] structured parse failed due to OpenAI error; falling back.", exc_info=True)
-    except Exception:  # pylint: disable=broad-except
-        logger.warning("[translate-scripture] structured parse failed; falling back to simple translation.", exc_info=True)
-    return None
-
-
-def _resolve_target_language(query: str) -> tuple[Optional[str], Optional[str]]:  # noqa: D401
-    """Resolve explicit target language code from the message and return any explicit name.
-
-    Does not apply fallbacks to user preferences or detected query language; callers
-    can decide how to handle unsupported or absent target codes.
-    """
-    target_code: Optional[str] = None
-    explicit_mention_name: Optional[str] = None
-    try:
-        tl_resp = open_ai_client.responses.parse(
-            model="gpt-4o",
-            instructions=TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
-            input=cast(Any, [{"role": "user", "content": f"message: {query}"}]),
-            text_format=ResponseLanguage,
-            temperature=0,
-            store=False,
-        )
-        tl_usage = getattr(tl_resp, "usage", None)
-        if tl_usage is not None:
-            it = getattr(tl_usage, "input_tokens", None)
-            ot = getattr(tl_usage, "output_tokens", None)
-            tt = getattr(tl_usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(tl_usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-        tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
-        if tl_parsed and tl_parsed.language != Language.OTHER:
-            target_code = str(tl_parsed.language.value)
-    except OpenAIError:
-        logger.info("[translate-scripture] target-language parse failed; will fallback", exc_info=True)
-
-    if not target_code:
-        m = re.search(r"\b(?:into|to|in)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
-        if m:
-            explicit_mention_name = m.group(1).strip().title()
-
-    return target_code, explicit_mention_name
-
-
-def _fallback_target_language(s: BrainState) -> Optional[str]:  # type: ignore[no-untyped-def]
-    url = cast(Optional[str], s.get("user_response_language"))
-    if url and url in supported_language_map:
-        return url
-    ql = cast(Optional[str], s.get("query_language"))
-    if ql and ql in supported_language_map:
-        return ql
-    return None
-
-
-def _make_scripture_response(
-    content_language: str,
-    header_book: str,
-    header_suffix: str,
-    scripture_text: str,
-    header_is_translated: bool,
-) -> dict:
-    return _resp_make_scripture_response(
-        content_language=content_language,
-        header_book=header_book,
-        header_suffix=header_suffix,
-        scripture_text=scripture_text,
-        header_is_translated=header_is_translated,
-    )
-
-
-def _make_scripture_response_from_translated(
-    canonical_book: str,
-    header_suffix: str,
-    translated: TranslatedPassage,
-) -> dict:
-    return _resp_make_scripture_response_from_translated(
-        canonical_book=canonical_book,
-        header_suffix=header_suffix,
-        translated=translated,
-    )
-
-
-def _resolve_requested_source_language(query: str) -> Optional[str]:
-    requested_lang: Optional[str] = None
-    try:
-        tl_resp = open_ai_client.responses.parse(
-            model="gpt-4o",
-            instructions=TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
-            input=cast(Any, [{"role": "user", "content": f"message: {query}"}]),
-            text_format=ResponseLanguage,
-            temperature=0,
-            store=False,
-        )
-        tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
-        tl_usage = getattr(tl_resp, "usage", None)
-        if tl_usage is not None:
-            it = getattr(tl_usage, "input_tokens", None)
-            ot = getattr(tl_usage, "output_tokens", None)
-            tt = getattr(tl_usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(tl_usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-        if tl_parsed and tl_parsed.language != Language.OTHER:
-            requested_lang = str(tl_parsed.language.value)
-    except OpenAIError:
-        logger.info("[retrieve-scripture] requested-language parse failed; will fallback", exc_info=True)
-    except Exception:  # pylint: disable=broad-except
-        logger.info("[retrieve-scripture] requested-language parse failed (generic); will fallback", exc_info=True)
-    if not requested_lang:
-        m = re.search(r"\b(?:in|from the|from)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
-        if m:
-            name = m.group(1).strip().title()
-            for code, friendly in supported_language_map.items():
-                if friendly.lower() == name.lower():
-                    requested_lang = code
-                    break
-    return requested_lang
-
-
-def _resolve_source_bible_with_requested(s: BrainState, requested_lang: Optional[str]):  # type: ignore[no-untyped-def]
-    try:
-        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
-            response_language=s.get("user_response_language"),
-            query_language=s.get("query_language"),
-            requested_lang=requested_lang,
-            requested_version=None,
-        )
-        logger.info(
-            "[retrieve-scripture] data_root=%s lang=%s version=%s",
-            data_root,
-            resolved_lang,
-            resolved_version,
-        )
-        return data_root, resolved_lang, resolved_version
-    except FileNotFoundError:
-        avail = list_available_sources()
-        if not avail:
-            return "Scripture data is not available on this server. Please contact the administrator."
-        options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
-        return (
-            f"I couldn't find a Bible source matching your request. Available sources: {options}. "
-            f"Would you like me to use one of these?"
-        )
-
-
-def _enforce_retrieve_limit_and_select(data_root: Path, canonical_book: str, ranges):  # type: ignore[no-untyped-def]
-    total_verses = len(select_verses(data_root, canonical_book, ranges))
-    if total_verses > config.RETRIEVE_SCRIPTURE_VERSE_LIMIT:
-        ref_label_over = label_ranges(canonical_book, ranges)
-        return (
-            f"I can only retrieve up to {config.RETRIEVE_SCRIPTURE_VERSE_LIMIT} verses at a time. "
-            f"Your selection {ref_label_over} includes {total_verses} verses. "
-            "Please narrow the range (e.g., a chapter or a shorter span)."
-        )
-    verses = select_verses(data_root, canonical_book, ranges)
-    if not verses:
-        return "I couldn't locate those verses in the Bible data. Please check the reference and try again."
-    return verses
-
-
-def _decide_retrieve_target(s: BrainState, requested_lang: Optional[str], resolved_lang: str) -> Optional[str]:  # type: ignore[no-untyped-def]
-    if requested_lang and requested_lang != resolved_lang:
-        return requested_lang
-    url = cast(Optional[str], s.get("user_response_language"))
-    ql = cast(Optional[str], s.get("query_language"))
-    target_pref = url or ql
-    if target_pref and target_pref != resolved_lang:
-        return target_pref
-    return None
-
-
-def _localize_book_name_for_target(canonical_book: str, target_code: str) -> str:
-    try:
-        t_root, _t_lang, _t_ver = resolve_bible_data_root(
-            response_language=None,
-            query_language=None,
-            requested_lang=target_code,
-            requested_version=None,
-        )
-        t_titles = load_book_titles(t_root)
-        translated_book = t_titles.get(canonical_book)
-    except FileNotFoundError:
-        translated_book = None
-    if not translated_book:
-        static_name = get_book_name(target_code, canonical_book)
-        if static_name != canonical_book:
-            translated_book = static_name
-        else:
-            translated_book = translate_text(response_text=canonical_book, target_language=target_code)
-    return cast(str, translated_book)
-
-
-def _autotranslate_scripture_response(verses, canonical_book: str, header_suffix: str, target_code: str):  # type: ignore[no-untyped-def]
-    translated_book = _localize_book_name_for_target(canonical_book, target_code)
-    translated_lines: list[str] = [
-        _norm_ws(translate_text(response_text=str(txt), target_language=target_code)) for _ref, txt in verses
-    ]
-    translated_body = " ".join(translated_lines)
-    return _make_scripture_response(
-        content_language=target_code,
-        header_book=translated_book,
-        header_suffix=header_suffix,
-        scripture_text=translated_body,
-        header_is_translated=True,
-    )
-
-
-def _resolve_source_bible(s: BrainState):  # type: ignore[no-untyped-def]
-    try:
-        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
-            response_language=s.get("user_response_language"),
-            query_language=s.get("query_language"),
-            requested_lang=None,
-            requested_version=None,
-        )
-        logger.info(
-            "[translate-scripture] source data_root=%s lang=%s version=%s",
-            data_root,
-            resolved_lang,
-            resolved_version,
-        )
-        return data_root, resolved_lang, resolved_version
-    except FileNotFoundError:
-        avail = list_available_sources()
-        if not avail:
-            return "Scripture data is not available on this server. Please contact the administrator."
-        options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
-        return (
-            f"I couldn't find a Bible source to translate from. Available sources: {options}. "
-            f"Would you like me to use one of these?"
-        )
-
-
-def translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
+def translate_scripture(state: Any) -> dict:
     """Thin wrapper delegating to servant_brain.intents.translate_scripture."""
+
     return _intent_translate_scripture.translate_scripture(
         state,
         resolve_selection_for_single_book=_resolve_selection_for_single_book,
@@ -1637,14 +229,19 @@ def translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branche
         extract_cached_input_tokens=_extract_cached_input_tokens,
         TranslatedPassage=TranslatedPassage,
         ResponseLanguage=ResponseLanguage,
-        TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT=TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
-        TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT=TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
+        TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT=(
+            TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT
+        ),
+        TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT=(
+            TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT
+        ),
         supported_language_map=supported_language_map,
     )
 
 
 def create_brain():
     """Compile the LangGraph using the split graph helper."""
+
     nodes = {
         "start_node": start,
         "determine_query_language_node": determine_query_language,
@@ -1667,3 +264,65 @@ def create_brain():
         "needs_chunking": needs_chunking,
     }
     return _graph_create(BrainStateType=BrainState, nodes=nodes)
+
+
+__all__ = [
+    "BrainState",
+    "Capability",
+    "IntentType",
+    "UserIntents",
+    "Language",
+    "ResponseLanguage",
+    "MessageLanguage",
+    "TranslatedPassage",
+    "PassageSelection",
+    "PassageRef",
+    "config",
+    "open_ai_client",
+    "supported_language_map",
+    "LANGUAGE_UNKNOWN",
+    "RELEVANCE_CUTOFF",
+    "TOP_K",
+    "capabilities",
+    "build_boilerplate_message",
+    "build_full_help_message",
+    "BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE",
+    "FULL_HELP_MESSAGE",
+    "FIRST_INTERACTION_MESSAGE",
+    "CONVERSE_AGENT_SYSTEM_PROMPT",
+    "HELP_AGENT_SYSTEM_PROMPT",
+    "UNSUPPORTED_FUNCTION_AGENT_SYSTEM_PROMPT",
+    "CHOP_AGENT_SYSTEM_PROMPT",
+    "COMBINE_RESPONSES_SYSTEM_PROMPT",
+    "RESPONSE_TRANSLATOR_SYSTEM_PROMPT",
+    "TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT",
+    "DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT",
+    "SET_RESPONSE_LANGUAGE_AGENT_SYSTEM_PROMPT",
+    "TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT",
+    "PREPROCESSOR_AGENT_SYSTEM_PROMPT",
+    "PreprocessorResult",
+    "start",
+    "detect_language",
+    "determine_query_language",
+    "preprocess_user_query",
+    "determine_intents",
+    "set_response_language",
+    "query_vector_db",
+    "query_open_ai",
+    "chunk_message",
+    "needs_chunking",
+    "handle_unsupported_function",
+    "handle_system_information_request",
+    "converse_with_bt_servant",
+    "get_passage_summary",
+    "get_passage_keywords",
+    "get_translation_helps",
+    "retrieve_scripture",
+    "listen_to_scripture",
+    "translate_scripture",
+    "translate_responses",
+    "process_intents",
+    "combine_responses",
+    "translate_text",
+    "create_brain",
+]

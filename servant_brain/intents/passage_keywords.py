@@ -1,12 +1,14 @@
+"""Passage keywords intent handler."""
+# pylint: disable=line-too-long,wrong-import-order
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any, Callable, cast
 
 from logger import get_logger
 from servant_brain.classifier import IntentType
 from utils.bsb import label_ranges
 from utils.keywords import select_keywords
-from pathlib import Path
 
 
 logger = get_logger(__name__)
@@ -47,4 +49,3 @@ def get_passage_keywords(
     response_text = header + body
     logger.info("[passage-keywords] done")
     return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": response_text}]}
-
