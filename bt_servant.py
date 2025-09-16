@@ -18,7 +18,7 @@ import uuid
 from datetime import datetime, timezone
 import httpx
 from fastapi import FastAPI, Request, Response, status, HTTPException, Header, Depends
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, PlainTextResponse
 from pydantic import BaseModel
 from brain import create_brain
 from logger import get_logger
@@ -215,23 +215,16 @@ class MergeTaskStatus(BaseModel):
     eta_at: float | None = None
 
 
-async def require_admin_token(
+async def _validate_token(
+    *,
+    expected: Optional[str],
     authorization: Annotated[Optional[str], Header(alias="Authorization")] = None,
     x_admin_token: Annotated[Optional[str], Header(alias="X-Admin-Token")] = None,
-):
-    """Simple admin token guard for non-webhook endpoints.
-
-    - If ENABLE_ADMIN_AUTH is False, bypass checks (use only for dev/tests).
-    - Accepts either `Authorization: Bearer <token>` or `X-Admin-Token: <token>`.
-    - Returns 401 if token missing/invalid or not configured.
-    """
-    if not config.ENABLE_ADMIN_AUTH:
-        return
-    expected = config.ADMIN_API_TOKEN
+) -> None:
+    """Shared helper to validate bearer/X-Admin-Token headers."""
     if not expected:
-        # Fail-safe if auth is enabled but no token configured
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
-                            detail="Admin token not configured",
+                            detail="Token not configured",
                             headers={"WWW-Authenticate": "Bearer"})
 
     provided = None
@@ -250,10 +243,44 @@ async def require_admin_token(
                             headers={"WWW-Authenticate": "Bearer"})
 
 
+async def require_admin_token(
+    authorization: Annotated[Optional[str], Header(alias="Authorization")] = None,
+    x_admin_token: Annotated[Optional[str], Header(alias="X-Admin-Token")] = None,
+):
+    """Simple admin token guard for non-webhook endpoints."""
+    if not config.ENABLE_ADMIN_AUTH:
+        return
+    await _validate_token(
+        expected=config.ADMIN_API_TOKEN,
+        authorization=authorization,
+        x_admin_token=x_admin_token,
+    )
+
+
+async def require_healthcheck_token(
+    authorization: Annotated[Optional[str], Header(alias="Authorization")] = None,
+    x_admin_token: Annotated[Optional[str], Header(alias="X-Admin-Token")] = None,
+):
+    """Token guard specifically for the health check endpoint."""
+    if not config.ENABLE_ADMIN_AUTH:
+        return
+    await _validate_token(
+        expected=config.HEALTHCHECK_API_TOKEN,
+        authorization=authorization,
+        x_admin_token=x_admin_token,
+    )
+
+
 @app.get("/")
 def read_root():
     """Health/info endpoint with a short usage message."""
     return {"message": "Welcome to the API. Refer to /docs for available endpoints."}
+
+
+@app.get("/alive")
+async def alive_check(_: None = Depends(require_healthcheck_token)) -> PlainTextResponse:
+    """Authenticated health check endpoint for infrastructure probes."""
+    return PlainTextResponse("BT Servant is alive and healthy.")
 
 
 @app.post("/chroma/add-document")
