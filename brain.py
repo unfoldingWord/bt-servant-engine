@@ -1895,6 +1895,10 @@ def query_open_ai(state: Any) -> dict:
             },
             {
                 "role": "developer",
+                "content": "Focus only on the portion of the user's message requesting general Bible translation assistance.",
+            },
+            {
+                "role": "developer",
                 "content": chat_history_context_message
             },
             {
@@ -2038,6 +2042,10 @@ def consult_fia_resources(state: Any) -> dict:  # pylint: disable=too-many-local
         {
             "role": "developer",
             "content": f"FIA context resources: {context_payload}",
+        },
+        {
+            "role": "developer",
+            "content": "Focus only on the portion of the user's message that requests FIA guidance.",
         },
         {
             "role": "developer",
