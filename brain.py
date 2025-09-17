@@ -1374,7 +1374,7 @@ def translate_responses(state: Any) -> dict:  # pylint: disable=too-many-locals
     translated_responses: list[str] = []
     for resp in responses_for_translation:
         if isinstance(resp, str):
-            sample = resp.lstrip()[:LANG_DETECTION_SAMPLE_CHARS]
+            sample = _sample_for_language_detection(resp)
             detected_lang = detect_language(sample) if sample else target_language
             if detected_lang != target_language:
                 logger.info('preparing to translate to %s', target_language)
@@ -3084,3 +3084,15 @@ def create_brain():
 
     return builder.compile()
 LANG_DETECTION_SAMPLE_CHARS = 100
+
+
+def _sample_for_language_detection(text: str) -> str:
+    """Return a short prefix ending at a whitespace boundary for detection."""
+    trimmed = text.lstrip()
+    if len(trimmed) <= LANG_DETECTION_SAMPLE_CHARS:
+        return trimmed
+    snippet = trimmed[:LANG_DETECTION_SAMPLE_CHARS]
+    parts = snippet.rsplit(maxsplit=1)
+    if len(parts) > 1 and parts[0]:
+        return parts[0]
+    return snippet
