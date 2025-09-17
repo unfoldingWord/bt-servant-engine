@@ -268,6 +268,14 @@ Recommended workflow
 - Do NOT duplicate selection parsing/normalization inside individual handlers. Call this helper and handle the `error` case by returning an intent‑specific message.
 - For labeling output headers, always use `utils/bsb.label_ranges(...)` to build a canonical reference string. It already special‑cases whole‑book selections to avoid odd labels like "Book 1‑10000".
 
+## GitHub CLI Usage
+
+- The development workstation has `gh` (GitHub CLI) installed. Prefer `gh pr create` to open pull requests directly from the terminal.
+- When a PR is ready:
+  1. Ensure the branch is pushed (`git push origin <branch>`).
+  2. Run `gh pr create` with the appropriate base, title, and body, or use `gh pr create --fill` after preparing the template.
+  3. Confirm the PR URL and share it with reviewers.
+
 ### Passage Summary Intent
 - Extraction and scope:
   - Supports a single canonical book per request. Disallow cross‑book selections.
