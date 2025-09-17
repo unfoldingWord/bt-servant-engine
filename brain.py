@@ -12,7 +12,7 @@ import json
 import operator
 from pathlib import Path
 import re
-from typing import Annotated, Dict, Iterable, List, Sequence, cast, Any, Optional
+from typing import Annotated, Dict, Iterable, List, cast, Any, Optional
 from collections.abc import Hashable
 from enum import Enum
 from typing_extensions import TypedDict
@@ -207,6 +207,9 @@ Return a normalized, structured selection of book + verse ranges.
 
 # Instructions
 
+- Obey any developer instructions that precede the user message. They may narrow the
+  focus to a specific clause of the user's text. When instructed, ignore unrelated
+  books or requests outside that clause.
 - Only choose from these canonical book names (exact match):
   {books}
 - Accept a variety of phrasings (e.g., "John 3:16", "Jn 3:16–18", "1 John 2:1-3", "Psalm 1", "Song of Songs 2").
@@ -236,6 +239,9 @@ Return JSON parsable into the provided schema.
 - "John and Mark 1:1" -> choose Mark 1:1 (explicit qualifier picks Mark over first mention).
 - "summarize 3 John" -> choose book "3 John" with no chapters/verses (whole book selection).
 - "summarize John 3" -> choose book "John" with start_chapter=3 (whole chapter if no verses).
+- Developer hint: "Focus only on the portion asking for translation helps."
+  User message: "I want to listen to John 1:1, and I also want help translating Gal 1:3-4."
+  -> choose Galatians 1:3-4 (ignore the listening request entirely).
 """
 
 
@@ -1000,14 +1006,12 @@ def _prepare_translation_helps(
     bsb_root: Path,
     *,
     selection_focus_hint: str | None = None,
-    selection_focus_keywords: Sequence[str] | None = None,
 ) -> tuple[Optional[str], Optional[list[TranslationRange]], Optional[list[dict]], Optional[str]]:
     """Resolve canonical selection, enforce limits, and load raw help entries."""
     canonical_book, ranges, err = _resolve_selection_for_single_book(
         state["transformed_query"],
         state["query_language"],
         focus_hint=selection_focus_hint,
-        focus_keywords=selection_focus_keywords or (),
     )
     if err:
         return None, None, None, err
@@ -1099,7 +1103,7 @@ def _build_translation_helps_messages(ref_label: str, context_obj: dict[str, obj
     """Construct the LLM messages for the translation helps prompt."""
     payload = json.dumps(context_obj, ensure_ascii=False)
     return [
-        {"role": "developer", "content": "Focus only on the portion of the user's message that asked for translation helps."},
+        {"role": "developer", "content": "Focus only on the portion of the user's message that asked for translation helps. Ignore any other requests or book references in the message."},
         {"role": "developer", "content": f"Selection: {ref_label}"},
         {"role": "developer", "content": "Use the JSON context below strictly:"},
         {"role": "developer", "content": payload},
@@ -1912,7 +1916,7 @@ def query_open_ai(state: Any) -> dict:
             },
             {
                 "role": "developer",
-                "content": "Focus only on the portion of the user's message requesting general Bible translation assistance.",
+                "content": "Focus only on the portion of the user's message requesting general Bible translation assistance. Ignore unrelated requests or passages mentioned elsewhere in the message.",
             },
             {
                 "role": "developer",
@@ -2062,7 +2066,7 @@ def consult_fia_resources(state: Any) -> dict:  # pylint: disable=too-many-local
         },
         {
             "role": "developer",
-            "content": "Focus only on the portion of the user's message that requests FIA guidance.",
+            "content": "Focus only on the portion of the user's message that requests FIA guidance. Ignore any other requests or book references in the message.",
         },
         {
             "role": "developer",
@@ -2425,49 +2429,10 @@ def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
     return None
 
 
-def _extract_focus_clause(query: str, keywords: Sequence[str]) -> str | None:
-    """Return the clause containing one of the keywords (heuristic fallback)."""
-    if not keywords:
-        return None
-    lower_query = query.lower()
-    positions: list[int] = []
-    for keyword in keywords:
-        idx = lower_query.find(keyword.lower())
-        if idx != -1:
-            positions.append(idx)
-    if not positions:
-        return None
-    start_idx = min(positions)
-    end_idx = max(positions)
-
-    # Extend end to include trailing reference fragment
-    while end_idx < len(query) and query[end_idx] not in '.;!?\n':
-        if query[end_idx] == ',' and end_idx > start_idx:
-            break
-        end_idx += 1
-
-    # Backtrack start to the previous delimiter or conjunction boundary
-    clause_start = start_idx
-    while clause_start > 0 and query[clause_start - 1] not in '.;!?\n':
-        if query[clause_start - 1] == ',':
-            clause_start -= 1
-            break
-        if lower_query[max(0, clause_start - 5):clause_start].endswith(' and '):
-            clause_start -= 5
-            break
-        clause_start -= 1
-
-    clause = query[clause_start:end_idx].strip(" ,;\n")
-    if clause.lower().startswith('and '):
-        clause = clause[4:]
-    return clause or None
-
-
 def _resolve_selection_for_single_book(
     query: str,
     query_lang: str,
     focus_hint: str | None = None,
-    focus_keywords: Sequence[str] | None = None,
 ) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
     # pylint: disable=too-many-return-statements, too-many-branches
     """Parse and normalize a user query into a single canonical book and ranges.
@@ -2590,19 +2555,6 @@ def _resolve_selection_for_single_book(
         ))
 
     if len(set(canonical_books)) != 1:
-        if focus_keywords:
-            clause = _extract_focus_clause(parse_input, focus_keywords)
-            if clause and clause != parse_input:
-                logger.info(
-                    "[selection-helper] cross-book detected; retrying with focused clause: %s",
-                    clause,
-                )
-                return _resolve_selection_for_single_book(
-                    clause,
-                    Language.ENGLISH.value,
-                    focus_hint=focus_hint,
-                    focus_keywords=None,
-                )
         msg = (
             "Please request a selection for one book at a time. "
             "If you need multiple books, send a separate message for each."
@@ -2644,8 +2596,7 @@ def handle_get_passage_summary(state: Any) -> dict:
     canonical_book, ranges, err = _resolve_selection_for_single_book(
         query,
         query_lang,
-        focus_hint="Focus only on the portion of the user's message that asked for a passage summary.",
-        focus_keywords=("summary", "summarize", "summarizing"),
+        focus_hint="Focus only on the portion of the user's message that asked for a passage summary. Ignore any other requests or book references in the message.",
     )
     if err:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": err}]}
@@ -2694,7 +2645,7 @@ def handle_get_passage_summary(state: Any) -> dict:
 
     # Summarize using LLM with strict system prompt
     sum_messages: list[EasyInputMessageParam] = [
-        {"role": "developer", "content": "Focus only on summarizing the portion of the user's message that asked for a passage summary."},
+        {"role": "developer", "content": "Focus only on summarizing the portion of the user's message that asked for a passage summary. Ignore any other requests or book references in the message."},
         {"role": "developer", "content": f"Passage reference: {ref_label}"},
         {"role": "developer", "content": f"Passage verses (use only this content):\n{joined}"},
         {"role": "user", "content": "Provide a concise, faithful summary of the passage above."},
@@ -2749,8 +2700,7 @@ def handle_get_passage_keywords(state: Any) -> dict:
     canonical_book, ranges, err = _resolve_selection_for_single_book(
         query,
         query_lang,
-        focus_hint="Focus only on the portion of the user's message that asked for passage keywords.",
-        focus_keywords=("keyword", "keywords", "key words"),
+        focus_hint="Focus only on the portion of the user's message that asked for passage keywords. Ignore any other requests or book references in the message.",
     )
     if err:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": err}]}
@@ -2824,8 +2774,7 @@ def handle_get_translation_helps(state: Any) -> dict:
         s,
         th_root,
         bsb_root,
-        selection_focus_hint="Focus only on the portion of the user's message that asked for translation helps.",
-        selection_focus_keywords=("translate", "translation", "translating", "help translating"),
+        selection_focus_hint="Focus only on the portion of the user's message that asked for translation helps. Ignore any other requests or book references in the message.",
     )
     if err:
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": err}]}
@@ -2892,8 +2841,7 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
     canonical_book, ranges, err = _resolve_selection_for_single_book(
         query,
         query_lang,
-        focus_hint="Focus only on the portion of the user's message that asked to retrieve or listen to scripture.",
-        focus_keywords=("listen", "hear", "audio", "play", "read", "retrieve"),
+        focus_hint="Focus only on the portion of the user's message that asked to retrieve or listen to scripture. Ignore any other requests or book references in the message.",
     )
     if err:
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": err}]}
@@ -3127,8 +3075,7 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
     canonical_book, ranges, err = _resolve_selection_for_single_book(
         query,
         query_lang,
-        focus_hint="Focus only on the portion of the user's message that asked to translate scripture.",
-        focus_keywords=("translate", "translation", "translating"),
+        focus_hint="Focus only on the portion of the user's message that asked to translate scripture. Ignore any other requests or book references in the message.",
     )
     if err:
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": err}]}

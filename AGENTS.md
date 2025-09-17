@@ -263,7 +263,7 @@ Recommended workflow
 ### Passage Selection (DRY)
 
 - Use the shared helper in `brain.py` to parse and normalize user queries that refer to Bible passages:
-  - `_resolve_selection_for_single_book(query: str, query_lang: str, focus_hint: str | None = None, focus_keywords: Sequence[str] | None = None) -> tuple[canonical_book | None, ranges | None, error | None]`
+  - `_resolve_selection_for_single_book(query: str, query_lang: str, focus_hint: str | None = None) -> tuple[canonical_book | None, ranges | None, error | None]`
   - It handles: translation to English for parsing, extraction via the selection prompt, the "chapters X–Y" heuristic, canonicalization (single book), and range building (including whole‑book sentinel handling).
 - Do NOT duplicate selection parsing/normalization inside individual handlers. Call this helper and handle the `error` case by returning an intent‑specific message.
 - For labeling output headers, always use `utils/bsb.label_ranges(...)` to build a canonical reference string. It already special‑cases whole‑book selections to avoid odd labels like "Book 1‑10000".
