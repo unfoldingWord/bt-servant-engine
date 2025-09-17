@@ -1330,7 +1330,7 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
     return combined
 
 
-def translate_responses(state: Any) -> dict:
+def translate_responses(state: Any) -> dict:  # pylint: disable=too-many-locals
     """Translate the response(s) into the user's desired language if needed.
 
     Scripture-protected responses are not combined via LLM and are not machine-
@@ -1374,7 +1374,9 @@ def translate_responses(state: Any) -> dict:
     translated_responses: list[str] = []
     for resp in responses_for_translation:
         if isinstance(resp, str):
-            if detect_language(resp) != target_language:
+            sample = resp.lstrip()[:LANG_DETECTION_SAMPLE_CHARS]
+            detected_lang = detect_language(sample) if sample else target_language
+            if detected_lang != target_language:
                 logger.info('preparing to translate to %s', target_language)
                 translated_responses.append(translate_text(response_text=resp, target_language=target_language))
             else:
@@ -3081,3 +3083,4 @@ def create_brain():
     builder.set_finish_point("chunk_message_node")
 
     return builder.compile()
+LANG_DETECTION_SAMPLE_CHARS = 100
