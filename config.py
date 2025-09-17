@@ -50,6 +50,8 @@ class Config(BaseSettings):
             '{'
             '"gpt-4o": {"input_per_million": 2.5, '
             '"output_per_million": 10.0, "cached_input": 1.25}, '
+            '"gpt-4o-mini": {"input_per_million": 0.15, '
+            '"output_per_million": 0.6}, '
             '"gpt-4o-transcribe": {"input_per_million": 2.5, '
             '"output_per_million": 10.0, '
             '"audio_input_per_million": 6.0}, '
