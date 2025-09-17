@@ -18,7 +18,7 @@ import uuid
 from datetime import datetime, timezone
 import httpx
 from fastapi import FastAPI, Request, Response, status, HTTPException, Header, Depends
-from fastapi.responses import JSONResponse, PlainTextResponse
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from brain import create_brain
 from logger import get_logger
@@ -278,9 +278,9 @@ def read_root():
 
 
 @app.get("/alive")
-async def alive_check(_: None = Depends(require_healthcheck_token)) -> PlainTextResponse:
+async def alive_check(_: None = Depends(require_healthcheck_token)) -> JSONResponse:
     """Authenticated health check endpoint for infrastructure probes."""
-    return PlainTextResponse("BT Servant is alive and healthy.\n")
+    return JSONResponse({"status": "ok", "message": "BT Servant is alive and healthy."})
 
 
 @app.post("/chroma/add-document")
