@@ -365,7 +365,7 @@ You MUST always return at least one intent. You MUST choose one or more intents 
   <intent name="set-agentic-strength">
     The user wants to adjust how assertive the assistant should be when answering. They might say "set my agentic
     strength to low" or "use normal agentic strength". Only use this when they clearly request one of the supported
-    strength levels (normal or low).
+    strength levels (normal, low, or very low).
   </intent>
   <intent name="retrieve-system-information">
     The user wants information about the BT Servant system itself — how it works, where it gets data, uptime, 
@@ -729,7 +729,7 @@ Instructions:
 """
 
 
-ALLOWED_AGENTIC_STRENGTH = {"normal", "low"}
+ALLOWED_AGENTIC_STRENGTH = {"normal", "low", "very_low"}
 
 
 class AgenticStrengthChoice(str, Enum):
@@ -737,6 +737,7 @@ class AgenticStrengthChoice(str, Enum):
 
     NORMAL = "normal"
     LOW = "low"
+    VERY_LOW = "very_low"
     UNKNOWN = "unknown"
 
 
@@ -747,13 +748,13 @@ class AgenticStrengthSetting(BaseModel):
 
 
 SET_AGENTIC_STRENGTH_AGENT_SYSTEM_PROMPT = """
-Task: Determine whether the user is asking to adjust the agentic strength setting. The allowed values are "normal"
-and "low". Use the conversation context and latest message to infer the requested level.
+Task: Determine whether the user is asking to adjust the agentic strength setting. The allowed values are "normal",
+"low", and "very_low". Use the conversation context and latest message to infer the requested level.
 
-Output schema: { "strength": <normal|low|unknown> }
+Output schema: { "strength": <normal|low|very_low|unknown> }
 
 Rules:
-- If the user clearly requests "normal" or "low", return that value.
+- If the user clearly requests "normal", "low", or "very low", return that value.
 - If the intent is ambiguous or references any other option, return "unknown".
 - Do not include explanations or additional text. Only produce a JSON object that matches the schema.
 """
@@ -773,6 +774,21 @@ def _resolve_agentic_strength(state: BrainState) -> str:
         if configured_lower in ALLOWED_AGENTIC_STRENGTH:
             return configured_lower
     return "normal"
+
+
+def _model_for_agentic_strength(
+    agentic_strength: str,
+    *,
+    allow_low: bool,
+    allow_very_low: bool,
+) -> str:
+    """Return GPT model name based on strength and allowed downgrades."""
+    allowed: set[str] = set()
+    if allow_low:
+        allowed.add("low")
+    if allow_very_low:
+        allowed.add("very_low")
+    return "gpt-4o-mini" if agentic_strength in allowed else "gpt-4o"
 
 
 class MessageLanguage(BaseModel):
@@ -920,7 +936,11 @@ def _translate_or_localize_response(
         detected_lang = detect_language(sample, agentic_strength=agentic_strength) if sample else target_language
         if detected_lang != target_language:
             logger.info('preparing to translate to %s', target_language)
-            return translate_text(response_text=resp, target_language=target_language)
+            return translate_text(
+                response_text=resp,
+                target_language=target_language,
+                agentic_strength=agentic_strength,
+            )
         logger.info('chunk translation not required. using chunk as is.')
         return resp
 
@@ -1200,7 +1220,7 @@ def _capabilities() -> List[Capability]:
         {
             "intent": IntentType.SET_AGENTIC_STRENGTH,
             "label": "Adjust agentic strength",
-            "description": "Tune how assertive the assistant should be (normal or low).",
+            "description": "Tune how assertive the assistant should be (normal, low, or very low).",
             "examples": [
                 "Set my agentic strength to low.",
             ],
@@ -1444,7 +1464,7 @@ def set_agentic_strength(state: Any) -> dict:
         },
         {
             "role": "user",
-            "content": "Is the user asking to set the agentic strength to normal or low?",
+            "content": "Is the user asking to set the agentic strength to normal, low, or very low?",
         },
     ]
 
@@ -1459,13 +1479,17 @@ def set_agentic_strength(state: Any) -> dict:
         )
         usage = getattr(response, "usage", None)
         if usage is not None:
-            it = getattr(usage, "input_tokens", None)
-            ot = getattr(usage, "output_tokens", None)
-            tt = getattr(usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+            add_tokens(
+                getattr(usage, "input_tokens", None),
+                getattr(usage, "output_tokens", None),
+                getattr(usage, "total_tokens", None)
+                or (
+                    (getattr(usage, "input_tokens", None) or 0)
+                    + (getattr(usage, "output_tokens", None) or 0)
+                ),
+                model="gpt-4o",
+                cached_input_tokens=_extract_cached_input_tokens(usage),
+            )
         parsed = cast(AgenticStrengthSetting | None, response.output_parsed)
     except OpenAIError:
         logger.error("[agentic-strength] OpenAI request failed while parsing user preference.", exc_info=True)
@@ -1476,7 +1500,7 @@ def set_agentic_strength(state: Any) -> dict:
 
     if not parsed or parsed.strength == AgenticStrengthChoice.UNKNOWN:
         msg = (
-            "I can set the agentic strength to either normal or low. Please specify one of those options "
+            "I can set the agentic strength to normal, low, or very low. Please specify one of those options "
             "so I can update it."
         )
         return {
@@ -1492,7 +1516,7 @@ def set_agentic_strength(state: Any) -> dict:
     except ValueError:
         logger.warning("[agentic-strength] Attempted to set invalid value '%s' for user %s", desired, user_id)
         msg = (
-            "That setting isn't supported. I can only use normal or low for agentic strength."
+            "That setting isn't supported. I can only use normal, low, or very low for agentic strength."
         )
         return {
             "responses": [
@@ -1500,7 +1524,11 @@ def set_agentic_strength(state: Any) -> dict:
             ]
         }
 
-    friendly = "Normal" if desired == "normal" else "Low"
+    friendly = {
+        "normal": "Normal",
+        "low": "Low",
+        "very_low": "Very Low",
+    }.get(desired, desired.capitalize())
     response_text = (
         f"Agentic strength set to {friendly.lower()}. I'll use the {friendly} setting from now on."
     )
@@ -1575,12 +1603,24 @@ def translate_responses(state: Any) -> dict:
     return {"translated_responses": translated_responses}
 
 
-def translate_text(response_text: str, target_language: str) -> str:
+def translate_text(
+    response_text: str,
+    target_language: str,
+    *,
+    agentic_strength: Optional[str] = None,
+) -> str:
     """Translate a single text into the target ISO 639-1 language code.
 
     Returns a plain string. If the OpenAI SDK returns a structured content
     list or None, normalize it to a string.
     """
+    resolved_strength = (
+        agentic_strength if agentic_strength in ALLOWED_AGENTIC_STRENGTH else None
+    )
+    if resolved_strength is None:
+        configured = getattr(config, "AGENTIC_STRENGTH", "normal")
+        resolved_strength = configured if configured in ALLOWED_AGENTIC_STRENGTH else "normal"
+    model_name = _model_for_agentic_strength(resolved_strength, allow_low=False, allow_very_low=True)
     chat_messages = cast(List[ChatCompletionMessageParam], [
         {
             "role": "system",
@@ -1595,7 +1635,7 @@ def translate_text(response_text: str, target_language: str) -> str:
         },
     ])
     completion = open_ai_client.chat.completions.create(
-        model="gpt-4o",
+        model=model_name,
         messages=chat_messages,
     )
     usage = getattr(completion, "usage", None)
@@ -1604,7 +1644,7 @@ def translate_text(response_text: str, target_language: str) -> str:
         ot = getattr(usage, "completion_tokens", None)
         tt = getattr(usage, "total_tokens", None)
         cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
     content = completion.choices[0].message.content
     if isinstance(content, list):
         text = "".join(part.get("text", "") if isinstance(part, dict) else "" for part in content)
@@ -1633,7 +1673,7 @@ def detect_language(text: str, *, agentic_strength: Optional[str] = None) -> str
     strength = str(strength_source).lower()
     if strength not in ALLOWED_AGENTIC_STRENGTH:
         strength = "normal"
-    model_name = "gpt-4o-mini" if strength == "low" else "gpt-4o"
+    model_name = _model_for_agentic_strength(strength, allow_low=True, allow_very_low=True)
     response = open_ai_client.responses.parse(
         model=model_name,
         instructions=DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
@@ -1844,8 +1884,10 @@ def query_open_ai(state: Any) -> dict:
                 "content": query
             }
         ])
+        agentic_strength = _resolve_agentic_strength(s)
+        model_name = _model_for_agentic_strength(agentic_strength, allow_low=False, allow_very_low=True)
         response = open_ai_client.responses.create(
-            model="gpt-4o",
+            model=model_name,
             instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
             input=cast(Any, messages)
         )
@@ -1857,7 +1899,7 @@ def query_open_ai(state: Any) -> dict:
             if tt is None and (it is not None or ot is not None):
                 tt = (it or 0) + (ot or 0)
             cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
         bt_servant_response = response.output_text
         logger.info('response from openai: %s', bt_servant_response)
         logger.debug("%d characters returned from openAI", len(bt_servant_response))
@@ -1991,7 +2033,7 @@ def consult_fia_resources(state: Any) -> dict:  # pylint: disable=too-many-local
 
     try:
         agentic_strength = _resolve_agentic_strength(s)
-        model_name = "gpt-4o-mini" if agentic_strength == "low" else "gpt-4o"
+        model_name = _model_for_agentic_strength(agentic_strength, allow_low=True, allow_very_low=True)
         response = open_ai_client.responses.create(
             model=model_name,
             instructions=CONSULT_FIA_RESOURCES_SYSTEM_PROMPT,
@@ -2541,9 +2583,11 @@ def handle_get_passage_summary(state: Any) -> dict:
         {"role": "developer", "content": f"Passage verses (use only this content):\n{joined}"},
         {"role": "user", "content": "Provide a concise, faithful summary of the passage above."},
     ]
+    agentic_strength = _resolve_agentic_strength(s)
+    model_name = _model_for_agentic_strength(agentic_strength, allow_low=True, allow_very_low=True)
     logger.info("[passage-summary] summarizing %d verses", len(verses))
     summary_resp = open_ai_client.responses.create(
-        model="gpt-4o",
+        model=model_name,
         instructions=PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
         input=cast(Any, sum_messages),
         store=False,
@@ -2556,7 +2600,7 @@ def handle_get_passage_summary(state: Any) -> dict:
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
         cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
     summary_text = summary_resp.output_text
     logger.info("[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0)
 
@@ -2649,7 +2693,7 @@ def handle_get_translation_helps(state: Any) -> dict:
 
     logger.info("[translation-helps] invoking LLM with %d helps", len(raw_helps))
     agentic_strength = _resolve_agentic_strength(s)
-    model_name = "gpt-4o-mini" if agentic_strength == "low" else "gpt-4o"
+    model_name = _model_for_agentic_strength(agentic_strength, allow_low=True, allow_very_low=True)
     resp = open_ai_client.responses.create(
         model=model_name,
         instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
@@ -2691,6 +2735,7 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
     query = s["transformed_query"]
     query_lang = s["query_language"]
     logger.info("[retrieve-scripture] start; query_lang=%s; query=%s", query_lang, query)
+    agentic_strength = _resolve_agentic_strength(s)
 
     # 1) Parse passage selection
     canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
@@ -2843,11 +2888,20 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
             else:
                 # As a last resort, translate the canonical book name with the LLM.
                 translated_book = translate_text(
-                    response_text=canonical_book, target_language=desired_target
+                    response_text=canonical_book,
+                    target_language=desired_target,
+                    agentic_strength=agentic_strength,
                 )
         # Translate each verse text and join into a flowing paragraph
         translated_lines: list[str] = [
-            _norm_ws(translate_text(response_text=str(txt), target_language=desired_target)) for _ref, txt in verses
+            _norm_ws(
+                translate_text(
+                    response_text=str(txt),
+                    target_language=desired_target,
+                    agentic_strength=agentic_strength,
+                )
+            )
+            for _ref, txt in verses
         ]
         translated_body = " ".join(translated_lines)
         response_obj = {
@@ -2901,6 +2955,7 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
     query = s["transformed_query"]
     query_lang = s["query_language"]
     logger.info("[translate-scripture] start; query_lang=%s; query=%s", query_lang, query)
+    agentic_strength = _resolve_agentic_strength(s)
 
     # First, validate the passage selection so we can surface selection errors
     # (e.g., unsupported book like "Enoch") before language guidance.
@@ -3074,8 +3129,9 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
             {"role": "developer", "content": "passage body (translate; preserve newlines):"},
             {"role": "developer", "content": body_src},
         ]
+        model_name = _model_for_agentic_strength(agentic_strength, allow_low=False, allow_very_low=True)
         resp = open_ai_client.responses.parse(
-            model="gpt-4o",
+            model=model_name,
             instructions=TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
             input=cast(Any, messages),
             text_format=TranslatedPassage,
@@ -3090,7 +3146,7 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
             if tt is None and (it is not None or ot is not None):
                 tt = (it or 0) + (ot or 0)
             cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
         translated = cast(TranslatedPassage | None, resp.output_parsed)
     except OpenAIError:
         logger.warning("[translate-scripture] structured parse failed due to OpenAI error; falling back.", exc_info=True)
@@ -3100,8 +3156,18 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
         translated = None
 
     if translated is None:
-        translated_body = _norm_ws(translate_text(response_text=body_src, target_language=cast(str, target_code)))
-        translated_book = translate_text(response_text=canonical_book, target_language=cast(str, target_code))
+        translated_body = _norm_ws(
+            translate_text(
+                response_text=body_src,
+                target_language=cast(str, target_code),
+                agentic_strength=agentic_strength,
+            )
+        )
+        translated_book = translate_text(
+            response_text=canonical_book,
+            target_language=cast(str, target_code),
+            agentic_strength=agentic_strength,
+        )
         response_obj = {
             "suppress_translation": True,
             "content_language": cast(str, target_code),

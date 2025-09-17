@@ -78,5 +78,5 @@ def test_set_agentic_strength_handles_unknown(monkeypatch: pytest.MonkeyPatch) -
     out = brain.set_agentic_strength(cast(Any, state))
 
     assert not called, "should not persist an unknown preference"
-    assert "normal or low" in out["responses"][0]["response"]
+    assert "normal, low, or very low" in out["responses"][0]["response"]
     assert "agentic_strength" not in out

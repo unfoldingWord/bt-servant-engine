@@ -96,7 +96,7 @@ def _compute_agentic_strengths(user_id: str) -> tuple[str, Optional[str]]:
     """Return effective agentic strength and stored user preference (if any)."""
     user_strength = get_user_agentic_strength(user_id=user_id)
     system_strength = str(config.AGENTIC_STRENGTH).lower()
-    if system_strength not in {"normal", "low"}:
+    if system_strength not in {"normal", "low", "very_low"}:
         system_strength = "normal"
     effective = user_strength or system_strength
     return effective, user_strength

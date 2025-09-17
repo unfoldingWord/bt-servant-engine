@@ -12,7 +12,7 @@ else:
 
 # NOTE: consider moving to configuration if needed.
 CHAT_HISTORY_MAX = 5
-VALID_AGENTIC_STRENGTH = {"normal", "low"}
+VALID_AGENTIC_STRENGTH = {"normal", "low", "very_low"}
 
 
 def get_user_chat_history(user_id: str) -> List[Dict[str, str]]:
