@@ -1606,9 +1606,21 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
 def translate_responses(state: Any) -> dict:
     """Translate or localize responses into the user's desired language."""
     s = cast(BrainState, state)
-    protected_items, normal_items = _partition_response_items(list(s["responses"]))
+    raw_responses = [
+        resp for resp in cast(list[dict], s["responses"]) if not resp.get("suppress_text_delivery")
+    ]
+    if not raw_responses:
+        if bool(s.get("send_voice_message")):
+            logger.info("[translate] skipping text translation because delivery is voice-only")
+            return {"translated_responses": []}
+        raise ValueError("no responses to translate. something bad happened. bailing out.")
+
+    protected_items, normal_items = _partition_response_items(raw_responses)
     responses_for_translation = _build_translation_queue(s, protected_items, normal_items)
     if not responses_for_translation:
+        if bool(s.get("send_voice_message")):
+            logger.info("[translate] no text responses after queue assembly; voice-only delivery")
+            return {"translated_responses": []}
         raise ValueError("no responses to translate. something bad happened. bailing out.")
 
     target_language, passthrough = _resolve_target_language(s, responses_for_translation)
@@ -2198,7 +2210,11 @@ def chunk_message(state: Any) -> dict:
 
 def needs_chunking(state: BrainState) -> str:
     """Return next node key if chunking is required, otherwise finish."""
-    first_response = state["translated_responses"][0]
+    responses = state["translated_responses"]
+    if not responses:
+        logger.info("[chunk-check] no text responses to send; skipping chunking")
+        return END
+    first_response = responses[0]
     if len(first_response) > config.MAX_META_TEXT_LENGTH:
         logger.warning('message to big: %d chars. preparing to chunk.', len(first_response))
         return "chunk_message_node"
@@ -3022,6 +3038,8 @@ def handle_listen_to_scripture(state: Any) -> dict:
             resp_item=responses[0],
             localize_to=None,
         )
+        for resp in responses:
+            resp["suppress_text_delivery"] = True
     return out
 
 def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
