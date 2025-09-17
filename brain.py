@@ -12,7 +12,7 @@ import json
 import operator
 from pathlib import Path
 import re
-from typing import Annotated, Dict, List, cast, Any, Optional
+from typing import Annotated, Dict, Iterable, List, cast, Any, Optional
 from collections.abc import Hashable
 from enum import Enum
 from typing_extensions import TypedDict
@@ -846,6 +846,90 @@ def _reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[st
     return str(body)
 
 
+def _partition_response_items(responses: Iterable[dict]) -> tuple[list[dict], list[dict]]:
+    """Split responses into scripture-protected and normal sets."""
+    protected: list[dict] = []
+    normal: list[dict] = []
+    for item in responses:
+        if _is_protected_response_item(item):
+            protected.append(item)
+        else:
+            normal.append(item)
+    return protected, normal
+
+
+def _normalize_single_response(item: dict) -> dict | str:
+    """Return a representation suitable for translation when no combine is needed."""
+    body = cast(dict | str, item.get("response"))
+    if isinstance(body, str):
+        return body
+    return item
+
+
+def _build_translation_queue(state: BrainState, protected_items: list[dict], normal_items: list[dict]) -> list[dict | str]:
+    """Assemble responses in the order they should be translated or localized."""
+    queue: list[dict | str] = list(protected_items)
+    if not normal_items:
+        return queue
+    if len(normal_items) == 1:
+        queue.append(_normalize_single_response(normal_items[0]))
+        return queue
+    queue.append(combine_responses(state["user_chat_history"], state["user_query"], normal_items))
+    return queue
+
+
+def _resolve_target_language(
+    state: BrainState,
+    responses_for_translation: list[dict | str],
+) -> tuple[Optional[str], Optional[list[str]]]:
+    """Determine the target language or build a pass-through fallback."""
+    user_language = cast(Optional[str], state.get("user_response_language"))
+    if user_language:
+        return user_language, None
+
+    target_language = cast(str, state.get("query_language"))
+    if target_language != LANGUAGE_UNKNOWN:
+        return target_language, None
+
+    logger.warning('target language unknown. bailing out.')
+    passthrough_texts: list[str] = [
+        _reconstruct_structured_text(resp_item=resp, localize_to=None)
+        for resp in responses_for_translation
+    ]
+    notice = (
+        "You haven't set your desired response language and I wasn't able to determine the language of your "
+        "original message in order to match it. You can set your desired response language at any time by "
+        "saying: Set my response language to Spanish, or Indonesian, or any of the supported languages: "
+        f"{', '.join(supported_language_map.keys())}."
+    )
+    passthrough_texts.append(notice)
+    return None, passthrough_texts
+
+
+def _translate_or_localize_response(
+    resp: dict | str,
+    target_language: str,
+    agentic_strength: str,
+) -> str:
+    """Translate free-form text or localize structured scripture outputs."""
+    if isinstance(resp, str):
+        sample = _sample_for_language_detection(resp)
+        detected_lang = detect_language(sample, agentic_strength=agentic_strength) if sample else target_language
+        if detected_lang != target_language:
+            logger.info('preparing to translate to %s', target_language)
+            return translate_text(response_text=resp, target_language=target_language)
+        logger.info('chunk translation not required. using chunk as is.')
+        return resp
+
+    body = cast(dict | str, resp.get("response"))
+    if isinstance(body, dict) and isinstance(body.get("segments"), list):
+        item_lang = cast(Optional[str], body.get("content_language"))
+        header_is_translated = bool(body.get("header_is_translated"))
+        localize_to = None if header_is_translated else (item_lang or target_language)
+        return _reconstruct_structured_text(resp_item=resp, localize_to=localize_to)
+    return str(body)
+
+
 class IntentType(str, Enum):
     """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
@@ -1330,79 +1414,25 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
     return combined
 
 
-def translate_responses(state: Any) -> dict:  # pylint: disable=too-many-locals
-    """Translate the response(s) into the user's desired language if needed.
-
-    Scripture-protected responses are not combined via LLM and are not machine-
-    translated. If present, they are passed through (with optional localized
-    headers) and the remaining responses are combined and translated as needed.
-    """
+def translate_responses(state: Any) -> dict:
+    """Translate or localize responses into the user's desired language."""
     s = cast(BrainState, state)
-    uncombined = list(s["responses"])
-
-    protected_items: list[dict] = [i for i in uncombined if _is_protected_response_item(i)]
-    normal_items: list[dict] = [i for i in uncombined if not _is_protected_response_item(i)]
-
-    responses_for_translation: list[dict | str] = list(protected_items)
-    # Combine normal items (if any) using LLM synthesizer into a single string and append
-    if normal_items:
-        responses_for_translation.append(
-            combine_responses(s["user_chat_history"], s["user_query"], normal_items)
-        )
+    protected_items, normal_items = _partition_response_items(list(s["responses"]))
+    responses_for_translation = _build_translation_queue(s, protected_items, normal_items)
     if not responses_for_translation:
         raise ValueError("no responses to translate. something bad happened. bailing out.")
 
-    if s["user_response_language"]:
-        target_language = s["user_response_language"]
-    else:
-        target_language = s["query_language"]
-        if target_language == LANGUAGE_UNKNOWN:
-            logger.warning('target language unknown. bailing out.')
-            # Build pass-through texts for current responses, then append notice
-            passthrough_texts: list[str] = [
-                _reconstruct_structured_text(resp_item=resp, localize_to=None)
-                for resp in responses_for_translation
-            ]
-            passthrough_texts.append(
-                "You haven't set your desired response language and I wasn't able to determine the language of your "
-                "original message in order to match it. You can set your desired response language at any time by "
-                "saying: Set my response language to Spanish, or Indonesian, or any of the supported languages: "
-                f"{', '.join(supported_language_map.keys())}."
-            )
-            return {"translated_responses": passthrough_texts}
+    target_language, passthrough = _resolve_target_language(s, responses_for_translation)
+    if passthrough is not None:
+        return {"translated_responses": passthrough}
+    assert target_language is not None
 
     agentic_strength = _resolve_agentic_strength(s)
-    translated_responses: list[str] = []
-    for resp in responses_for_translation:
-        if isinstance(resp, str):
-            sample = _sample_for_language_detection(resp)
-            detected_lang = detect_language(sample, agentic_strength=agentic_strength) if sample else target_language
-            if detected_lang != target_language:
-                logger.info('preparing to translate to %s', target_language)
-                translated_responses.append(translate_text(response_text=resp, target_language=target_language))
-            else:
-                logger.info('chunk translation not required. using chunk as is.')
-                translated_responses.append(resp)
-            continue
-
-        # Structured/metadata response
-        body = cast(dict | str, resp.get("response"))
-        if isinstance(body, dict) and isinstance(body.get("segments"), list):
-            item_lang = cast(Optional[str], body.get("content_language"))
-            header_is_translated = bool(body.get("header_is_translated"))
-            # If the header was already translated by the producer, do not localize again.
-            # Otherwise, localize the canonical header to the passage's content language when known,
-            # falling back to the target UI language.
-            localize_to = None if header_is_translated else (item_lang or target_language)
-            final_text2 = _reconstruct_structured_text(resp_item=resp, localize_to=localize_to)
-            translated_responses.append(final_text2)
-            continue
-
-        # Unknown structured shape: fall back to string conversion
-        translated_responses.append(str(body))
-    return {
-        "translated_responses": translated_responses
-    }
+    translated_responses = [
+        _translate_or_localize_response(resp, target_language, agentic_strength)
+        for resp in responses_for_translation
+    ]
+    return {"translated_responses": translated_responses}
 
 
 def translate_text(response_text: str, target_language: str) -> str:
