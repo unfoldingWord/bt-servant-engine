@@ -29,6 +29,9 @@
 - Agentic strength now supports `normal`, `low`, and `very_low`. Use
   `_resolve_agentic_strength` + `_model_for_agentic_strength` to pick models instead of
   hardcoding string comparisons.
+- When the user asks for an assessment or approach before coding, pause and confirm the
+  plan in the conversation before modifying files. Only move to implementation after the
+  user signs off.
 - Docstrings for public functions; keep comments minimal and useful.
 - Tools: `ruff` for style, `pylint` for code hygiene, `mypy` for typing.
 
