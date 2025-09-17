@@ -998,11 +998,14 @@ def _prepare_translation_helps(
     state: BrainState,
     th_root: Path,
     bsb_root: Path,
+    *,
+    selection_focus_hint: str | None = None,
 ) -> tuple[Optional[str], Optional[list[TranslationRange]], Optional[list[dict]], Optional[str]]:
     """Resolve canonical selection, enforce limits, and load raw help entries."""
     canonical_book, ranges, err = _resolve_selection_for_single_book(
         state["transformed_query"],
         state["query_language"],
+        focus_hint=selection_focus_hint,
     )
     if err:
         return None, None, None, err
@@ -2407,6 +2410,7 @@ def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
 def _resolve_selection_for_single_book(
     query: str,
     query_lang: str,
+    focus_hint: str | None = None,
 ) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
     # pylint: disable=too-many-return-statements, too-many-branches
     """Parse and normalize a user query into a single canonical book and ranges.
@@ -2414,6 +2418,9 @@ def _resolve_selection_for_single_book(
     Returns a tuple of (canonical_book, ranges, error_message). On success, the
     error_message is None. On failure, canonical_book and ranges are None and
     error_message contains a user-friendly explanation.
+
+    If ``focus_hint`` is provided, it is sent as a developer message to steer the
+    selection model toward the clause relevant to the current intent.
     """
     logger.info("[selection-helper] start; query_lang=%s; query=%s", query_lang, query)
 
@@ -2430,8 +2437,15 @@ def _resolve_selection_for_single_book(
     system_prompt = PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT.format(books=books)
     selection_messages: list[EasyInputMessageParam] = cast(List[EasyInputMessageParam], [
         {"role": "system", "content": system_prompt},
-        {"role": "user", "content": parse_input},
     ])
+    if focus_hint:
+        logger.info("[selection-helper] applying focus hint: %s", focus_hint)
+        selection_messages.append(
+            cast(EasyInputMessageParam, {"role": "developer", "content": focus_hint})
+        )
+    selection_messages.append(
+        cast(EasyInputMessageParam, {"role": "user", "content": parse_input})
+    )
     logger.info("[selection-helper] extracting passage selection via LLM")
     selection_resp = open_ai_client.responses.parse(
         model="gpt-4o",
@@ -2557,7 +2571,11 @@ def handle_get_passage_summary(state: Any) -> dict:
     query_lang = s["query_language"]
     logger.info("[passage-summary] start; query_lang=%s; query=%s", query_lang, query)
 
-    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    canonical_book, ranges, err = _resolve_selection_for_single_book(
+        query,
+        query_lang,
+        focus_hint="Focus only on the portion of the user's message that asked for a passage summary.",
+    )
     if err:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": err}]}
     assert canonical_book is not None and ranges is not None
@@ -2657,7 +2675,11 @@ def handle_get_passage_keywords(state: Any) -> dict:
     query_lang = s["query_language"]
     logger.info("[passage-keywords] start; query_lang=%s; query=%s", query_lang, query)
 
-    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    canonical_book, ranges, err = _resolve_selection_for_single_book(
+        query,
+        query_lang,
+        focus_hint="Focus only on the portion of the user's message that asked for passage keywords.",
+    )
     if err:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": err}]}
     assert canonical_book is not None and ranges is not None
@@ -2726,7 +2748,12 @@ def handle_get_translation_helps(state: Any) -> dict:
     bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
     logger.info("[translation-helps] loading helps from %s", th_root)
 
-    canonical_book, ranges, raw_helps, err = _prepare_translation_helps(s, th_root, bsb_root)
+    canonical_book, ranges, raw_helps, err = _prepare_translation_helps(
+        s,
+        th_root,
+        bsb_root,
+        selection_focus_hint="Focus only on the portion of the user's message that asked for translation helps.",
+    )
     if err:
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": err}]}
     assert canonical_book is not None and ranges is not None and raw_helps is not None
@@ -2781,7 +2808,11 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
     agentic_strength = _resolve_agentic_strength(s)
 
     # 1) Parse passage selection
-    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    canonical_book, ranges, err = _resolve_selection_for_single_book(
+        query,
+        query_lang,
+        focus_hint="Focus only on the portion of the user's message that asked to retrieve or listen to scripture.",
+    )
     if err:
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": err}]}
     assert canonical_book is not None and ranges is not None
@@ -3009,7 +3040,11 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
 
     # First, validate the passage selection so we can surface selection errors
     # (e.g., unsupported book like "Enoch") before language guidance.
-    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    canonical_book, ranges, err = _resolve_selection_for_single_book(
+        query,
+        query_lang,
+        focus_hint="Focus only on the portion of the user's message that asked to translate scripture.",
+    )
     if err:
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": err}]}
     assert canonical_book is not None and ranges is not None
