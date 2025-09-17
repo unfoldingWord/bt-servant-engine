@@ -1150,6 +1150,7 @@ class BrainState(TypedDict, total=False):
     passage_selection: list[dict]
     # Delivery hint for bt_servant to send a voice message instead of text
     send_voice_message: bool
+    voice_message_text: str
 
 
 # Centralized capability registry and builders for feature help/boilerplate
@@ -2973,6 +2974,13 @@ def handle_listen_to_scripture(state: Any) -> dict:
     """
     out = handle_retrieve_scripture(state)
     out["send_voice_message"] = True
+    responses = cast(list[dict], out.get("responses", []))
+    if responses:
+        # Reconstruct scripture text for voice playback using the structured response.
+        out["voice_message_text"] = _reconstruct_structured_text(
+            resp_item=responses[0],
+            localize_to=None,
+        )
     return out
 
 def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements

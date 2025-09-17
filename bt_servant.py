@@ -1064,16 +1064,30 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                     brain_payload["user_agentic_strength"] = user_agentic_strength
 
                 result = await loop.run_in_executor(None, brain.invoke, brain_payload)
-                responses = result["translated_responses"]
+                responses = list(result["translated_responses"])
                 full_response_text = "\n\n".join(responses).rstrip()
                 send_voice = bool(result.get("send_voice_message")) or user_message.message_type == "audio"
+                voice_text = result.get("voice_message_text")
+
                 if send_voice:
-                    await send_voice_message(user_id=user_message.user_id, text=full_response_text)
-                else:
+                    voice_payload = voice_text or full_response_text
+                    if voice_payload:
+                        await send_voice_message(user_id=user_message.user_id, text=voice_payload)
+
+                should_send_text = True
+                if send_voice and voice_text is None and user_message.message_type == "audio":
+                    # Preserve legacy behavior for audio conversations without explicit voice payloads
+                    should_send_text = False
+
+                if should_send_text and responses:
                     response_count = len(responses)
+                    formatted_responses = list(responses)
                     if response_count > 1:
-                        responses = [f'({i}/{response_count}) {r}' for i, r in enumerate(responses, start=1)]
-                    for response in responses:
+                        formatted_responses = [
+                            f"({i}/{response_count}) {r}"
+                            for i, r in enumerate(formatted_responses, start=1)
+                        ]
+                    for response in formatted_responses:
                         logger.info("Response from bt_servant: %s", response)
                         try:
                             await send_text_message(user_id=user_message.user_id, text=response)
