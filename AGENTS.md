@@ -24,6 +24,14 @@
 - Python 3.12+, 4-space indentation, UTF-8 files.
 - Naming: `snake_case` for functions/vars, `PascalCase` for classes, `UPPER_SNAKE` for constants.
 - Keep functions small and single-purpose; prefer explicit returns.
+- Node handlers in `brain.py` should stay lean (target ≤60 lines). When they start
+  to sprawl, extract helper functions so the orchestrators remain readable.
+- Agentic strength now supports `normal`, `low`, and `very_low`. Use
+  `_resolve_agentic_strength` + `_model_for_agentic_strength` to pick models instead of
+  hardcoding string comparisons.
+- When the user asks for an assessment or approach before coding, pause and confirm the
+  plan in the conversation before modifying files. Only move to implementation after the
+  user signs off.
 - Docstrings for public functions; keep comments minimal and useful.
 - Tools: `ruff` for style, `pylint` for code hygiene, `mypy` for typing.
 
@@ -255,10 +263,18 @@ Recommended workflow
 ### Passage Selection (DRY)
 
 - Use the shared helper in `brain.py` to parse and normalize user queries that refer to Bible passages:
-  - `_resolve_selection_for_single_book(query: str, query_lang: str) -> tuple[canonical_book | None, ranges | None, error | None]`
+  - `_resolve_selection_for_single_book(query: str, query_lang: str, focus_hint: str | None = None) -> tuple[canonical_book | None, ranges | None, error | None]`
   - It handles: translation to English for parsing, extraction via the selection prompt, the "chapters X–Y" heuristic, canonicalization (single book), and range building (including whole‑book sentinel handling).
 - Do NOT duplicate selection parsing/normalization inside individual handlers. Call this helper and handle the `error` case by returning an intent‑specific message.
 - For labeling output headers, always use `utils/bsb.label_ranges(...)` to build a canonical reference string. It already special‑cases whole‑book selections to avoid odd labels like "Book 1‑10000".
+
+## GitHub CLI Usage
+
+- The development workstation has `gh` (GitHub CLI) installed. Prefer `gh pr create` to open pull requests directly from the terminal.
+- When a PR is ready:
+  1. Ensure the branch is pushed (`git push origin <branch>`).
+  2. Run `gh pr create` with the appropriate base, title, and body, or use `gh pr create --fill` after preparing the template.
+  3. Confirm the PR URL and share it with reviewers.
 
 ### Passage Summary Intent
 - Extraction and scope:

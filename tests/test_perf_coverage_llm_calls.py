@@ -154,7 +154,7 @@ def test_translate_responses_span_has_tokens(monkeypatch: pytest.MonkeyPatch) ->
         return _FakeChat()
 
     # Force translation by reporting response language != target language
-    monkeypatch.setattr(brain, "detect_language", lambda _t: "en")
+    monkeypatch.setattr(brain, "detect_language", lambda _t, **_k: "en")
     monkeypatch.setattr(brain.open_ai_client.responses, "create", _fake_resp_create)
     monkeypatch.setattr(brain.open_ai_client.chat.completions, "create", _fake_chat_create)
 

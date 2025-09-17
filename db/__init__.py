@@ -23,6 +23,8 @@ from .user import (
     update_user_chat_history,
     get_user_response_language,
     set_user_response_language,
+    get_user_agentic_strength,
+    set_user_agentic_strength,
     set_first_interaction,
     is_first_interaction
 )
@@ -31,6 +33,8 @@ __all__ = [
     "update_user_chat_history",
     "get_user_response_language",
     "set_user_response_language",
+    "get_user_agentic_strength",
+    "set_user_agentic_strength",
     "set_first_interaction",
     "is_first_interaction",
     "get_or_create_chroma_collection",

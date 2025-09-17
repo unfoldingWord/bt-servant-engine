@@ -12,7 +12,7 @@ import json
 import operator
 from pathlib import Path
 import re
-from typing import Annotated, Dict, List, cast, Any, Optional
+from typing import Annotated, Dict, Iterable, List, cast, Any, Optional
 from collections.abc import Hashable
 from enum import Enum
 from typing_extensions import TypedDict
@@ -43,6 +43,7 @@ from db import (
     is_first_interaction,
     set_first_interaction,
     set_user_response_language,
+    set_user_agentic_strength,
 )
 
 # (Moved dynamic feature messaging and related prompts below IntentType)
@@ -206,6 +207,9 @@ Return a normalized, structured selection of book + verse ranges.
 
 # Instructions
 
+- Obey any developer instructions that precede the user message. They may narrow the
+  focus to a specific clause of the user's text. When instructed, ignore unrelated
+  books or requests outside that clause.
 - Only choose from these canonical book names (exact match):
   {books}
 - Accept a variety of phrasings (e.g., "John 3:16", "Jn 3:16–18", "1 John 2:1-3", "Psalm 1", "Song of Songs 2").
@@ -235,6 +239,9 @@ Return JSON parsable into the provided schema.
 - "John and Mark 1:1" -> choose Mark 1:1 (explicit qualifier picks Mark over first mention).
 - "summarize 3 John" -> choose book "3 John" with no chapters/verses (whole book selection).
 - "summarize John 3" -> choose book "John" with start_chapter=3 (whole chapter if no verses).
+- Developer hint: "Focus only on the portion asking for translation helps."
+  User message: "I want to listen to John 1:1, and I also want help translating Gal 1:3-4."
+  -> choose Galatians 1:3-4 (ignore the listening request entirely).
 """
 
 
@@ -360,6 +367,11 @@ You MUST always return at least one intent. You MUST choose one or more intents 
   <intent name="set-response-language">
     The user wants to change the language in which the system responds. They might ask for responses in 
     Spanish, French, Arabic, etc.
+  </intent>
+  <intent name="set-agentic-strength">
+    The user wants to adjust how assertive the assistant should be when answering. They might say "set my agentic
+    strength to low" or "use normal agentic strength". Only use this when they clearly request one of the supported
+    strength levels (normal, low, or very low).
   </intent>
   <intent name="retrieve-system-information">
     The user wants information about the BT Servant system itself — how it works, where it gets data, uptime, 
@@ -536,6 +548,10 @@ Here are a few examples to guide you:
   <example>
     <message>Can you reply to me in French from now on?</message>
     <intent>set-response-language</intent>
+  </example>
+  <example>
+    <message>Set my agentic strength to low.</message>
+    <intent>set-agentic-strength</intent>
   </example>
   <example>
     <message>Where does BT Servant get its information from?</message>
@@ -719,6 +735,68 @@ Instructions:
 """
 
 
+ALLOWED_AGENTIC_STRENGTH = {"normal", "low", "very_low"}
+
+
+class AgenticStrengthChoice(str, Enum):
+    """Accepted agentic strength options for controllable responses."""
+
+    NORMAL = "normal"
+    LOW = "low"
+    VERY_LOW = "very_low"
+    UNKNOWN = "unknown"
+
+
+class AgenticStrengthSetting(BaseModel):
+    """Schema for parsing agentic strength adjustments from the user."""
+
+    strength: AgenticStrengthChoice
+
+
+SET_AGENTIC_STRENGTH_AGENT_SYSTEM_PROMPT = """
+Task: Determine whether the user is asking to adjust the agentic strength setting. The allowed values are "normal",
+"low", and "very_low". Use the conversation context and latest message to infer the requested level.
+
+Output schema: { "strength": <normal|low|very_low|unknown> }
+
+Rules:
+- If the user clearly requests "normal", "low", or "very low", return that value.
+- If the intent is ambiguous or references any other option, return "unknown".
+- Do not include explanations or additional text. Only produce a JSON object that matches the schema.
+"""
+
+
+def _resolve_agentic_strength(state: BrainState) -> str:
+    """Return the effective agentic strength, honoring user overrides when set."""
+    candidate = cast(Optional[str], state.get("agentic_strength") or state.get("user_agentic_strength"))
+    if isinstance(candidate, str):
+        lowered = candidate.lower()
+        if lowered in ALLOWED_AGENTIC_STRENGTH:
+            return lowered
+
+    configured = getattr(config, "AGENTIC_STRENGTH", "normal")
+    if isinstance(configured, str):
+        configured_lower = configured.lower()
+        if configured_lower in ALLOWED_AGENTIC_STRENGTH:
+            return configured_lower
+    return "normal"
+
+
+def _model_for_agentic_strength(
+    agentic_strength: str,
+    *,
+    allow_low: bool,
+    allow_very_low: bool,
+) -> str:
+    """Return GPT model name based on strength and allowed downgrades."""
+    allowed: set[str] = set()
+    if allow_low:
+        allowed.add("low")
+    if allow_very_low:
+        allowed.add("very_low")
+    return "gpt-4o-mini" if agentic_strength in allowed else "gpt-4o"
+
+
 class MessageLanguage(BaseModel):
     """Model for parsing/validating the detected language of a message."""
     language: Language
@@ -790,6 +868,254 @@ def _reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[st
     return str(body)
 
 
+TranslationRange = tuple[int, int | None, int | None, int | None]
+
+
+def _partition_response_items(responses: Iterable[dict]) -> tuple[list[dict], list[dict]]:
+    """Split responses into scripture-protected and normal sets."""
+    protected: list[dict] = []
+    normal: list[dict] = []
+    for item in responses:
+        if _is_protected_response_item(item):
+            protected.append(item)
+        else:
+            normal.append(item)
+    return protected, normal
+
+
+def _normalize_single_response(item: dict) -> dict | str:
+    """Return a representation suitable for translation when no combine is needed."""
+    body = cast(dict | str, item.get("response"))
+    if isinstance(body, str):
+        return body
+    return item
+
+
+def _build_translation_queue(
+    state: BrainState,
+    protected_items: list[dict],
+    normal_items: list[dict],
+) -> list[dict | str]:
+    """Assemble responses in the order they should be translated or localized."""
+    queue: list[dict | str] = list(protected_items)
+    non_combinable: list[dict] = [i for i in normal_items if i.get("suppress_combining")]
+    combinable: list[dict] = [i for i in normal_items if not i.get("suppress_combining")]
+
+    for item in non_combinable:
+        queue.append(_normalize_single_response(item))
+
+    if not combinable:
+        return queue
+    if len(combinable) == 1:
+        queue.append(_normalize_single_response(combinable[0]))
+        return queue
+    queue.append(
+        combine_responses(
+            state["user_chat_history"],
+            state["user_query"],
+            combinable,
+        )
+    )
+    return queue
+
+
+def _resolve_target_language(
+    state: BrainState,
+    responses_for_translation: list[dict | str],
+) -> tuple[Optional[str], Optional[list[str]]]:
+    """Determine the target language or build a pass-through fallback."""
+    user_language = cast(Optional[str], state.get("user_response_language"))
+    if user_language:
+        return user_language, None
+
+    target_language = cast(str, state.get("query_language"))
+    if target_language != LANGUAGE_UNKNOWN:
+        return target_language, None
+
+    logger.warning('target language unknown. bailing out.')
+    passthrough_texts: list[str] = [
+        _reconstruct_structured_text(resp_item=resp, localize_to=None)
+        for resp in responses_for_translation
+    ]
+    notice = (
+        "You haven't set your desired response language and I wasn't able to determine the language of your "
+        "original message in order to match it. You can set your desired response language at any time by "
+        "saying: Set my response language to Spanish, or Indonesian, or any of the supported languages: "
+        f"{', '.join(supported_language_map.keys())}."
+    )
+    passthrough_texts.append(notice)
+    return None, passthrough_texts
+
+
+def _translate_or_localize_response(
+    resp: dict | str,
+    target_language: str,
+    agentic_strength: str,
+) -> str:
+    """Translate free-form text or localize structured scripture outputs."""
+    if isinstance(resp, str):
+        sample = _sample_for_language_detection(resp)
+        detected_lang = detect_language(sample, agentic_strength=agentic_strength) if sample else target_language
+        if detected_lang != target_language:
+            logger.info('preparing to translate to %s', target_language)
+            return translate_text(
+                response_text=resp,
+                target_language=target_language,
+                agentic_strength=agentic_strength,
+            )
+        logger.info('chunk translation not required. using chunk as is.')
+        return resp
+
+    body = cast(dict | str, resp.get("response"))
+    if isinstance(body, dict) and isinstance(body.get("segments"), list):
+        item_lang = cast(Optional[str], body.get("content_language"))
+        header_is_translated = bool(body.get("header_is_translated"))
+        localize_to = None if header_is_translated else (item_lang or target_language)
+        return _reconstruct_structured_text(resp_item=resp, localize_to=localize_to)
+    return str(body)
+
+
+def _compact_translation_help_entries(entries: list[dict]) -> list[dict]:
+    """Reduce translation help entries to essentials for the LLM payload."""
+    compact: list[dict] = []
+    for entry in entries:
+        verse_text = cast(str, entry.get("ult_verse_text") or "")
+        notes: list[dict] = []
+        for note in cast(list[dict], entry.get("notes") or []):
+            note_text = cast(str, note.get("note") or "")
+            if not note_text:
+                continue
+            compact_note: dict[str, str] = {"note": note_text}
+            quote = cast(Optional[str], note.get("orig_language_quote"))
+            if quote:
+                compact_note["orig_language_quote"] = quote
+            notes.append(compact_note)
+        compact.append(
+            {
+                "reference": entry.get("reference"),
+                "verse_text": verse_text,
+                "notes": notes,
+            }
+        )
+    return compact
+
+
+def _prepare_translation_helps(
+    state: BrainState,
+    th_root: Path,
+    bsb_root: Path,
+    *,
+    selection_focus_hint: str | None = None,
+) -> tuple[Optional[str], Optional[list[TranslationRange]], Optional[list[dict]], Optional[str]]:
+    """Resolve canonical selection, enforce limits, and load raw help entries."""
+    canonical_book, ranges, err = _resolve_selection_for_single_book(
+        state["transformed_query"],
+        state["query_language"],
+        focus_hint=selection_focus_hint,
+    )
+    if err:
+        return None, None, None, err
+    assert canonical_book is not None and ranges is not None
+
+    missing_books = set(get_missing_th_books(th_root))
+    if canonical_book in missing_books:
+        return (
+            None,
+            None,
+            None,
+            (
+                "Translation helps for "
+                f"{BSB_BOOK_MAP[canonical_book]['ref_abbr']} are not available yet. "
+                "Currently missing books: "
+                f"{', '.join(sorted(BSB_BOOK_MAP[b]['ref_abbr'] for b in missing_books))}. "
+                "Would you like translation help for one of the supported books instead?"
+            ),
+        )
+
+    verse_count = len(select_verses(bsb_root, canonical_book, ranges))
+    if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
+        return (
+            None,
+            None,
+            None,
+            (
+                "I can only provide translate help for "
+                f"{config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time. "
+                "Your selection "
+                f"{label_ranges(canonical_book, ranges)} includes {verse_count} verses. "
+                "Please narrow the range (e.g., a chapter or a shorter span)."
+            ),
+        )
+
+    limited_ranges = clamp_ranges_by_verse_limit(
+        bsb_root,
+        canonical_book,
+        ranges,
+        max_verses=config.TRANSLATION_HELPS_VERSE_LIMIT,
+    )
+    if not limited_ranges:
+        return (
+            None,
+            None,
+            None,
+            "I couldn't identify verses for that selection in the BSB index. Please try another reference.",
+        )
+
+    raw_helps = select_translation_helps(th_root, canonical_book, limited_ranges)
+    logger.info("[translation-helps] selected %d help entries", len(raw_helps))
+    if not raw_helps:
+        return (
+            None,
+            None,
+            None,
+            "I couldn't locate translation helps for that selection. Please check the reference and try again.",
+        )
+    return canonical_book, list(limited_ranges), raw_helps, None
+
+
+def _build_translation_helps_context(
+    canonical_book: str,
+    ranges: list[TranslationRange],
+    raw_helps: list[dict],
+) -> tuple[str, dict[str, Any]]:
+    """Return the reference label and compact JSON context for the LLM."""
+    ref_label = label_ranges(canonical_book, ranges)
+    context_obj = {
+        "reference_label": ref_label,
+        "selection": {
+            "book": canonical_book,
+            "ranges": [
+                {
+                    "start_chapter": sc,
+                    "start_verse": sv,
+                    "end_chapter": ec,
+                    "end_verse": ev,
+                }
+                for (sc, sv, ec, ev) in ranges
+            ],
+        },
+        "translation_helps": _compact_translation_help_entries(raw_helps),
+    }
+    return ref_label, context_obj
+
+
+def _build_translation_helps_messages(ref_label: str, context_obj: dict[str, object]) -> list[EasyInputMessageParam]:
+    """Construct the LLM messages for the translation helps prompt."""
+    payload = json.dumps(context_obj, ensure_ascii=False)
+    return [
+        {"role": "developer", "content": "Focus only on the portion of the user's message that asked for translation helps. Ignore any other requests or book references in the message."},
+        {"role": "developer", "content": f"Selection: {ref_label}"},
+        {"role": "developer", "content": "Use the JSON context below strictly:"},
+        {"role": "developer", "content": payload},
+        {
+            "role": "user",
+            "content": (
+                "Using the provided context, explain the translation challenges and give actionable guidance for this selection."
+            ),
+        },
+    ]
+
+
 class IntentType(str, Enum):
     """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
@@ -803,6 +1129,7 @@ class IntentType(str, Enum):
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
     SET_RESPONSE_LANGUAGE = "set-response-language"
+    SET_AGENTIC_STRENGTH = "set-agentic-strength"
     CONVERSE_WITH_BT_SERVANT = 'converse-with-bt-servant'
 
 
@@ -820,6 +1147,8 @@ class BrainState(TypedDict, total=False):
     perf_trace_id: str
     query_language: str
     user_response_language: str
+    agentic_strength: str
+    user_agentic_strength: str
     transformed_query: str
     docs: List[Dict[str, str]]
     collection_used: str
@@ -831,6 +1160,7 @@ class BrainState(TypedDict, total=False):
     passage_selection: list[dict]
     # Delivery hint for bt_servant to send a voice message instead of text
     send_voice_message: bool
+    voice_message_text: str
 
 
 # Centralized capability registry and builders for feature help/boilerplate
@@ -913,6 +1243,15 @@ def _capabilities() -> List[Capability]:
                 "Translate John 3:16 into Indonesian.",
             ],
             "include_in_boilerplate": True,
+        },
+        {
+            "intent": IntentType.SET_AGENTIC_STRENGTH,
+            "label": "Adjust agentic strength",
+            "description": "Tune how assertive the assistant should be (normal, low, or very low).",
+            "examples": [
+                "Set my agentic strength to low.",
+            ],
+            "include_in_boilerplate": False,
         },
         {
             "intent": IntentType.SET_RESPONSE_LANGUAGE,
@@ -1138,6 +1477,97 @@ def set_response_language(state: Any) -> dict:
     }
 
 
+def set_agentic_strength(state: Any) -> dict:
+    """Detect and persist the user's preferred agentic strength."""
+    s = cast(BrainState, state)
+    chat_input: list[EasyInputMessageParam] = [
+        {
+            "role": "user",
+            "content": f"Past conversation: {json.dumps(s['user_chat_history'])}",
+        },
+        {
+            "role": "user",
+            "content": f"the user's most recent message: {s['user_query']}",
+        },
+        {
+            "role": "user",
+            "content": "Is the user asking to set the agentic strength to normal, low, or very low?",
+        },
+    ]
+
+    try:
+        response = open_ai_client.responses.parse(
+            model="gpt-4o",
+            instructions=SET_AGENTIC_STRENGTH_AGENT_SYSTEM_PROMPT,
+            input=cast(Any, chat_input),
+            text_format=AgenticStrengthSetting,
+            temperature=0,
+            store=False,
+        )
+        usage = getattr(response, "usage", None)
+        if usage is not None:
+            add_tokens(
+                getattr(usage, "input_tokens", None),
+                getattr(usage, "output_tokens", None),
+                getattr(usage, "total_tokens", None)
+                or (
+                    (getattr(usage, "input_tokens", None) or 0)
+                    + (getattr(usage, "output_tokens", None) or 0)
+                ),
+                model="gpt-4o",
+                cached_input_tokens=_extract_cached_input_tokens(usage),
+            )
+        parsed = cast(AgenticStrengthSetting | None, response.output_parsed)
+    except OpenAIError:
+        logger.error("[agentic-strength] OpenAI request failed while parsing user preference.", exc_info=True)
+        parsed = None
+    except Exception:  # pylint: disable=broad-except
+        logger.error("[agentic-strength] Unexpected failure while parsing agentic strength.", exc_info=True)
+        parsed = None
+
+    if not parsed or parsed.strength == AgenticStrengthChoice.UNKNOWN:
+        msg = (
+            "I can set the agentic strength to normal, low, or very low. Please specify one of those options "
+            "so I can update it."
+        )
+        return {
+            "responses": [
+                {"intent": IntentType.SET_AGENTIC_STRENGTH, "response": msg}
+            ]
+        }
+
+    desired = parsed.strength.value
+    user_id: str = s["user_id"]
+    try:
+        set_user_agentic_strength(user_id, desired)
+    except ValueError:
+        logger.warning("[agentic-strength] Attempted to set invalid value '%s' for user %s", desired, user_id)
+        msg = (
+            "That setting isn't supported. I can only use normal, low, or very low for agentic strength."
+        )
+        return {
+            "responses": [
+                {"intent": IntentType.SET_AGENTIC_STRENGTH, "response": msg}
+            ]
+        }
+
+    friendly = {
+        "normal": "Normal",
+        "low": "Low",
+        "very_low": "Very Low",
+    }.get(desired, desired.capitalize())
+    response_text = (
+        f"Agentic strength set to {friendly.lower()}. I'll use the {friendly} setting from now on."
+    )
+    return {
+        "responses": [
+            {"intent": IntentType.SET_AGENTIC_STRENGTH, "response": response_text}
+        ],
+        "agentic_strength": desired,
+        "user_agentic_strength": desired,
+    }
+
+
 def combine_responses(chat_history, latest_user_message, responses) -> str:
     """Ask OpenAI to synthesize multiple node responses into one coherent text.
 
@@ -1180,83 +1610,56 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
 
 
 def translate_responses(state: Any) -> dict:
-    """Translate the response(s) into the user's desired language if needed.
-
-    Scripture-protected responses are not combined via LLM and are not machine-
-    translated. If present, they are passed through (with optional localized
-    headers) and the remaining responses are combined and translated as needed.
-    """
+    """Translate or localize responses into the user's desired language."""
     s = cast(BrainState, state)
-    uncombined = list(s["responses"])
-
-    protected_items: list[dict] = [i for i in uncombined if _is_protected_response_item(i)]
-    normal_items: list[dict] = [i for i in uncombined if not _is_protected_response_item(i)]
-
-    responses_for_translation: list[dict | str] = list(protected_items)
-    # Combine normal items (if any) using LLM synthesizer into a single string and append
-    if normal_items:
-        responses_for_translation.append(
-            combine_responses(s["user_chat_history"], s["user_query"], normal_items)
-        )
-    if not responses_for_translation:
+    raw_responses = [
+        resp for resp in cast(list[dict], s["responses"]) if not resp.get("suppress_text_delivery")
+    ]
+    if not raw_responses:
+        if bool(s.get("send_voice_message")):
+            logger.info("[translate] skipping text translation because delivery is voice-only")
+            return {"translated_responses": []}
         raise ValueError("no responses to translate. something bad happened. bailing out.")
 
-    if s["user_response_language"]:
-        target_language = s["user_response_language"]
-    else:
-        target_language = s["query_language"]
-        if target_language == LANGUAGE_UNKNOWN:
-            logger.warning('target language unknown. bailing out.')
-            # Build pass-through texts for current responses, then append notice
-            passthrough_texts: list[str] = [
-                _reconstruct_structured_text(resp_item=resp, localize_to=None)
-                for resp in responses_for_translation
-            ]
-            passthrough_texts.append(
-                "You haven't set your desired response language and I wasn't able to determine the language of your "
-                "original message in order to match it. You can set your desired response language at any time by "
-                "saying: Set my response language to Spanish, or Indonesian, or any of the supported languages: "
-                f"{', '.join(supported_language_map.keys())}."
-            )
-            return {"translated_responses": passthrough_texts}
+    protected_items, normal_items = _partition_response_items(raw_responses)
+    responses_for_translation = _build_translation_queue(s, protected_items, normal_items)
+    if not responses_for_translation:
+        if bool(s.get("send_voice_message")):
+            logger.info("[translate] no text responses after queue assembly; voice-only delivery")
+            return {"translated_responses": []}
+        raise ValueError("no responses to translate. something bad happened. bailing out.")
 
-    translated_responses: list[str] = []
-    for resp in responses_for_translation:
-        if isinstance(resp, str):
-            if detect_language(resp) != target_language:
-                logger.info('preparing to translate to %s', target_language)
-                translated_responses.append(translate_text(response_text=resp, target_language=target_language))
-            else:
-                logger.info('chunk translation not required. using chunk as is.')
-                translated_responses.append(resp)
-            continue
+    target_language, passthrough = _resolve_target_language(s, responses_for_translation)
+    if passthrough is not None:
+        return {"translated_responses": passthrough}
+    assert target_language is not None
 
-        # Structured/metadata response
-        body = cast(dict | str, resp.get("response"))
-        if isinstance(body, dict) and isinstance(body.get("segments"), list):
-            item_lang = cast(Optional[str], body.get("content_language"))
-            header_is_translated = bool(body.get("header_is_translated"))
-            # If the header was already translated by the producer, do not localize again.
-            # Otherwise, localize the canonical header to the passage's content language when known,
-            # falling back to the target UI language.
-            localize_to = None if header_is_translated else (item_lang or target_language)
-            final_text2 = _reconstruct_structured_text(resp_item=resp, localize_to=localize_to)
-            translated_responses.append(final_text2)
-            continue
-
-        # Unknown structured shape: fall back to string conversion
-        translated_responses.append(str(body))
-    return {
-        "translated_responses": translated_responses
-    }
+    agentic_strength = _resolve_agentic_strength(s)
+    translated_responses = [
+        _translate_or_localize_response(resp, target_language, agentic_strength)
+        for resp in responses_for_translation
+    ]
+    return {"translated_responses": translated_responses}
 
 
-def translate_text(response_text: str, target_language: str) -> str:
+def translate_text(
+    response_text: str,
+    target_language: str,
+    *,
+    agentic_strength: Optional[str] = None,
+) -> str:
     """Translate a single text into the target ISO 639-1 language code.
 
     Returns a plain string. If the OpenAI SDK returns a structured content
     list or None, normalize it to a string.
     """
+    resolved_strength = (
+        agentic_strength if agentic_strength in ALLOWED_AGENTIC_STRENGTH else None
+    )
+    if resolved_strength is None:
+        configured = getattr(config, "AGENTIC_STRENGTH", "normal")
+        resolved_strength = configured if configured in ALLOWED_AGENTIC_STRENGTH else "normal"
+    model_name = _model_for_agentic_strength(resolved_strength, allow_low=False, allow_very_low=True)
     chat_messages = cast(List[ChatCompletionMessageParam], [
         {
             "role": "system",
@@ -1271,7 +1674,7 @@ def translate_text(response_text: str, target_language: str) -> str:
         },
     ])
     completion = open_ai_client.chat.completions.create(
-        model="gpt-4o",
+        model=model_name,
         messages=chat_messages,
     )
     usage = getattr(completion, "usage", None)
@@ -1280,7 +1683,7 @@ def translate_text(response_text: str, target_language: str) -> str:
         ot = getattr(usage, "completion_tokens", None)
         tt = getattr(usage, "total_tokens", None)
         cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
     content = completion.choices[0].message.content
     if isinstance(content, list):
         text = "".join(part.get("text", "") if isinstance(part, dict) else "" for part in content)
@@ -1292,7 +1695,7 @@ def translate_text(response_text: str, target_language: str) -> str:
     return cast(str, text)
 
 
-def detect_language(text) -> str:
+def detect_language(text: str, *, agentic_strength: Optional[str] = None) -> str:  # pylint: disable=too-many-locals
     """Detect ISO 639-1 language code of the given text via OpenAI.
 
     Uses a domain-aware prompt with deterministic decoding and a light
@@ -1305,6 +1708,11 @@ def detect_language(text) -> str:
             "content": f"text: {text}",
         },
     ]
+    strength_source = agentic_strength if agentic_strength is not None else getattr(config, "AGENTIC_STRENGTH", "normal")
+    strength = str(strength_source).lower()
+    if strength not in ALLOWED_AGENTIC_STRENGTH:
+        strength = "normal"
+    model_name = _model_for_agentic_strength(strength, allow_low=True, allow_very_low=True)
     response = open_ai_client.responses.parse(
         model="gpt-4o",
         instructions=DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
@@ -1321,7 +1729,7 @@ def detect_language(text) -> str:
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
         cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
     message_language = cast(MessageLanguage | None, response.output_parsed)
     predicted = message_language.language.value if message_language else "en"
     logger.info("language detection (model): %s", predicted)
@@ -1356,7 +1764,8 @@ def determine_query_language(state: Any) -> dict:
     """Determine the language of the user's original query and set collection order."""
     s = cast(BrainState, state)
     query = s["user_query"]
-    query_language = detect_language(query)
+    agentic_strength = _resolve_agentic_strength(s)
+    query_language = detect_language(query, agentic_strength=agentic_strength)
     logger.info("language code %s detected by gpt-4o.", query_language)
     stack_rank_collections = [
         "knowledgebase",
@@ -1507,6 +1916,10 @@ def query_open_ai(state: Any) -> dict:
             },
             {
                 "role": "developer",
+                "content": "Focus only on the portion of the user's message requesting general Bible translation assistance. Ignore unrelated requests or passages mentioned elsewhere in the message.",
+            },
+            {
+                "role": "developer",
                 "content": chat_history_context_message
             },
             {
@@ -1514,8 +1927,10 @@ def query_open_ai(state: Any) -> dict:
                 "content": query
             }
         ])
+        agentic_strength = _resolve_agentic_strength(s)
+        model_name = _model_for_agentic_strength(agentic_strength, allow_low=False, allow_very_low=True)
         response = open_ai_client.responses.create(
-            model="gpt-4o",
+            model=model_name,
             instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
             input=cast(Any, messages)
         )
@@ -1527,7 +1942,7 @@ def query_open_ai(state: Any) -> dict:
             if tt is None and (it is not None or ot is not None):
                 tt = (it or 0) + (ot or 0)
             cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
         bt_servant_response = response.output_text
         logger.info('response from openai: %s', bt_servant_response)
         logger.debug("%d characters returned from openAI", len(bt_servant_response))
@@ -1651,6 +2066,10 @@ def consult_fia_resources(state: Any) -> dict:  # pylint: disable=too-many-local
         },
         {
             "role": "developer",
+            "content": "Focus only on the portion of the user's message that requests FIA guidance. Ignore any other requests or book references in the message.",
+        },
+        {
+            "role": "developer",
             "content": f"Use this conversation history if helpful: {json.dumps(chat_history)}",
         },
         {
@@ -1660,8 +2079,10 @@ def consult_fia_resources(state: Any) -> dict:  # pylint: disable=too-many-local
     ])
 
     try:
+        agentic_strength = _resolve_agentic_strength(s)
+        model_name = _model_for_agentic_strength(agentic_strength, allow_low=True, allow_very_low=True)
         response = open_ai_client.responses.create(
-            model="gpt-4o",
+            model=model_name,
             instructions=CONSULT_FIA_RESOURCES_SYSTEM_PROMPT,
             input=cast(Any, messages),
         )
@@ -1673,7 +2094,7 @@ def consult_fia_resources(state: Any) -> dict:  # pylint: disable=too-many-local
             if tt is None and (it is not None or ot is not None):
                 tt = (it or 0) + (ot or 0)
             cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
 
         fia_response = response.output_text
         logger.info("[consult-fia] response from openai: %s", fia_response)
@@ -1795,7 +2216,11 @@ def chunk_message(state: Any) -> dict:
 
 def needs_chunking(state: BrainState) -> str:
     """Return next node key if chunking is required, otherwise finish."""
-    first_response = state["translated_responses"][0]
+    responses = state["translated_responses"]
+    if not responses:
+        logger.info("[chunk-check] no text responses to send; skipping chunking")
+        return END
+    first_response = responses[0]
     if len(first_response) > config.MAX_META_TEXT_LENGTH:
         logger.warning('message to big: %d chars. preparing to chunk.', len(first_response))
         return "chunk_message_node"
@@ -1826,6 +2251,8 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
         nodes_to_traverse.append("handle_listen_to_scripture_node")
     if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
         nodes_to_traverse.append("set_response_language_node")
+    if IntentType.SET_AGENTIC_STRENGTH in user_intents:
+        nodes_to_traverse.append("set_agentic_strength_node")
     if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
         nodes_to_traverse.append("handle_unsupported_function_node")
     if IntentType.RETRIEVE_SYSTEM_INFORMATION in user_intents:
@@ -2005,6 +2432,7 @@ def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
 def _resolve_selection_for_single_book(
     query: str,
     query_lang: str,
+    focus_hint: str | None = None,
 ) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
     # pylint: disable=too-many-return-statements, too-many-branches
     """Parse and normalize a user query into a single canonical book and ranges.
@@ -2012,6 +2440,9 @@ def _resolve_selection_for_single_book(
     Returns a tuple of (canonical_book, ranges, error_message). On success, the
     error_message is None. On failure, canonical_book and ranges are None and
     error_message contains a user-friendly explanation.
+
+    If ``focus_hint`` is provided, it is sent as a developer message to steer the
+    selection model toward the clause relevant to the current intent.
     """
     logger.info("[selection-helper] start; query_lang=%s; query=%s", query_lang, query)
 
@@ -2028,8 +2459,15 @@ def _resolve_selection_for_single_book(
     system_prompt = PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT.format(books=books)
     selection_messages: list[EasyInputMessageParam] = cast(List[EasyInputMessageParam], [
         {"role": "system", "content": system_prompt},
-        {"role": "user", "content": parse_input},
     ])
+    if focus_hint:
+        logger.info("[selection-helper] applying focus hint: %s", focus_hint)
+        selection_messages.append(
+            cast(EasyInputMessageParam, {"role": "developer", "content": focus_hint})
+        )
+    selection_messages.append(
+        cast(EasyInputMessageParam, {"role": "user", "content": parse_input})
+    )
     logger.info("[selection-helper] extracting passage selection via LLM")
     selection_resp = open_ai_client.responses.parse(
         model="gpt-4o",
@@ -2155,7 +2593,11 @@ def handle_get_passage_summary(state: Any) -> dict:
     query_lang = s["query_language"]
     logger.info("[passage-summary] start; query_lang=%s; query=%s", query_lang, query)
 
-    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    canonical_book, ranges, err = _resolve_selection_for_single_book(
+        query,
+        query_lang,
+        focus_hint="Focus only on the portion of the user's message that asked for a passage summary. Ignore any other requests or book references in the message.",
+    )
     if err:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": err}]}
     assert canonical_book is not None and ranges is not None
@@ -2203,13 +2645,16 @@ def handle_get_passage_summary(state: Any) -> dict:
 
     # Summarize using LLM with strict system prompt
     sum_messages: list[EasyInputMessageParam] = [
+        {"role": "developer", "content": "Focus only on summarizing the portion of the user's message that asked for a passage summary. Ignore any other requests or book references in the message."},
         {"role": "developer", "content": f"Passage reference: {ref_label}"},
         {"role": "developer", "content": f"Passage verses (use only this content):\n{joined}"},
         {"role": "user", "content": "Provide a concise, faithful summary of the passage above."},
     ]
+    agentic_strength = _resolve_agentic_strength(s)
+    model_name = _model_for_agentic_strength(agentic_strength, allow_low=True, allow_very_low=True)
     logger.info("[passage-summary] summarizing %d verses", len(verses))
     summary_resp = open_ai_client.responses.create(
-        model="gpt-4o",
+        model=model_name,
         instructions=PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
         input=cast(Any, sum_messages),
         store=False,
@@ -2222,13 +2667,21 @@ def handle_get_passage_summary(state: Any) -> dict:
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
         cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
     summary_text = summary_resp.output_text
     logger.info("[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0)
 
     response_text = f"Summary of {ref_label}:\n\n{summary_text}"
     logger.info("[passage-summary] done")
-    return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
+    return {
+        "responses": [
+            {
+                "intent": IntentType.GET_PASSAGE_SUMMARY,
+                "response": response_text,
+                "suppress_combining": True,
+            }
+        ]
+    }
 
 
 def handle_get_passage_keywords(state: Any) -> dict:
@@ -2244,7 +2697,11 @@ def handle_get_passage_keywords(state: Any) -> dict:
     query_lang = s["query_language"]
     logger.info("[passage-keywords] start; query_lang=%s; query=%s", query_lang, query)
 
-    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    canonical_book, ranges, err = _resolve_selection_for_single_book(
+        query,
+        query_lang,
+        focus_hint="Focus only on the portion of the user's message that asked for passage keywords. Ignore any other requests or book references in the message.",
+    )
     if err:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": err}]}
     assert canonical_book is not None and ranges is not None
@@ -2267,7 +2724,15 @@ def handle_get_passage_keywords(state: Any) -> dict:
     body = ", ".join(keywords)
     response_text = header + body
     logger.info("[passage-keywords] done")
-    return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": response_text}]}
+    return {
+        "responses": [
+            {
+                "intent": IntentType.GET_PASSAGE_KEYWORDS,
+                "response": response_text,
+                "suppress_combining": True,
+            }
+        ]
+    }
 
 
 TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT = """
@@ -2295,91 +2760,34 @@ Style:
 
 
 def handle_get_translation_helps(state: Any) -> dict:
-    """Handle get-translation-helps: extract refs, load helps, and guide.
-
-    - Parse and validate a single-book selection via the shared helper.
-    - Load per-verse translation helps from sources/translation_helps.
-    - Provide a structured JSON context to the LLM and return a guidance response.
-    """
+    """Generate focused translation helps guidance for a selected passage."""
     s = cast(BrainState, state)
     query = s["transformed_query"]
     query_lang = s["query_language"]
     logger.info("[translation-helps] start; query_lang=%s; query=%s", query_lang, query)
 
-    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    th_root = Path("sources") / "translation_helps"
+    bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
+    logger.info("[translation-helps] loading helps from %s", th_root)
+
+    canonical_book, ranges, raw_helps, err = _prepare_translation_helps(
+        s,
+        th_root,
+        bsb_root,
+        selection_focus_hint="Focus only on the portion of the user's message that asked for translation helps. Ignore any other requests or book references in the message.",
+    )
     if err:
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": err}]}
-    assert canonical_book is not None and ranges is not None
+    assert canonical_book is not None and ranges is not None and raw_helps is not None
 
-    th_root = Path("sources") / "translation_helps"
-    logger.info("[translation-helps] loading helps from %s", th_root)
-    # Special-case: book entirely missing from translation helps dataset
-    missing_books = set(get_missing_th_books(th_root))
-    if canonical_book in missing_books:
-        abbrs = sorted(BSB_BOOK_MAP[b]["ref_abbr"] for b in missing_books)
-        requested_abbr = BSB_BOOK_MAP[canonical_book]["ref_abbr"]
-        msg = (
-            f"Translation helps for {requested_abbr} are not available yet. "
-            f"Currently missing books: {', '.join(abbrs)}. "
-            "Would you like translation help for one of the supported books instead?"
-        )
-        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
-    # Count total verses first; if above limit, return a user-facing error instead of truncating
-    bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
-    verse_count = len(select_verses(bsb_root, canonical_book, ranges))
-    if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
-        ref_label_over = label_ranges(canonical_book, ranges)
-        msg = (
-            f"I can only provide translate help for {config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time. "
-            f"Your selection {ref_label_over} includes {verse_count} verses. Please narrow the range (e.g., a chapter or a shorter span)."
-        )
-        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
-    # Enforce verse-count limit to control context/token size
-    limited_ranges = clamp_ranges_by_verse_limit(
-        bsb_root,
-        canonical_book,
-        ranges,
-        max_verses=config.TRANSLATION_HELPS_VERSE_LIMIT,
-    )
-    if not limited_ranges:
-        msg = "I couldn't identify verses for that selection in the BSB index. Please try another reference."
-        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
-    helps = select_translation_helps(th_root, canonical_book, limited_ranges)
-    logger.info("[translation-helps] selected %d help entries", len(helps))
-    if not helps:
-        msg = (
-            "I couldn't locate translation helps for that selection. Please check the reference and try again."
-        )
-        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
+    ref_label, context_obj = _build_translation_helps_context(canonical_book, ranges, raw_helps)
+    messages = _build_translation_helps_messages(ref_label, context_obj)
 
-    ref_label = label_ranges(canonical_book, limited_ranges)
-    context_obj = {
-        "reference_label": ref_label,
-        "selection": {
-            "book": canonical_book,
-            "ranges": [
-                {
-                    "start_chapter": sc,
-                    "start_verse": sv,
-                    "end_chapter": ec,
-                    "end_verse": ev,
-                }
-                for (sc, sv, ec, ev) in limited_ranges
-            ],
-        },
-        "translation_helps": helps,
-    }
-
-    messages: list[EasyInputMessageParam] = [
-        {"role": "developer", "content": f"Selection: {ref_label}"},
-        {"role": "developer", "content": "Use the JSON context below strictly:"},
-        {"role": "developer", "content": json.dumps(context_obj, ensure_ascii=False)},
-        {"role": "user", "content": "Using the provided context, explain the translation challenges and give actionable guidance for this selection."},
-    ]
-
-    logger.info("[translation-helps] invoking LLM with %d helps", len(helps))
+    logger.info("[translation-helps] invoking LLM with %d helps", len(raw_helps))
+    agentic_strength = _resolve_agentic_strength(s)
+    model_name = _model_for_agentic_strength(agentic_strength, allow_low=True, allow_very_low=True)
     resp = open_ai_client.responses.create(
-        model="gpt-4o",
+        model=model_name,
         instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
         input=cast(Any, messages),
         store=False,
@@ -2392,11 +2800,19 @@ def handle_get_translation_helps(state: Any) -> dict:
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
         cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    text = resp.output_text
+        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
+
     header = f"Translation helps for {ref_label}\n\n"
-    response_text = header + (text or "")
-    return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": response_text}]}
+    response_text = header + (resp.output_text or "")
+    return {
+        "responses": [
+            {
+                "intent": IntentType.GET_TRANSLATION_HELPS,
+                "response": response_text,
+                "suppress_combining": True,
+            }
+        ]
+    }
 
 
 def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
@@ -2419,9 +2835,14 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
     query = s["transformed_query"]
     query_lang = s["query_language"]
     logger.info("[retrieve-scripture] start; query_lang=%s; query=%s", query_lang, query)
+    agentic_strength = _resolve_agentic_strength(s)
 
     # 1) Parse passage selection
-    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    canonical_book, ranges, err = _resolve_selection_for_single_book(
+        query,
+        query_lang,
+        focus_hint="Focus only on the portion of the user's message that asked to retrieve or listen to scripture. Ignore any other requests or book references in the message.",
+    )
     if err:
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": err}]}
     assert canonical_book is not None and ranges is not None
@@ -2571,11 +2992,20 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
             else:
                 # As a last resort, translate the canonical book name with the LLM.
                 translated_book = translate_text(
-                    response_text=canonical_book, target_language=desired_target
+                    response_text=canonical_book,
+                    target_language=desired_target,
+                    agentic_strength=agentic_strength,
                 )
         # Translate each verse text and join into a flowing paragraph
         translated_lines: list[str] = [
-            _norm_ws(translate_text(response_text=str(txt), target_language=desired_target)) for _ref, txt in verses
+            _norm_ws(
+                translate_text(
+                    response_text=str(txt),
+                    target_language=desired_target,
+                    agentic_strength=agentic_strength,
+                )
+            )
+            for _ref, txt in verses
         ]
         translated_body = " ".join(translated_lines)
         response_obj = {
@@ -2615,6 +3045,15 @@ def handle_listen_to_scripture(state: Any) -> dict:
     """
     out = handle_retrieve_scripture(state)
     out["send_voice_message"] = True
+    responses = cast(list[dict], out.get("responses", []))
+    if responses:
+        # Reconstruct scripture text for voice playback using the structured response.
+        out["voice_message_text"] = _reconstruct_structured_text(
+            resp_item=responses[0],
+            localize_to=None,
+        )
+        for resp in responses:
+            resp["suppress_text_delivery"] = True
     return out
 
 def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
@@ -2629,10 +3068,15 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
     query = s["transformed_query"]
     query_lang = s["query_language"]
     logger.info("[translate-scripture] start; query_lang=%s; query=%s", query_lang, query)
+    agentic_strength = _resolve_agentic_strength(s)
 
     # First, validate the passage selection so we can surface selection errors
     # (e.g., unsupported book like "Enoch") before language guidance.
-    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    canonical_book, ranges, err = _resolve_selection_for_single_book(
+        query,
+        query_lang,
+        focus_hint="Focus only on the portion of the user's message that asked to translate scripture. Ignore any other requests or book references in the message.",
+    )
     if err:
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": err}]}
     assert canonical_book is not None and ranges is not None
@@ -2802,8 +3246,9 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
             {"role": "developer", "content": "passage body (translate; preserve newlines):"},
             {"role": "developer", "content": body_src},
         ]
+        model_name = _model_for_agentic_strength(agentic_strength, allow_low=False, allow_very_low=True)
         resp = open_ai_client.responses.parse(
-            model="gpt-4o",
+            model=model_name,
             instructions=TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
             input=cast(Any, messages),
             text_format=TranslatedPassage,
@@ -2818,7 +3263,7 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
             if tt is None and (it is not None or ot is not None):
                 tt = (it or 0) + (ot or 0)
             cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
         translated = cast(TranslatedPassage | None, resp.output_parsed)
     except OpenAIError:
         logger.warning("[translate-scripture] structured parse failed due to OpenAI error; falling back.", exc_info=True)
@@ -2828,8 +3273,18 @@ def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-
         translated = None
 
     if translated is None:
-        translated_body = _norm_ws(translate_text(response_text=body_src, target_language=cast(str, target_code)))
-        translated_book = translate_text(response_text=canonical_book, target_language=cast(str, target_code))
+        translated_body = _norm_ws(
+            translate_text(
+                response_text=body_src,
+                target_language=cast(str, target_code),
+                agentic_strength=agentic_strength,
+            )
+        )
+        translated_book = translate_text(
+            response_text=canonical_book,
+            target_language=cast(str, target_code),
+            agentic_strength=agentic_strength,
+        )
         response_obj = {
             "suppress_translation": True,
             "content_language": cast(str, target_code),
@@ -2875,6 +3330,7 @@ def create_brain():
     builder.add_node("preprocess_user_query_node", wrap_node_with_timing(preprocess_user_query, "preprocess_user_query_node"))
     builder.add_node("determine_intents_node", wrap_node_with_timing(determine_intents, "determine_intents_node"))
     builder.add_node("set_response_language_node", wrap_node_with_timing(set_response_language, "set_response_language_node"))
+    builder.add_node("set_agentic_strength_node", wrap_node_with_timing(set_agentic_strength, "set_agentic_strength_node"))
     builder.add_node("query_vector_db_node", wrap_node_with_timing(query_vector_db, "query_vector_db_node"))
     builder.add_node("query_open_ai_node", wrap_node_with_timing(query_open_ai, "query_open_ai_node"))
     builder.add_node("consult_fia_resources_node", wrap_node_with_timing(consult_fia_resources, "consult_fia_resources_node"))
@@ -2900,6 +3356,7 @@ def create_brain():
     )
     builder.add_edge("query_vector_db_node", "query_open_ai_node")
     builder.add_edge("set_response_language_node", "translate_responses_node")
+    builder.add_edge("set_agentic_strength_node", "translate_responses_node")
     # After chunking, finish. Do not loop back to translate, which can recreate
     # the long message and trigger an infinite chunk cycle.
 
@@ -2922,3 +3379,16 @@ def create_brain():
     builder.set_finish_point("chunk_message_node")
 
     return builder.compile()
+LANG_DETECTION_SAMPLE_CHARS = 100
+
+
+def _sample_for_language_detection(text: str) -> str:
+    """Return a short prefix ending at a whitespace boundary for detection."""
+    trimmed = text.lstrip()
+    if len(trimmed) <= LANG_DETECTION_SAMPLE_CHARS:
+        return trimmed
+    snippet = trimmed[:LANG_DETECTION_SAMPLE_CHARS]
+    parts = snippet.rsplit(maxsplit=1)
+    if len(parts) > 1 and parts[0]:
+        return parts[0]
+    return snippet

@@ -4,6 +4,7 @@ Loads values from environment (and optional .env) with typed fields.
 """
 import os
 from pathlib import Path
+from typing import Literal
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -27,7 +28,7 @@ class Config(BaseSettings):
     BT_SERVANT_LOG_LEVEL: str = Field(default="info")
     MAX_META_TEXT_LENGTH: int = Field(default=4096)
     # Max verses to include in get-translation-helps context to control token usage
-    TRANSLATION_HELPS_VERSE_LIMIT: int = Field(default=10)
+    TRANSLATION_HELPS_VERSE_LIMIT: int = Field(default=5)
     # Max verses allowed for retrieve-scripture (prevents huge selections like an entire book)
     RETRIEVE_SCRIPTURE_VERSE_LIMIT: int = Field(default=120)
     # Max verses allowed for translate-scripture (avoid very large translations)
@@ -38,6 +39,8 @@ class Config(BaseSettings):
     HEALTHCHECK_API_TOKEN: str | None = Field(default=None)
     # Enable admin auth for protected endpoints (default False for local/dev tests)
     ENABLE_ADMIN_AUTH: bool = Field(default=True)
+    # Tuning knob for LLM creativity/agency (normal | low)
+    AGENTIC_STRENGTH: Literal["normal", "low", "very_low"] = Field(default="low")
 
     # Optional with default value
     DATA_DIR: Path = Field(default=Path("/data"))
@@ -47,6 +50,8 @@ class Config(BaseSettings):
             '{'
             '"gpt-4o": {"input_per_million": 2.5, '
             '"output_per_million": 10.0, "cached_input": 1.25}, '
+            '"gpt-4o-mini": {"input_per_million": 0.15, '
+            '"output_per_million": 0.6}, '
             '"gpt-4o-transcribe": {"input_per_million": 2.5, '
             '"output_per_million": 10.0, '
             '"audio_input_per_million": 6.0}, '

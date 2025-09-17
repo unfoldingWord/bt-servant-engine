@@ -12,6 +12,7 @@ else:
 
 # NOTE: consider moving to configuration if needed.
 CHAT_HISTORY_MAX = 5
+VALID_AGENTIC_STRENGTH = {"normal", "low", "very_low"}
 
 
 def get_user_chat_history(user_id: str) -> List[Dict[str, str]]:
@@ -64,6 +65,36 @@ def set_user_response_language(user_id: str, language: str) -> None:
     )
 
     updated["response_language"] = language
+    db.upsert(updated, cond)
+
+
+def get_user_agentic_strength(user_id: str) -> Optional[str]:
+    """Get the user's preferred agentic strength, or None if not set."""
+    q = Query()
+    cond = cast(QueryLike, q.user_id == user_id)
+    raw = get_user_db().table("users").get(cond)
+    result = cast(Optional[Dict[str, Any]], raw)
+    strength = result.get("agentic_strength") if result else None
+    if isinstance(strength, str) and strength in VALID_AGENTIC_STRENGTH:
+        return strength
+    return None
+
+
+def set_user_agentic_strength(user_id: str, strength: str) -> None:
+    """Persist the user's preferred agentic strength level."""
+    normalized = strength.strip().lower()
+    if normalized not in VALID_AGENTIC_STRENGTH:
+        raise ValueError(f"invalid agentic strength: {strength}")
+
+    q = Query()
+    db = get_user_db().table("users")
+    cond = cast(QueryLike, q.user_id == user_id)
+    existing_raw = db.get(cond)
+    existing = cast(Optional[Dict[str, Any]], existing_raw)
+    updated: Dict[str, Any] = (
+        existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
+    )
+    updated["agentic_strength"] = normalized
     db.upsert(updated, cond)
 
 
