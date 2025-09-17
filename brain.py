@@ -1094,6 +1094,7 @@ def _build_translation_helps_messages(ref_label: str, context_obj: dict[str, obj
     """Construct the LLM messages for the translation helps prompt."""
     payload = json.dumps(context_obj, ensure_ascii=False)
     return [
+        {"role": "developer", "content": "Focus only on the portion of the user's message that asked for translation helps."},
         {"role": "developer", "content": f"Selection: {ref_label}"},
         {"role": "developer", "content": "Use the JSON context below strictly:"},
         {"role": "developer", "content": payload},
@@ -2596,6 +2597,7 @@ def handle_get_passage_summary(state: Any) -> dict:
 
     # Summarize using LLM with strict system prompt
     sum_messages: list[EasyInputMessageParam] = [
+        {"role": "developer", "content": "Focus only on summarizing the portion of the user's message that asked for a passage summary."},
         {"role": "developer", "content": f"Passage reference: {ref_label}"},
         {"role": "developer", "content": f"Passage verses (use only this content):\n{joined}"},
         {"role": "user", "content": "Provide a concise, faithful summary of the passage above."},
