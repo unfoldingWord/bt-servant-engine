@@ -24,6 +24,8 @@
 - Python 3.12+, 4-space indentation, UTF-8 files.
 - Naming: `snake_case` for functions/vars, `PascalCase` for classes, `UPPER_SNAKE` for constants.
 - Keep functions small and single-purpose; prefer explicit returns.
+- Node handlers in `brain.py` should stay lean (target ≤60 lines). When they start
+  to sprawl, extract helper functions so the orchestrators remain readable.
 - Docstrings for public functions; keep comments minimal and useful.
 - Tools: `ruff` for style, `pylint` for code hygiene, `mypy` for typing.
 

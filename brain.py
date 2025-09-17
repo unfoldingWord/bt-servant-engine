@@ -846,6 +846,9 @@ def _reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[st
     return str(body)
 
 
+TranslationRange = tuple[int, int | None, int | None, int | None]
+
+
 def _partition_response_items(responses: Iterable[dict]) -> tuple[list[dict], list[dict]]:
     """Split responses into scripture-protected and normal sets."""
     protected: list[dict] = []
@@ -953,6 +956,118 @@ def _compact_translation_help_entries(entries: list[dict]) -> list[dict]:
             }
         )
     return compact
+
+
+def _prepare_translation_helps(
+    state: BrainState,
+    th_root: Path,
+    bsb_root: Path,
+) -> tuple[Optional[str], Optional[list[TranslationRange]], Optional[list[dict]], Optional[str]]:
+    """Resolve canonical selection, enforce limits, and load raw help entries."""
+    canonical_book, ranges, err = _resolve_selection_for_single_book(
+        state["transformed_query"],
+        state["query_language"],
+    )
+    if err:
+        return None, None, None, err
+    assert canonical_book is not None and ranges is not None
+
+    missing_books = set(get_missing_th_books(th_root))
+    if canonical_book in missing_books:
+        return (
+            None,
+            None,
+            None,
+            (
+                "Translation helps for "
+                f"{BSB_BOOK_MAP[canonical_book]['ref_abbr']} are not available yet. "
+                "Currently missing books: "
+                f"{', '.join(sorted(BSB_BOOK_MAP[b]['ref_abbr'] for b in missing_books))}. "
+                "Would you like translation help for one of the supported books instead?"
+            ),
+        )
+
+    verse_count = len(select_verses(bsb_root, canonical_book, ranges))
+    if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
+        return (
+            None,
+            None,
+            None,
+            (
+                "I can only provide translate help for "
+                f"{config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time. "
+                "Your selection "
+                f"{label_ranges(canonical_book, ranges)} includes {verse_count} verses. "
+                "Please narrow the range (e.g., a chapter or a shorter span)."
+            ),
+        )
+
+    limited_ranges = clamp_ranges_by_verse_limit(
+        bsb_root,
+        canonical_book,
+        ranges,
+        max_verses=config.TRANSLATION_HELPS_VERSE_LIMIT,
+    )
+    if not limited_ranges:
+        return (
+            None,
+            None,
+            None,
+            "I couldn't identify verses for that selection in the BSB index. Please try another reference.",
+        )
+
+    raw_helps = select_translation_helps(th_root, canonical_book, limited_ranges)
+    logger.info("[translation-helps] selected %d help entries", len(raw_helps))
+    if not raw_helps:
+        return (
+            None,
+            None,
+            None,
+            "I couldn't locate translation helps for that selection. Please check the reference and try again.",
+        )
+    return canonical_book, list(limited_ranges), raw_helps, None
+
+
+def _build_translation_helps_context(
+    canonical_book: str,
+    ranges: list[TranslationRange],
+    raw_helps: list[dict],
+) -> tuple[str, dict[str, Any]]:
+    """Return the reference label and compact JSON context for the LLM."""
+    ref_label = label_ranges(canonical_book, ranges)
+    context_obj = {
+        "reference_label": ref_label,
+        "selection": {
+            "book": canonical_book,
+            "ranges": [
+                {
+                    "start_chapter": sc,
+                    "start_verse": sv,
+                    "end_chapter": ec,
+                    "end_verse": ev,
+                }
+                for (sc, sv, ec, ev) in ranges
+            ],
+        },
+        "translation_helps": _compact_translation_help_entries(raw_helps),
+    }
+    return ref_label, context_obj
+
+
+def _build_translation_helps_messages(ref_label: str, context_obj: dict[str, object]) -> list[EasyInputMessageParam]:
+    """Construct the LLM messages for the translation helps prompt."""
+    payload = json.dumps(context_obj, ensure_ascii=False)
+    return [
+        {"role": "developer", "content": f"Selection: {ref_label}"},
+        {"role": "developer", "content": "Use the JSON context below strictly:"},
+        {"role": "developer", "content": payload},
+        {
+            "role": "user",
+            "content": (
+                "Using the provided context, explain the translation challenges and give actionable guidance for this selection."
+            ),
+        },
+    ]
 
 
 class IntentType(str, Enum):
@@ -2514,91 +2629,25 @@ Style:
 
 
 def handle_get_translation_helps(state: Any) -> dict:
-    """Handle get-translation-helps: extract refs, load helps, and guide.
-
-    - Parse and validate a single-book selection via the shared helper.
-    - Load per-verse translation helps from sources/translation_helps.
-    - Provide a structured JSON context to the LLM and return a guidance response.
-    """
+    """Generate focused translation helps guidance for a selected passage."""
     s = cast(BrainState, state)
     query = s["transformed_query"]
     query_lang = s["query_language"]
     logger.info("[translation-helps] start; query_lang=%s; query=%s", query_lang, query)
 
-    canonical_book, ranges, err = _resolve_selection_for_single_book(query, query_lang)
+    th_root = Path("sources") / "translation_helps"
+    bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
+    logger.info("[translation-helps] loading helps from %s", th_root)
+
+    canonical_book, ranges, raw_helps, err = _prepare_translation_helps(s, th_root, bsb_root)
     if err:
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": err}]}
-    assert canonical_book is not None and ranges is not None
+    assert canonical_book is not None and ranges is not None and raw_helps is not None
 
-    th_root = Path("sources") / "translation_helps"
-    logger.info("[translation-helps] loading helps from %s", th_root)
-    # Special-case: book entirely missing from translation helps dataset
-    missing_books = set(get_missing_th_books(th_root))
-    if canonical_book in missing_books:
-        abbrs = sorted(BSB_BOOK_MAP[b]["ref_abbr"] for b in missing_books)
-        requested_abbr = BSB_BOOK_MAP[canonical_book]["ref_abbr"]
-        msg = (
-            f"Translation helps for {requested_abbr} are not available yet. "
-            f"Currently missing books: {', '.join(abbrs)}. "
-            "Would you like translation help for one of the supported books instead?"
-        )
-        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
-    # Count total verses first; if above limit, return a user-facing error instead of truncating
-    bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
-    verse_count = len(select_verses(bsb_root, canonical_book, ranges))
-    if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
-        ref_label_over = label_ranges(canonical_book, ranges)
-        msg = (
-            f"I can only provide translate help for {config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time. "
-            f"Your selection {ref_label_over} includes {verse_count} verses. Please narrow the range (e.g., a chapter or a shorter span)."
-        )
-        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
-    # Enforce verse-count limit to control context/token size
-    limited_ranges = clamp_ranges_by_verse_limit(
-        bsb_root,
-        canonical_book,
-        ranges,
-        max_verses=config.TRANSLATION_HELPS_VERSE_LIMIT,
-    )
-    if not limited_ranges:
-        msg = "I couldn't identify verses for that selection in the BSB index. Please try another reference."
-        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
-    raw_helps = select_translation_helps(th_root, canonical_book, limited_ranges)
-    logger.info("[translation-helps] selected %d help entries", len(raw_helps))
-    if not raw_helps:
-        msg = (
-            "I couldn't locate translation helps for that selection. Please check the reference and try again."
-        )
-        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
+    ref_label, context_obj = _build_translation_helps_context(canonical_book, ranges, raw_helps)
+    messages = _build_translation_helps_messages(ref_label, context_obj)
 
-    helps = _compact_translation_help_entries(raw_helps)
-
-    ref_label = label_ranges(canonical_book, limited_ranges)
-    context_obj = {
-        "reference_label": ref_label,
-        "selection": {
-            "book": canonical_book,
-            "ranges": [
-                {
-                    "start_chapter": sc,
-                    "start_verse": sv,
-                    "end_chapter": ec,
-                    "end_verse": ev,
-                }
-                for (sc, sv, ec, ev) in limited_ranges
-            ],
-        },
-        "translation_helps": helps,
-    }
-
-    messages: list[EasyInputMessageParam] = [
-        {"role": "developer", "content": f"Selection: {ref_label}"},
-        {"role": "developer", "content": "Use the JSON context below strictly:"},
-        {"role": "developer", "content": json.dumps(context_obj, ensure_ascii=False)},
-        {"role": "user", "content": "Using the provided context, explain the translation challenges and give actionable guidance for this selection."},
-    ]
-
-    logger.info("[translation-helps] invoking LLM with %d helps", len(helps))
+    logger.info("[translation-helps] invoking LLM with %d helps", len(raw_helps))
     agentic_strength = _resolve_agentic_strength(s)
     model_name = "gpt-4o-mini" if agentic_strength == "low" else "gpt-4o"
     resp = open_ai_client.responses.create(
@@ -2616,9 +2665,9 @@ def handle_get_translation_helps(state: Any) -> dict:
             tt = (it or 0) + (ot or 0)
         cit = _extract_cached_input_tokens(usage)
         add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
-    text = resp.output_text
+
     header = f"Translation helps for {ref_label}\n\n"
-    response_text = header + (text or "")
+    response_text = header + (resp.output_text or "")
     return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": response_text}]}
 
 
