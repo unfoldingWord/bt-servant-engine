@@ -1371,11 +1371,12 @@ def translate_responses(state: Any) -> dict:  # pylint: disable=too-many-locals
             )
             return {"translated_responses": passthrough_texts}
 
+    agentic_strength = _resolve_agentic_strength(s)
     translated_responses: list[str] = []
     for resp in responses_for_translation:
         if isinstance(resp, str):
             sample = _sample_for_language_detection(resp)
-            detected_lang = detect_language(sample) if sample else target_language
+            detected_lang = detect_language(sample, agentic_strength=agentic_strength) if sample else target_language
             if detected_lang != target_language:
                 logger.info('preparing to translate to %s', target_language)
                 translated_responses.append(translate_text(response_text=resp, target_language=target_language))
@@ -1445,7 +1446,7 @@ def translate_text(response_text: str, target_language: str) -> str:
     return cast(str, text)
 
 
-def detect_language(text) -> str:
+def detect_language(text: str, *, agentic_strength: Optional[str] = None) -> str:  # pylint: disable=too-many-locals
     """Detect ISO 639-1 language code of the given text via OpenAI.
 
     Uses a domain-aware prompt with deterministic decoding and a light
@@ -1458,8 +1459,13 @@ def detect_language(text) -> str:
             "content": f"text: {text}",
         },
     ]
+    strength_source = agentic_strength if agentic_strength is not None else getattr(config, "AGENTIC_STRENGTH", "normal")
+    strength = str(strength_source).lower()
+    if strength not in ALLOWED_AGENTIC_STRENGTH:
+        strength = "normal"
+    model_name = "gpt-4o-mini" if strength == "low" else "gpt-4o"
     response = open_ai_client.responses.parse(
-        model="gpt-4o",
+        model=model_name,
         instructions=DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
         input=cast(Any, messages),
         text_format=MessageLanguage,
@@ -1474,7 +1480,7 @@ def detect_language(text) -> str:
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
         cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
     message_language = cast(MessageLanguage | None, response.output_parsed)
     predicted = message_language.language.value if message_language else "en"
     logger.info("language detection (model): %s", predicted)
@@ -1509,7 +1515,8 @@ def determine_query_language(state: Any) -> dict:
     """Determine the language of the user's original query and set collection order."""
     s = cast(BrainState, state)
     query = s["user_query"]
-    query_language = detect_language(query)
+    agentic_strength = _resolve_agentic_strength(s)
+    query_language = detect_language(query, agentic_strength=agentic_strength)
     logger.info("language code %s detected by gpt-4o.", query_language)
     stack_rank_collections = [
         "knowledgebase",
