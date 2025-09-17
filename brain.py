@@ -1714,7 +1714,7 @@ def detect_language(text: str, *, agentic_strength: Optional[str] = None) -> str
         strength = "normal"
     model_name = _model_for_agentic_strength(strength, allow_low=True, allow_very_low=True)
     response = open_ai_client.responses.parse(
-        model=model_name,
+        model="gpt-4o",
         instructions=DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
         input=cast(Any, messages),
         text_format=MessageLanguage,
