@@ -280,7 +280,7 @@ def read_root():
 @app.get("/alive")
 async def alive_check(_: None = Depends(require_healthcheck_token)) -> PlainTextResponse:
     """Authenticated health check endpoint for infrastructure probes."""
-    return PlainTextResponse("BT Servant is alive and healthy.")
+    return PlainTextResponse("BT Servant is alive and healthy.\n")
 
 
 @app.post("/chroma/add-document")
