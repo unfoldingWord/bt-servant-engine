@@ -1079,6 +1079,10 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                     # Preserve legacy behavior for audio conversations without explicit voice payloads
                     should_send_text = False
 
+                if voice_text:
+                    normalized_voice = voice_text.strip()
+                    responses = [r for r in responses if r.strip() != normalized_voice]
+
                 if should_send_text and responses:
                     response_count = len(responses)
                     formatted_responses = list(responses)

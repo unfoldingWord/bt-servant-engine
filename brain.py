@@ -913,6 +913,16 @@ def _build_translation_queue(
     return queue
 
 
+def _focus_translation_helps_query(query: str) -> str:
+    """Heuristically focus the clause that requests translation helps."""
+    lowered = query.lower()
+    keywords = ["translation", "translate", "translating", "help"]
+    focus_start = max((lowered.rfind(word) for word in keywords), default=-1)
+    if focus_start == -1:
+        return query
+    return query[focus_start:]
+
+
 def _resolve_target_language(
     state: BrainState,
     responses_for_translation: list[dict | str],
@@ -2716,7 +2726,9 @@ def handle_get_translation_helps(state: Any) -> dict:
     bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
     logger.info("[translation-helps] loading helps from %s", th_root)
 
-    canonical_book, ranges, raw_helps, err = _prepare_translation_helps(s, th_root, bsb_root)
+    focused_query = _focus_translation_helps_query(query)
+    state_with_focus = cast(BrainState, dict(s, transformed_query=focused_query))
+    canonical_book, ranges, raw_helps, err = _prepare_translation_helps(state_with_focus, th_root, bsb_root)
     if err:
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": err}]}
     assert canonical_book is not None and ranges is not None and raw_helps is not None
