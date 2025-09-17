@@ -885,15 +885,31 @@ def _normalize_single_response(item: dict) -> dict | str:
     return item
 
 
-def _build_translation_queue(state: BrainState, protected_items: list[dict], normal_items: list[dict]) -> list[dict | str]:
+def _build_translation_queue(
+    state: BrainState,
+    protected_items: list[dict],
+    normal_items: list[dict],
+) -> list[dict | str]:
     """Assemble responses in the order they should be translated or localized."""
     queue: list[dict | str] = list(protected_items)
-    if not normal_items:
+    non_combinable: list[dict] = [i for i in normal_items if i.get("suppress_combining")]
+    combinable: list[dict] = [i for i in normal_items if not i.get("suppress_combining")]
+
+    for item in non_combinable:
+        queue.append(_normalize_single_response(item))
+
+    if not combinable:
         return queue
-    if len(normal_items) == 1:
-        queue.append(_normalize_single_response(normal_items[0]))
+    if len(combinable) == 1:
+        queue.append(_normalize_single_response(combinable[0]))
         return queue
-    queue.append(combine_responses(state["user_chat_history"], state["user_query"], normal_items))
+    queue.append(
+        combine_responses(
+            state["user_chat_history"],
+            state["user_query"],
+            combinable,
+        )
+    )
     return queue
 
 
@@ -2606,7 +2622,15 @@ def handle_get_passage_summary(state: Any) -> dict:
 
     response_text = f"Summary of {ref_label}:\n\n{summary_text}"
     logger.info("[passage-summary] done")
-    return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]}
+    return {
+        "responses": [
+            {
+                "intent": IntentType.GET_PASSAGE_SUMMARY,
+                "response": response_text,
+                "suppress_combining": True,
+            }
+        ]
+    }
 
 
 def handle_get_passage_keywords(state: Any) -> dict:
@@ -2645,7 +2669,15 @@ def handle_get_passage_keywords(state: Any) -> dict:
     body = ", ".join(keywords)
     response_text = header + body
     logger.info("[passage-keywords] done")
-    return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": response_text}]}
+    return {
+        "responses": [
+            {
+                "intent": IntentType.GET_PASSAGE_KEYWORDS,
+                "response": response_text,
+                "suppress_combining": True,
+            }
+        ]
+    }
 
 
 TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT = """
