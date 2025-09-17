@@ -930,6 +930,31 @@ def _translate_or_localize_response(
     return str(body)
 
 
+def _compact_translation_help_entries(entries: list[dict]) -> list[dict]:
+    """Reduce translation help entries to essentials for the LLM payload."""
+    compact: list[dict] = []
+    for entry in entries:
+        verse_text = cast(str, entry.get("ult_verse_text") or "")
+        notes: list[dict] = []
+        for note in cast(list[dict], entry.get("notes") or []):
+            note_text = cast(str, note.get("note") or "")
+            if not note_text:
+                continue
+            compact_note: dict[str, str] = {"note": note_text}
+            quote = cast(Optional[str], note.get("orig_language_quote"))
+            if quote:
+                compact_note["orig_language_quote"] = quote
+            notes.append(compact_note)
+        compact.append(
+            {
+                "reference": entry.get("reference"),
+                "verse_text": verse_text,
+                "notes": notes,
+            }
+        )
+    return compact
+
+
 class IntentType(str, Enum):
     """Enumeration of all supported user intents in the graph."""
     GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
@@ -2538,13 +2563,15 @@ def handle_get_translation_helps(state: Any) -> dict:
     if not limited_ranges:
         msg = "I couldn't identify verses for that selection in the BSB index. Please try another reference."
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
-    helps = select_translation_helps(th_root, canonical_book, limited_ranges)
-    logger.info("[translation-helps] selected %d help entries", len(helps))
-    if not helps:
+    raw_helps = select_translation_helps(th_root, canonical_book, limited_ranges)
+    logger.info("[translation-helps] selected %d help entries", len(raw_helps))
+    if not raw_helps:
         msg = (
             "I couldn't locate translation helps for that selection. Please check the reference and try again."
         )
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": msg}]}
+
+    helps = _compact_translation_help_entries(raw_helps)
 
     ref_label = label_ranges(canonical_book, limited_ranges)
     context_obj = {
