@@ -43,6 +43,7 @@ from db import (
     is_first_interaction,
     set_first_interaction,
     set_user_response_language,
+    set_user_agentic_strength,
 )
 
 # (Moved dynamic feature messaging and related prompts below IntentType)
@@ -361,6 +362,11 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     The user wants to change the language in which the system responds. They might ask for responses in 
     Spanish, French, Arabic, etc.
   </intent>
+  <intent name="set-agentic-strength">
+    The user wants to adjust how assertive the assistant should be when answering. They might say "set my agentic
+    strength to low" or "use normal agentic strength". Only use this when they clearly request one of the supported
+    strength levels (normal or low).
+  </intent>
   <intent name="retrieve-system-information">
     The user wants information about the BT Servant system itself — how it works, where it gets data, uptime, 
     example questions, supported languages, features, or current system configuration (like the documents currently 
@@ -536,6 +542,10 @@ Here are a few examples to guide you:
   <example>
     <message>Can you reply to me in French from now on?</message>
     <intent>set-response-language</intent>
+  </example>
+  <example>
+    <message>Set my agentic strength to low.</message>
+    <intent>set-agentic-strength</intent>
   </example>
   <example>
     <message>Where does BT Servant get its information from?</message>
@@ -719,6 +729,52 @@ Instructions:
 """
 
 
+ALLOWED_AGENTIC_STRENGTH = {"normal", "low"}
+
+
+class AgenticStrengthChoice(str, Enum):
+    """Accepted agentic strength options for controllable responses."""
+
+    NORMAL = "normal"
+    LOW = "low"
+    UNKNOWN = "unknown"
+
+
+class AgenticStrengthSetting(BaseModel):
+    """Schema for parsing agentic strength adjustments from the user."""
+
+    strength: AgenticStrengthChoice
+
+
+SET_AGENTIC_STRENGTH_AGENT_SYSTEM_PROMPT = """
+Task: Determine whether the user is asking to adjust the agentic strength setting. The allowed values are "normal"
+and "low". Use the conversation context and latest message to infer the requested level.
+
+Output schema: { "strength": <normal|low|unknown> }
+
+Rules:
+- If the user clearly requests "normal" or "low", return that value.
+- If the intent is ambiguous or references any other option, return "unknown".
+- Do not include explanations or additional text. Only produce a JSON object that matches the schema.
+"""
+
+
+def _resolve_agentic_strength(state: BrainState) -> str:
+    """Return the effective agentic strength, honoring user overrides when set."""
+    candidate = cast(Optional[str], state.get("agentic_strength") or state.get("user_agentic_strength"))
+    if isinstance(candidate, str):
+        lowered = candidate.lower()
+        if lowered in ALLOWED_AGENTIC_STRENGTH:
+            return lowered
+
+    configured = getattr(config, "AGENTIC_STRENGTH", "normal")
+    if isinstance(configured, str):
+        configured_lower = configured.lower()
+        if configured_lower in ALLOWED_AGENTIC_STRENGTH:
+            return configured_lower
+    return "normal"
+
+
 class MessageLanguage(BaseModel):
     """Model for parsing/validating the detected language of a message."""
     language: Language
@@ -803,6 +859,7 @@ class IntentType(str, Enum):
     PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
     RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
     SET_RESPONSE_LANGUAGE = "set-response-language"
+    SET_AGENTIC_STRENGTH = "set-agentic-strength"
     CONVERSE_WITH_BT_SERVANT = 'converse-with-bt-servant'
 
 
@@ -820,6 +877,8 @@ class BrainState(TypedDict, total=False):
     perf_trace_id: str
     query_language: str
     user_response_language: str
+    agentic_strength: str
+    user_agentic_strength: str
     transformed_query: str
     docs: List[Dict[str, str]]
     collection_used: str
@@ -913,6 +972,15 @@ def _capabilities() -> List[Capability]:
                 "Translate John 3:16 into Indonesian.",
             ],
             "include_in_boilerplate": True,
+        },
+        {
+            "intent": IntentType.SET_AGENTIC_STRENGTH,
+            "label": "Adjust agentic strength",
+            "description": "Tune how assertive the assistant should be (normal or low).",
+            "examples": [
+                "Set my agentic strength to low.",
+            ],
+            "include_in_boilerplate": False,
         },
         {
             "intent": IntentType.SET_RESPONSE_LANGUAGE,
@@ -1135,6 +1203,89 @@ def set_response_language(state: Any) -> dict:
     return {
         "responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}],
         "user_response_language": response_language_code
+    }
+
+
+def set_agentic_strength(state: Any) -> dict:
+    """Detect and persist the user's preferred agentic strength."""
+    s = cast(BrainState, state)
+    chat_input: list[EasyInputMessageParam] = [
+        {
+            "role": "user",
+            "content": f"Past conversation: {json.dumps(s['user_chat_history'])}",
+        },
+        {
+            "role": "user",
+            "content": f"the user's most recent message: {s['user_query']}",
+        },
+        {
+            "role": "user",
+            "content": "Is the user asking to set the agentic strength to normal or low?",
+        },
+    ]
+
+    try:
+        response = open_ai_client.responses.parse(
+            model="gpt-4o",
+            instructions=SET_AGENTIC_STRENGTH_AGENT_SYSTEM_PROMPT,
+            input=cast(Any, chat_input),
+            text_format=AgenticStrengthSetting,
+            temperature=0,
+            store=False,
+        )
+        usage = getattr(response, "usage", None)
+        if usage is not None:
+            it = getattr(usage, "input_tokens", None)
+            ot = getattr(usage, "output_tokens", None)
+            tt = getattr(usage, "total_tokens", None)
+            if tt is None and (it is not None or ot is not None):
+                tt = (it or 0) + (ot or 0)
+            cit = _extract_cached_input_tokens(usage)
+            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        parsed = cast(AgenticStrengthSetting | None, response.output_parsed)
+    except OpenAIError:
+        logger.error("[agentic-strength] OpenAI request failed while parsing user preference.", exc_info=True)
+        parsed = None
+    except Exception:  # pylint: disable=broad-except
+        logger.error("[agentic-strength] Unexpected failure while parsing agentic strength.", exc_info=True)
+        parsed = None
+
+    if not parsed or parsed.strength == AgenticStrengthChoice.UNKNOWN:
+        msg = (
+            "I can set the agentic strength to either normal or low. Please specify one of those options "
+            "so I can update it."
+        )
+        return {
+            "responses": [
+                {"intent": IntentType.SET_AGENTIC_STRENGTH, "response": msg}
+            ]
+        }
+
+    desired = parsed.strength.value
+    user_id: str = s["user_id"]
+    try:
+        set_user_agentic_strength(user_id, desired)
+    except ValueError:
+        logger.warning("[agentic-strength] Attempted to set invalid value '%s' for user %s", desired, user_id)
+        msg = (
+            "That setting isn't supported. I can only use normal or low for agentic strength."
+        )
+        return {
+            "responses": [
+                {"intent": IntentType.SET_AGENTIC_STRENGTH, "response": msg}
+            ]
+        }
+
+    friendly = "Normal" if desired == "normal" else "Low"
+    response_text = (
+        f"Agentic strength set to {friendly.lower()}. I'll use the {friendly} setting from now on."
+    )
+    return {
+        "responses": [
+            {"intent": IntentType.SET_AGENTIC_STRENGTH, "response": response_text}
+        ],
+        "agentic_strength": desired,
+        "user_agentic_strength": desired,
     }
 
 
@@ -1660,8 +1811,10 @@ def consult_fia_resources(state: Any) -> dict:  # pylint: disable=too-many-local
     ])
 
     try:
+        agentic_strength = _resolve_agentic_strength(s)
+        model_name = "gpt-4o-mini" if agentic_strength == "low" else "gpt-4o"
         response = open_ai_client.responses.create(
-            model="gpt-4o",
+            model=model_name,
             instructions=CONSULT_FIA_RESOURCES_SYSTEM_PROMPT,
             input=cast(Any, messages),
         )
@@ -1673,7 +1826,7 @@ def consult_fia_resources(state: Any) -> dict:  # pylint: disable=too-many-local
             if tt is None and (it is not None or ot is not None):
                 tt = (it or 0) + (ot or 0)
             cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
 
         fia_response = response.output_text
         logger.info("[consult-fia] response from openai: %s", fia_response)
@@ -1826,6 +1979,8 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
         nodes_to_traverse.append("handle_listen_to_scripture_node")
     if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
         nodes_to_traverse.append("set_response_language_node")
+    if IntentType.SET_AGENTIC_STRENGTH in user_intents:
+        nodes_to_traverse.append("set_agentic_strength_node")
     if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
         nodes_to_traverse.append("handle_unsupported_function_node")
     if IntentType.RETRIEVE_SYSTEM_INFORMATION in user_intents:
@@ -2378,8 +2533,10 @@ def handle_get_translation_helps(state: Any) -> dict:
     ]
 
     logger.info("[translation-helps] invoking LLM with %d helps", len(helps))
+    agentic_strength = _resolve_agentic_strength(s)
+    model_name = "gpt-4o-mini" if agentic_strength == "low" else "gpt-4o"
     resp = open_ai_client.responses.create(
-        model="gpt-4o",
+        model=model_name,
         instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
         input=cast(Any, messages),
         store=False,
@@ -2392,7 +2549,7 @@ def handle_get_translation_helps(state: Any) -> dict:
         if tt is None and (it is not None or ot is not None):
             tt = (it or 0) + (ot or 0)
         cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
     text = resp.output_text
     header = f"Translation helps for {ref_label}\n\n"
     response_text = header + (text or "")
@@ -2875,6 +3032,7 @@ def create_brain():
     builder.add_node("preprocess_user_query_node", wrap_node_with_timing(preprocess_user_query, "preprocess_user_query_node"))
     builder.add_node("determine_intents_node", wrap_node_with_timing(determine_intents, "determine_intents_node"))
     builder.add_node("set_response_language_node", wrap_node_with_timing(set_response_language, "set_response_language_node"))
+    builder.add_node("set_agentic_strength_node", wrap_node_with_timing(set_agentic_strength, "set_agentic_strength_node"))
     builder.add_node("query_vector_db_node", wrap_node_with_timing(query_vector_db, "query_vector_db_node"))
     builder.add_node("query_open_ai_node", wrap_node_with_timing(query_open_ai, "query_open_ai_node"))
     builder.add_node("consult_fia_resources_node", wrap_node_with_timing(consult_fia_resources, "consult_fia_resources_node"))
@@ -2900,6 +3058,7 @@ def create_brain():
     )
     builder.add_edge("query_vector_db_node", "query_open_ai_node")
     builder.add_edge("set_response_language_node", "translate_responses_node")
+    builder.add_edge("set_agentic_strength_node", "translate_responses_node")
     # After chunking, finish. Do not loop back to translate, which can recreate
     # the long message and trigger an infinite chunk cycle.
 

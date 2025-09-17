@@ -4,6 +4,7 @@ Loads values from environment (and optional .env) with typed fields.
 """
 import os
 from pathlib import Path
+from typing import Literal
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -38,6 +39,8 @@ class Config(BaseSettings):
     HEALTHCHECK_API_TOKEN: str | None = Field(default=None)
     # Enable admin auth for protected endpoints (default False for local/dev tests)
     ENABLE_ADMIN_AUTH: bool = Field(default=True)
+    # Tuning knob for LLM creativity/agency (normal | low)
+    AGENTIC_STRENGTH: Literal["normal", "low"] = Field(default="normal")
 
     # Optional with default value
     DATA_DIR: Path = Field(default=Path("/data"))

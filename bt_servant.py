@@ -33,6 +33,7 @@ from db import (
     get_user_chat_history,
     update_user_chat_history,
     get_user_response_language,
+    get_user_agentic_strength,
     get_or_create_chroma_collection,
     create_chroma_collection,
     delete_chroma_collection,
@@ -89,6 +90,16 @@ _merge_executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
 
 _merge_tasks: dict[str, Any] = {}
 _merge_task_cancel_flags: dict[str, asyncio.Event] = {}
+
+
+def _compute_agentic_strengths(user_id: str) -> tuple[str, Optional[str]]:
+    """Return effective agentic strength and stored user preference (if any)."""
+    user_strength = get_user_agentic_strength(user_id=user_id)
+    system_strength = str(config.AGENTIC_STRENGTH).lower()
+    if system_strength not in {"normal", "low"}:
+        system_strength = "normal"
+    effective = user_strength or system_strength
+    return effective, user_strength
 
 
 # Conservative cap for total input tokens per embeddings request.
@@ -1009,7 +1020,7 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content={"error": "Invalid JSON"})
 
 
-async def process_message(user_message: UserMessage):  # pylint: disable=too-many-branches
+async def process_message(user_message: UserMessage):  # pylint: disable=too-many-branches,too-many-locals,too-many-statements
     """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
         start_time = time.time()
@@ -1036,14 +1047,23 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
 
                 loop = asyncio.get_event_loop()
                 assert brain is not None  # mypy: brain set during startup or lazily above
-                result = await loop.run_in_executor(None, brain.invoke, {
+                effective_agentic_strength, user_agentic_strength = _compute_agentic_strengths(
+                    user_message.user_id
+                )
+
+                brain_payload: dict[str, Any] = {
                     "user_id": user_message.user_id,
                     "user_query": text,
                     "user_chat_history": get_user_chat_history(user_id=user_message.user_id),
                     "user_response_language": get_user_response_language(user_id=user_message.user_id),
+                    "agentic_strength": effective_agentic_strength,
                     # Attach perf trace id for cross-thread node timing
                     "perf_trace_id": user_message.message_id,
-                })
+                }
+                if user_agentic_strength is not None:
+                    brain_payload["user_agentic_strength"] = user_agentic_strength
+
+                result = await loop.run_in_executor(None, brain.invoke, brain_payload)
                 responses = result["translated_responses"]
                 full_response_text = "\n\n".join(responses).rstrip()
                 send_voice = bool(result.get("send_voice_message")) or user_message.message_type == "audio"

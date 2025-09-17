@@ -127,6 +127,7 @@ uvicorn bt_servant:app --reload
 | `OPENAI_PRICING_JSON`  | (Optional) Per-million token pricing to compute costs in perf reports |
 | `ENABLE_ADMIN_AUTH`    | (Optional) When `true`, protect admin endpoints with a token   |
 | `ADMIN_API_TOKEN`      | (Optional) Token value accepted for admin endpoints            |
+| `AGENTIC_STRENGTH`     | (Optional) Default LLM agentic strength (`normal` or `low`)    |
 
 Other acceptable values for log level: critical, error, warning, and debug
 
