@@ -15,7 +15,7 @@ import re
 from typing import Annotated, Dict, Iterable, List, cast, Any, Optional
 from collections.abc import Hashable
 from enum import Enum
-from typing_extensions import TypedDict
+from typing_extensions import TypedDict, NotRequired
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
@@ -1171,6 +1171,7 @@ class Capability(TypedDict):
     description: str
     examples: List[str]
     include_in_boilerplate: bool
+    developer_only: NotRequired[bool]
 
 
 def _capabilities() -> List[Capability]:
@@ -1252,6 +1253,7 @@ def _capabilities() -> List[Capability]:
                 "Set my agentic strength to low.",
             ],
             "include_in_boilerplate": False,
+            "developer_only": True,
         },
         {
             "intent": IntentType.SET_RESPONSE_LANGUAGE,
@@ -1267,7 +1269,11 @@ def _capabilities() -> List[Capability]:
 
 def build_boilerplate_message() -> str:
     """Build a concise 'what I can do' list with examples."""
-    caps = [c for c in _capabilities() if c.get("include_in_boilerplate")]
+    caps = [
+        c
+        for c in _capabilities()
+        if c.get("include_in_boilerplate") and not c.get("developer_only", False)
+    ]
     lines: list[str] = ["Here’s what I can do:"]
     for idx, c in enumerate(caps, start=1):
         example = c["examples"][0] if c.get("examples") else ""
@@ -1279,7 +1285,8 @@ def build_boilerplate_message() -> str:
 def build_full_help_message() -> str:
     """Build a full help message with descriptions and examples for each capability."""
     lines: list[str] = ["Features:"]
-    for idx, c in enumerate(_capabilities(), start=1):
+    visible_caps = [c for c in _capabilities() if not c.get("developer_only", False)]
+    for idx, c in enumerate(visible_caps, start=1):
         lines.append(f"{idx}. {c['label']}: {c['description']}")
         if c.get("examples"):
             for ex in c["examples"]:
