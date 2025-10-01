@@ -12,6 +12,7 @@ from openai import OpenAI
 
 from logger import get_logger
 from utils.perf import record_timing, add_tokens
+from utils.identifiers import get_log_safe_user_id
 from config import config
 
 logger = get_logger(__name__)
@@ -54,17 +55,19 @@ async def send_text_message(user_id: str, text: str) -> None:
         "type": "text",
         "text": {"body": text}
     }
+    log_user_id = get_log_safe_user_id(user_id)
     async with httpx.AsyncClient() as client:
         response = await client.post(url, headers=headers, json=payload)
         if response.status_code >= 400:
             logger.error("Failed to send Meta message: %s", response.text)
         else:
-            logger.info("Sent Meta message to %s: %s", user_id, text)
+            logger.info("Sent Meta message to %s: %s", log_user_id, text)
 
 
 @record_timing("messaging:send_voice_message")
 async def send_voice_message(user_id: str, text: str) -> None:
     """Synthesize `text` to speech and send as a WhatsApp audio message."""
+    log_user_id = get_log_safe_user_id(user_id)
     loop = asyncio.get_running_loop()
     path_to_voice_message = await loop.run_in_executor(None, _create_voice_message, user_id, text)
     try:
@@ -86,7 +89,7 @@ async def send_voice_message(user_id: str, text: str) -> None:
             if response.status_code >= 400:
                 logger.error("Failed to send Meta voice message: %s", response.text)
             else:
-                logger.info("Sent Meta voice message to %s.", user_id)
+                logger.info("Sent Meta voice message to %s.", log_user_id)
     finally:
         if os.path.exists(path_to_voice_message):
             os.remove(path_to_voice_message)
@@ -198,7 +201,8 @@ def _create_voice_message(user_id: str, text: str) -> str:
 
     # Create a safe temp file with .mp3 suffix (timezone-aware UTC)
     timestamp = datetime.datetime.now(datetime.UTC).strftime("%Y%m%dT%H%M%S")
-    filename = f"response_{user_id}_{timestamp}.mp3"
+    masked_user_id = get_log_safe_user_id(user_id)
+    filename = f"response_{masked_user_id}_{timestamp}.mp3"
     temp_audio_path = os.path.join(tempfile.gettempdir(), filename)
 
     with open_ai_client.audio.speech.with_streaming_response.create(

@@ -120,6 +120,8 @@ uvicorn bt_servant:app --reload
 | `META_VERIFY_TOKEN`    | Custom secret used for Meta webhook verification                |
 | `META_WHATSAPP_TOKEN`  | Access token used to send messages via Meta API                 |
 | `META_PHONE_NUMBER_ID` | Phone number ID tied to Meta app/WABA                           |
+| `META_APP_SECRET`      | App secret used to validate webhook signatures                  |
+| `LOG_PSEUDONYM_SECRET` | Secret for deriving log-safe user identifiers in logs          |
 | `BASE_URL`      | Public base URL used to generate audio file links               |
 | `BT_SERVANT_LOG_LEVEL` | (Optional) Defaults to info log level if not present            |
 | `IN_META_SANDBOX_MODE` | (Optional) Set to true when testing in sandbox mode             |
@@ -130,6 +132,15 @@ uvicorn bt_servant:app --reload
 | `AGENTIC_STRENGTH`     | (Optional) Default LLM agentic strength (`normal`, `low`, `very_low`). Default is `low`.    |
 
 Other acceptable values for log level: critical, error, warning, and debug
+
+Generate a random pseudonym secret (store it in `.env` as `LOG_PSEUDONYM_SECRET`):
+
+```bash
+python - <<'PY'
+import secrets
+print(secrets.token_urlsafe(64))
+PY
+```
 
 ---
 

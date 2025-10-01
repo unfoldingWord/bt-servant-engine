@@ -23,6 +23,7 @@ from pydantic import BaseModel
 from brain import create_brain
 from logger import get_logger
 from config import config
+from utils.identifiers import get_log_safe_user_id
 from utils.perf import (
     set_current_trace,
     time_block,
@@ -972,8 +973,9 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
                             end=_sig_t1,
                             trace_id=user_message.message_id,
                         )
+                        log_user_id = get_log_safe_user_id(user_message.user_id)
                         logger.info("%s message from %s with id %s and timestamp %s received.",
-                                    user_message.message_type, user_message.user_id, user_message.message_id,
+                                    user_message.message_type, log_user_id, user_message.message_id,
                                     user_message.timestamp)
                         if not user_message.is_supported_type():
                             logger.warning("unsupported message type: %s received. Skipping message.",
@@ -983,7 +985,7 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
                             logger.warning("message %d sec old. dropping old message.", user_message.age())
                             continue
                         if user_message.is_unauthorized_sender():
-                            logger.warning("Unauthorized sender: %s", user_message.user_id)
+                            logger.warning("Unauthorized sender: %s", log_user_id)
                             return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content={"error": "Unauthorized sender"})
 
                         # Attribute total handling time per message, including background task duration.
@@ -1023,6 +1025,7 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
 async def process_message(user_message: UserMessage):  # pylint: disable=too-many-branches,too-many-locals,too-many-statements
     """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
+        log_user_id = get_log_safe_user_id(user_message.user_id)
         start_time = time.time()
         # ensure all spans produced in this coroutine are associated to this message
         set_current_trace(user_message.message_id)
@@ -1093,7 +1096,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                             await send_text_message(user_id=user_message.user_id, text=response)
                             await asyncio.sleep(4)
                         except httpx.HTTPError as send_err:
-                            logger.error("Failed to send message to Meta for user %s: %s", user_message.user_id, send_err)
+                            logger.error("Failed to send message to Meta for user %s: %s", log_user_id, send_err)
 
                 update_user_chat_history(
                     user_id=user_message.user_id,
@@ -1110,7 +1113,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
             try:
                 await send_text_message(user_id=user_message.user_id, text=fallback_msg)
             except httpx.HTTPError as send_err:
-                logger.error("Failed to send fallback message to Meta for user %s: %s", user_message.user_id, send_err)
+                logger.error("Failed to send fallback message to Meta for user %s: %s", log_user_id, send_err)
         finally:
             logger.info(
                 "Overall process_message processing time: %.2f seconds",
@@ -1118,7 +1121,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
             )
             # Emit a structured performance report for this message id
             try:
-                log_final_report(logger, trace_id=user_message.message_id, user_id=user_message.user_id)
+                log_final_report(logger, trace_id=user_message.message_id, user_id=log_user_id)
             except Exception:  # pylint: disable=broad-except  # guard logging path
                 logger.warning("Failed to emit performance report for message_id=%s", user_message.message_id, exc_info=True)
 

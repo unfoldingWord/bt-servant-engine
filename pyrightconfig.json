@@ -12,7 +12,11 @@
   "pythonVersion": "3.12",
   "typeCheckingMode": "basic",
   "executionEnvironments": [
-    { "root": "./utils", "typeCheckingMode": "strict" },
+    {
+      "root": "./utils",
+      "typeCheckingMode": "strict",
+      "extraPaths": [".."]
+    },
     { "root": "." }
   ],
   "reportTypedDictNotRequiredAccess": "none",

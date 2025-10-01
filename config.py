@@ -20,6 +20,7 @@ class Config(BaseSettings):
     META_WHATSAPP_TOKEN: str = Field(...)
     META_PHONE_NUMBER_ID: str = Field(...)
     META_APP_SECRET: str = Field(...)
+    LOG_PSEUDONYM_SECRET: str = Field(...)
     FACEBOOK_USER_AGENT: str = Field(...)
     IN_META_SANDBOX_MODE: bool = Field(default=False)
     META_SANDBOX_PHONE_NUMBER: str = Field(default="11111111")

@@ -10,6 +10,7 @@ import os
 import re
 
 import messaging
+from utils.identifiers import get_log_safe_user_id, clear_log_safe_user_cache
 
 
 class _FakeStreamingCtx:
@@ -58,8 +59,11 @@ class _FakeOpenAI:
 
 def test_create_voice_message_makes_file_and_returns_path(monkeypatch) -> None:
     """Create a voice message via mocked TTS and validate filename + contents."""
-    # Arrange: stub the OpenAI client used by messaging
+    # Arrange: stub the OpenAI client used by messaging and seed pseudonym secret
     monkeypatch.setattr(messaging, "open_ai_client", _FakeOpenAI(), raising=True)
+    monkeypatch.setenv("LOG_PSEUDONYM_SECRET", "voice-test-secret")
+    clear_log_safe_user_cache()
+    masked_user = get_log_safe_user_id("user123")
 
     # Act
     path = messaging._create_voice_message("user123", "hello there")
@@ -71,8 +75,9 @@ def test_create_voice_message_makes_file_and_returns_path(monkeypatch) -> None:
 
         # Assert: filename contains expected timestamp format YYYYMMDDTHHMMSS
         base = os.path.basename(path)
-        assert base.startswith("response_user123_") and base.endswith(".mp3")
-        ts = base.removeprefix("response_user123_").removesuffix(".mp3")
+        expected_prefix = f"response_{masked_user}_"
+        assert base.startswith(expected_prefix) and base.endswith(".mp3")
+        ts = base.removeprefix(expected_prefix).removesuffix(".mp3")
         assert re.fullmatch(r"\d{8}T\d{6}", ts), ts
     finally:
         # Cleanup the temp file we created

@@ -26,6 +26,7 @@ from pydantic import BaseModel
 from logger import get_logger
 from config import config
 from utils import chop_text, combine_chunks
+from utils.identifiers import get_log_safe_user_id
 from utils.bsb import (
     BOOK_MAP as BSB_BOOK_MAP,
     normalize_book_name,
@@ -1548,7 +1549,8 @@ def set_agentic_strength(state: Any) -> dict:
     try:
         set_user_agentic_strength(user_id, desired)
     except ValueError:
-        logger.warning("[agentic-strength] Attempted to set invalid value '%s' for user %s", desired, user_id)
+        masked_user_id = get_log_safe_user_id(user_id)
+        logger.warning("[agentic-strength] Attempted to set invalid value '%s' for user %s", desired, masked_user_id)
         msg = (
             "That setting isn't supported. I can only use normal, low, or very low for agentic strength."
         )
