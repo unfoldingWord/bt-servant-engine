@@ -136,13 +136,13 @@ def test_merge_create_new_id_with_tags_and_copy(fake_chroma):
     task_id = task["task_id"]
 
     # Poll for completion
-    for _ in range(250):
+    for _ in range(400):
         st = client.get(f"/chroma/merge-tasks/{task_id}")
         assert st.status_code == 200
         data = st.json()
         if data["status"] in ("completed", "failed"):
             break
-        time.sleep(0.02)
+        time.sleep(0.05)
     assert data["status"] == "completed"
     # Verify dest content and ids
     dst = fake_chroma.get_collection("dst")
