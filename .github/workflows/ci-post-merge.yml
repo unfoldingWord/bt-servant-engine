@@ -16,6 +16,7 @@ jobs:
       RUN_OPENAI_API_TESTS: "1"
       BASE_URL: "https://example.invalid"
       FACEBOOK_USER_AGENT: "facebookexternalua"
+      LOG_PSEUDONYM_SECRET: ${{ secrets.LOG_PSEUDONYM_SECRET }}
       META_APP_SECRET: "testsecret"
       META_VERIFY_TOKEN: "verifytoken"
       META_WHATSAPP_TOKEN: "whatsapptoken"
