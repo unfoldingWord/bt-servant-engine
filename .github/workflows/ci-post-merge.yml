@@ -16,6 +16,7 @@ jobs:
       RUN_OPENAI_API_TESTS: "1"
       BASE_URL: "https://example.invalid"
       FACEBOOK_USER_AGENT: "facebookexternalua"
+      LOG_PSEUDONYM_SECRET: ${{ secrets.LOG_PSEUDONYM_SECRET }}
       META_APP_SECRET: "testsecret"
       META_VERIFY_TOKEN: "verifytoken"
       META_WHATSAPP_TOKEN: "whatsapptoken"
@@ -24,6 +25,9 @@ jobs:
       META_SANDBOX_PHONE_NUMBER: "15555555555"
       BT_SERVANT_LOG_LEVEL: "info"
       DATA_DIR: "./data"
+      ENABLE_ADMIN_AUTH: "False"
+      ADMIN_API_TOKEN: "admin-token"
+      HEALTHCHECK_API_TOKEN: "health-token"
     steps:
       - name: Checkout merge commit
         uses: actions/checkout@v4
@@ -40,12 +44,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest ruff pylint mypy pyright
+          pip install pytest pytest-cov ruff pylint mypy pyright import-linter bandit pip-audit deptry
 
       - name: Ensure data dir
         run: mkdir -p data
 
-      - name: Ruff
+      - name: Ruff (format check)
+        run: ruff format --check bt_servant_engine
+
+      - name: Ruff (lint)
         run: ruff check .
 
       - name: Pylint
@@ -57,5 +64,17 @@ jobs:
       - name: Pyright
         run: pyright
 
-      - name: Pytest (full, includes OpenAI tests)
-        run: pytest -vv -r a -s --log-cli-level=INFO --durations=20
+      - name: Import Linter
+        run: lint-imports
+
+      - name: Bandit
+        run: bandit -q -r bt_servant_engine
+
+      - name: Pip Audit
+        run: pip-audit -r requirements.txt
+
+      - name: Deptry
+        run: deptry .
+
+      - name: Pytest (full, includes OpenAI tests + coverage)
+        run: pytest --maxfail=1 --disable-warnings -q --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=70

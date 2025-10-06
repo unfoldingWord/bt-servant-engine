@@ -1,0 +1,82 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-lint
+        name: ruff (lint)
+        entry: ruff check .
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+      - id: ruff-format
+        name: ruff (format)
+        entry: ruff format --check bt_servant_engine
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+      - id: mypy
+        name: mypy (types)
+        entry: mypy .
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+      - id: pyright
+        name: pyright (types)
+        entry: pyright
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+      - id: import-linter
+        name: import-linter (onion architecture)
+        entry: lint-imports
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+      - id: bandit
+        name: bandit (security)
+        entry: bandit -q -r bt_servant_engine
+        language: system
+        pass_filenames: false
+        stages: [push]
+
+      - id: pip-audit
+        name: pip-audit (supply chain)
+        entry: pip-audit
+        language: system
+        pass_filenames: false
+        stages: [push]
+
+      - id: deptry
+        name: deptry (dependency hygiene)
+        entry: deptry .
+        language: system
+        pass_filenames: false
+        stages: [push]
+
+      - id: pytest
+        name: pytest (with coverage threshold)
+        entry: >-
+          bash -lc '
+            export OPENAI_API_KEY="${OPENAI_API_KEY:-sk-test}" \
+              META_VERIFY_TOKEN="${META_VERIFY_TOKEN:-verifytoken}" \
+              META_WHATSAPP_TOKEN="${META_WHATSAPP_TOKEN:-whatsapptoken}" \
+              META_PHONE_NUMBER_ID="${META_PHONE_NUMBER_ID:-1234567890}" \
+              META_APP_SECRET="${META_APP_SECRET:-metasecret}" \
+              LOG_PSEUDONYM_SECRET="${LOG_PSEUDONYM_SECRET:-test-secret}" \
+              FACEBOOK_USER_AGENT="${FACEBOOK_USER_AGENT:-facebookexternalua}" \
+              BASE_URL="${BASE_URL:-https://example.invalid}" \
+              META_SANDBOX_PHONE_NUMBER="${META_SANDBOX_PHONE_NUMBER:-15555555555}" \
+              DATA_DIR="${DATA_DIR:-./data}" \
+              ENABLE_ADMIN_AUTH="${ENABLE_ADMIN_AUTH:-False}" \
+              ADMIN_API_TOKEN="${ADMIN_API_TOKEN:-admin-token}" \
+              HEALTHCHECK_API_TOKEN="${HEALTHCHECK_API_TOKEN:-health-token}"
+            mkdir -p "$DATA_DIR"
+            pytest --maxfail=1 --disable-warnings -q -m "not openai" --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=70
+          '
+        language: system
+        pass_filenames: false
+        stages: [push]

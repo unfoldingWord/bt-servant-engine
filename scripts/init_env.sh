@@ -31,8 +31,7 @@ fi
 echo "[init_env] Installing runtime requirements from $REQ_TO_USE" >&2
 pip install -r "$REQ_TO_USE"
 
-echo "[init_env] Installing dev tools (pytest, ruff, pylint, mypy, pyright)" >&2
-pip install pytest ruff pylint mypy pyright
+echo "[init_env] Installing dev tools (pytest, coverage, linting, security)" >&2
+pip install pytest pytest-cov ruff pylint mypy pyright bandit pip-audit deptry import-linter pre-commit
 
 echo "[init_env] Done. Activate with: source .venv/bin/activate" >&2
-

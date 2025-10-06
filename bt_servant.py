@@ -973,7 +973,7 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
                             end=_sig_t1,
                             trace_id=user_message.message_id,
                         )
-                        log_user_id = get_log_safe_user_id(user_message.user_id)
+                        log_user_id = get_log_safe_user_id(user_message.user_id, secret=config.LOG_PSEUDONYM_SECRET)
                         logger.info("%s message from %s with id %s and timestamp %s received.",
                                     user_message.message_type, log_user_id, user_message.message_id,
                                     user_message.timestamp)
@@ -1025,7 +1025,7 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
 async def process_message(user_message: UserMessage):  # pylint: disable=too-many-branches,too-many-locals,too-many-statements
     """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
-        log_user_id = get_log_safe_user_id(user_message.user_id)
+        log_user_id = get_log_safe_user_id(user_message.user_id, secret=config.LOG_PSEUDONYM_SECRET)
         start_time = time.time()
         # ensure all spans produced in this coroutine are associated to this message
         set_current_trace(user_message.message_id)

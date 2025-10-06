@@ -1,0 +1,29 @@
+[importlinter]
+root_package = bt_servant_engine
+
+[contract:layers]
+name = Onion layering (strict)
+type = layers
+layers =
+    bt_servant_engine.apps.api
+    bt_servant_engine.adapters
+    bt_servant_engine.services.intents
+    bt_servant_engine.services
+    bt_servant_engine.core
+
+[contract:no_api_to_adapters]
+name = Routes must not import adapters directly
+type = forbidden
+source_modules =
+    bt_servant_engine.apps.api
+forbidden_modules =
+    bt_servant_engine.adapters
+
+[contract:no_services_to_adapters]
+name = Services must not import adapters
+type = forbidden
+source_modules =
+    bt_servant_engine.services
+    bt_servant_engine.services.intents
+forbidden_modules =
+    bt_servant_engine.adapters

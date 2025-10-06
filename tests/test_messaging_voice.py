@@ -62,8 +62,9 @@ def test_create_voice_message_makes_file_and_returns_path(monkeypatch) -> None:
     # Arrange: stub the OpenAI client used by messaging and seed pseudonym secret
     monkeypatch.setattr(messaging, "open_ai_client", _FakeOpenAI(), raising=True)
     monkeypatch.setenv("LOG_PSEUDONYM_SECRET", "voice-test-secret")
+    monkeypatch.setattr(messaging.config, "LOG_PSEUDONYM_SECRET", "voice-test-secret", raising=True)
     clear_log_safe_user_cache()
-    masked_user = get_log_safe_user_id("user123")
+    masked_user = get_log_safe_user_id("user123", secret="voice-test-secret")
 
     # Act
     path = messaging._create_voice_message("user123", "hello there")

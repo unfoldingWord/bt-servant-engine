@@ -55,7 +55,7 @@ async def send_text_message(user_id: str, text: str) -> None:
         "type": "text",
         "text": {"body": text}
     }
-    log_user_id = get_log_safe_user_id(user_id)
+    log_user_id = get_log_safe_user_id(user_id, secret=config.LOG_PSEUDONYM_SECRET)
     async with httpx.AsyncClient() as client:
         response = await client.post(url, headers=headers, json=payload)
         if response.status_code >= 400:
@@ -67,7 +67,7 @@ async def send_text_message(user_id: str, text: str) -> None:
 @record_timing("messaging:send_voice_message")
 async def send_voice_message(user_id: str, text: str) -> None:
     """Synthesize `text` to speech and send as a WhatsApp audio message."""
-    log_user_id = get_log_safe_user_id(user_id)
+    log_user_id = get_log_safe_user_id(user_id, secret=config.LOG_PSEUDONYM_SECRET)
     loop = asyncio.get_running_loop()
     path_to_voice_message = await loop.run_in_executor(None, _create_voice_message, user_id, text)
     try:
@@ -201,7 +201,7 @@ def _create_voice_message(user_id: str, text: str) -> str:
 
     # Create a safe temp file with .mp3 suffix (timezone-aware UTC)
     timestamp = datetime.datetime.now(datetime.UTC).strftime("%Y%m%dT%H%M%S")
-    masked_user_id = get_log_safe_user_id(user_id)
+    masked_user_id = get_log_safe_user_id(user_id, secret=config.LOG_PSEUDONYM_SECRET)
     filename = f"response_{masked_user_id}_{timestamp}.mp3"
     temp_audio_path = os.path.join(tempfile.gettempdir(), filename)
 

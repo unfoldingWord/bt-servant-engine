@@ -1549,7 +1549,7 @@ def set_agentic_strength(state: Any) -> dict:
     try:
         set_user_agentic_strength(user_id, desired)
     except ValueError:
-        masked_user_id = get_log_safe_user_id(user_id)
+        masked_user_id = get_log_safe_user_id(user_id, secret=config.LOG_PSEUDONYM_SECRET)
         logger.warning("[agentic-strength] Attempted to set invalid value '%s' for user %s", desired, masked_user_id)
         msg = (
             "That setting isn't supported. I can only use normal, low, or very low for agentic strength."

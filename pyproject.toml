@@ -1,9 +1,83 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bt-servant-engine"
+version = "0.1.0"
+description = "BT Servant Engine — strict onion/hexagonal refactor baseline"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "unfoldingWord", email = "info@unfoldingword.org" }]
+license = { text = "MIT" }
+dependencies = [
+  "fastapi>=0.116",
+  "uvicorn>=0.30",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.3",
+  "openai>=1.76",
+  "httpx>=0.28",
+  "langgraph>=0.5",
+  "chromadb>=1.0",
+  "tinydb>=4.8",
+  "typing-extensions>=4.12",
+]
+
+[project.optional-dependencies]
+dev = [
+  "python-dotenv>=1.0",
+  "ruff>=0.4",
+  "mypy>=1.10",
+  "pyright>=1.1",
+  "pytest>=8.2",
+  "pytest-cov>=5.0",
+  "bandit>=1.7",
+  "pip-audit>=2.7",
+  "deptry>=0.16",
+  "import-linter>=2.0",
+  "pre-commit>=3.8",
+  "typing-extensions>=4.12",
+]
+
 [tool.ruff]
 target-version = "py312"
 line-length = 100
 
 [tool.ruff.lint]
-# Keep default core rules and add DTZ; ignore E501 (long lines) because
-# prompt constants intentionally exceed the limit and are hard-wrapped elsewhere.
 select = ["E", "F", "W", "B", "DTZ"]
+# Allow long prompt strings and whitespace artifacts that are intentionally preserved.
 ignore = ["E501", "W291", "W293"]
+
+[tool.ruff.lint.pylint]
+max-statements = 50   # PLR0915
+max-branches  = 12    # PLR0912
+max-returns   = 6     # PLR0911
+max-args      = 5     # PLR0913
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10   # C901
+
+[tool.mypy]
+python_version = "3.12"
+warn_unused_configs = true
+pretty = true
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "strict"
+reportMissingTypeStubs = false
+
+[tool.pytest.ini_options]
+addopts = "-q --maxfail=1 --disable-warnings -m 'not openai'"
+testpaths = ["tests"]
+
+[tool.deptry]
+ignore_notebooks = true
+exclude = ["venv", ".venv", "build", "dist", "tests"]
+known_first_party = ["bt_servant_engine"]
+pep621_dev_dependency_groups = ["dev"]
+# Uvicorn is invoked via CLI entrypoint rather than imported.
+[tool.deptry.per_rule_ignores]
+DEP002 = ["uvicorn"]
+# Add more per-rule ignores here as needed, e.g.:
+# # DEP001 = ["typing-extensions"]
