@@ -15,6 +15,8 @@ def test_create_app_has_routes():
     }
     assert "/alive" in paths
     assert any(path.startswith("/chroma") for path in paths)
+    assert hasattr(app.state, "services")
+    assert app.state.services.intent_router is not None
 
 
 def test_lifespan_initializes_brain():
