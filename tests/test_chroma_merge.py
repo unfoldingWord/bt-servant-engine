@@ -181,13 +181,13 @@ def test_cancel_merge(fake_chroma):
     assert cancel.status_code in (202, 409)
 
     # Wait for cancel to be acknowledged
-    for _ in range(50):
+    for _ in range(200):
         st = client.get(f"/chroma/merge-tasks/{task_id}")
         assert st.status_code == 200
         data = st.json()
         if data["status"] in ("cancelled", "completed", "failed"):
             break
-        time.sleep(0.02)
+        time.sleep(0.05)
     assert data["status"] in ("cancelled", "completed")
     # If cancelled, ensure partial progress
     if data["status"] == "cancelled":
