@@ -44,7 +44,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest pytest-cov ruff pylint mypy pyright import-linter bandit pip-audit deptry
+          pip install pytest pytest-cov ruff pylint mypy pyright import-linter bandit pip-audit deptry pre-commit
 
       - name: Ensure data dir
         run: mkdir -p data
