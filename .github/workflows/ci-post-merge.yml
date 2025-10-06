@@ -40,12 +40,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest ruff pylint mypy pyright
+          pip install pytest pytest-cov ruff pylint mypy pyright import-linter bandit pip-audit deptry
 
       - name: Ensure data dir
         run: mkdir -p data
 
-      - name: Ruff
+      - name: Ruff (format check)
+        run: ruff format --check bt_servant_engine
+
+      - name: Ruff (lint)
         run: ruff check .
 
       - name: Pylint
@@ -57,5 +60,17 @@ jobs:
       - name: Pyright
         run: pyright
 
-      - name: Pytest (full, includes OpenAI tests)
-        run: pytest -vv -r a -s --log-cli-level=INFO --durations=20
+      - name: Import Linter
+        run: lint-imports
+
+      - name: Bandit
+        run: bandit -q -r bt_servant_engine
+
+      - name: Pip Audit
+        run: pip-audit -r requirements.txt
+
+      - name: Deptry
+        run: deptry .
+
+      - name: Pytest (full, includes OpenAI tests + coverage)
+        run: pytest --maxfail=1 --disable-warnings -q --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=70

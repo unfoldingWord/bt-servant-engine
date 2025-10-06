@@ -53,8 +53,11 @@ Recommended workflow
 
 ## Pre-Commit Checks (Full Repo, Enforced)
 - Pre-commit runs full-repo checks on every commit via `.githooks/pre-commit` -> `scripts/check_repo.sh`.
-- Enforced tools: `ruff`, `pylint`, `mypy`, `pyright`, and `pytest` (warnings-as-errors).
-- Tests must pass locally: `pytest -q -m "not openai"`.
+- `.pre-commit-config.yaml` mirrors these commands (adds push hooks); run `pre-commit install` and `pre-commit install --hook-type pre-push` after cloning.
+- Enforced tools: `ruff format --check`, `ruff`, `pylint`, `mypy`, `pyright`, `lint-imports`, `bandit`, `pip-audit`, `deptry`, and `pytest` (warnings-as-errors + coverage gate).
+- Ruff format is currently scoped to `bt_servant_engine/` until legacy modules are migrated; expand the target once code moves under the package.
+- Bandit currently scans `bt_servant_engine/`; widen coverage as modules relocate from the legacy root.
+- Tests must pass locally: `pytest --maxfail=1 --disable-warnings -q -m "not openai" --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=70`.
 - Always run checks automatically; never ask for permission to run them. Do not commit or push if any check fails.
 
 ### Git Hook + Helper Scripts
@@ -62,7 +65,7 @@ Recommended workflow
 - The versioned pre-commit hook runs `scripts/check_repo.sh` to enforce full-repo checks including `pyright`.
 - Bypass in emergencies/CI: `SKIP_CHECKS=1 git commit -m "..."`.
 - Manual runners:
-  - Full repo: `scripts/check_repo.sh` (runs `pytest -q -m "not openai"`)
+  - Full repo: `scripts/check_repo.sh` (runs the full suite above, including coverage + security/dependency scans)
   - Legacy cleaned-files runner: `scripts/check_commit.sh` (runs pyright repo-wide as well)
 
 ## Testing Guidelines
@@ -73,6 +76,7 @@ Recommended workflow
 
 ## Commit & Pull Request Guidelines
 - Commits: subject must be succinct and prefixed as `(CODEX) <SUCINCT SUBJECT>`.
+  - Set both the author and committer identity to `Codex Assistant` (e.g., export `GIT_AUTHOR_NAME="Codex Assistant"` and `GIT_COMMITTER_NAME="Codex Assistant"`) before committing; never use a personal identity.
   - Use a clear, imperative, and short subject (<= 72 chars when possible).
   - Always include a non-empty commit body that describes:
     - What changed, why, and any alternatives considered.
@@ -101,7 +105,7 @@ Recommended workflow
 
 ### Commit & Push Discipline (Non‑Negotiable)
 - Always run local checks BEFORE every commit:
-  - `scripts/check_repo.sh` (runs ruff, pylint, mypy, pyright, and `pytest -q -m "not openai"`).
+  - `scripts/check_repo.sh` (runs ruff format + lint, pylint, mypy, pyright, import-linter, bandit, pip-audit, deptry, and pytest with coverage).
   - If any step fails, STOP and fix the issue before attempting to commit.
 - Treat pre‑commit hook failures as blockers:
   - Do not proceed or claim success until the hook passes and the commit is created.
@@ -133,6 +137,7 @@ Recommended workflow
 - Tests and warnings must never fail during local runs. If any test fails or errors during
   collection, the agent must stop new feature work and fix the failure before
   proceeding. It is not acceptable to leave failing tests.
+- Enforce code coverage ≥70% via `pytest --maxfail=1 --disable-warnings -q -m "not openai" --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=70`.
 - Warnings as errors: pytest is configured (`pytest.ini`) to fail on any warning. If external dependencies generate
   unavoidable deprecation noise, add a targeted `filterwarnings` entry with a short justification in the PR.
 - If a test targets functionality moved to another repo or is obsolete, delete
@@ -156,10 +161,10 @@ Recommended workflow
 ## Non‑Negotiable Local Env
 - Do not proceed with any changes if repo checks or tests cannot run locally. If any of `ruff`, `pylint`, `mypy`, `pyright`, or `pytest` are missing (e.g., exit 127 "command not found") or fail to start, STOP and initialize the environment.
 - Baseline initialization:
-  - `scripts/init_env.sh` sets up `.venv`, upgrades pip, installs runtime deps from `requirements.txt` (auto‑converting UTF‑16 → UTF‑8 for install), and installs dev tools (`pytest`, `ruff`, `pylint`, `mypy`, `pyright`).
+  - `scripts/init_env.sh` sets up `.venv`, upgrades pip, installs runtime deps from `requirements.txt` (auto‑converting UTF‑16 → UTF-8 for install), and installs dev tools (`pytest`, `pytest-cov`, `ruff`, `pylint`, `mypy`, `pyright`, `bandit`, `pip-audit`, `deptry`, `import-linter`, `pre-commit`).
   - After running it once per machine/clone, activate the venv in new shells: `source .venv/bin/activate`.
 - Full checks to run before and after changes:
-  - `scripts/check_repo.sh` (runs ruff, pylint, mypy, pyright, pytest repo‑wide).
+  - `scripts/check_repo.sh` (runs format/lint/type/security/dependency/coverage suite described above).
   - Treat any diagnostics as failures and fix or document with precise, minimal ignores.
 
 ## Why The Venv Doesn’t “Persist” Here
@@ -171,6 +176,7 @@ Recommended workflow
 - The `db_loaders` module was intentionally removed from this repo (logic lives
   in a separate repository). Do not re-add it. Any tests referencing it should
   be deleted or rewritten here.
+- Placeholder packages (`bt_servant_engine/…`) exist so Import Linter and coverage plumbing can target the future onion layout; move real modules into these directories during subsequent phases.
 - Admin endpoints are protected behind a simple token guard when
   `ENABLE_ADMIN_AUTH=True`. Tokens are read from `ADMIN_API_TOKEN` and accepted
   via `Authorization: Bearer <token>` or `X-Admin-Token: <token>`. When
