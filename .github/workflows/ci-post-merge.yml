@@ -25,6 +25,9 @@ jobs:
       META_SANDBOX_PHONE_NUMBER: "15555555555"
       BT_SERVANT_LOG_LEVEL: "info"
       DATA_DIR: "./data"
+      ENABLE_ADMIN_AUTH: "False"
+      ADMIN_API_TOKEN: "admin-token"
+      HEALTHCHECK_API_TOKEN: "health-token"
     steps:
       - name: Checkout merge commit
         uses: actions/checkout@v4
