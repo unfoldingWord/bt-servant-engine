@@ -5,6 +5,7 @@ Meta sends. The brain runs normally and will invoke OpenAI for language,
 preprocessor, intent classification, and selection parsing. We choose a
 keywords-style query to avoid costly summarization calls.
 """
+
 # pylint: disable=missing-function-docstring,line-too-long,duplicate-code,unused-argument,too-many-locals
 from __future__ import annotations
 
@@ -23,6 +24,8 @@ from db import user as user_db
 
 import bt_servant as api
 from config import config as app_config
+from bt_servant_engine.apps.api.routes import webhooks
+from bt_servant_engine.apps.api.state import set_brain
 
 
 def _has_real_openai() -> bool:
@@ -37,8 +40,10 @@ _RUN_OPENAI_API = os.environ.get("RUN_OPENAI_API_TESTS", "")
 
 pytestmark = [
     pytest.mark.openai,
-    pytest.mark.skipif(not _has_real_openai() or _RUN_OPENAI_API != "1",
-                       reason="OPENAI_API_KEY missing or RUN_OPENAI_API_TESTS!=1"),
+    pytest.mark.skipif(
+        not _has_real_openai() or _RUN_OPENAI_API != "1",
+        reason="OPENAI_API_KEY missing or RUN_OPENAI_API_TESTS!=1",
+    ),
 ]
 
 
@@ -75,7 +80,7 @@ def _meta_text_payload(text: str) -> dict:
 @pytest.mark.parametrize("is_first", [True, False])
 def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first: bool, request):
     # Ensure sandbox guard does not block the test sender
-    monkeypatch.setattr(api.config, "IN_META_SANDBOX_MODE", False, raising=True)
+    monkeypatch.setattr(app_config, "IN_META_SANDBOX_MODE", False, raising=True)
     # Use an isolated TinyDB for user state so we can control first_interaction
     tmp_db_path = tmp_path / "db.json"
     test_db = TinyDB(str(tmp_db_path))
@@ -97,9 +102,9 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first
         return None
 
     # Patch the functions as imported into the API module to ensure the endpoint uses fakes
-    monkeypatch.setattr(api, "send_text_message", _fake_send_text_message)
-    monkeypatch.setattr(api, "send_voice_message", _fake_send_voice_message)
-    monkeypatch.setattr(api, "send_typing_indicator_message", _fake_typing_indicator_message)
+    monkeypatch.setattr(webhooks, "send_text_message", _fake_send_text_message)
+    monkeypatch.setattr(webhooks, "send_voice_message", _fake_send_voice_message)
+    monkeypatch.setattr(webhooks, "send_typing_indicator_message", _fake_typing_indicator_message)
 
     # Capture that the keywords handler node actually ran (state-based validation)
     invoked: list[bool] = []
@@ -111,7 +116,7 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first
 
     monkeypatch.setattr(brain, "handle_get_passage_keywords", _wrapped_keywords)
     # Force fresh brain compile with the patched node
-    api.brain = None
+    set_brain(None)
 
     # Use context manager to ensure client/session cleanup
     with TestClient(api.app) as client:

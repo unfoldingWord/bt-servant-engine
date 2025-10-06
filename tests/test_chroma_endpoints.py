@@ -1,10 +1,12 @@
 """Chroma endpoints test suite with FastAPI TestClient and monkeypatching."""
+
 # pylint: disable=redefined-builtin
 import chromadb
 from fastapi.testclient import TestClient
 
 import db.chroma_db as cdb
 import bt_servant as api
+from config import config as app_config
 
 
 class DummyEmbeddingFunction:
@@ -135,8 +137,8 @@ def test_admin_auth_401_json_body(monkeypatch):
         return None
 
     monkeypatch.setattr(api, "init", noop_init)
-    monkeypatch.setattr(api.config, "ENABLE_ADMIN_AUTH", True)
-    monkeypatch.setattr(api.config, "ADMIN_API_TOKEN", "secret")
+    monkeypatch.setattr(app_config, "ENABLE_ADMIN_AUTH", True)
+    monkeypatch.setattr(app_config, "ADMIN_API_TOKEN", "secret")
 
     client = TestClient(api.app)
     # No Authorization headers provided
@@ -161,8 +163,8 @@ def test_chroma_root_unauthorized_returns_401(monkeypatch):
         return None
 
     monkeypatch.setattr(api, "init", noop_init)
-    monkeypatch.setattr(api.config, "ENABLE_ADMIN_AUTH", True)
-    monkeypatch.setattr(api.config, "ADMIN_API_TOKEN", "secret")
+    monkeypatch.setattr(app_config, "ENABLE_ADMIN_AUTH", True)
+    monkeypatch.setattr(app_config, "ADMIN_API_TOKEN", "secret")
 
     client = TestClient(api.app)
     resp = client.get("/chroma")

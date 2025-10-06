@@ -3,6 +3,7 @@
 These tests exercise intent classification for get-translation-helps and an API
 flow using the Meta webhook with a small selection to keep token usage modest.
 """
+
 # pylint: disable=missing-function-docstring,line-too-long,duplicate-code,unused-argument,too-many-locals
 from __future__ import annotations
 
@@ -24,6 +25,8 @@ from brain import determine_intents, IntentType
 import bt_servant as api
 from db import user as user_db
 from config import config as app_config
+from bt_servant_engine.apps.api.routes import webhooks
+from bt_servant_engine.apps.api.state import set_brain
 
 
 def _has_real_openai() -> bool:
@@ -60,12 +63,16 @@ def _make_signature(app_secret: str, body: bytes) -> str:
 
 
 @pytest.mark.openai
-@pytest.mark.skipif(not _has_real_openai() or _RUN_OPENAI_API != "1",
-                   reason="OPENAI_API_KEY missing or RUN_OPENAI_API_TESTS!=1")
+@pytest.mark.skipif(
+    not _has_real_openai() or _RUN_OPENAI_API != "1",
+    reason="OPENAI_API_KEY missing or RUN_OPENAI_API_TESTS!=1",
+)
 @pytest.mark.parametrize("is_first", [True, False])
-def test_meta_whatsapp_translation_helps_flow_with_openai(monkeypatch, tmp_path, is_first: bool, request):
+def test_meta_whatsapp_translation_helps_flow_with_openai(
+    monkeypatch, tmp_path, is_first: bool, request
+):
     # Ensure sandbox guard does not block the test sender
-    monkeypatch.setattr(api.config, "IN_META_SANDBOX_MODE", False, raising=True)
+    monkeypatch.setattr(app_config, "IN_META_SANDBOX_MODE", False, raising=True)
     # Use an isolated TinyDB for user state so we can control first_interaction
     tmp_db_path = tmp_path / "db.json"
     test_db = TinyDB(str(tmp_db_path))
@@ -85,9 +92,9 @@ def test_meta_whatsapp_translation_helps_flow_with_openai(monkeypatch, tmp_path,
     async def _fake_typing_indicator_message(message_id: str) -> None:  # message_id unused in test
         return None
 
-    monkeypatch.setattr(api, "send_text_message", _fake_send_text_message)
-    monkeypatch.setattr(api, "send_voice_message", _fake_send_voice_message)
-    monkeypatch.setattr(api, "send_typing_indicator_message", _fake_typing_indicator_message)
+    monkeypatch.setattr(webhooks, "send_text_message", _fake_send_text_message)
+    monkeypatch.setattr(webhooks, "send_voice_message", _fake_send_voice_message)
+    monkeypatch.setattr(webhooks, "send_typing_indicator_message", _fake_typing_indicator_message)
 
     invoked: list[bool] = []
     orig_handler = brain.handle_get_translation_helps
@@ -97,7 +104,7 @@ def test_meta_whatsapp_translation_helps_flow_with_openai(monkeypatch, tmp_path,
         return orig_handler(state)
 
     monkeypatch.setattr(brain, "handle_get_translation_helps", _wrapped)
-    api.brain = None
+    set_brain(None)
 
     def _meta_text_payload(text: str) -> dict:
         ts = str(int(time.time()))
