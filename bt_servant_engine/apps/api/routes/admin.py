@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import concurrent.futures
 import os
+import threading
 import time
 import uuid
 from collections import defaultdict
@@ -105,7 +106,7 @@ merge_collection_locks: DefaultDict[str, asyncio.Lock] = defaultdict(asyncio.Loc
 _merge_executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
 
 _merge_tasks: dict[str, "MergeTaskStatus"] = {}
-_merge_task_cancel_flags: dict[str, asyncio.Event] = {}
+_merge_task_cancel_flags: dict[str, threading.Event] = {}
 
 
 class Document(BaseModel):
@@ -671,7 +672,7 @@ async def _start_merge_task(dest: str, req: MergeRequest) -> MergeTaskStatus:
         finished_at=None,
     )
     _merge_tasks[task_id] = status_obj
-    _merge_task_cancel_flags[task_id] = asyncio.Event()
+    _merge_task_cancel_flags[task_id] = threading.Event()
 
     async def runner() -> None:
         async with merge_global_semaphore:
