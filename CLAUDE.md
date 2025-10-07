@@ -85,22 +85,24 @@ lint-imports          # Architecture compliance
   ```
 
 ### Commit Conventions
-- **Subject format**: `(CODEX) <concise subject>` (keep under 72 chars)
-  - The `(CODEX)` prefix indicates AI-generated commits
+- **Subject format**: `(Claude) <concise subject>` (keep under 72 chars)
+  - The `(Claude)` prefix indicates AI-generated commits
 - **Always include a body** describing:
   - What changed and why
   - Key files touched
   - Test plan and results
   - Any risks or follow-ups
+  - **NEVER leave the commit body empty** - always provide context
 - **Use proper newlines** in commit messages (not literal `\n`):
   ```bash
-  git commit -m "(CODEX) Subject" -m $'Body line 1\n\nBody line 2'
+  git commit -m "(Claude) Subject" -m $'Body line 1\n\nBody line 2'
   ```
-- **Author identity**: Set to "Codex Assistant" for AI commits:
+- **Author identity**: Set to "Claude Assistant" for AI commits:
   ```bash
-  export GIT_AUTHOR_NAME="Codex Assistant"
-  export GIT_COMMITTER_NAME="Codex Assistant"
+  export GIT_AUTHOR_NAME="Claude Assistant"
+  export GIT_COMMITTER_NAME="Claude Assistant"
   ```
+- **No co-author**: Do not add Co-Authored-By lines to commits
 
 ## Development Workflows
 
@@ -143,7 +145,7 @@ pre-commit install
 pre-commit install --hook-type pre-push
 
 # Bypass in emergency only
-SKIP_CHECKS=1 git commit -m "(CODEX) Emergency fix"
+SKIP_CHECKS=1 git commit -m "(Claude) Emergency fix"
 ```
 
 ## Configuration
