@@ -14,7 +14,6 @@ from pathlib import Path
 import re
 from typing import Annotated, Dict, Iterable, List, cast, Any, Optional
 from collections.abc import Hashable
-from enum import Enum
 from typing_extensions import TypedDict, NotRequired
 
 from openai import OpenAI, OpenAIError
@@ -39,6 +38,20 @@ from utils.keywords import select_keywords
 from utils.translation_helps import select_translation_helps, get_missing_th_books
 from utils.bible_locale import get_book_name
 from utils.perf import time_block, set_current_trace, add_tokens
+from bt_servant_engine.core.intents import IntentType, UserIntents
+from bt_servant_engine.core.language import (
+    Language,
+    ResponseLanguage,
+    MessageLanguage,
+    TranslatedPassage,
+    SUPPORTED_LANGUAGE_MAP as supported_language_map,
+    LANGUAGE_UNKNOWN,
+)
+from bt_servant_engine.core.agentic import (
+    ALLOWED_AGENTIC_STRENGTH,
+    AgenticStrengthChoice,
+    AgenticStrengthSetting,
+)
 from db import (
     get_chroma_collection,
     is_first_interaction,
@@ -646,21 +659,8 @@ FIA_REFERENCE_PATH = BASE_DIR / "sources" / "fia" / "fia.md"
 
 open_ai_client = OpenAI(api_key=config.OPENAI_API_KEY)
 
-supported_language_map = {
-    "en": "English",
-    "ar": "Arabic",
-    "fr": "French",
-    "es": "Spanish",
-    "hi": "Hindi",
-    "ru": "Russian",
-    "id": "Indonesian",
-    "sw": "Swahili",
-    "pt": "Portuguese",
-    "zh": "Mandarin",
-    "nl": "Dutch"
-}
-
-LANGUAGE_UNKNOWN = "UNKNOWN"
+# Language constants imported from bt_servant_engine.core.language
+# (supported_language_map, LANGUAGE_UNKNOWN)
 
 RELEVANCE_CUTOFF = .65
 TOP_K = 5
@@ -702,25 +702,7 @@ def _extract_cached_input_tokens(usage: Any) -> int | None:
     return None
 
 
-class Language(str, Enum):
-    """Supported ISO 639-1 language codes for responses/messages."""
-    ENGLISH = "en"
-    ARABIC = "ar"
-    FRENCH = "fr"
-    SPANISH = "es"
-    HINDI = "hi"
-    RUSSIAN = "ru"
-    INDONESIAN = "id"
-    SWAHILI = "sw"
-    PORTUGUESE = "pt"
-    MANDARIN = "zh"
-    DUTCH = "nl"
-    OTHER = "Other"
-
-
-class ResponseLanguage(BaseModel):
-    """Model for parsing/validating the detected response language."""
-    language: Language
+# Language, ResponseLanguage imported from bt_servant_engine.core.language
 
 
 SET_RESPONSE_LANGUAGE_AGENT_SYSTEM_PROMPT = """
@@ -736,22 +718,8 @@ Instructions:
 """
 
 
-ALLOWED_AGENTIC_STRENGTH = {"normal", "low", "very_low"}
-
-
-class AgenticStrengthChoice(str, Enum):
-    """Accepted agentic strength options for controllable responses."""
-
-    NORMAL = "normal"
-    LOW = "low"
-    VERY_LOW = "very_low"
-    UNKNOWN = "unknown"
-
-
-class AgenticStrengthSetting(BaseModel):
-    """Schema for parsing agentic strength adjustments from the user."""
-
-    strength: AgenticStrengthChoice
+# ALLOWED_AGENTIC_STRENGTH, AgenticStrengthChoice, AgenticStrengthSetting
+# imported from bt_servant_engine.core.agentic
 
 
 SET_AGENTIC_STRENGTH_AGENT_SYSTEM_PROMPT = """
@@ -798,24 +766,7 @@ def _model_for_agentic_strength(
     return "gpt-4o-mini" if agentic_strength in allowed else "gpt-4o"
 
 
-class MessageLanguage(BaseModel):
-    """Model for parsing/validating the detected language of a message."""
-    language: Language
-
-
-class TranslatedPassage(BaseModel):
-    """Schema for single-call passage translation output.
-
-    - header_book: translated book name (e.g., "Иоанн").
-    - header_suffix: exact suffix copied from input (e.g., "1:1–7").
-    - body: translated passage body with original newlines preserved.
-    - content_language: ISO 639-1 code (should equal requested target language).
-    """
-
-    header_book: str
-    header_suffix: str
-    body: str
-    content_language: Language
+# MessageLanguage, TranslatedPassage imported from bt_servant_engine.core.language
 
 
 class PreprocessorResult(BaseModel):
@@ -1117,26 +1068,7 @@ def _build_translation_helps_messages(ref_label: str, context_obj: dict[str, obj
     ]
 
 
-class IntentType(str, Enum):
-    """Enumeration of all supported user intents in the graph."""
-    GET_BIBLE_TRANSLATION_ASSISTANCE = "get-bible-translation-assistance"
-    CONSULT_FIA_RESOURCES = "consult-fia-resources"
-    GET_PASSAGE_SUMMARY = "get-passage-summary"
-    GET_PASSAGE_KEYWORDS = "get-passage-keywords"
-    GET_TRANSLATION_HELPS = "get-translation-helps"
-    RETRIEVE_SCRIPTURE = "retrieve-scripture"
-    LISTEN_TO_SCRIPTURE = "listen-to-scripture"
-    TRANSLATE_SCRIPTURE = "translate-scripture"
-    PERFORM_UNSUPPORTED_FUNCTION = "perform-unsupported-function"
-    RETRIEVE_SYSTEM_INFORMATION = "retrieve-system-information"
-    SET_RESPONSE_LANGUAGE = "set-response-language"
-    SET_AGENTIC_STRENGTH = "set-agentic-strength"
-    CONVERSE_WITH_BT_SERVANT = 'converse-with-bt-servant'
-
-
-class UserIntents(BaseModel):
-    """Container for a list of user intents."""
-    intents: List[IntentType]
+# IntentType, UserIntents imported from bt_servant_engine.core.intents
 
 
 class BrainState(TypedDict, total=False):
