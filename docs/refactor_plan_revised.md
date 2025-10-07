@@ -45,56 +45,45 @@ This revision accounts for the actual state of the main branch, which is less co
 
 ## Branch Strategy
 
-Proposed branch names for each phase:
-- `refactor/phase-0-intent-extraction` - Extract all intent handlers from brain.py
-- `refactor/phase-1-core-migration` - Move top-level modules to core
+Completed and planned branch names for each phase:
+- ✅ `refactor/phase-0-intent-extraction` - Extract core domain models (COMPLETE)
+- → `refactor/phase-1-core-migration` - Move top-level modules to core (NEXT)
 - `refactor/phase-2-adapter-migration` - Consolidate db/ into adapters
-- `refactor/phase-3-brain-orchestration` - Extract LangGraph orchestration
+- `refactor/phase-3-brain-orchestration` - Extract LangGraph orchestration + intent handlers
 - `refactor/phase-4-intent-router` - Wire IntentRouter
 - `refactor/phase-5-cleanup` - Final cleanup and deletion
 
+Note: Phase 0 branch name references "intent-extraction" but was scoped to core domain models only.
+
 ## Implementation Phases
 
-### Phase 0: Extract Intent Handlers from brain.py
-**Goal:** Move all intent handler logic out of brain.py into service modules
+### Phase 0: Extract Core Domain Models ✅ COMPLETE
+**Goal:** Establish core domain layer with pure business logic
 
-This phase is needed because the intent extraction wasn't completed in main branch.
+This phase extracts fundamental domain concepts from brain.py into the core layer.
 
-1. **Create core domain modules**
+**Completed:**
+1. **Created core domain modules**
    - `bt_servant_engine/core/intents.py` - IntentType enum and UserIntents model
-   - `bt_servant_engine/core/language.py` - Language models and constants
-   - `bt_servant_engine/core/agentic.py` - Agentic strength models and constants
-   - ~~`bt_servant_engine/core/exceptions.py` - Custom exceptions~~ (skipped - no custom exceptions in brain.py)
+   - `bt_servant_engine/core/language.py` - Language models and constants (Language, ResponseLanguage, MessageLanguage, TranslatedPassage, SUPPORTED_LANGUAGE_MAP)
+   - `bt_servant_engine/core/agentic.py` - Agentic strength models and constants (AgenticStrengthChoice, AgenticStrengthSetting, ALLOWED_AGENTIC_STRENGTH)
 
-2. **Create helper services**
-   - `bt_servant_engine/services/graph_pipeline.py` - Vector query and OpenAI response generation
-   - `bt_servant_engine/services/response_pipeline.py` - Translation and chunking logic
-   - `bt_servant_engine/services/passage_selection.py` - Bible passage parsing
-   - `bt_servant_engine/services/openai_utils.py` - OpenAI SDK utilities
+2. **Created initial helper service**
+   - `bt_servant_engine/services/openai_utils.py` - extract_cached_input_tokens utility
 
-3. **Extract intent handlers** (13 intents to move from brain.py)
-   - `set_response_language` → `services/intents/set_response_language.py`
-   - `set_agentic_strength` → `services/intents/set_agentic_strength.py`
-   - `handle_unsupported_function` → `services/intents/unsupported_function.py`
-   - `handle_system_information_request` → `services/intents/system_information.py`
-   - `handle_get_passage_summary` → `services/intents/passage_summary.py`
-   - `handle_get_passage_keywords` → `services/intents/passage_keywords.py`
-   - `handle_get_translation_helps` → `services/intents/translation_helps.py`
-   - `handle_retrieve_scripture` → `services/intents/retrieve_scripture.py`
-   - `handle_listen_to_scripture` → `services/intents/listen_to_scripture.py`
-   - `handle_translate_scripture` → `services/intents/translate_scripture.py`
-   - `consult_fia_resources` → `services/intents/consult_fia_resources.py`
-   - `get_bible_translation_assistance` → handled by query_vector_db/query_open_ai
-   - Update existing `converse_with_bt_servant` → `services/intents/converse.py`
+3. **Updated brain.py**
+   - Import from new core modules
+   - Remove duplicate definitions
+   - Reduced from 3403 to 3311 lines
 
-4. **Update imports in brain.py**
-   - Import handlers from new locations
-   - Keep node wrapper functions in brain.py for now (will move in Phase 3)
+**Why intent extraction was deferred:**
+Intent handlers are heavily coupled to brain.py infrastructure (open_ai_client, BrainState, helper functions). Extracting them now would just move code around without architectural benefit. They will be properly refactored in Phase 3 alongside orchestration extraction, with proper dependency injection.
 
 **Validation:**
-- All intent handlers exist as separate modules
-- brain.py reduced to ~1500 lines (from 3403)
-- Tests still pass
+- ✅ Core domain modules created with no infrastructure dependencies
+- ✅ All linters pass
+- ✅ Tests pass (80.20% coverage)
+- ✅ Import linter passes (no architectural violations)
 
 ### Phase 1: Complete Core Module Migration
 **Goal:** Consolidate all foundational modules into core layer
@@ -143,10 +132,46 @@ This phase is needed because the intent extraction wasn't completed in main bran
 
 **Validation:** `db/` directory no longer exists; adapters pass unit tests
 
-### Phase 3: Extract LangGraph Orchestration
-**Goal:** Move brain.py orchestration into services layer
+### Phase 3: Extract LangGraph Orchestration and Intent Handlers
+**Goal:** Decompose brain.py into services layer with proper dependency injection
 
-1. **Create brain_orchestrator.py**
+This phase extracts both orchestration and intent handlers, allowing us to refactor them together with clean abstractions.
+
+1. **Create shared infrastructure**
+   ```
+   bt_servant_engine/services/graph_pipeline.py
+   ```
+   - Vector query and OpenAI response generation helpers
+   - Shared by multiple intent handlers
+
+   ```
+   bt_servant_engine/services/response_pipeline.py
+   ```
+   - Translation and chunking logic
+   - Response formatting utilities
+
+   ```
+   bt_servant_engine/services/passage_selection.py
+   ```
+   - Bible passage parsing and validation
+   - PassageRef, PassageSelection models
+
+2. **Extract intent handlers** (13 intents with proper DI)
+   - `set_response_language` → `services/intents/set_response_language.py`
+   - `set_agentic_strength` → `services/intents/set_agentic_strength.py`
+   - `handle_unsupported_function` → `services/intents/unsupported_function.py`
+   - `handle_system_information_request` → `services/intents/system_information.py`
+   - `handle_get_passage_summary` → `services/intents/passage_summary.py`
+   - `handle_get_passage_keywords` → `services/intents/passage_keywords.py`
+   - `handle_get_translation_helps` → `services/intents/translation_helps.py`
+   - `handle_retrieve_scripture` → `services/intents/retrieve_scripture.py`
+   - `handle_listen_to_scripture` → `services/intents/listen_to_scripture.py`
+   - `handle_translate_scripture` → `services/intents/translate_scripture.py`
+   - `consult_fia_resources` → `services/intents/consult_fia_resources.py`
+   - Update existing `converse_with_bt_servant` → `services/intents/converse.py`
+   - Bible translation assistance handled by query helpers
+
+3. **Create brain_orchestrator.py**
    ```
    bt_servant_engine/services/brain_orchestrator.py
    ```
@@ -154,27 +179,15 @@ This phase is needed because the intent extraction wasn't completed in main bran
    - Move `BrainState` TypedDict
    - Move graph assembly logic
    - Move node wrapper functions
+   - Inject dependencies (OpenAI client, config, logger)
 
-2. **Create preprocessing service**
+4. **Create preprocessing service**
    ```
    bt_servant_engine/services/preprocessing.py
    ```
    - Move: `start`, `determine_query_language`, `determine_intents`
    - Move: `preprocess_user_query`, `PreprocessorResult`
    - Move associated prompts and helpers
-
-3. **Create query processor service**
-   ```
-   bt_servant_engine/services/query_processor.py
-   ```
-   - Move: `query_vector_db`, `query_open_ai`
-   - Move: `consult_fia_resources`
-   - Consolidate query orchestration logic
-
-4. **Distribute remaining functions**
-   - Move response processing to `response_pipeline.py`
-   - Move thin intent wrappers to respective intent modules
-   - Move utility functions to appropriate services
 
 **Validation:** brain.py < 100 lines
 
@@ -215,7 +228,15 @@ This phase is needed because the intent extraction wasn't completed in main bran
 
 ## Success Metrics
 
-- [ ] brain.py deleted or < 50 lines (currently 3403 lines)
+**Phase 0 (Complete):**
+- ✅ 3 core domain modules created (intents, language, agentic)
+- ✅ openai_utils helper service created
+- ✅ brain.py reduced to 3311 lines (from 3403)
+- ✅ Import linter passes
+- ✅ Tests pass with 80%+ coverage
+
+**Overall (Remaining):**
+- [ ] brain.py deleted or < 50 lines (currently 3311 lines)
 - [ ] No top-level Python files except bt_servant.py (currently 6 files)
 - [ ] db/ directory removed completely
 - [ ] All imports use `bt_servant_engine.*` paths
@@ -224,8 +245,7 @@ This phase is needed because the intent extraction wasn't completed in main bran
 - [ ] IntentRouter handles all intent dispatch
 - [ ] Pre-commit hooks pass on all changes
 - [ ] All 14 intent handlers extracted to separate modules
-- [ ] Helper services created (graph_pipeline, response_pipeline, etc.)
-- [ ] 3 core domain modules created (intents, language, agentic)
+- [ ] Helper services created (graph_pipeline, response_pipeline, passage_selection)
 
 ## Migration Rules
 
@@ -245,13 +265,13 @@ This phase is needed because the intent extraction wasn't completed in main bran
 
 ## Estimated Timeline
 
-- Phase 0: 6-8 hours (extract intent handlers and create helper services)
+- ✅ Phase 0: 2 hours (extract core domain models) - COMPLETE
 - Phase 1: 2-3 hours (mechanical import updates)
 - Phase 2: 2-3 hours (adapter consolidation)
-- Phase 3: 3-4 hours (brain decomposition)
+- Phase 3: 6-8 hours (orchestration + intent handlers with DI)
 - Phase 4: 2-3 hours (router wiring)
 - Phase 5: 1-2 hours (cleanup and validation)
 
-**Total: 16-23 hours of focused work**
+**Total: 15-21 hours of focused work** (2 hours complete, 13-19 remaining)
 
-Note: Phase 0 is the most substantial because it involves extracting 13 intent handlers, creating 4 helper services, and 4 core domain modules.
+Note: Phase 3 is the most substantial because it involves extracting orchestration, 13 intent handlers, and creating helper services with proper dependency injection.
