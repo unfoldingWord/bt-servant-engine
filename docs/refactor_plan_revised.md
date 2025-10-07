@@ -39,7 +39,7 @@ This revision accounts for the actual state of the main branch, which is less co
 3. **Legacy db/ directory exists** - Should be fully migrated to adapters
 4. **No intent extraction done** - Only 1 intent (converse) extracted; 13 remain in brain.py
 5. **Helper services missing** - No graph_pipeline, response_pipeline, passage_selection, openai_utils
-6. **Core modules incomplete** - Missing intents, language, agentic, exceptions modules
+6. **Core modules incomplete** - Missing intents, language, agentic modules
 7. **IntentRouter not utilized** - Created but not wired; brain still called directly
 8. **Adapters depend on legacy** - Import from db module instead of being self-contained
 
@@ -64,7 +64,7 @@ This phase is needed because the intent extraction wasn't completed in main bran
    - `bt_servant_engine/core/intents.py` - IntentType enum and UserIntents model
    - `bt_servant_engine/core/language.py` - Language models and constants
    - `bt_servant_engine/core/agentic.py` - Agentic strength models and constants
-   - `bt_servant_engine/core/exceptions.py` - Custom exceptions
+   - ~~`bt_servant_engine/core/exceptions.py` - Custom exceptions~~ (skipped - no custom exceptions in brain.py)
 
 2. **Create helper services**
    - `bt_servant_engine/services/graph_pipeline.py` - Vector query and OpenAI response generation
@@ -225,6 +225,7 @@ This phase is needed because the intent extraction wasn't completed in main bran
 - [ ] Pre-commit hooks pass on all changes
 - [ ] All 14 intent handlers extracted to separate modules
 - [ ] Helper services created (graph_pipeline, response_pipeline, etc.)
+- [ ] 3 core domain modules created (intents, language, agentic)
 
 ## Migration Rules
 
