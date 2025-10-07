@@ -7,7 +7,6 @@ behavior changes while giving a final per-trace report.
 from __future__ import annotations
 
 import time
-import json
 import asyncio
 import threading
 from contextvars import ContextVar
@@ -95,6 +94,14 @@ def set_current_trace(trace_id: Optional[str]) -> None:
 def get_current_trace() -> Optional[str]:
     """Return the current ContextVar-based trace id if set."""
     return _current_trace_id.get()
+
+
+def _format_percentage(numerator: float | int | None, denominator: float | int | None) -> str:
+    """Return a human-friendly percentage string."""
+
+    num = float(numerator or 0.0)
+    denom = float(denominator or 1.0) or 1.0
+    return f"{round((num / denom) * 100.0, 1)}%"
 
 
 def _record_span(name: str, start: float, end: float, trace_id: Optional[str] = None) -> None:
@@ -509,17 +516,13 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
             "audio_input_cost_usd": round(v["audio_input_cost_usd"], 6),
             "audio_output_cost_usd": round(v["audio_output_cost_usd"], 6),
             "total_cost_usd": round(v["total_cost_usd"], 6),
-            "duration_percentage": (
-                f"{round((
-                    (v.get('duration_ms', 0.0) or 0.0)
-                    / (total_ms or 1.0)
-                ) * 100.0, 1)}%"
+            "duration_percentage": _format_percentage(
+                v.get("duration_ms", 0.0),
+                total_ms,
             ),
-            "token_percentage": (
-                f"{round((
-                    (v.get('total_tokens', 0.0) or 0.0)
-                    / (token_total_denominator or 1.0)
-                ) * 100.0, 1)}%"
+            "token_percentage": _format_percentage(
+                v.get("total_tokens", 0.0),
+                token_total_denominator,
             ),
         } for k, v in grouped.items()},
         "spans": items,
@@ -533,6 +536,12 @@ def log_final_report(logger: Any, trace_id: str, **metadata: Any) -> None:
     """
     report = summarize_report(trace_id)
     payload = {**metadata, **report}
-    text = json.dumps(payload, separators=(",", ":"), indent=3)
-    logger.info("PerfReport %s", text)
+    logger.info(
+        "perf_report",
+        extra={
+            "event": "perf_report",
+            "trace_id": trace_id,
+            "perf": payload,
+        },
+    )
     _store.clear(trace_id)

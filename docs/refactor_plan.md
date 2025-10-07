@@ -207,7 +207,7 @@ max-complexity = 10   # C901
 
 ---
 
-## 5) Dependency hygiene — **`pyproject.toml`** (Deptry config)
+## 5) Tooling & dependency hygiene — **`pyproject.toml`** + CI reuse
 
 Deptry prevents **unused**, **missing**, **transitive misuse**, and **mismatched section** dependencies. Start strict and add ignores only as needed.
 
@@ -233,9 +233,7 @@ scan_ignored = false
 # DEP004 = []                     # miscategorized (dev vs prod)
 ```
 
----
-
-## 6) CI upgrades (PR & post-merge) — **references to files above**
+### CI references (PR & post-merge)
 
 - Uses **`.importlinter`** via `lint-imports`.
 - Uses **`.pre-commit-config.yaml`** locally; CI re-invokes the *same tools* explicitly.
@@ -265,18 +263,44 @@ Example CI block:
 
 ---
 
-## 7) Intent handling (break up `brain.py`)
+## 6) Final phase: migrate intents & tighten coverage
 
-- **Router (thin):** `apps/api/routes/webhooks.py` reads request, normalizes payload, calls intent router.
+We are here. Steps 1–5 delivered the scaffolding (layout, ports, adapters, config, hooks). Now we migrate real behavior out of the legacy modules while raising the safety nets that keep the refactor honest.
+
+### 6.1 Extract intent handlers from `brain.py`
+
+Status:
+- ✅ `set-response-language`, `set-agentic-strength`, `perform-unsupported-function`, `retrieve-system-information`, `get-passage-summary`, `get-translation-helps`, `retrieve-scripture`, `get-passage-keywords`, `consult-fia-resources`, and the response translation/combining/chunking pipeline now live under service modules.
+- ✅ Stack-ranked vector retrieval, the RAG OpenAI response generator, and the response combiner wiring now live in `bt_servant_engine/services/graph_pipeline.py`.
+- ✅ Conversational and scripture delivery intents (`converse_with_bt_servant`, `listen_to_scripture`, `translate_scripture`) now delegate into `bt_servant_engine/services/intents/`.
+- ✅ Shared passage-selection helpers (prompt, parsing, heuristics) now live in `bt_servant_engine/services/passage_selection.py`, leaving `brain.py` as thin wrappers around service calls.
+
+Follow-ups:
+- ✅ Verified the LangGraph wiring remains declarative; remaining glue lives in `bt_servant_engine/services/graph_pipeline.py`.
+- 🚧 Proceed to 6.2 to harden ports/adapters (protocol coverage, adapter conformance tests, and import hygiene).
+
+As each intent moves:
+- Delete the in-place prompt/constants from `brain.py` once the service owns them.
+- Replace legacy imports with service calls and ensure adapters/ports cover any I/O.
+- Update `bt_servant_engine/services/intents/__init__.py` and router wiring/tests accordingly.
+- Drop unused helpers from `brain.py` to keep it shrinking.
+
+- **Router stays thin:** `apps/api/routes/webhooks.py` normalizes payloads and forwards to the intent router.
 - **Router core:** `services/intent_router.py` owns `parse(event) -> intent` and `dispatch(intent, event, services)`.
-- **Handlers:** `services/intents/<intent>.py` exposes `async def handle(event, services)`. Keep each ≤ 50 statements; push IO to adapters via **ports**.
-- **Shared services:** auth guards, orchestration helpers in `services/` (no adapter imports; only **ports**).
+- **Handlers:** carve each intent out of `brain.py` into `services/intents/<intent>.py`, keeping the orchestration ≤50 statements and pushing IO behind **ports**. Stub the handler in the router as soon as the intent lands.
+- **Legacy adapters:** continue to lean on `bt_servant_engine/adapters/...` so real code no longer imports `db/` directly. As intents migrate, peel supporting helpers out of `db/` into focused adapters; retire the legacy module once callers are gone.
+- **Shared services:** keep auth guards, trace helpers, and cross-intent orchestration in `services/` (no adapter imports; only **ports**).
 
----
+### 6.2 Harden ports & adapters
 
-## 8) Ports (interfaces) in `core/ports.py`
+`typing.Protocol` interfaces define the seams; adapters implement them; services accept them via DI.
 
-`typing.Protocol` interfaces define seams; adapters implement them; services accept them via DI.
+Status:
+- ✅ Admin routes now resolve their `ChromaPort` via the shared service container helper and no longer import `db` modules directly.
+- ✅ Webhook messaging flows send via `services.messaging`, removing direct `messaging` imports from `apps/api/routes/webhooks.py`.
+- ✅ Chroma-backed intents (brain + FIA service) now query via `ChromaPort`, eliminating all runtime `db` imports outside adapters.
+- ✅ Added adapter-focused tests (`tests/test_chroma_adapter.py`) to lock in delegation behavior and argument handling.
+- 🚧 Proceed to 6.3 (observability) now that ports/adapters refactor is complete.
 
 ```py
 from typing import Protocol, Any, Iterable
@@ -299,25 +323,32 @@ class MetaPort(Protocol):
     async def send_message(self, to: str, body: str) -> None: ...
 ```
 
+Keep adapters skinny, typed, and covered by unit tests where practical. When migrating intent logic, prefer adding light adapter methods to keep services clean rather than reaching back into legacy modules.
+
+### 6.3 Logging & correlation (observability) ✅
+
+- `core/logging.py` exposes JSON logger helpers.
+- Middleware injects `corr_id` and latency metrics around intent execution.
+- Scrub secrets/PII in logs; favor structured fields over string concatenation.
+
+> 👷‍♀️ Completed: JSON logging, correlation middleware timing, and updated tests landed in the observability polish pass (Oct 2025).
+
+### 6.4 Test expansion & coverage gate ✅
+
+- **Unit tests:** cover extracted intent handlers (with ports mocked) and shared services.
+- **API tests:** `/alive`, `/ready`, admin, and webhook happy/sad paths to validate the wiring.
+- Hold the current **70%** coverage gate as a floor; ratchet upward once migrations stabilize.
+- Treat tests as part of each intent move: add/adjust tests in the same PR so coverage trends upward, not flat.
+
+Outstanding test work:
+- Expand passage keyword and response pipeline coverage as new edge cases arise (multi-range, empty dataset, mixed intents).
+- Introduce integration coverage (via existing webhook tests) for a migrated scripture flow once adapters are wiring through service container.
+
+> 👷‍♀️ Completed: Focused unit tests for `retrieve_scripture`, `translation_helps`, and `consult_fia_resources` now live alongside the tightened coverage gate (Oct 2025).
+
 ---
 
-## 9) Logging & correlation (observability)
-
-- `core/logging.py` exposes JSON logger.
-- Middleware injects `corr_id` + latency metrics.
-- Scrub secrets/PII in logs.
-
----
-
-## 10) Tests (additive, then tighten coverage)
-
-- **Unit tests:** services (auth guards, merge orchestration), intent handlers (ports mocked), logging helpers.
-- **API tests:** `/alive`, `/ready`, admin, webhook happy/sad.
-- Start at **70%** coverage; ratchet upward.
-
----
-
-## 11) PR Choreography (staged, small, safe)
+## 7) PR Choreography (staged, small, safe)
 
 1. **`chore/precommit+arch-linter`**  
    - Add **`.pre-commit-config.yaml`**, **`.importlinter`**, **`pyproject.toml`** updates (Ruff caps, Deptry section).
@@ -342,7 +373,7 @@ class MetaPort(Protocol):
 
 ---
 
-## 12) AGENTS.md updates (applied separately)
+## 8) AGENTS.md updates (applied separately)
 
 - **Doctrine:** layers, routing rules, ports/adapters discipline; `.importlinter` must pass.
 - **Intent Handling Standard:** router + handlers (≤ 50 statements).
@@ -392,7 +423,7 @@ def create_app() -> FastAPI:
 
 ---
 
-## 13) **File creation checklist (exact contents Codex should write)**
+## 9) **File creation checklist (exact contents Codex should write)**
 
 > Codex: create these files verbatim, then run the install commands shown below.
 
