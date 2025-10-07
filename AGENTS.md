@@ -1,5 +1,23 @@
 # Repository Guidelines
 
+## ⚠️ Active Architectural Refactor (October 2025)
+
+**IMPORTANT**: This codebase is undergoing a major refactor to achieve strict onion/hexagonal architecture.
+
+- **Current action plan**: `docs/refactor_plan_revised.md` - Follow this for implementation
+- **Original plan (reference only)**: `docs/refactor_plan_deprecated.md` - Historical context
+- **AI-specific instructions**: See `CLAUDE.md` for detailed refactor guidance
+
+### Refactor Status
+The refactor is partially complete. When implementing changes:
+1. Always reference `docs/refactor_plan_revised.md` for current state and next steps
+2. Run `lint-imports` after changes to verify architecture compliance
+3. Complete phases sequentially (don't skip ahead)
+
+### Note
+The Project Structure section below reflects the CURRENT state (with legacy modules).
+It will be updated once the refactor is complete.
+
 ## Project Structure & Module Organization
 - `bt_servant.py`: FastAPI entrypoint (webhook + routing).
 - `brain.py`: Decision graph and message-processing pipeline.
