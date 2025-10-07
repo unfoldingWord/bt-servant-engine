@@ -6,13 +6,13 @@ keywords detection across a variety of phrasings and tricky books.
 # pylint: disable=missing-function-docstring,line-too-long,wrong-import-order,duplicate-code
 from __future__ import annotations
 
-from dotenv import load_dotenv
-
 from typing import Any, cast
 
 import pytest
-from brain import determine_intents, IntentType
-from config import config as app_config
+from dotenv import load_dotenv
+
+from brain import IntentType, determine_intents
+from bt_servant_engine.core.config import config as app_config
 
 
 def _has_real_openai() -> bool:

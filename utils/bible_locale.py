@@ -7,7 +7,6 @@ from __future__ import annotations
 
 from typing import Dict
 
-
 # Canonical (English) names are the keys used throughout utils.bsb BOOK_MAP
 _BOOK_LOCALIZATION: Dict[str, Dict[str, str]] = {
     # English canonical (identity mapping by default; shown for clarity)

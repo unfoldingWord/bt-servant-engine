@@ -7,9 +7,9 @@ Resolves `sources/bible_data/<lang>/<version>` roots with sensible fallbacks:
 """
 from __future__ import annotations
 
-from pathlib import Path
-from typing import Optional, Tuple, Dict
 import json
+from pathlib import Path
+from typing import Dict, Optional, Tuple
 
 _BIBLE_DATA_ROOT = Path("sources") / "bible_data"
 

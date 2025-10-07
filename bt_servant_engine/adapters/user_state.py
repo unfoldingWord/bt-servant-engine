@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from bt_servant_engine.core.ports import UserStatePort
 from db import (
     get_user_agentic_strength,
     get_user_chat_history,
@@ -12,8 +13,6 @@ from db import (
     set_user_response_language,
     update_user_chat_history,
 )
-
-from bt_servant_engine.core.ports import UserStatePort
 
 
 class UserStateAdapter(UserStatePort):

@@ -10,7 +10,6 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Dict, Iterable, List, Tuple
 
-
 # Centralized mapping of canonical book names to file stem and reference abbreviation.
 # File stems correspond to per-book JSONs under a chosen data root
 # (e.g., sources/bible_data/en/bsb/<stem>.json). The ref_abbr matches the

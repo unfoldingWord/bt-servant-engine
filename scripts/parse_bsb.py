@@ -22,7 +22,6 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 from urllib.request import urlopen
 
-
 BSB_URL = "https://bereanbible.com/bsb.txt"
 
 

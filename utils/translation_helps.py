@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 from functools import lru_cache
 from pathlib import Path
-from typing import Dict, Iterable, List, Tuple, Any
+from typing import Any, Dict, Iterable, List, Tuple
 
 from .bsb import BOOK_MAP, parse_ch_verse_from_reference
 

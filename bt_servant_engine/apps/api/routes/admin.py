@@ -17,6 +17,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from bt_servant_engine.apps.api.dependencies import require_admin_token
+from bt_servant_engine.core.logging import get_logger
 from db import (
     CollectionExistsError,
     CollectionNotFoundError,
@@ -33,7 +34,6 @@ from db import (
     list_document_ids_in_collection,
     max_numeric_id_in_collection,
 )
-from logger import get_logger
 
 router = APIRouter()
 logger = get_logger(__name__)

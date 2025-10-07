@@ -496,32 +496,31 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
         "total_audio_input_cost_usd": round(total_cost_audio_input_usd, 6),
         "total_audio_output_cost_usd": round(total_cost_audio_output_usd, 6),
         "total_cost_usd": round(total_cost_usd, 6),
-        "grouped_totals_by_intent": {k: {
-            "input_tokens": int(v["input_tokens"]),
-            "output_tokens": int(v["output_tokens"]),
-            "total_tokens": int(v["total_tokens"]),
-            "cached_input_tokens": int(v["cached_input_tokens"]),
-            "audio_input_tokens": int(v["audio_input_tokens"]),
-            "audio_output_tokens": int(v["audio_output_tokens"]),
-            "input_cost_usd": round(v["input_cost_usd"], 6),
-            "output_cost_usd": round(v["output_cost_usd"], 6),
-            "cached_input_cost_usd": round(v["cached_input_cost_usd"], 6),
-            "audio_input_cost_usd": round(v["audio_input_cost_usd"], 6),
-            "audio_output_cost_usd": round(v["audio_output_cost_usd"], 6),
-            "total_cost_usd": round(v["total_cost_usd"], 6),
-            "duration_percentage": (
-                f"{round((
-                    (v.get('duration_ms', 0.0) or 0.0)
-                    / (total_ms or 1.0)
-                ) * 100.0, 1)}%"
-            ),
-            "token_percentage": (
-                f"{round((
-                    (v.get('total_tokens', 0.0) or 0.0)
+        "grouped_totals_by_intent": {
+            k: {
+                "input_tokens": int(v["input_tokens"]),
+                "output_tokens": int(v["output_tokens"]),
+                "total_tokens": int(v["total_tokens"]),
+                "cached_input_tokens": int(v["cached_input_tokens"]),
+                "audio_input_tokens": int(v["audio_input_tokens"]),
+                "audio_output_tokens": int(v["audio_output_tokens"]),
+                "input_cost_usd": round(v["input_cost_usd"], 6),
+                "output_cost_usd": round(v["output_cost_usd"], 6),
+                "cached_input_cost_usd": round(v["cached_input_cost_usd"], 6),
+                "audio_input_cost_usd": round(v["audio_input_cost_usd"], 6),
+                "audio_output_cost_usd": round(v["audio_output_cost_usd"], 6),
+                "total_cost_usd": round(v["total_cost_usd"], 6),
+                "duration_percentage": "{:.1f}%".format(  # pylint: disable=consider-using-f-string
+                    (v.get("duration_ms", 0.0) or 0.0) / (total_ms or 1.0) * 100.0
+                ),
+                "token_percentage": "{:.1f}%".format(  # pylint: disable=consider-using-f-string
+                    (v.get("total_tokens", 0.0) or 0.0)
                     / (token_total_denominator or 1.0)
-                ) * 100.0, 1)}%"
-            ),
-        } for k, v in grouped.items()},
+                    * 100.0
+                ),
+            }
+            for k, v in grouped.items()
+        },
         "spans": items,
     }
 

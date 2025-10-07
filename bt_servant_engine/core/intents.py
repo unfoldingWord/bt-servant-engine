@@ -1,6 +1,7 @@
 """Intent types and models for the BT Servant application."""
 
 from enum import Enum
+
 from pydantic import BaseModel
 
 

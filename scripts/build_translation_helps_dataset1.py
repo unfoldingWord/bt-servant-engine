@@ -31,7 +31,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List, Tuple
 
-
 # Map TN/USFM book codes to BSB file stems under sources/bible_data/en
 TN_TO_BSB_STEM: Dict[str, str] = {
     # OT

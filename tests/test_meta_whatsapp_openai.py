@@ -9,23 +9,24 @@ keywords-style query to avoid costly summarization calls.
 # pylint: disable=missing-function-docstring,line-too-long,duplicate-code,unused-argument,too-many-locals
 from __future__ import annotations
 
-import os
-import hmac
 import hashlib
+import hmac
 import json
-import time
+import os
 import re
-from dotenv import load_dotenv
+import time
+
 import pytest
+from dotenv import load_dotenv
 from fastapi.testclient import TestClient
 from tinydb import TinyDB
-import brain
-from db import user as user_db
 
+import brain
 import bt_servant as api
-from config import config as app_config
 from bt_servant_engine.apps.api.routes import webhooks
 from bt_servant_engine.apps.api.state import set_brain
+from bt_servant_engine.core.config import config as app_config
+from db import user as user_db
 
 
 def _has_real_openai() -> bool:

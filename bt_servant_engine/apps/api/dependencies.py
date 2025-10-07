@@ -1,11 +1,11 @@
 """Shared FastAPI dependencies for token validation."""
 
 import hmac
-from typing import Optional, Annotated
+from typing import Annotated, Optional
 
 from fastapi import Header, HTTPException, status
 
-from config import config
+from bt_servant_engine.core.config import config
 
 
 async def _validate_token(

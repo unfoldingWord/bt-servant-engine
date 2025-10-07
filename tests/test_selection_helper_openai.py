@@ -7,11 +7,11 @@ OPENAI_API_KEY is not configured for networked runs.
 # pylint: disable=missing-function-docstring,line-too-long,duplicate-code
 from __future__ import annotations
 
-from dotenv import load_dotenv
 import pytest
+from dotenv import load_dotenv
 
-from brain import _resolve_selection_for_single_book, Language
-from config import config as app_config
+from brain import Language, _resolve_selection_for_single_book
+from bt_servant_engine.core.config import config as app_config
 
 
 def _has_real_openai() -> bool:

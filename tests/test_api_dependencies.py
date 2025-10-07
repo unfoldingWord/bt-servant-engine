@@ -2,11 +2,12 @@
 # pylint: disable=missing-function-docstring
 
 import asyncio
+
 import pytest
 from fastapi import HTTPException
 
-from config import config as app_config
 from bt_servant_engine.apps.api import dependencies
+from bt_servant_engine.core.config import config as app_config
 
 
 def test_require_admin_token_disabled(monkeypatch):

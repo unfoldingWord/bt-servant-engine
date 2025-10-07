@@ -1,8 +1,8 @@
 """Language models and constants for the BT Servant application."""
 
 from enum import Enum
-from pydantic import BaseModel
 
+from pydantic import BaseModel
 
 # Mapping of ISO 639-1 language codes to friendly names
 SUPPORTED_LANGUAGE_MAP = {

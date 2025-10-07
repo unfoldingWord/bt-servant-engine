@@ -6,8 +6,7 @@ from pathlib import Path
 
 from tinydb import TinyDB
 
-from config import config
-
+from bt_servant_engine.core.config import config
 
 # Resolve from settings dynamically to satisfy static analysis.
 DATA_DIR = Path(getattr(config, "DATA_DIR", Path("/data")))
