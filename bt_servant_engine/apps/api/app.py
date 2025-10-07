@@ -8,7 +8,9 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from brain import create_brain
-from logger import get_logger
+from bt_servant_engine.adapters import ChromaAdapter, MessagingAdapter, UserStateAdapter
+from bt_servant_engine.apps.api.middleware import CorrelationIdMiddleware
+from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services import build_default_services
 
 from .state import get_brain, set_brain
@@ -35,7 +37,12 @@ async def lifespan(_: FastAPI):
 def create_app() -> FastAPI:
     """Build the FastAPI application with configured routers."""
     app = FastAPI(lifespan=lifespan)
-    app.state.services = build_default_services()
+    app.state.services = build_default_services(
+        chroma_port=ChromaAdapter(),
+        user_state_port=UserStateAdapter(),
+        messaging_port=MessagingAdapter(),
+    )
+    app.add_middleware(CorrelationIdMiddleware)
 
     # Import lazily to avoid potential circular imports when routers grow.
     from .routes import admin, health, webhooks  # pylint: disable=import-outside-toplevel
