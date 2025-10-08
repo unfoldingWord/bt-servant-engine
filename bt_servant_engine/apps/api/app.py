@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import concurrent.futures
 from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 
 from brain import create_brain

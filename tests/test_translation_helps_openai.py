@@ -7,26 +7,26 @@ flow using the Meta webhook with a small selection to keep token usage modest.
 # pylint: disable=missing-function-docstring,line-too-long,duplicate-code,unused-argument,too-many-locals
 from __future__ import annotations
 
-import os
-import hmac
 import hashlib
+import hmac
 import json
-import time
+import os
 import re
+import time
 from typing import Any, cast
 
-from dotenv import load_dotenv
 import pytest
-from tinydb import TinyDB
+from dotenv import load_dotenv
 from fastapi.testclient import TestClient
+from tinydb import TinyDB
 
 import brain
-from brain import determine_intents, IntentType
 import bt_servant as api
-from db import user as user_db
-from config import config as app_config
+from brain import IntentType, determine_intents
 from bt_servant_engine.apps.api.routes import webhooks
 from bt_servant_engine.apps.api.state import set_brain
+from bt_servant_engine.core.config import config as app_config
+from db import user as user_db
 
 
 def _has_real_openai() -> bool:

@@ -55,9 +55,10 @@ class Settings(BaseSettings):
 
 
 settings = Settings()  # type: ignore[call-arg]
+config = settings  # Alias for backward compatibility
 
 os.environ.setdefault("OPENAI_PRICING_JSON", settings.OPENAI_PRICING_JSON)
 os.environ.setdefault("OPENAI_API_KEY", settings.OPENAI_API_KEY)
 
 
-__all__ = ["Settings", "settings"]
+__all__ = ["Settings", "settings", "config"]

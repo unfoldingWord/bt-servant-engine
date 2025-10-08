@@ -1,9 +1,9 @@
 """Tests for listen-to-scripture delegating to retrieve-scripture and setting voice flag."""
 # pylint: disable=missing-module-docstring,too-few-public-methods,missing-function-docstring,unused-argument,duplicate-code
 
+import re
 from typing import Any, cast
 
-import re
 import pytest
 
 import brain

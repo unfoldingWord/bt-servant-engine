@@ -10,56 +10,62 @@ from __future__ import annotations
 
 import json
 import operator
-from pathlib import Path
 import re
-from typing import Annotated, Dict, Iterable, List, cast, Any, Optional
 from collections.abc import Hashable
-from typing_extensions import TypedDict, NotRequired
+from pathlib import Path
+from typing import Annotated, Any, Dict, Iterable, List, Optional, cast
 
-from openai import OpenAI, OpenAIError
-from openai.types.responses.easy_input_message_param import EasyInputMessageParam
-from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
 from langgraph.graph import END, StateGraph
+from openai import OpenAI, OpenAIError
+from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
+from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 from pydantic import BaseModel
+from typing_extensions import NotRequired, TypedDict
 
-from logger import get_logger
-from config import config
-from utils import chop_text, combine_chunks
-from utils.identifiers import get_log_safe_user_id
-from utils.bsb import (
-    BOOK_MAP as BSB_BOOK_MAP,
-    normalize_book_name,
-    select_verses,
-    label_ranges,
-    clamp_ranges_by_verse_limit,
-)
-from utils.bible_data import resolve_bible_data_root, list_available_sources, load_book_titles
-from utils.keywords import select_keywords
-from utils.translation_helps import select_translation_helps, get_missing_th_books
-from utils.bible_locale import get_book_name
-from utils.perf import time_block, set_current_trace, add_tokens
-from bt_servant_engine.core.intents import IntentType, UserIntents
-from bt_servant_engine.core.language import (
-    Language,
-    ResponseLanguage,
-    MessageLanguage,
-    TranslatedPassage,
-    SUPPORTED_LANGUAGE_MAP as supported_language_map,
-    LANGUAGE_UNKNOWN,
-)
 from bt_servant_engine.core.agentic import (
     ALLOWED_AGENTIC_STRENGTH,
     AgenticStrengthChoice,
     AgenticStrengthSetting,
 )
-from bt_servant_engine.services.openai_utils import extract_cached_input_tokens as _extract_cached_input_tokens
+from bt_servant_engine.core.config import config
+from bt_servant_engine.core.intents import IntentType, UserIntents
+from bt_servant_engine.core.language import (
+    LANGUAGE_UNKNOWN,
+    Language,
+    MessageLanguage,
+    ResponseLanguage,
+    TranslatedPassage,
+)
+from bt_servant_engine.core.language import (
+    SUPPORTED_LANGUAGE_MAP as supported_language_map,
+)
+from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services.openai_utils import (
+    extract_cached_input_tokens as _extract_cached_input_tokens,
+)
 from db import (
     get_chroma_collection,
     is_first_interaction,
     set_first_interaction,
-    set_user_response_language,
     set_user_agentic_strength,
+    set_user_response_language,
 )
+from utils import chop_text, combine_chunks
+from utils.bible_data import list_available_sources, load_book_titles, resolve_bible_data_root
+from utils.bible_locale import get_book_name
+from utils.bsb import (
+    BOOK_MAP as BSB_BOOK_MAP,
+)
+from utils.bsb import (
+    clamp_ranges_by_verse_limit,
+    label_ranges,
+    normalize_book_name,
+    select_verses,
+)
+from utils.identifiers import get_log_safe_user_id
+from utils.keywords import select_keywords
+from utils.perf import add_tokens, set_current_trace, time_block
+from utils.translation_helps import get_missing_th_books, select_translation_helps
 
 # (Moved dynamic feature messaging and related prompts below IntentType)
 COMBINE_RESPONSES_SYSTEM_PROMPT = """

@@ -1,33 +1,34 @@
 """DB package public interface: user and Chroma helpers."""
 
 from .chroma_db import (
-    get_or_create_chroma_collection,
-    get_chroma_collection,
-    list_chroma_collections,
-    create_chroma_collection,
-    delete_chroma_collection,
-    delete_document,
-    count_documents_in_collection,
-    get_document_text,
-    get_document_text_and_metadata,
-    list_document_ids_in_collection,
-    iter_collection_batches,
-    get_chroma_collections_pair,
-    max_numeric_id_in_collection,
     CollectionExistsError,
     CollectionNotFoundError,
     DocumentNotFoundError,
+    count_documents_in_collection,
+    create_chroma_collection,
+    delete_chroma_collection,
+    delete_document,
+    get_chroma_collection,
+    get_chroma_collections_pair,
+    get_document_text,
+    get_document_text_and_metadata,
+    get_or_create_chroma_collection,
+    iter_collection_batches,
+    list_chroma_collections,
+    list_document_ids_in_collection,
+    max_numeric_id_in_collection,
 )
 from .user import (
-    get_user_chat_history,
-    update_user_chat_history,
-    get_user_response_language,
-    set_user_response_language,
     get_user_agentic_strength,
-    set_user_agentic_strength,
+    get_user_chat_history,
+    get_user_response_language,
+    is_first_interaction,
     set_first_interaction,
-    is_first_interaction
+    set_user_agentic_strength,
+    set_user_response_language,
+    update_user_chat_history,
 )
+
 __all__ = [
     "get_user_chat_history",
     "update_user_chat_history",

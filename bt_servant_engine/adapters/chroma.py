@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Iterable
 
+from bt_servant_engine.core.ports import ChromaPort
 from db import (
     CollectionExistsError,
     CollectionNotFoundError,
@@ -20,8 +21,6 @@ from db import (
     list_document_ids_in_collection,
     max_numeric_id_in_collection,
 )
-
-from bt_servant_engine.core.ports import ChromaPort
 
 
 class ChromaAdapter(ChromaPort):

@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import json
 import os
-from typing import Optional, Tuple, Dict
+from typing import Dict, Optional, Tuple
 
 _PRICING_CACHE: Optional[Dict[str, Dict[str, float]]] = None
 

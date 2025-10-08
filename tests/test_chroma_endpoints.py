@@ -4,9 +4,9 @@
 import chromadb
 from fastapi.testclient import TestClient
 
-import db.chroma_db as cdb
 import bt_servant as api
-from config import config as app_config
+import db.chroma_db as cdb
+from bt_servant_engine.core.config import config as app_config
 
 
 class DummyEmbeddingFunction:

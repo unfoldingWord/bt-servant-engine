@@ -7,7 +7,6 @@ from typing import TYPE_CHECKING, Any, Awaitable, Callable, Mapping, MutableMapp
 
 from brain import IntentType
 
-
 if TYPE_CHECKING:  # pragma: no cover - import for static analysis only
     from . import ServiceContainer
 

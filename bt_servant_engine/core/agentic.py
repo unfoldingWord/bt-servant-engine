@@ -1,8 +1,8 @@
 """Agentic strength models and constants for the BT Servant application."""
 
 from enum import Enum
-from pydantic import BaseModel
 
+from pydantic import BaseModel
 
 # Allowed agentic strength values
 ALLOWED_AGENTIC_STRENGTH = {"normal", "low", "very_low"}

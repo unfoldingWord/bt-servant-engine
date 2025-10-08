@@ -9,8 +9,8 @@ from __future__ import annotations
 import os
 import re
 
-import messaging
-from utils.identifiers import get_log_safe_user_id, clear_log_safe_user_cache
+from bt_servant_engine.adapters import messaging
+from utils.identifiers import clear_log_safe_user_cache, get_log_safe_user_id
 
 
 class _FakeStreamingCtx:

@@ -16,24 +16,24 @@ from fastapi import APIRouter, Header, HTTPException, Request, Response, status
 from fastapi.responses import JSONResponse
 
 from brain import create_brain
-from config import config
-from logger import get_logger
-from messaging import (
+from bt_servant_engine.adapters.messaging import (
     send_text_message,
+    send_typing_indicator_message,
     send_voice_message,
     transcribe_voice_message,
-    send_typing_indicator_message,
 )
-from user_message import UserMessage
-from utils.identifiers import get_log_safe_user_id
-from utils.perf import log_final_report, record_external_span, set_current_trace, time_block
+from bt_servant_engine.apps.api.state import get_brain, set_brain
+from bt_servant_engine.core.config import config
+from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.core.models import UserMessage
 from db import (
     get_user_agentic_strength,
     get_user_chat_history,
     get_user_response_language,
     update_user_chat_history,
 )
-from bt_servant_engine.apps.api.state import get_brain, set_brain
+from utils.identifiers import get_log_safe_user_id
+from utils.perf import log_final_report, record_external_span, set_current_trace, time_block
 
 router = APIRouter()
 logger = get_logger(__name__)

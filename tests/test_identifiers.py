@@ -1,6 +1,6 @@
 """Tests for log-safe identifier helper functions."""
 
-from utils.identifiers import get_log_safe_user_id, clear_log_safe_user_cache
+from utils.identifiers import clear_log_safe_user_cache, get_log_safe_user_id
 
 
 def test_get_log_safe_user_id_is_deterministic(monkeypatch) -> None:

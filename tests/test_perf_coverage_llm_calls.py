@@ -8,8 +8,8 @@ from typing import Any, cast
 
 import pytest
 
-from utils import perf
 import brain
+from utils import perf
 
 
 class _FakeInputTokenDetails:  # pylint: disable=too-few-public-methods

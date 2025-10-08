@@ -15,10 +15,10 @@ import pytest
 from fastapi.testclient import TestClient
 
 import bt_servant as api
-from config import config as app_config
 from bt_servant_engine.apps.api.routes import webhooks
 from bt_servant_engine.apps.api.state import set_brain
-from user_message import UserMessage
+from bt_servant_engine.core.config import config as app_config
+from bt_servant_engine.core.models import UserMessage
 
 
 @asynccontextmanager

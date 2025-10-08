@@ -1,7 +1,9 @@
 """User data access helpers backed by TinyDB."""
 
-from typing import Any, List, Dict, Optional, cast, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, cast
+
 from tinydb import Query
+
 from db.user_db import get_user_db
 
 # Provide a QueryLike alias for static checkers; at runtime use Any.

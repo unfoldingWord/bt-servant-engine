@@ -8,6 +8,7 @@ from __future__ import annotations
 import os
 import sys
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 # Ensure repository root is on sys.path for local package imports
@@ -25,3 +26,5 @@ os.environ.setdefault("META_PHONE_NUMBER_ID", "test")
 os.environ.setdefault("META_APP_SECRET", "test")
 os.environ.setdefault("FACEBOOK_USER_AGENT", "test")
 os.environ.setdefault("BASE_URL", "http://example.com")
+os.environ.setdefault("LOG_PSEUDONYM_SECRET", "test-secret")
+os.environ.setdefault("ENABLE_ADMIN_AUTH", "false")

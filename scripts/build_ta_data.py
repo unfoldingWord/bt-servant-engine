@@ -33,7 +33,6 @@ from typing import Optional
 
 import httpx
 
-
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TH_DIR = REPO_ROOT / "sources" / "translation_helps"
 TA_OUT_DIR = REPO_ROOT / "sources" / "ta_data"

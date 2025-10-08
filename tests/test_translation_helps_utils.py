@@ -4,7 +4,7 @@ Focus: graceful behavior when per-book translation helps files are missing.
 """
 from pathlib import Path
 
-from utils.translation_helps import select_translation_helps, get_missing_th_books
+from utils.translation_helps import get_missing_th_books, select_translation_helps
 
 
 def test_select_translation_helps_missing_book_returns_empty_list() -> None:

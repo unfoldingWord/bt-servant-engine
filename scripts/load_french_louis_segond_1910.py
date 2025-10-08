@@ -12,6 +12,7 @@ https://github.com/unfoldingWord/bt-servant-engine-data-loaders/tree/main/datase
 """
 
 from __future__ import annotations
+
 from pathlib import Path
 from typing import List
 

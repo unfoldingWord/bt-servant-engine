@@ -5,12 +5,14 @@ retrieve or create collections, along with small helper utilities.
 """
 
 from pathlib import Path
-from typing import Any, Optional, Iterator, Sequence, Tuple, cast
+from typing import Any, Iterator, Optional, Sequence, Tuple, cast
+
 import chromadb
-from chromadb.utils import embedding_functions
 from chromadb.config import Settings
-from config import config
-from logger import get_logger
+from chromadb.utils import embedding_functions
+
+from bt_servant_engine.core.config import config
+from bt_servant_engine.core.logging import get_logger
 
 # Pylint struggles to infer pydantic BaseSettings field types.
 # Casting to Path makes the type explicit for static analyzers.
