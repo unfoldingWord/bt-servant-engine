@@ -44,6 +44,11 @@ from bt_servant_engine.core.models import PassageRef, PassageSelection
 from bt_servant_engine.services.openai_utils import (
     extract_cached_input_tokens as _extract_cached_input_tokens,
 )
+from bt_servant_engine.services.passage_helpers import (
+    book_patterns as _book_patterns_impl,
+    choose_primary_book as _choose_primary_book_impl,
+    detect_mentioned_books as _detect_mentioned_books_impl,
+)
 from bt_servant_engine.adapters.chroma import get_chroma_collection
 from bt_servant_engine.adapters.user_state import (
     is_first_interaction,
@@ -2284,34 +2289,12 @@ def converse_with_bt_servant(state: Any) -> dict:
 
 def _book_patterns() -> list[tuple[str, str]]:
     """Return (canonical, regex) patterns to detect book mentions (ordered)."""
-    pats: list[tuple[str, str]] = []
-    for canonical, meta in BSB_BOOK_MAP.items():
-        # canonical name as a whole word/phrase
-        cn = re.escape(canonical)
-        pats.append((canonical, rf"\b{cn}\b"))
-        # short ref abbreviation (e.g., Gen, Exo, 1Sa)
-        abbr = re.escape(meta.get("ref_abbr", ""))
-        if abbr:
-            pats.append((canonical, rf"\b{abbr}\b"))
-    return pats
+    return _book_patterns_impl(BSB_BOOK_MAP)
 
 
 def _detect_mentioned_books(text: str) -> list[str]:
     """Detect canonical books mentioned in text, preserving order of appearance."""
-    found: list[tuple[int, str]] = []
-    lower = text
-    for canonical, pattern in _book_patterns():
-        for m in re.finditer(pattern, lower, flags=re.IGNORECASE):
-            found.append((m.start(), canonical))
-    # sort by appearance and dedupe preserving order
-    found.sort(key=lambda t: t[0])
-    seen = set()
-    ordered: list[str] = []
-    for _, can in found:
-        if can not in seen:
-            seen.add(can)
-            ordered.append(can)
-    return ordered
+    return _detect_mentioned_books_impl(text, BSB_BOOK_MAP)
 
 
 def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
@@ -2319,22 +2302,7 @@ def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
 
     Prefer the first mentioned that appears near chapter/verse digits; else None.
     """
-    if not candidates:
-        return None
-    # Build spans for each candidate occurrence
-    spans: list[tuple[int, int, str]] = []
-    for can, pat in _book_patterns():
-        if can not in candidates:
-            continue
-        for m in re.finditer(pat, text, flags=re.IGNORECASE):
-            spans.append((m.start(), m.end(), can))
-    spans.sort(key=lambda t: t[0])
-    for s_idx, end, can in spans:
-        _ = s_idx  # avoid shadowing outer start() function
-        window = text[end:end + 12]
-        if re.search(r"\d", window):
-            return can
-    return None
+    return _choose_primary_book_impl(text, candidates, BSB_BOOK_MAP)
 
 
 def _resolve_selection_for_single_book(
