@@ -4,7 +4,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime, timezone
-from typing import Any, Mapping, Optional
+from typing import Any, List, Mapping, Optional
+
+from pydantic import BaseModel
 
 
 @dataclass(slots=True)
@@ -106,4 +108,26 @@ class UserMessage:
         return self.message_type in valid_message_types
 
 
-__all__ = ["RequestContext", "UserMessage", "valid_message_types"]
+class PassageRef(BaseModel):
+    """Normalized reference to a passage within a single canonical book."""
+
+    book: str
+    start_chapter: int | None = None
+    start_verse: int | None = None
+    end_chapter: int | None = None
+    end_verse: int | None = None
+
+
+class PassageSelection(BaseModel):
+    """Structured selection consisting of one or more ranges for a book."""
+
+    selections: List[PassageRef]
+
+
+__all__ = [
+    "RequestContext",
+    "UserMessage",
+    "valid_message_types",
+    "PassageRef",
+    "PassageSelection",
+]

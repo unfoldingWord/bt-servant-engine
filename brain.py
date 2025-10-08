@@ -40,6 +40,7 @@ from bt_servant_engine.core.language import (
     SUPPORTED_LANGUAGE_MAP as supported_language_map,
 )
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.core.models import PassageRef, PassageSelection
 from bt_servant_engine.services.openai_utils import (
     extract_cached_input_tokens as _extract_cached_input_tokens,
 )
@@ -1329,22 +1330,6 @@ def determine_intents(state: Any) -> dict:
     return {
         "user_intents": user_intents_model.intents,
     }
-
-
-class PassageRef(BaseModel):
-    """Normalized reference to a passage within a single canonical book."""
-
-    book: str
-    start_chapter: int | None = None
-    start_verse: int | None = None
-    end_chapter: int | None = None
-    end_verse: int | None = None
-
-
-class PassageSelection(BaseModel):
-    """Structured selection consisting of one or more ranges for a book."""
-
-    selections: List[PassageRef]
 
 
 def set_response_language(state: Any) -> dict:
