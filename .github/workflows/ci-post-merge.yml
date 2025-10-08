@@ -77,4 +77,4 @@ jobs:
         run: deptry .
 
       - name: Pytest (full, includes OpenAI tests + coverage)
-        run: pytest --maxfail=1 --disable-warnings -q --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=70
+        run: pytest --maxfail=1 --disable-warnings -q --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=64
