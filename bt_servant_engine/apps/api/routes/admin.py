@@ -18,7 +18,7 @@ from pydantic import BaseModel
 
 from bt_servant_engine.apps.api.dependencies import require_admin_token
 from bt_servant_engine.core.logging import get_logger
-from db import (
+from bt_servant_engine.adapters.chroma import (
     CollectionExistsError,
     CollectionNotFoundError,
     DocumentNotFoundError,

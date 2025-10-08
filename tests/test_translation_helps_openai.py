@@ -26,7 +26,7 @@ from brain import IntentType, determine_intents
 from bt_servant_engine.apps.api.routes import webhooks
 from bt_servant_engine.apps.api.state import set_brain
 from bt_servant_engine.core.config import config as app_config
-from db import user as user_db
+import bt_servant_engine.adapters.user_state as user_db
 
 
 def _has_real_openai() -> bool:

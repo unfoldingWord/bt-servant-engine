@@ -43,8 +43,8 @@ from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import (
     extract_cached_input_tokens as _extract_cached_input_tokens,
 )
-from db import (
-    get_chroma_collection,
+from bt_servant_engine.adapters.chroma import get_chroma_collection
+from bt_servant_engine.adapters.user_state import (
     is_first_interaction,
     set_first_interaction,
     set_user_agentic_strength,

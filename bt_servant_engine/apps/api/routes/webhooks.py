@@ -26,7 +26,7 @@ from bt_servant_engine.apps.api.state import get_brain, set_brain
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.core.models import UserMessage
-from db import (
+from bt_servant_engine.adapters.user_state import (
     get_user_agentic_strength,
     get_user_chat_history,
     get_user_response_language,
