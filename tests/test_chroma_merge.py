@@ -15,7 +15,7 @@ from typing import Any, Dict, List, Optional
 import pytest
 from fastapi.testclient import TestClient
 
-import db.chroma_db as chroma_db
+import bt_servant_engine.adapters.chroma as chroma_db
 from bt_servant import app
 
 
