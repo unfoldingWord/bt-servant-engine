@@ -49,6 +49,12 @@ from bt_servant_engine.services.passage_helpers import (
     choose_primary_book as _choose_primary_book_impl,
     detect_mentioned_books as _detect_mentioned_books_impl,
 )
+from bt_servant_engine.services.response_helpers import (
+    is_protected_response_item as _is_protected_response_item_impl,
+    normalize_single_response as _normalize_single_response_impl,
+    partition_response_items as _partition_response_items_impl,
+    sample_for_language_detection as _sample_for_language_detection_impl,
+)
 from bt_servant_engine.adapters.chroma import get_chroma_collection
 from bt_servant_engine.adapters.user_state import (
     is_first_interaction,
@@ -766,14 +772,7 @@ class PreprocessorResult(BaseModel):
 
 def _is_protected_response_item(item: dict) -> bool:
     """Return True if a response item carries scripture to protect from changes."""
-    body = cast(dict | str, item.get("response"))
-    if isinstance(body, dict):
-        if body.get("suppress_translation"):
-            return True
-        if isinstance(body.get("segments"), list):
-            segs = cast(list, body.get("segments"))
-            return any(isinstance(seg, dict) and seg.get("type") == "scripture" for seg in segs)
-    return False
+    return _is_protected_response_item_impl(item)
 
 
 def _reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[str]) -> str:
@@ -813,22 +812,12 @@ TranslationRange = tuple[int, int | None, int | None, int | None]
 
 def _partition_response_items(responses: Iterable[dict]) -> tuple[list[dict], list[dict]]:
     """Split responses into scripture-protected and normal sets."""
-    protected: list[dict] = []
-    normal: list[dict] = []
-    for item in responses:
-        if _is_protected_response_item(item):
-            protected.append(item)
-        else:
-            normal.append(item)
-    return protected, normal
+    return _partition_response_items_impl(responses)
 
 
 def _normalize_single_response(item: dict) -> dict | str:
     """Return a representation suitable for translation when no combine is needed."""
-    body = cast(dict | str, item.get("response"))
-    if isinstance(body, str):
-        return body
-    return item
+    return _normalize_single_response_impl(item)
 
 
 def _build_translation_queue(
@@ -3260,11 +3249,4 @@ LANG_DETECTION_SAMPLE_CHARS = 100
 
 def _sample_for_language_detection(text: str) -> str:
     """Return a short prefix ending at a whitespace boundary for detection."""
-    trimmed = text.lstrip()
-    if len(trimmed) <= LANG_DETECTION_SAMPLE_CHARS:
-        return trimmed
-    snippet = trimmed[:LANG_DETECTION_SAMPLE_CHARS]
-    parts = snippet.rsplit(maxsplit=1)
-    if len(parts) > 1 and parts[0]:
-        return parts[0]
-    return snippet
+    return _sample_for_language_detection_impl(text, LANG_DETECTION_SAMPLE_CHARS)
