@@ -114,7 +114,6 @@ def test_dry_run_duplicates_preview_limit(fake_chroma):
     assert len(body["duplicate_preview"]) <= 2
 
 
-@pytest.mark.skip(reason="Flaky timing-sensitive test - background thread race condition")
 def test_merge_create_new_id_with_tags_and_copy(fake_chroma):
     src = fake_chroma.get_collection("src")
     # Seed source only
@@ -136,8 +135,11 @@ def test_merge_create_new_id_with_tags_and_copy(fake_chroma):
     task = resp.json()
     task_id = task["task_id"]
 
-    # Poll for completion
-    for _ in range(600):  # Increased from 400 to 600 (30s total timeout)
+    # Give background thread time to start
+    time.sleep(0.2)
+
+    # Poll for completion with generous timeout
+    for _ in range(1000):  # 50s total timeout for CI environments
         st = client.get(f"/chroma/merge-tasks/{task_id}")
         assert st.status_code == 200
         data = st.json()
@@ -156,7 +158,6 @@ def test_merge_create_new_id_with_tags_and_copy(fake_chroma):
         assert "_merged_at" in md
 
 
-@pytest.mark.skip(reason="Flaky timing-sensitive test - background thread race condition")
 def test_cancel_merge(fake_chroma):
     src = fake_chroma.get_collection("src")
     # Seed many docs to allow cancellation before completion
@@ -177,13 +178,16 @@ def test_cancel_merge(fake_chroma):
     assert resp.status_code == 202
     task_id = resp.json()["task_id"]
 
-    # Immediately request cancel
+    # Give background thread time to start before canceling
+    time.sleep(0.1)
+
+    # Request cancel
     cancel = client.delete(f"/chroma/merge-tasks/{task_id}")
     # If the task already completed, cancellation can return 409
     assert cancel.status_code in (202, 409)
 
-    # Wait for cancel to be acknowledged
-    for _ in range(200):
+    # Wait for cancel to be acknowledged with generous timeout
+    for _ in range(1000):  # 50s timeout for CI environments
         st = client.get(f"/chroma/merge-tasks/{task_id}")
         assert st.status_code == 200
         data = st.json()
