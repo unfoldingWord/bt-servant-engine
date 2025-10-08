@@ -55,6 +55,14 @@ from bt_servant_engine.services.response_helpers import (
     partition_response_items as _partition_response_items_impl,
     sample_for_language_detection as _sample_for_language_detection_impl,
 )
+from bt_servant_engine.services.preprocessing import (
+    detect_language as _detect_language_impl,
+    determine_intents as _determine_intents_impl,
+    determine_query_language as _determine_query_language_impl,
+    model_for_agentic_strength as _model_for_agentic_strength,
+    preprocess_user_query as _preprocess_user_query_impl,
+    resolve_agentic_strength as _resolve_agentic_strength,
+)
 from bt_servant_engine.adapters.chroma import get_chroma_collection
 from bt_servant_engine.adapters.user_state import (
     is_first_interaction,
@@ -155,81 +163,7 @@ Return JSON matching the schema with fields: header_book, header_suffix, body, c
 """
 
 
-PREPROCESSOR_AGENT_SYSTEM_PROMPT = """
-# Identity
-
-You are a preprocessor agent/node in a retrieval augmented generation (RAG) pipeline. 
-
-# Instructions
-
-Use past conversation context, 
-if supplied and applicable, to disambiguate or clarify the intent or meaning of the user's current message. Change 
-as little as possible. Change nothing unless necessary. If the intent of the user's message is already clear, 
-change nothing. Never greatly expand the user's current message. Changes should be small or none. Feel free to fix 
-obvious spelling mistakes or errors, but not logic errors like incorrect books of the Bible. Do NOT narrow the scope of
-explicit scripture selections: if a user requests multiple chapters, verse ranges, or disjoint selections (including
-conjunctions like "and" or comma/semicolon lists), preserve them exactly as written. If the system has constraints
-(for example, only a single chapter can be processed at a time), do NOT modify the user's message to fit those
-constraints — leave the message intact and let downstream nodes handle any rejection or guidance. For translation
-requests, do NOT add or change a target language; preserve only what the user explicitly stated.
-Return the clarified 
-message and the reasons for clarifying or reasons for not changing anything. Examples below.
-
-# Examples
-
-## Example 1
-
-<past_conversation>
-    user_message: Summarize the book of Titus.
-    assistant_response: The book of titus is about...
-</past_conversation>
-
-<current_message>
-    user_message: Now Mark
-</current_message>
-
-<assistant_response>
-    new_message: Now Summarize the book of Mark.
-    reason_for_decision: Based on previous context, the user wants the system to do the same thing, but this time 
-                         with Mark.
-    message_changed: True
-</assistant_response>
-    
-## Example 2
-
-<past_conversation>
-    user_message: What is going on in 1 Peter 3:7?
-    assistant_response: Peter is instructing Christian husbands to be loving to their wives.
-</past_conversation>
-
-<current_message>
-    user_message: Summarize Mark 3:1
-</current_message>
-    
-<assistant_response>
-    new_message: Summarize Mark 3:1.
-    reason_for_decision: Nothing was changed. The user's current command has nothing to do with past context and
-                         is fine as is.
-    message_changed: False
-</assistant_response>
-
-## Example 3
-
-<past_conversation>
-    user_message: Explain John 1:1
-    assistant_response: John claims that Jesus, the Word, existed in the beginning with God the Father.
-</past_conversation>
-
-<current_message>
-    user_message: Explain John 1:3
-</current_message>
-    
-<assistant_response>
-    new_message: Explain John 1:3.
-    reason_for_decision: The word 'John' was misspelled in the message.
-    message_changed: True
-</assistant_response>
-"""
+# PREPROCESSOR_AGENT_SYSTEM_PROMPT moved to bt_servant_engine.services.preprocessing
 
 
 PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT = """
@@ -336,323 +270,9 @@ CHOP_AGENT_SYSTEM_PROMPT = (
     "Only return the json array!! No ```json wrapper or the like. Again, make chunks as big as possible!!!"
 )
 
-INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT = """
-You are a node in a chatbot system called “BT Servant”, which provides intelligent assistance to Bible translators. Your 
-job is to classify the **intent(s)** of the user’s latest message. Always return **at least one** intent from the 
-approved list. However, if more than one intent is found, make sure to return those as well. If you're unsure, return 
-`perform-unsupported-function`. If the user is asking for something outside the scope of the Bible, Bible translation, 
-the Bible translation process, or one of the resources stored in the system (ex. Translation Notes, FIA resources, 
-the Bible, Translation Words, Greek or Hebrew resources, commentaries, Bible dictionaries, etc.), or something outside 
-system capabilities (defined by the various intents), also return the `perform-unsupported-function` intent.
+# INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT moved to bt_servant_engine.services.preprocessing
 
-You MUST always return at least one intent. You MUST choose one or more intents from the following intent types:
-
-<intents>
-  <intent name="get-bible-translation-assistance">
-    The user is asking for help with Bible translation — including understanding meaning; finding source verses; 
-    clarifying language issues; consulting translation resources (ex. Translation Notes, the Bible, translation words, 
-    commentaries, etc); receiving explanation of resources; interacting with resource content; asking for 
-    transformations of resource content (ex. summaries of resource portions, biblical content, etc); or how to handle 
-    specific words, phrases, or translation challenges. This also includes asking about biblical people, places, things, 
-    or ideas. If the user specifically wants guidance about the FIA process or FIA materials, use `consult-fia-resources`.
-  </intent>
-  <intent name="consult-fia-resources">
-    The user is asking about the Familiarization, Internalization, and Articulation (FIA) process, its steps, or how to 
-    apply those steps to a passage, team, or translation scenario. Examples include learning the FIA workflow, asking 
-    what a particular step looks like, or how FIA should be practiced in a specific chapter. Choose this intent whenever 
-    FIA guidance or FIA resources are the focus, even if a passage is mentioned.
-  </intent>
-  <intent name="get-passage-summary">
-    The user is explicitly asking for a summary of a specific Bible passage, verse range, chapter(s), or entire book
-    (e.g., "John 3:16-18", "John 1–4", "Summarize John"). Prefer this when the user clearly requests a summary.
-    If the user mentions multiple books (e.g., "summarize John and Mark"), still classify as `get-passage-summary` —
-    downstream logic will handle scope constraints.
-  </intent>
-  <intent name="get-passage-keywords">
-    The user is explicitly asking for key words in a specific Bible passage, verse range, chapter(s),
-    or entire book (e.g., "Hebrews 1:1–11", "Joel", "John 1–3"). Prefer this when the user clearly
-    requests keywords, important words, or pivotal words to focus on during translation.
-  </intent>
-  <intent name="get-translation-helps">
-    The user is asking for translation challenges, considerations, guidance, or alternate renderings for a given
-    passage or book. Prefer this when the user mentions verse ranges and asks about "alternate translations",
-    "other ways to translate", or translation options for specific words/phrases in context.
-    Examples include: "Help me translate Titus 1:1–5", "translation challenges for Exo 1",
-    "what to consider when translating the book of Ruth", "alternate translations for 'only begotten' in John 3:16",
-    or "what are other ways to translate 'flesh' in Gal 5:19–21?".
-  </intent>
-  <intent name="retrieve-scripture">
-    The user is asking for the exact text of a Bible passage (verbatim verse text), optionally specifying a
-    language or Bible/version (e.g., "Give me John 1:1 in Indonesian", "Provide the text of Job 1:1-5"). Prefer this
-    when the user wants the scripture text itself, not a summary or guidance.
-  </intent>
-  <intent name="listen-to-scripture">
-    The user is asking to hear the scripture read aloud (audio output) for a specific Bible passage, verse range,
-    chapter(s), or book. This is equivalent in content to retrieve-scripture, but the response should be delivered as
-    a voice message instead of text. Examples include: "Read John 3 out loud", "Let me listen to John 1:1–5",
-    "Play Genesis 1 in Spanish". Prefer this when the user explicitly requests listening/reading aloud/audio.
-  </intent>
-  <intent name="translate-scripture">
-    The user wants the Bible passage text translated into a specified target language, optionally from a specified
-    source language or version (e.g., "translate John 1:1 into Portuguese", "translate the French version of John 1:1
-    into Spanish"). Prefer this when the user asks to translate scripture itself.
-  </intent>
-  <intent name="set-response-language">
-    The user wants to change the language in which the system responds. They might ask for responses in 
-    Spanish, French, Arabic, etc.
-  </intent>
-  <intent name="set-agentic-strength">
-    The user wants to adjust how assertive the assistant should be when answering. They might say "set my agentic
-    strength to low" or "use normal agentic strength". Only use this when they clearly request one of the supported
-    strength levels (normal, low, or very low).
-  </intent>
-  <intent name="retrieve-system-information">
-    The user wants information about the BT Servant system itself — how it works, where it gets data, uptime, 
-    example questions, supported languages, features, or current system configuration (like the documents currently 
-    stored in the ChromaDB (vector database).
-  </intent>
-  <intent name="perform-unsupported-function">
-    The user is asking BT Servant to do something outside the scope of Bible translation help, interacting with the 
-    resources in the vector database, or system diagnostics. For example, telling jokes, setting timers, 
-    summarizing current news, or anything else COMPLETELY UNRELATED to what BT Servant can do.
-    Also use this when the user asks for corpus-style search queries the system does not support, such as:
-    - "find all occurrences of <word> in <book/chapter>"
-    - "list every verse where the Greek/Hebrew word <lemma> occurs"
-    - "give me a verse that has the word <term> in <book>"
-  </intent>
-  <intent name="converse-with-bt-servant">
-    The user is trying to talk to bt-servant (the bot/system). This represents any attempt to engage in conversation, 
-    including simple greetings like: hello, hi, or even what's up! It also includes random conversation or statements 
-    from the user. Essentially, this intent should be used if none of the other intent classifications make sense.
-  </intent>
-</intents>
-
-Here are a few examples to guide you:
-
-<examples>
-  <example>
-    <message>tell me about ephesus</message>
-    <intent>get-bible-translation-assistance</intent>
-  </example>
-  <example>
-    <message>tell me about Herod</message>
-    <intent>get-bible-translation-assistance</intent>
-  </example>
-  <example>
-    <message>What is a danarius?</message>
-    <intent>get-bible-translation-assistance</intent>
-  </example>
-  <example>
-    <message>What is the fourth step of the FIA process?</message>
-    <intent>consult-fia-resources</intent>
-  </example>
-  <example>
-    <message>Explain the FIA process to me like I'm a three year old.</message>
-    <intent>consult-fia-resources</intent>
-  </example>
-  <example>
-    <message>What is a FIA process in Mark.</message>
-    <intent>consult-fia-resources</intent>
-  </example>
-  <example>
-    <message>How do I translate the Bible?</message>
-    <intent>consult-fia-resources</intent>
-  </example>
-  <example>
-    <message>What are the steps of the FIA process?</message>
-    <intent>consult-fia-resources</intent>
-  </example>
-  <example>
-    <message>What does FIA step 2 look like in the first chapter of Mark?</message>
-    <intent>consult-fia-resources</intent>
-  </example>
-  <example>
-    <message>Summarize Mark 3.</message>
-    <intent>get-passage-summary</intent>
-  </example>
-  <example>
-    <message>Summarize Titus 3:4</message>
-    <intent>get-passage-summary</intent>
-  </example>
-  <example>
-    <message>summarize John and Mark</message>
-    <intent>get-passage-summary</intent>
-  </example>
-  <example>
-    <message>summarize Gen–Exo</message>
-    <intent>get-passage-summary</intent>
-  </example>
-  <example>
-    <message>summarize Genesis and Exodus</message>
-    <intent>get-passage-summary</intent>
-  </example>
-  <example>
-    <message>what are the important words in EXO-DEUT</message>
-    <intent>get-passage-keywords</intent>
-  </example>
-  <example>
-    <message>keywords in Genesis and Exodus</message>
-    <intent>get-passage-keywords</intent>
-  </example>
-  <example>
-    <message>list the keywords for Gen 1-3</message>
-    <intent>get-passage-keywords</intent>
-  </example>
-  <example>
-    <message>What are all the important words in Hebrews 1:1-11?</message>
-    <intent>get-passage-keywords</intent>
-  </example>
-  <example>
-    <message>what are all the keywords in the book of Joel?</message>
-    <intent>get-passage-keywords</intent>
-  </example>
-  <example>
-    <message>what words are pivotal from a translation perspective in John 1-3</message>
-    <intent>get-passage-keywords</intent>
-  </example>
-  <example>
-    <message>What are alternate translations for "only begotten" in John 3:16?</message>
-    <intent>get-translation-helps</intent>
-  </example>
-  <example>
-    <message>What are other ways to translate "flesh" in Gal 5:19-21?</message>
-    <intent>get-translation-helps</intent>
-  </example>
-  <example>
-    <message>Alternate renderings in Rom 3:25-26</message>
-    <intent>get-translation-helps</intent>
-  </example>
-  <example>
-    <message>Help me translate Titus 1:1-5</message>
-    <intent>get-translation-helps</intent>
-  </example>
-  <example>
-    <message>What are some translation challenges I should consider when translating Exo 1?</message>
-    <intent>get-translation-helps</intent>
-  </example>
-  <example>
-    <message>What do I need to worry about when translating the book of Ruth?</message>
-    <intent>get-translation-helps</intent>
-  </example>
-  <example>
-    <message>Give me a summary of John 3:16-18.</message>
-    <intent>get-passage-summary</intent>
-  </example>
-  <example>
-    <message>Can you give me a verse that has word 'Jehovah' in Genesis?</message>
-    <intent>perform-unsupported-function</intent>
-  </example>
-  <example>
-    <message>Find all occurrences of agape in John 1</message>
-    <intent>perform-unsupported-function</intent>
-  </example>
-  <example>
-    <message>List all t he verses where the greek word typically translated faith occurs in John.</message>
-    <intent>perform-unsupported-function</intent>
-  </example>
-  <example>
-    <message>translate John 1:1 into Portuguese</message>
-    <intent>translate-scripture</intent>
-  </example>
-  <example>
-    <message>translate the French version of John 1:1 into Spanish</message>
-    <intent>translate-scripture</intent>
-  </example>
-  <example>
-    <message>Please provide the text of Job 1:1-5</message>
-    <intent>retrieve-scripture</intent>
-  </example>
-  <example>
-    <message>Can you give me John 1:1 from the Indonesian Bible?</message>
-    <intent>retrieve-scripture</intent>
-  </example>
-  <example>
-    <message>Read John 3 out loud</message>
-    <intent>listen-to-scripture</intent>
-  </example>
-  <example>
-    <message>Let me listen to John 1:1–5</message>
-    <intent>listen-to-scripture</intent>
-  </example>
-  <example>
-    <message>Play Genesis 1 in Spanish</message>
-    <intent>listen-to-scripture</intent>
-  </example>
-  <example>
-    <message>Can you reply to me in French from now on?</message>
-    <intent>set-response-language</intent>
-  </example>
-  <example>
-    <message>Set my agentic strength to low.</message>
-    <intent>set-agentic-strength</intent>
-  </example>
-  <example>
-    <message>Where does BT Servant get its information from?</message>
-    <intent>retrieve-system-information</intent>
-  </example>
-  <example>
-    <message>Help</message>
-    <intent>retrieve-system-information</intent>
-  </example>
-  <example>
-    <message>Can you tell me a joke?</message>
-    <intent>perform-unsupported-function</intent>
-  </example>
-  <example>
-    <message>Hmm, what was I saying again?</message>
-    <intent>converse-with-bt-servant</intent>
-  </example>
-  <example>
-    <message>hello</message>
-    <intent>converse-with-bt-servant</intent>
-  </example>
-  <example>
-    <message>hi</message>
-    <intent>converse-with-bt-servant</intent>
-  </example>
-  <example>
-    <message>what's up!</message>
-    <intent>converse-with-bt-servant</intent>
-  </example>
-  <example>
-    <message>Good morning</message>
-    <intent>converse-with-bt-servant</intent>
-  </example>
-  <example>
-    <message>How are you doing today?</message>
-    <intent>converse-with-bt-servant</intent>
-  </example>
-</examples>
-
-You will return a single structured output like this:
-```json
-{ "intents": ["get-bible-translation-assistance"] }
-```
-"""
-
-DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
-Task: Detect the language of the supplied user text and return the ISO 639-1 code from the allowed set.
-
-Allowed outputs: en, ar, fr, es, hi, ru, id, sw, pt, zh, nl, Other
-
-Bible context: Bible book abbreviations are language-neutral (e.g., Gen, Exo, Lev, Num, Deu, Dan, Joh, Rom, 1Co, 2Co,
-Gal, Eph, Php, Col, 1Th, 2Th, 1Ti, 2Ti, Tit, Phm, Heb, Jas, 1Pe, 2Pe, 1Jo, 2Jo, 3Jo, Jud, Rev). The token "Dan"
-often denotes the book Daniel and must NOT be interpreted as Indonesian "dan" ("and") when it appears as a book
-abbreviation near a chapter/verse reference (e.g., "Dan 1:1"). Treat such abbreviations and references as language-
-neutral signal.
-
-Ambiguity rule: If the text is mixed or ambiguous, prefer English (en), especially when common English instruction
-keywords are present (e.g., summarize, explain, what, who, why, how).
-
-Output format: Return only structured output matching the schema { "language": <one of the allowed outputs> } with no
-additional prose.
-
-Disambiguation examples:
-- text: "summarize Dan 1:1" -> { "language": "en" }
-- text: "tolong ringkas Dan 1:1" -> { "language": "id" }
-- text: "explain Joh 3:16" -> { "language": "en" }
-- text: "ringkas Yoh 3:16" -> { "language": "id" }
-"""
+# DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT moved to bt_servant_engine.services.preprocessing
 
 TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT = """
 Task: Determine the target language the user is asking the system to translate scripture into, based solely on the
@@ -729,45 +349,13 @@ Rules:
 """
 
 
-def _resolve_agentic_strength(state: BrainState) -> str:
-    """Return the effective agentic strength, honoring user overrides when set."""
-    candidate = cast(Optional[str], state.get("agentic_strength") or state.get("user_agentic_strength"))
-    if isinstance(candidate, str):
-        lowered = candidate.lower()
-        if lowered in ALLOWED_AGENTIC_STRENGTH:
-            return lowered
+# _resolve_agentic_strength moved to bt_servant_engine.services.preprocessing (as resolve_agentic_strength)
 
-    configured = getattr(config, "AGENTIC_STRENGTH", "normal")
-    if isinstance(configured, str):
-        configured_lower = configured.lower()
-        if configured_lower in ALLOWED_AGENTIC_STRENGTH:
-            return configured_lower
-    return "normal"
-
-
-def _model_for_agentic_strength(
-    agentic_strength: str,
-    *,
-    allow_low: bool,
-    allow_very_low: bool,
-) -> str:
-    """Return GPT model name based on strength and allowed downgrades."""
-    allowed: set[str] = set()
-    if allow_low:
-        allowed.add("low")
-    if allow_very_low:
-        allowed.add("very_low")
-    return "gpt-4o-mini" if agentic_strength in allowed else "gpt-4o"
-
+# _model_for_agentic_strength moved to bt_servant_engine.services.preprocessing (as model_for_agentic_strength)
 
 # MessageLanguage, TranslatedPassage imported from bt_servant_engine.core.language
 
-
-class PreprocessorResult(BaseModel):
-    """Result type for the preprocessor node output."""
-    new_message: str
-    reason_for_decision: str
-    message_changed: bool
+# PreprocessorResult moved to bt_servant_engine.services.preprocessing
 
 
 def _is_protected_response_item(item: dict) -> bool:
@@ -884,7 +472,7 @@ def _translate_or_localize_response(
     """Translate free-form text or localize structured scripture outputs."""
     if isinstance(resp, str):
         sample = _sample_for_language_detection(resp)
-        detected_lang = detect_language(sample, agentic_strength=agentic_strength) if sample else target_language
+        detected_lang = _detect_language_impl(open_ai_client, sample, agentic_strength=agentic_strength) if sample else target_language
         if detected_lang != target_language:
             logger.info('preparing to translate to %s', target_language)
             return translate_text(
@@ -1293,36 +881,9 @@ def determine_intents(state: Any) -> dict:
     """Classify the user's transformed query into one or more intents."""
     s = cast(BrainState, state)
     query = s["transformed_query"]
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "system",
-            "content": INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT,
-        },
-        {
-            "role": "user",
-            "content": f"what is your classification of the latest user message: {query}",
-        },
-    ]
-    response = open_ai_client.responses.parse(
-        model="gpt-4o",
-        input=cast(Any, messages),
-        text_format=UserIntents,
-        store=False
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    user_intents_model = cast(UserIntents, response.output_parsed)
-    logger.info("extracted user intents: %s", ' '.join([i.value for i in user_intents_model.intents]))
-
+    user_intents = _determine_intents_impl(open_ai_client, query)
     return {
-        "user_intents": user_intents_model.intents,
+        "user_intents": user_intents,
     }
 
 
@@ -1597,69 +1158,7 @@ def translate_text(
     return cast(str, text)
 
 
-def detect_language(text: str, *, agentic_strength: Optional[str] = None) -> str:  # pylint: disable=too-many-locals
-    """Detect ISO 639-1 language code of the given text via OpenAI.
-
-    Uses a domain-aware prompt with deterministic decoding and a light
-    heuristic to avoid false Indonesian due to Bible abbreviations like
-    "Dan" (Daniel).
-    """
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "user",
-            "content": f"text: {text}",
-        },
-    ]
-    strength_source = agentic_strength if agentic_strength is not None else getattr(config, "AGENTIC_STRENGTH", "normal")
-    strength = str(strength_source).lower()
-    if strength not in ALLOWED_AGENTIC_STRENGTH:
-        strength = "normal"
-    model_name = _model_for_agentic_strength(strength, allow_low=True, allow_very_low=True)
-    response = open_ai_client.responses.parse(
-        model="gpt-4o",
-        instructions=DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        text_format=MessageLanguage,
-        temperature=0,
-        store=False,
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
-    message_language = cast(MessageLanguage | None, response.output_parsed)
-    predicted = message_language.language.value if message_language else "en"
-    logger.info("language detection (model): %s", predicted)
-
-    # Heuristic guard: If we predicted Indonesian ('id') but the text looks like
-    # an English instruction paired with a Bible reference, prefer English.
-    # This specifically addresses the common "Dan" (Daniel) vs Indonesian "dan" ambiguity.
-    try:
-        has_english_instruction = bool(
-            re.search(r"\b(summarize|explain|what|who|why|how|list|give|provide)\b", str(text), re.IGNORECASE)
-        )
-        has_verse_pattern = bool(
-            re.search(r"\b[A-Za-z]{2,4}\s+\d+:\d+\b", str(text))
-        )
-        logger.info(
-            "heuristic_guard: predicted=%s english_instruction=%s verse_pattern=%s",
-            predicted,
-            has_english_instruction,
-            has_verse_pattern,
-        )
-        if predicted == "id" and has_english_instruction and has_verse_pattern:
-            logger.info("heuristic_guard: overriding id -> en due to English instruction + verse pattern")
-            predicted = "en"
-    except re.error as err:
-        # If regex fails for any reason, fall back to the model prediction.
-        logger.info("heuristic_guard: regex error (%s); keeping model prediction: %s", err, predicted)
-
-    return predicted
+# detect_language moved to bt_servant_engine.services.preprocessing
 
 
 def determine_query_language(state: Any) -> dict:
@@ -1667,74 +1166,23 @@ def determine_query_language(state: Any) -> dict:
     s = cast(BrainState, state)
     query = s["user_query"]
     agentic_strength = _resolve_agentic_strength(s)
-    query_language = detect_language(query, agentic_strength=agentic_strength)
-    logger.info("language code %s detected by gpt-4o.", query_language)
-    stack_rank_collections = [
-        "knowledgebase",
-        "en_resources",
-    ]
-    # If the detected language is not English, also search the matching
-    # language-specific resources collection (e.g., "es_resources").
-    if query_language and query_language != "en" and query_language != Language.OTHER.value:
-        localized_collection = f"{query_language}_resources"
-        stack_rank_collections.append(localized_collection)
-        logger.info(
-            "appended localized resources collection: %s (language=%s)",
-            localized_collection,
-            query_language,
-        )
-
+    query_language, stack_rank_collections = _determine_query_language_impl(
+        open_ai_client, query, agentic_strength
+    )
     return {
         "query_language": query_language,
         "stack_rank_collections": stack_rank_collections
     }
 
 
-def preprocess_user_query(state: Any) -> dict:  # pylint: disable=too-many-locals
+def preprocess_user_query(state: Any) -> dict:
     """Lightly clarify or correct the user's query using conversation history."""
     s = cast(BrainState, state)
     query = s["user_query"]
     chat_history = s["user_chat_history"]
-    history_context_message = f"past_conversation: {json.dumps(chat_history)}"
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "user",
-            "content": history_context_message,
-        },
-        {
-            "role": "user",
-            "content": f"current_message: {query}",
-        },
-    ]
-    response = open_ai_client.responses.parse(
-        model="gpt-4o",
-        instructions=PREPROCESSOR_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        text_format=PreprocessorResult,
-        store=False
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    preprocessor_result = cast(PreprocessorResult | None, response.output_parsed)
-    if preprocessor_result is None:
-        new_message = query
-        reason_for_decision = "no changes"
-        message_changed = False
-    else:
-        new_message = preprocessor_result.new_message
-        reason_for_decision = preprocessor_result.reason_for_decision
-        message_changed = preprocessor_result.message_changed
-    logger.info("new_message: %s\nreason_for_decision: %s\nmessage_changed: %s",
-                new_message, reason_for_decision, message_changed)
+    transformed_query, reason, changed = _preprocess_user_query_impl(open_ai_client, query, chat_history)
     return {
-        "transformed_query": new_message if message_changed else query
+        "transformed_query": transformed_query
     }
 
 
