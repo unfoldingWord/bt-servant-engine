@@ -47,8 +47,8 @@ This revision accounts for the actual state of the main branch, which is less co
 
 Completed and planned branch names for each phase:
 - ✅ `refactor/phase-0-intent-extraction` - Extract core domain models (COMPLETE)
-- → `refactor/phase-1-core-migration` - Move top-level modules to core (NEXT)
-- `refactor/phase-2-adapter-migration` - Consolidate db/ into adapters
+- ✅ `refactor/phase-1-core-migration` - Move top-level modules to core (COMPLETE)
+- → `refactor/phase-2-adapter-migration` - Consolidate db/ into adapters (NEXT)
 - `refactor/phase-3-brain-orchestration` - Extract LangGraph orchestration + intent handlers
 - `refactor/phase-4-intent-router` - Wire IntentRouter
 - `refactor/phase-5-cleanup` - Final cleanup and deletion
@@ -85,7 +85,7 @@ Intent handlers are heavily coupled to brain.py infrastructure (open_ai_client, 
 - ✅ Tests pass (80.20% coverage)
 - ✅ Import linter passes (no architectural violations)
 
-### Phase 1: Complete Core Module Migration
+### Phase 1: Complete Core Module Migration ✅ COMPLETE
 **Goal:** Consolidate all foundational modules into core layer
 
 1. **Migrate config.py**
