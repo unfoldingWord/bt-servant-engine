@@ -14,6 +14,7 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services.openai_utils import track_openai_usage
 
 logger = get_logger(__name__)
 
@@ -176,14 +177,7 @@ def query_open_ai(
             input=cast(Any, messages),
         )
         usage = getattr(response, "usage", None)
-        if usage is not None:
-            it = getattr(usage, "input_tokens", None)
-            ot = getattr(usage, "output_tokens", None)
-            tt = getattr(usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = extract_cached_input_tokens_fn(usage)
-            add_tokens_fn(it, ot, tt, model=model_name, cached_input_tokens=cit)
+        track_openai_usage(usage, model_name, extract_cached_input_tokens_fn, add_tokens_fn)
         bt_servant_response = response.output_text
         logger.info("response from openai: %s", bt_servant_response)
         logger.debug("%d characters returned from openAI", len(bt_servant_response))

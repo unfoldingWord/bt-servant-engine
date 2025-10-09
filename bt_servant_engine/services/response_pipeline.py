@@ -15,6 +15,7 @@ from bt_servant_engine.core.config import config
 from bt_servant_engine.core.language import LANGUAGE_UNKNOWN
 from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services.openai_utils import track_openai_usage
 from bt_servant_engine.services.preprocessing import detect_language as detect_language_impl
 from bt_servant_engine.services.response_helpers import (
     normalize_single_response as normalize_single_response_impl,
@@ -155,14 +156,7 @@ def combine_responses(
         input=cast(Any, messages),
     )
     usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = extract_cached_input_tokens_fn(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+    track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens_fn, add_tokens)
     combined = response.output_text
     logger.info("combined response from openai: %s", combined)
     return combined
@@ -210,12 +204,7 @@ def translate_text(
         messages=chat_messages,
     )
     usage = getattr(completion, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "prompt_tokens", None)
-        ot = getattr(usage, "completion_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        cit = extract_cached_input_tokens_fn(usage)
-        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
+    track_openai_usage(usage, model_name, extract_cached_input_tokens_fn, add_tokens)
     content = completion.choices[0].message.content
     if isinstance(content, list):
         text = "".join(part.get("text", "") if isinstance(part, dict) else "" for part in content)
@@ -350,12 +339,7 @@ def chunk_message(
             messages=chat_messages,
         )
         usage = getattr(completion, "usage", None)
-        if usage is not None:
-            it = getattr(usage, "prompt_tokens", None)
-            ot = getattr(usage, "completion_tokens", None)
-            tt = getattr(usage, "total_tokens", None)
-            cit = extract_cached_input_tokens_fn(usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens_fn, add_tokens)
         response_content = completion.choices[0].message.content
         if not isinstance(response_content, str):
             raise ValueError("empty or non-text content from chat completion")

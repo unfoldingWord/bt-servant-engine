@@ -11,7 +11,7 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 from bt_servant_engine.core.language import Language
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.core.models import PassageRef, PassageSelection
-from bt_servant_engine.services.openai_utils import extract_cached_input_tokens
+from bt_servant_engine.services.openai_utils import extract_cached_input_tokens, track_openai_usage
 from utils.bsb import normalize_book_name
 from utils.perf import add_tokens
 
@@ -122,14 +122,7 @@ def resolve_selection_for_single_book(
         store=False,
     )
     usage = getattr(selection_resp, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+    track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
     selection = cast(PassageSelection, selection_resp.output_parsed)
     logger.info("[selection-helper] extracted %d selection(s)", len(selection.selections))
 

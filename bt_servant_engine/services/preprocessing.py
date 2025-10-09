@@ -20,6 +20,7 @@ from bt_servant_engine.core.language import (
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import (
     extract_cached_input_tokens as _extract_cached_input_tokens,
+    track_openai_usage,
 )
 from utils.perf import add_tokens
 
@@ -285,14 +286,7 @@ def detect_language(client: OpenAI, text: str, *, agentic_strength: Optional[str
         store=False,
     )
     usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
+    track_openai_usage(usage, model_name, _extract_cached_input_tokens, add_tokens)
     message_language = cast(MessageLanguage | None, response.output_parsed)
     predicted = message_language.language.value if message_language else "en"
     logger.info("language detection (model): %s", predicted)
@@ -373,14 +367,7 @@ def determine_intents(client: OpenAI, query: str) -> list[IntentType]:
         model="gpt-4o", input=cast(Any, messages), text_format=UserIntents, store=False
     )
     usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+    track_openai_usage(usage, "gpt-4o", _extract_cached_input_tokens, add_tokens)
     user_intents_model = cast(UserIntents, response.output_parsed)
     logger.info(
         "extracted user intents: %s", " ".join([i.value for i in user_intents_model.intents])
@@ -416,14 +403,7 @@ def preprocess_user_query(
         store=False,
     )
     usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+    track_openai_usage(usage, "gpt-4o", _extract_cached_input_tokens, add_tokens)
     preprocessor_result = cast(PreprocessorResult | None, response.output_parsed)
     if preprocessor_result is None:
         new_message = query

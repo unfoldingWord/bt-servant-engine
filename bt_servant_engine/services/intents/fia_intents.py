@@ -15,6 +15,7 @@ from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.intents.simple_intents import (
     BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
 )
+from bt_servant_engine.services.openai_utils import track_openai_usage
 from utils.perf import add_tokens
 
 logger = get_logger(__name__)
@@ -185,14 +186,7 @@ def consult_fia_resources(
             input=cast(Any, messages),
         )
         usage = getattr(response, "usage", None)
-        if usage is not None:
-            it = getattr(usage, "input_tokens", None)
-            ot = getattr(usage, "output_tokens", None)
-            tt = getattr(usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = extract_cached_input_tokens_fn(usage)
-            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
+        track_openai_usage(usage, model_name, extract_cached_input_tokens_fn, add_tokens)
 
         fia_response = response.output_text
         logger.info("[consult-fia] response from openai: %s", fia_response)

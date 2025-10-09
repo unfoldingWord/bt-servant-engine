@@ -14,6 +14,7 @@ from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.language import Language, ResponseLanguage
 from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services.openai_utils import track_openai_usage
 from bt_servant_engine.services.passage_selection import resolve_selection_for_single_book
 from utils.bible_data import list_available_sources, load_book_titles, resolve_bible_data_root
 from utils.bible_locale import get_book_name
@@ -152,14 +153,7 @@ def get_passage_summary(
         store=False,
     )
     usage = getattr(summary_resp, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = extract_cached_input_tokens_fn(usage)
-        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
+    track_openai_usage(usage, model_name, extract_cached_input_tokens_fn, add_tokens)
     summary_text = summary_resp.output_text
     logger.info(
         "[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0
@@ -292,14 +286,7 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-positiona
             store=False,
         )
         tl_usage = getattr(tl_resp, "usage", None)
-        if tl_usage is not None:
-            it = getattr(tl_usage, "input_tokens", None)
-            ot = getattr(tl_usage, "output_tokens", None)
-            tt = getattr(tl_usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = extract_cached_input_tokens_fn(tl_usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+        track_openai_usage(tl_usage, "gpt-4o", extract_cached_input_tokens_fn, add_tokens)
         tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
         if tl_parsed and tl_parsed.language != Language.OTHER:
             requested_lang = str(tl_parsed.language.value)

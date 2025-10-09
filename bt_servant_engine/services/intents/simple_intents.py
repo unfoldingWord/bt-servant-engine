@@ -10,7 +10,7 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
-from bt_servant_engine.services.openai_utils import extract_cached_input_tokens
+from bt_servant_engine.services.openai_utils import extract_cached_input_tokens, track_openai_usage
 from utils.perf import add_tokens
 
 logger = get_logger(__name__)
@@ -245,14 +245,7 @@ def handle_unsupported_function(
         store=False,
     )
     usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+    track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
     unsupported_function_response_text = response.output_text
     logger.info(
         "converse_with_bt_servant response from openai: %s", unsupported_function_response_text
@@ -288,14 +281,7 @@ def handle_system_information_request(
         store=False,
     )
     usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+    track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
     help_response_text = response.output_text
     logger.info("help response from openai: %s", help_response_text)
     return {
@@ -326,14 +312,7 @@ def converse_with_bt_servant(
         store=False,
     )
     usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+    track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
     converse_response_text = response.output_text
     logger.info("converse_with_bt_servant response from openai: %s", converse_response_text)
     return {

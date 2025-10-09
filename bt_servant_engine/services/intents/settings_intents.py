@@ -12,7 +12,7 @@ from bt_servant_engine.core.agentic import AgenticStrengthChoice, AgenticStrengt
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.language import Language, ResponseLanguage
 from bt_servant_engine.core.logging import get_logger
-from bt_servant_engine.services.openai_utils import extract_cached_input_tokens
+from bt_servant_engine.services.openai_utils import extract_cached_input_tokens, track_openai_usage
 from utils.identifiers import get_log_safe_user_id
 from utils.perf import add_tokens
 
@@ -75,14 +75,7 @@ def set_response_language(
         store=False,
     )
     usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
+    track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
     resp_lang = cast(ResponseLanguage, response.output_parsed)
     if resp_lang.language == Language.OTHER:
         supported_language_list = ", ".join(supported_language_map.keys())
@@ -138,18 +131,7 @@ def set_agentic_strength(
             store=False,
         )
         usage = getattr(response, "usage", None)
-        if usage is not None:
-            add_tokens(
-                getattr(usage, "input_tokens", None),
-                getattr(usage, "output_tokens", None),
-                getattr(usage, "total_tokens", None)
-                or (
-                    (getattr(usage, "input_tokens", None) or 0)
-                    + (getattr(usage, "output_tokens", None) or 0)
-                ),
-                model="gpt-4o",
-                cached_input_tokens=extract_cached_input_tokens(usage),
-            )
+        track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
         parsed = cast(AgenticStrengthSetting | None, response.output_parsed)
     except OpenAIError:
         logger.error(
