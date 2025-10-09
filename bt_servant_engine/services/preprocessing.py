@@ -14,13 +14,8 @@ from bt_servant_engine.core.agentic import ALLOWED_AGENTIC_STRENGTH
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType, UserIntents
 from bt_servant_engine.core.language import (
-    LANGUAGE_UNKNOWN,
     Language,
     MessageLanguage,
-    ResponseLanguage,
-)
-from bt_servant_engine.core.language import (
-    SUPPORTED_LANGUAGE_MAP as supported_language_map,
 )
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import (
@@ -225,7 +220,9 @@ class PreprocessorResult(BaseModel):
 
 def resolve_agentic_strength(state: dict[str, Any]) -> str:
     """Return the effective agentic strength, honoring user overrides when set."""
-    candidate = cast(Optional[str], state.get("agentic_strength") or state.get("user_agentic_strength"))
+    candidate = cast(
+        Optional[str], state.get("agentic_strength") or state.get("user_agentic_strength")
+    )
     if isinstance(candidate, str):
         lowered = candidate.lower()
         if lowered in ALLOWED_AGENTIC_STRENGTH:
@@ -257,9 +254,7 @@ def model_for_agentic_strength(
 # ========== MAIN FUNCTIONS ==========
 
 
-def detect_language(
-    client: OpenAI, text: str, *, agentic_strength: Optional[str] = None
-) -> str:  # pylint: disable=too-many-locals
+def detect_language(client: OpenAI, text: str, *, agentic_strength: Optional[str] = None) -> str:  # pylint: disable=too-many-locals
     """Detect ISO 639-1 language code of the given text via OpenAI.
 
     Uses a domain-aware prompt with deterministic decoding and a light
@@ -272,7 +267,11 @@ def detect_language(
             "content": f"text: {text}",
         },
     ]
-    strength_source = agentic_strength if agentic_strength is not None else getattr(config, "AGENTIC_STRENGTH", "normal")
+    strength_source = (
+        agentic_strength
+        if agentic_strength is not None
+        else getattr(config, "AGENTIC_STRENGTH", "normal")
+    )
     strength = str(strength_source).lower()
     if strength not in ALLOWED_AGENTIC_STRENGTH:
         strength = "normal"
@@ -303,7 +302,11 @@ def detect_language(
     # This specifically addresses the common "Dan" (Daniel) vs Indonesian "dan" ambiguity.
     try:
         has_english_instruction = bool(
-            re.search(r"\b(summarize|explain|what|who|why|how|list|give|provide)\b", str(text), re.IGNORECASE)
+            re.search(
+                r"\b(summarize|explain|what|who|why|how|list|give|provide)\b",
+                str(text),
+                re.IGNORECASE,
+            )
         )
         has_verse_pattern = bool(re.search(r"\b[A-Za-z]{2,4}\s+\d+:\d+\b", str(text)))
         logger.info(
@@ -313,16 +316,22 @@ def detect_language(
             has_verse_pattern,
         )
         if predicted == "id" and has_english_instruction and has_verse_pattern:
-            logger.info("heuristic_guard: overriding id -> en due to English instruction + verse pattern")
+            logger.info(
+                "heuristic_guard: overriding id -> en due to English instruction + verse pattern"
+            )
             predicted = "en"
     except re.error as err:
         # If regex fails for any reason, fall back to the model prediction.
-        logger.info("heuristic_guard: regex error (%s); keeping model prediction: %s", err, predicted)
+        logger.info(
+            "heuristic_guard: regex error (%s); keeping model prediction: %s", err, predicted
+        )
 
     return predicted
 
 
-def determine_query_language(client: OpenAI, query: str, agentic_strength: str) -> tuple[str, list[str]]:
+def determine_query_language(
+    client: OpenAI, query: str, agentic_strength: str
+) -> tuple[str, list[str]]:
     """Determine the language of the user's original query and set collection order.
 
     Returns:
@@ -373,7 +382,9 @@ def determine_intents(client: OpenAI, query: str) -> list[IntentType]:
         cit = _extract_cached_input_tokens(usage)
         add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     user_intents_model = cast(UserIntents, response.output_parsed)
-    logger.info("extracted user intents: %s", " ".join([i.value for i in user_intents_model.intents]))
+    logger.info(
+        "extracted user intents: %s", " ".join([i.value for i in user_intents_model.intents])
+    )
 
     return user_intents_model.intents
 

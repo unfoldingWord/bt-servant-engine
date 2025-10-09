@@ -121,7 +121,7 @@ def _parse_ult_usfm(usfm_path: Path) -> Dict[VerseKey, str]:
     chapter = 0
     verses: Dict[VerseKey, str] = {}
     verse_re = re.compile(r"^\\\s*v\s+(\S+)\s+(.*)$")  # \v <token> <text>
-    chap_re = re.compile(r"^\\\s*c\s+(\d+)\s*$")      # \c <n>
+    chap_re = re.compile(r"^\\\s*c\s+(\d+)\s*$")  # \c <n>
     with usfm_path.open("r", encoding="utf-8") as f:
         for raw in f:
             line = raw.rstrip("\n")

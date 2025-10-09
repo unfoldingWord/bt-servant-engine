@@ -9,7 +9,6 @@ from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 
 from bt_servant_engine.core.agentic import AgenticStrengthChoice, AgenticStrengthSetting
-from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.language import Language, ResponseLanguage
 from bt_servant_engine.core.logging import get_logger
@@ -92,7 +91,9 @@ def set_response_language(
             f"are: {supported_language_list}. If this is your intent, please clearly tell "
             f"me which supported language to use when responding."
         )
-        return {"responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}]}
+        return {
+            "responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}]
+        }
     response_language_code: str = str(resp_lang.language.value)
     set_user_response_language_fn(user_id, response_language_code)
     language_name: str = supported_language_map.get(response_language_code, response_language_code)
@@ -142,16 +143,23 @@ def set_agentic_strength(
                 getattr(usage, "input_tokens", None),
                 getattr(usage, "output_tokens", None),
                 getattr(usage, "total_tokens", None)
-                or ((getattr(usage, "input_tokens", None) or 0) + (getattr(usage, "output_tokens", None) or 0)),
+                or (
+                    (getattr(usage, "input_tokens", None) or 0)
+                    + (getattr(usage, "output_tokens", None) or 0)
+                ),
                 model="gpt-4o",
                 cached_input_tokens=extract_cached_input_tokens(usage),
             )
         parsed = cast(AgenticStrengthSetting | None, response.output_parsed)
     except OpenAIError:
-        logger.error("[agentic-strength] OpenAI request failed while parsing user preference.", exc_info=True)
+        logger.error(
+            "[agentic-strength] OpenAI request failed while parsing user preference.", exc_info=True
+        )
         parsed = None
     except Exception:  # pylint: disable=broad-except
-        logger.error("[agentic-strength] Unexpected failure while parsing agentic strength.", exc_info=True)
+        logger.error(
+            "[agentic-strength] Unexpected failure while parsing agentic strength.", exc_info=True
+        )
         parsed = None
 
     if not parsed or parsed.strength == AgenticStrengthChoice.UNKNOWN:
@@ -166,7 +174,11 @@ def set_agentic_strength(
         set_user_agentic_strength_fn(user_id, desired)
     except ValueError:
         masked_user_id = get_log_safe_user_id(user_id, secret=log_pseudonym_secret)
-        logger.warning("[agentic-strength] Attempted to set invalid value '%s' for user %s", desired, masked_user_id)
+        logger.warning(
+            "[agentic-strength] Attempted to set invalid value '%s' for user %s",
+            desired,
+            masked_user_id,
+        )
         msg = "That setting isn't supported. I can only use normal, low, or very low for agentic strength."
         return {"responses": [{"intent": IntentType.SET_AGENTIC_STRENGTH, "response": msg}]}
 
@@ -175,7 +187,9 @@ def set_agentic_strength(
         "low": "Low",
         "very_low": "Very Low",
     }.get(desired, desired.capitalize())
-    response_text = f"Agentic strength set to {friendly.lower()}. I'll use the {friendly} setting from now on."
+    response_text = (
+        f"Agentic strength set to {friendly.lower()}. I'll use the {friendly} setting from now on."
+    )
     return {
         "responses": [{"intent": IntentType.SET_AGENTIC_STRENGTH, "response": response_text}],
         "agentic_strength": desired,

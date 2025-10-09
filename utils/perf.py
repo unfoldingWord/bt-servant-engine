@@ -4,6 +4,7 @@ Provides a thread- and async-safe way to record spans keyed by a trace id
 (we use WhatsApp `message_id`). Designed to be non-invasive and avoid
 behavior changes while giving a final per-trace report.
 """
+
 from __future__ import annotations
 
 import time
@@ -22,6 +23,7 @@ _current_trace_id: ContextVar[Optional[str]] = ContextVar("perf_current_trace_id
 @dataclass
 class Span:  # pylint: disable=too-many-instance-attributes
     """A single timed span with a name and timestamps."""
+
     name: str
     start: float
     end: float
@@ -192,16 +194,19 @@ def time_block(name: str, trace_id: Optional[str] = None) -> PerfBlock:
 
 def record_timing(name: str):
     """Decorator to record sync or async function execution time as a span."""
+
     def decorator(func):  # type: ignore[no-untyped-def]
         is_async = asyncio.iscoroutinefunction(func)
 
         if is_async:
+
             async def wrapper(*args, **kwargs):  # type: ignore[no-untyped-def]
                 start = time.time()
                 try:
                     return await func(*args, **kwargs)
                 finally:
                     _record_span(name, start, time.time())
+
             return wrapper
 
         def wrapper_sync(*args, **kwargs):  # type: ignore[no-untyped-def]
@@ -210,7 +215,9 @@ def record_timing(name: str):
                 return func(*args, **kwargs)
             finally:
                 _record_span(name, start, time.time())
+
         return wrapper_sync
+
     return decorator
 
 
@@ -381,19 +388,16 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
                 span_cost_output += (tok.get("output", 0) / 1_000_000.0) * out_price
                 if pricing_details and "cached_input_per_million" in pricing_details:
                     span_cost_cached_input += (
-                        (tok.get("cached_input", 0) / 1_000_000.0)
-                        * pricing_details["cached_input_per_million"]
-                    )
+                        tok.get("cached_input", 0) / 1_000_000.0
+                    ) * pricing_details["cached_input_per_million"]
                 if pricing_details and "audio_input_per_million" in pricing_details:
                     span_cost_audio_input += (
-                        (tok.get("audio_input", 0) / 1_000_000.0)
-                        * pricing_details["audio_input_per_million"]
-                    )
+                        tok.get("audio_input", 0) / 1_000_000.0
+                    ) * pricing_details["audio_input_per_million"]
                 if pricing_details and "audio_output_per_million" in pricing_details:
                     span_cost_audio_output += (
-                        (tok.get("audio_output", 0) / 1_000_000.0)
-                        * pricing_details["audio_output_per_million"]
-                    )
+                        tok.get("audio_output", 0) / 1_000_000.0
+                    ) * pricing_details["audio_output_per_million"]
         # If no per-model breakdown is available, we skip cost for this span.
         # Pricing requires a model to resolve input/output rates.
         if (
@@ -449,21 +453,24 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
             node = s.name.split(":", 1)[1]
             intent = intent_node_map.get(node)
             if intent:
-                agg = grouped.setdefault(intent, {
-                    "input_tokens": 0.0,
-                    "output_tokens": 0.0,
-                    "total_tokens": 0.0,
-                    "cached_input_tokens": 0.0,
-                    "audio_input_tokens": 0.0,
-                    "audio_output_tokens": 0.0,
-                    "input_cost_usd": 0.0,
-                    "output_cost_usd": 0.0,
-                    "cached_input_cost_usd": 0.0,
-                    "audio_input_cost_usd": 0.0,
-                    "audio_output_cost_usd": 0.0,
-                    "total_cost_usd": 0.0,
-                    "duration_ms": 0.0,
-                })
+                agg = grouped.setdefault(
+                    intent,
+                    {
+                        "input_tokens": 0.0,
+                        "output_tokens": 0.0,
+                        "total_tokens": 0.0,
+                        "cached_input_tokens": 0.0,
+                        "audio_input_tokens": 0.0,
+                        "audio_output_tokens": 0.0,
+                        "input_cost_usd": 0.0,
+                        "output_cost_usd": 0.0,
+                        "cached_input_cost_usd": 0.0,
+                        "audio_input_cost_usd": 0.0,
+                        "audio_output_cost_usd": 0.0,
+                        "total_cost_usd": 0.0,
+                        "duration_ms": 0.0,
+                    },
+                )
                 agg["input_tokens"] += itok
                 agg["output_tokens"] += otok
                 agg["total_tokens"] += ttok
@@ -514,9 +521,7 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-ma
                     (v.get("duration_ms", 0.0) or 0.0) / (total_ms or 1.0) * 100.0
                 ),
                 "token_percentage": "{:.1f}%".format(  # pylint: disable=consider-using-f-string
-                    (v.get("total_tokens", 0.0) or 0.0)
-                    / (token_total_denominator or 1.0)
-                    * 100.0
+                    (v.get("total_tokens", 0.0) or 0.0) / (token_total_denominator or 1.0) * 100.0
                 ),
             }
             for k, v in grouped.items()

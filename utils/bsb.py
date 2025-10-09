@@ -3,6 +3,7 @@
 Provides helpers to load per-book JSON, select verse ranges, and
 produce canonical labels for output headers.
 """
+
 from __future__ import annotations
 
 import json
@@ -95,29 +96,74 @@ BOOK_MAP: Dict[str, Dict[str, str]] = {
 # Common alias/abbreviation normalization to canonical names used in BOOK_MAP
 BOOK_ALIASES: Dict[str, str] = {
     # Gospels
-    "jn": "John", "jhn": "John", "john": "John",
-    "mt": "Matthew", "matt": "Matthew", "matthew": "Matthew",
-    "mk": "Mark", "mrk": "Mark", "mark": "Mark",
-    "lk": "Luke", "luk": "Luke", "luke": "Luke",
+    "jn": "John",
+    "jhn": "John",
+    "john": "John",
+    "mt": "Matthew",
+    "matt": "Matthew",
+    "matthew": "Matthew",
+    "mk": "Mark",
+    "mrk": "Mark",
+    "mark": "Mark",
+    "lk": "Luke",
+    "luk": "Luke",
+    "luke": "Luke",
     # Psalms/Song
-    "ps": "Psalm", "psa": "Psalm", "psalm": "Psalm", "psalms": "Psalm",
-    "sos": "Song of Solomon", "song": "Song of Solomon", "song of songs": "Song of Solomon",
+    "ps": "Psalm",
+    "psa": "Psalm",
+    "psalm": "Psalm",
+    "psalms": "Psalm",
+    "sos": "Song of Solomon",
+    "song": "Song of Solomon",
+    "song of songs": "Song of Solomon",
     # 1/2/3 books
-    "1jn": "1 John", "1 john": "1 John", "i john": "1 John",
-    "2jn": "2 John", "2 john": "2 John", "ii john": "2 John",
-    "3jn": "3 John", "3 john": "3 John", "iii john": "3 John",
-    "1pet": "1 Peter", "1pe": "1 Peter", "1 peter": "1 Peter", "i peter": "1 Peter",
-    "2pet": "2 Peter", "2pe": "2 Peter", "2 peter": "2 Peter", "ii peter": "2 Peter",
-    "1sam": "1 Samuel", "1sa": "1 Samuel", "1 samuel": "1 Samuel",
-    "2sam": "2 Samuel", "2sa": "2 Samuel", "2 samuel": "2 Samuel",
-    "1ki": "1 Kings", "1 kings": "1 Kings", "i kings": "1 Kings",
-    "2ki": "2 Kings", "2 kings": "2 Kings", "ii kings": "2 Kings",
-    "1ch": "1 Chronicles", "1 chron": "1 Chronicles", "1 chronicles": "1 Chronicles",
-    "2ch": "2 Chronicles", "2 chron": "2 Chronicles", "2 chronicles": "2 Chronicles",
-    "1th": "1 Thessalonians", "1 thes": "1 Thessalonians", "1 thessalonians": "1 Thessalonians",
-    "2th": "2 Thessalonians", "2 thes": "2 Thessalonians", "2 thessalonians": "2 Thessalonians",
-    "1ti": "1 Timothy", "1 tim": "1 Timothy", "1 timothy": "1 Timothy",
-    "2ti": "2 Timothy", "2 tim": "2 Timothy", "2 timothy": "2 Timothy",
+    "1jn": "1 John",
+    "1 john": "1 John",
+    "i john": "1 John",
+    "2jn": "2 John",
+    "2 john": "2 John",
+    "ii john": "2 John",
+    "3jn": "3 John",
+    "3 john": "3 John",
+    "iii john": "3 John",
+    "1pet": "1 Peter",
+    "1pe": "1 Peter",
+    "1 peter": "1 Peter",
+    "i peter": "1 Peter",
+    "2pet": "2 Peter",
+    "2pe": "2 Peter",
+    "2 peter": "2 Peter",
+    "ii peter": "2 Peter",
+    "1sam": "1 Samuel",
+    "1sa": "1 Samuel",
+    "1 samuel": "1 Samuel",
+    "2sam": "2 Samuel",
+    "2sa": "2 Samuel",
+    "2 samuel": "2 Samuel",
+    "1ki": "1 Kings",
+    "1 kings": "1 Kings",
+    "i kings": "1 Kings",
+    "2ki": "2 Kings",
+    "2 kings": "2 Kings",
+    "ii kings": "2 Kings",
+    "1ch": "1 Chronicles",
+    "1 chron": "1 Chronicles",
+    "1 chronicles": "1 Chronicles",
+    "2ch": "2 Chronicles",
+    "2 chron": "2 Chronicles",
+    "2 chronicles": "2 Chronicles",
+    "1th": "1 Thessalonians",
+    "1 thes": "1 Thessalonians",
+    "1 thessalonians": "1 Thessalonians",
+    "2th": "2 Thessalonians",
+    "2 thes": "2 Thessalonians",
+    "2 thessalonians": "2 Thessalonians",
+    "1ti": "1 Timothy",
+    "1 tim": "1 Timothy",
+    "1 timothy": "1 Timothy",
+    "2ti": "2 Timothy",
+    "2 tim": "2 Timothy",
+    "2 timothy": "2 Timothy",
 }
 
 
@@ -227,9 +273,7 @@ def label_ranges(
     # Upstream callers represent a whole-book selection as (1, None, 10_000, None).
     if len(ranges) == 1:
         sc, sv, ec, ev = ranges[0]
-        full_book = (
-            sc == 1 and sv is None and ev is None and ec is not None and ec >= 10_000
-        )
+        full_book = sc == 1 and sv is None and ev is None and ec is not None and ec >= 10_000
         if full_book:
             return f"{canonical_book}"
     parts: List[str] = []
@@ -298,7 +342,7 @@ def clamp_ranges_by_verse_limit(
         return False
 
     coords: List[Tuple[int, int]] = []
-    for (ch, vs) in sorted(idx.keys()):
+    for ch, vs in sorted(idx.keys()):
         if _in_ranges(ch, vs):
             coords.append((ch, vs))
             if len(coords) >= max_verses:
@@ -310,7 +354,7 @@ def clamp_ranges_by_verse_limit(
     out: List[Tuple[int, int | None, int | None, int | None]] = []
     cur_ch, start_vs = coords[0]
     prev_vs = start_vs
-    for (ch, vs) in coords[1:]:
+    for ch, vs in coords[1:]:
         if ch == cur_ch and vs == prev_vs + 1:
             prev_vs = vs
             continue

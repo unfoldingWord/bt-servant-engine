@@ -5,6 +5,7 @@ Resolves `sources/bible_data/<lang>/<version>` roots with sensible fallbacks:
 - Language aliasing: map variants like `pt-BR`, `pt-PT` → `pt`.
 - Ensures the selected root exists and contains JSON files.
 """
+
 from __future__ import annotations
 
 import json
@@ -48,7 +49,7 @@ def resolve_bible_data_root(
     query_language: Optional[str],
     requested_lang: Optional[str] = None,
     requested_version: Optional[str] = None,
-    ) -> Tuple[Path, str, str]:
+) -> Tuple[Path, str, str]:
     """Resolve the best bible data root and return (path, lang, version).
 
     Precedence:

@@ -11,10 +11,9 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType
-from bt_servant_engine.core.language import LANGUAGE_UNKNOWN, Language, ResponseLanguage
+from bt_servant_engine.core.language import Language, ResponseLanguage
 from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
-from bt_servant_engine.services.openai_utils import extract_cached_input_tokens
 from bt_servant_engine.services.passage_selection import resolve_selection_for_single_book
 from utils.bible_data import list_available_sources, load_book_titles, resolve_bible_data_root
 from utils.bible_locale import get_book_name
@@ -119,7 +118,9 @@ def get_passage_summary(
     # Prepare text for summarization
     # Localize the book name in the header using titles from the resolved source when available
     titles_map = load_book_titles(data_root)
-    localized_book = titles_map.get(canonical_book) or get_book_name(str(resolved_lang), canonical_book)
+    localized_book = titles_map.get(canonical_book) or get_book_name(
+        str(resolved_lang), canonical_book
+    )
     ref_label_en = label_ranges(canonical_book, ranges)
     if ref_label_en == canonical_book:
         ref_label = localized_book
@@ -140,7 +141,9 @@ def get_passage_summary(
         {"role": "developer", "content": f"Passage verses (use only this content):\n{joined}"},
         {"role": "user", "content": "Provide a concise, faithful summary of the passage above."},
     ]
-    model_name = model_for_agentic_strength_fn(agentic_strength, allow_low=True, allow_very_low=True)
+    model_name = model_for_agentic_strength_fn(
+        agentic_strength, allow_low=True, allow_very_low=True
+    )
     logger.info("[passage-summary] summarizing %d verses", len(verses))
     summary_resp = client.responses.create(
         model=model_name,
@@ -158,7 +161,9 @@ def get_passage_summary(
         cit = extract_cached_input_tokens_fn(usage)
         add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
     summary_text = summary_resp.output_text
-    logger.info("[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0)
+    logger.info(
+        "[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0
+    )
 
     response_text = f"Summary of {ref_label}:\n\n{summary_text}"
     logger.info("[passage-summary] done")
@@ -299,11 +304,18 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-positiona
         if tl_parsed and tl_parsed.language != Language.OTHER:
             requested_lang = str(tl_parsed.language.value)
     except OpenAIError:
-        logger.info("[retrieve-scripture] requested-language parse failed; will fallback", exc_info=True)
+        logger.info(
+            "[retrieve-scripture] requested-language parse failed; will fallback", exc_info=True
+        )
     except Exception:  # pylint: disable=broad-except
-        logger.info("[retrieve-scripture] requested-language parse failed (generic); will fallback", exc_info=True)
+        logger.info(
+            "[retrieve-scripture] requested-language parse failed (generic); will fallback",
+            exc_info=True,
+        )
     if not requested_lang:
-        m = re.search(r"\b(?:in|from the|from)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
+        m = re.search(
+            r"\b(?:in|from the|from)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE
+        )
         if m:
             # Map name → ISO code when possible
             name = m.group(1).strip().title()
@@ -330,7 +342,9 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-positiona
         # Catalog available options for a friendly message
         avail = list_available_sources()
         if not avail:
-            msg = "Scripture data is not available on this server. Please contact the administrator."
+            msg = (
+                "Scripture data is not available on this server. Please contact the administrator."
+            )
             return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
         options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
         msg = (
@@ -446,7 +460,9 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-positiona
     # No auto-translation required; return verbatim with canonical header (to be localized downstream if desired)
     # Load localized titles for the resolved source language (if present)
     titles_map = load_book_titles(data_root)
-    header_book = titles_map.get(canonical_book) or get_book_name(str(resolved_lang), canonical_book)
+    header_book = titles_map.get(canonical_book) or get_book_name(
+        str(resolved_lang), canonical_book
+    )
     response_obj = {
         "suppress_translation": True,
         "content_language": str(resolved_lang),

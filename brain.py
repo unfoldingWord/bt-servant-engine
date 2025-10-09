@@ -10,37 +10,21 @@ from __future__ import annotations
 
 import json
 import operator
-import re
 from collections.abc import Hashable
 from pathlib import Path
 from typing import Annotated, Any, Dict, Iterable, List, Optional, cast
 
-from langgraph.graph import END, StateGraph
-from openai import OpenAI, OpenAIError
-from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
+from langgraph.graph import StateGraph
+from openai import OpenAI
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
-from pydantic import BaseModel
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
-from bt_servant_engine.core.agentic import (
-    ALLOWED_AGENTIC_STRENGTH,
-    AgenticStrengthChoice,
-    AgenticStrengthSetting,
-)
 from bt_servant_engine.core.config import config
-from bt_servant_engine.core.intents import IntentType, UserIntents
-from bt_servant_engine.core.language import (
-    LANGUAGE_UNKNOWN,
-    Language,
-    MessageLanguage,
-    ResponseLanguage,
-    TranslatedPassage,
-)
+from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.language import (
     SUPPORTED_LANGUAGE_MAP as supported_language_map,
 )
 from bt_servant_engine.core.logging import get_logger
-from bt_servant_engine.core.models import PassageRef, PassageSelection
 from bt_servant_engine.services.openai_utils import (
     extract_cached_input_tokens as _extract_cached_input_tokens,
 )
@@ -56,7 +40,6 @@ from bt_servant_engine.services.response_helpers import (
     sample_for_language_detection as _sample_for_language_detection_impl,
 )
 from bt_servant_engine.services.preprocessing import (
-    detect_language as _detect_language_impl,
     determine_intents as _determine_intents_impl,
     determine_query_language as _determine_query_language_impl,
     model_for_agentic_strength as _model_for_agentic_strength,
@@ -69,10 +52,7 @@ from bt_servant_engine.services.passage_selection import (
 from bt_servant_engine.services.intents.simple_intents import (
     BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
     FULL_HELP_MESSAGE,
-    build_boilerplate_message,
-    build_full_help_message,
     converse_with_bt_servant as converse_with_bt_servant_impl,
-    get_capabilities as _capabilities,
     handle_system_information_request as handle_system_information_request_impl,
     handle_unsupported_function as handle_unsupported_function_impl,
 )
@@ -103,6 +83,10 @@ from bt_servant_engine.services.response_pipeline import (
     build_translation_queue as build_translation_queue_impl,
     resolve_target_language as resolve_target_language_impl,
 )
+from bt_servant_engine.services.graph_pipeline import (
+    query_open_ai as query_open_ai_impl,
+    query_vector_db as query_vector_db_impl,
+)
 from bt_servant_engine.adapters.chroma import get_chroma_collection
 from bt_servant_engine.adapters.user_state import (
     is_first_interaction,
@@ -110,26 +94,19 @@ from bt_servant_engine.adapters.user_state import (
     set_user_agentic_strength,
     set_user_response_language,
 )
-from utils import chop_text, combine_chunks
-from utils.bible_data import list_available_sources, load_book_titles, resolve_bible_data_root
-from utils.bible_locale import get_book_name
 from utils.bsb import (
     BOOK_MAP as BSB_BOOK_MAP,
 )
 from utils.bsb import (
     clamp_ranges_by_verse_limit,
     label_ranges,
-    normalize_book_name,
     select_verses,
 )
-from utils.identifiers import get_log_safe_user_id
-from utils.keywords import select_keywords
 from utils.perf import add_tokens, set_current_trace, time_block
 from utils.translation_helps import get_missing_th_books, select_translation_helps
 
 # (Moved dynamic feature messaging and related prompts below IntentType)
 # COMBINE_RESPONSES_SYSTEM_PROMPT moved to bt_servant_engine.services.response_pipeline
-
 
 
 # RESPONSE_TRANSLATOR_SYSTEM_PROMPT moved to bt_servant_engine.services.response_pipeline
@@ -169,44 +146,9 @@ You summarize Bible passage content faithfully using only the verses provided.
 """
 
 
-FINAL_RESPONSE_AGENT_SYSTEM_PROMPT = """
-You are an assistant to Bible translators. Your main job is to answer questions about content found in various biblical 
-resources: commentaries, translation notes, bible dictionaries, and various resources like FIA. In addition to answering
-questions, you may be called upon to: summarize the data from resources, transform the data from resources (like
-explaining it a 5-year old level, etc, and interact with the resources in all kinds of ways. All this is a part of your 
-responsibilities. Context from resources (RAG results) will be provided to help you answer the question(s). Only answer 
-questions using the provided context from resources!!! If you can't confidently figure it out using that context, 
-simply say 'Sorry, I couldn't find any information in my resources to service your request or command. But 
-maybe I'm unclear on your intent. Could you perhaps state it a different way?' You will also be given the past 
-conversation history. Use this to understand the user's current message or query if necessary. If the past conversation 
-history is not relevant to the user's current message, just ignore it. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY 
-ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX CHRISTIANS. If you can't do what the user is asking 
-because your response would be heretical, explain to the user why you cannot comply with their request or command.
-"""
+# FINAL_RESPONSE_AGENT_SYSTEM_PROMPT moved to bt_servant_engine.services.graph_pipeline
 
-CONSULT_FIA_RESOURCES_SYSTEM_PROMPT = """
-# Identity
-
-You are the FIA specialist node of BT Servant. You help Bible translators understand and apply the Familiarization,
-Internalization, and Articulation (FIA) process using only the supplied context.
-
-# Context Handling
-
-- You will always receive the official FIA reference document plus any retrieved FIA resource snippets.
-- When the user's request is about the FIA process itself (for example, asking for the steps or how to translate the
-  Bible in general), rely primarily on the FIA reference document. Quote or summarize the steps accurately and keep the
-  sequence intact.
-- When the user asks how FIA applies to a specific passage, language, or scenario, synthesize both the reference
-  document and the retrieved snippets. Mention the relevant FIA steps explicitly (e.g., "Step 2: Setting the Stage").
-- If the context does not contain the needed information, clearly say you cannot find it and invite the user to clarify.
-- Never invent steps or procedures. Stay faithful to the provided materials.
-
-# Response Style
-
-- Be practical, encouraging, and concise while remaining thorough enough for translators to act on the guidance.
-- Use natural paragraphs (no bullet lists unless the context itself is a list that must be echoed for clarity).
-- Include references to FIA steps or resource names when they help the user follow along.
-"""
+# CONSULT_FIA_RESOURCES_SYSTEM_PROMPT moved to bt_servant_engine.services.intents.fia_intents
 
 # CHOP_AGENT_SYSTEM_PROMPT moved to bt_servant_engine.services.response_pipeline
 
@@ -241,8 +183,7 @@ open_ai_client = OpenAI(api_key=config.OPENAI_API_KEY)
 # Language constants imported from bt_servant_engine.core.language
 # (supported_language_map, LANGUAGE_UNKNOWN)
 
-RELEVANCE_CUTOFF = .65
-TOP_K = 5
+# RELEVANCE_CUTOFF and TOP_K moved to bt_servant_engine.services.graph_pipeline
 
 logger = get_logger(__name__)
 
@@ -280,7 +221,6 @@ def _is_protected_response_item(item: dict) -> bool:
 def _reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[str]) -> str:
     """Render a response item to plain text, optionally localizing the header book name."""
     return reconstruct_structured_text_impl(resp_item, localize_to)
-
 
 
 TranslationRange = tuple[int, int | None, int | None, int | None]
@@ -453,11 +393,16 @@ def _build_translation_helps_context(
     return ref_label, context_obj
 
 
-def _build_translation_helps_messages(ref_label: str, context_obj: dict[str, object]) -> list[EasyInputMessageParam]:
+def _build_translation_helps_messages(
+    ref_label: str, context_obj: dict[str, object]
+) -> list[EasyInputMessageParam]:
     """Construct the LLM messages for the translation helps prompt."""
     payload = json.dumps(context_obj, ensure_ascii=False)
     return [
-        {"role": "developer", "content": "Focus only on the portion of the user's message that asked for translation helps. Ignore any other requests or book references in the message."},
+        {
+            "role": "developer",
+            "content": "Focus only on the portion of the user's message that asked for translation helps. Ignore any other requests or book references in the message.",
+        },
         {"role": "developer", "content": f"Selection: {ref_label}"},
         {"role": "developer", "content": "Use the JSON context below strictly:"},
         {"role": "developer", "content": payload},
@@ -475,6 +420,7 @@ def _build_translation_helps_messages(ref_label: str, context_obj: dict[str, obj
 
 class BrainState(TypedDict, total=False):
     """State carried through the LangGraph execution."""
+
     user_id: str
     user_query: str
     # Perf tracing: preserve trace id throughout the graph so node wrappers
@@ -505,128 +451,7 @@ class BrainState(TypedDict, total=False):
 # _capabilities moved to bt_servant_engine.services.intents.simple_intents (as get_capabilities)
 # Imported above as _capabilities
 
-def _capabilities_DEPRECATED() -> List[Capability]:
-    """Return the list of user-facing capabilities with examples.
-
-    Centralized here so greetings, help, and unsupported-function prompts stay in sync
-    as new intents are added. Update this list to change feature messaging.
-    """
-    return [
-        {
-            "intent": IntentType.GET_PASSAGE_SUMMARY,
-            "label": "Summarize a passage",
-            "description": "Summarize books, chapters, or verse ranges.",
-            "examples": [
-                "Summarize Titus 1.",
-                "Summarize Mark 1:1–8.",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.CONSULT_FIA_RESOURCES,
-            "label": "FIA process guidance",
-            "description": "Use FIA resources to explain the workflow or apply steps to a passage.",
-            "examples": [
-                "What are the steps of the FIA process?",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.GET_TRANSLATION_HELPS,
-            "label": "Translation helps",
-            "description": "Point out typical translation challenges.",
-            "examples": [
-                "Translation challenges for John 1:1?",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.GET_PASSAGE_KEYWORDS,
-            "label": "Keywords",
-            "description": "List key terms in a passage.",
-            "examples": [
-                "Important words in Romans 1.",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.RETRIEVE_SCRIPTURE,
-            "label": "Show scripture text",
-            "description": "Display the verse text for a selection.",
-            "examples": [
-                "Show John 3:16–18.",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.LISTEN_TO_SCRIPTURE,
-            "label": "Read aloud",
-            "description": "Hear the passage as audio.",
-            "examples": [
-                "Read Romans 8:1–4 aloud.",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.TRANSLATE_SCRIPTURE,
-            "label": "Translate scripture",
-            "description": "Translate a passage into another language.",
-            "examples": [
-                "Translate John 3:16 into Indonesian.",
-            ],
-            "include_in_boilerplate": True,
-        },
-        {
-            "intent": IntentType.SET_AGENTIC_STRENGTH,
-            "label": "Adjust agentic strength",
-            "description": "Tune how assertive the assistant should be (normal, low, or very low).",
-            "examples": [
-                "Set my agentic strength to low.",
-            ],
-            "include_in_boilerplate": False,
-            "developer_only": True,
-        },
-        {
-            "intent": IntentType.SET_RESPONSE_LANGUAGE,
-            "label": "Set response language",
-            "description": "Choose your preferred reply language.",
-            "examples": [
-                "Set my response language to Spanish.",
-            ],
-            "include_in_boilerplate": True,
-        },
-    ]
-
-
-def build_boilerplate_message() -> str:
-    """Build a concise 'what I can do' list with examples."""
-    caps = [
-        c
-        for c in _capabilities()
-        if c.get("include_in_boilerplate") and not c.get("developer_only", False)
-    ]
-    lines: list[str] = ["Here’s what I can do:"]
-    for idx, c in enumerate(caps, start=1):
-        example = c["examples"][0] if c.get("examples") else ""
-        lines.append(f"{idx}) {c['label']} (e.g., '{example}')")
-    lines.append("Which would you like me to do?")
-    return "\n".join(lines)
-
-
-def build_full_help_message() -> str:
-    """Build a full help message with descriptions and examples for each capability."""
-    lines: list[str] = ["Features:"]
-    visible_caps = [c for c in _capabilities() if not c.get("developer_only", False)]
-    for idx, c in enumerate(visible_caps, start=1):
-        lines.append(f"{idx}. {c['label']}: {c['description']}")
-        if c.get("examples"):
-            for ex in c["examples"]:
-                lines.append(f"   - Example: '{ex}'")
-    return "\n".join(lines)
-
-
-BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE = build_boilerplate_message()
-FULL_HELP_MESSAGE = build_full_help_message()
+# BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE and FULL_HELP_MESSAGE imported from simple_intents above
 
 FIRST_INTERACTION_MESSAGE = f"""
 Hello! I am the BT Servant. This is our first conversation. Let's work together to understand and translate God's word!
@@ -705,8 +530,9 @@ def start(state: Any) -> dict:
     user_id = s["user_id"]
     if is_first_interaction(user_id):
         set_first_interaction(user_id, False)
-        return {"responses": [
-            {"intent": "first-interaction", "response": FIRST_INTERACTION_MESSAGE}]}
+        return {
+            "responses": [{"intent": "first-interaction", "response": FIRST_INTERACTION_MESSAGE}]
+        }
     return {}
 
 
@@ -818,10 +644,7 @@ def determine_query_language(state: Any) -> dict:
     query_language, stack_rank_collections = _determine_query_language_impl(
         open_ai_client, query, agentic_strength
     )
-    return {
-        "query_language": query_language,
-        "stack_rank_collections": stack_rank_collections
-    }
+    return {"query_language": query_language, "stack_rank_collections": stack_rank_collections}
 
 
 def preprocess_user_query(state: Any) -> dict:
@@ -829,138 +652,36 @@ def preprocess_user_query(state: Any) -> dict:
     s = cast(BrainState, state)
     query = s["user_query"]
     chat_history = s["user_chat_history"]
-    transformed_query, reason, changed = _preprocess_user_query_impl(open_ai_client, query, chat_history)
-    return {
-        "transformed_query": transformed_query
-    }
+    transformed_query, _, _ = _preprocess_user_query_impl(open_ai_client, query, chat_history)
+    return {"transformed_query": transformed_query}
 
 
 def query_vector_db(state: Any) -> dict:
     """Query the vector DB (Chroma) across ranked collections and filter by relevance."""
-    # pylint: disable=too-many-locals
     s = cast(BrainState, state)
-    query = s["transformed_query"]
-    stack_rank_collections = s["stack_rank_collections"]
-    filtered_docs = []
-    # this loop is the current implementation of the "stacked ranked" algorithm
-    for collection_name in stack_rank_collections:
-        logger.info("querying stack collection: %s", collection_name)
-        db_collection = get_chroma_collection(collection_name)
-        if not db_collection:
-            logger.warning("collection %s was not found in chroma db.", collection_name)
-            continue
-        col = cast(Any, db_collection)
-        results = col.query(
-            query_texts=[query],
-            n_results=TOP_K
-        )
-        docs = results["documents"]
-        similarities = results["distances"]
-        metadata = results["metadatas"]
-        logger.info("\nquery: %s\n", query)
-        logger.info("---")
-        hits = 0
-        for i in range(len(docs[0])):
-            cosine_similarity = round(1 - similarities[0][i], 4)
-            doc = docs[0][i]
-            m = metadata[0][i]
-            resource_name = m.get("name", "")
-            source = m.get("source", "")
-            logger.info("processing %s from %s.", resource_name, source)
-            logger.info("Cosine Similarity: %s", cosine_similarity)
-            logger.info("Metadata: %s", resource_name)
-            logger.info("---")
-            if cosine_similarity >= RELEVANCE_CUTOFF:
-                hits += 1
-                filtered_docs.append({
-                    "collection_name": collection_name,
-                    "resource_name": resource_name,
-                    "source": source,
-                    "document_text": doc
-                })
-        if hits > 0:
-            logger.info("found %d hit(s) at stack collection: %s", hits, collection_name)
-
-    return {
-        "docs": filtered_docs
-    }
+    return query_vector_db_impl(
+        s["transformed_query"],
+        s["stack_rank_collections"],
+        get_chroma_collection,
+        BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
+    )
 
 
-# pylint: disable=too-many-locals
 def query_open_ai(state: Any) -> dict:
     """Generate the final response text using RAG context and OpenAI."""
     s = cast(BrainState, state)
-    docs = s["docs"]
-    query = s["transformed_query"]
-    chat_history = s["user_chat_history"]
-    try:
-        if len(docs) == 0:
-            no_docs_msg = (f"Sorry, I couldn't find any information in my resources to service your request "
-                           f"or command.\n\n{BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}")
-            return {"responses": [
-                {"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": no_docs_msg}]}
-
-        # build context from docs
-        # context = "\n\n".join([item["doc"] for item in docs])
-        context = json.dumps(docs, indent=2)
-        logger.info("context passed to final node:\n\n%s", context)
-        rag_context_message = "When answering my next query, use this additional" + \
-            f"  context: {context}"
-        chat_history_context_message = (f"Use this conversation history to understand the user's "
-                                        f"current request only if needed: {json.dumps(chat_history)}")
-        messages = cast(List[EasyInputMessageParam], [
-            {
-                "role": "developer",
-                "content": rag_context_message
-            },
-            {
-                "role": "developer",
-                "content": "Focus only on the portion of the user's message requesting general Bible translation assistance. Ignore unrelated requests or passages mentioned elsewhere in the message.",
-            },
-            {
-                "role": "developer",
-                "content": chat_history_context_message
-            },
-            {
-                "role": "user",
-                "content": query
-            }
-        ])
-        agentic_strength = _resolve_agentic_strength(s)
-        model_name = _model_for_agentic_strength(agentic_strength, allow_low=False, allow_very_low=True)
-        response = open_ai_client.responses.create(
-            model=model_name,
-            instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
-            input=cast(Any, messages)
-        )
-        usage = getattr(response, "usage", None)
-        if usage is not None:
-            it = getattr(usage, "input_tokens", None)
-            ot = getattr(usage, "output_tokens", None)
-            tt = getattr(usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
-        bt_servant_response = response.output_text
-        logger.info('response from openai: %s', bt_servant_response)
-        logger.debug("%d characters returned from openAI", len(bt_servant_response))
-
-        resource_list = ", ".join({
-            f"{item.get('resource_name', 'unknown')} from {item.get('source', 'unknown')}"
-            for item in docs
-        })
-        cascade_info = (
-            f"bt servant used the following resources to generate its response: {resource_list}."
-        )
-        logger.info(cascade_info)
-
-        return {"responses": [
-            {"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": bt_servant_response}]}
-    except OpenAIError:
-        logger.error("Error during OpenAI request", exc_info=True)
-        error_msg = "I encountered some problems while trying to respond. Let Ian know about this one."
-        return {"responses": [{"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": error_msg}]}
+    agentic_strength = _resolve_agentic_strength(s)
+    return query_open_ai_impl(
+        open_ai_client,
+        s["docs"],
+        s["transformed_query"],
+        s["user_chat_history"],
+        _model_for_agentic_strength,
+        _extract_cached_input_tokens,
+        add_tokens,
+        agentic_strength,
+        BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
+    )
 
 
 def consult_fia_resources(state: Any) -> dict:
@@ -1052,7 +773,9 @@ def handle_unsupported_function(state: Any) -> dict:
 def handle_system_information_request(state: Any) -> dict:
     """Provide help/about information for the BT Servant system."""
     s = cast(BrainState, state)
-    return handle_system_information_request_impl(open_ai_client, s["user_query"], s["user_chat_history"])
+    return handle_system_information_request_impl(
+        open_ai_client, s["user_query"], s["user_chat_history"]
+    )
 
 
 def converse_with_bt_servant(state: Any) -> dict:
@@ -1183,6 +906,7 @@ def handle_listen_to_scripture(state: Any) -> dict:
         agentic_strength,
     )
 
+
 def handle_translate_scripture(state: Any) -> dict:
     """Handle translate-scripture: return verses translated into a target language."""
     s = cast(BrainState, state)
@@ -1203,6 +927,7 @@ def handle_translate_scripture(state: Any) -> dict:
 
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
+
     def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-def]
         def wrapped(state: Any) -> dict:
             trace_id = cast(dict, state).get("perf_trace_id")
@@ -1210,7 +935,9 @@ def create_brain():
                 set_current_trace(cast(Optional[str], trace_id))
             with time_block(f"brain:{node_name}"):
                 return node_fn(state)
+
         return wrapped
+
     def _make_state_graph(schema: Any) -> StateGraph[BrainState]:
         # Accept Any to satisfy IDE variance on schema param; schema is BrainState
         return StateGraph(schema)
@@ -1218,34 +945,87 @@ def create_brain():
     builder: StateGraph[BrainState] = _make_state_graph(BrainState)
 
     builder.add_node("start_node", wrap_node_with_timing(start, "start_node"))
-    builder.add_node("determine_query_language_node", wrap_node_with_timing(determine_query_language, "determine_query_language_node"))
-    builder.add_node("preprocess_user_query_node", wrap_node_with_timing(preprocess_user_query, "preprocess_user_query_node"))
-    builder.add_node("determine_intents_node", wrap_node_with_timing(determine_intents, "determine_intents_node"))
-    builder.add_node("set_response_language_node", wrap_node_with_timing(set_response_language, "set_response_language_node"))
-    builder.add_node("set_agentic_strength_node", wrap_node_with_timing(set_agentic_strength, "set_agentic_strength_node"))
-    builder.add_node("query_vector_db_node", wrap_node_with_timing(query_vector_db, "query_vector_db_node"))
-    builder.add_node("query_open_ai_node", wrap_node_with_timing(query_open_ai, "query_open_ai_node"))
-    builder.add_node("consult_fia_resources_node", wrap_node_with_timing(consult_fia_resources, "consult_fia_resources_node"))
-    builder.add_node("chunk_message_node", wrap_node_with_timing(chunk_message, "chunk_message_node"))
-    builder.add_node("handle_unsupported_function_node", wrap_node_with_timing(handle_unsupported_function, "handle_unsupported_function_node"))
-    builder.add_node("handle_system_information_request_node", wrap_node_with_timing(handle_system_information_request, "handle_system_information_request_node"))
-    builder.add_node("converse_with_bt_servant_node", wrap_node_with_timing(converse_with_bt_servant, "converse_with_bt_servant_node"))
-    builder.add_node("handle_get_passage_summary_node", wrap_node_with_timing(handle_get_passage_summary, "handle_get_passage_summary_node"))
-    builder.add_node("handle_get_passage_keywords_node", wrap_node_with_timing(handle_get_passage_keywords, "handle_get_passage_keywords_node"))
-    builder.add_node("handle_get_translation_helps_node", wrap_node_with_timing(handle_get_translation_helps, "handle_get_translation_helps_node"))
-    builder.add_node("handle_retrieve_scripture_node", wrap_node_with_timing(handle_retrieve_scripture, "handle_retrieve_scripture_node"))
-    builder.add_node("handle_listen_to_scripture_node", wrap_node_with_timing(handle_listen_to_scripture, "handle_listen_to_scripture_node"))
-    builder.add_node("handle_translate_scripture_node", wrap_node_with_timing(handle_translate_scripture, "handle_translate_scripture_node"))
-    builder.add_node("translate_responses_node", wrap_node_with_timing(translate_responses, "translate_responses_node"), defer=True)
+    builder.add_node(
+        "determine_query_language_node",
+        wrap_node_with_timing(determine_query_language, "determine_query_language_node"),
+    )
+    builder.add_node(
+        "preprocess_user_query_node",
+        wrap_node_with_timing(preprocess_user_query, "preprocess_user_query_node"),
+    )
+    builder.add_node(
+        "determine_intents_node", wrap_node_with_timing(determine_intents, "determine_intents_node")
+    )
+    builder.add_node(
+        "set_response_language_node",
+        wrap_node_with_timing(set_response_language, "set_response_language_node"),
+    )
+    builder.add_node(
+        "set_agentic_strength_node",
+        wrap_node_with_timing(set_agentic_strength, "set_agentic_strength_node"),
+    )
+    builder.add_node(
+        "query_vector_db_node", wrap_node_with_timing(query_vector_db, "query_vector_db_node")
+    )
+    builder.add_node(
+        "query_open_ai_node", wrap_node_with_timing(query_open_ai, "query_open_ai_node")
+    )
+    builder.add_node(
+        "consult_fia_resources_node",
+        wrap_node_with_timing(consult_fia_resources, "consult_fia_resources_node"),
+    )
+    builder.add_node(
+        "chunk_message_node", wrap_node_with_timing(chunk_message, "chunk_message_node")
+    )
+    builder.add_node(
+        "handle_unsupported_function_node",
+        wrap_node_with_timing(handle_unsupported_function, "handle_unsupported_function_node"),
+    )
+    builder.add_node(
+        "handle_system_information_request_node",
+        wrap_node_with_timing(
+            handle_system_information_request, "handle_system_information_request_node"
+        ),
+    )
+    builder.add_node(
+        "converse_with_bt_servant_node",
+        wrap_node_with_timing(converse_with_bt_servant, "converse_with_bt_servant_node"),
+    )
+    builder.add_node(
+        "handle_get_passage_summary_node",
+        wrap_node_with_timing(handle_get_passage_summary, "handle_get_passage_summary_node"),
+    )
+    builder.add_node(
+        "handle_get_passage_keywords_node",
+        wrap_node_with_timing(handle_get_passage_keywords, "handle_get_passage_keywords_node"),
+    )
+    builder.add_node(
+        "handle_get_translation_helps_node",
+        wrap_node_with_timing(handle_get_translation_helps, "handle_get_translation_helps_node"),
+    )
+    builder.add_node(
+        "handle_retrieve_scripture_node",
+        wrap_node_with_timing(handle_retrieve_scripture, "handle_retrieve_scripture_node"),
+    )
+    builder.add_node(
+        "handle_listen_to_scripture_node",
+        wrap_node_with_timing(handle_listen_to_scripture, "handle_listen_to_scripture_node"),
+    )
+    builder.add_node(
+        "handle_translate_scripture_node",
+        wrap_node_with_timing(handle_translate_scripture, "handle_translate_scripture_node"),
+    )
+    builder.add_node(
+        "translate_responses_node",
+        wrap_node_with_timing(translate_responses, "translate_responses_node"),
+        defer=True,
+    )
 
     builder.set_entry_point("start_node")
     builder.add_edge("start_node", "determine_query_language_node")
     builder.add_edge("determine_query_language_node", "preprocess_user_query_node")
     builder.add_edge("preprocess_user_query_node", "determine_intents_node")
-    builder.add_conditional_edges(
-        "determine_intents_node",
-        process_intents
-    )
+    builder.add_conditional_edges("determine_intents_node", process_intents)
     builder.add_edge("query_vector_db_node", "query_open_ai_node")
     builder.add_edge("set_response_language_node", "translate_responses_node")
     builder.add_edge("set_agentic_strength_node", "translate_responses_node")
@@ -1264,13 +1044,12 @@ def create_brain():
     builder.add_edge("query_open_ai_node", "translate_responses_node")
     builder.add_edge("consult_fia_resources_node", "translate_responses_node")
 
-    builder.add_conditional_edges(
-        "translate_responses_node",
-        needs_chunking
-    )
+    builder.add_conditional_edges("translate_responses_node", needs_chunking)
     builder.set_finish_point("chunk_message_node")
 
     return builder.compile()
+
+
 LANG_DETECTION_SAMPLE_CHARS = 100
 
 

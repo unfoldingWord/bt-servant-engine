@@ -2,6 +2,7 @@
 
 Loads keyword JSONs and filters matches across verse ranges.
 """
+
 from __future__ import annotations
 
 import json

@@ -11,6 +11,7 @@ By default, no pricing is configured. You can provide pricing via the
 If pricing is not provided for a model, cost fields will be omitted in
 the perf reports for spans using that model.
 """
+
 from __future__ import annotations
 
 import json

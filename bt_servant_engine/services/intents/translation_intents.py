@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from typing import Any, List, Optional, cast
+from typing import Any, Optional, cast
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
@@ -16,10 +16,8 @@ from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.passage_selection import resolve_selection_for_single_book
 from utils.bible_data import list_available_sources, resolve_bible_data_root
-from utils.bsb import BOOK_MAP as BSB_BOOK_MAP
-from utils.bsb import clamp_ranges_by_verse_limit, label_ranges, select_verses
+from utils.bsb import label_ranges, select_verses
 from utils.perf import add_tokens
-from utils.translation_helps import get_missing_th_books, select_translation_helps
 
 logger = get_logger(__name__)
 
@@ -105,7 +103,9 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-position
     target_code: Optional[str] = None
     explicit_mention_name: Optional[str] = None
     try:
-        from bt_servant_engine.services.intents.passage_intents import TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT
+        from bt_servant_engine.services.intents.passage_intents import (
+            TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
+        )
 
         tl_resp = client.responses.parse(
             model="gpt-4o",
@@ -128,11 +128,15 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-position
         if tl_parsed and tl_parsed.language != Language.OTHER:
             target_code = str(tl_parsed.language.value)
     except OpenAIError:
-        logger.info("[translate-scripture] target-language parse failed; will fallback", exc_info=True)
+        logger.info(
+            "[translate-scripture] target-language parse failed; will fallback", exc_info=True
+        )
 
     # Minimal, tightly scoped heuristic for phrases like "into Italian" (explicit mention)
     if not target_code:
-        m = re.search(r"\b(?:into|to|in)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
+        m = re.search(
+            r"\b(?:into|to|in)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE
+        )
         if m:
             explicit_mention_name = m.group(1).strip().title()
 
@@ -141,7 +145,8 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-position
         # Explicitly requested a language, but it's not in our supported codes.
         requested_name = explicit_mention_name
         supported_names = [
-            supported_language_map[c] for c in ["en", "ar", "fr", "es", "hi", "ru", "id", "sw", "pt", "zh", "nl"]
+            supported_language_map[c]
+            for c in ["en", "ar", "fr", "es", "hi", "ru", "id", "sw", "pt", "zh", "nl"]
         ]
         supported_lines = "\n".join(f"- {name}" for name in supported_names)
         guidance = (
@@ -170,7 +175,8 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-position
             requested_name2 = "an unsupported language"
 
         supported_names = [
-            supported_language_map[code] for code in ["en", "ar", "fr", "es", "hi", "ru", "id", "sw", "pt", "zh", "nl"]
+            supported_language_map[code]
+            for code in ["en", "ar", "fr", "es", "hi", "ru", "id", "sw", "pt", "zh", "nl"]
         ]
         supported_lines = "\n".join(f"- {name}" for name in supported_names)
         guidance = (
@@ -198,7 +204,9 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-position
     except FileNotFoundError:
         avail = list_available_sources()
         if not avail:
-            msg = "Scripture data is not available on this server. Please contact the administrator."
+            msg = (
+                "Scripture data is not available on this server. Please contact the administrator."
+            )
             return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
         options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
         msg = (
@@ -265,7 +273,9 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-position
             {"role": "developer", "content": "passage body (translate; preserve newlines):"},
             {"role": "developer", "content": body_src},
         ]
-        model_name = model_for_agentic_strength_fn(agentic_strength, allow_low=False, allow_very_low=True)
+        model_name = model_for_agentic_strength_fn(
+            agentic_strength, allow_low=False, allow_very_low=True
+        )
         resp = client.responses.parse(
             model=model_name,
             instructions=TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
@@ -285,10 +295,16 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-position
             add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
         translated = cast(TranslatedPassage | None, resp.output_parsed)
     except OpenAIError:
-        logger.warning("[translate-scripture] structured parse failed due to OpenAI error; falling back.", exc_info=True)
+        logger.warning(
+            "[translate-scripture] structured parse failed due to OpenAI error; falling back.",
+            exc_info=True,
+        )
         translated = None
     except Exception:  # pylint: disable=broad-except
-        logger.warning("[translate-scripture] structured parse failed; falling back to simple translation.", exc_info=True)
+        logger.warning(
+            "[translate-scripture] structured parse failed; falling back to simple translation.",
+            exc_info=True,
+        )
         translated = None
 
     if translated is None:
@@ -367,7 +383,9 @@ def get_translation_helps(
     messages = build_translation_helps_messages_fn(ref_label, context_obj)
 
     logger.info("[translation-helps] invoking LLM with %d helps", len(raw_helps))
-    model_name = model_for_agentic_strength_fn(agentic_strength, allow_low=True, allow_very_low=True)
+    model_name = model_for_agentic_strength_fn(
+        agentic_strength, allow_low=True, allow_very_low=True
+    )
     resp = client.responses.create(
         model=model_name,
         instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,

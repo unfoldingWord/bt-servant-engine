@@ -51,6 +51,7 @@ def test_consult_fia_resources_falls_back_to_english(monkeypatch: pytest.MonkeyP
         return _FakeResponse()
 
     from bt_servant_engine.services.intents import fia_intents
+
     monkeypatch.setattr(brain, "get_chroma_collection", _fake_get_collection)
     monkeypatch.setattr(brain.open_ai_client.responses, "create", _fake_create)
     monkeypatch.setattr(fia_intents, "FIA_REFERENCE_CONTENT", "FIA manual reference text")
@@ -90,9 +91,11 @@ def test_consult_fia_resources_uses_normal_model(monkeypatch: pytest.MonkeyPatch
         return _FakeResponse()
 
     def _fake_get_collection(_name: str) -> _FakeCollection:
-        return _FakeCollection([
-            ("Localized", 0.2, {"name": "Localized", "source": "fia/local.md"}),
-        ])
+        return _FakeCollection(
+            [
+                ("Localized", 0.2, {"name": "Localized", "source": "fia/local.md"}),
+            ]
+        )
 
     monkeypatch.setattr(brain, "get_chroma_collection", _fake_get_collection)
     monkeypatch.setattr(brain.open_ai_client.responses, "create", _fake_create)

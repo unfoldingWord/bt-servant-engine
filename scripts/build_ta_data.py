@@ -168,11 +168,7 @@ def build_ta_dataset() -> None:
             out_path.parent.mkdir(parents=True, exist_ok=True)
             with out_path.open("w", encoding="utf-8") as f:
                 assert entry is not None  # for type checkers
-                f.write(
-                    json.dumps(
-                        entry.to_json_obj(), ensure_ascii=False, indent=2
-                    )
-                )
+                f.write(json.dumps(entry.to_json_obj(), ensure_ascii=False, indent=2))
                 f.write("\n")
             created += 1
             print(f"[ok] Wrote {out_path}")

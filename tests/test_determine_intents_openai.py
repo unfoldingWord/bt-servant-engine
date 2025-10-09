@@ -3,6 +3,7 @@
 Calls brain.determine_intents with real OpenAI to verify summary vs
 keywords detection across a variety of phrasings and tricky books.
 """
+
 # pylint: disable=missing-function-docstring,line-too-long,wrong-import-order,duplicate-code
 from __future__ import annotations
 
@@ -24,7 +25,9 @@ load_dotenv(override=True)
 
 pytestmark = [
     pytest.mark.openai,
-    pytest.mark.skipif(not _has_real_openai(), reason="OPENAI_API_KEY not set for live OpenAI tests"),
+    pytest.mark.skipif(
+        not _has_real_openai(), reason="OPENAI_API_KEY not set for live OpenAI tests"
+    ),
 ]
 
 

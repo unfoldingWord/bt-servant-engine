@@ -52,7 +52,7 @@ def choose_primary_book(text: str, candidates: list[str], book_map: dict) -> str
     spans.sort(key=lambda t: t[0])
     for s_idx, end, can in spans:
         _ = s_idx  # avoid shadowing outer start() function
-        window = text[end:end + 12]
+        window = text[end : end + 12]
         if re.search(r"\d", window):
             return can
     return None

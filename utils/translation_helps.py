@@ -4,6 +4,7 @@ Selects per-verse translation helps from `sources/translation_helps` for a
 given canonical book and verse ranges, mirroring the patterns used in
 `utils/bsb.py`.
 """
+
 from __future__ import annotations
 
 import json

@@ -3,6 +3,7 @@
 This runs before any tests, so modules can import without local path hacks.
 Also load .env before setting defaults so real keys are used when present.
 """
+
 from __future__ import annotations
 
 import os

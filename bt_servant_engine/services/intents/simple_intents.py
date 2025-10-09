@@ -224,7 +224,9 @@ Here are some guidelines for using history for better responses:
 # ========== Intent Handlers ==========
 
 
-def handle_unsupported_function(client: OpenAI, query: str, chat_history: list[dict[str, str]]) -> dict[str, Any]:
+def handle_unsupported_function(
+    client: OpenAI, query: str, chat_history: list[dict[str, str]]
+) -> dict[str, Any]:
     """Generate a helpful response when the user requests unsupported functionality."""
     messages: list[EasyInputMessageParam] = [
         {
@@ -252,13 +254,22 @@ def handle_unsupported_function(client: OpenAI, query: str, chat_history: list[d
         cit = extract_cached_input_tokens(usage)
         add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     unsupported_function_response_text = response.output_text
-    logger.info("converse_with_bt_servant response from openai: %s", unsupported_function_response_text)
+    logger.info(
+        "converse_with_bt_servant response from openai: %s", unsupported_function_response_text
+    )
     return {
-        "responses": [{"intent": IntentType.PERFORM_UNSUPPORTED_FUNCTION, "response": unsupported_function_response_text}]
+        "responses": [
+            {
+                "intent": IntentType.PERFORM_UNSUPPORTED_FUNCTION,
+                "response": unsupported_function_response_text,
+            }
+        ]
     }
 
 
-def handle_system_information_request(client: OpenAI, query: str, chat_history: list[dict[str, str]]) -> dict[str, Any]:
+def handle_system_information_request(
+    client: OpenAI, query: str, chat_history: list[dict[str, str]]
+) -> dict[str, Any]:
     """Provide help/about information for the BT Servant system."""
     messages: list[EasyInputMessageParam] = [
         {
@@ -287,10 +298,16 @@ def handle_system_information_request(client: OpenAI, query: str, chat_history: 
         add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     help_response_text = response.output_text
     logger.info("help response from openai: %s", help_response_text)
-    return {"responses": [{"intent": IntentType.RETRIEVE_SYSTEM_INFORMATION, "response": help_response_text}]}
+    return {
+        "responses": [
+            {"intent": IntentType.RETRIEVE_SYSTEM_INFORMATION, "response": help_response_text}
+        ]
+    }
 
 
-def converse_with_bt_servant(client: OpenAI, query: str, chat_history: list[dict[str, str]]) -> dict[str, Any]:
+def converse_with_bt_servant(
+    client: OpenAI, query: str, chat_history: list[dict[str, str]]
+) -> dict[str, Any]:
     """Respond conversationally to the user based on context and history."""
     messages: list[EasyInputMessageParam] = [
         {
@@ -319,7 +336,11 @@ def converse_with_bt_servant(client: OpenAI, query: str, chat_history: list[dict
         add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
     converse_response_text = response.output_text
     logger.info("converse_with_bt_servant response from openai: %s", converse_response_text)
-    return {"responses": [{"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}]}
+    return {
+        "responses": [
+            {"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}
+        ]
+    }
 
 
 __all__ = [

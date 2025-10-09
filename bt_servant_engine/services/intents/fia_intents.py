@@ -9,11 +9,12 @@ from typing import Any, List, Optional, cast
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 
-from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
-from bt_servant_engine.services.intents.simple_intents import BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE
+from bt_servant_engine.services.intents.simple_intents import (
+    BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
+)
 from utils.perf import add_tokens
 
 logger = get_logger(__name__)
@@ -96,7 +97,9 @@ def consult_fia_resources(
             except (IndexError, TypeError, ValueError):
                 similarity = 0.0
             metadata = metas_for_query[idx] if idx < len(metas_for_query) else {}
-            resource_name = cast(str, metadata.get("name", "")) if isinstance(metadata, dict) else ""
+            resource_name = (
+                cast(str, metadata.get("name", "")) if isinstance(metadata, dict) else ""
+            )
             source = cast(str, metadata.get("source", "")) if isinstance(metadata, dict) else ""
             logger.info(
                 "[consult-fia] processing %s from %s with similarity %.4f",
@@ -173,7 +176,9 @@ def consult_fia_resources(
     )
 
     try:
-        model_name = model_for_agentic_strength_fn(agentic_strength, allow_low=True, allow_very_low=True)
+        model_name = model_for_agentic_strength_fn(
+            agentic_strength, allow_low=True, allow_very_low=True
+        )
         response = client.responses.create(
             model=model_name,
             instructions=CONSULT_FIA_RESOURCES_SYSTEM_PROMPT,
@@ -202,7 +207,9 @@ def consult_fia_resources(
         if resource_list:
             logger.info("[consult-fia] vector resources used: %s", resource_list)
 
-        update: dict[str, Any] = {"responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fia_response}]}
+        update: dict[str, Any] = {
+            "responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fia_response}]
+        }
         if collection_used:
             update["collection_used"] = collection_used
         return update

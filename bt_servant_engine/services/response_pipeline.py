@@ -18,7 +18,6 @@ from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.preprocessing import detect_language as detect_language_impl
 from bt_servant_engine.services.response_helpers import (
     normalize_single_response as normalize_single_response_impl,
-    partition_response_items as partition_response_items_impl,
     sample_for_language_detection as sample_for_language_detection_impl,
 )
 from utils import chop_text, combine_chunks
@@ -187,7 +186,9 @@ def translate_text(
     if resolved_strength is None:
         configured = getattr(config, "AGENTIC_STRENGTH", "normal")
         resolved_strength = configured if configured in ALLOWED_AGENTIC_STRENGTH else "normal"
-    model_name = model_for_agentic_strength_fn(resolved_strength, allow_low=False, allow_very_low=True)
+    model_name = model_for_agentic_strength_fn(
+        resolved_strength, allow_low=False, allow_very_low=True
+    )
     chat_messages = cast(
         List[ChatCompletionMessageParam],
         [
@@ -198,7 +199,8 @@ def translate_text(
             {
                 "role": "user",
                 "content": (
-                    f"text to translate: {response_text}\n\n" f"ISO 639-1 code representing target language: {target_language}"
+                    f"text to translate: {response_text}\n\n"
+                    f"ISO 639-1 code representing target language: {target_language}"
                 ),
             },
         ],
@@ -237,7 +239,9 @@ def translate_or_localize_response(
     if isinstance(resp, str):
         sample = sample_for_language_detection_impl(resp)
         detected_lang = (
-            detect_language_impl(client, sample, agentic_strength=agentic_strength) if sample else target_language
+            detect_language_impl(client, sample, agentic_strength=agentic_strength)
+            if sample
+            else target_language
         )
         if detected_lang != target_language:
             logger.info("preparing to translate to %s", target_language)
@@ -305,7 +309,8 @@ def resolve_target_language(
 
     logger.warning("target language unknown. bailing out.")
     passthrough_texts: list[str] = [
-        reconstruct_structured_text(resp_item=resp, localize_to=None) for resp in responses_for_translation
+        reconstruct_structured_text(resp_item=resp, localize_to=None)
+        for resp in responses_for_translation
     ]
     notice = (
         "You haven't set your desired response language and I wasn't able to determine the language of your "

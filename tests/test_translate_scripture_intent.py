@@ -6,6 +6,8 @@ from typing import Any, cast
 import pytest
 
 import brain
+from bt_servant_engine.core.models import PassageRef, PassageSelection
+from bt_servant_engine.core.language import Language, ResponseLanguage, TranslatedPassage
 
 
 class _StubParseResult:
@@ -20,28 +22,40 @@ def _make_parse_stub(current_query: str):
     def _parse_stub(*args: Any, **kwargs: Any):  # noqa: ANN401 - test stub
         text_format = kwargs.get("text_format")
         # Target language detection calls set instructions and text_format=ResponseLanguage
-        if text_format is brain.ResponseLanguage:
+        if text_format is ResponseLanguage:
             q = current_query.lower()
             if "dutch" in q:
-                return _StubParseResult(brain.ResponseLanguage(language=brain.Language.DUTCH))
+                return _StubParseResult(ResponseLanguage(language=Language.DUTCH))
             if "chinese" in q:
-                return _StubParseResult(brain.ResponseLanguage(language=brain.Language.MANDARIN))
+                return _StubParseResult(ResponseLanguage(language=Language.MANDARIN))
             # For unsupported languages like Italian or when no target present
-            return _StubParseResult(brain.ResponseLanguage(language=brain.Language.OTHER))
+            return _StubParseResult(ResponseLanguage(language=Language.OTHER))
 
         # Passage selection parse: text_format=PassageSelection
-        if text_format is brain.PassageSelection:
+        if text_format is PassageSelection:
             q = current_query.lower()
             if "enoch" in q:
                 # Return a selection using an unsupported book name to trigger error
-                sel = brain.PassageSelection(selections=[
-                    brain.PassageRef(book="Enoch", start_chapter=1, start_verse=None, end_chapter=None, end_verse=None)
-                ])
+                sel = PassageSelection(
+                    selections=[
+                        PassageRef(
+                            book="Enoch",
+                            start_chapter=1,
+                            start_verse=None,
+                            end_chapter=None,
+                            end_verse=None,
+                        )
+                    ]
+                )
                 return _StubParseResult(sel)
             # Default: Genesis 1:1-3
-            sel = brain.PassageSelection(selections=[
-                brain.PassageRef(book="Genesis", start_chapter=1, start_verse=1, end_chapter=1, end_verse=3)
-            ])
+            sel = PassageSelection(
+                selections=[
+                    PassageRef(
+                        book="Genesis", start_chapter=1, start_verse=1, end_chapter=1, end_verse=3
+                    )
+                ]
+            )
             return _StubParseResult(sel)
 
         # Fallback
@@ -51,15 +65,18 @@ def _make_parse_stub(current_query: str):
 
 
 def _state_for(query: str) -> brain.BrainState:
-    return cast(brain.BrainState, {
-        "user_id": "test-user",
-        "user_query": query,
-        "transformed_query": query,
-        "query_language": "en",
-        "user_response_language": "",
-        "responses": [],
-        "user_chat_history": [],
-    })
+    return cast(
+        brain.BrainState,
+        {
+            "user_id": "test-user",
+            "user_query": query,
+            "transformed_query": query,
+            "query_language": "en",
+            "user_response_language": "",
+            "responses": [],
+            "user_chat_history": [],
+        },
+    )
 
 
 def test_translate_scripture_translates_with_supported_target(monkeypatch: pytest.MonkeyPatch):
@@ -68,16 +85,23 @@ def test_translate_scripture_translates_with_supported_target(monkeypatch: pytes
 
     def parse_stub(*args: Any, **kwargs: Any):  # noqa: ANN401 - test stub
         tf = kwargs.get("text_format")
-        if tf is brain.ResponseLanguage:
-            return _StubParseResult(brain.ResponseLanguage(language=brain.Language.DUTCH))
-        if tf is brain.PassageSelection:
-            sel = brain.PassageSelection(selections=[
-                brain.PassageRef(book="Genesis", start_chapter=1, start_verse=1, end_chapter=1, end_verse=1)
-            ])
+        if tf is ResponseLanguage:
+            return _StubParseResult(ResponseLanguage(language=Language.DUTCH))
+        if tf is PassageSelection:
+            sel = PassageSelection(
+                selections=[
+                    PassageRef(
+                        book="Genesis", start_chapter=1, start_verse=1, end_chapter=1, end_verse=1
+                    )
+                ]
+            )
             return _StubParseResult(sel)
-        if tf is brain.TranslatedPassage:
-            tp = brain.TranslatedPassage(
-                header_book="Genesis", header_suffix="1:1", body="In den beginne...", content_language=brain.Language.DUTCH
+        if tf is TranslatedPassage:
+            tp = TranslatedPassage(
+                header_book="Genesis",
+                header_suffix="1:1",
+                body="In den beginne...",
+                content_language=Language.DUTCH,
             )
             return _StubParseResult(tp)
         return _StubParseResult(None)
@@ -104,7 +128,9 @@ def test_translate_scripture_translates_with_supported_target(monkeypatch: pytes
         "translate enoch 1",
     ],
 )
-def test_translate_scripture_unsupported_book_returns_selection_error(monkeypatch: pytest.MonkeyPatch, query: str):
+def test_translate_scripture_unsupported_book_returns_selection_error(
+    monkeypatch: pytest.MonkeyPatch, query: str
+):
     # Arrange
     monkeypatch.setattr(brain.open_ai_client.responses, "parse", _make_parse_stub(query))
     state = _state_for(query)

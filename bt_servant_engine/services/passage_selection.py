@@ -110,7 +110,9 @@ def resolve_selection_for_single_book(
     )
     if focus_hint:
         logger.info("[selection-helper] applying focus hint: %s", focus_hint)
-        selection_messages.append(cast(EasyInputMessageParam, {"role": "developer", "content": focus_hint}))
+        selection_messages.append(
+            cast(EasyInputMessageParam, {"role": "developer", "content": focus_hint})
+        )
     selection_messages.append(cast(EasyInputMessageParam, {"role": "user", "content": parse_input}))
     logger.info("[selection-helper] extracting passage selection via LLM")
     selection_resp = client.responses.parse(
@@ -139,7 +141,11 @@ def resolve_selection_for_single_book(
     chap_match = re.search(r"\bchapters?\s+(\d+)\s*[-–]\s*(\d+)\b", lower_in)
     if chap_match and selection.selections:
         a, b = int(chap_match.group(1)), int(chap_match.group(2))
-        logger.info("[selection-helper] correcting to multi-chapter range: %d-%d due to 'chapters' phrasing", a, b)
+        logger.info(
+            "[selection-helper] correcting to multi-chapter range: %d-%d due to 'chapters' phrasing",
+            a,
+            b,
+        )
         first = selection.selections[0]
         selection.selections[0] = PassageRef(
             book=first.book,
@@ -157,12 +163,16 @@ def resolve_selection_for_single_book(
                 "Please request a selection for one book at a time. "
                 "If you need multiple books, send a separate message for each."
             )
-            logger.info("[selection-helper] empty parse; multiple books detected -> cross-book message")
+            logger.info(
+                "[selection-helper] empty parse; multiple books detected -> cross-book message"
+            )
             return None, None, msg
         if len(mentioned) == 1:
             # Fallback: choose the single detected book as a whole-book selection.
             primary = mentioned[0]
-            logger.info("[selection-helper] empty parse; falling back to single detected book: %s", primary)
+            logger.info(
+                "[selection-helper] empty parse; falling back to single detected book: %s", primary
+            )
             return primary, [(1, None, 10_000, None)], None
         msg = (
             "I couldn't identify a clear Bible passage in your request. Supported selection types include: "

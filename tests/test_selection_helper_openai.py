@@ -4,14 +4,16 @@ These tests call the real OpenAI Responses API via the helper
 `brain._resolve_selection_for_single_book`. They will be skipped when
 OPENAI_API_KEY is not configured for networked runs.
 """
+
 # pylint: disable=missing-function-docstring,line-too-long,duplicate-code
 from __future__ import annotations
 
 import pytest
 from dotenv import load_dotenv
 
-from brain import Language, _resolve_selection_for_single_book
+from brain import _resolve_selection_for_single_book
 from bt_servant_engine.core.config import config as app_config
+from bt_servant_engine.core.language import Language
 
 
 def _has_real_openai() -> bool:
@@ -23,7 +25,9 @@ load_dotenv(override=True)
 
 pytestmark = [
     pytest.mark.openai,
-    pytest.mark.skipif(not _has_real_openai(), reason="OPENAI_API_KEY not set for live OpenAI tests"),
+    pytest.mark.skipif(
+        not _has_real_openai(), reason="OPENAI_API_KEY not set for live OpenAI tests"
+    ),
 ]
 
 
@@ -40,7 +44,9 @@ pytestmark = [
         ("Titus", "Titus", "whole_book"),
     ],
 )
-def test_selection_parsing_varied_queries(query: str, expect_book: str, expect_range_kind: str) -> None:
+def test_selection_parsing_varied_queries(
+    query: str, expect_book: str, expect_range_kind: str
+) -> None:
     book, ranges, err = _resolve_selection_for_single_book(query, Language.ENGLISH.value)
     assert err is None, f"unexpected error for {query}: {err}"
     assert book == expect_book

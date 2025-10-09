@@ -1,4 +1,5 @@
 """Text utilities for chunking and splitting text safely."""
+
 import re
 from typing import List
 
@@ -26,14 +27,14 @@ def chop_text(text: str, n: int) -> list[str]:
     """Split text into chunks no longer than n, preserving sentence-ish breaks."""
     # Split text by sentence-ish boundaries, but keep delimiters
     # Match a period, semicolon, or double newline as separators
-    pieces = re.split(r'(\.|;|\n\n)', text)
+    pieces = re.split(r"(\.|;|\n\n)", text)
 
     # Reattach the separator (so "This is a sentence." instead of "This is a sentence" + ".")
     combined_pieces = []
     i = 0
     while i < len(pieces):
         piece = pieces[i]
-        if i + 1 < len(pieces) and pieces[i + 1] in {'.', ';', '\n\n'}:
+        if i + 1 < len(pieces) and pieces[i + 1] in {".", ";", "\n\n"}:
             piece += pieces[i + 1]
             i += 2
         else:
@@ -54,7 +55,7 @@ def chop_text(text: str, n: int) -> list[str]:
             if len(piece) > n:
                 # Hard split the big piece into multiple n-sized chunks
                 for j in range(0, len(piece), n):
-                    chunks.append(piece[j:j + n].strip())
+                    chunks.append(piece[j : j + n].strip())
                 current_chunk = ""
             else:
                 current_chunk = piece

@@ -7,6 +7,8 @@ from typing import Any, cast
 import pytest
 
 import brain
+from bt_servant_engine.core.models import PassageRef, PassageSelection
+from bt_servant_engine.core.language import Language, ResponseLanguage
 
 
 class _StubParseResult:
@@ -16,25 +18,28 @@ class _StubParseResult:
 
 
 def _state_for(query: str) -> brain.BrainState:
-    return cast(brain.BrainState, {
-        "user_id": "test-user",
-        "user_query": query,
-        "transformed_query": query,
-        "query_language": "en",
-        "user_response_language": "",
-        "responses": [],
-        "user_chat_history": [],
-    })
+    return cast(
+        brain.BrainState,
+        {
+            "user_id": "test-user",
+            "user_query": query,
+            "transformed_query": query,
+            "query_language": "en",
+            "user_response_language": "",
+            "responses": [],
+            "user_chat_history": [],
+        },
+    )
 
 
 def test_listen_to_scripture_sets_voice_and_formats_paragraph(monkeypatch: pytest.MonkeyPatch):
     # Arrange: stub selection parse; no explicit requested language
     def parse_stub(*args: Any, **kwargs: Any):  # noqa: ANN401 - test stub
         tf = kwargs.get("text_format")
-        if tf is brain.PassageSelection:
-            sel = brain.PassageSelection(
+        if tf is PassageSelection:
+            sel = PassageSelection(
                 selections=[
-                    brain.PassageRef(
+                    PassageRef(
                         book="Genesis",
                         start_chapter=1,
                         start_verse=1,
@@ -44,9 +49,9 @@ def test_listen_to_scripture_sets_voice_and_formats_paragraph(monkeypatch: pytes
                 ]
             )
             return _StubParseResult(sel)
-        if tf is brain.ResponseLanguage:
+        if tf is ResponseLanguage:
             # No explicit requested language in message
-            return _StubParseResult(brain.ResponseLanguage(language=brain.Language.OTHER))
+            return _StubParseResult(ResponseLanguage(language=Language.OTHER))
         return _StubParseResult(None)
 
     monkeypatch.setattr(brain.open_ai_client.responses, "parse", parse_stub)
