@@ -102,6 +102,56 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     reason_for_decision: The word 'John' was misspelled in the message.
     message_changed: True
 </assistant_response>
+
+## Example 4
+
+<past_conversation>
+    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
+
+        1. Summarize a passage
+        2. FIA process guidance
+        3. Translation helps
+        4. Keywords
+        5. Show scripture text
+        6. Read aloud
+        7. Translate scripture
+        8. Set response language
+
+    Which of these capabilities would you like to explore?
+</past_conversation>
+
+<current_message>
+    user_message: 6
+</current_message>
+
+<assistant_response>
+    new_message: I want to listen to passages as audio.
+    reason_for_decision: The user selected option 6 from the numbered menu of capabilities, which corresponds to
+                         listening to scripture as audio.
+    message_changed: True
+</assistant_response>
+
+## Example 5
+
+<past_conversation>
+    assistant_response: Here are the core things I can help with:
+
+        (1) Summaries of books, chapters, or verse ranges
+        (2) Guidance through the FIA process
+        (3) Translation helps and common challenges
+
+    Just reply with the number you need.
+</past_conversation>
+
+<current_message>
+    user_message: 2
+</current_message>
+
+<assistant_response>
+    new_message: I want to learn about the FIA workflow.
+    reason_for_decision: The user chose option 2 from the menu, which maps to FIA process guidance.
+    message_changed: True
+</assistant_response>
 """
 
 INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT = """

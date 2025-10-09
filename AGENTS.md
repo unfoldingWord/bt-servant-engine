@@ -13,6 +13,7 @@ The refactor is partially complete. When implementing changes:
 1. Always reference `docs/refactor_plan_revised.md` for current state and next steps
 2. Run `lint-imports` after changes to verify architecture compliance
 3. Complete phases sequentially (don't skip ahead)
+4. Treat the clean onion/hexagonal architecture established by the refactor as permanent—never introduce changes that violate its layer boundaries
 
 ### Note
 The Project Structure section below reflects the CURRENT state (with legacy modules).

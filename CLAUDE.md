@@ -259,6 +259,7 @@ apps/api/ → services/ → core/
 - **services** can import from core (NOT adapters)
 - **adapters** can import from core (implement ports)
 - **core** imports from nowhere (it's the innermost layer)
+- **Non-negotiable**: The clean onion/hexagonal architecture already established must never be violated—every change must respect these dependency boundaries
 
 ## Files to Reference
 
