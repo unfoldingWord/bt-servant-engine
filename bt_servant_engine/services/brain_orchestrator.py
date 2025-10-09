@@ -170,7 +170,15 @@ def create_brain():
     builder: StateGraph = _make_state_graph(BrainState)
 
     # Add all nodes with timing wrappers
-    builder.add_node("start_node", wrap_node_with_timing(brain_nodes.start, "start_node"))
+    builder.add_node(
+        "start_node",
+        wrap_node_with_progress(
+            brain_nodes.start,
+            "start_node",
+            progress_message="Give me a few moments to contemplate your request.",
+            force=True,
+        ),
+    )
     builder.add_node(
         "determine_query_language_node",
         wrap_node_with_timing(

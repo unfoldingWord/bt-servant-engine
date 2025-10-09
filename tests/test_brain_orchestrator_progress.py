@@ -6,6 +6,7 @@ import asyncio
 from typing import Any, Dict, List
 
 from bt_servant_engine.services.brain_orchestrator import wrap_node_with_progress
+from bt_servant_engine.services.progress_messaging import should_show_translation_progress
 
 
 def _make_state(messenger):
@@ -34,6 +35,23 @@ def test_wrap_node_with_progress_runs_without_event_loop() -> None:
 
     assert messages == ["Working..."]
     assert state["last_progress_time"] > 0
+
+
+def test_should_show_translation_progress_skips_english_codes() -> None:
+    """Progress messages for translation do not trigger for English targets."""
+
+    state: Dict[str, Any] = {
+        "responses": [{"response": "example"}],
+        "user_response_language": "en",
+    }
+
+    assert should_show_translation_progress(state) is False
+
+    state["user_response_language"] = "English"
+    assert should_show_translation_progress(state) is False
+
+    state["user_response_language"] = "English (US)"
+    assert should_show_translation_progress(state) is False
 
 
 def test_wrap_node_with_progress_schedules_on_running_loop() -> None:

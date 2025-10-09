@@ -103,8 +103,15 @@ def should_show_translation_progress(state: Any) -> bool:
     responses = s.get("responses", [])
     target_lang = s.get("user_response_language")
 
-    # Skip if English (no translation needed)
-    if target_lang == "English" or not target_lang:
+    if not target_lang:
+        return False
+
+    normalized_lang = target_lang.strip().lower()
+    if (
+        normalized_lang in {"english", "en"}
+        or normalized_lang.startswith("en-")
+        or normalized_lang.startswith("english")
+    ):
         return False
 
     # Check total response length

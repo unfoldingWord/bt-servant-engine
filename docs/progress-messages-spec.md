@@ -46,8 +46,8 @@ Progress messages will be sent at strategic points based on empirical performanc
 
 #### Critical Progress Points
 
-1. **Before Intent Determination** (determine_intents_node)
-   - Message: "I'm taking a quick look at your question so I can point you to the right resources."
+1. **Conversation Start** (`start_node`)
+   - Message: "Give me a few moments to contemplate your request."
    - Triggers for: Every request (ensures an immediate acknowledgment)
    - **ALWAYS send with force=True** to bypass throttling and ship within the first second
 
