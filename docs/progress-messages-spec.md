@@ -46,23 +46,23 @@ Progress messages will be sent at strategic points based on empirical performanc
 
 #### Critical Progress Points
 
-1. **After Intent Determination** (determine_intents_node)
-   - Message: "Understanding your request..."
-   - Triggers for: Complex multi-intent queries
-   - Threshold: If preprocessing + intent detection > 2 seconds
+1. **Before Intent Determination** (determine_intents_node)
+   - Message: "I'm taking a quick look at your question so I can point you to the right resources."
+   - Triggers for: Every request (ensures an immediate acknowledgment)
+   - **ALWAYS send with force=True** to bypass throttling and ship within the first second
 
 2. **Before Vector DB Query** (query_vector_db_node)
-   - Message: "Searching Bible resources..."
+   - Message: "I'm searching various Bible resources to help answer your question."
    - Triggers for: GET_BIBLE_TRANSLATION_ASSISTANCE intent
    - Always send (this is the slowest operation)
 
 3. **Before OpenAI Generation** (query_open_ai_node)
-   - Message: "Preparing your response..."
+   - Message: "I'm pulling everything together into a helpful response for you."
    - Triggers for: GET_BIBLE_TRANSLATION_ASSISTANCE path (after vector DB)
    - **ALWAYS send with force=True** (OpenAI calls are consistently slow)
 
 4. **Before Translation** (translate_responses_node)
-   - Message: "Translating to [language]..."
+   - Message: "I'm translating my response into your preferred language now."
    - Triggers for: Non-English target languages
    - Threshold: If response > 500 characters
 
@@ -70,6 +70,26 @@ Progress messages will be sent at strategic points based on empirical performanc
    - Message: "Creating audio message..."
    - Triggers for: Voice message requests
    - Always send (TTS is slow)
+
+6. **Before Passage Summaries** (handle_get_passage_summary_node)
+   - Message: "I'm gathering the passage details so I can summarize them for you."
+   - Triggers for: GET_PASSAGE_SUMMARY intent
+   - **ALWAYS send with force=True** because users only see this path when summary generation begins
+
+7. **Before Passage Keywords** (handle_get_passage_keywords_node)
+   - Message: "I'm reviewing the passage to pull out its key ideas for you."
+   - Triggers for: GET_PASSAGE_KEYWORDS intent
+   - **ALWAYS send with force=True** to guarantee feedback before keyword extraction LLM calls
+
+8. **Before Translation Helps** (handle_get_translation_helps_node)
+   - Message: "I'm compiling translation helps that will support your work on this passage."
+   - Triggers for: GET_TRANSLATION_HELPS intent
+   - **ALWAYS send with force=True** to acknowledge heavier translation helps generation
+
+9. **Before Scripture Translation** (handle_translate_scripture_node)
+   - Message: "I'm translating this passage into the language you asked for."
+   - Triggers for: TRANSLATE_SCRIPTURE intent
+   - **ALWAYS send with force=True** to signal the start of long-form translation work
 
 ### 3. Implementation Approach
 

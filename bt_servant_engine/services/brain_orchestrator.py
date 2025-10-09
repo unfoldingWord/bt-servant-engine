@@ -183,7 +183,12 @@ def create_brain():
     )
     builder.add_node(
         "determine_intents_node",
-        wrap_node_with_timing(brain_nodes.determine_intents, "determine_intents_node"),
+        wrap_node_with_progress(
+            brain_nodes.determine_intents,
+            "determine_intents_node",
+            progress_message="I'm taking a quick look at your question so I can point you to the right resources.",
+            force=True,
+        ),
     )
     builder.add_node(
         "set_response_language_node",
@@ -198,9 +203,10 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.query_vector_db,
             "query_vector_db_node",
-            progress_message="Searching Bible translation resources...",
+            progress_message="I'm searching various Bible resources to help answer your question.",
             condition=lambda s: IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE
             in s.get("user_intents", []),
+            force=True,
         ),
     )
     builder.add_node(
@@ -208,7 +214,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.query_open_ai,
             "query_open_ai_node",
-            progress_message="Analyzing resources and preparing response...",
+            progress_message="I'm pulling everything together into a helpful response for you.",
             condition=lambda s: IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE
             in s.get("user_intents", []),
             force=True,  # Always send, bypass throttling
@@ -242,20 +248,29 @@ def create_brain():
     )
     builder.add_node(
         "handle_get_passage_summary_node",
-        wrap_node_with_timing(
-            brain_nodes.handle_get_passage_summary, "handle_get_passage_summary_node"
+        wrap_node_with_progress(
+            brain_nodes.handle_get_passage_summary,
+            "handle_get_passage_summary_node",
+            progress_message="I'm gathering the passage details so I can summarize them for you.",
+            force=True,
         ),
     )
     builder.add_node(
         "handle_get_passage_keywords_node",
-        wrap_node_with_timing(
-            brain_nodes.handle_get_passage_keywords, "handle_get_passage_keywords_node"
+        wrap_node_with_progress(
+            brain_nodes.handle_get_passage_keywords,
+            "handle_get_passage_keywords_node",
+            progress_message="I'm reviewing the passage to pull out its key ideas for you.",
+            force=True,
         ),
     )
     builder.add_node(
         "handle_get_translation_helps_node",
-        wrap_node_with_timing(
-            brain_nodes.handle_get_translation_helps, "handle_get_translation_helps_node"
+        wrap_node_with_progress(
+            brain_nodes.handle_get_translation_helps,
+            "handle_get_translation_helps_node",
+            progress_message="I'm compiling translation helps that will support your work on this passage.",
+            force=True,
         ),
     )
     builder.add_node(
@@ -272,8 +287,11 @@ def create_brain():
     )
     builder.add_node(
         "handle_translate_scripture_node",
-        wrap_node_with_timing(
-            brain_nodes.handle_translate_scripture, "handle_translate_scripture_node"
+        wrap_node_with_progress(
+            brain_nodes.handle_translate_scripture,
+            "handle_translate_scripture_node",
+            progress_message="I'm translating this passage into the language you asked for.",
+            force=True,
         ),
     )
     builder.add_node(
@@ -281,8 +299,9 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.translate_responses,
             "translate_responses_node",
-            progress_message="Translating response...",
+            progress_message="I'm translating my response into your preferred language now.",
             condition=_should_show_translation_progress,
+            force=True,
         ),
         defer=True,
     )
