@@ -102,6 +102,9 @@ from utils.perf import add_tokens
 # Import LangGraph orchestration from brain_orchestrator
 # Note: This creates a circular dependency at import time, but brain_orchestrator
 # imports brain dynamically within create_brain() to break the cycle
+from bt_servant_engine.services.brain_orchestrator import (
+    create_brain,
+)
 
 # (Moved dynamic feature messaging and related prompts below IntentType)
 # COMBINE_RESPONSES_SYSTEM_PROMPT moved to bt_servant_engine.services.response_pipeline
