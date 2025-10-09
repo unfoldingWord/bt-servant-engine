@@ -89,7 +89,7 @@ def get_passage_summary(
     )
     if err:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": err}]}
-    assert canonical_book is not None and ranges is not None
+    assert canonical_book is not None and ranges is not None  # nosec B101 - type narrowing after err check
 
     # Retrieve verses from installed sources (response_language → query_language → en)
     try:
@@ -200,7 +200,7 @@ def get_passage_keywords(
     )
     if err:
         return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": err}]}
-    assert canonical_book is not None and ranges is not None
+    assert canonical_book is not None and ranges is not None  # nosec B101 - type narrowing after err check
 
     # Retrieve keywords from keyword dataset
     data_root = Path("sources") / "keyword_data"
@@ -270,7 +270,7 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-locals,to
     )
     if err:
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": err}]}
-    assert canonical_book is not None and ranges is not None
+    assert canonical_book is not None and ranges is not None  # nosec B101 - type narrowing after err check
 
     # 2) Detect explicit requested source language (e.g., "in Indonesian").
     #    Use the same structured parser used for translate-scripture to keep

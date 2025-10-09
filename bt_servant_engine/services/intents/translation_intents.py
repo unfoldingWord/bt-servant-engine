@@ -97,7 +97,7 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,t
     )
     if err:
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": err}]}
-    assert canonical_book is not None and ranges is not None
+    assert canonical_book is not None and ranges is not None  # nosec B101 - type narrowing after err check
 
     # Determine target language for translation
     # 1) Try to extract an explicit target from the message via structured parse
@@ -365,7 +365,7 @@ def get_translation_helps(
     )
     if err:
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": err}]}
-    assert canonical_book is not None and ranges is not None and raw_helps is not None
+    assert canonical_book is not None and ranges is not None and raw_helps is not None  # nosec B101 - type narrowing after err check
 
     ref_label, context_obj = build_translation_helps_context_fn(canonical_book, ranges, raw_helps)
     messages = build_translation_helps_messages_fn(ref_label, context_obj)

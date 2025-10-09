@@ -77,7 +77,7 @@ def prepare_translation_helps(
     )
     if err:
         return None, None, None, err
-    assert canonical_book is not None and ranges is not None
+    assert canonical_book is not None and ranges is not None  # nosec B101 - type narrowing after err check
 
     missing_books = set(get_missing_th_books(th_root))
     if canonical_book in missing_books:

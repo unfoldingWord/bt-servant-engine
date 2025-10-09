@@ -262,7 +262,7 @@ def translate_responses(state: Any) -> dict:
     target_language, passthrough = _resolve_target_language(s, responses_for_translation)
     if passthrough is not None:
         return {"translated_responses": passthrough}
-    assert target_language is not None
+    assert target_language is not None  # nosec B101 - type narrowing; exactly one is None per contract
 
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     translated_responses = [
