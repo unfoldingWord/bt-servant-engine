@@ -72,7 +72,7 @@ def resolve_selection_for_single_book(
     translate_text_fn: callable,
     focus_hint: str | None = None,
 ) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
-    # pylint: disable=too-many-return-statements, too-many-branches, too-many-arguments, too-many-positional-arguments
+    # pylint: disable=too-many-return-statements, too-many-branches, too-many-arguments
     """Parse and normalize a user query into a single canonical book and ranges.
 
     Args:

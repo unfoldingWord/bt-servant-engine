@@ -34,7 +34,7 @@ class UserMessage:
         text: str = "",
         media_id: str = "",
     ):
-        """Create a message instance."""  # pylint: disable=too-many-arguments,too-many-positional-arguments
+        """Create a message instance."""  # pylint: disable=too-many-arguments
         self.message_id = message_id
         self.user_id = user_id
         self.message_type = message_type

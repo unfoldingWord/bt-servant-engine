@@ -63,7 +63,7 @@ Style:
 """
 
 
-def translate_scripture(  # pylint: disable=too-many-arguments,too-many-positional-arguments,too-many-locals,too-many-branches,too-many-return-statements
+def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,too-many-branches,too-many-return-statements
     client: OpenAI,
     query: str,
     query_lang: str,
