@@ -11,8 +11,8 @@ from __future__ import annotations
 import pytest
 from dotenv import load_dotenv
 
-from brain import resolve_selection_for_single_book
 from bt_servant_engine.core.config import config as app_config
+from bt_servant_engine.services.brain_nodes import resolve_selection_for_single_book
 from bt_servant_engine.core.language import Language
 
 

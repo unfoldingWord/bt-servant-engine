@@ -29,7 +29,7 @@ def build_default_services(
 ) -> ServiceContainer:
     """Return a service container with the default intent router wiring."""
 
-    from brain import IntentType  # pylint: disable=import-outside-toplevel
+    from bt_servant_engine.core.intents import IntentType  # pylint: disable=import-outside-toplevel
 
     from .intent_router import IntentRouter  # pylint: disable=import-outside-toplevel
     from .intents.converse import (  # pylint: disable=import-outside-toplevel

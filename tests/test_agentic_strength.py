@@ -6,8 +6,8 @@ from typing import Any, cast
 
 import pytest
 
-import brain
 from bt_servant_engine.core.agentic import AgenticStrengthChoice, AgenticStrengthSetting
+from bt_servant_engine.services import brain_nodes
 
 
 class _StubResponse:  # pylint: disable=too-few-public-methods
@@ -23,7 +23,7 @@ def test_set_agentic_strength_persists_choice(monkeypatch: pytest.MonkeyPatch) -
 
     parsed = AgenticStrengthSetting(strength=AgenticStrengthChoice.LOW)
     monkeypatch.setattr(
-        brain.open_ai_client.responses,
+        brain_nodes.open_ai_client.responses,
         "parse",
         lambda **_kwargs: _StubResponse(parsed),
     )
@@ -34,7 +34,7 @@ def test_set_agentic_strength_persists_choice(monkeypatch: pytest.MonkeyPatch) -
         captured["user_id"] = user_id
         captured["strength"] = strength
 
-    monkeypatch.setattr(brain, "set_user_agentic_strength", _fake_set)
+    monkeypatch.setattr(brain_nodes, "set_user_agentic_strength", _fake_set)
 
     state: dict[str, Any] = {
         "user_id": "user-123",
@@ -42,7 +42,7 @@ def test_set_agentic_strength_persists_choice(monkeypatch: pytest.MonkeyPatch) -
         "user_chat_history": [],
     }
 
-    out = brain.set_agentic_strength(cast(Any, state))
+    out = brain_nodes.set_agentic_strength(cast(Any, state))
 
     assert captured == {"user_id": "user-123", "strength": "low"}
     assert out.get("agentic_strength") == "low"
@@ -57,7 +57,7 @@ def test_set_agentic_strength_handles_unknown(monkeypatch: pytest.MonkeyPatch) -
 
     parsed = AgenticStrengthSetting(strength=AgenticStrengthChoice.UNKNOWN)
     monkeypatch.setattr(
-        brain.open_ai_client.responses,
+        brain_nodes.open_ai_client.responses,
         "parse",
         lambda **_kwargs: _StubResponse(parsed),
     )
@@ -68,7 +68,7 @@ def test_set_agentic_strength_handles_unknown(monkeypatch: pytest.MonkeyPatch) -
         nonlocal called
         called = True
 
-    monkeypatch.setattr(brain, "set_user_agentic_strength", _fail_set)
+    monkeypatch.setattr(brain_nodes, "set_user_agentic_strength", _fail_set)
 
     state: dict[str, Any] = {
         "user_id": "user-456",
@@ -76,7 +76,7 @@ def test_set_agentic_strength_handles_unknown(monkeypatch: pytest.MonkeyPatch) -
         "user_chat_history": [],
     }
 
-    out = brain.set_agentic_strength(cast(Any, state))
+    out = brain_nodes.set_agentic_strength(cast(Any, state))
 
     assert not called, "should not persist an unknown preference"
     assert "normal, low, or very low" in out["responses"][0]["response"]

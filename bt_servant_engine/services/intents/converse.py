@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from brain import IntentType
+from bt_servant_engine.core.intents import IntentType
 
 from ..intent_router import IntentRequest, IntentResponse
 

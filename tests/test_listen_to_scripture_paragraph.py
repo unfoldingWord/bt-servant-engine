@@ -6,9 +6,10 @@ from typing import Any, cast
 
 import pytest
 
-import brain
-from bt_servant_engine.core.models import PassageRef, PassageSelection
 from bt_servant_engine.core.language import Language, ResponseLanguage
+from bt_servant_engine.core.models import PassageRef, PassageSelection
+from bt_servant_engine.services import brain_nodes
+from bt_servant_engine.services.brain_orchestrator import BrainState
 
 
 class _StubParseResult:
@@ -17,9 +18,9 @@ class _StubParseResult:
         self.usage = None
 
 
-def _state_for(query: str) -> brain.BrainState:
+def _state_for(query: str) -> BrainState:
     return cast(
-        brain.BrainState,
+        BrainState,
         {
             "user_id": "test-user",
             "user_query": query,
@@ -54,12 +55,12 @@ def test_listen_to_scripture_sets_voice_and_formats_paragraph(monkeypatch: pytes
             return _StubParseResult(ResponseLanguage(language=Language.OTHER))
         return _StubParseResult(None)
 
-    monkeypatch.setattr(brain.open_ai_client.responses, "parse", parse_stub)
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "parse", parse_stub)
 
     state = _state_for("Please read Genesis 1:1-3 out loud")
 
     # Act
-    out = brain.handle_listen_to_scripture(state)
+    out = brain_nodes.handle_listen_to_scripture(state)
 
     # Assert: voice flag present
     assert out.get("send_voice_message") is True

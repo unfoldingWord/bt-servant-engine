@@ -12,8 +12,9 @@ from typing import Any, cast
 import pytest
 from dotenv import load_dotenv
 
-from brain import IntentType, determine_intents
 from bt_servant_engine.core.config import config as app_config
+from bt_servant_engine.core.intents import IntentType
+from bt_servant_engine.services.brain_nodes import determine_intents
 
 
 def _has_real_openai() -> bool:

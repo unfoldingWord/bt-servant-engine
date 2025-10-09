@@ -15,7 +15,6 @@ import httpx
 from fastapi import APIRouter, Header, HTTPException, Request, Response, status
 from fastapi.responses import JSONResponse
 
-from brain import create_brain
 from bt_servant_engine.adapters.messaging import (
     send_text_message,
     send_typing_indicator_message,
@@ -25,6 +24,7 @@ from bt_servant_engine.adapters.messaging import (
 from bt_servant_engine.apps.api.state import get_brain, set_brain
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services.brain_orchestrator import create_brain
 from bt_servant_engine.core.models import UserMessage
 from bt_servant_engine.adapters.user_state import (
     get_user_agentic_strength,

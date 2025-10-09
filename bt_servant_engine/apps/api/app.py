@@ -8,8 +8,8 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-from brain import create_brain
 from bt_servant_engine.adapters import ChromaAdapter, MessagingAdapter, UserStateAdapter
+from bt_servant_engine.services.brain_orchestrator import create_brain
 from bt_servant_engine.apps.api.middleware import CorrelationIdMiddleware
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services import build_default_services
