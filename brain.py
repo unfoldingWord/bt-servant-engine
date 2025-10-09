@@ -1152,169 +1152,21 @@ def query_open_ai(state: Any) -> dict:
         return {"responses": [{"intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "response": error_msg}]}
 
 
-def consult_fia_resources(state: Any) -> dict:  # pylint: disable=too-many-locals
+def consult_fia_resources(state: Any) -> dict:
     """Answer FIA-specific questions using FIA collections and reference material."""
     s = cast(BrainState, state)
-    query = s["transformed_query"]
-    chat_history = s["user_chat_history"]
-    user_response_language = cast(Optional[str], s.get("user_response_language"))
-    query_language = cast(Optional[str], s.get("query_language"))
-
-    candidate_lang = (user_response_language or query_language or "en").lower()
-    if candidate_lang not in supported_language_map:
-        candidate_lang = "en"
-
-    localized_collection = f"{candidate_lang}_fia_resources"
-    logger.info("[consult-fia] primary collection candidate: %s", localized_collection)
-
-    def _query_collection(name: str) -> list[dict[str, str]]:
-        collection = get_chroma_collection(name)
-        if not collection:
-            logger.warning("[consult-fia] collection %s was not found in chroma db.", name)
-            return []
-        chroma_collection = cast(Any, collection)
-        results = chroma_collection.query(query_texts=[query], n_results=TOP_K)
-        documents = cast(list, results.get("documents", []))
-        distances = cast(list, results.get("distances", []))
-        metadatas = cast(list, results.get("metadatas", []))
-        if not documents:
-            return []
-        hits: list[dict[str, str]] = []
-        docs_for_query = documents[0]
-        dists_for_query = distances[0] if distances else []
-        metas_for_query = metadatas[0] if metadatas else []
-        for idx, doc in enumerate(docs_for_query):
-            try:
-                similarity = 1 - float(dists_for_query[idx])
-            except (IndexError, TypeError, ValueError):
-                similarity = 0.0
-            metadata = metas_for_query[idx] if idx < len(metas_for_query) else {}
-            resource_name = cast(str, metadata.get("name", "")) if isinstance(metadata, dict) else ""
-            source = cast(str, metadata.get("source", "")) if isinstance(metadata, dict) else ""
-            logger.info(
-                "[consult-fia] processing %s from %s with similarity %.4f",
-                resource_name or "<unnamed>",
-                source or "<unknown>",
-                similarity,
-            )
-            if similarity >= RELEVANCE_CUTOFF:
-                hits.append(
-                    {
-                        "collection_name": name,
-                        "resource_name": resource_name,
-                        "source": source,
-                        "document_text": cast(str, doc),
-                    }
-                )
-        if hits:
-            logger.info("[consult-fia] found %d hit(s) in %s", len(hits), name)
-        return hits
-
-    vector_docs = _query_collection(localized_collection)
-    collection_used: Optional[str] = localized_collection if vector_docs else None
-    if not vector_docs and localized_collection != "en_fia_resources":
-        logger.info("[consult-fia] falling back to en_fia_resources collection")
-        vector_docs = _query_collection("en_fia_resources")
-        if vector_docs:
-            collection_used = "en_fia_resources"
-
-    context_docs: list[dict[str, str]] = []
-    if FIA_REFERENCE_CONTENT:
-        context_docs.append(
-            {
-                "collection_name": "fia_reference",
-                "resource_name": "FIA Reference Manual",
-                "source": str(FIA_REFERENCE_PATH),
-                "document_text": FIA_REFERENCE_CONTENT,
-            }
-        )
-    else:
-        logger.warning("[consult-fia] FIA reference content unavailable")
-
-    context_docs.extend(vector_docs)
-
-    if not context_docs:
-        fallback = (
-            "Sorry, I couldn't find any FIA resources to service your request or command.\n\n"
-            f"{BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}"
-        )
-        return {
-            "responses": [
-                {"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fallback}
-            ]
-        }
-
-    context_payload = json.dumps(context_docs, indent=2)
-    logger.info("[consult-fia] context passed to LLM:\n%s", context_payload)
-
-    messages = cast(List[EasyInputMessageParam], [
-        {
-            "role": "developer",
-            "content": f"FIA context resources: {context_payload}",
-        },
-        {
-            "role": "developer",
-            "content": "Focus only on the portion of the user's message that requests FIA guidance. Ignore any other requests or book references in the message.",
-        },
-        {
-            "role": "developer",
-            "content": f"Use this conversation history if helpful: {json.dumps(chat_history)}",
-        },
-        {
-            "role": "user",
-            "content": query,
-        },
-    ])
-
-    try:
-        agentic_strength = _resolve_agentic_strength(s)
-        model_name = _model_for_agentic_strength(agentic_strength, allow_low=True, allow_very_low=True)
-        response = open_ai_client.responses.create(
-            model=model_name,
-            instructions=CONSULT_FIA_RESOURCES_SYSTEM_PROMPT,
-            input=cast(Any, messages),
-        )
-        usage = getattr(response, "usage", None)
-        if usage is not None:
-            it = getattr(usage, "input_tokens", None)
-            ot = getattr(usage, "output_tokens", None)
-            tt = getattr(usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
-
-        fia_response = response.output_text
-        logger.info("[consult-fia] response from openai: %s", fia_response)
-
-        resource_list = ", ".join(
-            {
-                (
-                    f"{doc.get('resource_name', 'unknown')} from {doc.get('source', 'unknown')}"
-                )
-                for doc in context_docs
-                if doc.get("collection_name") != "fia_reference"
-            }
-        )
-        if resource_list:
-            logger.info("[consult-fia] vector resources used: %s", resource_list)
-
-        update: dict[str, Any] = {
-            "responses": [
-                {"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fia_response}
-            ]
-        }
-        if collection_used:
-            update["collection_used"] = collection_used
-        return update
-    except OpenAIError:
-        logger.error("[consult-fia] Error during OpenAI request", exc_info=True)
-        error_msg = "I encountered some problems while consulting FIA resources. Please let Ian know about this one."
-        return {
-            "responses": [
-                {"intent": IntentType.CONSULT_FIA_RESOURCES, "response": error_msg}
-            ]
-        }
+    agentic_strength = _resolve_agentic_strength(s)
+    return consult_fia_resources_impl(
+        open_ai_client,
+        s["transformed_query"],
+        s["user_chat_history"],
+        s.get("user_response_language"),
+        s.get("query_language"),
+        get_chroma_collection,
+        _model_for_agentic_strength,
+        _extract_cached_input_tokens,
+        agentic_strength,
+    )
 
 
 def chunk_message(state: Any) -> dict:
@@ -1511,463 +1363,72 @@ def _resolve_selection_for_single_book(
 
 
 def handle_get_passage_summary(state: Any) -> dict:
-    """Handle get-passage-summary: extract refs, retrieve verses, summarize.
-
-    - If user query language is not English, translate the transformed query to English
-      for extraction only.
-    - Extract passage selection via structured LLM parse with a strict prompt and
-      canonical book list.
-    - Validate constraints (single book, up to whole book; no cross-book).
-    - Load verses from sources/bible_data/en efficiently and summarize.
-    - Return a single combined summary prefixed with a canonical reference echo.
-    """
+    """Handle get-passage-summary: extract refs, retrieve verses, summarize."""
     s = cast(BrainState, state)
-    query = s["transformed_query"]
-    query_lang = s["query_language"]
-    logger.info("[passage-summary] start; query_lang=%s; query=%s", query_lang, query)
-
-    canonical_book, ranges, err = _resolve_selection_for_single_book(
-        query,
-        query_lang,
-        focus_hint="Focus only on the portion of the user's message that asked for a passage summary. Ignore any other requests or book references in the message.",
-    )
-    if err:
-        return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": err}]}
-    assert canonical_book is not None and ranges is not None
-
-    # Retrieve verses from installed sources (response_language → query_language → en)
-    try:
-        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
-            response_language=s.get("user_response_language"),
-            query_language=s.get("query_language"),
-            requested_lang=None,
-            requested_version=None,
-        )
-        logger.info(
-            "[passage-summary] retrieving verses from %s (lang=%s, version=%s)",
-            data_root,
-            resolved_lang,
-            resolved_version,
-        )
-    except FileNotFoundError:
-        msg = (
-            "Scripture data is not available on this server. Please contact the administrator."
-        )
-        return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
-
-    verses = select_verses(data_root, canonical_book, ranges)
-    logger.info("[passage-summary] retrieved %d verse(s)", len(verses))
-    if not verses:
-        msg = "I couldn't locate those verses in the Bible data. Please check the reference and try again."
-        logger.info("[passage-summary] no verses found for selection; prompting user")
-        return {"responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": msg}]}
-
-    # Prepare text for summarization
-    # Localize the book name in the header using titles from the resolved source when available
-    titles_map = load_book_titles(data_root)
-    localized_book = titles_map.get(canonical_book) or get_book_name(str(resolved_lang), canonical_book)
-    ref_label_en = label_ranges(canonical_book, ranges)
-    if ref_label_en == canonical_book:
-        ref_label = localized_book
-    elif ref_label_en.startswith(f"{canonical_book} "):
-        ref_label = f"{localized_book} {ref_label_en[len(canonical_book) + 1:]}"
-    else:
-        ref_label = ref_label_en
-    logger.info("[passage-summary] label=%s", ref_label)
-    joined = "\n".join(f"{ref}: {txt}" for ref, txt in verses)
-
-    # Summarize using LLM with strict system prompt
-    sum_messages: list[EasyInputMessageParam] = [
-        {"role": "developer", "content": "Focus only on summarizing the portion of the user's message that asked for a passage summary. Ignore any other requests or book references in the message."},
-        {"role": "developer", "content": f"Passage reference: {ref_label}"},
-        {"role": "developer", "content": f"Passage verses (use only this content):\n{joined}"},
-        {"role": "user", "content": "Provide a concise, faithful summary of the passage above."},
-    ]
     agentic_strength = _resolve_agentic_strength(s)
-    model_name = _model_for_agentic_strength(agentic_strength, allow_low=True, allow_very_low=True)
-    logger.info("[passage-summary] summarizing %d verses", len(verses))
-    summary_resp = open_ai_client.responses.create(
-        model=model_name,
-        instructions=PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, sum_messages),
-        store=False,
+    return get_passage_summary_impl(
+        open_ai_client,
+        s["transformed_query"],
+        s["query_language"],
+        BSB_BOOK_MAP,
+        _detect_mentioned_books,
+        translate_text,
+        _model_for_agentic_strength,
+        _extract_cached_input_tokens,
+        s.get("user_response_language"),
+        agentic_strength,
     )
-    usage = getattr(summary_resp, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
-    summary_text = summary_resp.output_text
-    logger.info("[passage-summary] summary generated (len=%d)", len(summary_text) if summary_text else 0)
-
-    response_text = f"Summary of {ref_label}:\n\n{summary_text}"
-    logger.info("[passage-summary] done")
-    return {
-        "responses": [
-            {
-                "intent": IntentType.GET_PASSAGE_SUMMARY,
-                "response": response_text,
-                "suppress_combining": True,
-            }
-        ]
-    }
 
 
 def handle_get_passage_keywords(state: Any) -> dict:
-    """Handle get-passage-keywords: extract refs, retrieve keywords, and list them.
-
-    Mirrors the summary flow for selection parsing and validation, but instead of
-    summarizing verses, loads per-verse keyword data from sources/keyword_data and
-    returns a comma-separated list of distinct tw_match values present in the
-    selection. The response is prefixed with "Keywords in <range>\n\n".
-    """
+    """Handle get-passage-keywords: extract refs, retrieve keywords, and list them."""
     s = cast(BrainState, state)
-    query = s["transformed_query"]
-    query_lang = s["query_language"]
-    logger.info("[passage-keywords] start; query_lang=%s; query=%s", query_lang, query)
-
-    canonical_book, ranges, err = _resolve_selection_for_single_book(
-        query,
-        query_lang,
-        focus_hint="Focus only on the portion of the user's message that asked for passage keywords. Ignore any other requests or book references in the message.",
+    return get_passage_keywords_impl(
+        open_ai_client,
+        s["transformed_query"],
+        s["query_language"],
+        BSB_BOOK_MAP,
+        _detect_mentioned_books,
+        translate_text,
     )
-    if err:
-        return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": err}]}
-    assert canonical_book is not None and ranges is not None
-
-    # Retrieve keywords from keyword dataset
-    data_root = Path("sources") / "keyword_data"
-    logger.info("[passage-keywords] retrieving keywords from %s", data_root)
-    keywords = select_keywords(data_root, canonical_book, ranges)
-    logger.info("[passage-keywords] retrieved %d keyword(s)", len(keywords))
-
-    if not keywords:
-        msg = (
-            "I couldn't locate keywords for that selection. Please check the reference and try again."
-        )
-        logger.info("[passage-keywords] no keywords found; prompting user")
-        return {"responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": msg}]}
-
-    ref_label = label_ranges(canonical_book, ranges)
-    header = f"Keywords in {ref_label}\n\n"
-    body = ", ".join(keywords)
-    response_text = header + body
-    logger.info("[passage-keywords] done")
-    return {
-        "responses": [
-            {
-                "intent": IntentType.GET_PASSAGE_KEYWORDS,
-                "response": response_text,
-                "suppress_combining": True,
-            }
-        ]
-    }
-
-
-TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT = """
-# Identity
-
-You are a careful assistant helping Bible translators anticipate and address translation issues.
-
-# Instructions
-
-You will receive a structured JSON context containing:
-- selection metadata (book and ranges),
-- per-verse translation helps (with BSB/ULT verse text and notes).
-
-Use only the provided context to write a coherent, actionable guide for translators. Focus on:
-- key translation issues surfaced by the notes,
-- clarifications about original-language expressions noted in the helps,
-- concrete guidance and options for difficult terms, and
-- any cross-references or constraints hinted by support references.
-
-Style:
-- Write in clear prose (avoid lists unless the content is inherently a short list).
-- Cite verse numbers inline (e.g., “1:1–3”, “3:16”) where helpful.
-- Be faithful and restrained; do not speculate beyond the provided context.
-"""
 
 
 def handle_get_translation_helps(state: Any) -> dict:
     """Generate focused translation helps guidance for a selected passage."""
     s = cast(BrainState, state)
-    query = s["transformed_query"]
-    query_lang = s["query_language"]
-    logger.info("[translation-helps] start; query_lang=%s; query=%s", query_lang, query)
-
-    th_root = Path("sources") / "translation_helps"
-    bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
-    logger.info("[translation-helps] loading helps from %s", th_root)
-
-    canonical_book, ranges, raw_helps, err = _prepare_translation_helps(
-        s,
-        th_root,
-        bsb_root,
-        selection_focus_hint="Focus only on the portion of the user's message that asked for translation helps. Ignore any other requests or book references in the message.",
-    )
-    if err:
-        return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": err}]}
-    assert canonical_book is not None and ranges is not None and raw_helps is not None
-
-    ref_label, context_obj = _build_translation_helps_context(canonical_book, ranges, raw_helps)
-    messages = _build_translation_helps_messages(ref_label, context_obj)
-
-    logger.info("[translation-helps] invoking LLM with %d helps", len(raw_helps))
     agentic_strength = _resolve_agentic_strength(s)
-    model_name = _model_for_agentic_strength(agentic_strength, allow_low=True, allow_very_low=True)
-    resp = open_ai_client.responses.create(
-        model=model_name,
-        instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        store=False,
+    return get_translation_helps_impl(
+        open_ai_client,
+        s["transformed_query"],
+        s["query_language"],
+        BSB_BOOK_MAP,
+        _detect_mentioned_books,
+        translate_text,
+        _model_for_agentic_strength,
+        _extract_cached_input_tokens,
+        _prepare_translation_helps,
+        _build_translation_helps_context,
+        _build_translation_helps_messages,
+        agentic_strength,
     )
-    usage = getattr(resp, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
-
-    header = f"Translation helps for {ref_label}\n\n"
-    response_text = header + (resp.output_text or "")
-    return {
-        "responses": [
-            {
-                "intent": IntentType.GET_TRANSLATION_HELPS,
-                "response": response_text,
-                "suppress_combining": True,
-            }
-        ]
-    }
 
 
-def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
-    """Handle retrieve-scripture with optional auto-translation.
-
-    Behavior:
-    - If the user explicitly requests a particular Bible language (e.g., "in Indonesian"),
-      attempt to serve that language verbatim if available. If not available, fall back
-      to auto-translating the retrieved scripture into that requested language.
-    - Otherwise (no explicit language), retrieve from installed sources using
-      response_language → query_language → en for the source. If the chosen source
-      language differs from the user's desired response language (or query language
-      when response language is unset), auto-translate the scripture into the desired
-      target language.
-    - Scripture is returned as a structured response with segments. When auto-translating,
-      the header is pre-localized and the scripture body is translated while preserving
-      line boundaries and verse labels.
-    """
+def handle_retrieve_scripture(state: Any) -> dict:
+    """Handle retrieve-scripture with optional auto-translation."""
     s = cast(BrainState, state)
-    query = s["transformed_query"]
-    query_lang = s["query_language"]
-    logger.info("[retrieve-scripture] start; query_lang=%s; query=%s", query_lang, query)
     agentic_strength = _resolve_agentic_strength(s)
-
-    # 1) Parse passage selection
-    canonical_book, ranges, err = _resolve_selection_for_single_book(
-        query,
-        query_lang,
-        focus_hint="Focus only on the portion of the user's message that asked to retrieve or listen to scripture. Ignore any other requests or book references in the message.",
+    return retrieve_scripture_impl(
+        open_ai_client,
+        s["transformed_query"],
+        s["query_language"],
+        BSB_BOOK_MAP,
+        _detect_mentioned_books,
+        translate_text,
+        _model_for_agentic_strength,
+        _extract_cached_input_tokens,
+        s.get("user_response_language"),
+        agentic_strength,
     )
-    if err:
-        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": err}]}
-    assert canonical_book is not None and ranges is not None
-
-    # 2) Detect explicit requested source language (e.g., "in Indonesian").
-    #    Use the same structured parser used for translate-scripture to keep
-    #    language extraction robust, then fall back to a minimal regex.
-    requested_lang: Optional[str] = None
-    try:
-        tl_resp = open_ai_client.responses.parse(
-            model="gpt-4o",
-            instructions=TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
-            input=cast(Any, [{"role": "user", "content": f"message: {query}"}]),
-            text_format=ResponseLanguage,
-            temperature=0,
-            store=False,
-        )
-        tl_usage = getattr(tl_resp, "usage", None)
-        if tl_usage is not None:
-            it = getattr(tl_usage, "input_tokens", None)
-            ot = getattr(tl_usage, "output_tokens", None)
-            tt = getattr(tl_usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(tl_usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-        tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
-        if tl_parsed and tl_parsed.language != Language.OTHER:
-            requested_lang = str(tl_parsed.language.value)
-    except OpenAIError:
-        logger.info("[retrieve-scripture] requested-language parse failed; will fallback", exc_info=True)
-    except Exception:  # pylint: disable=broad-except
-        logger.info("[retrieve-scripture] requested-language parse failed (generic); will fallback", exc_info=True)
-    if not requested_lang:
-        m = re.search(r"\b(?:in|from the|from)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
-        if m:
-            # Map name → ISO code when possible
-            name = m.group(1).strip().title()
-            for code, friendly in supported_language_map.items():
-                if friendly.lower() == name.lower():
-                    requested_lang = code
-                    break
-
-    # 3) Resolve bible data root path with fallbacks
-    try:
-        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
-            response_language=s.get("user_response_language"),
-            query_language=s.get("query_language"),
-            requested_lang=requested_lang,
-            requested_version=None,
-        )
-        logger.info(
-            "[retrieve-scripture] data_root=%s lang=%s version=%s",
-            data_root,
-            resolved_lang,
-            resolved_version,
-        )
-    except FileNotFoundError:
-        # Catalog available options for a friendly message
-        avail = list_available_sources()
-        if not avail:
-            msg = (
-                "Scripture data is not available on this server. Please contact the administrator."
-            )
-            return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
-        options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
-        msg = (
-            f"I couldn't find a Bible source matching your request. Available sources: {options}. "
-            f"Would you like me to use one of these?"
-        )
-        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
-
-    # 4) Enforce verse-count limit before retrieval to avoid oversized selections
-    total_verses = len(select_verses(data_root, canonical_book, ranges))
-    if total_verses > config.RETRIEVE_SCRIPTURE_VERSE_LIMIT:
-        ref_label_over = label_ranges(canonical_book, ranges)
-        msg = (
-            f"I can only retrieve up to {config.RETRIEVE_SCRIPTURE_VERSE_LIMIT} verses at a time. "
-            f"Your selection {ref_label_over} includes {total_verses} verses. "
-            "Please narrow the range (e.g., a chapter or a shorter span)."
-        )
-        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
-
-    # 5) Retrieve exact verses (now known to be within limit)
-    verses = select_verses(data_root, canonical_book, ranges)
-    if not verses:
-        msg = (
-            "I couldn't locate those verses in the Bible data. Please check the reference and try again."
-        )
-        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": msg}]}
-
-    # 6) Build header segments (book + suffix) and scripture segment
-    ref_label = label_ranges(canonical_book, ranges)
-    # Derive suffix by removing leading book name, when present
-    suffix = ""
-    if ref_label == canonical_book:
-        suffix = ""
-    elif ref_label.startswith(f"{canonical_book} "):
-        suffix = ref_label[len(canonical_book) + 1 :]
-    else:
-        suffix = ref_label
-    # Build a flowing paragraph of verse text without chapter:verse labels
-    def _norm_ws(s: str) -> str:
-        return re.sub(r"\s+", " ", s).strip()
-
-    scripture_lines: list[str] = []
-    for _ref, txt in verses:
-        scripture_lines.append(_norm_ws(str(txt)))
-    # Join with a single space to create a continuous block
-    scripture_text = " ".join(scripture_lines)
-
-    # 7) Decide on auto-translation target
-    desired_target: Optional[str] = None
-    # If the user explicitly requested a language but the resolved source differs,
-    # prefer translating to that requested language.
-    if requested_lang and requested_lang != resolved_lang:
-        desired_target = requested_lang
-    # Otherwise, use response_language (if set) or query_language when they differ
-    # from the resolved source language.
-    if not desired_target and not requested_lang:
-        url = cast(Optional[str], s.get("user_response_language"))
-        ql = cast(Optional[str], s.get("query_language"))
-        target_pref = url or ql
-        if target_pref and target_pref != resolved_lang:
-            desired_target = target_pref
-
-    # If we have a target and it's a supported language code, auto-translate body + header
-    if desired_target and desired_target in supported_language_map:
-        # Localize header book name using target language titles when possible;
-        # fall back to a static map; finally, LLM-translate as last resort.
-        translated_book = None
-        try:
-            t_root, _t_lang, _t_ver = resolve_bible_data_root(
-                response_language=None,
-                query_language=None,
-                requested_lang=desired_target,
-                requested_version=None,
-            )
-            t_titles = load_book_titles(t_root)
-            translated_book = t_titles.get(canonical_book)
-        except FileNotFoundError:
-            translated_book = None
-        if not translated_book:
-            static_name = get_book_name(desired_target, canonical_book)
-            if static_name != canonical_book:
-                translated_book = static_name
-            else:
-                # As a last resort, translate the canonical book name with the LLM.
-                translated_book = translate_text(
-                    response_text=canonical_book,
-                    target_language=desired_target,
-                    agentic_strength=agentic_strength,
-                )
-        # Translate each verse text and join into a flowing paragraph
-        translated_lines: list[str] = [
-            _norm_ws(
-                translate_text(
-                    response_text=str(txt),
-                    target_language=desired_target,
-                    agentic_strength=agentic_strength,
-                )
-            )
-            for _ref, txt in verses
-        ]
-        translated_body = " ".join(translated_lines)
-        response_obj = {
-            "suppress_translation": True,
-            "content_language": desired_target,
-            "header_is_translated": True,
-            "segments": [
-                {"type": "header_book", "text": translated_book},
-                {"type": "header_suffix", "text": suffix},
-                {"type": "scripture", "text": translated_body},
-            ],
-        }
-        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
-
-    # No auto-translation required; return verbatim with canonical header (to be localized downstream if desired)
-    # Load localized titles for the resolved source language (if present)
-    titles_map = load_book_titles(data_root)
-    header_book = titles_map.get(canonical_book) or get_book_name(str(resolved_lang), canonical_book)
-    response_obj = {
-        "suppress_translation": True,
-        "content_language": str(resolved_lang),
-        "header_is_translated": False,
-        "segments": [
-            {"type": "header_book", "text": header_book},
-            {"type": "header_suffix", "text": suffix},
-            {"type": "scripture", "text": scripture_text},
-        ],
-    }
-    return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
 
 
 def handle_listen_to_scripture(state: Any) -> dict:
@@ -1988,257 +1449,22 @@ def handle_listen_to_scripture(state: Any) -> dict:
         agentic_strength,
     )
 
-def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
-    """Handle translate-scripture: return verses translated into a target language.
-
-    - Extract passage selection via the shared helper.
-    - Determine target language from the user's message; require it to be one of supported codes.
-    - Optional source language/version parsing (simple language-name heuristic); if absent, use resolver fallbacks.
-    - Load source verse texts, translate only the verse text per line, and return a structured, protected response.
-    """
+def handle_translate_scripture(state: Any) -> dict:
+    """Handle translate-scripture: return verses translated into a target language."""
     s = cast(BrainState, state)
-    query = s["transformed_query"]
-    query_lang = s["query_language"]
-    logger.info("[translate-scripture] start; query_lang=%s; query=%s", query_lang, query)
     agentic_strength = _resolve_agentic_strength(s)
-
-    # First, validate the passage selection so we can surface selection errors
-    # (e.g., unsupported book like "Enoch") before language guidance.
-    canonical_book, ranges, err = _resolve_selection_for_single_book(
-        query,
-        query_lang,
-        focus_hint="Focus only on the portion of the user's message that asked to translate scripture. Ignore any other requests or book references in the message.",
+    return translate_scripture_impl(
+        open_ai_client,
+        s["transformed_query"],
+        s["query_language"],
+        BSB_BOOK_MAP,
+        _detect_mentioned_books,
+        translate_text,
+        _model_for_agentic_strength,
+        _extract_cached_input_tokens,
+        s.get("user_response_language"),
+        agentic_strength,
     )
-    if err:
-        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": err}]}
-    assert canonical_book is not None and ranges is not None
-
-    # Determine target language for translation
-    # 1) Try to extract an explicit target from the message via structured parse
-    target_code: Optional[str] = None
-    explicit_mention_name: Optional[str] = None
-    try:
-        tl_resp = open_ai_client.responses.parse(
-            model="gpt-4o",
-            instructions=TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT,
-            input=cast(Any, [{"role": "user", "content": f"message: {query}"}]),
-            text_format=ResponseLanguage,
-            temperature=0,
-            store=False,
-        )
-        tl_usage = getattr(tl_resp, "usage", None)
-        if tl_usage is not None:
-            it = getattr(tl_usage, "input_tokens", None)
-            ot = getattr(tl_usage, "output_tokens", None)
-            tt = getattr(tl_usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(tl_usage)
-            add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-        tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
-        if tl_parsed and tl_parsed.language != Language.OTHER:
-            target_code = str(tl_parsed.language.value)
-    except OpenAIError:
-        logger.info("[translate-scripture] target-language parse failed; will fallback", exc_info=True)
-
-    # Minimal, tightly scoped heuristic for phrases like "into Italian" (explicit mention)
-    if not target_code:
-        m = re.search(r"\b(?:into|to|in)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", query, flags=re.IGNORECASE)
-        if m:
-            explicit_mention_name = m.group(1).strip().title()
-
-    # 2) Decide path: if explicit mention exists but unsupported -> guidance; else fall back.
-    if not target_code and explicit_mention_name:
-        # Explicitly requested a language, but it's not in our supported codes.
-        requested_name = explicit_mention_name
-        supported_names = [supported_language_map[c] for c in ["en","ar","fr","es","hi","ru","id","sw","pt","zh","nl"]]
-        supported_lines = "\n".join(f"- {name}" for name in supported_names)
-        guidance = (
-            f"Translating into {requested_name} is currently not supported.\n\n"
-            "BT Servant can set your response language to any of:\n\n"
-            f"{supported_lines}\n\n"
-            "Would you like me to set a specific language for your responses?"
-        )
-        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": guidance}]}
-
-    # 3) Fallbacks: user_response_language, then detected query_language
-    if not target_code:
-        url = cast(Optional[str], s.get("user_response_language"))
-        if url and url in supported_language_map:
-            target_code = url
-    if not target_code:
-        ql = cast(Optional[str], s.get("query_language"))
-        if ql and ql in supported_language_map:
-            target_code = ql
-
-    # If we still don't know a supported target, return guidance with supported list
-    if not target_code or target_code not in supported_language_map:
-        # Prefer explicit language name if present in the message for clarity
-        requested_name2: Optional[str] = explicit_mention_name
-        if not requested_name2:
-            requested_name2 = "an unsupported language"
-
-        supported_names = [
-            supported_language_map[code] for code in [
-                "en", "ar", "fr", "es", "hi", "ru", "id", "sw", "pt", "zh", "nl"
-            ]
-        ]
-        supported_lines = "\n".join(f"- {name}" for name in supported_names)
-        guidance = (
-            f"Translating into {requested_name2} is currently not supported.\n\n"
-            "BT Servant can set your response language to any of:\n\n"
-            f"{supported_lines}\n\n"
-            "Would you like me to set a specific language for your responses?"
-        )
-        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": guidance}]}
-
-    # Resolve source Bible data (language/version) for retrieval
-    try:
-        data_root, resolved_lang, resolved_version = resolve_bible_data_root(
-            response_language=s.get("user_response_language"),
-            query_language=s.get("query_language"),
-            requested_lang=None,
-            requested_version=None,
-        )
-        logger.info(
-            "[translate-scripture] source data_root=%s lang=%s version=%s",
-            data_root,
-            resolved_lang,
-            resolved_version,
-        )
-    except FileNotFoundError:
-        avail = list_available_sources()
-        if not avail:
-            msg = (
-                "Scripture data is not available on this server. Please contact the administrator."
-            )
-            return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
-        options = ", ".join(f"{lang}/{ver}" for lang, ver in avail)
-        msg = (
-            f"I couldn't find a Bible source to translate from. Available sources: {options}. "
-            f"Would you like me to use one of these?"
-        )
-        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
-
-    # Enforce verse-count limit before retrieval/translation to avoid oversized selections
-    total_verses = len(select_verses(data_root, canonical_book, ranges))
-    if total_verses > config.TRANSLATE_SCRIPTURE_VERSE_LIMIT:
-        ref_label_over = label_ranges(canonical_book, ranges)
-        msg = (
-            f"I can only translate up to {config.TRANSLATE_SCRIPTURE_VERSE_LIMIT} verses at a time. "
-            f"Your selection {ref_label_over} includes {total_verses} verses. "
-            "Please narrow the range (e.g., a chapter or a shorter span)."
-        )
-        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
-
-    # Retrieve verses
-    verses = select_verses(data_root, canonical_book, ranges)
-    if not verses:
-        msg = "I couldn't locate those verses in the Bible data. Please check the reference and try again."
-        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": msg}]}
-
-    # Build header suffix once from the canonical label
-    ref_label = label_ranges(canonical_book, ranges)
-    if ref_label == canonical_book:
-        header_suffix = ""
-    elif ref_label.startswith(f"{canonical_book} "):
-        header_suffix = ref_label[len(canonical_book) + 1 :]
-    else:
-        header_suffix = ref_label
-
-    # Join body as continuous text (drop verse labels; single paragraph)
-    def _norm_ws(s: str) -> str:
-        return re.sub(r"\s+", " ", str(s)).strip()
-
-    body_src = " ".join(_norm_ws(txt) for _, txt in verses)
-
-    # Pass-through guard: if source language equals target language, return verbatim
-    # scripture without running translation. This avoids unnecessary LLM calls and
-    # preserves the original text (e.g., source=fr and target=fr).
-    if target_code and target_code == resolved_lang:
-        response_obj = {
-            "suppress_translation": True,
-            "content_language": str(resolved_lang),
-            "header_is_translated": False,
-            "segments": [
-                {"type": "header_book", "text": canonical_book},
-                {"type": "header_suffix", "text": header_suffix},
-                {"type": "scripture", "text": body_src},
-            ],
-        }
-        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
-
-    # Attempt structured translation (book header + body) via Responses.parse
-    translated: TranslatedPassage | None = None
-    try:
-        messages: list[EasyInputMessageParam] = [
-            {"role": "developer", "content": f"canonical_book: {canonical_book}"},
-            {"role": "developer", "content": f"header_suffix (do not translate): {header_suffix}"},
-            {"role": "developer", "content": f"target_language: {target_code}"},
-            {"role": "developer", "content": "passage body (translate; preserve newlines):"},
-            {"role": "developer", "content": body_src},
-        ]
-        model_name = _model_for_agentic_strength(agentic_strength, allow_low=False, allow_very_low=True)
-        resp = open_ai_client.responses.parse(
-            model=model_name,
-            instructions=TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT,
-            input=cast(Any, messages),
-            text_format=TranslatedPassage,
-            temperature=0,
-            store=False,
-        )
-        usage = getattr(resp, "usage", None)
-        if usage is not None:
-            it = getattr(usage, "input_tokens", None)
-            ot = getattr(usage, "output_tokens", None)
-            tt = getattr(usage, "total_tokens", None)
-            if tt is None and (it is not None or ot is not None):
-                tt = (it or 0) + (ot or 0)
-            cit = _extract_cached_input_tokens(usage)
-            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
-        translated = cast(TranslatedPassage | None, resp.output_parsed)
-    except OpenAIError:
-        logger.warning("[translate-scripture] structured parse failed due to OpenAI error; falling back.", exc_info=True)
-        translated = None
-    except Exception:  # pylint: disable=broad-except
-        logger.warning("[translate-scripture] structured parse failed; falling back to simple translation.", exc_info=True)
-        translated = None
-
-    if translated is None:
-        translated_body = _norm_ws(
-            translate_text(
-                response_text=body_src,
-                target_language=cast(str, target_code),
-                agentic_strength=agentic_strength,
-            )
-        )
-        translated_book = translate_text(
-            response_text=canonical_book,
-            target_language=cast(str, target_code),
-            agentic_strength=agentic_strength,
-        )
-        response_obj = {
-            "suppress_translation": True,
-            "content_language": cast(str, target_code),
-            "header_is_translated": True,
-            "segments": [
-                {"type": "header_book", "text": translated_book},
-                {"type": "header_suffix", "text": header_suffix},
-                {"type": "scripture", "text": translated_body},
-            ],
-        }
-    else:
-        response_obj = {
-            "suppress_translation": True,
-            "content_language": str(translated.content_language.value),
-            "header_is_translated": True,
-            "segments": [
-                {"type": "header_book", "text": translated.header_book or canonical_book},
-                {"type": "header_suffix", "text": translated.header_suffix or header_suffix},
-                {"type": "scripture", "text": _norm_ws(translated.body)},
-            ],
-        }
-    return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
 
 
 def create_brain():
