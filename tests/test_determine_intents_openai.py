@@ -67,6 +67,21 @@ def test_intents_detect_keywords(query: str) -> None:
 
 
 @pytest.mark.parametrize(
+    "query",
+    [
+        "I want to listen to John 1:1.",
+        "Please read John 3 out loud.",
+        "Play Genesis 1 in Spanish.",
+    ],
+)
+def test_intents_detect_listen_to_scripture(query: str) -> None:
+    state: dict[str, Any] = {"transformed_query": query}
+    out = determine_intents(cast(Any, state))
+    intents = set(out["user_intents"])  # list[IntentType]
+    assert IntentType.LISTEN_TO_SCRIPTURE in intents
+
+
+@pytest.mark.parametrize(
     "query,acceptable_intents",
     [
         # Ambiguous: could be general translation help or FIA-specific
