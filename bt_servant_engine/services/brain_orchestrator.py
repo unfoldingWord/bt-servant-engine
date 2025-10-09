@@ -91,9 +91,15 @@ def wrap_node_with_progress(  # type: ignore[no-untyped-def]
             # Import here to avoid circular dependency
             from bt_servant_engine.services.progress_messaging import maybe_send_progress
 
-            # Run the async progress function in the event loop
-            loop = asyncio.get_event_loop()
-            loop.run_until_complete(maybe_send_progress(state, progress_message, force=force))
+            coroutine = maybe_send_progress(state, progress_message, force=force)
+            try:
+                loop = asyncio.get_running_loop()
+            except RuntimeError:
+                # No running loop in this thread (common when inside a thread pool)
+                asyncio.run(coroutine)
+            else:
+                # Already inside an event loop; schedule without blocking to avoid deadlocks.
+                loop.create_task(coroutine)
 
         # Execute the original node with timing
         trace_id = cast(dict, state).get("perf_trace_id")
