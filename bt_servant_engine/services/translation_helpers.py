@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from typing import Any, Optional, cast
 
+from openai import OpenAI
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 
 from bt_servant_engine.core.config import config
@@ -53,6 +54,7 @@ def _compact_translation_help_entries(entries: list[dict]) -> list[dict]:
 
 
 def prepare_translation_helps(
+    client: OpenAI,
     query: str,
     query_lang: str,
     th_root: Path,
@@ -65,8 +67,12 @@ def prepare_translation_helps(
 ) -> tuple[Optional[str], Optional[list[TranslationRange]], Optional[list[dict]], Optional[str]]:
     """Resolve canonical selection, enforce limits, and load raw help entries."""
     canonical_book, ranges, err = resolve_selection_for_single_book(
+        client,
         query,
         query_lang,
+        book_map,
+        detect_mentioned_books_fn,
+        translate_text_fn,
         focus_hint=selection_focus_hint,
     )
     if err:

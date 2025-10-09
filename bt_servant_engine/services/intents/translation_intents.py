@@ -366,6 +366,7 @@ def get_translation_helps(
     logger.info("[translation-helps] loading helps from %s", th_root)
 
     canonical_book, ranges, raw_helps, err = prepare_translation_helps_fn(
+        client,
         query,
         query_lang,
         th_root,
