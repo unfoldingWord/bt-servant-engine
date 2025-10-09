@@ -144,17 +144,22 @@ You MUST always return at least one intent. You MUST choose one or more intents 
     no scripture selection is present.
   </intent>
 
-  <intent name="get-passage-translation-helps">
-    The user explicitly asks for translation help on a specific passage, referring to the structured helps or notes for
-    translating verses. A complete Bible passage citation or reference is always required for this intent. This is
-    different from `get-bible-translation-assistance` which is broader and more general. Examples: "give me translation
-    help for John 3:16", "get translation notes for Mark 2:4-5", "provide translation helps for Romans 1:1".
+  <intent name="get-translation-helps">
+    The user is asking for translation help, challenges, considerations, guidance, or alternate renderings for a given
+    passage or book. This includes asking about translation options, alternate translations, or what to consider when
+    translating specific verses. A complete Bible passage citation or reference is always required for this intent.
+    Examples: "Help me translate Titus 1:1-5", "translation challenges for Exo 1", "what to consider when translating
+    Ruth", "give me translation help for John 3:16", "get translation notes for Mark 2:4-5".
     Do NOT use if no scripture selection is present.
   </intent>
 
   <intent name="consult-fia-resources">
-    The user wants to use FIA (Familiarization, Internalization, Articulation) resources, a specific Bible translation
-    process or method in the system. Examples: "FIA for John 3", "what is FIA?", "How do I apply FIA?", etc.
+    The user is asking about the Familiarization, Internalization, and Articulation (FIA) process, its steps, or how to
+    apply those steps to a passage, team, or translation scenario. Examples include learning the FIA workflow, asking
+    what a particular step looks like, how to translate the Bible using FIA, or how FIA should be practiced in a specific
+    chapter. Choose this intent whenever FIA guidance or FIA resources are the focus, even if a passage is mentioned.
+    Examples: "How do I translate the Bible?", "What are the steps of the FIA process?", "What does FIA step 2 look like
+    in the first chapter of Mark?", "what is FIA?", "How do I apply FIA?".
   </intent>
 
   <intent name="set-response-language">
