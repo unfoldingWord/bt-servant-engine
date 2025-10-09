@@ -68,7 +68,12 @@ def test_apply_metadata_tags_includes_optional_fields(monkeypatch: pytest.Monkey
         }
     ]
 
-    assert admin._apply_metadata_tags(None, enabled=True, tag_key="_merged_from", source="x", task_id="y", tag_timestamp=False) is None  # pylint: disable=protected-access
+    assert (
+        admin._apply_metadata_tags(
+            None, enabled=True, tag_key="_merged_from", source="x", task_id="y", tag_timestamp=False
+        )
+        is None
+    )  # pylint: disable=protected-access
     disabled = admin._apply_metadata_tags(  # pylint: disable=protected-access
         original,
         enabled=False,

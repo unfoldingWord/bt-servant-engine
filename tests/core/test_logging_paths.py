@@ -20,7 +20,9 @@ def _make_settings(log_dir: pathlib.Path | None, data_dir: pathlib.Path) -> Simp
     )
 
 
-def test_resolve_logs_dir_prefers_override(tmp_path: pathlib.Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_resolve_logs_dir_prefers_override(
+    tmp_path: pathlib.Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     override = tmp_path / "custom-logs"
     data_dir = tmp_path / "data"
     settings = _make_settings(override, data_dir)
@@ -33,7 +35,9 @@ def test_resolve_logs_dir_prefers_override(tmp_path: pathlib.Path, monkeypatch: 
     assert resolved.exists()
 
 
-def test_resolve_logs_dir_falls_back_to_root_logs(tmp_path: pathlib.Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_resolve_logs_dir_falls_back_to_root_logs(
+    tmp_path: pathlib.Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     root_dir = tmp_path / "deploy"
     base_dir = root_dir / "pkg"
     data_dir = tmp_path / "data"
@@ -48,7 +52,9 @@ def test_resolve_logs_dir_falls_back_to_root_logs(tmp_path: pathlib.Path, monkey
     assert fallback.exists()
 
 
-def test_resolve_logs_dir_skips_unwritable_paths(tmp_path: pathlib.Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_resolve_logs_dir_skips_unwritable_paths(
+    tmp_path: pathlib.Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     override = tmp_path / "override"
     root_dir = tmp_path / "root"
     base_dir = root_dir / "pkg"

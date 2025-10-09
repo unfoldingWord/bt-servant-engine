@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import operator
 from collections.abc import Hashable
-from typing import TYPE_CHECKING, Annotated, Any, Dict, List, Optional, cast
+from typing import TYPE_CHECKING, Annotated, Any, Awaitable, Callable, Dict, List, Optional, cast
 
 from langgraph.graph import StateGraph
 from typing_extensions import TypedDict
@@ -44,12 +44,58 @@ class BrainState(TypedDict, total=False):
     # Delivery hint for bt_servant to send a voice message instead of text
     send_voice_message: bool
     voice_message_text: str
+    # Progress messaging fields
+    progress_enabled: bool
+    progress_messenger: Optional[Callable[[str], Awaitable[None]]]
+    last_progress_time: float
+    progress_throttle_seconds: float
 
 
 def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-def]
     """Wrap a node function with performance timing and tracing."""
 
     def wrapped(state: Any) -> dict:
+        trace_id = cast(dict, state).get("perf_trace_id")
+        if trace_id:
+            set_current_trace(cast(Optional[str], trace_id))
+        with time_block(f"brain:{node_name}"):
+            return node_fn(state)
+
+    return wrapped
+
+
+def wrap_node_with_progress(  # type: ignore[no-untyped-def]
+    node_fn,
+    node_name: str,
+    progress_message: Optional[str] = None,
+    condition: Optional[Callable[[Any], bool]] = None,
+    force: bool = False,
+):
+    """Wrap a node with timing and optional progress messaging.
+
+    Args:
+        node_fn: The node function to wrap
+        node_name: Name of the node for timing instrumentation
+        progress_message: Optional message to send before node execution
+        condition: Optional callable to determine if progress should be shown
+        force: If True, bypass throttling for this message
+
+    Returns:
+        Wrapped node function with progress messaging support
+    """
+    import asyncio
+
+    def wrapped(state: Any) -> dict:
+        # Send progress message before node execution if configured
+        if progress_message and (condition is None or condition(state)):
+            # Import here to avoid circular dependency
+            from bt_servant_engine.services.progress_messaging import maybe_send_progress
+
+            # Run the async progress function in the event loop
+            loop = asyncio.get_event_loop()
+            loop.run_until_complete(maybe_send_progress(state, progress_message, force=force))
+
+        # Execute the original node with timing
         trace_id = cast(dict, state).get("perf_trace_id")
         if trace_id:
             set_current_trace(cast(Optional[str], trace_id))
@@ -105,10 +151,15 @@ def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     # Import here to avoid circular dependency
     from bt_servant_engine.services import brain_nodes
+    from bt_servant_engine.services.progress_messaging import should_show_translation_progress
 
     def _make_state_graph(schema: Any) -> StateGraph:
         # Accept Any to satisfy IDE variance on schema param; schema is BrainState
         return StateGraph(schema)
+
+    def _should_show_translation_progress(state: Any) -> bool:
+        """Local wrapper for translation progress condition."""
+        return should_show_translation_progress(state)
 
     builder: StateGraph = _make_state_graph(BrainState)
 
@@ -138,10 +189,24 @@ def create_brain():
     )
     builder.add_node(
         "query_vector_db_node",
-        wrap_node_with_timing(brain_nodes.query_vector_db, "query_vector_db_node"),
+        wrap_node_with_progress(
+            brain_nodes.query_vector_db,
+            "query_vector_db_node",
+            progress_message="Searching Bible translation resources...",
+            condition=lambda s: IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE
+            in s.get("user_intents", []),
+        ),
     )
     builder.add_node(
-        "query_open_ai_node", wrap_node_with_timing(brain_nodes.query_open_ai, "query_open_ai_node")
+        "query_open_ai_node",
+        wrap_node_with_progress(
+            brain_nodes.query_open_ai,
+            "query_open_ai_node",
+            progress_message="Analyzing resources and preparing response...",
+            condition=lambda s: IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE
+            in s.get("user_intents", []),
+            force=True,  # Always send, bypass throttling
+        ),
     )
     builder.add_node(
         "consult_fia_resources_node",
@@ -207,7 +272,12 @@ def create_brain():
     )
     builder.add_node(
         "translate_responses_node",
-        wrap_node_with_timing(brain_nodes.translate_responses, "translate_responses_node"),
+        wrap_node_with_progress(
+            brain_nodes.translate_responses,
+            "translate_responses_node",
+            progress_message="Translating response...",
+            condition=_should_show_translation_progress,
+        ),
         defer=True,
     )
 
@@ -246,4 +316,5 @@ __all__ = [
     "create_brain",
     "process_intents",
     "wrap_node_with_timing",
+    "wrap_node_with_progress",
 ]
