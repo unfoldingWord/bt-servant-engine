@@ -24,7 +24,13 @@ class FakeCollection:
         self.name = name
         self._store: Dict[str, Dict[str, Any]] = {}
 
-    def get(self, ids: Optional[List[str]] = None, limit: Optional[int] = None, offset: Optional[int] = None, include: Optional[List[str]] = None):  # noqa: D401 - mimic chroma signature
+    def get(
+        self,
+        ids: Optional[List[str]] = None,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+        include: Optional[List[str]] = None,
+    ):  # noqa: D401 - mimic chroma signature
         include = include or ["ids", "documents", "metadatas", "embeddings"]
         if ids is not None:
             keys = [k for k in ids if k in self._store]
@@ -43,7 +49,13 @@ class FakeCollection:
             result["embeddings"] = [self._store[k].get("embedding") for k in keys]
         return result
 
-    def add(self, ids: List[str], documents: Optional[List[str]] = None, metadatas: Optional[List[Dict[str, Any]]] = None, embeddings: Optional[List[List[float]]] = None):  # noqa: D401 - mimic chroma signature
+    def add(
+        self,
+        ids: List[str],
+        documents: Optional[List[str]] = None,
+        metadatas: Optional[List[Dict[str, Any]]] = None,
+        embeddings: Optional[List[List[float]]] = None,
+    ):  # noqa: D401 - mimic chroma signature
         for i, doc_id in enumerate(ids):
             if doc_id in self._store:
                 raise ValueError("duplicate id")
@@ -95,7 +107,12 @@ def test_dry_run_duplicates_preview_limit(fake_chroma):
     src = fake_chroma.get_collection("src")
     dst = fake_chroma.get_collection("dst")
     # Seed overlapping ids
-    src.add(ids=["1", "2", "3"], documents=["a", "b", "c"], metadatas=[{}, {}, {}], embeddings=[[0.1], [0.2], [0.3]])
+    src.add(
+        ids=["1", "2", "3"],
+        documents=["a", "b", "c"],
+        metadatas=[{}, {}, {}],
+        embeddings=[[0.1], [0.2], [0.3]],
+    )
     dst.add(ids=["2", "5"], documents=["x", "y"], metadatas=[{}, {}], embeddings=[[0.9], [1.0]])
 
     client = TestClient(app)
@@ -122,7 +139,12 @@ def test_dry_run_duplicates_preview_limit(fake_chroma):
 def test_merge_create_new_id_with_tags_and_copy(fake_chroma):
     src = fake_chroma.get_collection("src")
     # Seed source only
-    src.add(ids=["10", "11", "12"], documents=["a", "b", "c"], metadatas=[{"k": 1}, {"k": 2}, {"k": 3}], embeddings=[[0.1], [0.2], [0.3]])
+    src.add(
+        ids=["10", "11", "12"],
+        documents=["a", "b", "c"],
+        metadatas=[{"k": 1}, {"k": 2}, {"k": 3}],
+        embeddings=[[0.1], [0.2], [0.3]],
+    )
 
     client = TestClient(app)
     # Start merge
@@ -172,7 +194,12 @@ def test_cancel_merge(fake_chroma):
     src = fake_chroma.get_collection("src")
     # Seed many docs to allow cancellation before completion
     ids = [str(i) for i in range(1, 51)]
-    src.add(ids=ids, documents=["x"] * len(ids), metadatas=[{}] * len(ids), embeddings=[[0.0]] * len(ids))
+    src.add(
+        ids=ids,
+        documents=["x"] * len(ids),
+        metadatas=[{}] * len(ids),
+        embeddings=[[0.0]] * len(ids),
+    )
 
     client = TestClient(app)
     resp = client.post(

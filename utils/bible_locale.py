@@ -3,6 +3,7 @@
 Provides localized book-name lookup with graceful fallback to the canonical
 English name when a mapping is not available.
 """
+
 from __future__ import annotations
 
 from typing import Dict

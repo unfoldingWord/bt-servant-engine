@@ -6,6 +6,8 @@ from typing import Any, cast
 import pytest
 
 import brain
+from bt_servant_engine.core.models import PassageRef, PassageSelection
+from bt_servant_engine.core.language import Language, ResponseLanguage, TranslatedPassage
 
 
 class _StubParseResult:
@@ -15,15 +17,18 @@ class _StubParseResult:
 
 
 def _state_for(query: str) -> brain.BrainState:
-    return cast(brain.BrainState, {
-        "user_id": "test-user",
-        "user_query": query,
-        "transformed_query": query,
-        "query_language": "en",
-        "user_response_language": "",
-        "responses": [],
-        "user_chat_history": [],
-    })
+    return cast(
+        brain.BrainState,
+        {
+            "user_id": "test-user",
+            "user_query": query,
+            "transformed_query": query,
+            "query_language": "en",
+            "user_response_language": "",
+            "responses": [],
+            "user_chat_history": [],
+        },
+    )
 
 
 def test_translate_scripture_normalizes_whitespace(monkeypatch: pytest.MonkeyPatch):
@@ -32,12 +37,12 @@ def test_translate_scripture_normalizes_whitespace(monkeypatch: pytest.MonkeyPat
 
     def parse_stub(*_args: Any, **kwargs: Any):  # noqa: ANN401 - test stub
         tf = kwargs.get("text_format")
-        if tf is brain.ResponseLanguage:
-            return _StubParseResult(brain.ResponseLanguage(language=brain.Language.DUTCH))
-        if tf is brain.PassageSelection:
-            sel = brain.PassageSelection(
+        if tf is ResponseLanguage:
+            return _StubParseResult(ResponseLanguage(language=Language.DUTCH))
+        if tf is PassageSelection:
+            sel = PassageSelection(
                 selections=[
-                    brain.PassageRef(
+                    PassageRef(
                         book="Genesis",
                         start_chapter=1,
                         start_verse=1,
@@ -47,16 +52,12 @@ def test_translate_scripture_normalizes_whitespace(monkeypatch: pytest.MonkeyPat
                 ]
             )
             return _StubParseResult(sel)
-        if tf is brain.TranslatedPassage:
-            tp = brain.TranslatedPassage(
+        if tf is TranslatedPassage:
+            tp = TranslatedPassage(
                 header_book="Genesis",
                 header_suffix="1:1-2",
-                body=(
-                    "In den beginne\n\n"
-                    "schiep God\n"
-                    "de hemel en de aarde."
-                ),
-                content_language=brain.Language.DUTCH,
+                body=("In den beginne\n\nschiep God\nde hemel en de aarde."),
+                content_language=Language.DUTCH,
             )
             return _StubParseResult(tp)
         return _StubParseResult(None)

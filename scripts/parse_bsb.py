@@ -12,6 +12,7 @@ Notes:
   3-letter abbreviations and file basenames (lowercase) for output.
 - Reference abbreviations use title-case (e.g., "Gen", "1Sa").
 """
+
 from __future__ import annotations
 
 import json
@@ -33,6 +34,7 @@ class BookMap:
     - file_stem: Lowercase file stem (e.g., "gen", "1sa").
     - ref_abbr: Title-case reference abbreviation (e.g., "Gen", "1Sa").
     """
+
     file_stem: str
     ref_abbr: str
 
@@ -118,8 +120,7 @@ BOOK_MAP: Dict[str, BookMap] = {
 
 # Regex to match lines like: "Genesis 1:1\tIn the beginning..."
 VERSE_RE = re.compile(
-    r"^(?P<book>[1-3] [A-Za-z]+|[A-Za-z]+(?: [A-Za-z]+)*) "
-    r"(?P<ch>\d+):(?P<v>\d+)\t(?P<text>.+)$"
+    r"^(?P<book>[1-3] [A-Za-z]+|[A-Za-z]+(?: [A-Za-z]+)*) " r"(?P<ch>\d+):(?P<v>\d+)\t(?P<text>.+)$"
 )
 
 
@@ -179,9 +180,7 @@ def write_books_to_json(target_root: Path, data: Dict[str, List[Tuple[str, str]]
 def main(argv: List[str]) -> int:
     """Entry point for one-off parse: fetch, parse, and write per-book JSONs."""
     # Optional first arg: custom output directory (defaults to ./sources/bible_data/en/bsb)
-    out_dir = (
-        Path(argv[1]) if len(argv) > 1 else Path("sources") / "bible_data" / "en" / "bsb"
-    )
+    out_dir = Path(argv[1]) if len(argv) > 1 else Path("sources") / "bible_data" / "en" / "bsb"
     print(f"Fetching BSB text from {BSB_URL}...")
     text = fetch_bsb_text(BSB_URL)
     lines = text.splitlines()

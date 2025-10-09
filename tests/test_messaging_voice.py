@@ -3,6 +3,7 @@
 This test exercises ``messaging._create_voice_message`` without making network calls
 by monkeypatching the OpenAI client streaming API used in the function.
 """
+
 # pylint: disable=too-few-public-methods,protected-access
 from __future__ import annotations
 

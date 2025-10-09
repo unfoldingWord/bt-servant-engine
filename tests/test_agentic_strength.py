@@ -7,12 +7,13 @@ from typing import Any, cast
 import pytest
 
 import brain
+from bt_servant_engine.core.agentic import AgenticStrengthChoice, AgenticStrengthSetting
 
 
 class _StubResponse:  # pylint: disable=too-few-public-methods
     """Simple container matching the subset of Response fields we use."""
 
-    def __init__(self, parsed: brain.AgenticStrengthSetting) -> None:
+    def __init__(self, parsed: AgenticStrengthSetting) -> None:
         self.output_parsed = parsed
         self.usage = None
 
@@ -20,7 +21,7 @@ class _StubResponse:  # pylint: disable=too-few-public-methods
 def test_set_agentic_strength_persists_choice(monkeypatch: pytest.MonkeyPatch) -> None:
     """When the user asks for a valid level, it is stored and echoed."""
 
-    parsed = brain.AgenticStrengthSetting(strength=brain.AgenticStrengthChoice.LOW)
+    parsed = AgenticStrengthSetting(strength=AgenticStrengthChoice.LOW)
     monkeypatch.setattr(
         brain.open_ai_client.responses,
         "parse",
@@ -54,7 +55,7 @@ def test_set_agentic_strength_persists_choice(monkeypatch: pytest.MonkeyPatch) -
 def test_set_agentic_strength_handles_unknown(monkeypatch: pytest.MonkeyPatch) -> None:
     """If the LLM can't find a valid level, prompt the user again."""
 
-    parsed = brain.AgenticStrengthSetting(strength=brain.AgenticStrengthChoice.UNKNOWN)
+    parsed = AgenticStrengthSetting(strength=AgenticStrengthChoice.UNKNOWN)
     monkeypatch.setattr(
         brain.open_ai_client.responses,
         "parse",

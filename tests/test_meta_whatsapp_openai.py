@@ -108,13 +108,18 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first
     monkeypatch.setattr(webhooks, "send_typing_indicator_message", _fake_typing_indicator_message)
 
     # Capture that the keywords handler node actually ran (state-based validation)
+    # Patch at the module where the graph actually imports from (brain_nodes)
+    from bt_servant_engine.services import brain_nodes
+
     invoked: list[bool] = []
-    orig_keywords = brain.handle_get_passage_keywords
+    orig_keywords = brain_nodes.handle_get_passage_keywords
 
     def _wrapped_keywords(state):  # type: ignore[no-redef]
         invoked.append(True)
         return orig_keywords(state)
 
+    monkeypatch.setattr(brain_nodes, "handle_get_passage_keywords", _wrapped_keywords)
+    # Also patch the re-export in brain module for consistency
     monkeypatch.setattr(brain, "handle_get_passage_keywords", _wrapped_keywords)
     # Force fresh brain compile with the patched node
     set_brain(None)

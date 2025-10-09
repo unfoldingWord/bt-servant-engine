@@ -9,6 +9,8 @@ from typing import Any, cast
 import pytest
 
 import brain
+from bt_servant_engine.core.intents import UserIntents
+from bt_servant_engine.core.models import PassageRef, PassageSelection
 from utils import perf
 
 
@@ -43,9 +45,7 @@ def test_determine_intents_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> N
 
     class _FakeResp:  # pylint: disable=too-few-public-methods
         usage = _FakeUsage(it=50, ot=10, tt=60, cached=5)
-        output_parsed = brain.UserIntents(
-            intents=[brain.IntentType.GET_PASSAGE_SUMMARY]
-        )
+        output_parsed = UserIntents(intents=[brain.IntentType.GET_PASSAGE_SUMMARY])
 
     def _fake_parse(**_kwargs: Any) -> Any:  # noqa: ARG001 - signature must accept kwargs
         return _FakeResp()
@@ -72,9 +72,9 @@ def test_selection_helper_tokens_roll_into_parent_span(monkeypatch: pytest.Monke
     perf.set_current_trace(tid)
 
     # Fake a parsed selection for a simple reference
-    fake_selection = brain.PassageSelection(
+    fake_selection = PassageSelection(
         selections=[
-            brain.PassageRef(
+            PassageRef(
                 book="John",
                 start_chapter=3,
                 start_verse=16,
@@ -95,9 +95,7 @@ def test_selection_helper_tokens_roll_into_parent_span(monkeypatch: pytest.Monke
 
     # Open a span matching the keywords node; helper should add tokens to it
     with perf.time_block("brain:handle_get_passage_keywords_node"):
-        # Accessing a protected helper is acceptable in tests for coverage
-        # of token attribution in the selection phase.
-        book, ranges, err = brain._resolve_selection_for_single_book(  # pylint: disable=protected-access
+        book, ranges, err = brain.resolve_selection_for_single_book(
             "John 3:16-18",
             "en",
         )
@@ -143,10 +141,13 @@ def test_translate_responses_span_has_tokens(monkeypatch: pytest.MonkeyPatch) ->
                     self.prompt_tokens = 25
                     self.completion_tokens = 10
                     self.total_tokens = 35
+
                     class _PTD:  # pylint: disable=too-few-public-methods
                         def __init__(self) -> None:
                             self.cached_tokens = 3
+
                     self.prompt_tokens_details = _PTD()
+
             self.usage = _U()
             self.choices = [_Choice("Hola")]  # translated content
 
@@ -154,7 +155,9 @@ def test_translate_responses_span_has_tokens(monkeypatch: pytest.MonkeyPatch) ->
         return _FakeChat()
 
     # Force translation by reporting response language != target language
-    monkeypatch.setattr(brain, "detect_language", lambda _t, **_k: "en")
+    from bt_servant_engine.services import response_pipeline
+
+    monkeypatch.setattr(response_pipeline, "detect_language_impl", lambda _client, _t, **_k: "en")
     monkeypatch.setattr(brain.open_ai_client.responses, "create", _fake_resp_create)
     monkeypatch.setattr(brain.open_ai_client.chat.completions, "create", _fake_chat_create)
 
@@ -202,10 +205,13 @@ def test_chunk_message_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> None:
                     self.prompt_tokens = 20
                     self.completion_tokens = 8
                     self.total_tokens = 28
+
                     class _PTD:  # pylint: disable=too-few-public-methods
                         def __init__(self) -> None:
                             self.cached_tokens = 1
+
                     self.prompt_tokens_details = _PTD()
+
             self.usage = _U()
             # Return valid JSON list to avoid fallback path
             self.choices = [_Choice('["a","b"]')]
