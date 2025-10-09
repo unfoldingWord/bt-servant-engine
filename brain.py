@@ -66,6 +66,16 @@ from bt_servant_engine.services.preprocessing import (
 from bt_servant_engine.services.passage_selection import (
     resolve_selection_for_single_book as _resolve_selection_for_single_book_impl,
 )
+from bt_servant_engine.services.intents.simple_intents import (
+    BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
+    FULL_HELP_MESSAGE,
+    build_boilerplate_message,
+    build_full_help_message,
+    converse_with_bt_servant as converse_with_bt_servant_impl,
+    get_capabilities as _capabilities,
+    handle_system_information_request as handle_system_information_request_impl,
+    handle_unsupported_function as handle_unsupported_function_impl,
+)
 from bt_servant_engine.adapters.chroma import get_chroma_collection
 from bt_servant_engine.adapters.user_state import (
     is_first_interaction,
@@ -621,17 +631,13 @@ class BrainState(TypedDict, total=False):
 
 
 # Centralized capability registry and builders for feature help/boilerplate
-class Capability(TypedDict):
-    """User-facing capability metadata for feature listings and help text."""
-    intent: str
-    label: str
-    description: str
-    examples: List[str]
-    include_in_boilerplate: bool
-    developer_only: NotRequired[bool]
+# Capability class moved to bt_servant_engine.services.intents.simple_intents
+# Imported above as part of simple_intents imports
 
+# _capabilities moved to bt_servant_engine.services.intents.simple_intents (as get_capabilities)
+# Imported above as _capabilities
 
-def _capabilities() -> List[Capability]:
+def _capabilities_DEPRECATED() -> List[Capability]:
     """Return the list of user-facing capabilities with examples.
 
     Centralized here so greetings, help, and unsupported-function prompts stay in sync
@@ -1581,106 +1587,19 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
 def handle_unsupported_function(state: Any) -> dict:
     """Generate a helpful response when the user requests unsupported functionality."""
     s = cast(BrainState, state)
-    query = s["user_query"]
-    chat_history = s["user_chat_history"]
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "developer",
-            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
-        },
-        {
-            "role": "user",
-            "content": query,
-        },
-    ]
-    response = open_ai_client.responses.create(
-        model="gpt-4o",
-        instructions=UNSUPPORTED_FUNCTION_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        store=False
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    unsupported_function_response_text = response.output_text
-    logger.info('converse_with_bt_servant response from openai: %s', unsupported_function_response_text)
-    return {"responses": [{"intent": IntentType.PERFORM_UNSUPPORTED_FUNCTION, "response": unsupported_function_response_text}]}
+    return handle_unsupported_function_impl(open_ai_client, s["user_query"], s["user_chat_history"])
 
 
 def handle_system_information_request(state: Any) -> dict:
     """Provide help/about information for the BT Servant system."""
     s = cast(BrainState, state)
-    query = s["user_query"]
-    chat_history = s["user_chat_history"]
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "developer",
-            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
-        },
-        {
-            "role": "user",
-            "content": query,
-        },
-    ]
-    response = open_ai_client.responses.create(
-        model="gpt-4o",
-        instructions=HELP_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        store=False
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    help_response_text = response.output_text
-    logger.info('help response from openai: %s', help_response_text)
-    return {"responses": [{"intent": IntentType.RETRIEVE_SYSTEM_INFORMATION, "response": help_response_text}]}
+    return handle_system_information_request_impl(open_ai_client, s["user_query"], s["user_chat_history"])
 
 
 def converse_with_bt_servant(state: Any) -> dict:
     """Respond conversationally to the user based on context and history."""
     s = cast(BrainState, state)
-    query = s["user_query"]
-    chat_history = s["user_chat_history"]
-    messages: list[EasyInputMessageParam] = [
-        {
-            "role": "developer",
-            "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
-        },
-        {
-            "role": "user",
-            "content": query,
-        },
-    ]
-    response = open_ai_client.responses.create(
-        model="gpt-4o",
-        instructions=CONVERSE_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        store=False
-    )
-    usage = getattr(response, "usage", None)
-    if usage is not None:
-        it = getattr(usage, "input_tokens", None)
-        ot = getattr(usage, "output_tokens", None)
-        tt = getattr(usage, "total_tokens", None)
-        if tt is None and (it is not None or ot is not None):
-            tt = (it or 0) + (ot or 0)
-        cit = _extract_cached_input_tokens(usage)
-        add_tokens(it, ot, tt, model="gpt-4o", cached_input_tokens=cit)
-    converse_response_text = response.output_text
-    logger.info('converse_with_bt_servant response from openai: %s', converse_response_text)
-    return {"responses": [{"intent": IntentType.CONVERSE_WITH_BT_SERVANT, "response": converse_response_text}]}
+    return converse_with_bt_servant_impl(open_ai_client, s["user_query"], s["user_chat_history"])
 
 
 def _book_patterns() -> list[tuple[str, str]]:
