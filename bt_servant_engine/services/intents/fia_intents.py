@@ -1,0 +1,218 @@
+"""Intent handler for FIA (Familiarization, Internalization, Articulation) resources."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any, List, Optional, cast
+
+from openai import OpenAI, OpenAIError
+from openai.types.responses.easy_input_message_param import EasyInputMessageParam
+
+from bt_servant_engine.core.config import config
+from bt_servant_engine.core.intents import IntentType
+from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
+from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services.intents.simple_intents import BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE
+from utils.perf import add_tokens
+
+logger = get_logger(__name__)
+
+CONSULT_FIA_RESOURCES_SYSTEM_PROMPT = """
+# Identity
+
+You are the FIA specialist node of BT Servant. You help Bible translators understand and apply the Familiarization,
+Internalization, and Articulation (FIA) process using only the supplied context.
+
+# Context Handling
+
+- You will always receive the official FIA reference document plus any retrieved FIA resource snippets.
+- When the user's request is about the FIA process itself (for example, asking for the steps or how to translate the
+  Bible in general), rely primarily on the FIA reference document. Quote or summarize the steps accurately and keep the
+  sequence intact.
+- When the user asks how FIA applies to a specific passage, language, or scenario, synthesize both the reference
+  document and the retrieved snippets. Mention the relevant FIA steps explicitly (e.g., "Step 2: Setting the Stage").
+- If the context does not contain the needed information, clearly say you cannot find it and invite the user to clarify.
+- Never invent steps or procedures. Stay faithful to the provided materials.
+
+# Response Style
+
+- Be practical, encouraging, and concise while remaining thorough enough for translators to act on the guidance.
+- Use natural paragraphs (no bullet lists unless the context itself is a list that must be echoed for clarity).
+- Include references to FIA steps or resource names when they help the user follow along.
+"""
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
+FIA_REFERENCE_PATH = BASE_DIR / "sources" / "fia" / "fia.md"
+
+RELEVANCE_CUTOFF = 0.65
+TOP_K = 5
+
+try:
+    FIA_REFERENCE_CONTENT = FIA_REFERENCE_PATH.read_text(encoding="utf-8")
+except FileNotFoundError:
+    logger.warning("FIA reference file missing at %s", FIA_REFERENCE_PATH)
+    FIA_REFERENCE_CONTENT = ""
+
+
+def consult_fia_resources(
+    client: OpenAI,
+    query: str,
+    chat_history: list[dict[str, str]],
+    user_response_language: Optional[str],
+    query_language: Optional[str],
+    get_chroma_collection_fn: callable,
+    model_for_agentic_strength_fn: callable,
+    extract_cached_input_tokens_fn: callable,
+    agentic_strength: str,
+) -> dict[str, Any]:
+    """Answer FIA-specific questions using FIA collections and reference material."""
+    candidate_lang = (user_response_language or query_language or "en").lower()
+    if candidate_lang not in supported_language_map:
+        candidate_lang = "en"
+
+    localized_collection = f"{candidate_lang}_fia_resources"
+    logger.info("[consult-fia] primary collection candidate: %s", localized_collection)
+
+    def _query_collection(name: str) -> list[dict[str, str]]:
+        collection = get_chroma_collection_fn(name)
+        if not collection:
+            logger.warning("[consult-fia] collection %s was not found in chroma db.", name)
+            return []
+        chroma_collection = cast(Any, collection)
+        results = chroma_collection.query(query_texts=[query], n_results=TOP_K)
+        documents = cast(list, results.get("documents", []))
+        distances = cast(list, results.get("distances", []))
+        metadatas = cast(list, results.get("metadatas", []))
+        if not documents:
+            return []
+        hits: list[dict[str, str]] = []
+        docs_for_query = documents[0]
+        dists_for_query = distances[0] if distances else []
+        metas_for_query = metadatas[0] if metadatas else []
+        for idx, doc in enumerate(docs_for_query):
+            try:
+                similarity = 1 - float(dists_for_query[idx])
+            except (IndexError, TypeError, ValueError):
+                similarity = 0.0
+            metadata = metas_for_query[idx] if idx < len(metas_for_query) else {}
+            resource_name = cast(str, metadata.get("name", "")) if isinstance(metadata, dict) else ""
+            source = cast(str, metadata.get("source", "")) if isinstance(metadata, dict) else ""
+            logger.info(
+                "[consult-fia] processing %s from %s with similarity %.4f",
+                resource_name or "<unnamed>",
+                source or "<unknown>",
+                similarity,
+            )
+            if similarity >= RELEVANCE_CUTOFF:
+                hits.append(
+                    {
+                        "collection_name": name,
+                        "resource_name": resource_name,
+                        "source": source,
+                        "document_text": cast(str, doc),
+                    }
+                )
+        if hits:
+            logger.info("[consult-fia] found %d hit(s) in %s", len(hits), name)
+        return hits
+
+    vector_docs = _query_collection(localized_collection)
+    collection_used: Optional[str] = localized_collection if vector_docs else None
+    if not vector_docs and localized_collection != "en_fia_resources":
+        logger.info("[consult-fia] falling back to en_fia_resources collection")
+        vector_docs = _query_collection("en_fia_resources")
+        if vector_docs:
+            collection_used = "en_fia_resources"
+
+    context_docs: list[dict[str, str]] = []
+    if FIA_REFERENCE_CONTENT:
+        context_docs.append(
+            {
+                "collection_name": "fia_reference",
+                "resource_name": "FIA Reference Manual",
+                "source": str(FIA_REFERENCE_PATH),
+                "document_text": FIA_REFERENCE_CONTENT,
+            }
+        )
+    else:
+        logger.warning("[consult-fia] FIA reference content unavailable")
+
+    context_docs.extend(vector_docs)
+
+    if not context_docs:
+        fallback = (
+            "Sorry, I couldn't find any FIA resources to service your request or command.\n\n"
+            f"{BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}"
+        )
+        return {"responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fallback}]}
+
+    context_payload = json.dumps(context_docs, indent=2)
+    logger.info("[consult-fia] context passed to LLM:\n%s", context_payload)
+
+    messages = cast(
+        List[EasyInputMessageParam],
+        [
+            {
+                "role": "developer",
+                "content": f"FIA context resources: {context_payload}",
+            },
+            {
+                "role": "developer",
+                "content": "Focus only on the portion of the user's message that requests FIA guidance. Ignore any other requests or book references in the message.",
+            },
+            {
+                "role": "developer",
+                "content": f"Use this conversation history if helpful: {json.dumps(chat_history)}",
+            },
+            {
+                "role": "user",
+                "content": query,
+            },
+        ],
+    )
+
+    try:
+        model_name = model_for_agentic_strength_fn(agentic_strength, allow_low=True, allow_very_low=True)
+        response = client.responses.create(
+            model=model_name,
+            instructions=CONSULT_FIA_RESOURCES_SYSTEM_PROMPT,
+            input=cast(Any, messages),
+        )
+        usage = getattr(response, "usage", None)
+        if usage is not None:
+            it = getattr(usage, "input_tokens", None)
+            ot = getattr(usage, "output_tokens", None)
+            tt = getattr(usage, "total_tokens", None)
+            if tt is None and (it is not None or ot is not None):
+                tt = (it or 0) + (ot or 0)
+            cit = extract_cached_input_tokens_fn(usage)
+            add_tokens(it, ot, tt, model=model_name, cached_input_tokens=cit)
+
+        fia_response = response.output_text
+        logger.info("[consult-fia] response from openai: %s", fia_response)
+
+        resource_list = ", ".join(
+            {
+                (f"{doc.get('resource_name', 'unknown')} from {doc.get('source', 'unknown')}")
+                for doc in context_docs
+                if doc.get("collection_name") != "fia_reference"
+            }
+        )
+        if resource_list:
+            logger.info("[consult-fia] vector resources used: %s", resource_list)
+
+        update: dict[str, Any] = {"responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fia_response}]}
+        if collection_used:
+            update["collection_used"] = collection_used
+        return update
+    except OpenAIError:
+        logger.error("[consult-fia] Error during OpenAI request", exc_info=True)
+        error_msg = "I encountered some problems while consulting FIA resources. Please let Ian know about this one."
+        return {"responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": error_msg}]}
+
+
+__all__ = [
+    "CONSULT_FIA_RESOURCES_SYSTEM_PROMPT",
+    "consult_fia_resources",
+]

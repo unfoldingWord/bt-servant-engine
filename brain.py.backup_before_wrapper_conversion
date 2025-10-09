@@ -1971,22 +1971,23 @@ def handle_retrieve_scripture(state: Any) -> dict:  # pylint: disable=too-many-b
 
 
 def handle_listen_to_scripture(state: Any) -> dict:
-    """Delegate to retrieve-scripture and request voice delivery."""
-    s = cast(BrainState, state)
-    agentic_strength = _resolve_agentic_strength(s)
-    return listen_to_scripture_impl(
-        open_ai_client,
-        s["transformed_query"],
-        s["query_language"],
-        BSB_BOOK_MAP,
-        _detect_mentioned_books,
-        translate_text,
-        _reconstruct_structured_text,
-        _model_for_agentic_strength,
-        _extract_cached_input_tokens,
-        s.get("user_response_language"),
-        agentic_strength,
-    )
+    """Delegate to retrieve-scripture and request voice delivery.
+
+    Reuses retrieve-scripture end-to-end (selection, retrieval, translation, formatting)
+    and sets a delivery hint that the API should send a voice message.
+    """
+    out = handle_retrieve_scripture(state)
+    out["send_voice_message"] = True
+    responses = cast(list[dict], out.get("responses", []))
+    if responses:
+        # Reconstruct scripture text for voice playback using the structured response.
+        out["voice_message_text"] = _reconstruct_structured_text(
+            resp_item=responses[0],
+            localize_to=None,
+        )
+        for resp in responses:
+            resp["suppress_text_delivery"] = True
+    return out
 
 def handle_translate_scripture(state: Any) -> dict:  # pylint: disable=too-many-branches,too-many-return-statements
     """Handle translate-scripture: return verses translated into a target language.
