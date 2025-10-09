@@ -8,7 +8,6 @@ final responses (including translation and chunking when necessary).
 
 from __future__ import annotations
 
-import json
 import operator
 from collections.abc import Hashable
 from pathlib import Path
@@ -16,7 +15,6 @@ from typing import Annotated, Any, Dict, Iterable, List, Optional, cast
 
 from langgraph.graph import StateGraph
 from openai import OpenAI
-from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 from typing_extensions import TypedDict
 
 from bt_servant_engine.core.config import config
@@ -51,7 +49,6 @@ from bt_servant_engine.services.passage_selection import (
 )
 from bt_servant_engine.services.intents.simple_intents import (
     BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
-    FULL_HELP_MESSAGE,
     converse_with_bt_servant as converse_with_bt_servant_impl,
     handle_system_information_request as handle_system_information_request_impl,
     handle_unsupported_function as handle_unsupported_function_impl,
@@ -87,6 +84,11 @@ from bt_servant_engine.services.graph_pipeline import (
     query_open_ai as query_open_ai_impl,
     query_vector_db as query_vector_db_impl,
 )
+from bt_servant_engine.services.translation_helpers import (
+    build_translation_helps_context as build_translation_helps_context_impl,
+    build_translation_helps_messages as build_translation_helps_messages_impl,
+    prepare_translation_helps as prepare_translation_helps_impl,
+)
 from bt_servant_engine.adapters.chroma import get_chroma_collection
 from bt_servant_engine.adapters.user_state import (
     is_first_interaction,
@@ -97,13 +99,7 @@ from bt_servant_engine.adapters.user_state import (
 from utils.bsb import (
     BOOK_MAP as BSB_BOOK_MAP,
 )
-from utils.bsb import (
-    clamp_ranges_by_verse_limit,
-    label_ranges,
-    select_verses,
-)
 from utils.perf import add_tokens, set_current_trace, time_block
-from utils.translation_helps import get_missing_th_books, select_translation_helps
 
 # (Moved dynamic feature messaging and related prompts below IntentType)
 # COMBINE_RESPONSES_SYSTEM_PROMPT moved to bt_servant_engine.services.response_pipeline
@@ -111,39 +107,10 @@ from utils.translation_helps import get_missing_th_books, select_translation_hel
 
 # RESPONSE_TRANSLATOR_SYSTEM_PROMPT moved to bt_servant_engine.services.response_pipeline
 
-TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT = """
-# Task
-
-Translate the provided scripture passage into the specified target language and return a STRICT JSON object
-matching the provided schema. Do not include any extra prose, commentary, code fences, or formatting.
-
-# Rules
-- header_book: translate ONLY the canonical book name into the target language (e.g., "John" -> "Иоанн").
-- header_suffix: DO NOT translate or alter; copy exactly the provided suffix (e.g., "1:1–7").
-- body: translate the passage body into the target language; PRESERVE all newline boundaries exactly; do not add
-  bullets, numbers, verse labels, or extra headings.
-- content_language: the ISO 639-1 code of the target language.
-
-# Output
-Return JSON matching the schema with fields: header_book, header_suffix, body, content_language. No extra keys.
-"""
-
 
 # PREPROCESSOR_AGENT_SYSTEM_PROMPT moved to bt_servant_engine.services.preprocessing
 
 # PASSAGE_SELECTION_AGENT_SYSTEM_PROMPT moved to bt_servant_engine.services.passage_selection
-
-
-PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT = """
-You summarize Bible passage content faithfully using only the verses provided.
-
-- Stay strictly within the supplied passage text; avoid speculation or doctrinal claims not present in the text.
-- Highlight the main flow, key ideas, and important movements or contrasts across the entire selection.
-- Provide a thorough, readable summary (not terse). Aim for roughly 8–15 sentences, but expand if the selection is large.
-- Write in continuous prose only: do NOT use bullets, numbered lists, section headers, or list-like formatting. Compose normal paragraph(s) with sentences flowing naturally.
-- Mix verse references inline within the prose wherever helpful (e.g., "1:1–3", "3:16", "2:4–6") to anchor key points rather than isolating them as list items.
-- If the selection contains only a single verse, inline verse references are not necessary.
-"""
 
 
 # FINAL_RESPONSE_AGENT_SYSTEM_PROMPT moved to bt_servant_engine.services.graph_pipeline
@@ -156,23 +123,6 @@ You summarize Bible passage content faithfully using only the verses provided.
 
 # DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT moved to bt_servant_engine.services.preprocessing
 
-TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT = """
-Task: Determine the target language the user is asking the system to translate scripture into, based solely on the
-user's latest message. Return an ISO 639-1 code from the allowed set.
-
-Allowed outputs: en, ar, fr, es, hi, ru, id, sw, pt, zh, nl, Other
-
-Rules:
-- Identify explicit target-language mentions (language names, codes, or phrases like "into Russian", "to es",
-  "in French").
-- If no target language is explicitly specified, return Other. Do NOT infer a target from the message's language.
-- Output must match the provided schema exactly with no extra prose.
-
-Examples:
-- message: "translate John 3:16 into Russian" -> { "language": "ru" }
-- message: "please translate Mark 1 in Spanish" -> { "language": "es" }
-- message: "translate Matthew 2" -> { "language": "Other" }
-"""
 
 BASE_DIR = Path(__file__).resolve().parent
 DB_DIR = config.DATA_DIR
@@ -223,9 +173,6 @@ def _reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[st
     return reconstruct_structured_text_impl(resp_item, localize_to)
 
 
-TranslationRange = tuple[int, int | None, int | None, int | None]
-
-
 def _partition_response_items(responses: Iterable[dict]) -> tuple[list[dict], list[dict]]:
     """Split responses into scripture-protected and normal sets."""
     return _partition_response_items_impl(responses)
@@ -267,152 +214,6 @@ def _translate_or_localize_response(
         _model_for_agentic_strength,
         _extract_cached_input_tokens,
     )
-
-
-def _compact_translation_help_entries(entries: list[dict]) -> list[dict]:
-    """Reduce translation help entries to essentials for the LLM payload."""
-    compact: list[dict] = []
-    for entry in entries:
-        verse_text = cast(str, entry.get("ult_verse_text") or "")
-        notes: list[dict] = []
-        for note in cast(list[dict], entry.get("notes") or []):
-            note_text = cast(str, note.get("note") or "")
-            if not note_text:
-                continue
-            compact_note: dict[str, str] = {"note": note_text}
-            quote = cast(Optional[str], note.get("orig_language_quote"))
-            if quote:
-                compact_note["orig_language_quote"] = quote
-            notes.append(compact_note)
-        compact.append(
-            {
-                "reference": entry.get("reference"),
-                "verse_text": verse_text,
-                "notes": notes,
-            }
-        )
-    return compact
-
-
-def _prepare_translation_helps(
-    state: BrainState,
-    th_root: Path,
-    bsb_root: Path,
-    *,
-    selection_focus_hint: str | None = None,
-) -> tuple[Optional[str], Optional[list[TranslationRange]], Optional[list[dict]], Optional[str]]:
-    """Resolve canonical selection, enforce limits, and load raw help entries."""
-    canonical_book, ranges, err = _resolve_selection_for_single_book(
-        state["transformed_query"],
-        state["query_language"],
-        focus_hint=selection_focus_hint,
-    )
-    if err:
-        return None, None, None, err
-    assert canonical_book is not None and ranges is not None
-
-    missing_books = set(get_missing_th_books(th_root))
-    if canonical_book in missing_books:
-        return (
-            None,
-            None,
-            None,
-            (
-                "Translation helps for "
-                f"{BSB_BOOK_MAP[canonical_book]['ref_abbr']} are not available yet. "
-                "Currently missing books: "
-                f"{', '.join(sorted(BSB_BOOK_MAP[b]['ref_abbr'] for b in missing_books))}. "
-                "Would you like translation help for one of the supported books instead?"
-            ),
-        )
-
-    verse_count = len(select_verses(bsb_root, canonical_book, ranges))
-    if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
-        return (
-            None,
-            None,
-            None,
-            (
-                "I can only provide translate help for "
-                f"{config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time. "
-                "Your selection "
-                f"{label_ranges(canonical_book, ranges)} includes {verse_count} verses. "
-                "Please narrow the range (e.g., a chapter or a shorter span)."
-            ),
-        )
-
-    limited_ranges = clamp_ranges_by_verse_limit(
-        bsb_root,
-        canonical_book,
-        ranges,
-        max_verses=config.TRANSLATION_HELPS_VERSE_LIMIT,
-    )
-    if not limited_ranges:
-        return (
-            None,
-            None,
-            None,
-            "I couldn't identify verses for that selection in the BSB index. Please try another reference.",
-        )
-
-    raw_helps = select_translation_helps(th_root, canonical_book, limited_ranges)
-    logger.info("[translation-helps] selected %d help entries", len(raw_helps))
-    if not raw_helps:
-        return (
-            None,
-            None,
-            None,
-            "I couldn't locate translation helps for that selection. Please check the reference and try again.",
-        )
-    return canonical_book, list(limited_ranges), raw_helps, None
-
-
-def _build_translation_helps_context(
-    canonical_book: str,
-    ranges: list[TranslationRange],
-    raw_helps: list[dict],
-) -> tuple[str, dict[str, Any]]:
-    """Return the reference label and compact JSON context for the LLM."""
-    ref_label = label_ranges(canonical_book, ranges)
-    context_obj = {
-        "reference_label": ref_label,
-        "selection": {
-            "book": canonical_book,
-            "ranges": [
-                {
-                    "start_chapter": sc,
-                    "start_verse": sv,
-                    "end_chapter": ec,
-                    "end_verse": ev,
-                }
-                for (sc, sv, ec, ev) in ranges
-            ],
-        },
-        "translation_helps": _compact_translation_help_entries(raw_helps),
-    }
-    return ref_label, context_obj
-
-
-def _build_translation_helps_messages(
-    ref_label: str, context_obj: dict[str, object]
-) -> list[EasyInputMessageParam]:
-    """Construct the LLM messages for the translation helps prompt."""
-    payload = json.dumps(context_obj, ensure_ascii=False)
-    return [
-        {
-            "role": "developer",
-            "content": "Focus only on the portion of the user's message that asked for translation helps. Ignore any other requests or book references in the message.",
-        },
-        {"role": "developer", "content": f"Selection: {ref_label}"},
-        {"role": "developer", "content": "Use the JSON context below strictly:"},
-        {"role": "developer", "content": payload},
-        {
-            "role": "user",
-            "content": (
-                "Using the provided context, explain the translation challenges and give actionable guidance for this selection."
-            ),
-        },
-    ]
 
 
 # IntentType, UserIntents imported from bt_servant_engine.core.intents
@@ -457,70 +258,6 @@ FIRST_INTERACTION_MESSAGE = f"""
 Hello! I am the BT Servant. This is our first conversation. Let's work together to understand and translate God's word!
 
 {BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}
-"""
-
-UNSUPPORTED_FUNCTION_AGENT_SYSTEM_PROMPT = f"""
-# Identity
-
-You are a part of a RAG bot system that assists Bible translators. You are one node in the decision/intent processing 
-lang graph. Specifically, your job is to handle the perform-unsupported-function intent. This means the user is trying 
-to perform an unsupported function.
-
-# Instructions
-
-Respond appropriately to the user's request to do something that you currently can't do. Leverage the 
-user's message and the conversation history if needed. Make sure to always end your response with some version of  
-the boiler plate available features message (see below).
-
-<boiler_plate_available_features_message>
-    {BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}
-</boiler_plate_available_features_message>
-"""
-
-CONVERSE_AGENT_SYSTEM_PROMPT = f"""
-# Identity
-
-You are a part of a RAG bot system that assists Bible translators. You are one node in the decision/intent processing 
-lang graph. Specifically, your job is to handle the converse-with-bt-servant intent by responding conversationally to 
-the user based on the provided context.
-
-# Instructions
-
-If we are here in the decision graph, the converse-with-bt-servant intent has been detected. You will be provided with 
-the user's most recent message and conversation history. Your job is to respond conversationally to the user. Unless it 
-doesn't make sense to do so, aim to end your response with some version of  the boiler plate available features message 
-(see below).
-
-<boiler_plate_available_features_message>
-    {BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}
-</boiler_plate_available_features_message>
-"""
-
-HELP_AGENT_SYSTEM_PROMPT = f"""
-# Identity
-
-You are a part of a WhatsApp RAG bot system that assists Bible translators called BT Servant. You sole purpose is to 
-provide help information about the BT Servant system. If this node has been hit, it means the system has already 
-classified the user's most recent message as a desire to receive help or more information about the system. This is 
-typically the result of them saying something like: 'help!' or 'tell me about yourself' or 'how does this work?' Thus, 
-make sure to always provide some help, to the best of your abilities. Always provide help to the user.
-
-# Instructions
-You will be supplied with the user's most recent message and also past conversation history. Using this context,
-provide the user with information detailing how the system works (the features of the BT Servant system). Use the
-feature information below. End your response with a single question inviting the user to pick one capability
-(for example: 'Which of these would you like me to do?').
-
-<features_full_help_message>
-{FULL_HELP_MESSAGE}
-</features_full_help_message>
-
-# Using prior history for better responses
-
-Here are some guidelines for using history for better responses:
-1. If you detect in conversation history that you've already said hello, there's no need to say it again.
-2. If it doesn't make sense to say "hello!" to the user, based on their most recent message, there's no need to say 
-'Hello!  I'm here to assist with Bible translation tasks' again.
 """
 
 
@@ -863,9 +600,9 @@ def handle_get_translation_helps(state: Any) -> dict:
         translate_text,
         _model_for_agentic_strength,
         _extract_cached_input_tokens,
-        _prepare_translation_helps,
-        _build_translation_helps_context,
-        _build_translation_helps_messages,
+        prepare_translation_helps_impl,
+        build_translation_helps_context_impl,
+        build_translation_helps_messages_impl,
         agentic_strength,
     )
 
