@@ -8,8 +8,9 @@ from typing import Any, cast
 
 import pytest
 
-import brain
-from bt_servant_engine.core.intents import UserIntents
+from bt_servant_engine.core.config import config
+from bt_servant_engine.core.intents import IntentType, UserIntents
+from bt_servant_engine.services import brain_nodes
 from bt_servant_engine.core.models import PassageRef, PassageSelection
 from utils import perf
 
@@ -45,18 +46,18 @@ def test_determine_intents_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> N
 
     class _FakeResp:  # pylint: disable=too-few-public-methods
         usage = _FakeUsage(it=50, ot=10, tt=60, cached=5)
-        output_parsed = UserIntents(intents=[brain.IntentType.GET_PASSAGE_SUMMARY])
+        output_parsed = UserIntents(intents=[IntentType.GET_PASSAGE_SUMMARY])
 
     def _fake_parse(**_kwargs: Any) -> Any:  # noqa: ARG001 - signature must accept kwargs
         return _FakeResp()
 
-    monkeypatch.setattr(brain.open_ai_client.responses, "parse", _fake_parse)
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "parse", _fake_parse)
 
     with perf.time_block("brain:determine_intents_node"):
-        out = brain.determine_intents({"transformed_query": "dummy"})
+        out = brain_nodes.determine_intents({"transformed_query": "dummy"})
 
     # Sanity: function returns parsed intents
-    assert out["user_intents"] and out["user_intents"][0] == brain.IntentType.GET_PASSAGE_SUMMARY
+    assert out["user_intents"] and out["user_intents"][0] == IntentType.GET_PASSAGE_SUMMARY
 
     report = perf.summarize_report(tid)
     span = _find_span(report, "brain:determine_intents_node")
@@ -91,11 +92,11 @@ def test_selection_helper_tokens_roll_into_parent_span(monkeypatch: pytest.Monke
     def _fake_parse(**_kwargs: Any) -> Any:  # noqa: ARG001 - signature must accept kwargs
         return _FakeResp()
 
-    monkeypatch.setattr(brain.open_ai_client.responses, "parse", _fake_parse)
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "parse", _fake_parse)
 
     # Open a span matching the keywords node; helper should add tokens to it
     with perf.time_block("brain:handle_get_passage_keywords_node"):
-        book, ranges, err = brain.resolve_selection_for_single_book(
+        book, ranges, err = brain_nodes.resolve_selection_for_single_book(
             "John 3:16-18",
             "en",
         )
@@ -158,8 +159,8 @@ def test_translate_responses_span_has_tokens(monkeypatch: pytest.MonkeyPatch) ->
     from bt_servant_engine.services import response_pipeline
 
     monkeypatch.setattr(response_pipeline, "detect_language_impl", lambda _client, _t, **_k: "en")
-    monkeypatch.setattr(brain.open_ai_client.responses, "create", _fake_resp_create)
-    monkeypatch.setattr(brain.open_ai_client.chat.completions, "create", _fake_chat_create)
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "create", _fake_resp_create)
+    monkeypatch.setattr(brain_nodes.open_ai_client.chat.completions, "create", _fake_chat_create)
 
     state = {
         "responses": [
@@ -173,7 +174,7 @@ def test_translate_responses_span_has_tokens(monkeypatch: pytest.MonkeyPatch) ->
     }
 
     with perf.time_block("brain:translate_responses_node"):
-        out = brain.translate_responses(cast(Any, state))
+        out = brain_nodes.translate_responses(cast(Any, state))
 
     assert out["translated_responses"], "expected translated responses"
     report = perf.summarize_report(tid)
@@ -219,15 +220,15 @@ def test_chunk_message_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> None:
     def _fake_chat_create(**_kwargs: Any) -> Any:  # noqa: ARG001
         return _FakeChat()
 
-    monkeypatch.setattr(brain.open_ai_client.chat.completions, "create", _fake_chat_create)
+    monkeypatch.setattr(brain_nodes.open_ai_client.chat.completions, "create", _fake_chat_create)
 
-    long_text = "x" * (brain.config.MAX_META_TEXT_LENGTH + 50)
+    long_text = "x" * (config.MAX_META_TEXT_LENGTH + 50)
     state = {
         "translated_responses": [long_text],
     }
 
     with perf.time_block("brain:chunk_message_node"):
-        out = brain.chunk_message(cast(Any, state))
+        out = brain_nodes.chunk_message(cast(Any, state))
 
     assert out["translated_responses"], "expected chunked responses"
     report = perf.summarize_report(tid)
@@ -269,9 +270,9 @@ def test_consult_fia_resources_span_has_tokens(monkeypatch: pytest.MonkeyPatch) 
         usage = _FakeUsage(it=45, ot=12, tt=57, cached=6)
         output_text = "fia response"
 
-    monkeypatch.setattr(brain, "get_chroma_collection", lambda _name: _FakeCollection())
-    monkeypatch.setattr(brain, "FIA_REFERENCE_CONTENT", "manual snippet")
-    monkeypatch.setattr(brain.open_ai_client.responses, "create", lambda **_k: _FakeResponse())
+    monkeypatch.setattr(brain_nodes, "get_chroma_collection", lambda _name: _FakeCollection())
+    monkeypatch.setattr(brain_nodes, "FIA_REFERENCE_CONTENT", "manual snippet")
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "create", lambda **_k: _FakeResponse())
 
     state = {
         "transformed_query": "How do I translate the Bible?",
@@ -281,7 +282,7 @@ def test_consult_fia_resources_span_has_tokens(monkeypatch: pytest.MonkeyPatch) 
     }
 
     with perf.time_block("brain:consult_fia_resources_node"):
-        out = brain.consult_fia_resources(cast(Any, state))
+        out = brain_nodes.consult_fia_resources(cast(Any, state))
 
     assert out["responses"], "expected a response payload"
 

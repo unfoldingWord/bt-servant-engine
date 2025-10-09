@@ -6,7 +6,7 @@ import asyncio
 
 import pytest
 
-from brain import IntentType
+from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.services import ServiceContainer, build_default_services
 from bt_servant_engine.services.intent_router import (
     IntentHandlerNotFoundError,

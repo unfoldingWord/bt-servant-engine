@@ -106,7 +106,7 @@ pip install -r requirements.txt
 4. **Run the app**
 
 ```bash
-uvicorn bt_servant:app --reload
+uvicorn bt_servant_engine.apps.api.app:create_app --factory --reload
 ```
 
 ---

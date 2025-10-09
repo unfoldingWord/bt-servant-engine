@@ -14,7 +14,7 @@ from typing import Any
 import pytest
 from fastapi.testclient import TestClient
 
-import bt_servant as api
+from bt_servant_engine.apps.api.app import create_app
 from bt_servant_engine.apps.api.routes import webhooks
 from bt_servant_engine.apps.api.state import set_brain
 from bt_servant_engine.core.config import config as app_config
@@ -166,7 +166,7 @@ def test_verify_facebook_signature(header: str, secret: str, payload: bytes) -> 
 
 def test_verify_webhook_success(monkeypatch):
     monkeypatch.setattr(app_config, "META_VERIFY_TOKEN", "verify", raising=True)
-    client = TestClient(api.app)
+    client = TestClient(create_app())
     resp = client.get(
         "/meta-whatsapp",
         params={
@@ -182,7 +182,7 @@ def test_verify_webhook_success(monkeypatch):
 def test_handle_meta_webhook_invalid_signature(monkeypatch):
     monkeypatch.setattr(app_config, "META_APP_SECRET", "secret", raising=True)
     monkeypatch.setattr(app_config, "FACEBOOK_USER_AGENT", "facebookexternalua", raising=True)
-    client = TestClient(api.app)
+    client = TestClient(create_app())
     resp = client.post(
         "/meta-whatsapp",
         headers={
@@ -231,7 +231,7 @@ def test_handle_meta_webhook_processes_message(monkeypatch):
     body = json.dumps(payload).encode("utf-8")
     signature = "sha256=" + hmac.new(b"secret", body, hashlib.sha256).hexdigest()
 
-    client = TestClient(api.app)
+    client = TestClient(create_app())
     resp = client.post(
         "/meta-whatsapp",
         headers={

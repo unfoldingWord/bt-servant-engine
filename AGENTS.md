@@ -30,7 +30,7 @@ It will be updated once the refactor is complete.
 
 ## Build, Test, and Development Commands
 - Create venv and install: `python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`
-- Run API locally: `uvicorn bt_servant:app --reload`
+- Run API locally: `uvicorn bt_servant_engine.apps.api.app:create_app --factory --reload`
 - Lint (fast): `ruff check .`
 - Lint (strict, all files): `pylint $(git ls-files '*.py')`
 - Type check (all files): `mypy .`

@@ -20,10 +20,11 @@ from dotenv import load_dotenv
 from fastapi.testclient import TestClient
 from tinydb import TinyDB
 
-import brain
-import bt_servant as api
-from brain import IntentType, determine_intents
+from bt_servant_engine.apps.api.app import create_app
 from bt_servant_engine.apps.api.routes import webhooks
+from bt_servant_engine.core.intents import IntentType
+from bt_servant_engine.services import brain_nodes
+from bt_servant_engine.services.brain_nodes import determine_intents
 from bt_servant_engine.apps.api.state import set_brain
 from bt_servant_engine.core.config import config as app_config
 import bt_servant_engine.adapters.user_state as user_db
@@ -109,7 +110,6 @@ def test_meta_whatsapp_translation_helps_flow_with_openai(
     monkeypatch.setattr(webhooks, "send_typing_indicator_message", _fake_typing_indicator_message)
 
     # Patch at the module where the graph actually imports from (brain_nodes)
-    from bt_servant_engine.services import brain_nodes
 
     invoked: list[bool] = []
     orig_handler = brain_nodes.handle_get_translation_helps
@@ -119,8 +119,6 @@ def test_meta_whatsapp_translation_helps_flow_with_openai(
         return orig_handler(state)
 
     monkeypatch.setattr(brain_nodes, "handle_get_translation_helps", _wrapped)
-    # Also patch the re-export in brain module for consistency
-    monkeypatch.setattr(brain, "handle_get_translation_helps", _wrapped)
     set_brain(None)
 
     def _meta_text_payload(text: str) -> dict:
@@ -147,7 +145,7 @@ def test_meta_whatsapp_translation_helps_flow_with_openai(
             ]
         }
 
-    with TestClient(api.app) as client:
+    with TestClient(create_app()) as client:
         # Choose a tiny book to minimize tokens (e.g., 3 John)
         body_obj = _meta_text_payload("Help me translate 3 John")
         body = json.dumps(body_obj).encode("utf-8")

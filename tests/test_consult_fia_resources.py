@@ -6,7 +6,8 @@ from typing import Any, cast
 
 import pytest
 
-import brain
+from bt_servant_engine.core.intents import IntentType
+from bt_servant_engine.services import brain_nodes
 
 
 class _FakeCollection:  # pylint: disable=too-few-public-methods
@@ -52,8 +53,8 @@ def test_consult_fia_resources_falls_back_to_english(monkeypatch: pytest.MonkeyP
 
     from bt_servant_engine.services.intents import fia_intents
 
-    monkeypatch.setattr(brain, "get_chroma_collection", _fake_get_collection)
-    monkeypatch.setattr(brain.open_ai_client.responses, "create", _fake_create)
+    monkeypatch.setattr(brain_nodes, "get_chroma_collection", _fake_get_collection)
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "create", _fake_create)
     monkeypatch.setattr(fia_intents, "FIA_REFERENCE_CONTENT", "FIA manual reference text")
 
     state: dict[str, Any] = {
@@ -64,9 +65,9 @@ def test_consult_fia_resources_falls_back_to_english(monkeypatch: pytest.MonkeyP
         "agentic_strength": "low",
     }
 
-    out = brain.consult_fia_resources(cast(Any, state))
+    out = brain_nodes.consult_fia_resources(cast(Any, state))
 
-    assert out["responses"][0]["intent"] == brain.IntentType.CONSULT_FIA_RESOURCES
+    assert out["responses"][0]["intent"] == IntentType.CONSULT_FIA_RESOURCES
     assert out.get("collection_used") == "en_fia_resources"
 
     assert captured_messages.get("model") == "gpt-4o-mini"
@@ -97,9 +98,9 @@ def test_consult_fia_resources_uses_normal_model(monkeypatch: pytest.MonkeyPatch
             ]
         )
 
-    monkeypatch.setattr(brain, "get_chroma_collection", _fake_get_collection)
-    monkeypatch.setattr(brain.open_ai_client.responses, "create", _fake_create)
-    monkeypatch.setattr(brain, "FIA_REFERENCE_CONTENT", "reference body")
+    monkeypatch.setattr(brain_nodes, "get_chroma_collection", _fake_get_collection)
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "create", _fake_create)
+    monkeypatch.setattr(brain_nodes, "FIA_REFERENCE_CONTENT", "reference body")
 
     state: dict[str, Any] = {
         "transformed_query": "Explain FIA step 3",
@@ -109,7 +110,7 @@ def test_consult_fia_resources_uses_normal_model(monkeypatch: pytest.MonkeyPatch
         "agentic_strength": "normal",
     }
 
-    out = brain.consult_fia_resources(cast(Any, state))
+    out = brain_nodes.consult_fia_resources(cast(Any, state))
 
     assert out["responses"], "expected consult FIA response"
     assert captured.get("model") == "gpt-4o"
@@ -119,7 +120,7 @@ def test_consult_fia_resources_handles_missing_context(monkeypatch: pytest.Monke
     """Returns a helpful fallback when no FIA resources are available."""
     from bt_servant_engine.services.intents import fia_intents
 
-    monkeypatch.setattr(brain, "get_chroma_collection", lambda _name: None)
+    monkeypatch.setattr(brain_nodes, "get_chroma_collection", lambda _name: None)
     monkeypatch.setattr(fia_intents, "FIA_REFERENCE_CONTENT", "")
 
     state: dict[str, Any] = {
@@ -129,8 +130,8 @@ def test_consult_fia_resources_handles_missing_context(monkeypatch: pytest.Monke
         "query_language": "en",
     }
 
-    out = brain.consult_fia_resources(cast(Any, state))
+    out = brain_nodes.consult_fia_resources(cast(Any, state))
 
     response_text = out["responses"][0]["response"]
     assert "couldn't find any FIA resources" in response_text
-    assert brain.IntentType.CONSULT_FIA_RESOURCES == out["responses"][0]["intent"]
+    assert IntentType.CONSULT_FIA_RESOURCES == out["responses"][0]["intent"]

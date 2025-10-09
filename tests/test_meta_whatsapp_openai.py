@@ -21,9 +21,9 @@ from dotenv import load_dotenv
 from fastapi.testclient import TestClient
 from tinydb import TinyDB
 
-import brain
-import bt_servant as api
+from bt_servant_engine.apps.api.app import create_app
 from bt_servant_engine.apps.api.routes import webhooks
+from bt_servant_engine.services import brain_nodes
 from bt_servant_engine.apps.api.state import set_brain
 from bt_servant_engine.core.config import config as app_config
 import bt_servant_engine.adapters.user_state as user_db
@@ -109,7 +109,6 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first
 
     # Capture that the keywords handler node actually ran (state-based validation)
     # Patch at the module where the graph actually imports from (brain_nodes)
-    from bt_servant_engine.services import brain_nodes
 
     invoked: list[bool] = []
     orig_keywords = brain_nodes.handle_get_passage_keywords
@@ -119,13 +118,11 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first
         return orig_keywords(state)
 
     monkeypatch.setattr(brain_nodes, "handle_get_passage_keywords", _wrapped_keywords)
-    # Also patch the re-export in brain module for consistency
-    monkeypatch.setattr(brain, "handle_get_passage_keywords", _wrapped_keywords)
     # Force fresh brain compile with the patched node
     set_brain(None)
 
     # Use context manager to ensure client/session cleanup
-    with TestClient(api.app) as client:
+    with TestClient(create_app()) as client:
         body_obj = _meta_text_payload("What are the keywords in 3 John?")
         body = json.dumps(body_obj).encode("utf-8")
 

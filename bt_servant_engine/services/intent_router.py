@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any, Awaitable, Callable, Mapping, MutableMapping, Sequence
 
-from brain import IntentType
+from bt_servant_engine.core.intents import IntentType
 
 if TYPE_CHECKING:  # pragma: no cover - import for static analysis only
     from . import ServiceContainer

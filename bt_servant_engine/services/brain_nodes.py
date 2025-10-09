@@ -168,7 +168,9 @@ def _translate_or_localize_response(
 
 def start(state: Any) -> dict:
     """Handle first interaction greeting, otherwise no-op."""
-    from brain import BrainState  # Import here to avoid circular dependency
+    from bt_servant_engine.services.brain_orchestrator import (
+        BrainState,
+    )  # Import here to avoid circular dependency
 
     s = cast(BrainState, state)
     user_id = s["user_id"]
@@ -182,7 +184,7 @@ def start(state: Any) -> dict:
 
 def determine_intents(state: Any) -> dict:
     """Classify the user's transformed query into one or more intents."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     query = s["transformed_query"]
@@ -194,8 +196,7 @@ def determine_intents(state: Any) -> dict:
 
 def set_response_language(state: Any) -> dict:
     """Detect and persist the user's desired response language."""
-    from brain import BrainState
-    import brain
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     return set_response_language_impl(
@@ -204,16 +205,13 @@ def set_response_language(state: Any) -> dict:
         s["user_query"],
         s["user_chat_history"],
         supported_language_map,
-        brain.set_user_response_language
-        if hasattr(brain, "set_user_response_language")
-        else set_user_response_language,
+        set_user_response_language,
     )
 
 
 def set_agentic_strength(state: Any) -> dict:
     """Detect and persist the user's preferred agentic strength."""
-    from brain import BrainState
-    import brain
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     return set_agentic_strength_impl(
@@ -221,7 +219,7 @@ def set_agentic_strength(state: Any) -> dict:
         s["user_id"],
         s["user_query"],
         s["user_chat_history"],
-        brain.set_user_agentic_strength,
+        set_user_agentic_strength,
         config.LOG_PSEUDONYM_SECRET,
     )
 
@@ -239,7 +237,7 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
 
 def translate_responses(state: Any) -> dict:
     """Translate or localize responses into the user's desired language."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     raw_responses = [
@@ -291,7 +289,7 @@ def translate_text(
 
 def determine_query_language(state: Any) -> dict:
     """Determine the language of the user's original query and set collection order."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     query = s["user_query"]
@@ -304,7 +302,7 @@ def determine_query_language(state: Any) -> dict:
 
 def preprocess_user_query(state: Any) -> dict:
     """Lightly clarify or correct the user's query using conversation history."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     query = s["user_query"]
@@ -315,21 +313,20 @@ def preprocess_user_query(state: Any) -> dict:
 
 def query_vector_db(state: Any) -> dict:
     """Query the vector DB (Chroma) across ranked collections and filter by relevance."""
-    from brain import BrainState
-    import brain
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     return query_vector_db_impl(
         s["transformed_query"],
         s["stack_rank_collections"],
-        brain.get_chroma_collection,
+        get_chroma_collection,
         BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
     )
 
 
 def query_open_ai(state: Any) -> dict:
     """Generate the final response text using RAG context and OpenAI."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
@@ -348,8 +345,7 @@ def query_open_ai(state: Any) -> dict:
 
 def consult_fia_resources(state: Any) -> dict:
     """Answer FIA-specific questions using FIA collections and reference material."""
-    from brain import BrainState
-    import brain
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
@@ -359,7 +355,7 @@ def consult_fia_resources(state: Any) -> dict:
         s["user_chat_history"],
         s.get("user_response_language"),
         s.get("query_language"),
-        brain.get_chroma_collection,
+        get_chroma_collection,
         _model_for_agentic_strength,
         _extract_cached_input_tokens,
         agentic_strength,
@@ -368,7 +364,7 @@ def consult_fia_resources(state: Any) -> dict:
 
 def chunk_message(state: Any) -> dict:
     """Chunk oversized responses to respect WhatsApp limits, via LLM or fallback."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     responses = s["translated_responses"]
@@ -391,7 +387,7 @@ def needs_chunking(state: Any) -> str:
 
 def handle_unsupported_function(state: Any) -> dict:
     """Generate a helpful response when the user requests unsupported functionality."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     return handle_unsupported_function_impl(open_ai_client, s["user_query"], s["user_chat_history"])
@@ -399,7 +395,7 @@ def handle_unsupported_function(state: Any) -> dict:
 
 def handle_system_information_request(state: Any) -> dict:
     """Provide help/about information for the BT Servant system."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     return handle_system_information_request_impl(
@@ -409,7 +405,7 @@ def handle_system_information_request(state: Any) -> dict:
 
 def converse_with_bt_servant(state: Any) -> dict:
     """Respond conversationally to the user based on context and history."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     return converse_with_bt_servant_impl(open_ai_client, s["user_query"], s["user_chat_history"])
@@ -458,7 +454,7 @@ def resolve_selection_for_single_book(
 
 def handle_get_passage_summary(state: Any) -> dict:
     """Handle get-passage-summary: extract refs, retrieve verses, summarize."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
@@ -478,7 +474,7 @@ def handle_get_passage_summary(state: Any) -> dict:
 
 def handle_get_passage_keywords(state: Any) -> dict:
     """Handle get-passage-keywords: extract refs, retrieve keywords, and list them."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     return get_passage_keywords_impl(
@@ -493,7 +489,7 @@ def handle_get_passage_keywords(state: Any) -> dict:
 
 def handle_get_translation_helps(state: Any) -> dict:
     """Generate focused translation helps guidance for a selected passage."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
@@ -515,7 +511,7 @@ def handle_get_translation_helps(state: Any) -> dict:
 
 def handle_retrieve_scripture(state: Any) -> dict:
     """Handle retrieve-scripture with optional auto-translation."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
@@ -535,7 +531,7 @@ def handle_retrieve_scripture(state: Any) -> dict:
 
 def handle_listen_to_scripture(state: Any) -> dict:
     """Delegate to retrieve-scripture and request voice delivery."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
@@ -556,7 +552,7 @@ def handle_listen_to_scripture(state: Any) -> dict:
 
 def handle_translate_scripture(state: Any) -> dict:
     """Handle translate-scripture: return verses translated into a target language."""
-    from brain import BrainState
+    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))

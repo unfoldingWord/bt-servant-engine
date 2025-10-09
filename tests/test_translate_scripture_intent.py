@@ -5,9 +5,10 @@ from typing import Any, cast
 
 import pytest
 
-import brain
-from bt_servant_engine.core.models import PassageRef, PassageSelection
 from bt_servant_engine.core.language import Language, ResponseLanguage, TranslatedPassage
+from bt_servant_engine.core.models import PassageRef, PassageSelection
+from bt_servant_engine.services import brain_nodes
+from bt_servant_engine.services.brain_orchestrator import BrainState
 
 
 class _StubParseResult:
@@ -64,9 +65,9 @@ def _make_parse_stub(current_query: str):
     return _parse_stub
 
 
-def _state_for(query: str) -> brain.BrainState:
+def _state_for(query: str) -> BrainState:
     return cast(
-        brain.BrainState,
+        BrainState,
         {
             "user_id": "test-user",
             "user_query": query,
@@ -106,11 +107,11 @@ def test_translate_scripture_translates_with_supported_target(monkeypatch: pytes
             return _StubParseResult(tp)
         return _StubParseResult(None)
 
-    monkeypatch.setattr(brain.open_ai_client.responses, "parse", parse_stub)
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "parse", parse_stub)
     state = _state_for(query)
 
     # Act
-    out = brain.handle_translate_scripture(state)
+    out = brain_nodes.handle_translate_scripture(state)
 
     # Assert: structured scripture response
     item = (out.get("responses") or [])[0]
@@ -132,11 +133,11 @@ def test_translate_scripture_unsupported_book_returns_selection_error(
     monkeypatch: pytest.MonkeyPatch, query: str
 ):
     # Arrange
-    monkeypatch.setattr(brain.open_ai_client.responses, "parse", _make_parse_stub(query))
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "parse", _make_parse_stub(query))
     state = _state_for(query)
 
     # Act
-    out = brain.handle_translate_scripture(state)
+    out = brain_nodes.handle_translate_scripture(state)
 
     # Assert: should return selection error about unsupported book, not guidance
     items = out.get("responses") or []
@@ -148,11 +149,11 @@ def test_translate_scripture_unsupported_book_returns_selection_error(
 def test_translate_scripture_guidance_when_unsupported_target(monkeypatch: pytest.MonkeyPatch):
     # Arrange: Italian unsupported; expect guidance message
     query = "translate gen 1:1-3 into italian"
-    monkeypatch.setattr(brain.open_ai_client.responses, "parse", _make_parse_stub(query))
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "parse", _make_parse_stub(query))
     state = _state_for(query)
 
     # Act
-    out = brain.handle_translate_scripture(state)
+    out = brain_nodes.handle_translate_scripture(state)
 
     # Assert
     items = out.get("responses") or []

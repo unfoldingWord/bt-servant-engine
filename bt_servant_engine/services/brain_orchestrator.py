@@ -6,16 +6,44 @@ for the brain decision pipeline.
 
 from __future__ import annotations
 
+import operator
 from collections.abc import Hashable
-from typing import TYPE_CHECKING, Any, List, Optional, cast
+from typing import TYPE_CHECKING, Annotated, Any, Dict, List, Optional, cast
 
 from langgraph.graph import StateGraph
+from typing_extensions import TypedDict
 
 from bt_servant_engine.core.intents import IntentType
 from utils.perf import set_current_trace, time_block
 
 if TYPE_CHECKING:
     pass
+
+
+class BrainState(TypedDict, total=False):
+    """State carried through the LangGraph execution."""
+
+    user_id: str
+    user_query: str
+    # Perf tracing: preserve trace id throughout the graph so node wrappers
+    # can attach spans even when running in a thread pool.
+    perf_trace_id: str
+    query_language: str
+    user_response_language: str
+    agentic_strength: str
+    user_agentic_strength: str
+    transformed_query: str
+    docs: List[Dict[str, str]]
+    collection_used: str
+    responses: Annotated[List[Dict[str, Any]], operator.add]
+    translated_responses: List[str]
+    stack_rank_collections: List[str]
+    user_chat_history: List[Dict[str, str]]
+    user_intents: List[IntentType]
+    passage_selection: list[dict]
+    # Delivery hint for bt_servant to send a voice message instead of text
+    send_voice_message: bool
+    voice_message_text: str
 
 
 def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-def]
@@ -33,8 +61,6 @@ def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-d
 
 def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-branches
     """Map detected intents to the list of nodes to traverse."""
-    from brain import BrainState  # Import here to avoid circular dependency
-
     s = cast(BrainState, state)
     user_intents = s["user_intents"]
     if not user_intents:
@@ -78,14 +104,13 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     # Import here to avoid circular dependency
-    import brain
     from bt_servant_engine.services import brain_nodes
 
     def _make_state_graph(schema: Any) -> StateGraph:
         # Accept Any to satisfy IDE variance on schema param; schema is BrainState
         return StateGraph(schema)
 
-    builder: StateGraph = _make_state_graph(brain.BrainState)
+    builder: StateGraph = _make_state_graph(BrainState)
 
     # Add all nodes with timing wrappers
     builder.add_node("start_node", wrap_node_with_timing(brain_nodes.start, "start_node"))
@@ -217,6 +242,7 @@ def create_brain():
 
 
 __all__ = [
+    "BrainState",
     "create_brain",
     "process_intents",
     "wrap_node_with_timing",

@@ -5,9 +5,10 @@ from typing import Any, cast
 
 import pytest
 
-import brain
-from bt_servant_engine.core.models import PassageRef, PassageSelection
 from bt_servant_engine.core.language import Language, ResponseLanguage, TranslatedPassage
+from bt_servant_engine.core.models import PassageRef, PassageSelection
+from bt_servant_engine.services import brain_nodes
+from bt_servant_engine.services.brain_orchestrator import BrainState
 
 
 class _StubParseResult:
@@ -16,9 +17,9 @@ class _StubParseResult:
         self.usage = None
 
 
-def _state_for(query: str) -> brain.BrainState:
+def _state_for(query: str) -> BrainState:
     return cast(
-        brain.BrainState,
+        BrainState,
         {
             "user_id": "test-user",
             "user_query": query,
@@ -62,12 +63,12 @@ def test_translate_scripture_normalizes_whitespace(monkeypatch: pytest.MonkeyPat
             return _StubParseResult(tp)
         return _StubParseResult(None)
 
-    monkeypatch.setattr(brain.open_ai_client.responses, "parse", parse_stub)
+    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "parse", parse_stub)
 
     state = _state_for(query)
 
     # Act
-    out = brain.handle_translate_scripture(state)
+    out = brain_nodes.handle_translate_scripture(state)
 
     # Assert: scripture segment has no newlines
     item = (out.get("responses") or [])[0]
