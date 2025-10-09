@@ -90,7 +90,8 @@ def test_root_files_are_not_imported():
 
     assert not violations, (
         "Root-level files are being imported (shim pattern detected):\n"
-        + "\n".join(f"  - {v}" for v in violations) + "\n\n"
+        + "\n".join(f"  - {v}" for v in violations)
+        + "\n\n"
         "Entry points should be leaf nodes - nothing should import FROM them.\n"
         "If code needs to import something, it should live inside the package."
     )
@@ -130,8 +131,7 @@ def test_no_fastapi_in_core():
             violations.append(py_file.relative_to(core_dir))
 
     assert not violations, (
-        f"Core layer imports FastAPI: {violations}\n"
-        "Core must remain framework-agnostic."
+        f"Core layer imports FastAPI: {violations}\n" "Core must remain framework-agnostic."
     )
 
 

@@ -37,6 +37,11 @@ class Settings(BaseSettings):
     ENABLE_ADMIN_AUTH: bool = Field(default=True)
     AGENTIC_STRENGTH: Literal["normal", "low", "very_low"] = Field(default="low")
 
+    # Progress messaging configuration
+    PROGRESS_MESSAGES_ENABLED: bool = Field(default=True)
+    PROGRESS_MESSAGE_MIN_INTERVAL: float = Field(default=3.0)
+    PROGRESS_MESSAGE_EMOJI: str = Field(default="⏳")
+
     DATA_DIR: Path = Field(default=Path("/data"))
     OPENAI_PRICING_JSON: str = Field(
         default=(

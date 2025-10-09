@@ -272,7 +272,9 @@ def test_consult_fia_resources_span_has_tokens(monkeypatch: pytest.MonkeyPatch) 
 
     monkeypatch.setattr(brain_nodes, "get_chroma_collection", lambda _name: _FakeCollection())
     monkeypatch.setattr(brain_nodes, "FIA_REFERENCE_CONTENT", "manual snippet")
-    monkeypatch.setattr(brain_nodes.open_ai_client.responses, "create", lambda **_k: _FakeResponse())
+    monkeypatch.setattr(
+        brain_nodes.open_ai_client.responses, "create", lambda **_k: _FakeResponse()
+    )
 
     state = {
         "transformed_query": "How do I translate the Bible?",

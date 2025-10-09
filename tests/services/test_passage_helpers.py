@@ -30,5 +30,7 @@ def test_choose_primary_book_prefers_digits_nearby() -> None:
     primary = helpers.choose_primary_book(text, ["Genesis", "John"], BOOK_MAP)
     assert primary == "John"
 
-    fallback = helpers.choose_primary_book("Mention Genesis and John", ["Genesis", "John"], BOOK_MAP)
+    fallback = helpers.choose_primary_book(
+        "Mention Genesis and John", ["Genesis", "John"], BOOK_MAP
+    )
     assert fallback is None

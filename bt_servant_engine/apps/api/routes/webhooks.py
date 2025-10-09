@@ -214,6 +214,17 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                     user_message.user_id
                 )
 
+                # Create progress messenger callback for this user
+                async def send_progress_message(message: str) -> None:
+                    """Send a progress message to the user via WhatsApp."""
+                    try:
+                        emoji = config.PROGRESS_MESSAGE_EMOJI
+                        await send_text_message(
+                            user_id=user_message.user_id, text=f"{emoji} {message}"
+                        )
+                    except httpx.HTTPError:
+                        logger.warning("Failed to send progress message", exc_info=True)
+
                 brain_payload: dict[str, Any] = {
                     "user_id": user_message.user_id,
                     "user_query": text,
@@ -224,6 +235,11 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                     "agentic_strength": effective_agentic_strength,
                     # Attach perf trace id for cross-thread node timing
                     "perf_trace_id": user_message.message_id,
+                    # Progress messaging configuration
+                    "progress_enabled": config.PROGRESS_MESSAGES_ENABLED,
+                    "progress_messenger": send_progress_message,
+                    "progress_throttle_seconds": config.PROGRESS_MESSAGE_MIN_INTERVAL,
+                    "last_progress_time": 0,
                 }
                 if user_agentic_strength is not None:
                     brain_payload["user_agentic_strength"] = user_agentic_strength
