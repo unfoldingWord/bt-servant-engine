@@ -79,6 +79,7 @@ def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
     # Import here to avoid circular dependency
     import brain
+    from bt_servant_engine.services import brain_nodes
 
     def _make_state_graph(schema: Any) -> StateGraph:
         # Accept Any to satisfy IDE variance on schema param; schema is BrainState
@@ -87,87 +88,101 @@ def create_brain():
     builder: StateGraph = _make_state_graph(brain.BrainState)
 
     # Add all nodes with timing wrappers
-    builder.add_node("start_node", wrap_node_with_timing(brain.start, "start_node"))
+    builder.add_node("start_node", wrap_node_with_timing(brain_nodes.start, "start_node"))
     builder.add_node(
         "determine_query_language_node",
-        wrap_node_with_timing(brain.determine_query_language, "determine_query_language_node"),
+        wrap_node_with_timing(
+            brain_nodes.determine_query_language, "determine_query_language_node"
+        ),
     )
     builder.add_node(
         "preprocess_user_query_node",
-        wrap_node_with_timing(brain.preprocess_user_query, "preprocess_user_query_node"),
+        wrap_node_with_timing(brain_nodes.preprocess_user_query, "preprocess_user_query_node"),
     )
     builder.add_node(
         "determine_intents_node",
-        wrap_node_with_timing(brain.determine_intents, "determine_intents_node"),
+        wrap_node_with_timing(brain_nodes.determine_intents, "determine_intents_node"),
     )
     builder.add_node(
         "set_response_language_node",
-        wrap_node_with_timing(brain.set_response_language, "set_response_language_node"),
+        wrap_node_with_timing(brain_nodes.set_response_language, "set_response_language_node"),
     )
     builder.add_node(
         "set_agentic_strength_node",
-        wrap_node_with_timing(brain.set_agentic_strength, "set_agentic_strength_node"),
+        wrap_node_with_timing(brain_nodes.set_agentic_strength, "set_agentic_strength_node"),
     )
     builder.add_node(
-        "query_vector_db_node", wrap_node_with_timing(brain.query_vector_db, "query_vector_db_node")
+        "query_vector_db_node",
+        wrap_node_with_timing(brain_nodes.query_vector_db, "query_vector_db_node"),
     )
     builder.add_node(
-        "query_open_ai_node", wrap_node_with_timing(brain.query_open_ai, "query_open_ai_node")
+        "query_open_ai_node", wrap_node_with_timing(brain_nodes.query_open_ai, "query_open_ai_node")
     )
     builder.add_node(
         "consult_fia_resources_node",
-        wrap_node_with_timing(brain.consult_fia_resources, "consult_fia_resources_node"),
+        wrap_node_with_timing(brain_nodes.consult_fia_resources, "consult_fia_resources_node"),
     )
     builder.add_node(
-        "chunk_message_node", wrap_node_with_timing(brain.chunk_message, "chunk_message_node")
+        "chunk_message_node", wrap_node_with_timing(brain_nodes.chunk_message, "chunk_message_node")
     )
     builder.add_node(
         "handle_unsupported_function_node",
         wrap_node_with_timing(
-            brain.handle_unsupported_function, "handle_unsupported_function_node"
+            brain_nodes.handle_unsupported_function, "handle_unsupported_function_node"
         ),
     )
     builder.add_node(
         "handle_system_information_request_node",
         wrap_node_with_timing(
-            brain.handle_system_information_request, "handle_system_information_request_node"
+            brain_nodes.handle_system_information_request,
+            "handle_system_information_request_node",
         ),
     )
     builder.add_node(
         "converse_with_bt_servant_node",
-        wrap_node_with_timing(brain.converse_with_bt_servant, "converse_with_bt_servant_node"),
+        wrap_node_with_timing(
+            brain_nodes.converse_with_bt_servant, "converse_with_bt_servant_node"
+        ),
     )
     builder.add_node(
         "handle_get_passage_summary_node",
-        wrap_node_with_timing(brain.handle_get_passage_summary, "handle_get_passage_summary_node"),
+        wrap_node_with_timing(
+            brain_nodes.handle_get_passage_summary, "handle_get_passage_summary_node"
+        ),
     )
     builder.add_node(
         "handle_get_passage_keywords_node",
         wrap_node_with_timing(
-            brain.handle_get_passage_keywords, "handle_get_passage_keywords_node"
+            brain_nodes.handle_get_passage_keywords, "handle_get_passage_keywords_node"
         ),
     )
     builder.add_node(
         "handle_get_translation_helps_node",
         wrap_node_with_timing(
-            brain.handle_get_translation_helps, "handle_get_translation_helps_node"
+            brain_nodes.handle_get_translation_helps, "handle_get_translation_helps_node"
         ),
     )
     builder.add_node(
         "handle_retrieve_scripture_node",
-        wrap_node_with_timing(brain.handle_retrieve_scripture, "handle_retrieve_scripture_node"),
+        wrap_node_with_timing(
+            brain_nodes.handle_retrieve_scripture, "handle_retrieve_scripture_node"
+        ),
     )
     builder.add_node(
         "handle_listen_to_scripture_node",
-        wrap_node_with_timing(brain.handle_listen_to_scripture, "handle_listen_to_scripture_node"),
+        wrap_node_with_timing(
+            brain_nodes.handle_listen_to_scripture, "handle_listen_to_scripture_node"
+        ),
     )
     builder.add_node(
         "handle_translate_scripture_node",
-        wrap_node_with_timing(brain.handle_translate_scripture, "handle_translate_scripture_node"),
+        wrap_node_with_timing(
+            brain_nodes.handle_translate_scripture, "handle_translate_scripture_node"
+        ),
     )
     builder.add_node(
         "translate_responses_node",
-        wrap_node_with_timing(brain.translate_responses, "translate_responses_node"),
+        wrap_node_with_timing(brain_nodes.translate_responses, "translate_responses_node"),
         defer=True,
     )
 
@@ -195,7 +210,7 @@ def create_brain():
     builder.add_edge("query_open_ai_node", "translate_responses_node")
     builder.add_edge("consult_fia_resources_node", "translate_responses_node")
 
-    builder.add_conditional_edges("translate_responses_node", brain.needs_chunking)
+    builder.add_conditional_edges("translate_responses_node", brain_nodes.needs_chunking)
     builder.set_finish_point("chunk_message_node")
 
     return builder.compile()
