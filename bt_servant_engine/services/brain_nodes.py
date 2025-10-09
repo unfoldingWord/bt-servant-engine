@@ -264,7 +264,7 @@ def translate_responses(state: Any) -> dict:
         return {"translated_responses": passthrough}
     assert target_language is not None
 
-    agentic_strength = _resolve_agentic_strength(s)
+    agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     translated_responses = [
         _translate_or_localize_response(resp, target_language, agentic_strength)
         for resp in responses_for_translation
@@ -295,7 +295,7 @@ def determine_query_language(state: Any) -> dict:
 
     s = cast(BrainState, state)
     query = s["user_query"]
-    agentic_strength = _resolve_agentic_strength(s)
+    agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     query_language, stack_rank_collections = _determine_query_language_impl(
         open_ai_client, query, agentic_strength
     )
@@ -332,7 +332,7 @@ def query_open_ai(state: Any) -> dict:
     from brain import BrainState
 
     s = cast(BrainState, state)
-    agentic_strength = _resolve_agentic_strength(s)
+    agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return query_open_ai_impl(
         open_ai_client,
         s["docs"],
@@ -352,7 +352,7 @@ def consult_fia_resources(state: Any) -> dict:
     import brain
 
     s = cast(BrainState, state)
-    agentic_strength = _resolve_agentic_strength(s)
+    agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return consult_fia_resources_impl(
         open_ai_client,
         s["transformed_query"],
@@ -461,7 +461,7 @@ def handle_get_passage_summary(state: Any) -> dict:
     from brain import BrainState
 
     s = cast(BrainState, state)
-    agentic_strength = _resolve_agentic_strength(s)
+    agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return get_passage_summary_impl(
         open_ai_client,
         s["transformed_query"],
@@ -496,7 +496,7 @@ def handle_get_translation_helps(state: Any) -> dict:
     from brain import BrainState
 
     s = cast(BrainState, state)
-    agentic_strength = _resolve_agentic_strength(s)
+    agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return get_translation_helps_impl(
         open_ai_client,
         s["transformed_query"],
@@ -518,7 +518,7 @@ def handle_retrieve_scripture(state: Any) -> dict:
     from brain import BrainState
 
     s = cast(BrainState, state)
-    agentic_strength = _resolve_agentic_strength(s)
+    agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return retrieve_scripture_impl(
         open_ai_client,
         s["transformed_query"],
@@ -538,7 +538,7 @@ def handle_listen_to_scripture(state: Any) -> dict:
     from brain import BrainState
 
     s = cast(BrainState, state)
-    agentic_strength = _resolve_agentic_strength(s)
+    agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return listen_to_scripture_impl(
         open_ai_client,
         s["transformed_query"],
@@ -559,7 +559,7 @@ def handle_translate_scripture(state: Any) -> dict:
     from brain import BrainState
 
     s = cast(BrainState, state)
-    agentic_strength = _resolve_agentic_strength(s)
+    agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return translate_scripture_impl(
         open_ai_client,
         s["transformed_query"],

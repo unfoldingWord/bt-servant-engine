@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import Any, cast
+from typing import Any, Callable, cast
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
@@ -49,7 +49,7 @@ def set_response_language(
     user_query: str,
     chat_history: list[dict[str, str]],
     supported_language_map: dict[str, str],
-    set_user_response_language_fn: callable,
+    set_user_response_language_fn: Callable[..., Any],
 ) -> dict[str, Any]:
     """Detect and persist the user's desired response language."""
     chat_input: list[EasyInputMessageParam] = [
@@ -102,7 +102,7 @@ def set_agentic_strength(
     user_id: str,
     user_query: str,
     chat_history: list[dict[str, str]],
-    set_user_agentic_strength_fn: callable,
+    set_user_agentic_strength_fn: Callable[..., Any],
     log_pseudonym_secret: str,
 ) -> dict[str, Any]:
     """Detect and persist the user's preferred agentic strength."""

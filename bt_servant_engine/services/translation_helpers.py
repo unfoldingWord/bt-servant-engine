@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Optional, cast
+from typing import Any, Callable, Optional, cast
 
 from openai import OpenAI
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
@@ -61,8 +61,8 @@ def prepare_translation_helps(
     bsb_root: Path,
     *,
     book_map: dict[str, Any],
-    detect_mentioned_books_fn: callable,
-    translate_text_fn: callable,
+    detect_mentioned_books_fn: Callable[..., Any],
+    translate_text_fn: Callable[..., Any],
     selection_focus_hint: str | None = None,
 ) -> tuple[Optional[str], Optional[list[TranslationRange]], Optional[list[dict]], Optional[str]]:
     """Resolve canonical selection, enforce limits, and load raw help entries."""

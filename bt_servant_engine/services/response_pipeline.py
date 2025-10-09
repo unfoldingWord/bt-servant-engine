@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import Any, List, Optional, cast
+from typing import Any, Callable, List, Optional, cast
 
 from langgraph.graph import END
 from openai import OpenAI, OpenAIError
@@ -127,7 +127,7 @@ def combine_responses(
     chat_history: list[dict[str, str]],
     latest_user_message: str,
     responses: list[dict[str, Any]],
-    extract_cached_input_tokens_fn: callable,
+    extract_cached_input_tokens_fn: Callable[..., Any],
 ) -> str:
     """Ask OpenAI to synthesize multiple node responses into one coherent text.
 
@@ -166,8 +166,8 @@ def translate_text(
     client: OpenAI,
     response_text: str,
     target_language: str,
-    model_for_agentic_strength_fn: callable,
-    extract_cached_input_tokens_fn: callable,
+    model_for_agentic_strength_fn: Callable[..., Any],
+    extract_cached_input_tokens_fn: Callable[..., Any],
     *,
     agentic_strength: Optional[str] = None,
 ) -> str:
@@ -221,8 +221,8 @@ def translate_or_localize_response(
     resp: dict | str,
     target_language: str,
     agentic_strength: str,
-    model_for_agentic_strength_fn: callable,
-    extract_cached_input_tokens_fn: callable,
+    model_for_agentic_strength_fn: Callable[..., Any],
+    extract_cached_input_tokens_fn: Callable[..., Any],
 ) -> str:
     """Translate free-form text or localize structured scripture outputs."""
     if isinstance(resp, str):
@@ -258,7 +258,7 @@ def build_translation_queue(
     state: dict[str, Any],
     protected_items: list[dict],
     normal_items: list[dict],
-    combine_responses_fn: callable,
+    combine_responses_fn: Callable[..., Any],
 ) -> list[dict | str]:
     """Assemble responses in the order they should be translated or localized."""
     queue: list[dict | str] = list(protected_items)
@@ -314,7 +314,7 @@ def resolve_target_language(
 def chunk_message(
     client: OpenAI,
     text_to_chunk: str,
-    extract_cached_input_tokens_fn: callable,
+    extract_cached_input_tokens_fn: Callable[..., Any],
     additional_responses: list[str],
     chunk_max: int,
 ) -> list[str]:

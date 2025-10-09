@@ -108,7 +108,7 @@ def query_open_ai(
     docs: list[dict[str, str]],
     transformed_query: str,
     chat_history: list[dict[str, str]],
-    model_for_agentic_strength_fn: Callable[[str, bool, bool], str],
+    model_for_agentic_strength_fn: Callable[..., str],
     extract_cached_input_tokens_fn: Callable[[Any], Optional[int]],
     add_tokens_fn: Callable[..., None],
     agentic_strength: str,

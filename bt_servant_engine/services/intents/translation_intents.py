@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from typing import Any, Optional, cast
+from typing import Any, Callable, Optional, cast
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
@@ -68,10 +68,10 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,t
     query: str,
     query_lang: str,
     book_map: dict[str, Any],
-    detect_mentioned_books_fn: callable,
-    translate_text_fn: callable,
-    model_for_agentic_strength_fn: callable,
-    extract_cached_input_tokens_fn: callable,
+    detect_mentioned_books_fn: Callable[..., Any],
+    translate_text_fn: Callable[..., Any],
+    model_for_agentic_strength_fn: Callable[..., Any],
+    extract_cached_input_tokens_fn: Callable[..., Any],
     user_response_language: Optional[str],
     agentic_strength: str,
 ) -> dict[str, Any]:
@@ -336,13 +336,13 @@ def get_translation_helps(
     query: str,
     query_lang: str,
     book_map: dict[str, Any],
-    detect_mentioned_books_fn: callable,
-    translate_text_fn: callable,
-    model_for_agentic_strength_fn: callable,
-    extract_cached_input_tokens_fn: callable,
-    prepare_translation_helps_fn: callable,
-    build_translation_helps_context_fn: callable,
-    build_translation_helps_messages_fn: callable,
+    detect_mentioned_books_fn: Callable[..., Any],
+    translate_text_fn: Callable[..., Any],
+    model_for_agentic_strength_fn: Callable[..., Any],
+    extract_cached_input_tokens_fn: Callable[..., Any],
+    prepare_translation_helps_fn: Callable[..., Any],
+    build_translation_helps_context_fn: Callable[..., Any],
+    build_translation_helps_messages_fn: Callable[..., Any],
     agentic_strength: str,
 ) -> dict[str, Any]:
     """Generate focused translation helps guidance for a selected passage."""

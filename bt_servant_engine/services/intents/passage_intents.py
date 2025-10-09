@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from typing import Any, Optional, cast
+from typing import Any, Callable, Optional, cast
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
@@ -59,10 +59,10 @@ def get_passage_summary(
     query: str,
     query_lang: str,
     book_map: dict[str, Any],
-    detect_mentioned_books_fn: callable,
-    translate_text_fn: callable,
-    model_for_agentic_strength_fn: callable,
-    extract_cached_input_tokens_fn: callable,
+    detect_mentioned_books_fn: Callable[..., Any],
+    translate_text_fn: Callable[..., Any],
+    model_for_agentic_strength_fn: Callable[..., Any],
+    extract_cached_input_tokens_fn: Callable[..., Any],
     user_response_language: Optional[str],
     agentic_strength: str,
 ) -> dict[str, Any]:
@@ -177,8 +177,8 @@ def get_passage_keywords(
     query: str,
     query_lang: str,
     book_map: dict[str, Any],
-    detect_mentioned_books_fn: callable,
-    translate_text_fn: callable,
+    detect_mentioned_books_fn: Callable[..., Any],
+    translate_text_fn: Callable[..., Any],
 ) -> dict[str, Any]:
     """Handle get-passage-keywords: extract refs, retrieve keywords, and list them.
 
@@ -234,10 +234,10 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-locals,to
     query: str,
     query_lang: str,
     book_map: dict[str, Any],
-    detect_mentioned_books_fn: callable,
-    translate_text_fn: callable,
-    model_for_agentic_strength_fn: callable,
-    extract_cached_input_tokens_fn: callable,
+    detect_mentioned_books_fn: Callable[..., Any],
+    translate_text_fn: Callable[..., Any],
+    model_for_agentic_strength_fn: Callable[..., Any],
+    extract_cached_input_tokens_fn: Callable[..., Any],
     user_response_language: Optional[str],
     agentic_strength: str,
 ) -> dict[str, Any]:
@@ -468,11 +468,11 @@ def listen_to_scripture(
     query: str,
     query_lang: str,
     book_map: dict[str, Any],
-    detect_mentioned_books_fn: callable,
-    translate_text_fn: callable,
-    reconstruct_structured_text_fn: callable,
-    model_for_agentic_strength_fn: callable,
-    extract_cached_input_tokens_fn: callable,
+    detect_mentioned_books_fn: Callable[..., Any],
+    translate_text_fn: Callable[..., Any],
+    reconstruct_structured_text_fn: Callable[..., Any],
+    model_for_agentic_strength_fn: Callable[..., Any],
+    extract_cached_input_tokens_fn: Callable[..., Any],
     user_response_language: Optional[str],
     agentic_strength: str,
 ) -> dict[str, Any]:

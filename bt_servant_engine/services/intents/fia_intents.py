@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, List, Optional, cast
+from typing import Any, Callable, List, Optional, cast
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
@@ -63,9 +63,9 @@ def consult_fia_resources(
     chat_history: list[dict[str, str]],
     user_response_language: Optional[str],
     query_language: Optional[str],
-    get_chroma_collection_fn: callable,
-    model_for_agentic_strength_fn: callable,
-    extract_cached_input_tokens_fn: callable,
+    get_chroma_collection_fn: Callable[..., Any],
+    model_for_agentic_strength_fn: Callable[..., Any],
+    extract_cached_input_tokens_fn: Callable[..., Any],
     agentic_strength: str,
 ) -> dict[str, Any]:
     """Answer FIA-specific questions using FIA collections and reference material."""

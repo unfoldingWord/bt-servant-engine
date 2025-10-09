@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any, List, cast
+from typing import Any, Callable, List, cast
 
 from openai import OpenAI
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
@@ -68,8 +68,8 @@ def resolve_selection_for_single_book(
     query: str,
     query_lang: str,
     book_map: dict[str, Any],
-    detect_mentioned_books_fn: callable,
-    translate_text_fn: callable,
+    detect_mentioned_books_fn: Callable[..., Any],
+    translate_text_fn: Callable[..., Any],
     focus_hint: str | None = None,
 ) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
     # pylint: disable=too-many-return-statements, too-many-branches, too-many-arguments
