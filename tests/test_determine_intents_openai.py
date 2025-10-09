@@ -66,15 +66,25 @@ def test_intents_detect_keywords(query: str) -> None:
 
 
 @pytest.mark.parametrize(
-    "query",
+    "query,acceptable_intents",
     [
-        "How do I translate the Bible?",
-        "What are the steps of the FIA process?",
-        "What does FIA step 2 look like in the first chapter of Mark?",
+        # Ambiguous: could be general translation help or FIA-specific
+        (
+            "How do I translate the Bible?",
+            {IntentType.CONSULT_FIA_RESOURCES, IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE},
+        ),
+        # FIA-specific queries
+        ("What are the steps of the FIA process?", {IntentType.CONSULT_FIA_RESOURCES}),
+        (
+            "What does FIA step 2 look like in the first chapter of Mark?",
+            {IntentType.CONSULT_FIA_RESOURCES},
+        ),
     ],
 )
-def test_intents_detect_consult_fia_resources(query: str) -> None:
+def test_intents_detect_consult_fia_resources(query: str, acceptable_intents: set[IntentType]) -> None:
     state: dict[str, Any] = {"transformed_query": query}
     out = determine_intents(cast(Any, state))
     intents = set(out["user_intents"])  # list[IntentType]
-    assert IntentType.CONSULT_FIA_RESOURCES in intents
+    assert any(intent in intents for intent in acceptable_intents), (
+        f"Expected one of {acceptable_intents}, got {intents}"
+    )

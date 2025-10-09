@@ -40,18 +40,30 @@ load_dotenv(override=True)
 @pytest.mark.openai
 @pytest.mark.skipif(not _has_real_openai(), reason="OPENAI_API_KEY not set for live OpenAI tests")
 @pytest.mark.parametrize(
-    "query",
+    "query,acceptable_intents",
     [
-        "Help me translate Titus 1:1-5",
-        "translation challenges for Exo 1",
-        "what to consider when translating Ruth",
+        # Ambiguous: could be general translation help or structured translation helps
+        (
+            "Help me translate Titus 1:1-5",
+            {IntentType.GET_TRANSLATION_HELPS, IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE},
+        ),
+        (
+            "translation challenges for Exo 1",
+            {IntentType.GET_TRANSLATION_HELPS, IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE},
+        ),
+        (
+            "what to consider when translating Ruth",
+            {IntentType.GET_TRANSLATION_HELPS, IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE},
+        ),
     ],
 )
-def test_intents_detect_translation_helps(query: str) -> None:
+def test_intents_detect_translation_helps(query: str, acceptable_intents: set[IntentType]) -> None:
     state: dict[str, Any] = {"transformed_query": query}
     out = determine_intents(cast(Any, state))
     intents = set(out["user_intents"])  # list[IntentType]
-    assert IntentType.GET_TRANSLATION_HELPS in intents
+    assert any(intent in intents for intent in acceptable_intents), (
+        f"Expected one of {acceptable_intents}, got {intents}"
+    )
 
 
 # API-level flow test (opt-in like the existing Meta test)
