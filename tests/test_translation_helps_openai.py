@@ -108,13 +108,18 @@ def test_meta_whatsapp_translation_helps_flow_with_openai(
     monkeypatch.setattr(webhooks, "send_voice_message", _fake_send_voice_message)
     monkeypatch.setattr(webhooks, "send_typing_indicator_message", _fake_typing_indicator_message)
 
+    # Patch at the module where the graph actually imports from (brain_nodes)
+    from bt_servant_engine.services import brain_nodes
+
     invoked: list[bool] = []
-    orig_handler = brain.handle_get_translation_helps
+    orig_handler = brain_nodes.handle_get_translation_helps
 
     def _wrapped(state):  # type: ignore[no-redef]
         invoked.append(True)
         return orig_handler(state)
 
+    monkeypatch.setattr(brain_nodes, "handle_get_translation_helps", _wrapped)
+    # Also patch the re-export in brain module for consistency
     monkeypatch.setattr(brain, "handle_get_translation_helps", _wrapped)
     set_brain(None)
 
