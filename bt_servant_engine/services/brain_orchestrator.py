@@ -175,7 +175,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.start,
             "start_node",
-            progress_message="Give me a few moments to contemplate your request.",
+            progress_message="Give me a few moments to think about your message.",
             force=True,
         ),
     )
@@ -191,12 +191,7 @@ def create_brain():
     )
     builder.add_node(
         "determine_intents_node",
-        wrap_node_with_progress(
-            brain_nodes.determine_intents,
-            "determine_intents_node",
-            progress_message="I'm taking a quick look at your question so I can point you to the right resources.",
-            force=True,
-        ),
+        wrap_node_with_timing(brain_nodes.determine_intents, "determine_intents_node"),
     )
     builder.add_node(
         "set_response_language_node",

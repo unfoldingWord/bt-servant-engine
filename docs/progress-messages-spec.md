@@ -47,7 +47,7 @@ Progress messages will be sent at strategic points based on empirical performanc
 #### Critical Progress Points
 
 1. **Conversation Start** (`start_node`)
-   - Message: "Give me a few moments to contemplate your request."
+   - Message: "Give me a few moments to think about your message."
    - Triggers for: Every request (ensures an immediate acknowledgment)
    - **ALWAYS send with force=True** to bypass throttling and ship within the first second
 
