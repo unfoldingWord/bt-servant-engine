@@ -26,7 +26,7 @@ from bt_servant_engine.services.brain_nodes import (
     set_user_agentic_strength,
     set_user_response_language,
     FIA_REFERENCE_CONTENT,
-    _resolve_selection_for_single_book,
+    resolve_selection_for_single_book,
     chunk_message,
     combine_responses,
     consult_fia_resources,
@@ -95,7 +95,7 @@ __all__ = [
     "set_user_agentic_strength",
     "set_user_response_language",
     "FIA_REFERENCE_CONTENT",
-    "_resolve_selection_for_single_book",
+    "resolve_selection_for_single_book",
     # Node functions
     "start",
     "determine_intents",

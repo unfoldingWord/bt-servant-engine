@@ -37,7 +37,7 @@ from bt_servant_engine.services.preprocessing import (
     resolve_agentic_strength as _resolve_agentic_strength,
 )
 from bt_servant_engine.services.passage_selection import (
-    resolve_selection_for_single_book as _resolve_selection_for_single_book_impl,
+    resolve_selection_for_single_book as resolve_selection_for_single_book_impl,
 )
 from bt_servant_engine.services.intents.simple_intents import (
     BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
@@ -436,13 +436,13 @@ def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
     return _choose_primary_book_impl(text, candidates, BSB_BOOK_MAP)
 
 
-def _resolve_selection_for_single_book(
+def resolve_selection_for_single_book(
     query: str,
     query_lang: str,
     focus_hint: str | None = None,
 ) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
     """Parse and normalize a user query into a single canonical book and ranges."""
-    return _resolve_selection_for_single_book_impl(
+    return resolve_selection_for_single_book_impl(
         client=open_ai_client,
         query=query,
         query_lang=query_lang,
@@ -614,5 +614,5 @@ __all__ = [
     "handle_listen_to_scripture",
     "handle_translate_scripture",
     # Helper functions (for test compatibility)
-    "_resolve_selection_for_single_book",
+    "resolve_selection_for_single_book",
 ]

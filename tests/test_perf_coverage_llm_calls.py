@@ -95,9 +95,7 @@ def test_selection_helper_tokens_roll_into_parent_span(monkeypatch: pytest.Monke
 
     # Open a span matching the keywords node; helper should add tokens to it
     with perf.time_block("brain:handle_get_passage_keywords_node"):
-        # Accessing a protected helper is acceptable in tests for coverage
-        # of token attribution in the selection phase.
-        book, ranges, err = brain._resolve_selection_for_single_book(  # pylint: disable=protected-access
+        book, ranges, err = brain.resolve_selection_for_single_book(
             "John 3:16-18",
             "en",
         )

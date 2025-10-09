@@ -11,7 +11,7 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.passage_selection import (
-    resolve_selection_for_single_book as _resolve_selection_for_single_book,
+    resolve_selection_for_single_book,
 )
 from utils.bsb import (
     BOOK_MAP as BSB_BOOK_MAP,
@@ -64,7 +64,7 @@ def prepare_translation_helps(
     selection_focus_hint: str | None = None,
 ) -> tuple[Optional[str], Optional[list[TranslationRange]], Optional[list[dict]], Optional[str]]:
     """Resolve canonical selection, enforce limits, and load raw help entries."""
-    canonical_book, ranges, err = _resolve_selection_for_single_book(
+    canonical_book, ranges, err = resolve_selection_for_single_book(
         query,
         query_lang,
         focus_hint=selection_focus_hint,
