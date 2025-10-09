@@ -112,10 +112,10 @@ lint-imports          # Architecture compliance
 source .venv/bin/activate
 
 # Run the API server
-uvicorn bt_servant:app --reload
+uvicorn bt_servant_engine.apps.api.app:create_app --factory --reload
 
 # Or with specific host/port
-uvicorn bt_servant:app --reload --host 0.0.0.0 --port 8000
+uvicorn bt_servant_engine.apps.api.app:create_app --factory --reload --host 0.0.0.0 --port 8000
 ```
 
 ### Common Tasks
