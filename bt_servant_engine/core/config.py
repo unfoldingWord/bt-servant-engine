@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     MESSAGE_AGE_CUTOFF_IN_SECONDS: int = Field(default=3600)
     BASE_URL: str = Field(...)
     BT_SERVANT_LOG_LEVEL: str = Field(default="info")
+    BT_SERVANT_LOG_DIR: Path | None = Field(default=None)
     MAX_META_TEXT_LENGTH: int = Field(default=4096)
     TRANSLATION_HELPS_VERSE_LIMIT: int = Field(default=5)
     RETRIEVE_SCRIPTURE_VERSE_LIMIT: int = Field(default=120)

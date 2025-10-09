@@ -124,6 +124,7 @@ uvicorn bt_servant_engine.apps.api.app:create_app --factory --reload
 | `LOG_PSEUDONYM_SECRET` | Secret for deriving log-safe user identifiers in logs          |
 | `BASE_URL`      | Public base URL used to generate audio file links               |
 | `BT_SERVANT_LOG_LEVEL` | (Optional) Defaults to info log level if not present            |
+| `BT_SERVANT_LOG_DIR`   | (Optional) Directory for application logs; defaults to project `logs/`, then `DATA_DIR/logs` |
 | `IN_META_SANDBOX_MODE` | (Optional) Set to true when testing in sandbox mode             |
 | `META_SANDBOX_PHONE_NUMBER` | Only accept requests from this phonenumber when testing locally |
 | `OPENAI_PRICING_JSON`  | (Optional) Per-million token pricing to compute costs in perf reports |

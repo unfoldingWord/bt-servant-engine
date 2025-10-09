@@ -17,8 +17,34 @@ LEVEL_NAME = str(getattr(settings, "BT_SERVANT_LOG_LEVEL", "info")).upper()
 LOG_LEVEL = getattr(logging, LEVEL_NAME, logging.INFO)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-LOGS_DIR = BASE_DIR / "logs"
-LOGS_DIR.mkdir(exist_ok=True)
+ROOT_DIR = BASE_DIR.parent
+
+
+def _resolve_logs_dir() -> Path:
+    """Select a writable logs directory honoring configuration overrides."""
+
+    configured_dir = getattr(settings, "BT_SERVANT_LOG_DIR", None)
+    candidates = []
+    if configured_dir:
+        candidates.append(Path(configured_dir))
+
+    data_dir = Path(getattr(settings, "DATA_DIR", Path("/data")))
+    # Precedence: explicit override → repo root logs → DATA_DIR/logs → package-local logs
+    candidates.append(ROOT_DIR / "logs")
+    candidates.append(data_dir / "logs")
+    candidates.append(BASE_DIR / "logs")
+
+    for candidate in candidates:
+        try:
+            candidate.mkdir(parents=True, exist_ok=True)
+        except PermissionError:
+            continue
+        return candidate
+
+    raise PermissionError("Unable to create a writable logs directory")
+
+
+LOGS_DIR = _resolve_logs_dir()
 LOG_FILE_PATH = LOGS_DIR / "bt_servant.log"
 
 
