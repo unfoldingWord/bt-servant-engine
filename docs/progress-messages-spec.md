@@ -77,7 +77,7 @@ Progress messages will be sent at strategic points based on empirical performanc
    - **ALWAYS send with force=True** because users only see this path when summary generation begins
 
 7. **Before Passage Keywords** (handle_get_passage_keywords_node)
-   - Message: "I'm reviewing the passage to pull out its key ideas for you."
+   - Message: "I'm reviewing the passage to pull out its key words for you."
    - Triggers for: GET_PASSAGE_KEYWORDS intent
    - **ALWAYS send with force=True** to guarantee feedback before keyword extraction LLM calls
 

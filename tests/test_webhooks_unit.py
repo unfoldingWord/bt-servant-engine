@@ -140,7 +140,12 @@ def test_process_message_audio_flow(monkeypatch) -> None:
 
     asyncio.run(webhooks.process_message(user_message))
 
-    assert sent_text == ["15555555555:response"]
+    progress_prefix = app_config.PROGRESS_MESSAGE_EMOJI
+    assert sent_text == [
+        f"15555555555:{progress_prefix} I'm transcribing your voice message. Give me a moment.",
+        f"15555555555:{progress_prefix} I'm packaging up a voice message response.",
+        "15555555555:response",
+    ]
     assert sent_voice == ["15555555555:spoken reply"]
     set_brain(None)
 

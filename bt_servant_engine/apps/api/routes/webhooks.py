@@ -202,7 +202,21 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                 except httpx.HTTPError as e:
                     logger.warning("Failed to send typing indicator: %s", e)
 
+                async def _send_progress_update(message: str) -> None:
+                    if not config.PROGRESS_MESSAGES_ENABLED:
+                        return
+                    try:
+                        emoji = config.PROGRESS_MESSAGE_EMOJI
+                        await send_text_message(
+                            user_id=user_message.user_id, text=f"{emoji} {message}"
+                        )
+                    except httpx.HTTPError:
+                        logger.warning("Failed to send progress message", exc_info=True)
+
                 if user_message.message_type == "audio":
+                    await _send_progress_update(
+                        "I'm transcribing your voice message. Give me a moment."
+                    )
                     text = await transcribe_voice_message(user_message.media_id)
                 else:
                     text = user_message.text
@@ -217,13 +231,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                 # Create progress messenger callback for this user
                 async def send_progress_message(message: str) -> None:
                     """Send a progress message to the user via WhatsApp."""
-                    try:
-                        emoji = config.PROGRESS_MESSAGE_EMOJI
-                        await send_text_message(
-                            user_id=user_message.user_id, text=f"{emoji} {message}"
-                        )
-                    except httpx.HTTPError:
-                        logger.warning("Failed to send progress message", exc_info=True)
+                    await _send_progress_update(message)
 
                 brain_payload: dict[str, Any] = {
                     "user_id": user_message.user_id,
@@ -256,6 +264,8 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                 voice_text = result.get("voice_message_text")
 
                 if send_voice:
+                    if voice_text or full_response_text:
+                        await _send_progress_update("I'm packaging up a voice message response.")
                     voice_payload = voice_text or full_response_text
                     if voice_payload:
                         await send_voice_message(user_id=user_message.user_id, text=voice_payload)

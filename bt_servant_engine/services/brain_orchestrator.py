@@ -319,7 +319,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.handle_get_passage_keywords,
             "handle_get_passage_keywords_node",
-            progress_message="I'm reviewing the passage to pull out its key ideas for you.",
+            progress_message="I'm reviewing the passage to pull out its key words for you.",
             force=True,
         ),
     )
