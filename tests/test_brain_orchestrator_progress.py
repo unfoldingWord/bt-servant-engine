@@ -5,7 +5,10 @@ from __future__ import annotations
 import asyncio
 from typing import Any, Dict, List
 
-from bt_servant_engine.services.brain_orchestrator import wrap_node_with_progress
+from bt_servant_engine.services.brain_orchestrator import (
+    build_translation_assistance_progress_message,
+    wrap_node_with_progress,
+)
 from bt_servant_engine.services.progress_messaging import should_show_translation_progress
 
 
@@ -74,3 +77,56 @@ def test_wrap_node_with_progress_schedules_on_running_loop() -> None:
 
     assert messages == ["Working..."]
     assert state["last_progress_time"] > 0
+
+
+def test_translation_progress_message_includes_sources() -> None:
+    """Translation assistance progress message lists unique resource origins."""
+
+    messages: List[str] = []
+
+    async def messenger(message: str) -> None:
+        messages.append(message)
+
+    state = _make_state(messenger)
+    state["docs"] = [
+        {"metadata": {"_merged_from": "uw_notes"}},
+        {"metadata": {"_merged_from": "uw_dictionary"}},
+        {"metadata": {"_merged_from": "uw_notes"}},  # duplicate omitted
+    ]
+
+    wrapped = wrap_node_with_progress(
+        lambda s: s,
+        "test_node",
+        progress_message=build_translation_assistance_progress_message,
+    )
+
+    wrapped(state)
+
+    assert messages == [
+        (
+            "I found potentially relevant documents in the following resources: "
+            "uw_notes and uw_dictionary. I'm pulling everything together into a helpful response for you."
+        )
+    ]
+
+
+def test_translation_progress_message_falls_back_without_sources() -> None:
+    """Translation assistance progress message reuses base text when no sources."""
+
+    messages: List[str] = []
+
+    async def messenger(message: str) -> None:
+        messages.append(message)
+
+    state = _make_state(messenger)
+    state["docs"] = []
+
+    wrapped = wrap_node_with_progress(
+        lambda s: s,
+        "test_node",
+        progress_message=build_translation_assistance_progress_message,
+    )
+
+    wrapped(state)
+
+    assert messages == ["I'm pulling everything together into a helpful response for you."]

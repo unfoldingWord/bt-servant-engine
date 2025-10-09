@@ -33,7 +33,7 @@ class BrainState(TypedDict, total=False):
     agentic_strength: str
     user_agentic_strength: str
     transformed_query: str
-    docs: List[Dict[str, str]]
+    docs: List[Dict[str, Any]]
     collection_used: str
     responses: Annotated[List[Dict[str, Any]], operator.add]
     translated_responses: List[str]
@@ -49,6 +49,12 @@ class BrainState(TypedDict, total=False):
     progress_messenger: Optional[Callable[[str], Awaitable[None]]]
     last_progress_time: float
     progress_throttle_seconds: float
+
+
+ProgressMessageInput = str | Callable[[Any], Optional[str]]
+BASE_TRANSLATION_ASSISTANCE_PROGRESS_MESSAGE = (
+    "I'm pulling everything together into a helpful response for you."
+)
 
 
 def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-def]
@@ -67,7 +73,7 @@ def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-d
 def wrap_node_with_progress(  # type: ignore[no-untyped-def]
     node_fn,
     node_name: str,
-    progress_message: Optional[str] = None,
+    progress_message: ProgressMessageInput | None = None,
     condition: Optional[Callable[[Any], bool]] = None,
     force: bool = False,
 ):
@@ -87,11 +93,18 @@ def wrap_node_with_progress(  # type: ignore[no-untyped-def]
 
     def wrapped(state: Any) -> dict:
         # Send progress message before node execution if configured
-        if progress_message and (condition is None or condition(state)):
+        should_show = condition is None or condition(state)
+        message_text: Optional[str] = None
+        if progress_message is not None and should_show:
+            message_text = (
+                progress_message(state) if callable(progress_message) else progress_message
+            )
+
+        if message_text:
             # Import here to avoid circular dependency
             from bt_servant_engine.services.progress_messaging import maybe_send_progress
 
-            coroutine = maybe_send_progress(state, progress_message, force=force)
+            coroutine = maybe_send_progress(state, message_text, force=force)
             try:
                 loop = asyncio.get_running_loop()
             except RuntimeError:
@@ -109,6 +122,49 @@ def wrap_node_with_progress(  # type: ignore[no-untyped-def]
             return node_fn(state)
 
     return wrapped
+
+
+def _format_series(resources: List[str]) -> str:
+    if not resources:
+        return ""
+    if len(resources) == 1:
+        return resources[0]
+    if len(resources) == 2:
+        return f"{resources[0]} and {resources[1]}"
+    return f"{', '.join(resources[:-1])}, and {resources[-1]}"
+
+
+def _collect_resource_sources(docs: List[Dict[str, Any]]) -> List[str]:
+    seen: set[str] = set()
+    ordered: List[str] = []
+    for doc in docs:
+        metadata = doc.get("metadata")
+        if not isinstance(metadata, dict):
+            continue
+        merged_from = metadata.get("_merged_from")
+        if not isinstance(merged_from, str):
+            continue
+        normalized = merged_from.strip()
+        if not normalized or normalized in seen:
+            continue
+        seen.add(normalized)
+        ordered.append(normalized)
+    return ordered
+
+
+def build_translation_assistance_progress_message(state: Any) -> Optional[str]:
+    """Generate the progress message for translation assistance summarizing resource origins."""
+    s = cast(BrainState, state)
+    docs = cast(List[Dict[str, Any]], s.get("docs", []))
+    sources = _collect_resource_sources(docs)
+    if not sources:
+        return BASE_TRANSLATION_ASSISTANCE_PROGRESS_MESSAGE
+
+    resources_list = _format_series(sources)
+    return (
+        "I found potentially relevant documents in the following resources: "
+        f"{resources_list}. {BASE_TRANSLATION_ASSISTANCE_PROGRESS_MESSAGE}"
+    )
 
 
 def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-branches
@@ -217,7 +273,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.query_open_ai,
             "query_open_ai_node",
-            progress_message="I'm pulling everything together into a helpful response for you.",
+            progress_message=build_translation_assistance_progress_message,
             condition=lambda s: IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE
             in s.get("user_intents", []),
             force=True,  # Always send, bypass throttling

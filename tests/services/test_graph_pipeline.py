@@ -25,7 +25,12 @@ def test_query_vector_db_filters_by_relevance() -> None:
     relevant_results: Dict[str, List[List[Any]]] = {
         "documents": [["doc-a", "doc-b"]],
         "distances": [[0.1, 0.7]],  # cosine similarity -> 0.9 and 0.3
-        "metadatas": [[{"name": "ResA", "source": "SrcA"}, {"name": "ResB", "source": "SrcB"}]],
+        "metadatas": [
+            [
+                {"name": "ResA", "source": "SrcA", "_merged_from": "uw_notes"},
+                {"name": "ResB", "source": "SrcB", "_merged_from": "uw_dictionary"},
+            ]
+        ],
     }
     collections = {
         "missing": None,
@@ -48,6 +53,7 @@ def test_query_vector_db_filters_by_relevance() -> None:
             "resource_name": "ResA",
             "source": "SrcA",
             "document_text": "doc-a",
+            "metadata": {"name": "ResA", "source": "SrcA", "_merged_from": "uw_notes"},
         }
     ]
 

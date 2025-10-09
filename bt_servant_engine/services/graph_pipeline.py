@@ -81,8 +81,9 @@ def query_vector_db(
             cosine_similarity = round(1 - similarities[0][i], 4)
             doc = docs[0][i]
             m = metadata[0][i]
-            resource_name = m.get("name", "")
-            source = m.get("source", "")
+            metadata_entry = dict(cast(dict[str, Any], m)) if isinstance(m, dict) else {}
+            resource_name = metadata_entry.get("name", "")
+            source = metadata_entry.get("source", "")
             logger.info("processing %s from %s.", resource_name, source)
             logger.info("Cosine Similarity: %s", cosine_similarity)
             logger.info("Metadata: %s", resource_name)
@@ -95,6 +96,7 @@ def query_vector_db(
                         "resource_name": resource_name,
                         "source": source,
                         "document_text": doc,
+                        "metadata": metadata_entry,
                     }
                 )
         if hits > 0:
@@ -105,7 +107,7 @@ def query_vector_db(
 
 def query_open_ai(
     client: OpenAI,
-    docs: list[dict[str, str]],
+    docs: list[dict[str, Any]],
     transformed_query: str,
     chat_history: list[dict[str, str]],
     model_for_agentic_strength_fn: Callable[..., str],

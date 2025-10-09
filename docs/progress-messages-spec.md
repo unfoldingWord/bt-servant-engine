@@ -57,7 +57,7 @@ Progress messages will be sent at strategic points based on empirical performanc
    - Always send (this is the slowest operation)
 
 3. **Before OpenAI Generation** (query_open_ai_node)
-   - Message: "I'm pulling everything together into a helpful response for you."
+   - Message: "I found potentially relevant documents in the following resources: W, X, Y, and Z. I'm pulling everything together into a helpful response for you." (dynamic list built from `_merged_from` metadata of retrieved docs; falls back to the base sentence when no sources are available)
    - Triggers for: GET_BIBLE_TRANSLATION_ASSISTANCE path (after vector DB)
    - **ALWAYS send with force=True** (OpenAI calls are consistently slow)
 
