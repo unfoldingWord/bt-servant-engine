@@ -152,6 +152,33 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     reason_for_decision: The user chose option 2 from the menu, which maps to FIA process guidance.
     message_changed: True
 </assistant_response>
+
+## Example 6
+
+<past_conversation>
+    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
+
+        1. Summarize a passage
+        2. FIA process guidance
+        3. Translation helps
+        4. Keywords
+        5. Show scripture text
+        6. Read aloud
+        7. Translate scripture
+        8. Set response language
+
+    Which of these capabilities would you like to explore?
+</past_conversation>
+
+<current_message>
+    user_message: what can you do?
+</current_message>
+
+<assistant_response>
+    new_message: what can you do?
+    reason_for_decision: The user is repeating the capabilities question verbatim; the intent is already clear, so no changes were needed.
+    message_changed: False
+</assistant_response>
 """
 
 INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT = """
@@ -559,7 +586,8 @@ def preprocess_user_query(
         reason_for_decision = preprocessor_result.reason_for_decision
         message_changed = preprocessor_result.message_changed
     logger.info(
-        "new_message: %s\nreason_for_decision: %s\nmessage_changed: %s",
+        "original_message: %s\nnew_message: %s\nreason_for_decision: %s\nmessage_changed: %s",
+        query,
         new_message,
         reason_for_decision,
         message_changed,
