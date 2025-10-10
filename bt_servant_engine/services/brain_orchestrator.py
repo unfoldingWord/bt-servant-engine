@@ -281,7 +281,12 @@ def create_brain():
     )
     builder.add_node(
         "consult_fia_resources_node",
-        wrap_node_with_timing(brain_nodes.consult_fia_resources, "consult_fia_resources_node"),
+        wrap_node_with_progress(
+            brain_nodes.consult_fia_resources,
+            "consult_fia_resources_node",
+            progress_message="I'm reviewing the FIA guidance to answer your question.",
+            force=True,
+        ),
     )
     builder.add_node(
         "chunk_message_node", wrap_node_with_timing(brain_nodes.chunk_message, "chunk_message_node")
@@ -339,14 +344,20 @@ def create_brain():
     )
     builder.add_node(
         "handle_retrieve_scripture_node",
-        wrap_node_with_timing(
-            brain_nodes.handle_retrieve_scripture, "handle_retrieve_scripture_node"
+        wrap_node_with_progress(
+            brain_nodes.handle_retrieve_scripture,
+            "handle_retrieve_scripture_node",
+            progress_message="I'm gathering the passage text you asked for.",
+            force=True,
         ),
     )
     builder.add_node(
         "handle_listen_to_scripture_node",
-        wrap_node_with_timing(
-            brain_nodes.handle_listen_to_scripture, "handle_listen_to_scripture_node"
+        wrap_node_with_progress(
+            brain_nodes.handle_listen_to_scripture,
+            "handle_listen_to_scripture_node",
+            progress_message="I'm preparing the audio playback for your passage.",
+            force=True,
         ),
     )
     builder.add_node(
