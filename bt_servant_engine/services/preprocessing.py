@@ -47,6 +47,21 @@ conjunctions like "and" or comma/semicolon lists), preserve them exactly as writ
 (for example, only a single chapter can be processed at a time), do NOT modify the user's message to fit those
 constraints — leave the message intact and let downstream nodes handle any rejection or guidance. For translation
 requests, do NOT add or change a target language; preserve only what the user explicitly stated.
+
+When the immediately preceding assistant response lists numbered capabilities (for example, "1. Summarize a passage"
+through "8. Set response language") and the user replies with a message that is just one of those numbers (optionally
+with whitespace or punctuation), expand it into the canonical request below, always referencing John 1:1 where
+scripture is involved:
+
+- 1 → "Summarize John 1:1."
+- 2 → "Guide me through the FIA process for John 1:1."
+- 3 → "Provide translation helps for John 1:1."
+- 4 → "List the key terms in John 1:1."
+- 5 → "Show me John 1:1."
+- 6 → "I want to listen to John 1:1."
+- 7 → "Translate John 1:1 into Spanish."
+- 8 → "Set my response language to Spanish."
+
 Return the clarified
 message and the reasons for clarifying or reasons for not changing anything. Examples below.
 
@@ -128,20 +143,52 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
 
 <assistant_response>
     new_message: Summarize John 1:1.
-    reason_for_decision: The user selected option 1 from the numbered menu, so we request a summary of John 1:1.
+    reason_for_decision: The user chose option 1 from the numbered menu, which maps to summarizing John 1:1.
     message_changed: True
 </assistant_response>
 
 ## Example 5
 
 <past_conversation>
-    assistant_response: Here are the core things I can help with:
+    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
 
-        (1) Summaries of books, chapters, or verse ranges
-        (2) Guidance through the FIA process
-        (3) Translation helps and common challenges
+        1. Summarize a passage
+        2. FIA process guidance
+        3. Translation helps
+        4. Keywords
+        5. Show scripture text
+        6. Read aloud
+        7. Translate scripture
+        8. Set response language
 
-    Just reply with the number you need.
+    Which of these capabilities would you like to explore?
+</past_conversation>
+
+<current_message>
+    user_message: 2
+</current_message>
+
+<assistant_response>
+    new_message: Guide me through the FIA process for John 1:1.
+    reason_for_decision: The user selected option 2 from the numbered menu, which maps to FIA guidance for John 1:1.
+    message_changed: True
+</assistant_response>
+
+## Example 6
+
+<past_conversation>
+    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
+
+        1. Summarize a passage
+        2. FIA process guidance
+        3. Translation helps
+        4. Keywords
+        5. Show scripture text
+        6. Read aloud
+        7. Translate scripture
+        8. Set response language
+
+    Which of these capabilities would you like to explore?
 </past_conversation>
 
 <current_message>
@@ -150,11 +197,11 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
 
 <assistant_response>
     new_message: Provide translation helps for John 1:1.
-    reason_for_decision: The user chose option 3 from the menu, which maps to translation helps for John 1:1.
+    reason_for_decision: The user selected option 3 from the numbered menu, which maps to translation helps for John 1:1.
     message_changed: True
 </assistant_response>
 
-## Example 6
+## Example 7
 
 <past_conversation>
     assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
@@ -181,7 +228,34 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     message_changed: True
 </assistant_response>
 
-## Example 7
+## Example 8
+
+<past_conversation>
+    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
+
+        1. Summarize a passage
+        2. FIA process guidance
+        3. Translation helps
+        4. Keywords
+        5. Show scripture text
+        6. Read aloud
+        7. Translate scripture
+        8. Set response language
+
+    Which of these capabilities would you like to explore?
+</past_conversation>
+
+<current_message>
+    user_message: 5
+</current_message>
+
+<assistant_response>
+    new_message: Show me John 1:1.
+    reason_for_decision: The user selected option 5 from the numbered menu, which maps to showing John 1:1.
+    message_changed: True
+</assistant_response>
+
+## Example 9
 
 <past_conversation>
     assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
@@ -208,7 +282,61 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     message_changed: True
 </assistant_response>
 
-## Example 8
+## Example 10
+
+<past_conversation>
+    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
+
+        1. Summarize a passage
+        2. FIA process guidance
+        3. Translation helps
+        4. Keywords
+        5. Show scripture text
+        6. Read aloud
+        7. Translate scripture
+        8. Set response language
+
+    Which of these capabilities would you like to explore?
+</past_conversation>
+
+<current_message>
+    user_message: 7
+</current_message>
+
+<assistant_response>
+    new_message: Translate John 1:1 into Spanish.
+    reason_for_decision: The user selected option 7 from the numbered menu, so we translate John 1:1 into Spanish.
+    message_changed: True
+</assistant_response>
+
+## Example 11
+
+<past_conversation>
+    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
+
+        1. Summarize a passage
+        2. FIA process guidance
+        3. Translation helps
+        4. Keywords
+        5. Show scripture text
+        6. Read aloud
+        7. Translate scripture
+        8. Set response language
+
+    Which of these capabilities would you like to explore?
+</past_conversation>
+
+<current_message>
+    user_message: 8
+</current_message>
+
+<assistant_response>
+    new_message: Set my response language to Spanish.
+    reason_for_decision: The user selected option 8 from the numbered menu, which maps to setting the response language to Spanish.
+    message_changed: True
+</assistant_response>
+
+## Example 12
 
 <past_conversation>
     assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
