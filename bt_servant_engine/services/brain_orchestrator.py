@@ -288,8 +288,11 @@ def create_brain():
     )
     builder.add_node(
         "handle_unsupported_function_node",
-        wrap_node_with_timing(
-            brain_nodes.handle_unsupported_function, "handle_unsupported_function_node"
+        wrap_node_with_progress(
+            brain_nodes.handle_unsupported_function,
+            "handle_unsupported_function_node",
+            progress_message="I'm checking my capabilities to see how I can help.",
+            force=True,
         ),
     )
     builder.add_node(
