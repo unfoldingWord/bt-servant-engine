@@ -372,6 +372,9 @@ request is outside the scope of Bible translation, the Bible translation process
 (for example: Translation Notes, Translation Words, FIA resources, commentaries, Bible dictionaries, etc.), return
 `perform-unsupported-function`.
 
+If the user is clearly asking for information about the BT Servant system itself—especially short cues like "help",
+"help!", "help me", or "help please"—classify the message as `retrieve-system-information`.
+
 You must choose one or more intents from the following list:
 
 <intents>
@@ -517,6 +520,10 @@ Here are example classifications:
   </example>
   <example>
     <message>Where does BT Servant get its information from?</message>
+    <intent>retrieve-system-information</intent>
+  </example>
+  <example>
+    <message>help!</message>
     <intent>retrieve-system-information</intent>
   </example>
   <example>
