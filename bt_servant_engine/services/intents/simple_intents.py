@@ -248,7 +248,8 @@ def handle_unsupported_function(
     track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
     unsupported_function_response_text = response.output_text
     logger.info(
-        "converse_with_bt_servant response from openai: %s", unsupported_function_response_text
+        "perform_unsupported_function response from openai: %s",
+        unsupported_function_response_text,
     )
     return {
         "responses": [

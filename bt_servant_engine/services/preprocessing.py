@@ -392,6 +392,10 @@ Here are example classifications:
     <intent>retrieve-system-information</intent>
   </example>
   <example>
+    <message>What else can you do?</message>
+    <intent>retrieve-system-information</intent>
+  </example>
+  <example>
     <message>Can you tell me a joke?</message>
     <intent>perform-unsupported-function</intent>
   </example>
