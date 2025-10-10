@@ -294,9 +294,11 @@ def create_brain():
     )
     builder.add_node(
         "handle_system_information_request_node",
-        wrap_node_with_timing(
+        wrap_node_with_progress(
             brain_nodes.handle_system_information_request,
             "handle_system_information_request_node",
+            progress_message="I'm generating a response from my help docs.",
+            force=True,
         ),
     )
     builder.add_node(
