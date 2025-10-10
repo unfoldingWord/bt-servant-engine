@@ -14,12 +14,18 @@ from bt_servant_engine.services.intent_router import (
     IntentResponse,
     IntentRouter,
 )
-from bt_servant_engine.services.intents.converse import handle_converse_intent
+async def echo_handler(request: IntentRequest, services: ServiceContainer) -> IntentResponse:
+    """Simple echo handler used for router tests."""
+
+    _ = services
+    payload_text = str(request.payload.get("text", "")).strip()
+    message = f"You said: {payload_text}" if payload_text else "I'm here whenever you need assistance."
+    return IntentResponse(intent=request.intent, result={"text": message})
 
 
 def test_dispatch_invokes_registered_handler():
     """Router calls the registered handler and returns its response."""
-    router = IntentRouter({IntentType.CONVERSE_WITH_BT_SERVANT: handle_converse_intent})
+    router = IntentRouter({IntentType.CONVERSE_WITH_BT_SERVANT: echo_handler})
     container = ServiceContainer(intent_router=router)
     request = IntentRequest(
         intent=IntentType.CONVERSE_WITH_BT_SERVANT,
@@ -45,7 +51,7 @@ def test_dispatch_unknown_intent_raises():
 
 def test_dispatch_many_preserves_order():
     """Sequential dispatch preserves ordering of responses."""
-    router = IntentRouter({IntentType.CONVERSE_WITH_BT_SERVANT: handle_converse_intent})
+    router = IntentRouter({IntentType.CONVERSE_WITH_BT_SERVANT: echo_handler})
     container = ServiceContainer(intent_router=router)
     requests = [
         IntentRequest(intent=IntentType.CONVERSE_WITH_BT_SERVANT, payload={"text": "First"}),
@@ -66,4 +72,4 @@ def test_build_default_services_provisions_router():
 
     assert services.intent_router is not None
     registered = services.intent_router.handlers()
-    assert IntentType.CONVERSE_WITH_BT_SERVANT in registered
+    assert registered == {}
