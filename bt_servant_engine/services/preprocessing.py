@@ -123,13 +123,12 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
 </past_conversation>
 
 <current_message>
-    user_message: 6
+    user_message: 1
 </current_message>
 
 <assistant_response>
-    new_message: I want to listen to passages as audio.
-    reason_for_decision: The user selected option 6 from the numbered menu of capabilities, which corresponds to
-                         listening to scripture as audio.
+    new_message: Summarize John 1:1.
+    reason_for_decision: The user selected option 1 from the numbered menu, so we request a summary of John 1:1.
     message_changed: True
 </assistant_response>
 
@@ -146,16 +145,70 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
 </past_conversation>
 
 <current_message>
-    user_message: 2
+    user_message: 3
 </current_message>
 
 <assistant_response>
-    new_message: I want to learn about the FIA workflow.
-    reason_for_decision: The user chose option 2 from the menu, which maps to FIA process guidance.
+    new_message: Provide translation helps for John 1:1.
+    reason_for_decision: The user chose option 3 from the menu, which maps to translation helps for John 1:1.
     message_changed: True
 </assistant_response>
 
 ## Example 6
+
+<past_conversation>
+    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
+
+        1. Summarize a passage
+        2. FIA process guidance
+        3. Translation helps
+        4. Keywords
+        5. Show scripture text
+        6. Read aloud
+        7. Translate scripture
+        8. Set response language
+
+    Which of these capabilities would you like to explore?
+</past_conversation>
+
+<current_message>
+    user_message: 4
+</current_message>
+
+<assistant_response>
+    new_message: List the key terms in John 1:1.
+    reason_for_decision: The user selected option 4 from the numbered menu, which maps to keywords for John 1:1.
+    message_changed: True
+</assistant_response>
+
+## Example 7
+
+<past_conversation>
+    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
+
+        1. Summarize a passage
+        2. FIA process guidance
+        3. Translation helps
+        4. Keywords
+        5. Show scripture text
+        6. Read aloud
+        7. Translate scripture
+        8. Set response language
+
+    Which of these capabilities would you like to explore?
+</past_conversation>
+
+<current_message>
+    user_message: 6
+</current_message>
+
+<assistant_response>
+    new_message: I want to listen to John 1:1.
+    reason_for_decision: The user selected option 6 from the numbered menu, which maps to listening to John 1:1.
+    message_changed: True
+</assistant_response>
+
+## Example 8
 
 <past_conversation>
     assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
