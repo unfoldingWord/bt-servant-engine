@@ -49,41 +49,21 @@ def generate_continuation_prompt(user_id: str) -> Optional[str]:
         logger.debug("[continuation-prompt] No queued intents for user=%s", user_id)
         return None
 
-    # Get the action description for this intent
-    base_action = INTENT_ACTION_DESCRIPTIONS.get(
-        next_item.intent, f"help with {next_item.intent.value.replace('-', ' ')}"
-    )
-
-    # Try to enhance with parameters for specificity
-    action = base_action
-    params = next_item.parameters
-
-    if params:
-        passage = params.get("passage")
-        if passage and next_item.intent in {
-            IntentType.GET_PASSAGE_SUMMARY,
-            IntentType.GET_PASSAGE_KEYWORDS,
-            IntentType.GET_TRANSLATION_HELPS,
-            IntentType.RETRIEVE_SCRIPTURE,
-            IntentType.LISTEN_TO_SCRIPTURE,
-            IntentType.TRANSLATE_SCRIPTURE,
-        }:
-            # Replace "that passage" with specific passage reference
-            action = base_action.replace("that passage", passage)
-
-        target_language = params.get("target_language")
-        if target_language and next_item.intent == IntentType.TRANSLATE_SCRIPTURE:
-            action = f"translate {passage or 'that scripture'} to {target_language}"
-
-        # Handle GET_BIBLE_TRANSLATION_ASSISTANCE with query parameter
-        query = params.get("query")
-        if query and next_item.intent == IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE:
-            action = f"provide Bible translation assistance about {query}"
-
-        # Handle CONSULT_FIA_RESOURCES with topic parameter
-        topic = params.get("topic")
-        if topic and next_item.intent == IntentType.CONSULT_FIA_RESOURCES:
-            action = f"consult FIA resources about {topic}"
+    # Use pre-generated continuation action if available
+    if next_item.continuation_action:
+        action = next_item.continuation_action
+        logger.info(
+            "[continuation-prompt] Using pre-generated action for user=%s: '%s'",
+            user_id,
+            action,
+        )
+    else:
+        # Fallback for old queue items without continuation_action
+        logger.warning(
+            "[continuation-prompt] No pre-generated action for user=%s (old queue item?), using generic fallback",
+            user_id,
+        )
+        action = "continue with that request"
 
     # Build the continuation prompt
     prompt = f"\n\nWould you like me to {action}?"

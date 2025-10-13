@@ -266,11 +266,18 @@ def determine_intents(state: Any) -> dict:
             len(intents_with_context),
         )
 
+        # Generate continuation actions for each intent
+        logger.info("[determine-intents] Generating continuation actions for multi-intent query")
+        from bt_servant_engine.services.preprocessing import generate_continuation_actions
+
+        continuation_actions = generate_continuation_actions(open_ai_client, query, intent_types)
+
         # Store structured data for use in process_intents
         # We'll add this to BrainState to pass the full context through
         return {
             "user_intents": intent_types,
             "intents_with_context": intents_with_context,
+            "continuation_actions": continuation_actions,
         }
 
     # Single intent - no extraction needed, whole query is context

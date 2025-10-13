@@ -258,6 +258,7 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
 
         # Get structured context if available
         intents_with_context = s.get("intents_with_context")
+        continuation_actions = cast(list[str], s.get("continuation_actions", []))
 
         # Build queue items
         queue_items = []
@@ -271,10 +272,18 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
                 if matching_context and matching_context.parameters:
                     params = matching_context.parameters
 
+            # Get corresponding continuation action
+            # sorted_intents[0] is being processed now, so queued intents start at index 1+
+            action_idx = sorted_intents.index(intent)
+            continuation_action = (
+                continuation_actions[action_idx] if action_idx < len(continuation_actions) else ""
+            )
+
             queue_items.append(
                 IntentQueueItem(
                     intent=intent,
                     parameters=params,
+                    continuation_action=continuation_action,
                     created_at=time.time(),
                     original_query=s["user_query"],
                 )

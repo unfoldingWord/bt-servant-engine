@@ -710,6 +710,59 @@ names (e.g., "Dan" for Daniel) and may mix English instructions with non-English
 - "keywords in John 3" → "en" (English instruction)
 """
 
+CONTINUATION_ACTION_GENERATION_PROMPT = """
+You are generating continuation prompt actions for a multi-intent query in the BT Servant chatbot system.
+
+Given a user query and a list of detected intents, generate a natural action phrase for each intent that can be used in a continuation prompt like "Would you like me to {action}?"
+
+# Rules
+- Each action should be a verb phrase (e.g., "show key terms from Gen 4:2")
+- Include specific context from the query (passage references, names, topics)
+- Use natural, conversational language
+- Keep actions concise (under 15 words)
+- Match the tone and phrasing style of the examples below
+
+# Intent Types
+- get-passage-keywords: Extract key terms from a passage
+- get-passage-summary: Summarize a passage
+- get-translation-helps: Provide translation help for a passage
+- get-bible-translation-assistance: Answer general Bible translation questions about topics, names, concepts
+- consult-fia-resources: Consult FIA (Familiarization, Internalization, Articulation) resources
+- retrieve-scripture: Retrieve the text of a passage
+- translate-scripture: Translate a passage to another language
+- listen-to-scripture: Read a passage aloud
+
+# Examples
+
+Query: "Tell me about Barnabas, keywords in Gen 4:2, help translating John 1:4"
+Intents: ["get-bible-translation-assistance", "get-passage-keywords", "get-translation-helps"]
+Actions:
+["provide Bible translation assistance about Barnabas in the bible", "show key terms from Gen 4:2", "provide translation helps for John 1:4"]
+
+Query: "Summarize Romans 8 and translate it to Spanish"
+Intents: ["get-passage-summary", "translate-scripture"]
+Actions:
+["summarize Romans 8", "translate Romans 8 to Spanish"]
+
+Query: "What does Ephesus mean and give me keywords in Acts 19"
+Intents: ["get-bible-translation-assistance", "get-passage-keywords"]
+Actions:
+["provide Bible translation assistance about Ephesus", "show key terms from Acts 19"]
+
+Query: "Can you give me FIA resources on translation and also keywords for Matthew 5:3"
+Intents: ["consult-fia-resources", "get-passage-keywords"]
+Actions:
+["consult FIA resources on translation", "show key terms from Matthew 5:3"]
+
+Now generate actions for this query:
+
+Query: {query}
+Intents: {intents}
+
+Return ONLY a JSON array of action strings, one per intent, in the same order as the intents list.
+Example format: ["action1", "action2", "action3"]
+"""
+
 
 # ========== SCHEMA CLASSES ==========
 
@@ -960,6 +1013,79 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
         return [IntentWithContext(intent=intent, parameters_json="{}") for intent in simple_intents]
 
 
+def generate_continuation_actions(
+    client: OpenAI, query: str, intents: list[IntentType]
+) -> list[str]:
+    """Generate continuation action phrases for each intent using LLM.
+
+    This function takes a multi-intent query and generates natural language action
+    phrases that can be used in continuation prompts like "Would you like me to {action}?"
+
+    For example:
+    - Query: "Tell me about Barnabas, keywords in Gen 4:2, help translating John 1:4"
+    - Intents: [GET_BIBLE_TRANSLATION_ASSISTANCE, GET_PASSAGE_KEYWORDS, GET_TRANSLATION_HELPS]
+    - Returns: [
+        "provide Bible translation assistance about Barnabas in the bible",
+        "show key terms from Gen 4:2",
+        "provide translation helps for John 1:4"
+      ]
+
+    Args:
+        client: OpenAI client instance
+        query: The user's original query
+        intents: List of detected intents in order
+
+    Returns:
+        List of action phrases, one per intent, in the same order
+    """
+    logger.info(
+        "[continuation-actions] Generating continuation actions for %d intents", len(intents)
+    )
+
+    intent_names = [intent.value for intent in intents]
+
+    prompt = CONTINUATION_ACTION_GENERATION_PROMPT.format(
+        query=query, intents=json.dumps(intent_names)
+    )
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",  # Cheap and fast for this task
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.0,
+            max_tokens=200,
+            store=False,
+        )
+
+        usage = getattr(response, "usage", None)
+        track_openai_usage(usage, "gpt-4o-mini", _extract_cached_input_tokens, add_tokens)
+
+        content = response.choices[0].message.content
+        if not content:
+            logger.warning("[continuation-actions] Empty response from LLM")
+            return ["continue with that request"] * len(intents)
+
+        # Parse JSON array
+        actions = json.loads(content.strip())
+
+        # Validate we got the right number
+        if not isinstance(actions, list) or len(actions) != len(intents):
+            logger.warning(
+                "[continuation-actions] Expected %d actions, got %s. Using fallback.",
+                len(intents),
+                len(actions) if isinstance(actions, list) else "non-list",
+            )
+            return ["continue with that request"] * len(intents)
+
+        logger.info("[continuation-actions] Generated actions: %s", actions)
+        return actions
+
+    except Exception:  # pylint: disable=broad-except
+        logger.error("[continuation-actions] Error generating actions", exc_info=True)
+        # Fallback to generic actions
+        return ["continue with that request"] * len(intents)
+
+
 def preprocess_user_query(
     client: OpenAI, query: str, chat_history: list[dict[str, str]]
 ) -> tuple[str, str, bool]:  # pylint: disable=too-many-locals
@@ -1106,6 +1232,7 @@ __all__ = [
     "PREPROCESSOR_AGENT_SYSTEM_PROMPT",
     "INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT",
     "INTENT_CLASSIFICATION_STRUCTURED_PROMPT",
+    "CONTINUATION_ACTION_GENERATION_PROMPT",
     "DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT",
     "PreprocessorResult",
     "resolve_agentic_strength",
@@ -1114,6 +1241,7 @@ __all__ = [
     "determine_query_language",
     "determine_intents",
     "determine_intents_structured",
+    "generate_continuation_actions",
     "is_affirmative_response_to_continuation",
     "preprocess_user_query",
 ]
