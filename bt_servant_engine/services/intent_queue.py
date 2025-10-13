@@ -10,7 +10,7 @@ from __future__ import annotations
 import time
 from typing import Optional
 
-from bt_servant_engine.adapters.user_state import get_user_db, get_user_state, set_user_state
+from bt_servant_engine.adapters.user_state import get_user_state, set_user_state
 from bt_servant_engine.core.intents import IntentQueue, IntentQueueItem
 from bt_servant_engine.core.logging import get_logger
 
@@ -124,11 +124,6 @@ def save_intent_queue(
         user_state = get_user_state(user_id)
         user_state["intent_queue"] = queue.model_dump()
         set_user_state(user_id, user_state)
-
-        # Explicitly flush to disk to ensure immediate persistence
-        # TinyDB's CachingMiddleware buffers writes (default: 1000 ops)
-        # Without flush, subsequent reads may get stale data
-        get_user_db().storage.flush()  # type: ignore[attr-defined]
 
         logger.info(
             "[intent-queue] Successfully saved queue for user=%s (expires in %d seconds)",
@@ -257,11 +252,6 @@ def clear_queue(user_id: str) -> None:
         if "intent_queue" in user_state:
             del user_state["intent_queue"]
             set_user_state(user_id, user_state)
-
-            # Explicitly flush to disk to ensure immediate persistence
-            # TinyDB's CachingMiddleware buffers writes (default: 1000 ops)
-            # Without flush, subsequent reads may get stale data
-            get_user_db().storage.flush()  # type: ignore[attr-defined]
 
             logger.info("[intent-queue] Successfully cleared queue for user=%s", user_id)
         else:

@@ -209,7 +209,6 @@ class UserStateAdapter(UserStatePort):
 
 __all__ = [
     "UserStateAdapter",
-    "get_user_db",
     "get_user_state",
     "set_user_state",
     "get_user_chat_history",
