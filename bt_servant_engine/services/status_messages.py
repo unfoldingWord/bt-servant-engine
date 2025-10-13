@@ -4,14 +4,16 @@ This module provides infrastructure for delivering status messages in the user's
 preferred language, with pre-loaded translations for supported languages and
 dynamic translation fallback for other languages.
 
-Dynamic translations are persisted back to the JSON file, allowing the system
-to "learn" new languages over time and avoid redundant API calls.
+Dynamic translations are persisted back to the JSON file in DATA_DIR, allowing
+the system to "learn" new languages over time and avoid redundant API calls.
+The file persists across container restarts when DATA_DIR is mounted as a volume.
 """
 
 from __future__ import annotations
 
 import json
 import os
+import shutil
 import tempfile
 from pathlib import Path
 from typing import Any, Optional
@@ -42,10 +44,36 @@ TRANSCRIBING_VOICE = "TRANSCRIBING_VOICE"
 PACKAGING_VOICE_RESPONSE = "PACKAGING_VOICE_RESPONSE"
 PROCESSING_ERROR = "PROCESSING_ERROR"
 FOUND_RELEVANT_DOCUMENTS = "FOUND_RELEVANT_DOCUMENTS"
-CONTINUATION_PROMPT_TEMPLATE = "CONTINUATION_PROMPT_TEMPLATE"
 
-# Load pre-translated messages
-_STATUS_MESSAGES_PATH = Path(__file__).parent / "status_messages_data.json"
+# Template file location (bundled with package)
+_TEMPLATE_PATH = Path(__file__).parent / "status_messages_template.json"
+
+# Runtime data file location (in DATA_DIR for persistence)
+DATA_DIR = Path(config.DATA_DIR)
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+_STATUS_MESSAGES_PATH = DATA_DIR / "status_messages_data.json"
+
+
+def _initialize_status_messages_file() -> None:
+    """Initialize status messages file in DATA_DIR if it doesn't exist.
+
+    On first startup, copies the template from the package to DATA_DIR.
+    This allows the file to be writable and persist across container restarts.
+    """
+    if not _STATUS_MESSAGES_PATH.exists():
+        logger.info(
+            "Status messages file not found in DATA_DIR, copying template from package: %s -> %s",
+            _TEMPLATE_PATH,
+            _STATUS_MESSAGES_PATH,
+        )
+        shutil.copy2(_TEMPLATE_PATH, _STATUS_MESSAGES_PATH)
+        logger.info("Status messages template copied successfully")
+
+
+# Initialize the file on module load
+_initialize_status_messages_file()
+
+# Load pre-translated messages from DATA_DIR
 with open(_STATUS_MESSAGES_PATH, encoding="utf-8") as f:
     _STATUS_MESSAGES: dict[str, dict[str, str]] = json.load(f)
 
@@ -277,7 +305,6 @@ __all__ = [
     "PACKAGING_VOICE_RESPONSE",
     "PROCESSING_ERROR",
     "FOUND_RELEVANT_DOCUMENTS",
-    "CONTINUATION_PROMPT_TEMPLATE",
     # Functions
     "get_status_message",
     "get_effective_response_language",

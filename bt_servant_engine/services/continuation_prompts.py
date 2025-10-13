@@ -37,13 +37,11 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
 
     Args:
         user_id: The user's identifier
-        state: The BrainState dictionary containing language information (used for fallback)
+        state: The BrainState dictionary containing language information (unused, kept for API compatibility)
 
     Returns:
         A continuation prompt string (complete question), or None if no queued intents
     """
-    from bt_servant_engine.services import status_messages
-
     logger.debug("[continuation-prompt] Checking for queued intents for user=%s", user_id)
 
     # Check if there's a next intent in the queue
@@ -62,14 +60,12 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
         )
     else:
         # Fallback for old queue items without continuation_action
-        # Use localized fallback question
+        # Simple English fallback - old queue items are rare and will be regenerated
         logger.warning(
-            "[continuation-prompt] No pre-generated question for user=%s (old queue item?), using localized fallback",
+            "[continuation-prompt] No pre-generated question for user=%s (old queue item), using English fallback",
             user_id,
         )
-        complete_question = status_messages.get_status_message(
-            status_messages.CONTINUATION_PROMPT_TEMPLATE, state, action="continue with that request"
-        )
+        complete_question = "Would you like me to continue with that request?"
 
     # Prepend newlines for spacing
     prompt = f"\n\n{complete_question}"
