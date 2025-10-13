@@ -382,7 +382,8 @@ def translate_responses(state: Any) -> dict:
         for resp in responses_for_translation
     ]
 
-    # Append continuation prompt if user has queued intents
+    # PRIORITY 1: Multi-intent continuation prompt (takes precedence over intent-specific follow-ups)
+    # Check for queued intents first - if present, this supersedes intent-specific follow-ups
     user_id = s.get("user_id")
     if user_id:
         continuation_prompt = generate_continuation_prompt(user_id, s)
@@ -392,6 +393,33 @@ def translate_responses(state: Any) -> dict:
                 "[translate] Appending continuation prompt to final response for user=%s", user_id
             )
             translated_responses[-1] = translated_responses[-1] + continuation_prompt
+            # Mark that a follow-up question has been added to prevent duplicates
+            s["followup_question_added"] = True
+
+    # PRIORITY 2: Intent-specific follow-up (only if no multi-intent follow-up was added)
+    if not s.get("followup_question_added", False) and translated_responses and raw_responses:
+        from bt_servant_engine.services.intents.followup_questions import add_followup_if_needed
+        from bt_servant_engine.core.intents import IntentType
+
+        # Get the intent from the last raw response (before translation)
+        last_raw_response = raw_responses[-1]
+        intent = last_raw_response.get("intent")
+
+        # Only add follow-ups for intents that should have them
+        # Skip intents that already have their own follow-ups:
+        # - CONVERSE_WITH_BT_SERVANT: conversation intents handle their own flow
+        # - RETRIEVE_SYSTEM_INFORMATION: help responses already have follow-ups
+        # - PERFORM_UNSUPPORTED_FUNCTION: unsupported function responses already have follow-ups
+        if intent and intent not in {
+            IntentType.CONVERSE_WITH_BT_SERVANT,
+            IntentType.RETRIEVE_SYSTEM_INFORMATION,
+            IntentType.PERFORM_UNSUPPORTED_FUNCTION,
+        }:
+            # Add follow-up to the last translated response
+            translated_responses[-1] = add_followup_if_needed(translated_responses[-1], s, intent)
+            # Handle both IntentType enum and string intents (for test compatibility)
+            intent_str = intent.value if hasattr(intent, "value") else str(intent)
+            logger.info("[translate] Added intent-specific follow-up for intent=%s", intent_str)
 
     return {"translated_responses": translated_responses}
 
