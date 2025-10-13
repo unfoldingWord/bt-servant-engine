@@ -24,6 +24,7 @@ from bt_servant_engine.adapters.messaging import (
 from bt_servant_engine.apps.api.state import get_brain, set_brain
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services import status_messages
 from bt_servant_engine.services.brain_orchestrator import create_brain
 from bt_servant_engine.core.models import UserMessage
 from bt_servant_engine.adapters.user_state import (
@@ -214,9 +215,16 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                         logger.warning("Failed to send progress message", exc_info=True)
 
                 if user_message.message_type == "audio":
-                    await _send_progress_update(
-                        "I'm transcribing your voice message. Give me a moment."
+                    # Create minimal state for status message localization
+                    minimal_state = {
+                        "user_response_language": get_user_response_language(
+                            user_id=user_message.user_id
+                        )
+                    }
+                    transcribe_msg = status_messages.get_status_message(
+                        status_messages.TRANSCRIBING_VOICE, minimal_state
                     )
+                    await _send_progress_update(transcribe_msg)
                     text = await transcribe_voice_message(user_message.media_id)
                 else:
                     text = user_message.text
@@ -265,7 +273,10 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
 
                 if send_voice:
                     if voice_text or full_response_text:
-                        await _send_progress_update("I'm packaging up a voice message response.")
+                        packaging_msg = status_messages.get_status_message(
+                            status_messages.PACKAGING_VOICE_RESPONSE, result
+                        )
+                        await _send_progress_update(packaging_msg)
                     voice_payload = voice_text or full_response_text
                     if voice_payload:
                         await send_voice_message(user_id=user_message.user_id, text=voice_payload)
@@ -308,9 +319,12 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                 "Unhandled error during process_message; sending fallback to user.",
                 exc_info=True,
             )
-            fallback_msg = (
-                "It looks like I'm having trouble processing your message. "
-                "Please report this issue to my creators."
+            # Create minimal state for error message localization
+            error_state = {
+                "user_response_language": get_user_response_language(user_id=user_message.user_id)
+            }
+            fallback_msg = status_messages.get_status_message(
+                status_messages.PROCESSING_ERROR, error_state
             )
             try:
                 await send_text_message(user_id=user_message.user_id, text=fallback_msg)

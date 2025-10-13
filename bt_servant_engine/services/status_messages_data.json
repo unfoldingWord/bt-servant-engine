@@ -1,0 +1,53 @@
+{
+  "THINKING_ABOUT_MESSAGE": {
+    "en": "Give me a few moments to think about your message."
+  },
+  "SEARCHING_BIBLE_RESOURCES": {
+    "en": "I'm searching various Bible resources to help answer your question."
+  },
+  "REVIEWING_FIA_GUIDANCE": {
+    "en": "I'm reviewing the FIA guidance to answer your question."
+  },
+  "CHECKING_CAPABILITIES": {
+    "en": "I'm checking my capabilities to see how I can help."
+  },
+  "GENERATING_HELP_RESPONSE": {
+    "en": "I'm generating a response from my help docs."
+  },
+  "GATHERING_PASSAGE_SUMMARY": {
+    "en": "I'm gathering the passage details so I can summarize them for you."
+  },
+  "EXTRACTING_KEYWORDS": {
+    "en": "I'm reviewing the passage to pull out its key words for you."
+  },
+  "COMPILING_TRANSLATION_HELPS": {
+    "en": "I'm compiling translation helps that will support your work on this passage."
+  },
+  "GATHERING_PASSAGE_TEXT": {
+    "en": "I'm gathering the passage text you asked for."
+  },
+  "PREPARING_AUDIO": {
+    "en": "I'm preparing the audio playback for your passage."
+  },
+  "TRANSLATING_PASSAGE": {
+    "en": "I'm translating this passage into the language you asked for."
+  },
+  "TRANSLATING_RESPONSE": {
+    "en": "I'm translating my response into your preferred language now."
+  },
+  "FINALIZING_RESPONSE": {
+    "en": "I'm pulling everything together into a helpful response for you."
+  },
+  "TRANSCRIBING_VOICE": {
+    "en": "I'm transcribing your voice message. Give me a moment."
+  },
+  "PACKAGING_VOICE_RESPONSE": {
+    "en": "I'm packaging up a voice message response."
+  },
+  "PROCESSING_ERROR": {
+    "en": "It looks like I'm having trouble processing your message. Please report this issue to my creators."
+  },
+  "FOUND_RELEVANT_DOCUMENTS": {
+    "en": "I found potentially relevant documents in the following resources: {resources}."
+  }
+}
