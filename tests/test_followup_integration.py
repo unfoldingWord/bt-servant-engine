@@ -155,6 +155,8 @@ class TestFollowupIntegration:
             (IntentType.RETRIEVE_SCRIPTURE, "Bible passage"),
             (IntentType.GET_TRANSLATION_HELPS, "translation question"),
             (IntentType.SET_RESPONSE_LANGUAGE, "What else"),
+            (IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "Bible translation question"),
+            (IntentType.CONSULT_FIA_RESOURCES, "biblical topic"),
         ]
 
         for intent, keyword in intents_and_keywords:
