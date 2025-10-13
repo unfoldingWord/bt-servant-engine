@@ -49,5 +49,8 @@
   },
   "FOUND_RELEVANT_DOCUMENTS": {
     "en": "I found potentially relevant documents in the following resources: {resources}."
+  },
+  "CONTINUATION_PROMPT_TEMPLATE": {
+    "en": "\n\nWould you like me to {action}?"
   }
 }

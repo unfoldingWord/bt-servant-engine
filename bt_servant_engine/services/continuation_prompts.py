@@ -6,7 +6,7 @@ encouraging them to continue the conversation in a natural way.
 
 from __future__ import annotations
 
-from typing import Optional
+from typing import Any, Optional
 
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
@@ -32,15 +32,18 @@ INTENT_ACTION_DESCRIPTIONS = {
 }
 
 
-def generate_continuation_prompt(user_id: str) -> Optional[str]:
+def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
     """Generate a continuation prompt if the user has queued intents.
 
     Args:
         user_id: The user's identifier
+        state: The BrainState dictionary containing language information
 
     Returns:
         A continuation prompt string, or None if no queued intents
     """
+    from bt_servant_engine.services import status_messages
+
     logger.debug("[continuation-prompt] Checking for queued intents for user=%s", user_id)
 
     # Check if there's a next intent in the queue
@@ -65,8 +68,10 @@ def generate_continuation_prompt(user_id: str) -> Optional[str]:
         )
         action = "continue with that request"
 
-    # Build the continuation prompt
-    prompt = f"\n\nWould you like me to {action}?"
+    # Build the continuation prompt using localized template
+    prompt = status_messages.get_status_message(
+        status_messages.CONTINUATION_PROMPT_TEMPLATE, state, action=action
+    )
 
     logger.info(
         "[continuation-prompt] Generated prompt for user=%s: intent=%s, action='%s'",

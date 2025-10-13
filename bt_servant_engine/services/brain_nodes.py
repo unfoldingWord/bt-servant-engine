@@ -266,11 +266,15 @@ def determine_intents(state: Any) -> dict:
             len(intents_with_context),
         )
 
-        # Generate continuation actions for each intent
+        # Generate continuation actions for each intent in the appropriate language
         logger.info("[determine-intents] Generating continuation actions for multi-intent query")
         from bt_servant_engine.services.preprocessing import generate_continuation_actions
+        from bt_servant_engine.services.status_messages import get_effective_response_language
 
-        continuation_actions = generate_continuation_actions(open_ai_client, query, intent_types)
+        target_language = get_effective_response_language(s)
+        continuation_actions = generate_continuation_actions(
+            open_ai_client, query, intent_types, target_language
+        )
 
         # Store structured data for use in process_intents
         # We'll add this to BrainState to pass the full context through
@@ -380,7 +384,7 @@ def translate_responses(state: Any) -> dict:
     # Append continuation prompt if user has queued intents
     user_id = s.get("user_id")
     if user_id:
-        continuation_prompt = generate_continuation_prompt(user_id)
+        continuation_prompt = generate_continuation_prompt(user_id, s)
         if continuation_prompt and translated_responses:
             # Append to the last response
             logger.info(

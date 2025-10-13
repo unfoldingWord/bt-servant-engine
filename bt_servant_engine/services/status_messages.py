@@ -37,6 +37,7 @@ TRANSCRIBING_VOICE = "TRANSCRIBING_VOICE"
 PACKAGING_VOICE_RESPONSE = "PACKAGING_VOICE_RESPONSE"
 PROCESSING_ERROR = "PROCESSING_ERROR"
 FOUND_RELEVANT_DOCUMENTS = "FOUND_RELEVANT_DOCUMENTS"
+CONTINUATION_PROMPT_TEMPLATE = "CONTINUATION_PROMPT_TEMPLATE"
 
 # Load pre-translated messages
 _STATUS_MESSAGES_PATH = Path(__file__).parent / "status_messages_data.json"
@@ -145,15 +146,16 @@ def _translate_dynamically(message_key: str, target_language: str) -> str:
         return english_text
 
 
-def get_status_message(message_key: str, state: Any) -> str:
+def get_status_message(message_key: str, state: Any, **format_params: Any) -> str:
     """Get a localized status message for the given key and state.
 
     Args:
         message_key: One of the message key constants (e.g., THINKING_ABOUT_MESSAGE)
         state: The BrainState dictionary containing language information
+        **format_params: Optional format parameters for template messages (e.g., action="do something")
 
     Returns:
-        Localized status message text
+        Localized status message text, with format parameters applied if provided
     """
     target_language = get_effective_response_language(state)
 
@@ -165,15 +167,26 @@ def get_status_message(message_key: str, state: Any) -> str:
     # Check for pre-loaded translation
     translations = _STATUS_MESSAGES[message_key]
     if target_language in translations:
-        return translations[target_language]
+        message = translations[target_language]
+    else:
+        # Fall back to dynamic translation
+        logger.debug(
+            "No pre-loaded translation for message '%s' in language '%s', using dynamic translation",
+            message_key,
+            target_language,
+        )
+        message = _translate_dynamically(message_key, target_language)
 
-    # Fall back to dynamic translation
-    logger.debug(
-        "No pre-loaded translation for message '%s' in language '%s', using dynamic translation",
-        message_key,
-        target_language,
-    )
-    return _translate_dynamically(message_key, target_language)
+    # Apply format parameters if provided
+    if format_params:
+        try:
+            message = message.format(**format_params)
+        except KeyError as e:
+            logger.warning(
+                "Format parameter %s not found in message '%s': %s", e, message_key, message
+            )
+
+    return message
 
 
 __all__ = [
@@ -195,6 +208,7 @@ __all__ = [
     "PACKAGING_VOICE_RESPONSE",
     "PROCESSING_ERROR",
     "FOUND_RELEVANT_DOCUMENTS",
+    "CONTINUATION_PROMPT_TEMPLATE",
     # Functions
     "get_status_message",
     "get_effective_response_language",

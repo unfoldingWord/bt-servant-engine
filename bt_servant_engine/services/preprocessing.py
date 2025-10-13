@@ -721,6 +721,7 @@ Given a user query and a list of detected intents, generate a natural action phr
 - Use natural, conversational language
 - Keep actions concise (under 15 words)
 - Match the tone and phrasing style of the examples below
+- Generate actions in the target language specified (ISO 639-1 code: {target_language})
 
 # Intent Types
 - get-passage-keywords: Extract key terms from a passage
@@ -1014,7 +1015,7 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
 
 
 def generate_continuation_actions(
-    client: OpenAI, query: str, intents: list[IntentType]
+    client: OpenAI, query: str, intents: list[IntentType], target_language: str = "en"
 ) -> list[str]:
     """Generate continuation action phrases for each intent using LLM.
 
@@ -1034,18 +1035,21 @@ def generate_continuation_actions(
         client: OpenAI client instance
         query: The user's original query
         intents: List of detected intents in order
+        target_language: ISO 639-1 language code for the actions (default: "en")
 
     Returns:
         List of action phrases, one per intent, in the same order
     """
     logger.info(
-        "[continuation-actions] Generating continuation actions for %d intents", len(intents)
+        "[continuation-actions] Generating continuation actions for %d intents in language '%s'",
+        len(intents),
+        target_language,
     )
 
     intent_names = [intent.value for intent in intents]
 
     prompt = CONTINUATION_ACTION_GENERATION_PROMPT.format(
-        query=query, intents=json.dumps(intent_names)
+        query=query, intents=json.dumps(intent_names), target_language=target_language
     )
 
     try:
