@@ -37,10 +37,10 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
 
     Args:
         user_id: The user's identifier
-        state: The BrainState dictionary containing language information
+        state: The BrainState dictionary containing language information (used for fallback)
 
     Returns:
-        A continuation prompt string, or None if no queued intents
+        A continuation prompt string (complete question), or None if no queued intents
     """
     from bt_servant_engine.services import status_messages
 
@@ -52,32 +52,32 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
         logger.debug("[continuation-prompt] No queued intents for user=%s", user_id)
         return None
 
-    # Use pre-generated continuation action if available
+    # Use pre-generated continuation question if available (should be a complete question now)
     if next_item.continuation_action:
-        action = next_item.continuation_action
+        complete_question = next_item.continuation_action
         logger.info(
-            "[continuation-prompt] Using pre-generated action for user=%s: '%s'",
+            "[continuation-prompt] Using pre-generated question for user=%s: '%s'",
             user_id,
-            action,
+            complete_question,
         )
     else:
         # Fallback for old queue items without continuation_action
+        # Use localized fallback question
         logger.warning(
-            "[continuation-prompt] No pre-generated action for user=%s (old queue item?), using generic fallback",
+            "[continuation-prompt] No pre-generated question for user=%s (old queue item?), using localized fallback",
             user_id,
         )
-        action = "continue with that request"
+        complete_question = status_messages.get_status_message(
+            status_messages.CONTINUATION_PROMPT_TEMPLATE, state, action="continue with that request"
+        )
 
-    # Build the continuation prompt using localized template
-    prompt = status_messages.get_status_message(
-        status_messages.CONTINUATION_PROMPT_TEMPLATE, state, action=action
-    )
+    # Prepend newlines for spacing
+    prompt = f"\n\n{complete_question}"
 
     logger.info(
-        "[continuation-prompt] Generated prompt for user=%s: intent=%s, action='%s'",
+        "[continuation-prompt] Generated prompt for user=%s: intent=%s",
         user_id,
         next_item.intent.value,
-        action,
     )
 
     return prompt

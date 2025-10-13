@@ -266,12 +266,13 @@ def determine_intents(state: Any) -> dict:
             len(intents_with_context),
         )
 
-        # Generate continuation actions for each intent in the appropriate language
-        logger.info("[determine-intents] Generating continuation actions for multi-intent query")
+        # Generate complete continuation questions for each intent in the appropriate language
+        logger.info("[determine-intents] Generating continuation questions for multi-intent query")
         from bt_servant_engine.services.preprocessing import generate_continuation_actions
         from bt_servant_engine.services.status_messages import get_effective_response_language
 
         target_language = get_effective_response_language(s)
+        # Note: despite the name, this now generates complete questions, not just action phrases
         continuation_actions = generate_continuation_actions(
             open_ai_client, query, intent_types, target_language
         )

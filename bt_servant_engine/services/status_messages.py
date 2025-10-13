@@ -3,11 +3,16 @@
 This module provides infrastructure for delivering status messages in the user's
 preferred language, with pre-loaded translations for supported languages and
 dynamic translation fallback for other languages.
+
+Dynamic translations are persisted back to the JSON file, allowing the system
+to "learn" new languages over time and avoid redundant API calls.
 """
 
 from __future__ import annotations
 
 import json
+import os
+import tempfile
 from pathlib import Path
 from typing import Any, Optional
 
@@ -57,6 +62,66 @@ def _get_openai_client() -> OpenAI:
     if _openai_client is None:
         _openai_client = OpenAI(api_key=config.OPENAI_API_KEY)
     return _openai_client
+
+
+def _persist_translation(message_key: str, language: str, translation: str) -> None:
+    """Persist a dynamic translation back to the JSON file.
+
+    Uses atomic write operation (write to temp file, then rename) to avoid
+    corrupting the file if the process crashes mid-write.
+
+    Args:
+        message_key: The message key
+        language: ISO 639-1 language code
+        translation: The translated text
+    """
+    try:
+        # Read current data
+        with open(_STATUS_MESSAGES_PATH, encoding="utf-8") as json_file:
+            data = json.load(json_file)
+
+        # Add the new translation
+        if message_key in data:
+            data[message_key][language] = translation
+        else:
+            logger.warning("Cannot persist translation for unknown message key: %s", message_key)
+            return
+
+        # Write atomically using temp file + rename
+        temp_fd, temp_path = tempfile.mkstemp(
+            dir=_STATUS_MESSAGES_PATH.parent, prefix=".status_messages_", suffix=".json.tmp"
+        )
+        try:
+            with os.fdopen(temp_fd, "w", encoding="utf-8") as temp_file:
+                json.dump(data, temp_file, indent=2, ensure_ascii=False)
+                temp_file.write("\n")  # Add trailing newline
+
+            # Atomic rename
+            os.replace(temp_path, _STATUS_MESSAGES_PATH)
+            logger.info(
+                "Persisted dynamic translation for message '%s' in language '%s'",
+                message_key,
+                language,
+            )
+
+            # Update in-memory cache
+            global _STATUS_MESSAGES  # pylint: disable=global-statement
+            _STATUS_MESSAGES = data
+
+        except Exception:  # pylint: disable=broad-exception-caught
+            # Clean up temp file if something went wrong
+            if os.path.exists(temp_path):
+                os.unlink(temp_path)
+            raise
+
+    except Exception:  # pylint: disable=broad-exception-caught
+        logger.error(
+            "Failed to persist translation for message '%s' in language '%s'",
+            message_key,
+            language,
+            exc_info=True,
+        )
+        # Don't crash the application if persistence fails
 
 
 def get_effective_response_language(state: Any) -> str:
@@ -127,8 +192,12 @@ def _translate_dynamically(message_key: str, target_language: str) -> str:
         translated_text = response.choices[0].message.content or english_text
         translated_text = translated_text.strip()
 
-        # Cache the translation
+        # Cache the translation in memory
         _DYNAMIC_TRANSLATION_CACHE[cache_key] = translated_text
+
+        # Persist the translation to JSON file for future use
+        _persist_translation(message_key, target_language, translated_text)
+
         logger.info(
             "Dynamically translated status message '%s' to language '%s'",
             message_key,

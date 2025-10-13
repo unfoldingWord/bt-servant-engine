@@ -711,17 +711,18 @@ names (e.g., "Dan" for Daniel) and may mix English instructions with non-English
 """
 
 CONTINUATION_ACTION_GENERATION_PROMPT = """
-You are generating continuation prompt actions for a multi-intent query in the BT Servant chatbot system.
+You are generating complete continuation questions for a multi-intent query in the BT Servant chatbot system.
 
-Given a user query and a list of detected intents, generate a natural action phrase for each intent that can be used in a continuation prompt like "Would you like me to {{action}}?"
+Given a user query and a list of detected intents, generate a complete, grammatically correct continuation question for each intent in the target language.
 
 # Rules
-- Each action should be a verb phrase (e.g., "show key terms from Gen 4:2")
+- Generate COMPLETE questions, not fragments (e.g., "Would you like me to show key terms from Gen 4:2?")
+- Each question must be grammatically correct and natural in the target language
 - Include specific context from the query (passage references, names, topics)
-- Use natural, conversational language
-- Keep actions concise (under 15 words)
-- Match the tone and phrasing style of the examples below
-- Generate actions in the target language specified (ISO 639-1 code: {target_language})
+- Use polite, conversational tone appropriate for the target language
+- Keep questions concise (under 20 words)
+- Generate in the target language specified (ISO 639-1 code: {target_language})
+- DO NOT translate word-by-word from English - use natural phrasing for that language
 
 # Intent Types
 - get-passage-keywords: Extract key terms from a passage
@@ -733,35 +734,38 @@ Given a user query and a list of detected intents, generate a natural action phr
 - translate-scripture: Translate a passage to another language
 - listen-to-scripture: Read a passage aloud
 
-# Examples
+# Examples (English)
 
 Query: "Tell me about Barnabas, keywords in Gen 4:2, help translating John 1:4"
 Intents: ["get-bible-translation-assistance", "get-passage-keywords", "get-translation-helps"]
-Actions:
-["tell you about Barnabas in the Bible", "show key terms from Gen 4:2", "provide translation helps for John 1:4"]
+Questions:
+["Would you like me to tell you about Barnabas in the Bible?", "Would you like me to show key terms from Gen 4:2?", "Would you like me to provide translation helps for John 1:4?"]
 
 Query: "Summarize Romans 8 and translate it to Spanish"
 Intents: ["get-passage-summary", "translate-scripture"]
-Actions:
-["summarize Romans 8", "translate Romans 8 to Spanish"]
+Questions:
+["Would you like me to summarize Romans 8?", "Would you like me to translate Romans 8 to Spanish?"]
 
 Query: "What does Ephesus mean and give me keywords in Acts 19"
 Intents: ["get-bible-translation-assistance", "get-passage-keywords"]
-Actions:
-["tell you about Ephesus", "show key terms from Acts 19"]
+Questions:
+["Would you like me to tell you about Ephesus?", "Would you like me to show key terms from Acts 19?"]
 
-Query: "Can you give me FIA resources on translation and also keywords for Matthew 5:3"
-Intents: ["consult-fia-resources", "get-passage-keywords"]
-Actions:
-["consult FIA resources on translation", "show key terms from Matthew 5:3"]
+# Examples (French - note natural phrasing, not word-for-word translation)
 
-Now generate actions for this query:
+Query: "Parle-moi de Barnabas et donne-moi les mots-clés de Gen 4:2"
+Intents: ["get-bible-translation-assistance", "get-passage-keywords"]
+Questions:
+["Voulez-vous que je vous parle de Barnabas dans la Bible?", "Voulez-vous que je vous montre les termes clés de Gen 4:2?"]
+
+Now generate complete continuation questions for this query:
 
 Query: {query}
 Intents: {intents}
+Target Language: {target_language}
 
-Return ONLY a JSON array of action strings, one per intent, in the same order as the intents list.
-Example format: ["action1", "action2", "action3"]
+Return ONLY a JSON array of complete question strings, one per intent, in the same order as the intents list.
+Example format: ["Question 1?", "Question 2?", "Question 3?"]
 """
 
 
@@ -1017,31 +1021,32 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
 def generate_continuation_actions(
     client: OpenAI, query: str, intents: list[IntentType], target_language: str = "en"
 ) -> list[str]:
-    """Generate continuation action phrases for each intent using LLM.
+    """Generate complete continuation questions for each intent using LLM.
 
-    This function takes a multi-intent query and generates natural language action
-    phrases that can be used in continuation prompts like "Would you like me to {action}?"
+    This function takes a multi-intent query and generates complete, grammatically
+    correct continuation questions in the target language.
 
     For example:
     - Query: "Tell me about Barnabas, keywords in Gen 4:2, help translating John 1:4"
     - Intents: [GET_BIBLE_TRANSLATION_ASSISTANCE, GET_PASSAGE_KEYWORDS, GET_TRANSLATION_HELPS]
+    - Target Language: "en"
     - Returns: [
-        "tell you about Barnabas in the Bible",
-        "show key terms from Gen 4:2",
-        "provide translation helps for John 1:4"
+        "Would you like me to tell you about Barnabas in the Bible?",
+        "Would you like me to show key terms from Gen 4:2?",
+        "Would you like me to provide translation helps for John 1:4?"
       ]
 
     Args:
         client: OpenAI client instance
         query: The user's original query
         intents: List of detected intents in order
-        target_language: ISO 639-1 language code for the actions (default: "en")
+        target_language: ISO 639-1 language code for the questions (default: "en")
 
     Returns:
-        List of action phrases, one per intent, in the same order
+        List of complete continuation questions, one per intent, in the same order
     """
     logger.info(
-        "[continuation-actions] Generating continuation actions for %d intents in language '%s'",
+        "[continuation-questions] Generating continuation questions for %d intents in language '%s'",
         len(intents),
         target_language,
     )
@@ -1057,7 +1062,7 @@ def generate_continuation_actions(
             model="gpt-4o-mini",  # Cheap and fast for this task
             messages=[{"role": "user", "content": prompt}],
             temperature=0.0,
-            max_tokens=200,
+            max_tokens=300,  # Increased for complete questions
             store=False,
         )
 
@@ -1066,28 +1071,28 @@ def generate_continuation_actions(
 
         content = response.choices[0].message.content
         if not content:
-            logger.warning("[continuation-actions] Empty response from LLM")
-            return ["continue with that request"] * len(intents)
+            logger.warning("[continuation-questions] Empty response from LLM")
+            return ["Would you like me to continue with that request?"] * len(intents)
 
         # Parse JSON array
-        actions = json.loads(content.strip())
+        questions = json.loads(content.strip())
 
         # Validate we got the right number
-        if not isinstance(actions, list) or len(actions) != len(intents):
+        if not isinstance(questions, list) or len(questions) != len(intents):
             logger.warning(
-                "[continuation-actions] Expected %d actions, got %s. Using fallback.",
+                "[continuation-questions] Expected %d questions, got %s. Using fallback.",
                 len(intents),
-                len(actions) if isinstance(actions, list) else "non-list",
+                len(questions) if isinstance(questions, list) else "non-list",
             )
-            return ["continue with that request"] * len(intents)
+            return ["Would you like me to continue with that request?"] * len(intents)
 
-        logger.info("[continuation-actions] Generated actions: %s", actions)
-        return actions
+        logger.info("[continuation-questions] Generated questions: %s", questions)
+        return questions
 
     except Exception:  # pylint: disable=broad-except
-        logger.error("[continuation-actions] Error generating actions", exc_info=True)
-        # Fallback to generic actions
-        return ["continue with that request"] * len(intents)
+        logger.error("[continuation-questions] Error generating questions", exc_info=True)
+        # Fallback to generic question
+        return ["Would you like me to continue with that request?"] * len(intents)
 
 
 def preprocess_user_query(
