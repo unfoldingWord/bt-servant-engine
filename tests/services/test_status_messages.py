@@ -108,17 +108,17 @@ class TestGetStatusMessage:
     @patch("bt_servant_engine.services.status_messages._translate_dynamically")
     def test_calls_dynamic_translation_for_missing_language(self, mock_translate):
         """Calls dynamic translation when language not in pre-loaded data."""
-        mock_translate.return_value = "Mensaje traducido"
-        state = {"user_response_language": "es"}  # Spanish not pre-loaded yet
+        mock_translate.return_value = "Übersetzter Text"
+        state = {"user_response_language": "de"}  # German not pre-loaded
 
         result = status_messages.get_status_message(
             status_messages.THINKING_ABOUT_MESSAGE, state
         )
 
         mock_translate.assert_called_once_with(
-            status_messages.THINKING_ABOUT_MESSAGE, "es"
+            status_messages.THINKING_ABOUT_MESSAGE, "de"
         )
-        assert result == "Mensaje traducido"
+        assert result == "Übersetzter Text"
 
 
 class TestDynamicTranslation:
