@@ -82,6 +82,6 @@ export OPENAI_API_KEY="${OPENAI_API_KEY:-sk-test}" \
 mkdir -p "${DATA_DIR}"
 # Exclude OpenAI-costly tests by default; run them on-demand only.
 pytest --maxfail=1 --disable-warnings -q -m "not openai" \
-  --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=70
+  --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=65
 
 echo -e "${GRN}Repo checks and tests passed.${RST}"

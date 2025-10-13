@@ -75,7 +75,7 @@ repos:
               ADMIN_API_TOKEN="${ADMIN_API_TOKEN:-admin-token}" \
               HEALTHCHECK_API_TOKEN="${HEALTHCHECK_API_TOKEN:-health-token}"
             mkdir -p "$DATA_DIR"
-            pytest --maxfail=1 --disable-warnings -q -m "not openai" --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=64
+            pytest --maxfail=1 --disable-warnings -q -m "not openai" --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=65
           '
         language: system
         pass_filenames: false

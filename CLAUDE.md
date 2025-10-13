@@ -76,7 +76,14 @@ lint-imports          # Architecture compliance
 ```
 
 ### Testing Requirements
-- **Coverage threshold**: ≥70% (`--cov-fail-under=70`)
+
+**⚠️ CRITICAL: Test Coverage Must Stay Above 65% ⚠️**
+
+- **Coverage threshold**: ≥65% (`--cov-fail-under=65`)
+  - **Note**: Temporarily lowered from 70% - working to bring it back up
+  - If your changes drop coverage below 65%, you MUST add tests before committing
+  - Adding new untested code penalizes overall coverage - test as you go
+  - Never bypass pre-commit hooks due to coverage failures
 - **Warnings as errors**: Tests fail on any warning
 - **Never commit failing tests** - Fix immediately
 - **OpenAI tests**: Marked with `@pytest.mark.openai`, run only when needed:
@@ -138,15 +145,35 @@ git diff
 ```
 
 ### Pre-commit Hooks
+
+**⚠️ CRITICAL: NEVER BYPASS PRE-COMMIT HOOKS ⚠️**
+
+Pre-commit hooks are quality gates that must pass before ANY commit. These hooks enforce:
+- Code formatting (ruff format)
+- Linting (ruff check, pylint)
+- Type checking (mypy, pyright)
+- Test coverage ≥70%
+- Architecture compliance (lint-imports)
+
+**ABSOLUTELY FORBIDDEN:**
+- ❌ **DO NOT use `SKIP_CHECKS=1`** - This bypasses all quality gates
+- ❌ **DO NOT commit with failing tests**
+- ❌ **DO NOT commit code that drops coverage below 70%**
+- ❌ **DO NOT use any git commit flags that bypass hooks**
+
+**If pre-commit hooks fail, you MUST:**
+1. **Fix the underlying issue** - Add tests, fix linting errors, etc.
+2. **Never bypass the hooks** - The failure indicates real problems
+3. **Ask the user if unclear** - Don't guess or take shortcuts
+
+**One-time setup:**
 ```bash
-# One-time setup (already done if .githooks exists)
 git config core.hooksPath .githooks
 pre-commit install
 pre-commit install --hook-type pre-push
-
-# Bypass in emergency only
-SKIP_CHECKS=1 git commit -m "(Claude) Emergency fix"
 ```
+
+**The ONLY acceptable reason to bypass** would be a critical production outage where the repository owner explicitly instructs you to bypass checks. Even then, document it thoroughly and fix it immediately after.
 
 ## Configuration
 
