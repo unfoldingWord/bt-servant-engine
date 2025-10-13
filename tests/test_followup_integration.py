@@ -186,18 +186,21 @@ class TestFollowupWithMultipleResponses:  # pylint: disable=too-few-public-metho
     """Test follow-up behavior with multiple responses."""
 
     def test_followup_appended_to_last_response_only(self):
-        """Follow-up is appended only to the last response."""
+        """Follow-up is appended only to the last response.
+
+        NOTE: This test has multiple responses which doesn't happen in practice with
+        sequential intent processing, but it validates the follow-up logic applies to
+        the last response only.
+        """
         state = {
             "responses": [
                 {
                     "intent": IntentType.RETRIEVE_SCRIPTURE,
                     "response": "First response",
-                    "suppress_combining": True,  # Mark as non-combinable to allow multiple responses
                 },
                 {
                     "intent": IntentType.RETRIEVE_SCRIPTURE,
                     "response": "Second response",
-                    "suppress_combining": True,  # Mark as non-combinable to allow multiple responses
                 },
             ],
             "user_response_language": "en",

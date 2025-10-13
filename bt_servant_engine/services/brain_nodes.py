@@ -67,7 +67,6 @@ from bt_servant_engine.services.intents.fia_intents import (
 )
 from bt_servant_engine.services.response_pipeline import (
     chunk_message as chunk_message_impl,
-    combine_responses as combine_responses_impl,
     needs_chunking as needs_chunking_impl,
     reconstruct_structured_text as reconstruct_structured_text_impl,
     translate_or_localize_response as translate_or_localize_response_impl,
@@ -323,28 +322,6 @@ def set_agentic_strength(state: Any) -> dict:
         s["user_chat_history"],
         set_user_agentic_strength,
         config.LOG_PSEUDONYM_SECRET,
-    )
-
-
-def combine_responses(chat_history, latest_user_message, responses) -> str:
-    """Ask OpenAI to synthesize multiple node responses into one coherent text.
-
-    DEPRECATED: This function is no longer used with sequential intent processing.
-    If this function is called, it indicates a bug in the intent routing logic.
-    """
-    import warnings
-
-    warnings.warn(
-        "combine_responses is deprecated and should not be called with sequential intent processing",
-        DeprecationWarning,
-        stacklevel=2,
-    )
-    return combine_responses_impl(
-        open_ai_client,
-        chat_history,
-        latest_user_message,
-        responses,
-        _extract_cached_input_tokens,
     )
 
 
@@ -744,7 +721,6 @@ __all__ = [
     "determine_intents",
     "set_response_language",
     "set_agentic_strength",
-    "combine_responses",
     "translate_responses",
     "translate_text",
     "determine_query_language",
