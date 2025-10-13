@@ -31,7 +31,9 @@ from bt_servant_engine.services.response_helpers import (
 )
 from bt_servant_engine.services.preprocessing import (
     determine_intents as _determine_intents_impl,
+    determine_intents_structured as _determine_intents_structured_impl,
     determine_query_language as _determine_query_language_impl,
+    is_affirmative_response_to_continuation as _is_affirmative_response_to_continuation_impl,
     model_for_agentic_strength as _model_for_agentic_strength,
     preprocess_user_query as _preprocess_user_query_impl,
     resolve_agentic_strength as _resolve_agentic_strength,
@@ -136,7 +138,7 @@ def _build_translation_queue(
     normal_items: list[dict],
 ) -> list[dict | str]:
     """Assemble responses in the order they should be translated or localized."""
-    return build_translation_queue_impl(state, protected_items, normal_items, combine_responses)
+    return build_translation_queue_impl(state, protected_items, normal_items)
 
 
 def _resolve_target_language(
@@ -183,14 +185,102 @@ def start(state: Any) -> dict:
 
 
 def determine_intents(state: Any) -> dict:
-    """Classify the user's transformed query into one or more intents."""
+    """Classify the user's transformed query into one or more intents.
+
+    Flow:
+    1. Check for queued intents first (user continuing from previous request)
+    2. If queue exists, use LLM to check if user is responding affirmatively
+    3. If affirmative, use queued intent; if not, clear queue and detect new intent
+    4. If no queue, detect intents using simple classification
+    5. If multiple intents detected, use structured extraction for parameter disambiguation
+    6. If single intent, skip extraction (whole query is context - no need for LLM overhead)
+    """
     from bt_servant_engine.services.brain_orchestrator import BrainState
+    from bt_servant_engine.services.continuation_prompts import INTENT_ACTION_DESCRIPTIONS
+    from bt_servant_engine.services.intent_queue import (
+        clear_queue,
+        has_queued_intents,
+        peek_next_intent,
+    )
 
     s = cast(BrainState, state)
     query = s["transformed_query"]
+    user_id = s["user_id"]
+
+    # Check if user has queued intents
+    if has_queued_intents(user_id):
+        next_item = peek_next_intent(user_id)
+        if next_item:
+            # Get context description for LLM
+            action_description = INTENT_ACTION_DESCRIPTIONS.get(
+                next_item.intent, f"help with {next_item.intent.value.replace('-', ' ')}"
+            )
+
+            logger.info(
+                "[determine-intents] User has queued intent (%s: '%s'), checking if response is affirmative",
+                next_item.intent.value,
+                action_description,
+            )
+
+            # Use LLM to determine if user is responding affirmatively
+            is_affirmative = _is_affirmative_response_to_continuation_impl(
+                open_ai_client, query, action_description
+            )
+
+            if is_affirmative:
+                logger.info(
+                    "[determine-intents] User responded affirmatively, using queued intent: %s with params=%s",
+                    next_item.intent.value,
+                    next_item.parameters,
+                )
+                # Return single intent from queue with pre-extracted parameters
+                return {
+                    "user_intents": [next_item.intent],
+                    "queued_intent_context": next_item.parameters,
+                }
+
+            # User did not respond affirmatively - clear queue and fall through
+            logger.info(
+                "[determine-intents] User did NOT respond affirmatively (said 'no' or pivoted), clearing queue"
+            )
+            clear_queue(user_id)
+            # Fall through to detect new intent from their message
+
+    # No queue or user pivoted - detect intents from query
+    logger.info("[determine-intents] Detecting intents from query: %s", query[:100])
     user_intents = _determine_intents_impl(open_ai_client, query)
+
+    # If multiple intents, use structured extraction for parameter disambiguation
+    if len(user_intents) > 1:
+        logger.info(
+            "[determine-intents] Multiple intents detected (%d), using structured extraction for parameter disambiguation",
+            len(user_intents),
+        )
+        intents_with_context = _determine_intents_structured_impl(open_ai_client, query)
+
+        # Extract just the intent types for backward compatibility
+        intent_types = [ic.intent for ic in intents_with_context]
+
+        logger.info(
+            "[determine-intents] Structured extraction complete, storing context for %d intents",
+            len(intents_with_context),
+        )
+
+        # Store structured data for use in process_intents
+        # We'll add this to BrainState to pass the full context through
+        return {
+            "user_intents": intent_types,
+            "intents_with_context": intents_with_context,
+        }
+
+    # Single intent - no extraction needed, whole query is context
+    logger.info(
+        "[determine-intents] Single intent detected: %s, skipping parameter extraction (entire query is context)",
+        user_intents[0].value if user_intents else "none",
+    )
     return {
         "user_intents": user_intents,
+        # No queued_intent_context - handlers will use full transformed_query
     }
 
 
@@ -225,7 +315,18 @@ def set_agentic_strength(state: Any) -> dict:
 
 
 def combine_responses(chat_history, latest_user_message, responses) -> str:
-    """Ask OpenAI to synthesize multiple node responses into one coherent text."""
+    """Ask OpenAI to synthesize multiple node responses into one coherent text.
+
+    DEPRECATED: This function is no longer used with sequential intent processing.
+    If this function is called, it indicates a bug in the intent routing logic.
+    """
+    import warnings
+
+    warnings.warn(
+        "combine_responses is deprecated and should not be called with sequential intent processing",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     return combine_responses_impl(
         open_ai_client,
         chat_history,
@@ -238,6 +339,7 @@ def combine_responses(chat_history, latest_user_message, responses) -> str:
 def translate_responses(state: Any) -> dict:
     """Translate or localize responses into the user's desired language."""
     from bt_servant_engine.services.brain_orchestrator import BrainState
+    from bt_servant_engine.services.continuation_prompts import generate_continuation_prompt
 
     s = cast(BrainState, state)
     raw_responses = [
@@ -267,6 +369,16 @@ def translate_responses(state: Any) -> dict:
         _translate_or_localize_response(resp, target_language, agentic_strength)
         for resp in responses_for_translation
     ]
+
+    # Append continuation prompt if user has queued intents
+    user_id = s.get("user_id")
+    if user_id:
+        continuation_prompt = generate_continuation_prompt(user_id)
+        if continuation_prompt and translated_responses:
+            # Append to the last response
+            logger.info("[translate] Appending continuation prompt to final response for user=%s", user_id)
+            translated_responses[-1] = translated_responses[-1] + continuation_prompt
+
     return {"translated_responses": translated_responses}
 
 

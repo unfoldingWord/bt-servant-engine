@@ -258,9 +258,12 @@ def build_translation_queue(
     state: dict[str, Any],
     protected_items: list[dict],
     normal_items: list[dict],
-    combine_responses_fn: Callable[..., Any],
 ) -> list[dict | str]:
-    """Assemble responses in the order they should be translated or localized."""
+    """Assemble responses in the order they should be translated or localized.
+
+    Note: With sequential intent processing, we should only ever have 0 or 1 combinable
+    responses. If multiple combinable responses are detected, this is a bug.
+    """
     queue: list[dict | str] = list(protected_items)
     non_combinable: list[dict] = [i for i in normal_items if i.get("suppress_combining")]
     combinable: list[dict] = [i for i in normal_items if not i.get("suppress_combining")]
@@ -273,14 +276,12 @@ def build_translation_queue(
     if len(combinable) == 1:
         queue.append(normalize_single_response_impl(combinable[0]))
         return queue
-    queue.append(
-        combine_responses_fn(
-            state["user_chat_history"],
-            state["user_query"],
-            combinable,
-        )
+
+    # With sequential processing, we should never have multiple combinable responses
+    raise ValueError(
+        f"Sequential intent processing should not produce multiple combinable responses. "
+        f"Found {len(combinable)} combinable items. This indicates a bug in intent routing."
     )
-    return queue
 
 
 def resolve_target_language(

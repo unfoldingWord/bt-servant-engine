@@ -1,8 +1,11 @@
 """Intent types and models for the BT Servant application."""
 
-from enum import Enum
+from __future__ import annotations
 
-from pydantic import BaseModel
+from enum import Enum
+from typing import Any, Optional
+
+from pydantic import BaseModel, Field
 
 
 class IntentType(str, Enum):
@@ -24,9 +27,88 @@ class IntentType(str, Enum):
 
 
 class UserIntents(BaseModel):
-    """Container for a list of user intents."""
+    """Container for a list of user intents (legacy format).
+
+    Used for backward compatibility with existing intent detection code.
+    New code should use UserIntentsStructured for richer parameter extraction.
+    """
 
     intents: list[IntentType]
 
 
-__all__ = ["IntentType", "UserIntents"]
+class IntentWithContext(BaseModel):
+    """An intent paired with extracted parameters from the user's message.
+
+    When multiple intents are detected, parameters help disambiguate which
+    parts of the message apply to each intent. For example, if the user says
+    "Summarize Romans 8 and translate it to Spanish", we need to know that:
+    - GET_PASSAGE_SUMMARY needs {"passage": "Romans 8"}
+    - TRANSLATE_SCRIPTURE needs {"passage": "Romans 8", "target_language": "Spanish"}
+
+    This model enables structured parameter extraction at intent detection time,
+    eliminating ambiguity and enabling proper intent queueing.
+    """
+
+    intent: IntentType = Field(..., description="The classified intent type")
+    parameters: Optional[dict[str, Any]] = Field(
+        default=None,
+        description="Extracted parameters specific to this intent. Schema varies by intent type.",
+    )
+
+
+class UserIntentsStructured(BaseModel):
+    """Enhanced intent detection with parameter extraction.
+
+    This is the new format returned by structured intent detection. Each intent
+    comes with pre-extracted parameters that disambiguate multi-intent messages.
+    """
+
+    intents: list[IntentWithContext] = Field(
+        ...,
+        description="List of detected intents with their specific parameters",
+        min_length=1,
+    )
+
+
+class IntentQueueItem(BaseModel):
+    """A queued intent waiting to be processed.
+
+    When multiple intents are detected, we process the highest priority one immediately
+    and queue the rest. This model captures both the intent and its pre-extracted
+    parameters for later processing.
+    """
+
+    intent: IntentType = Field(..., description="The intent to process")
+    parameters: dict[str, Any] = Field(
+        default_factory=dict,
+        description="Pre-extracted parameters for this intent",
+    )
+    created_at: float = Field(..., description="Unix timestamp when queued")
+    original_query: str = Field(
+        default="",
+        description="Original user message for debugging/logging",
+    )
+
+
+class IntentQueue(BaseModel):
+    """Persistent queue of intents for a specific user.
+
+    When a user requests multiple things, we process them sequentially using
+    continuation prompts. This queue persists in the user_state JSON DB.
+    """
+
+    items: list[IntentQueueItem] = Field(
+        default_factory=list,
+        description="Queued intents in priority order",
+    )
+    expires_at: float = Field(..., description="Unix timestamp when queue expires (TTL)")
+
+
+__all__ = [
+    "IntentType",
+    "UserIntents",
+    "IntentWithContext",
+    "UserIntentsStructured",
+    "IntentQueueItem",
+    "IntentQueue",
+]
