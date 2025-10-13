@@ -14,12 +14,16 @@ from bt_servant_engine.services.intent_router import (
     IntentResponse,
     IntentRouter,
 )
+
+
 async def echo_handler(request: IntentRequest, services: ServiceContainer) -> IntentResponse:
     """Simple echo handler used for router tests."""
 
     _ = services
     payload_text = str(request.payload.get("text", "")).strip()
-    message = f"You said: {payload_text}" if payload_text else "I'm here whenever you need assistance."
+    message = (
+        f"You said: {payload_text}" if payload_text else "I'm here whenever you need assistance."
+    )
     return IntentResponse(intent=request.intent, result={"text": message})
 
 

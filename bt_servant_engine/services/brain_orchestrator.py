@@ -260,6 +260,11 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
         intents_with_context = s.get("intents_with_context")
         continuation_actions = cast(list[str], s.get("continuation_actions", []))
 
+        # Get original intent order (before sorting) for action lookup
+        original_intent_order = (
+            [ic.intent for ic in intents_with_context] if intents_with_context else user_intents
+        )
+
         # Build queue items
         queue_items = []
         for intent in intents_to_queue:
@@ -272,12 +277,23 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
                 if matching_context and matching_context.parameters:
                     params = matching_context.parameters
 
-            # Get corresponding continuation action
-            # sorted_intents[0] is being processed now, so queued intents start at index 1+
-            action_idx = sorted_intents.index(intent)
-            continuation_action = (
-                continuation_actions[action_idx] if action_idx < len(continuation_actions) else ""
-            )
+            # Get corresponding continuation action using ORIGINAL order (not sorted)
+            # continuation_actions are in the same order as original intent detection
+            try:
+                action_idx = original_intent_order.index(intent)
+                continuation_action = (
+                    continuation_actions[action_idx]
+                    if action_idx < len(continuation_actions)
+                    else ""
+                )
+            except ValueError:
+                # Intent not found in original order (shouldn't happen)
+                continuation_action = ""
+                logger.warning(
+                    "[process-intents] Intent %s not found in original order for user=%s",
+                    intent.value,
+                    user_id,
+                )
 
             queue_items.append(
                 IntentQueueItem(
