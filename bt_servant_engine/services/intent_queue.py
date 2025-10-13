@@ -10,7 +10,10 @@ from __future__ import annotations
 import time
 from typing import Optional
 
-from bt_servant_engine.adapters.user_state import get_user_state, set_user_state
+from tinydb import Query
+from tinydb.operations import delete
+
+from bt_servant_engine.adapters.user_state import get_user_db, get_user_state, set_user_state
 from bt_servant_engine.core.intents import IntentQueue, IntentQueueItem
 from bt_servant_engine.core.logging import get_logger
 
@@ -250,8 +253,10 @@ def clear_queue(user_id: str) -> None:
     try:
         user_state = get_user_state(user_id)
         if "intent_queue" in user_state:
-            del user_state["intent_queue"]
-            set_user_state(user_id, user_state)
+            # Use TinyDB's delete() operation to actually remove the field
+            # upsert() uses merge semantics and won't delete fields not in the dict
+            q = Query()
+            get_user_db().table("users").update(delete("intent_queue"), q.user_id == user_id)
 
             logger.info("[intent-queue] Successfully cleared queue for user=%s", user_id)
         else:
