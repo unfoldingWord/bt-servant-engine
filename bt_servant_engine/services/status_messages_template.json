@@ -1,53 +1,223 @@
 {
   "THINKING_ABOUT_MESSAGE": {
-    "en": "Give me a few moments to think about your message."
+    "en": "Give me a few moments to think about your message.",
+    "ar": "أعطني بضع لحظات لأفكر في رسالتك.",
+    "fr": "Laissez‑moi quelques instants pour réfléchir à votre message.",
+    "es": "Dame unos momentos para pensar en tu mensaje.",
+    "hi": "आपके संदेश पर विचार करने के लिए मुझे कुछ क्षण दें।",
+    "ru": "Дайте мне несколько мгновений, чтобы обдумать ваше сообщение.",
+    "id": "Berikan saya beberapa saat untuk memikirkan pesan Anda.",
+    "sw": "Nipe muda kidogo kufikiria kuhusu ujumbe wako.",
+    "pt": "Dê‑me alguns instantes para refletir sobre sua mensagem.",
+    "zh": "请给我一点时间思考你的消息。",
+    "nl": "Geef me even de tijd om over je bericht na te denken."
   },
   "SEARCHING_BIBLE_RESOURCES": {
-    "en": "I'm searching various Bible resources to help answer your question."
+    "en": "I'm searching various Bible resources to help answer your question.",
+    "ar": "أبحث في مختلف موارد الكتاب المقدس لمساعدتك في الإجابة على سؤالك.",
+    "fr": "Je consulte diverses ressources bibliques pour répondre à votre question.",
+    "es": "Estoy buscando en varios recursos bíblicos para ayudarte a responder tu pregunta.",
+    "hi": "मैं आपके प्रश्न का उत्तर देने में सहायता के लिए विभिन्न बाइबल संसाधनों में खोज कर रहा हूँ।",
+    "ru": "Я просматриваю различные библейские ресурсы, чтобы помочь ответить на ваш вопрос.",
+    "id": "Saya menelusuri berbagai sumber Alkitab untuk membantu menjawab pertanyaan Anda.",
+    "sw": "Natafuta katika vyanzo mbalimbali vya Biblia ili kusaidia kujibu swali lako.",
+    "pt": "Estou pesquisando em diversos recursos bíblicos para ajudar a responder à sua pergunta.",
+    "zh": "我正在查找各类圣经资源，以帮助回答你的问题。",
+    "nl": "Ik doorzoek verschillende bijbelbronnen om je vraag te helpen beantwoorden."
   },
   "REVIEWING_FIA_GUIDANCE": {
-    "en": "I'm reviewing the FIA guidance to answer your question."
+    "en": "I'm reviewing the FIA guidance to answer your question.",
+    "ar": "أراجع إرشادات FIA للإجابة على سؤالك.",
+    "fr": "Je passe en revue les directives de la FIA pour répondre à votre question.",
+    "es": "Estoy revisando la guía de la FIA para responder a tu pregunta.",
+    "hi": "मैं आपके प्रश्न का उत्तर देने के लिए FIA के दिशानिर्देशों की समीक्षा कर रहा हूँ।",
+    "ru": "Я изучаю рекомендации FIA, чтобы ответить на ваш вопрос.",
+    "id": "Saya meninjau pedoman FIA untuk menjawab pertanyaan Anda.",
+    "sw": "Ninakagua mwongozo wa FIA ili kujibu swali lako.",
+    "pt": "Estou revisando as diretrizes da FIA para responder à sua pergunta.",
+    "zh": "我正在查看 FIA 指南来回答你的问题。",
+    "nl": "Ik bekijk de richtlijnen van de FIA om je vraag te beantwoorden."
   },
   "CHECKING_CAPABILITIES": {
-    "en": "I'm checking my capabilities to see how I can help."
+    "en": "I'm checking my capabilities to see how I can help.",
+    "ar": "أتحقق من قدراتي لأرى كيف يمكنني المساعدة.",
+    "fr": "Je vérifie mes capacités pour voir comment je peux aider.",
+    "es": "Estoy comprobando mis capacidades para ver cómo puedo ayudar.",
+    "hi": "मैं यह देखने के लिए अपनी क्षमताओं की जाँच कर रहा हूँ कि मैं कैसे सहायता कर सकता हूँ।",
+    "ru": "Проверяю свои возможности, чтобы понять, как могу помочь.",
+    "id": "Saya memeriksa kemampuan saya untuk melihat bagaimana saya dapat membantu.",
+    "sw": "Ninakagua uwezo wangu ili kuona jinsi ninavyoweza kusaidia.",
+    "pt": "Estou verificando minhas capacidades para ver como posso ajudar.",
+    "zh": "我正在检查自己的能力，看看如何能够帮助你。",
+    "nl": "Ik controleer mijn mogelijkheden om te zien hoe ik kan helpen."
   },
   "GENERATING_HELP_RESPONSE": {
-    "en": "I'm generating a response from my help docs."
+    "en": "I'm generating a response from my help docs.",
+    "ar": "أقوم بإنشاء رد من مستندات المساعدة الخاصة بي.",
+    "fr": "Je génère une réponse à partir de ma documentation d’aide.",
+    "es": "Estoy generando una respuesta a partir de mis documentos de ayuda.",
+    "hi": "मैं अपनी सहायता दस्तावेज़ों से उत्तर तैयार कर रहा हूँ।",
+    "ru": "Формирую ответ на основе моей справочной документации.",
+    "id": "Saya membuat respons berdasarkan dokumen bantuan saya.",
+    "sw": "Ninatengeneza jibu kutokana na nyaraka zangu za usaidizi.",
+    "pt": "Estou gerando uma resposta a partir da minha documentação de ajuda.",
+    "zh": "我正在根据我的帮助文档生成回复。",
+    "nl": "Ik genereer een antwoord op basis van mijn helpdocumentatie."
   },
   "GATHERING_PASSAGE_SUMMARY": {
-    "en": "I'm gathering the passage details so I can summarize them for you."
+    "en": "I'm gathering the passage details so I can summarize them for you.",
+    "ar": "أجمع تفاصيل المقطع حتى أتمكن من تلخيصها لك.",
+    "fr": "Je rassemble les détails du passage afin de pouvoir vous les résumer.",
+    "es": "Estoy recopilando los detalles del pasaje para poder resumirlos para ti.",
+    "hi": "मैं इस खंड के विवरण एकत्र कर रहा हूँ ताकि उनका सारांश आपके लिए बना सकूँ।",
+    "ru": "Собираю сведения об отрывке, чтобы затем их резюмировать для вас.",
+    "id": "Saya mengumpulkan detail perikop agar dapat meringkasnya untuk Anda.",
+    "sw": "Ninakusanya maelezo ya kifungu ili niweze kuyakufupisha kwa ajili yako.",
+    "pt": "Estou reunindo os detalhes da passagem para poder resumi‑los para você.",
+    "zh": "我正在收集这段经文的详细信息，以便为你做摘要。",
+    "nl": "Ik verzamel de details van het gedeelte zodat ik ze voor je kan samenvatten."
   },
   "EXTRACTING_KEYWORDS": {
-    "en": "I'm reviewing the passage to pull out its key words for you."
+    "en": "I'm reviewing the passage to pull out its key words for you.",
+    "ar": "أراجع المقطع لاستخراج الكلمات الأساسية من أجلك.",
+    "fr": "J’examine le passage pour en extraire les mots‑clés pour vous.",
+    "es": "Estoy revisando el pasaje para extraer sus palabras clave para ti.",
+    "hi": "मैं आपके लिए इस खंड से प्रमुख शब्द निकाल रहा हूँ।",
+    "ru": "Анализирую отрывок, чтобы выделить ключевые слова для вас.",
+    "id": "Saya meninjau perikop tersebut untuk mengambil kata kunci bagi Anda.",
+    "sw": "Ninapitia kifungu hiki ili kutoa maneno muhimu kwako.",
+    "pt": "Estou analisando a passagem para extrair as palavras‑chave para você.",
+    "zh": "我正在查看这段经文，为你提取关键词。",
+    "nl": "Ik bekijk het gedeelte om de trefwoorden voor je te verzamelen."
   },
   "COMPILING_TRANSLATION_HELPS": {
-    "en": "I'm compiling translation helps that will support your work on this passage."
+    "en": "I'm compiling translation helps that will support your work on this passage.",
+    "ar": "أجمع مواد المساعدة على الترجمة التي ستدعم عملك على هذا المقطع.",
+    "fr": "Je compile des aides à la traduction pour soutenir votre travail sur ce passage.",
+    "es": "Estoy compilando ayudas de traducción que apoyarán tu trabajo en este pasaje.",
+    "hi": "मैं अनुवाद में सहायक सामग्री संकलित कर रहा हूँ जो इस खंड पर आपके कार्य में सहायता करेगी।",
+    "ru": "Подбираю материалы по переводу, которые поддержат вашу работу над этим отрывком.",
+    "id": "Saya menyusun bahan bantuan terjemahan yang akan mendukung pekerjaan Anda pada perikop ini.",
+    "sw": "Ninakusanya nyenzo za usaidizi wa tafsiri zitakazosaidia kazi yako kwenye kifungu hiki.",
+    "pt": "Estou compilando materiais de apoio à tradução que irão apoiar seu trabalho nesta passagem.",
+    "zh": "我正在整理翻译辅助材料，以支持你在这段经文上的工作。",
+    "nl": "Ik stel vertaalhulpmiddelen samen die je werk aan dit gedeelte zullen ondersteunen."
   },
   "GATHERING_PASSAGE_TEXT": {
-    "en": "I'm gathering the passage text you asked for."
+    "en": "I'm gathering the passage text you asked for.",
+    "ar": "أجمع نص المقطع الذي طلبته.",
+    "fr": "Je rassemble le texte du passage que vous avez demandé.",
+    "es": "Estoy reuniendo el texto del pasaje que pediste.",
+    "hi": "मैं वह खंड‑पाठ एकत्र कर रहा हूँ जो आपने माँगा था।",
+    "ru": "Собираю текст отрывка, который вы запросили.",
+    "id": "Saya mengumpulkan teks perikop yang Anda minta.",
+    "sw": "Ninakusanya maandishi ya kifungu ulichokiomba.",
+    "pt": "Estou reunindo o texto da passagem que você solicitou.",
+    "zh": "我正在收集你请求的经文文本。",
+    "nl": "Ik verzamel de tekst van het gedeelte waar je om vroeg."
   },
   "PREPARING_AUDIO": {
-    "en": "I'm preparing the audio playback for your passage."
+    "en": "I'm preparing the audio playback for your passage.",
+    "ar": "أجهّز تشغيل الصوت لمقطعك.",
+    "fr": "Je prépare la lecture audio de votre passage.",
+    "es": "Estoy preparando la reproducción de audio de tu pasaje.",
+    "hi": "मैं आपके खंड के लिए ऑडियो प्लेबैक तैयार कर रहा हूँ।",
+    "ru": "Готовлю аудиовоспроизведение для вашего отрывка.",
+    "id": "Saya menyiapkan pemutaran audio untuk perikop Anda.",
+    "sw": "Ninaandaa uchezaji wa sauti kwa kifungu chako.",
+    "pt": "Estou preparando a reprodução de áudio da sua passagem.",
+    "zh": "我正在为你的经文准备音频播放。",
+    "nl": "Ik bereid de audioweergave van je gedeelte voor."
   },
   "TRANSLATING_PASSAGE": {
-    "en": "I'm translating this passage into the language you asked for."
+    "en": "I'm translating this passage into the language you asked for.",
+    "ar": "أترجم هذا المقطع إلى اللغة التي طلبتها.",
+    "fr": "Je traduis ce passage dans la langue que vous avez demandée.",
+    "es": "Estoy traduciendo este pasaje al idioma que solicitaste.",
+    "hi": "मैं इस खंड का अनुवाद उस भाषा में कर रहा हूँ जो आपने माँगी है।",
+    "ru": "Перевожу этот отрывок на запрошенный вами язык.",
+    "id": "Saya menerjemahkan perikop ini ke bahasa yang Anda minta.",
+    "sw": "Natafsiri kifungu hiki kwa lugha uliyoomba.",
+    "pt": "Estou traduzindo esta passagem para o idioma que você solicitou.",
+    "zh": "我正在把这段经文翻译成你所要求的语言。",
+    "nl": "Ik vertaal dit gedeelte naar de taal die je hebt gevraagd."
   },
   "TRANSLATING_RESPONSE": {
-    "en": "I'm translating my response into your preferred language now."
+    "en": "I'm translating my response into your preferred language now.",
+    "ar": "أترجم ردي الآن إلى لغتك المفضلة.",
+    "fr": "Je traduis maintenant ma réponse dans votre langue préférée.",
+    "es": "Estoy traduciendo mi respuesta a tu idioma preferido ahora.",
+    "hi": "मैं अब अपने उत्तर का अनुवाद आपकी पसंदीदा भाषा में कर रहा हूँ।",
+    "ru": "Сейчас перевожу свой ответ на ваш предпочтительный язык.",
+    "id": "Saya sedang menerjemahkan respons saya ke bahasa pilihan Anda.",
+    "sw": "Natafsiri jibu langu sasa kwa lugha unayopendelea.",
+    "pt": "Estou traduzindo agora minha resposta para o seu idioma preferido.",
+    "zh": "我现在正在把我的回复翻译成你偏好的语言。",
+    "nl": "Ik vertaal mijn antwoord nu naar je voorkeurstaal."
   },
   "FINALIZING_RESPONSE": {
-    "en": "I'm pulling everything together into a helpful response for you."
+    "en": "I'm pulling everything together into a helpful response for you.",
+    "ar": "أجمع كل شيء معًا لصياغة رد مفيد لك.",
+    "fr": "Je rassemble tout pour vous fournir une réponse utile.",
+    "es": "Estoy reuniendo todo en una respuesta útil para ti.",
+    "hi": "मैं सब कुछ एकत्र करके आपके लिए एक सहायक उत्तर तैयार कर रहा हूँ।",
+    "ru": "Собираю всё воедино, чтобы подготовить для вас полезный ответ.",
+    "id": "Saya menyatukan semuanya menjadi respons yang bermanfaat bagi Anda.",
+    "sw": "Ninakusanya kila kitu pamoja ili kukupa jibu lenye msaada.",
+    "pt": "Estou reunindo tudo em uma resposta útil para você.",
+    "zh": "我正在把所有内容整合成一个对你有帮助的答复。",
+    "nl": "Ik breng alles samen tot een nuttig antwoord voor je."
   },
   "TRANSCRIBING_VOICE": {
-    "en": "I'm transcribing your voice message. Give me a moment."
+    "en": "I'm transcribing your voice message. Give me a moment.",
+    "ar": "أقوم بنسخ رسالتك الصوتية. أمهلني لحظة.",
+    "fr": "Je transcris votre message vocal. Un instant, s’il vous plaît.",
+    "es": "Estoy transcribiendo tu mensaje de voz. Dame un momento.",
+    "hi": "मैं आपके वॉइस संदेश का ट्रांसक्रिप्शन कर रहा हूँ। कृपया एक क्षण दें।",
+    "ru": "Расшифровываю ваше голосовое сообщение. Одну минуту.",
+    "id": "Saya sedang mentranskripsikan pesan suara Anda. Mohon tunggu sebentar.",
+    "sw": "Ninanakili ujumbe wako wa sauti. Tafadhali subiri kidogo.",
+    "pt": "Estou transcrevendo sua mensagem de voz. Só um instante.",
+    "zh": "我正在转写你的语音消息，请稍等。",
+    "nl": "Ik transcribeer je spraakbericht. Een moment geduld."
   },
   "PACKAGING_VOICE_RESPONSE": {
-    "en": "I'm packaging up a voice message response."
+    "en": "I'm packaging up a voice message response.",
+    "ar": "أجهّز ردًا بصيغة رسالة صوتية.",
+    "fr": "Je prépare une réponse sous forme de message vocal.",
+    "es": "Estoy preparando una respuesta en forma de mensaje de voz.",
+    "hi": "मैं वॉइस संदेश के रूप में उत्तर तैयार कर रहा हूँ।",
+    "ru": "Подготавливаю ответ в виде голосового сообщения.",
+    "id": "Saya menyiapkan respons dalam bentuk pesan suara.",
+    "sw": "Ninaandaa jibu kwa njia ya ujumbe wa sauti.",
+    "pt": "Estou preparando uma resposta em forma de mensagem de voz.",
+    "zh": "我正在打包一条语音回复。",
+    "nl": "Ik maak een antwoord in de vorm van een spraakbericht gereed."
   },
   "PROCESSING_ERROR": {
-    "en": "It looks like I'm having trouble processing your message. Please report this issue to my creators."
+    "en": "It looks like I'm having trouble processing your message. Please report this issue to my creators.",
+    "ar": "يبدو أنني أواجه مشكلة في معالجة رسالتك. يُرجى إبلاغ مُنشئيَّ بهذه المشكلة.",
+    "fr": "Il semble que j’aie des difficultés à traiter votre message. Veuillez signaler ce problème à mes concepteurs.",
+    "es": "Parece que tengo problemas para procesar tu mensaje. Por favor, informa de este problema a mis creadores.",
+    "hi": "ऐसा लगता है कि आपके संदेश को संसाधित करने में मुझे समस्या हो रही है। कृपया इस समस्या की सूचना मेरे निर्माताओं को दें।",
+    "ru": "Похоже, у меня возникли трудности с обработкой вашего сообщения. Пожалуйста, сообщите об этой проблеме моим разработчикам.",
+    "id": "Sepertinya saya mengalami kesulitan memproses pesan Anda. Harap laporkan masalah ini kepada pembuat saya.",
+    "sw": "Inaonekana ninapata tatizo katika kushughulikia ujumbe wako. Tafadhali ripoti tatizo hili kwa watengenezaji wangu.",
+    "pt": "Parece que estou com dificuldade para processar sua mensagem. Por favor, informe este problema aos meus criadores.",
+    "zh": "处理你的消息时我似乎遇到了问题。请将此问题报告给我的开发者。",
+    "nl": "Het lijkt erop dat ik moeite heb om je bericht te verwerken. Meld dit probleem alsjeblieft bij mijn makers."
   },
   "FOUND_RELEVANT_DOCUMENTS": {
-    "en": "I found potentially relevant documents in the following resources: {resources}."
+    "en": "I found potentially relevant documents in the following resources: {resources}.",
+    "ar": "لقد وجدت مستندات قد تكون ذات صلة في الموارد التالية: {resources}.",
+    "fr": "J’ai trouvé des documents potentiellement pertinents dans les ressources suivantes : {resources}.",
+    "es": "Encontré documentos potencialmente relevantes en los siguientes recursos: {resources}.",
+    "hi": "मुझे निम्नलिखित संसाधनों में संभावित रूप से प्रासंगिक दस्तावेज़ मिले हैं: {resources}.",
+    "ru": "Я обнаружил потенциально релевантные документы в следующих ресурсах: {resources}.",
+    "id": "Saya menemukan dokumen yang mungkin relevan di sumber berikut: {resources}.",
+    "sw": "Nimepata nyaraka zinazoweza kuwa muhimu katika vyanzo vifuatavyo: {resources}.",
+    "pt": "Encontrei documentos potencialmente relevantes nos seguintes recursos: {resources}.",
+    "zh": "我在以下资源中找到了可能相关的文档：{resources}。",
+    "nl": "Ik heb mogelijk relevante documenten gevonden in de volgende bronnen: {resources}."
   }
 }
