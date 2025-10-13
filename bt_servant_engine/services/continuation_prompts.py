@@ -20,7 +20,7 @@ INTENT_ACTION_DESCRIPTIONS = {
     IntentType.CONSULT_FIA_RESOURCES: "consult FIA resources",
     IntentType.GET_PASSAGE_SUMMARY: "summarize that passage",
     IntentType.GET_PASSAGE_KEYWORDS: "show key terms from that passage",
-    IntentType.GET_TRANSLATION_HELPS: "provide translation helps",
+    IntentType.GET_TRANSLATION_HELPS: "provide translation helps for that passage",
     IntentType.RETRIEVE_SCRIPTURE: "retrieve that scripture passage",
     IntentType.LISTEN_TO_SCRIPTURE: "read that passage aloud",
     IntentType.TRANSLATE_SCRIPTURE: "translate that scripture",
@@ -74,6 +74,16 @@ def generate_continuation_prompt(user_id: str) -> Optional[str]:
         target_language = params.get("target_language")
         if target_language and next_item.intent == IntentType.TRANSLATE_SCRIPTURE:
             action = f"translate {passage or 'that scripture'} to {target_language}"
+
+        # Handle GET_BIBLE_TRANSLATION_ASSISTANCE with query parameter
+        query = params.get("query")
+        if query and next_item.intent == IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE:
+            action = f"provide Bible translation assistance about {query}"
+
+        # Handle CONSULT_FIA_RESOURCES with topic parameter
+        topic = params.get("topic")
+        if topic and next_item.intent == IntentType.CONSULT_FIA_RESOURCES:
+            action = f"consult FIA resources about {topic}"
 
     # Build the continuation prompt
     prompt = f"\n\nWould you like me to {action}?"
