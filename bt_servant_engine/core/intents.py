@@ -50,10 +50,21 @@ class IntentWithContext(BaseModel):
     """
 
     intent: IntentType = Field(..., description="The classified intent type")
-    parameters: Optional[dict[str, Any]] = Field(
-        default=None,
-        description="Extracted parameters specific to this intent. Schema varies by intent type.",
+    parameters_json: str = Field(
+        default="{}",
+        description=(
+            "JSON string containing extracted parameters for this intent. "
+            'Example: \'{"passage": "Romans 8", "target_language": "Spanish"}\'. '
+            "Use empty object {} if no parameters."
+        ),
     )
+
+    @property
+    def parameters(self) -> dict[str, Any]:
+        """Parse parameters from JSON string."""
+        import json
+
+        return json.loads(self.parameters_json) if self.parameters_json else {}
 
 
 class UserIntentsStructured(BaseModel):

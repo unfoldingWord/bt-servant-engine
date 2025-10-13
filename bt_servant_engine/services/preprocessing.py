@@ -1,4 +1,5 @@
 """Query preprocessing, language detection, and intent classification."""
+# pylint: disable=too-many-lines
 
 from __future__ import annotations
 
@@ -561,8 +562,8 @@ job is to classify the intent(s) of the user's latest message AND extract the re
 
 This is crucial for multi-intent messages where the user requests multiple things. For example, if they say "Summarize
 Romans 8 and translate it to Spanish", you need to identify both intents AND extract the parameters:
-- get-passage-summary with parameters: {"passage": "Romans 8"}
-- translate-scripture with parameters: {"passage": "Romans 8", "target_language": "Spanish"}
+- get-passage-summary with parameters_json: '{"passage": "Romans 8"}'
+- translate-scripture with parameters_json: '{"passage": "Romans 8", "target_language": "Spanish"}'
 
 # Instructions
 
@@ -599,7 +600,7 @@ Romans 8 and translate it to Spanish", you need to identify both intents AND ext
   "intents": [
     {
       "intent": "get-passage-summary",
-      "parameters": {"passage": "Romans 8"}
+      "parameters_json": "{\\"passage\\": \\"Romans 8\\"}"
     }
   ]
 }
@@ -612,11 +613,11 @@ Romans 8 and translate it to Spanish", you need to identify both intents AND ext
   "intents": [
     {
       "intent": "get-passage-summary",
-      "parameters": {"passage": "Romans 8"}
+      "parameters_json": "{\\"passage\\": \\"Romans 8\\"}"
     },
     {
       "intent": "translate-scripture",
-      "parameters": {"passage": "Romans 8", "target_language": "Spanish"}
+      "parameters_json": "{\\"passage\\": \\"Romans 8\\", \\"target_language\\": \\"Spanish\\"}"
     }
   ]
 }
@@ -629,11 +630,11 @@ Romans 8 and translate it to Spanish", you need to identify both intents AND ext
   "intents": [
     {
       "intent": "retrieve-scripture",
-      "parameters": {"passage": "John 3:16"}
+      "parameters_json": "{\\"passage\\": \\"John 3:16\\"}"
     },
     {
       "intent": "get-passage-summary",
-      "parameters": {"passage": "John 3:16"}
+      "parameters_json": "{\\"passage\\": \\"John 3:16\\"}"
     }
   ]
 }
@@ -646,15 +647,15 @@ Romans 8 and translate it to Spanish", you need to identify both intents AND ext
   "intents": [
     {
       "intent": "get-passage-summary",
-      "parameters": {"passage": "Romans 8"}
+      "parameters_json": "{\\"passage\\": \\"Romans 8\\"}"
     },
     {
       "intent": "translate-scripture",
-      "parameters": {"passage": "John 1:1", "target_language": "French"}
+      "parameters_json": "{\\"passage\\": \\"John 1:1\\", \\"target_language\\": \\"French\\"}"
     },
     {
       "intent": "get-passage-keywords",
-      "parameters": {"passage": "Mark 3"}
+      "parameters_json": "{\\"passage\\": \\"Mark 3\\"}"
     }
   ]
 }
@@ -667,7 +668,7 @@ Romans 8 and translate it to Spanish", you need to identify both intents AND ext
   "intents": [
     {
       "intent": "consult-fia-resources",
-      "parameters": {"passage": "Titus 1:1-5"}
+      "parameters_json": "{\\"passage\\": \\"Titus 1:1-5\\"}"
     }
   ]
 }
@@ -680,7 +681,7 @@ Romans 8 and translate it to Spanish", you need to identify both intents AND ext
   "intents": [
     {
       "intent": "set-response-language",
-      "parameters": {"language": "Indonesian"}
+      "parameters_json": "{\\"language\\": \\"Indonesian\\"}"
     }
   ]
 }
@@ -901,7 +902,9 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
     Returns:
         List of IntentWithContext objects with pre-extracted parameters
     """
-    logger.info("[intent-detection-structured] Classifying query with parameter extraction: %s", query[:100])
+    logger.info(
+        "[intent-detection-structured] Classifying query with parameter extraction: %s", query[:100]
+    )
 
     messages: list[EasyInputMessageParam] = [
         {
@@ -954,7 +957,7 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
             [i.value for i in simple_intents],
         )
         # Convert to IntentWithContext with empty parameters
-        return [IntentWithContext(intent=intent, parameters=None) for intent in simple_intents]
+        return [IntentWithContext(intent=intent, parameters_json="{}") for intent in simple_intents]
 
 
 def preprocess_user_query(
@@ -1027,7 +1030,9 @@ def is_affirmative_response_to_continuation(
     logger.info(
         "[affirmative-detection] Checking if '%s' is affirmative to: %s",
         user_message[:50] + "..." if len(user_message) > 50 else user_message,
-        continuation_context[:50] + "..." if len(continuation_context) > 50 else continuation_context,
+        continuation_context[:50] + "..."
+        if len(continuation_context) > 50
+        else continuation_context,
     )
 
     prompt = f"""You are analyzing whether a user is responding affirmatively to a continuation question.
@@ -1071,7 +1076,14 @@ Respond with exactly one word: YES or NO"""
         usage = getattr(response, "usage", None)
         track_openai_usage(usage, "gpt-4o-mini", _extract_cached_input_tokens, add_tokens)
 
-        answer = response.choices[0].message.content.strip().upper()
+        content = response.choices[0].message.content
+        if not content:
+            logger.warning(
+                "[affirmative-detection] LLM returned empty content, defaulting to False"
+            )
+            return False
+
+        answer = content.strip().upper()
         is_affirmative = answer == "YES"
 
         logger.info(
