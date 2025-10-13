@@ -713,7 +713,7 @@ names (e.g., "Dan" for Daniel) and may mix English instructions with non-English
 CONTINUATION_ACTION_GENERATION_PROMPT = """
 You are generating continuation prompt actions for a multi-intent query in the BT Servant chatbot system.
 
-Given a user query and a list of detected intents, generate a natural action phrase for each intent that can be used in a continuation prompt like "Would you like me to {action}?"
+Given a user query and a list of detected intents, generate a natural action phrase for each intent that can be used in a continuation prompt like "Would you like me to {{action}}?"
 
 # Rules
 - Each action should be a verb phrase (e.g., "show key terms from Gen 4:2")
