@@ -50,9 +50,30 @@ def generate_continuation_prompt(user_id: str) -> Optional[str]:
         return None
 
     # Get the action description for this intent
-    action = INTENT_ACTION_DESCRIPTIONS.get(
+    base_action = INTENT_ACTION_DESCRIPTIONS.get(
         next_item.intent, f"help with {next_item.intent.value.replace('-', ' ')}"
     )
+
+    # Try to enhance with parameters for specificity
+    action = base_action
+    params = next_item.parameters
+
+    if params:
+        passage = params.get("passage")
+        if passage and next_item.intent in {
+            IntentType.GET_PASSAGE_SUMMARY,
+            IntentType.GET_PASSAGE_KEYWORDS,
+            IntentType.GET_TRANSLATION_HELPS,
+            IntentType.RETRIEVE_SCRIPTURE,
+            IntentType.LISTEN_TO_SCRIPTURE,
+            IntentType.TRANSLATE_SCRIPTURE,
+        }:
+            # Replace "that passage" with specific passage reference
+            action = base_action.replace("that passage", passage)
+
+        target_language = params.get("target_language")
+        if target_language and next_item.intent == IntentType.TRANSLATE_SCRIPTURE:
+            action = f"translate {passage or 'that scripture'} to {target_language}"
 
     # Build the continuation prompt
     prompt = f"\n\nWould you like me to {action}?"
