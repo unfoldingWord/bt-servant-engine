@@ -165,7 +165,6 @@ def test_translate_responses_span_has_tokens(monkeypatch: pytest.MonkeyPatch) ->
     state = {
         "responses": [
             {"intent": "x", "response": "Hello"},
-            {"intent": "y", "response": "World"},
         ],
         "user_query": "irrelevant",
         "user_chat_history": [],
@@ -180,10 +179,11 @@ def test_translate_responses_span_has_tokens(monkeypatch: pytest.MonkeyPatch) ->
     report = perf.summarize_report(tid)
     span = _find_span(report, "brain:translate_responses_node")
     assert span is not None, "expected a span for translate_responses_node"
-    # Expect at least the sum from combine (40/15/55) plus translate (25/10/35)
-    assert span.get("input_tokens_expended") == 65
-    assert span.get("output_tokens_expended") == 25
-    assert span.get("total_tokens_expended") == 90
+    # With sequential processing, expect only translate tokens (no combine)
+    # translate call: 25 input + 10 output = 35 total, 3 cached
+    assert span.get("input_tokens_expended") == 25
+    assert span.get("output_tokens_expended") == 10
+    assert span.get("total_tokens_expended") == 35
 
 
 def test_chunk_message_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> None:

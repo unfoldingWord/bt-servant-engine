@@ -54,7 +54,7 @@ try:
     FIA_REFERENCE_CONTENT = FIA_REFERENCE_PATH.read_text(encoding="utf-8")
 except FileNotFoundError:
     logger.warning("FIA reference file missing at %s", FIA_REFERENCE_PATH)
-    FIA_REFERENCE_CONTENT = ""
+    FIA_REFERENCE_CONTENT = ""  # pylint: disable=invalid-name
 
 
 def consult_fia_resources(

@@ -18,7 +18,7 @@ import json
 import os
 from typing import Dict, Optional, Tuple
 
-_PRICING_CACHE: Optional[Dict[str, Dict[str, float]]] = None
+_PRICING_CACHE: Optional[Dict[str, Dict[str, float]]] = None  # pylint: disable=invalid-name
 
 
 def _load_pricing() -> Dict[str, Dict[str, float]]:

@@ -36,6 +36,44 @@ def get_user_db() -> TinyDB:
     return _db
 
 
+def get_user_state(user_id: str) -> Dict[str, Any]:
+    """Get the entire state dictionary for a user.
+
+    Args:
+        user_id: The user's identifier
+
+    Returns:
+        Dictionary containing all user state, or empty dict if user not found
+    """
+    q = Query()
+    cond = cast(QueryLike, q.user_id == user_id)
+    raw = get_user_db().table("users").get(cond)
+    result = cast(Optional[Dict[str, Any]], raw)
+    return result.copy() if result else {"user_id": user_id}
+
+
+def set_user_state(user_id: str, state: Dict[str, Any]) -> None:
+    """Set the entire state dictionary for a user.
+
+    Args:
+        user_id: The user's identifier
+        state: Dictionary containing all user state to persist
+
+    Note:
+        This will merge the provided state with existing state, not replace it.
+        To remove a field, explicitly set it to None and handle removal separately.
+    """
+    q = Query()
+    db = get_user_db().table("users")
+    cond = cast(QueryLike, q.user_id == user_id)
+
+    # Ensure user_id is in the state
+    state["user_id"] = user_id
+
+    # Upsert the entire state
+    db.upsert(state, cond)
+
+
 def get_user_chat_history(user_id: str) -> List[Dict[str, str]]:
     """Retrieve chat history for the given user_id."""
     q = Query()
@@ -171,6 +209,9 @@ class UserStateAdapter(UserStatePort):
 
 __all__ = [
     "UserStateAdapter",
+    "get_user_db",
+    "get_user_state",
+    "set_user_state",
     "get_user_chat_history",
     "update_user_chat_history",
     "get_user_response_language",

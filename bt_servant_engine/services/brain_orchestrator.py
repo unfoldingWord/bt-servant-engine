@@ -14,10 +14,39 @@ from langgraph.graph import StateGraph
 from typing_extensions import TypedDict
 
 from bt_servant_engine.core.intents import IntentType
+from bt_servant_engine.core.logging import get_logger
 from utils.perf import set_current_trace, time_block
+
+logger = get_logger(__name__)
 
 if TYPE_CHECKING:
     pass
+
+
+# Intent priority map for sequential processing
+# Higher values = higher priority = processed first when multiple intents detected
+INTENT_PRIORITY: Dict[IntentType, int] = {
+    # Settings intents: Always process first to configure the session
+    IntentType.SET_RESPONSE_LANGUAGE: 100,
+    IntentType.SET_AGENTIC_STRENGTH: 99,
+    # Scripture retrieval: Get the text before analyzing it
+    IntentType.RETRIEVE_SCRIPTURE: 80,
+    IntentType.LISTEN_TO_SCRIPTURE: 79,  # Audio variant of retrieval
+    # Analytical intents: Process after retrieval if both present
+    IntentType.GET_PASSAGE_SUMMARY: 70,
+    IntentType.GET_PASSAGE_KEYWORDS: 69,
+    IntentType.GET_TRANSLATION_HELPS: 68,
+    # Translation: After analysis
+    IntentType.TRANSLATE_SCRIPTURE: 65,
+    # FIA and general assistance
+    IntentType.CONSULT_FIA_RESOURCES: 50,
+    IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE: 45,
+    # Conversational and utility intents
+    IntentType.CONVERSE_WITH_BT_SERVANT: 20,
+    # System and unsupported: Lowest priority
+    IntentType.RETRIEVE_SYSTEM_INFORMATION: 10,
+    IntentType.PERFORM_UNSUPPORTED_FUNCTION: 5,
+}
 
 
 class BrainState(TypedDict, total=False):
@@ -49,6 +78,11 @@ class BrainState(TypedDict, total=False):
     progress_messenger: Optional[Callable[[str], Awaitable[None]]]
     last_progress_time: float
     progress_throttle_seconds: float
+    # Intent queue fields for sequential multi-intent processing
+    intents_with_context: Optional[List[Any]]  # IntentWithContext list from structured detection
+    queued_intent_context: Optional[Dict[str, Any]]  # Parameters from queued intent
+    has_more_queued_intents: bool  # Whether user has remaining queued intents
+    next_queued_intent_preview: Optional[str]  # Preview of next intent for continuation prompt
 
 
 ProgressMessageInput = str | Callable[[Any], Optional[str]]
@@ -168,43 +202,148 @@ def build_translation_assistance_progress_message(state: Any) -> Optional[str]:
 
 
 def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-branches
-    """Map detected intents to the list of nodes to traverse."""
+    """Map detected intents to the list of nodes to traverse.
+
+    Sequential processing: Only handles the highest priority intent and queues the rest.
+    When multiple intents are detected, we process the highest priority one and save
+    the others to the intent queue for subsequent requests.
+    """
+    import time
+
+    from bt_servant_engine.core.intents import IntentQueueItem
+    from bt_servant_engine.services.intent_queue import pop_next_intent, save_intent_queue
+
     s = cast(BrainState, state)
     user_intents = s["user_intents"]
+    user_id = s["user_id"]
+
     if not user_intents:
         raise ValueError("no intents found. something went very wrong.")
 
+    # Check if we're processing a queued intent
+    queued_intent_context = s.get("queued_intent_context")
+    if queued_intent_context:
+        # Pop from queue since we're processing it
+        logger.info(
+            "[process-intents] Processing queued intent, popping from queue for user=%s", user_id
+        )
+        pop_next_intent(user_id)
+
+    # Determine which intent to process
+    if len(user_intents) == 1:
+        # Single intent - process it
+        intent_to_process = user_intents[0]
+        logger.info(
+            "[process-intents] Single intent: %s for user=%s", intent_to_process.value, user_id
+        )
+    else:
+        # Multiple intents - process highest priority, queue the rest
+        logger.info(
+            "[process-intents] Multiple intents detected (%d), sorting by priority for user=%s",
+            len(user_intents),
+            user_id,
+        )
+
+        # Sort by priority (highest first)
+        sorted_intents = sorted(user_intents, key=lambda i: INTENT_PRIORITY.get(i, 0), reverse=True)
+        intent_to_process = sorted_intents[0]
+        intents_to_queue = sorted_intents[1:]
+
+        logger.info(
+            "[process-intents] Processing highest priority intent: %s (priority=%d) for user=%s",
+            intent_to_process.value,
+            INTENT_PRIORITY.get(intent_to_process, 0),
+            user_id,
+        )
+
+        # Get structured context if available
+        intents_with_context = s.get("intents_with_context")
+        continuation_actions = cast(list[str], s.get("continuation_actions", []))
+
+        # Get original intent order (before sorting) for action lookup
+        original_intent_order = (
+            [ic.intent for ic in intents_with_context] if intents_with_context else user_intents
+        )
+
+        # Build queue items
+        queue_items = []
+        for intent in intents_to_queue:
+            # Find matching context if available
+            params = {}
+            if intents_with_context:
+                matching_context = next(
+                    (ic for ic in intents_with_context if ic.intent == intent), None
+                )
+                if matching_context and matching_context.parameters:
+                    params = matching_context.parameters
+
+            # Get corresponding continuation action using ORIGINAL order (not sorted)
+            # continuation_actions are in the same order as original intent detection
+            try:
+                action_idx = original_intent_order.index(intent)
+                continuation_action = (
+                    continuation_actions[action_idx]
+                    if action_idx < len(continuation_actions)
+                    else ""
+                )
+            except ValueError:
+                # Intent not found in original order (shouldn't happen)
+                continuation_action = ""
+                logger.warning(
+                    "[process-intents] Intent %s not found in original order for user=%s",
+                    intent.value,
+                    user_id,
+                )
+
+            queue_items.append(
+                IntentQueueItem(
+                    intent=intent,
+                    parameters=params,
+                    continuation_action=continuation_action,
+                    created_at=time.time(),
+                    original_query=s["user_query"],
+                )
+            )
+
+        # Save queue
+        logger.info(
+            "[process-intents] Queueing %d remaining intents for user=%s", len(queue_items), user_id
+        )
+        save_intent_queue(user_id, queue_items)
+
+    # Map intent to node (using elif to avoid duplicates from old code)
     nodes_to_traverse: List[Hashable] = []
-    if IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE in user_intents:
+
+    if intent_to_process == IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE:
         nodes_to_traverse.append("query_vector_db_node")
-    if IntentType.CONSULT_FIA_RESOURCES in user_intents:
+    elif intent_to_process == IntentType.CONSULT_FIA_RESOURCES:
         nodes_to_traverse.append("consult_fia_resources_node")
-    if IntentType.GET_PASSAGE_SUMMARY in user_intents:
+    elif intent_to_process == IntentType.GET_PASSAGE_SUMMARY:
         nodes_to_traverse.append("handle_get_passage_summary_node")
-    if IntentType.GET_PASSAGE_KEYWORDS in user_intents:
+    elif intent_to_process == IntentType.GET_PASSAGE_KEYWORDS:
         nodes_to_traverse.append("handle_get_passage_keywords_node")
-    if IntentType.GET_TRANSLATION_HELPS in user_intents:
+    elif intent_to_process == IntentType.GET_TRANSLATION_HELPS:
         nodes_to_traverse.append("handle_get_translation_helps_node")
-    if IntentType.RETRIEVE_SCRIPTURE in user_intents:
+    elif intent_to_process == IntentType.RETRIEVE_SCRIPTURE:
         nodes_to_traverse.append("handle_retrieve_scripture_node")
-    if IntentType.LISTEN_TO_SCRIPTURE in user_intents:
+    elif intent_to_process == IntentType.LISTEN_TO_SCRIPTURE:
         nodes_to_traverse.append("handle_listen_to_scripture_node")
-    if IntentType.SET_RESPONSE_LANGUAGE in user_intents:
+    elif intent_to_process == IntentType.SET_RESPONSE_LANGUAGE:
         nodes_to_traverse.append("set_response_language_node")
-    if IntentType.SET_AGENTIC_STRENGTH in user_intents:
+    elif intent_to_process == IntentType.SET_AGENTIC_STRENGTH:
         nodes_to_traverse.append("set_agentic_strength_node")
-    if IntentType.PERFORM_UNSUPPORTED_FUNCTION in user_intents:
+    elif intent_to_process == IntentType.PERFORM_UNSUPPORTED_FUNCTION:
         nodes_to_traverse.append("handle_unsupported_function_node")
-    if IntentType.RETRIEVE_SYSTEM_INFORMATION in user_intents:
+    elif intent_to_process == IntentType.RETRIEVE_SYSTEM_INFORMATION:
         nodes_to_traverse.append("handle_system_information_request_node")
-    if IntentType.CONVERSE_WITH_BT_SERVANT in user_intents:
+    elif intent_to_process == IntentType.CONVERSE_WITH_BT_SERVANT:
         nodes_to_traverse.append("converse_with_bt_servant_node")
-    if IntentType.RETRIEVE_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("handle_retrieve_scripture_node")
-    if IntentType.LISTEN_TO_SCRIPTURE in user_intents:
-        nodes_to_traverse.append("handle_listen_to_scripture_node")
-    if IntentType.TRANSLATE_SCRIPTURE in user_intents:
+    elif intent_to_process == IntentType.TRANSLATE_SCRIPTURE:
         nodes_to_traverse.append("handle_translate_scripture_node")
+    else:
+        raise ValueError(f"Unknown intent type: {intent_to_process}")
+
+    logger.info("[process-intents] Routing to node: %s for user=%s", nodes_to_traverse[0], user_id)
 
     return nodes_to_traverse
 

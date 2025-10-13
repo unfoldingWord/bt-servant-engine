@@ -1,4 +1,5 @@
 """Query preprocessing, language detection, and intent classification."""
+# pylint: disable=too-many-lines
 
 from __future__ import annotations
 
@@ -12,7 +13,12 @@ from pydantic import BaseModel
 
 from bt_servant_engine.core.agentic import ALLOWED_AGENTIC_STRENGTH
 from bt_servant_engine.core.config import config
-from bt_servant_engine.core.intents import IntentType, UserIntents
+from bt_servant_engine.core.intents import (
+    IntentType,
+    IntentWithContext,
+    UserIntents,
+    UserIntentsStructured,
+)
 from bt_servant_engine.core.language import (
     Language,
     MessageLanguage,
@@ -550,6 +556,140 @@ Return a single JSON object of the form:
 ```
 """
 
+INTENT_CLASSIFICATION_STRUCTURED_PROMPT = """
+You are a node in a chatbot system called "BT Servant", which provides intelligent assistance to Bible translators. Your
+job is to classify the intent(s) of the user's latest message AND extract the relevant parameters for each intent.
+
+This is crucial for multi-intent messages where the user requests multiple things. For example, if they say "Summarize
+Romans 8 and translate it to Spanish", you need to identify both intents AND extract the parameters:
+- get-passage-summary with parameters_json: '{"passage": "Romans 8"}'
+- translate-scripture with parameters_json: '{"passage": "Romans 8", "target_language": "Spanish"}'
+
+# Instructions
+
+1. Always return at least one intent from the approved list
+2. If more than one intent fits, return ALL of them with their specific parameters
+3. Extract parameters relevant to each intent (passage references, languages, etc.)
+4. Resolve pronouns and references ("it" → the last mentioned passage)
+5. When in doubt, fall back to `perform-unsupported-function`
+6. If the request is outside Bible translation scope, return `perform-unsupported-function`
+7. For "help" requests, classify as `retrieve-system-information`
+
+# Parameter Schemas by Intent
+
+- **get-passage-summary**: `{"passage": "string"}` - The passage to summarize (e.g., "Romans 8", "John 3:16-18")
+- **get-passage-keywords**: `{"passage": "string"}` - The passage to extract keywords from
+- **get-translation-helps**: `{"passage": "string"}` - The passage needing translation help
+- **retrieve-scripture**: `{"passage": "string", "source_language"?: "string"}` - Passage and optional source language
+- **listen-to-scripture**: `{"passage": "string", "source_language"?: "string"}` - Passage for audio playback
+- **translate-scripture**: `{"passage": "string", "target_language"?: "string", "source_language"?: "string"}`
+- **set-response-language**: `{"language": "string"}` - The desired response language
+- **set-agentic-strength**: `{"strength": "string"}` - One of: "normal", "low", "very_low"
+- **consult-fia-resources**: `{"passage"?: "string", "topic"?: "string"}` - Optional passage or FIA topic
+- **get-bible-translation-assistance**: `{"query": "string"}` - The general question or topic
+- **converse-with-bt-servant**: `{}` - No parameters needed for greetings/chitchat
+- **retrieve-system-information**: `{}` - No parameters
+- **perform-unsupported-function**: `{}` - No parameters
+
+# Examples
+
+## Example 1: Single Intent
+<message>Summarize Romans 8</message>
+<classification>
+{
+  "intents": [
+    {
+      "intent": "get-passage-summary",
+      "parameters_json": "{\\"passage\\": \\"Romans 8\\"}"
+    }
+  ]
+}
+</classification>
+
+## Example 2: Multiple Intents
+<message>Summarize Romans 8 and translate it to Spanish</message>
+<classification>
+{
+  "intents": [
+    {
+      "intent": "get-passage-summary",
+      "parameters_json": "{\\"passage\\": \\"Romans 8\\"}"
+    },
+    {
+      "intent": "translate-scripture",
+      "parameters_json": "{\\"passage\\": \\"Romans 8\\", \\"target_language\\": \\"Spanish\\"}"
+    }
+  ]
+}
+</classification>
+
+## Example 3: Pronoun Resolution
+<message>Show me John 3:16 and then summarize it</message>
+<classification>
+{
+  "intents": [
+    {
+      "intent": "retrieve-scripture",
+      "parameters_json": "{\\"passage\\": \\"John 3:16\\"}"
+    },
+    {
+      "intent": "get-passage-summary",
+      "parameters_json": "{\\"passage\\": \\"John 3:16\\"}"
+    }
+  ]
+}
+</classification>
+
+## Example 4: Multiple Passages
+<message>Summarize Romans 8, translate John 1:1 into French, and give me keywords for Mark 3</message>
+<classification>
+{
+  "intents": [
+    {
+      "intent": "get-passage-summary",
+      "parameters_json": "{\\"passage\\": \\"Romans 8\\"}"
+    },
+    {
+      "intent": "translate-scripture",
+      "parameters_json": "{\\"passage\\": \\"John 1:1\\", \\"target_language\\": \\"French\\"}"
+    },
+    {
+      "intent": "get-passage-keywords",
+      "parameters_json": "{\\"passage\\": \\"Mark 3\\"}"
+    }
+  ]
+}
+</classification>
+
+## Example 5: FIA with Passage
+<message>Walk me through the FIA process for Titus 1:1-5</message>
+<classification>
+{
+  "intents": [
+    {
+      "intent": "consult-fia-resources",
+      "parameters_json": "{\\"passage\\": \\"Titus 1:1-5\\"}"
+    }
+  ]
+}
+</classification>
+
+## Example 6: Settings
+<message>Set my response language to Indonesian</message>
+<classification>
+{
+  "intents": [
+    {
+      "intent": "set-response-language",
+      "parameters_json": "{\\"language\\": \\"Indonesian\\"}"
+    }
+  ]
+}
+</classification>
+
+Return a JSON object matching the IntentWithContext schema. Be thorough in extracting all parameters.
+"""
+
 DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
 You are a language detection specialist for a Bible translation assistant chatbot.
 
@@ -568,6 +708,59 @@ names (e.g., "Dan" for Daniel) and may mix English instructions with non-English
 - "Terjemahkan Roma 1:1" → "id" (Indonesian)
 - "Résumer Jean 3:16" → "fr" (French)
 - "keywords in John 3" → "en" (English instruction)
+"""
+
+CONTINUATION_ACTION_GENERATION_PROMPT = """
+You are generating continuation prompt actions for a multi-intent query in the BT Servant chatbot system.
+
+Given a user query and a list of detected intents, generate a natural action phrase for each intent that can be used in a continuation prompt like "Would you like me to {{action}}?"
+
+# Rules
+- Each action should be a verb phrase (e.g., "show key terms from Gen 4:2")
+- Include specific context from the query (passage references, names, topics)
+- Use natural, conversational language
+- Keep actions concise (under 15 words)
+- Match the tone and phrasing style of the examples below
+
+# Intent Types
+- get-passage-keywords: Extract key terms from a passage
+- get-passage-summary: Summarize a passage
+- get-translation-helps: Provide translation help for a passage
+- get-bible-translation-assistance: Answer general Bible translation questions about topics, names, concepts
+- consult-fia-resources: Consult FIA (Familiarization, Internalization, Articulation) resources
+- retrieve-scripture: Retrieve the text of a passage
+- translate-scripture: Translate a passage to another language
+- listen-to-scripture: Read a passage aloud
+
+# Examples
+
+Query: "Tell me about Barnabas, keywords in Gen 4:2, help translating John 1:4"
+Intents: ["get-bible-translation-assistance", "get-passage-keywords", "get-translation-helps"]
+Actions:
+["tell you about Barnabas in the Bible", "show key terms from Gen 4:2", "provide translation helps for John 1:4"]
+
+Query: "Summarize Romans 8 and translate it to Spanish"
+Intents: ["get-passage-summary", "translate-scripture"]
+Actions:
+["summarize Romans 8", "translate Romans 8 to Spanish"]
+
+Query: "What does Ephesus mean and give me keywords in Acts 19"
+Intents: ["get-bible-translation-assistance", "get-passage-keywords"]
+Actions:
+["tell you about Ephesus", "show key terms from Acts 19"]
+
+Query: "Can you give me FIA resources on translation and also keywords for Matthew 5:3"
+Intents: ["consult-fia-resources", "get-passage-keywords"]
+Actions:
+["consult FIA resources on translation", "show key terms from Matthew 5:3"]
+
+Now generate actions for this query:
+
+Query: {query}
+Intents: {intents}
+
+Return ONLY a JSON array of action strings, one per intent, in the same order as the intents list.
+Example format: ["action1", "action2", "action3"]
 """
 
 
@@ -742,6 +935,157 @@ def determine_intents(client: OpenAI, query: str) -> list[IntentType]:
     return user_intents_model.intents
 
 
+def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithContext]:
+    """Classify the user's query into intents WITH extracted parameters.
+
+    This enhanced version performs structured intent detection, extracting relevant
+    parameters for each intent at classification time. This is crucial for multi-intent
+    messages where we need to disambiguate which parts of the message apply to which intent.
+
+    For example:
+    - "Summarize Romans 8 and translate it to Spanish"
+      Returns:
+        [IntentWithContext(intent=GET_PASSAGE_SUMMARY, parameters={"passage": "Romans 8"}),
+         IntentWithContext(intent=TRANSLATE_SCRIPTURE, parameters={"passage": "Romans 8", "target_language": "Spanish"})]
+
+    Args:
+        client: OpenAI client instance
+        query: The user's (possibly preprocessed) query text
+
+    Returns:
+        List of IntentWithContext objects with pre-extracted parameters
+    """
+    logger.info(
+        "[intent-detection-structured] Classifying query with parameter extraction: %s", query[:100]
+    )
+
+    messages: list[EasyInputMessageParam] = [
+        {
+            "role": "system",
+            "content": INTENT_CLASSIFICATION_STRUCTURED_PROMPT,
+        },
+        {
+            "role": "user",
+            "content": f"Classify this message and extract parameters: {query}",
+        },
+    ]
+
+    try:
+        response = client.responses.parse(
+            model="gpt-4o",
+            input=cast(Any, messages),
+            text_format=UserIntentsStructured,
+            store=False,
+        )
+        usage = getattr(response, "usage", None)
+        track_openai_usage(usage, "gpt-4o", _extract_cached_input_tokens, add_tokens)
+
+        structured_intents = cast(UserIntentsStructured, response.output_parsed)
+
+        # Log extracted intents with parameters
+        logger.info(
+            "[intent-detection-structured] Detected %d intent(s):",
+            len(structured_intents.intents),
+        )
+        for idx, intent_ctx in enumerate(structured_intents.intents):
+            logger.info(
+                "[intent-detection-structured]   Intent %d: %s with params=%s",
+                idx + 1,
+                intent_ctx.intent.value,
+                intent_ctx.parameters,
+            )
+
+        return structured_intents.intents
+
+    except Exception:  # pylint: disable=broad-except
+        logger.error(
+            "[intent-detection-structured] Structured detection failed, falling back to simple detection",
+            exc_info=True,
+        )
+        # Fallback to simple detection if structured fails
+        simple_intents = determine_intents(client, query)
+        logger.warning(
+            "[intent-detection-structured] Fell back to simple detection, got %d intent(s): %s",
+            len(simple_intents),
+            [i.value for i in simple_intents],
+        )
+        # Convert to IntentWithContext with empty parameters
+        return [IntentWithContext(intent=intent, parameters_json="{}") for intent in simple_intents]
+
+
+def generate_continuation_actions(
+    client: OpenAI, query: str, intents: list[IntentType]
+) -> list[str]:
+    """Generate continuation action phrases for each intent using LLM.
+
+    This function takes a multi-intent query and generates natural language action
+    phrases that can be used in continuation prompts like "Would you like me to {action}?"
+
+    For example:
+    - Query: "Tell me about Barnabas, keywords in Gen 4:2, help translating John 1:4"
+    - Intents: [GET_BIBLE_TRANSLATION_ASSISTANCE, GET_PASSAGE_KEYWORDS, GET_TRANSLATION_HELPS]
+    - Returns: [
+        "tell you about Barnabas in the Bible",
+        "show key terms from Gen 4:2",
+        "provide translation helps for John 1:4"
+      ]
+
+    Args:
+        client: OpenAI client instance
+        query: The user's original query
+        intents: List of detected intents in order
+
+    Returns:
+        List of action phrases, one per intent, in the same order
+    """
+    logger.info(
+        "[continuation-actions] Generating continuation actions for %d intents", len(intents)
+    )
+
+    intent_names = [intent.value for intent in intents]
+
+    prompt = CONTINUATION_ACTION_GENERATION_PROMPT.format(
+        query=query, intents=json.dumps(intent_names)
+    )
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",  # Cheap and fast for this task
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.0,
+            max_tokens=200,
+            store=False,
+        )
+
+        usage = getattr(response, "usage", None)
+        track_openai_usage(usage, "gpt-4o-mini", _extract_cached_input_tokens, add_tokens)
+
+        content = response.choices[0].message.content
+        if not content:
+            logger.warning("[continuation-actions] Empty response from LLM")
+            return ["continue with that request"] * len(intents)
+
+        # Parse JSON array
+        actions = json.loads(content.strip())
+
+        # Validate we got the right number
+        if not isinstance(actions, list) or len(actions) != len(intents):
+            logger.warning(
+                "[continuation-actions] Expected %d actions, got %s. Using fallback.",
+                len(intents),
+                len(actions) if isinstance(actions, list) else "non-list",
+            )
+            return ["continue with that request"] * len(intents)
+
+        logger.info("[continuation-actions] Generated actions: %s", actions)
+        return actions
+
+    except Exception:  # pylint: disable=broad-except
+        logger.error("[continuation-actions] Error generating actions", exc_info=True)
+        # Fallback to generic actions
+        return ["continue with that request"] * len(intents)
+
+
 def preprocess_user_query(
     client: OpenAI, query: str, chat_history: list[dict[str, str]]
 ) -> tuple[str, str, bool]:  # pylint: disable=too-many-locals
@@ -790,9 +1134,105 @@ def preprocess_user_query(
     return transformed_query, reason_for_decision, message_changed
 
 
+def is_affirmative_response_to_continuation(
+    client: OpenAI, user_message: str, continuation_context: str
+) -> bool:
+    """Use LLM to determine if user is responding affirmatively to a continuation prompt.
+
+    Args:
+        client: OpenAI client
+        user_message: The user's response message
+        continuation_context: Description of what we asked (e.g., "translate Romans 8 to Spanish")
+
+    Returns:
+        True if the user is responding affirmatively, False otherwise
+
+    Examples:
+        - is_affirmative("yes", "translate...") -> True
+        - is_affirmative("sure", "translate...") -> True
+        - is_affirmative("no", "translate...") -> False
+        - is_affirmative("what's Romans 9 about?", "translate...") -> False (pivoted)
+    """
+    logger.info(
+        "[affirmative-detection] Checking if '%s' is affirmative to: %s",
+        user_message[:50] + "..." if len(user_message) > 50 else user_message,
+        continuation_context[:50] + "..."
+        if len(continuation_context) > 50
+        else continuation_context,
+    )
+
+    prompt = f"""You are analyzing whether a user is responding affirmatively to a continuation question.
+
+Context: We asked the user if they wanted us to: "{continuation_context}"
+
+User's response: "{user_message}"
+
+Determine if the user is saying YES (affirmative) or NO/SOMETHING_ELSE.
+
+Return "YES" if the user is clearly agreeing, confirming, or saying yes.
+Return "NO" if:
+- They explicitly decline (no, nope, cancel, skip, etc.)
+- They ask a different question (pivot to new topic)
+- They ignore the continuation and make a new request
+- They respond with anything other than clear agreement
+
+Examples:
+- "yes" -> YES
+- "sure" -> YES
+- "ok" -> YES
+- "please" -> YES
+- "go ahead" -> YES
+- "no" -> NO
+- "not now" -> NO
+- "what about Romans 9?" -> NO (new question)
+- "summarize John 3" -> NO (new request)
+- "tell me about David" -> NO (different topic)
+
+Respond with exactly one word: YES or NO"""
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.0,
+            max_tokens=10,
+            store=False,
+        )
+
+        usage = getattr(response, "usage", None)
+        track_openai_usage(usage, "gpt-4o-mini", _extract_cached_input_tokens, add_tokens)
+
+        content = response.choices[0].message.content
+        if not content:
+            logger.warning(
+                "[affirmative-detection] LLM returned empty content, defaulting to False"
+            )
+            return False
+
+        answer = content.strip().upper()
+        is_affirmative = answer == "YES"
+
+        logger.info(
+            "[affirmative-detection] LLM returned '%s', interpreted as: %s",
+            answer,
+            "AFFIRMATIVE" if is_affirmative else "NOT AFFIRMATIVE",
+        )
+
+        return is_affirmative
+
+    except Exception:  # pylint: disable=broad-except
+        logger.error(
+            "[affirmative-detection] Error during LLM call, defaulting to False (conservative)",
+            exc_info=True,
+        )
+        return False
+
+
 __all__ = [
     "PREPROCESSOR_AGENT_SYSTEM_PROMPT",
     "INTENT_CLASSIFICATION_AGENT_SYSTEM_PROMPT",
+    "INTENT_CLASSIFICATION_STRUCTURED_PROMPT",
+    "CONTINUATION_ACTION_GENERATION_PROMPT",
     "DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT",
     "PreprocessorResult",
     "resolve_agentic_strength",
@@ -800,5 +1240,8 @@ __all__ = [
     "detect_language",
     "determine_query_language",
     "determine_intents",
+    "determine_intents_structured",
+    "generate_continuation_actions",
+    "is_affirmative_response_to_continuation",
     "preprocess_user_query",
 ]
