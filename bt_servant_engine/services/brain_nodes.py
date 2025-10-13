@@ -205,10 +205,10 @@ def determine_intents(state: Any) -> dict:
 
     s = cast(BrainState, state)
     query = s["transformed_query"]
-    user_id = s["user_id"]
+    user_id = s.get("user_id")
 
-    # Check if user has queued intents
-    if has_queued_intents(user_id):
+    # Check if user has queued intents (only if user_id is present)
+    if user_id and has_queued_intents(user_id):
         next_item = peek_next_intent(user_id)
         if next_item:
             # Get context description for LLM
@@ -376,7 +376,9 @@ def translate_responses(state: Any) -> dict:
         continuation_prompt = generate_continuation_prompt(user_id)
         if continuation_prompt and translated_responses:
             # Append to the last response
-            logger.info("[translate] Appending continuation prompt to final response for user=%s", user_id)
+            logger.info(
+                "[translate] Appending continuation prompt to final response for user=%s", user_id
+            )
             translated_responses[-1] = translated_responses[-1] + continuation_prompt
 
     return {"translated_responses": translated_responses}

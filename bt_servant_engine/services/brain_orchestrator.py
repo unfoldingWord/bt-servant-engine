@@ -224,14 +224,18 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
     queued_intent_context = s.get("queued_intent_context")
     if queued_intent_context:
         # Pop from queue since we're processing it
-        logger.info("[process-intents] Processing queued intent, popping from queue for user=%s", user_id)
+        logger.info(
+            "[process-intents] Processing queued intent, popping from queue for user=%s", user_id
+        )
         pop_next_intent(user_id)
 
     # Determine which intent to process
     if len(user_intents) == 1:
         # Single intent - process it
         intent_to_process = user_intents[0]
-        logger.info("[process-intents] Single intent: %s for user=%s", intent_to_process.value, user_id)
+        logger.info(
+            "[process-intents] Single intent: %s for user=%s", intent_to_process.value, user_id
+        )
     else:
         # Multiple intents - process highest priority, queue the rest
         logger.info(
@@ -261,7 +265,9 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
             # Find matching context if available
             params = {}
             if intents_with_context:
-                matching_context = next((ic for ic in intents_with_context if ic.intent == intent), None)
+                matching_context = next(
+                    (ic for ic in intents_with_context if ic.intent == intent), None
+                )
                 if matching_context and matching_context.parameters:
                     params = matching_context.parameters
 
@@ -275,7 +281,9 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
             )
 
         # Save queue
-        logger.info("[process-intents] Queueing %d remaining intents for user=%s", len(queue_items), user_id)
+        logger.info(
+            "[process-intents] Queueing %d remaining intents for user=%s", len(queue_items), user_id
+        )
         save_intent_queue(user_id, queue_items)
 
     # Map intent to node (using elif to avoid duplicates from old code)
