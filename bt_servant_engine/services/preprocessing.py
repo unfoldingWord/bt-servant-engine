@@ -737,7 +737,7 @@ Given a user query and a list of detected intents, generate a natural action phr
 Query: "Tell me about Barnabas, keywords in Gen 4:2, help translating John 1:4"
 Intents: ["get-bible-translation-assistance", "get-passage-keywords", "get-translation-helps"]
 Actions:
-["provide Bible translation assistance about Barnabas in the bible", "show key terms from Gen 4:2", "provide translation helps for John 1:4"]
+["tell you about Barnabas in the Bible", "show key terms from Gen 4:2", "provide translation helps for John 1:4"]
 
 Query: "Summarize Romans 8 and translate it to Spanish"
 Intents: ["get-passage-summary", "translate-scripture"]
@@ -747,7 +747,7 @@ Actions:
 Query: "What does Ephesus mean and give me keywords in Acts 19"
 Intents: ["get-bible-translation-assistance", "get-passage-keywords"]
 Actions:
-["provide Bible translation assistance about Ephesus", "show key terms from Acts 19"]
+["tell you about Ephesus", "show key terms from Acts 19"]
 
 Query: "Can you give me FIA resources on translation and also keywords for Matthew 5:3"
 Intents: ["consult-fia-resources", "get-passage-keywords"]
@@ -1025,7 +1025,7 @@ def generate_continuation_actions(
     - Query: "Tell me about Barnabas, keywords in Gen 4:2, help translating John 1:4"
     - Intents: [GET_BIBLE_TRANSLATION_ASSISTANCE, GET_PASSAGE_KEYWORDS, GET_TRANSLATION_HELPS]
     - Returns: [
-        "provide Bible translation assistance about Barnabas in the bible",
+        "tell you about Barnabas in the Bible",
         "show key terms from Gen 4:2",
         "provide translation helps for John 1:4"
       ]
