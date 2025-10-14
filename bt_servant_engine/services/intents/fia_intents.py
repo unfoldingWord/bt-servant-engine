@@ -45,8 +45,15 @@ Internalization, and Articulation (FIA) process using only the supplied context.
 
 # Follow-up Question
 
-After providing your response, end with a follow-up question asking what else you can help with regarding the FIA
-process. Generate this naturally in the response language (e.g., "What else can I help with regarding the FIA process?").
+After providing your response, suggest a related follow-up question that flows naturally from the current topic. Leverage
+the user's original query and the FIA steps you discussed to make it specific and helpful. For example:
+- If you explained Step 2 (Setting the Stage), suggest exploring Step 3 or how to apply Step 2 to their language
+- If they asked about a specific passage, suggest applying another FIA step to that passage
+- If they asked about the FIA process generally, suggest exploring how to apply it to a real translation scenario
+
+Generate this naturally in the response language and make it contextual to what you just discussed (e.g., "Would you
+like to explore how to apply Step 3 to this passage?" or "Should I explain how the Internalization phase works for your
+target language?").
 """
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent

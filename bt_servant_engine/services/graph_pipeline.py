@@ -37,9 +37,16 @@ because your response would be heretical, explain to the user why you cannot com
 
 # Follow-up Question
 
-After providing your response, end with a follow-up question asking what else you can help with regarding Bible
-translation resources. Generate this naturally in the response language (e.g., "What else can I help you with regarding
-Bible translation?").
+After providing your response, suggest a related follow-up question that naturally flows from the current topic and the
+resources you consulted. Leverage the user's original query and the retrieved documents to make the follow-up specific
+and helpful. For example:
+- If they asked about Aaron the priest, suggest exploring his role in the tabernacle, priestly duties, or related figures
+- If they asked about a Greek word, suggest related terms or theological concepts
+- If they asked about a biblical concept, suggest related passages or applications
+
+Generate this naturally in the response language and make it contextual to what you just discussed (e.g., "Would you
+like to know more about Aaron's duties in the tabernacle?" or "Should I explain how this concept appears in the New
+Testament?").
 """
 
 
