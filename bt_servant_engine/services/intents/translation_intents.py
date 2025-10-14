@@ -69,12 +69,11 @@ Style:
 
 # Follow-up Question
 
-After providing your translation helps guidance, suggest a related translation concept or topic the user might want
-to explore next. This should be:
-- Drawn from the translation helps context you were provided
-- Logically related to the passage or query
-- Phrased naturally as: "Would you like to learn about {topic} next?"
-Generate this naturally in the response language.
+After providing your translation helps guidance, suggest the next passage for the user to explore. If the current
+selection ends before the end of the chapter or book, suggest providing translation helps for the next 5 verses
+(or fewer if fewer than 5 remain before a chapter/book boundary). If at the end of a book, suggest the first 5 verses
+of another related or sequentially following book. Generate this naturally in the response language. Be specific with
+the suggestion (e.g., "Would you like translation helps for the next 4 verses of John?").
 """
 
 
