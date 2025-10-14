@@ -103,6 +103,7 @@ def test_translate_scripture_translates_with_supported_target(monkeypatch: pytes
                 header_suffix="1:1",
                 body="In den beginne...",
                 content_language=Language.DUTCH,
+                follow_up_question="Wilt u dat ik de volgende 5 verzen van Genesis vertaal?",
             )
             return _StubParseResult(tp)
         return _StubParseResult(None)

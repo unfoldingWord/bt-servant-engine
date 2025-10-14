@@ -42,6 +42,11 @@ Internalization, and Articulation (FIA) process using only the supplied context.
 - Be practical, encouraging, and concise while remaining thorough enough for translators to act on the guidance.
 - Use natural paragraphs (no bullet lists unless the context itself is a list that must be echoed for clarity).
 - Include references to FIA steps or resource names when they help the user follow along.
+
+# Follow-up Question
+
+After providing your response, end with a follow-up question asking what else you can help with regarding the FIA
+process. Generate this naturally in the response language (e.g., "What else can I help with regarding the FIA process?").
 """
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent

@@ -58,12 +58,31 @@ class TranslatedPassage(BaseModel):
     - header_suffix: exact suffix copied from input (e.g., "1:1–7").
     - body: translated passage body with original newlines preserved.
     - content_language: ISO 639-1 code (should equal requested target language).
+    - follow_up_question: contextual follow-up suggesting next passage or related book.
     """
 
     header_book: str
     header_suffix: str
     body: str
     content_language: Language
+    follow_up_question: str
+
+
+class RetrievedPassage(BaseModel):
+    """Schema for scripture retrieval output.
+
+    - header_book: book name (localized if available).
+    - header_suffix: exact suffix for the reference (e.g., "1:1–7").
+    - body: passage body with verse text.
+    - content_language: ISO 639-1 code of the retrieved scripture.
+    - follow_up_question: contextual follow-up suggesting next passage or related book.
+    """
+
+    header_book: str
+    header_suffix: str
+    body: str
+    content_language: Language
+    follow_up_question: str
 
 
 __all__ = [
@@ -73,4 +92,5 @@ __all__ = [
     "ResponseLanguage",
     "MessageLanguage",
     "TranslatedPassage",
+    "RetrievedPassage",
 ]

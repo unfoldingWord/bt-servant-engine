@@ -34,9 +34,15 @@ matching the provided schema. Do not include any extra prose, commentary, code f
 - body: translate the passage body into the target language; PRESERVE all newline boundaries exactly; do not add
   bullets, numbers, verse labels, or extra headings.
 - content_language: the ISO 639-1 code of the target language.
+- follow_up_question: Suggest the next passage for the user to explore. If the current selection ends before
+  the end of the chapter or book, suggest the next 5 verses (or fewer if fewer than 5 remain before a
+  chapter/book boundary). If at the end of a book, suggest the first 5 verses of another related or
+  sequentially following book. Generate this naturally in the target language. Be specific with the suggestion
+  (e.g., "Would you like me to translate the next 4 verses of Exodus?").
 
 # Output
-Return JSON matching the schema with fields: header_book, header_suffix, body, content_language. No extra keys.
+Return JSON matching the schema with fields: header_book, header_suffix, body, content_language, follow_up_question.
+No extra keys.
 """
 
 TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT = """
@@ -60,6 +66,15 @@ Style:
 - Write in clear prose (avoid lists unless the content is inherently a short list).
 - Cite verse numbers inline (e.g., "1:1–3", "3:16") where helpful.
 - Be faithful and restrained; do not speculate beyond the provided context.
+
+# Follow-up Question
+
+After providing your translation helps guidance, suggest a related translation concept or topic the user might want
+to explore next. This should be:
+- Drawn from the translation helps context you were provided
+- Logically related to the passage or query
+- Phrased naturally as: "Would you like to learn about {topic} next?"
+Generate this naturally in the response language.
 """
 
 
@@ -245,6 +260,12 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,t
     # scripture without running translation. This avoids unnecessary LLM calls and
     # preserves the original text (e.g., source=fr and target=fr).
     if target_code and target_code == resolved_lang:
+        # Generate generic follow-up for pass-through case
+        generic_followup = translate_text_fn(
+            response_text="Would you like me to translate another passage?",
+            target_language=str(resolved_lang),
+            agentic_strength=agentic_strength,
+        )
         response_obj = {
             "suppress_translation": True,
             "content_language": str(resolved_lang),
@@ -253,6 +274,7 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,t
                 {"type": "header_book", "text": canonical_book},
                 {"type": "header_suffix", "text": header_suffix},
                 {"type": "scripture", "text": body_src},
+                {"type": "follow_up", "text": generic_followup},
             ],
         }
         return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
@@ -295,6 +317,7 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,t
         translated = None
 
     if translated is None:
+        # Fallback path: structured parsing failed, use simple translation
         translated_body = _norm_ws(
             translate_text_fn(
                 response_text=body_src,
@@ -307,6 +330,12 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,t
             target_language=cast(str, target_code),
             agentic_strength=agentic_strength,
         )
+        # Generate generic follow-up for fallback case
+        fallback_followup = translate_text_fn(
+            response_text="Would you like me to translate another passage?",
+            target_language=cast(str, target_code),
+            agentic_strength=agentic_strength,
+        )
         response_obj = {
             "suppress_translation": True,
             "content_language": cast(str, target_code),
@@ -315,9 +344,11 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,t
                 {"type": "header_book", "text": translated_book},
                 {"type": "header_suffix", "text": header_suffix},
                 {"type": "scripture", "text": translated_body},
+                {"type": "follow_up", "text": fallback_followup},
             ],
         }
     else:
+        # Success path: use follow_up_question from schema
         response_obj = {
             "suppress_translation": True,
             "content_language": str(translated.content_language.value),
@@ -326,6 +357,7 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,t
                 {"type": "header_book", "text": translated.header_book or canonical_book},
                 {"type": "header_suffix", "text": translated.header_suffix or header_suffix},
                 {"type": "scripture", "text": _norm_ws(translated.body)},
+                {"type": "follow_up", "text": translated.follow_up_question},
             ],
         }
     return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}

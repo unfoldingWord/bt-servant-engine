@@ -59,6 +59,7 @@ def test_translate_scripture_normalizes_whitespace(monkeypatch: pytest.MonkeyPat
                 header_suffix="1:1-2",
                 body=("In den beginne\n\nschiep God\nde hemel en de aarde."),
                 content_language=Language.DUTCH,
+                follow_up_question="Wilt u dat ik de volgende 5 verzen van Genesis vertaal?",
             )
             return _StubParseResult(tp)
         return _StubParseResult(None)

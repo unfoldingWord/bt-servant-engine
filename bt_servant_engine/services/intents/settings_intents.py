@@ -90,7 +90,14 @@ def set_response_language(
     response_language_code: str = str(resp_lang.language.value)
     set_user_response_language_fn(user_id, response_language_code)
     language_name: str = supported_language_map.get(response_language_code, response_language_code)
-    response_text = f"Setting response language to: {language_name}"
+
+    # Add capabilities menu as follow-up
+    from bt_servant_engine.services.intents.simple_intents import (
+        BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
+    )
+
+    response_text = f"Setting response language to: {language_name}\n\n{BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}"
+
     return {
         "responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}],
         "user_response_language": response_language_code,
@@ -169,9 +176,17 @@ def set_agentic_strength(
         "low": "Low",
         "very_low": "Very Low",
     }.get(desired, desired.capitalize())
-    response_text = (
-        f"Agentic strength set to {friendly.lower()}. I'll use the {friendly} setting from now on."
+
+    # Add capabilities menu as follow-up
+    from bt_servant_engine.services.intents.simple_intents import (
+        BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
     )
+
+    response_text = (
+        f"Agentic strength set to {friendly.lower()}. I'll use the {friendly} setting from now on.\n\n"
+        f"{BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}"
+    )
+
     return {
         "responses": [{"intent": IntentType.SET_AGENTIC_STRENGTH, "response": response_text}],
         "agentic_strength": desired,

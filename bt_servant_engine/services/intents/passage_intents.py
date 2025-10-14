@@ -11,7 +11,7 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType
-from bt_servant_engine.core.language import Language, ResponseLanguage
+from bt_servant_engine.core.language import Language, ResponseLanguage, RetrievedPassage
 from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import track_openai_usage
@@ -33,6 +33,14 @@ You summarize Bible passage content faithfully using only the verses provided.
 - Write in continuous prose only: do NOT use bullets, numbered lists, section headers, or list-like formatting. Compose normal paragraph(s) with sentences flowing naturally.
 - Mix verse references inline within the prose wherever helpful (e.g., "1:1–3", "3:16", "2:4–6") to anchor key points rather than isolating them as list items.
 - If the selection contains only a single verse, inline verse references are not necessary.
+
+# Follow-up Question
+
+After providing your summary, suggest the next passage for the user to explore. If the current selection ends before
+the end of the chapter or book, suggest summarizing the next 5 verses (or fewer if fewer than 5 remain before a
+chapter/book boundary). If at the end of a book, suggest the first 5 verses of another related or sequentially
+following book. Generate this naturally in the response language. Be specific with the suggestion
+(e.g., "Would you like me to summarize the next 4 verses of Exodus?").
 """
 
 TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT = """
@@ -51,6 +59,29 @@ Examples:
 - message: "translate John 3:16 into Russian" -> { "language": "ru" }
 - message: "please translate Mark 1 in Spanish" -> { "language": "es" }
 - message: "translate Matthew 2" -> { "language": "Other" }
+"""
+
+RETRIEVE_SCRIPTURE_AGENT_SYSTEM_PROMPT = """
+# Task
+
+Translate the provided scripture passage into the specified target language and return a STRICT JSON object
+matching the provided schema. Do not include any extra prose, commentary, code fences, or formatting.
+
+# Rules
+- header_book: translate the canonical book name into the target language if needed (e.g., "John" -> "Juan" for Spanish).
+- header_suffix: DO NOT translate or alter; copy exactly the provided suffix (e.g., "1:1–7").
+- body: translate the passage body into the target language; PRESERVE all spacing; join verses into a continuous
+  flowing paragraph without verse labels.
+- content_language: the ISO 639-1 code of the target language.
+- follow_up_question: Suggest the next passage for the user to explore. If the current selection ends before
+  the end of the chapter or book, suggest showing the next 5 verses (or fewer if fewer than 5 remain before a
+  chapter/book boundary). If at the end of a book, suggest the first 5 verses of another related or
+  sequentially following book. Generate this naturally in the target language. Be specific with the suggestion
+  (e.g., "Would you like me to show you the next 4 verses of Exodus?").
+
+# Output
+Return JSON matching the schema with fields: header_book, header_suffix, body, content_language, follow_up_question.
+No extra keys.
 """
 
 
@@ -215,7 +246,9 @@ def get_passage_keywords(
     ref_label = label_ranges(canonical_book, ranges)
     header = f"Keywords in {ref_label}\n\n"
     body = ", ".join(keywords)
-    response_text = header + body
+    # Add generic follow-up (will be translated downstream by translate_responses node)
+    followup = "\n\nWould you like me to provide keywords for another passage?"
+    response_text = header + body + followup
     logger.info("[passage-keywords] done")
     return {
         "responses": [
@@ -393,53 +426,94 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-locals,to
 
     # If we have a target and it's a supported language code, auto-translate body + header
     if desired_target and desired_target in supported_language_map:
-        # Localize header book name using target language titles when possible;
-        # fall back to a static map; finally, LLM-translate as last resort.
-        translated_book = None
+        # Attempt structured translation via Responses.parse
+        retrieved: RetrievedPassage | None = None
         try:
-            t_root, _t_lang, _t_ver = resolve_bible_data_root(
-                response_language=None,
-                query_language=None,
-                requested_lang=desired_target,
-                requested_version=None,
+            messages: list[EasyInputMessageParam] = [
+                {"role": "developer", "content": f"canonical_book: {canonical_book}"},
+                {"role": "developer", "content": f"header_suffix (do not translate): {suffix}"},
+                {"role": "developer", "content": f"target_language: {desired_target}"},
+                {
+                    "role": "developer",
+                    "content": "passage body (translate; join verses into flowing paragraph):",
+                },
+                {"role": "developer", "content": scripture_text},
+            ]
+            model_name = model_for_agentic_strength_fn(
+                agentic_strength, allow_low=False, allow_very_low=True
             )
-            t_titles = load_book_titles(t_root)
-            translated_book = t_titles.get(canonical_book)
-        except FileNotFoundError:
-            translated_book = None
-        if not translated_book:
-            static_name = get_book_name(desired_target, canonical_book)
-            if static_name != canonical_book:
-                translated_book = static_name
-            else:
-                # As a last resort, translate the canonical book name with the LLM.
-                translated_book = translate_text_fn(
-                    response_text=canonical_book,
-                    target_language=desired_target,
-                    agentic_strength=agentic_strength,
-                )
-        # Translate each verse text and join into a flowing paragraph
-        translated_lines: list[str] = [
-            _norm_ws(
-                translate_text_fn(
-                    response_text=str(txt),
-                    target_language=desired_target,
-                    agentic_strength=agentic_strength,
-                )
+            resp = client.responses.parse(
+                model=model_name,
+                instructions=RETRIEVE_SCRIPTURE_AGENT_SYSTEM_PROMPT,
+                input=cast(Any, messages),
+                text_format=RetrievedPassage,
+                temperature=0,
+                store=False,
             )
-            for _ref, txt in verses
-        ]
-        translated_body = " ".join(translated_lines)
-        response_obj = {
-            "suppress_translation": True,
-            "content_language": desired_target,
-            "header_is_translated": True,
-            "segments": [
-                {"type": "header_book", "text": translated_book},
-                {"type": "header_suffix", "text": suffix},
-                {"type": "scripture", "text": translated_body},
-            ],
-        }
+            usage = getattr(resp, "usage", None)
+            track_openai_usage(usage, model_name, extract_cached_input_tokens_fn, add_tokens)
+            retrieved = cast(RetrievedPassage | None, resp.output_parsed)
+        except OpenAIError:
+            logger.warning(
+                "[retrieve-scripture] structured parse failed due to OpenAI error; falling back.",
+                exc_info=True,
+            )
+            retrieved = None
+        except Exception:  # pylint: disable=broad-except
+            logger.warning(
+                "[retrieve-scripture] structured parse failed; falling back to simple translation.",
+                exc_info=True,
+            )
+            retrieved = None
+
+        if retrieved is None:
+            # Fallback path: structured parsing failed, use verse-by-verse translation
+            translated_book = translate_text_fn(
+                response_text=canonical_book,
+                target_language=desired_target,
+                agentic_strength=agentic_strength,
+            )
+            translated_lines: list[str] = [
+                _norm_ws(
+                    translate_text_fn(
+                        response_text=str(txt),
+                        target_language=desired_target,
+                        agentic_strength=agentic_strength,
+                    )
+                )
+                for _ref, txt in verses
+            ]
+            translated_body = " ".join(translated_lines)
+            # Generate generic follow-up for fallback case
+            fallback_followup = translate_text_fn(
+                response_text="Would you like me to show you another passage?",
+                target_language=desired_target,
+                agentic_strength=agentic_strength,
+            )
+            response_obj = {
+                "suppress_translation": True,
+                "content_language": desired_target,
+                "header_is_translated": True,
+                "segments": [
+                    {"type": "header_book", "text": translated_book},
+                    {"type": "header_suffix", "text": suffix},
+                    {"type": "scripture", "text": translated_body},
+                    {"type": "follow_up", "text": fallback_followup},
+                ],
+            }
+        else:
+            # Success path: use follow_up_question from schema
+            response_obj = {
+                "suppress_translation": True,
+                "content_language": str(retrieved.content_language.value),
+                "header_is_translated": True,
+                "segments": [
+                    {"type": "header_book", "text": retrieved.header_book or canonical_book},
+                    {"type": "header_suffix", "text": retrieved.header_suffix or suffix},
+                    {"type": "scripture", "text": _norm_ws(retrieved.body)},
+                    {"type": "follow_up", "text": retrieved.follow_up_question},
+                ],
+            }
         return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
 
     # No auto-translation required; return verbatim with canonical header (to be localized downstream if desired)
@@ -447,6 +521,12 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-locals,to
     titles_map = load_book_titles(data_root)
     header_book = titles_map.get(canonical_book) or get_book_name(
         str(resolved_lang), canonical_book
+    )
+    # Generate generic follow-up for verbatim case
+    verbatim_followup = translate_text_fn(
+        response_text="Would you like me to show you another passage?",
+        target_language=str(resolved_lang),
+        agentic_strength=agentic_strength,
     )
     response_obj = {
         "suppress_translation": True,
@@ -456,6 +536,7 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-locals,to
             {"type": "header_book", "text": header_book},
             {"type": "header_suffix", "text": suffix},
             {"type": "scripture", "text": scripture_text},
+            {"type": "follow_up", "text": verbatim_followup},
         ],
     }
     return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}

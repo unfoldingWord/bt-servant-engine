@@ -84,8 +84,6 @@ class BrainState(TypedDict, total=False):
     queued_intent_context: Optional[Dict[str, Any]]  # Parameters from queued intent
     has_more_queued_intents: bool  # Whether user has remaining queued intents
     next_queued_intent_preview: Optional[str]  # Preview of next intent for continuation prompt
-    # Follow-up question tracking - prevents duplicate follow-ups when multi-intent is active
-    followup_question_added: bool  # Set to True when any follow-up question is added to response
 
 
 ProgressMessageInput = str | Callable[[Any], Optional[str]]
