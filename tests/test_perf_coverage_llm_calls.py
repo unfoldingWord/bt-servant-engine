@@ -113,11 +113,11 @@ def test_selection_helper_tokens_roll_into_parent_span(monkeypatch: pytest.Monke
 
 
 def test_translate_responses_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> None:
-    """combine + translate LLM usage contributes tokens to translate_responses span."""
+    """Translate LLM usage contributes tokens to translate_responses span."""
     tid = "trace-translate-responses"
     perf.set_current_trace(tid)
 
-    # Stub combine_responses Responses.create
+    # Stub unused (kept for backward compatibility with test structure)
     class _FakeCombine:  # pylint: disable=too-few-public-methods
         usage = _FakeUsage(it=40, ot=15, tt=55, cached=4)
         output_text = "Combined response"

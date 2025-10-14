@@ -166,7 +166,6 @@ def get_passage_summary(
             {
                 "intent": IntentType.GET_PASSAGE_SUMMARY,
                 "response": response_text,
-                "suppress_combining": True,
             }
         ]
     }
@@ -223,7 +222,6 @@ def get_passage_keywords(
             {
                 "intent": IntentType.GET_PASSAGE_KEYWORDS,
                 "response": response_text,
-                "suppress_combining": True,
             }
         ]
     }

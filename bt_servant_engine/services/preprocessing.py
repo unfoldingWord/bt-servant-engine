@@ -47,7 +47,14 @@ as little as possible. Change nothing unless necessary. Only expand or clarify w
 required to understand the user's intent. If there is any uncertainty, leave the message exactly as provided. If the
 intent of the user's message is already clear, change nothing. Never greatly expand the user's current message. Changes
 should be small or none. Feel free to fix
-obvious spelling mistakes or errors, but not logic errors like incorrect books of the Bible. Do NOT narrow the scope of
+obvious spelling mistakes or errors, but not logic errors like incorrect books of the Bible.
+
+**CRITICAL: Handling Yes/No Responses**
+When the user responds with simple affirmations or negations like "yes", "no", "yeah", "nope", "yes please", "no thanks",
+etc., you MUST expand these using the immediately preceding assistant message (the most recent context). These short
+responses almost always refer to a follow-up question or offer from the assistant. Extract the action or topic from the
+previous assistant message and expand the user's response into a complete, actionable request. Pay special attention to
+the VERY LAST sentence or question in the assistant's previous message, as that is typically what the user is responding to. Do NOT narrow the scope of
 explicit scripture selections: if a user requests multiple chapters, verse ranges, or disjoint selections (including
 conjunctions like "and" or comma/semicolon lists), preserve them exactly as written. If the system has constraints
 (for example, only a single chapter can be processed at a time), do NOT modify the user's message to fit those
@@ -367,6 +374,156 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     new_message: what can you do?
     reason_for_decision: The user is repeating the capabilities question verbatim; the intent is already clear, so no changes were needed.
     message_changed: False
+</assistant_response>
+
+## Example 13: Expanding "yes" after a follow-up question
+
+<past_conversation>
+    user_message: Show me John 3:16
+    assistant_response: In the beginning was the Word, and the Word was with God, and the Word was God.
+
+    Would you like to look up another Bible passage?
+</past_conversation>
+
+<current_message>
+    user_message: yes
+</current_message>
+
+<assistant_response>
+    new_message: Yes, I would like to look up another Bible passage.
+    reason_for_decision: The user is affirming the assistant's follow-up question about looking up another passage. Expanded "yes" into a complete request based on the immediately preceding question.
+    message_changed: True
+</assistant_response>
+
+## Example 14: Expanding "no" after a follow-up question
+
+<past_conversation>
+    user_message: Provide translation helps for Romans 8:1
+    assistant_response: [Translation helps content]
+
+    Do you need help with another translation question?
+</past_conversation>
+
+<current_message>
+    user_message: no
+</current_message>
+
+<assistant_response>
+    new_message: No, I don't need help with another translation question.
+    reason_for_decision: The user is declining the assistant's offer. Expanded "no" to make the intent explicit.
+    message_changed: True
+</assistant_response>
+
+## Example 15: Expanding "yes please" with specific context
+
+<past_conversation>
+    user_message: Summarize Acts 2
+    assistant_response: [Summary of Acts 2]
+
+    Would you like a summary of another passage?
+</past_conversation>
+
+<current_message>
+    user_message: yes please
+</current_message>
+
+<assistant_response>
+    new_message: Yes, I would like a summary of another passage.
+    reason_for_decision: The user is affirming the follow-up question. Expanded to clarify they want another summary.
+    message_changed: True
+</assistant_response>
+
+## Example 16: Expanding "yeah" after passage suggestion
+
+<past_conversation>
+    user_message: Provide translation helps for John 3:1-5
+    assistant_response: [Translation helps for John 3:1-5]
+
+    Would you like help translating John 3:6-10 as well?
+</past_conversation>
+
+<current_message>
+    user_message: yeah
+</current_message>
+
+<assistant_response>
+    new_message: Yes, I would like help translating John 3:6-10.
+    reason_for_decision: The user is affirming the specific suggestion about John 3:6-10. Expanded to include the specific passage mentioned.
+    message_changed: True
+</assistant_response>
+
+## Example 17: Expanding "nope" after topic suggestion
+
+<past_conversation>
+    user_message: Who was Apollos in the Bible?
+    assistant_response: Apollos was a learned Jew from Alexandria who became a prominent Christian teacher and evangelist in the early church. He is mentioned in Acts 18 and 1 Corinthians, where Paul describes him as an eloquent speaker who powerfully refuted Jewish objections to Christianity. Apollos worked closely with Aquila and Priscilla and was influential in Corinth.
+
+    Would you like to explore another biblical topic?
+</past_conversation>
+
+<current_message>
+    user_message: nope
+</current_message>
+
+<assistant_response>
+    new_message: No, I don't want to explore another biblical topic.
+    reason_for_decision: The user is declining the offer to explore another topic. Expanded to make the refusal explicit.
+    message_changed: True
+</assistant_response>
+
+## Example 18: Expanding "yes" with person/topic context
+
+<past_conversation>
+    user_message: Who was Apollos in the Bible?
+    assistant_response: Apollos was a learned Jew from Alexandria who became a prominent Christian teacher. He worked with Aquila, Priscilla, and Paul in the early church.
+
+    Would you like to know more about Paul?
+</past_conversation>
+
+<current_message>
+    user_message: yes
+</current_message>
+
+<assistant_response>
+    new_message: Yes, I would like to know more about Paul.
+    reason_for_decision: The user is affirming interest in learning about Paul. Expanded to include the specific person mentioned in the follow-up.
+    message_changed: True
+</assistant_response>
+
+## Example 19: Not expanding "yes" when context is unclear
+
+<past_conversation>
+    user_message: What does "justification" mean in Romans 3?
+    assistant_response: Justification in Romans 3 refers to God declaring sinners righteous through faith in Jesus Christ, not through works of the law.
+</past_conversation>
+
+<current_message>
+    user_message: yes
+</current_message>
+
+<assistant_response>
+    new_message: yes
+    reason_for_decision: The previous assistant message did not end with a question or offer, so the meaning of "yes" is unclear. Left unchanged per instructions to avoid speculation.
+    message_changed: False
+</assistant_response>
+
+## Example 20: Expanding "no thanks" after specific offer
+
+<past_conversation>
+    user_message: List the key terms in Matthew 5:1-10
+    assistant_response: [Key terms listed]
+
+    Would you like keywords from another passage?
+</past_conversation>
+
+<current_message>
+    user_message: no thanks
+</current_message>
+
+<assistant_response>
+    new_message: No, I don't want keywords from another passage.
+    reason_for_decision: The user is politely declining the offer for more keywords. Expanded to make the refusal clear.
+    message_changed: True
 </assistant_response>
 """
 

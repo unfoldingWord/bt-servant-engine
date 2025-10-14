@@ -390,7 +390,6 @@ def get_translation_helps(
             {
                 "intent": IntentType.GET_TRANSLATION_HELPS,
                 "response": response_text,
-                "suppress_combining": True,
             }
         ]
     }

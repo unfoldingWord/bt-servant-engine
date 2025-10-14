@@ -62,6 +62,34 @@ For general repository guidelines not specific to the refactor, see `AGENTS.md`,
 - **Functions**: Keep small (≤50-60 lines), single-purpose, explicit returns
 - **Docstrings**: Required for public functions; keep comments minimal
 
+### Code Hygiene (No Deprecated Code Policy)
+**CRITICAL: Never leave deprecated code in the codebase**
+
+- **Delete, don't deprecate**: When code is no longer needed, remove it entirely
+- **No "DEPRECATED" markers**: Don't mark functions/classes as deprecated - delete them
+- **No deprecation warnings**: Don't add `warnings.warn()` for deprecated code - remove the code
+- **Trust git history**: Old code can always be found in git history if needed
+- **Clean migrations**: When refactoring, update all callers and delete the old implementation
+
+**Why this matters:**
+- Deprecated code confuses future maintainers about what's actually used
+- It creates false dependencies and clutters imports
+- It suggests functionality that doesn't exist
+- It wastes time during code reviews and debugging
+
+**Example - DON'T DO THIS:**
+```python
+def old_function():
+    """DEPRECATED: Use new_function instead."""
+    warnings.warn("old_function is deprecated", DeprecationWarning)
+    # ... old implementation ...
+```
+
+**Example - DO THIS:**
+```python
+# Just delete old_function entirely and update all callers
+```
+
 ### Linting & Type Checking (Zero Warnings Policy)
 Always run on the ENTIRE project before committing:
 ```bash
