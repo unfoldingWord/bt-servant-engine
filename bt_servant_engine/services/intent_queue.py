@@ -70,10 +70,10 @@ def load_intent_queue(user_id: str) -> Optional[IntentQueue]:
         # Log each queued item for visibility
         for idx, item in enumerate(queue.items):
             logger.info(
-                "[intent-queue]   Item %d: intent=%s, params=%s, age=%d seconds",
+                "[intent-queue]   Item %d: intent=%s, context='%s', age=%d seconds",
                 idx,
                 item.intent.value,
-                item.parameters,
+                item.context_text,
                 int(now - item.created_at),
             )
 
@@ -109,10 +109,10 @@ def save_intent_queue(
     # Log what we're queueing
     for idx, item in enumerate(intents):
         logger.info(
-            "[intent-queue]   Queueing item %d: intent=%s, params=%s, query=%s",
+            "[intent-queue]   Queueing item %d: intent=%s, context='%s', query=%s",
             idx,
             item.intent.value,
-            item.parameters,
+            item.context_text,
             item.original_query[:50] + "..."
             if len(item.original_query) > 50
             else item.original_query,
@@ -159,9 +159,9 @@ def pop_next_intent(user_id: str) -> Optional[IntentQueueItem]:
     remaining_items = queue.items[1:]
 
     logger.info(
-        "[intent-queue] Popped intent=%s with params=%s for user=%s",
+        "[intent-queue] Popped intent=%s with context='%s' for user=%s",
         next_item.intent.value,
-        next_item.parameters,
+        next_item.context_text,
         user_id,
     )
 
@@ -195,9 +195,9 @@ def peek_next_intent(user_id: str) -> Optional[IntentQueueItem]:
 
     next_item = queue.items[0]
     logger.debug(
-        "[intent-queue] Next intent is %s with params=%s for user=%s",
+        "[intent-queue] Next intent is %s with context='%s' for user=%s",
         next_item.intent.value,
-        next_item.parameters,
+        next_item.context_text,
         user_id,
     )
 

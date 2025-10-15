@@ -3,9 +3,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any
-
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class IntentType(str, Enum):
@@ -30,69 +28,61 @@ class UserIntents(BaseModel):
     """Container for a list of user intents (legacy format).
 
     Used for backward compatibility with existing intent detection code.
-    New code should use UserIntentsStructured for richer parameter extraction.
+    New code should use UserIntentsStructured for explicit context capture.
     """
 
     intents: list[IntentType]
 
 
 class IntentWithContext(BaseModel):
-    """An intent paired with extracted parameters from the user's message.
+    """An intent paired with the portion of the user's message that activates it.
 
-    When multiple intents are detected, parameters help disambiguate which
-    parts of the message apply to each intent. For example, if the user says
-    "Summarize Romans 8 and translate it to Spanish", we need to know that:
-    - GET_PASSAGE_SUMMARY needs {"passage": "Romans 8"}
-    - TRANSLATE_SCRIPTURE needs {"passage": "Romans 8", "target_language": "Spanish"}
-
-    This model enables structured parameter extraction at intent detection time,
-    eliminating ambiguity and enabling proper intent queueing.
+    For multi-intent queries, each intent carries a `context_text` field containing
+    the exact slice(s) of the user's message meant for that intent. Downstream
+    handlers rely exclusively on this text when processing their work.
     """
 
     intent: IntentType = Field(..., description="The classified intent type")
-    parameters_json: str = Field(
-        default="{}",
+    context_text: str = Field(
+        ...,
         description=(
-            "JSON string containing extracted parameters for this intent. "
-            'Example: \'{"passage": "Romans 8", "target_language": "Spanish"}\'. '
-            "Use empty object {} if no parameters."
+            "The relevant portion of the user query that triggered this intent. "
+            "This text should be fluent and cover all necessary context, even when "
+            "the original spans were non-contiguous."
         ),
     )
 
-    @property
-    def parameters(self) -> dict[str, Any]:
-        """Parse parameters from JSON string."""
-        import json
+    def trimmed_context(self) -> str:
+        """Return normalized context for downstream logging and processing."""
+        return str(self.context_text or "").strip()
 
-        return json.loads(self.parameters_json) if self.parameters_json else {}
+    model_config = ConfigDict(extra="ignore")
 
 
 class UserIntentsStructured(BaseModel):
-    """Enhanced intent detection with parameter extraction.
+    """Enhanced intent detection with explicit context snippets.
 
-    This is the new format returned by structured intent detection. Each intent
-    comes with pre-extracted parameters that disambiguate multi-intent messages.
+    Each detected intent includes the exact portion of the user's message that
+    should be handed to the downstream handler.
     """
 
     intents: list[IntentWithContext] = Field(
         ...,
-        description="List of detected intents with their specific parameters",
+        description="List of detected intents with their corresponding context text",
         min_length=1,
     )
 
 
 class IntentQueueItem(BaseModel):
-    """A queued intent waiting to be processed.
-
-    When multiple intents are detected, we process the highest priority one immediately
-    and queue the rest. This model captures both the intent and its pre-extracted
-    parameters for later processing.
-    """
+    """A queued intent waiting to be processed with its captured context."""
 
     intent: IntentType = Field(..., description="The intent to process")
-    parameters: dict[str, Any] = Field(
-        default_factory=dict,
-        description="Pre-extracted parameters for this intent",
+    context_text: str = Field(
+        "",
+        description=(
+            "The query snippet captured for this intent. "
+            "Handlers must operate solely on this text when resuming the intent."
+        ),
     )
     continuation_action: str = Field(
         default="",
@@ -106,6 +96,8 @@ class IntentQueueItem(BaseModel):
         default="",
         description="Original user message for debugging/logging",
     )
+
+    model_config = ConfigDict(extra="ignore")
 
 
 class IntentQueue(BaseModel):

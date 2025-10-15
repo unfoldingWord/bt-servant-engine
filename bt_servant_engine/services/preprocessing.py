@@ -713,139 +713,6 @@ Return a single JSON object of the form:
 ```
 """
 
-INTENT_CLASSIFICATION_STRUCTURED_PROMPT = """
-You are a node in a chatbot system called "BT Servant", which provides intelligent assistance to Bible translators. Your
-job is to classify the intent(s) of the user's latest message AND extract the relevant parameters for each intent.
-
-This is crucial for multi-intent messages where the user requests multiple things. For example, if they say "Summarize
-Romans 8 and translate it to Spanish", you need to identify both intents AND extract the parameters:
-- get-passage-summary with parameters_json: '{"passage": "Romans 8"}'
-- translate-scripture with parameters_json: '{"passage": "Romans 8", "target_language": "Spanish"}'
-
-# Instructions
-
-1. Always return at least one intent from the approved list
-2. If more than one intent fits, return ALL of them with their specific parameters
-3. Extract parameters relevant to each intent (passage references, languages, etc.)
-4. Resolve pronouns and references ("it" → the last mentioned passage)
-5. When in doubt, fall back to `perform-unsupported-function`
-6. If the request is outside Bible translation scope, return `perform-unsupported-function`
-7. For "help" requests, classify as `retrieve-system-information`
-
-# Parameter Schemas by Intent
-
-- **get-passage-summary**: `{"passage": "string"}` - The passage to summarize (e.g., "Romans 8", "John 3:16-18")
-- **get-passage-keywords**: `{"passage": "string"}` - The passage to extract keywords from
-- **get-translation-helps**: `{"passage": "string"}` - The passage needing translation help
-- **retrieve-scripture**: `{"passage": "string", "source_language"?: "string"}` - Passage and optional source language
-- **listen-to-scripture**: `{"passage": "string", "source_language"?: "string"}` - Passage for audio playback
-- **translate-scripture**: `{"passage": "string", "target_language"?: "string", "source_language"?: "string"}`
-- **set-response-language**: `{"language": "string"}` - The desired response language
-- **set-agentic-strength**: `{"strength": "string"}` - One of: "normal", "low", "very_low"
-- **consult-fia-resources**: `{"passage"?: "string", "topic"?: "string"}` - Optional passage or FIA topic
-- **get-bible-translation-assistance**: `{"query": "string"}` - The general question or topic
-- **converse-with-bt-servant**: `{}` - No parameters needed for greetings/chitchat
-- **retrieve-system-information**: `{}` - No parameters
-- **perform-unsupported-function**: `{}` - No parameters
-
-# Examples
-
-## Example 1: Single Intent
-<message>Summarize Romans 8</message>
-<classification>
-{
-  "intents": [
-    {
-      "intent": "get-passage-summary",
-      "parameters_json": "{\\"passage\\": \\"Romans 8\\"}"
-    }
-  ]
-}
-</classification>
-
-## Example 2: Multiple Intents
-<message>Summarize Romans 8 and translate it to Spanish</message>
-<classification>
-{
-  "intents": [
-    {
-      "intent": "get-passage-summary",
-      "parameters_json": "{\\"passage\\": \\"Romans 8\\"}"
-    },
-    {
-      "intent": "translate-scripture",
-      "parameters_json": "{\\"passage\\": \\"Romans 8\\", \\"target_language\\": \\"Spanish\\"}"
-    }
-  ]
-}
-</classification>
-
-## Example 3: Pronoun Resolution
-<message>Show me John 3:16 and then summarize it</message>
-<classification>
-{
-  "intents": [
-    {
-      "intent": "retrieve-scripture",
-      "parameters_json": "{\\"passage\\": \\"John 3:16\\"}"
-    },
-    {
-      "intent": "get-passage-summary",
-      "parameters_json": "{\\"passage\\": \\"John 3:16\\"}"
-    }
-  ]
-}
-</classification>
-
-## Example 4: Multiple Passages
-<message>Summarize Romans 8, translate John 1:1 into French, and give me keywords for Mark 3</message>
-<classification>
-{
-  "intents": [
-    {
-      "intent": "get-passage-summary",
-      "parameters_json": "{\\"passage\\": \\"Romans 8\\"}"
-    },
-    {
-      "intent": "translate-scripture",
-      "parameters_json": "{\\"passage\\": \\"John 1:1\\", \\"target_language\\": \\"French\\"}"
-    },
-    {
-      "intent": "get-passage-keywords",
-      "parameters_json": "{\\"passage\\": \\"Mark 3\\"}"
-    }
-  ]
-}
-</classification>
-
-## Example 5: FIA with Passage
-<message>Walk me through the FIA process for Titus 1:1-5</message>
-<classification>
-{
-  "intents": [
-    {
-      "intent": "consult-fia-resources",
-      "parameters_json": "{\\"passage\\": \\"Titus 1:1-5\\"}"
-    }
-  ]
-}
-</classification>
-
-## Example 6: Settings
-<message>Set my response language to Indonesian</message>
-<classification>
-{
-  "intents": [
-    {
-      "intent": "set-response-language",
-      "parameters_json": "{\\"language\\": \\"Indonesian\\"}"
-    }
-  ]
-}
-</classification>
-
-Return a JSON object matching the IntentWithContext schema. Be thorough in extracting all parameters.
-"""
 
 DETECT_LANGUAGE_AGENT_SYSTEM_PROMPT = """
 You are a language detection specialist for a Bible translation assistant chatbot.
@@ -1151,10 +1018,10 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
         )
         for idx, intent_ctx in enumerate(structured_intents.intents):
             logger.info(
-                "[intent-detection-structured]   Intent %d: %s with params=%s",
+                "[intent-detection-structured]   Intent %d: %s with context='%s'",
                 idx + 1,
                 intent_ctx.intent.value,
-                intent_ctx.parameters,
+                intent_ctx.trimmed_context(),
             )
 
         return structured_intents.intents
@@ -1171,8 +1038,11 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
             len(simple_intents),
             [i.value for i in simple_intents],
         )
-        # Convert to IntentWithContext with empty parameters
-        return [IntentWithContext(intent=intent, parameters_json="{}") for intent in simple_intents]
+        # Convert to IntentWithContext using the full query as the fallback context
+        return [
+            IntentWithContext(intent=intent, context_text=query.strip())
+            for intent in simple_intents
+        ]
 
 
 def generate_continuation_actions(
@@ -1411,3 +1281,85 @@ __all__ = [
     "is_affirmative_response_to_continuation",
     "preprocess_user_query",
 ]
+INTENT_CLASSIFICATION_STRUCTURED_PROMPT = """
+You are a node in a chatbot system called "BT Servant", which provides intelligent assistance to Bible translators.
+Your responsibility is to classify the intent(s) in the user's latest message and capture the exact portion of the
+message that supplies the context for each intent.
+
+# Critical rules
+1. Always return at least one intent from the approved list.
+2. For multi-intent messages, return every applicable intent.
+3. For each intent, emit a `context_text` value that contains only the words from the user's message that matter for
+   that intent. If the relevant spans are non-contiguous, rewrite them into one or more fluent sentences while staying
+   faithful to the user's meaning. Never invent new facts or expand beyond the user's wording.
+4. Preserve the user's language in `context_text`.
+5. If the user's request is outside Bible translation scope, classify it as `perform-unsupported-function`.
+6. Requests for "help" or "what can you do" map to `retrieve-system-information`.
+7. When nothing matches, fall back to `perform-unsupported-function`.
+
+# Output schema
+Return a single JSON object shaped like:
+```json
+{
+  "intents": [
+    {
+      "intent": "get-passage-summary",
+      "context_text": "Summarize Romans 8."
+    }
+  ]
+}
+```
+
+# Examples
+
+## Example 1: Single intent
+<message>Summarize Romans 8</message>
+<classification>
+{
+  "intents": [
+    {
+      "intent": "get-passage-summary",
+      "context_text": "Summarize Romans 8."
+    }
+  ]
+}
+</classification>
+
+## Example 2: Multiple intents with natural context
+<message>Summarize Romans 8 and translate it to Spanish</message>
+<classification>
+{
+  "intents": [
+    {
+      "intent": "get-passage-summary",
+      "context_text": "Summarize Romans 8."
+    },
+    {
+      "intent": "translate-scripture",
+      "context_text": "Translate Romans 8 into Spanish."
+    }
+  ]
+}
+</classification>
+
+## Example 3: Non-contiguous spans rewritten smoothly
+<message>Summarize Romans 8, list the key terms in Gen 4:2, and then translate John 1:4 into Spanish.</message>
+<classification>
+{
+  "intents": [
+    {
+      "intent": "get-passage-summary",
+      "context_text": "Summarize Romans 8."
+    },
+    {
+      "intent": "get-passage-keywords",
+      "context_text": "List the key terms in Genesis 4:2."
+    },
+    {
+      "intent": "translate-scripture",
+      "context_text": "Translate John 1:4 into Spanish."
+    }
+  ]
+}
+</classification>
+"""

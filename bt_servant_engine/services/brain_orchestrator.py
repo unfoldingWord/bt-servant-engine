@@ -81,9 +81,10 @@ class BrainState(TypedDict, total=False):
     progress_throttle_seconds: float
     # Intent queue fields for sequential multi-intent processing
     intents_with_context: Optional[List[Any]]  # IntentWithContext list from structured detection
-    queued_intent_context: Optional[Dict[str, Any]]  # Parameters from queued intent
-    has_more_queued_intents: bool  # Whether user has remaining queued intents
-    next_queued_intent_preview: Optional[str]  # Preview of next intent for continuation prompt
+    continuation_actions: Optional[List[str]]
+    queued_intent_context: Optional[str]  # Context text from queued intent
+    active_intent_context: str  # Effective query text for the node currently executing
+    active_intent_context_source: str  # Origin of the active context (structured, queue, fallback)
     # Follow-up question tracking - prevents duplicate follow-ups when multi-intent is active
     followup_question_added: bool  # Set to True when any follow-up question is added to response
 
@@ -219,6 +220,12 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
     if not user_intents:
         raise ValueError("no intents found. something went very wrong.")
 
+    intents_with_context = cast(list[Any] | None, s.get("intents_with_context"))
+    continuation_actions = cast(list[str], s.get("continuation_actions", []))
+    context_pool = list(intents_with_context or [])
+    active_context = ""
+    active_context_source = "transformed_query"
+
     # Check if we're processing a queued intent
     queued_intent_context = s.get("queued_intent_context")
     if queued_intent_context:
@@ -227,6 +234,15 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
             "[process-intents] Processing queued intent, popping from queue for user=%s", user_id
         )
         pop_next_intent(user_id)
+        active_context = str(queued_intent_context).strip()
+        active_context_source = "queued_intent_context"
+        logger.info(
+            "[process-intents] Using queued intent context for user=%s: '%s'",
+            user_id,
+            active_context,
+        )
+        # Clear the queued context from state to avoid re-use in later turns
+        s["queued_intent_context"] = None
 
     # Determine which intent to process
     if len(user_intents) == 1:
@@ -255,9 +271,27 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
             user_id,
         )
 
-        # Get structured context if available
-        intents_with_context = s.get("intents_with_context")
-        continuation_actions = cast(list[str], s.get("continuation_actions", []))
+        # Determine context snippet for the active intent if not set via queue
+        if not active_context and context_pool:
+            active_idx = next(
+                (idx for idx, ic in enumerate(context_pool) if ic.intent == intent_to_process),
+                None,
+            )
+            active_match = context_pool.pop(active_idx) if active_idx is not None else None
+            if active_match:
+                active_context = active_match.trimmed_context()
+                active_context_source = "structured_context"
+                logger.info(
+                    "[process-intents] Active intent context (structured) for user=%s: '%s'",
+                    user_id,
+                    active_context,
+                )
+            else:
+                logger.warning(
+                    "[process-intents] Structured context missing for active intent=%s (user=%s); will rely on fallback context",
+                    intent_to_process.value,
+                    user_id,
+                )
 
         # Get original intent order (before sorting) for action lookup
         original_intent_order = (
@@ -267,14 +301,24 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
         # Build queue items
         queue_items = []
         for intent in intents_to_queue:
-            # Find matching context if available
-            params = {}
-            if intents_with_context:
-                matching_context = next(
-                    (ic for ic in intents_with_context if ic.intent == intent), None
+            # Find matching context snippet if available
+            context_text = ""
+            if context_pool:
+                matching_index = next(
+                    (idx for idx, ic in enumerate(context_pool) if ic.intent == intent),
+                    None,
                 )
-                if matching_context and matching_context.parameters:
-                    params = matching_context.parameters
+                matching_context = (
+                    context_pool.pop(matching_index) if matching_index is not None else None
+                )
+                if matching_context:
+                    context_text = matching_context.trimmed_context()
+            if not context_text:
+                logger.warning(
+                    "[process-intents] No context snippet available for deferred intent=%s (user=%s); downstream will fall back to active context resolution",
+                    intent.value,
+                    user_id,
+                )
 
             # Get corresponding continuation action using ORIGINAL order (not sorted)
             # continuation_actions are in the same order as original intent detection
@@ -294,10 +338,18 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
                     user_id,
                 )
 
+            logger.info(
+                "[process-intents] Queueing deferred intent=%s with context='%s' (user=%s, continuation_action_present=%s)",
+                intent.value,
+                context_text,
+                user_id,
+                bool(continuation_action),
+            )
+
             queue_items.append(
                 IntentQueueItem(
                     intent=intent,
-                    parameters=params,
+                    context_text=context_text,
                     continuation_action=continuation_action,
                     created_at=time.time(),
                     original_query=s["user_query"],
@@ -309,6 +361,25 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
             "[process-intents] Queueing %d remaining intents for user=%s", len(queue_items), user_id
         )
         save_intent_queue(user_id, queue_items)
+
+    # Fallback: if no explicit context captured, default to transformed query
+    if not active_context:
+        active_context = s["transformed_query"]
+        active_context_source = "transformed_query"
+        logger.info(
+            "[process-intents] No specialized context found; defaulting to transformed query for user=%s: '%s'",
+            user_id,
+            active_context,
+        )
+
+    s["active_intent_context"] = active_context
+    s["active_intent_context_source"] = active_context_source
+    logger.info(
+        "[process-intents] Intent routing context established (source=%s, intent=%s, user=%s)",
+        active_context_source,
+        intent_to_process.value,
+        user_id,
+    )
 
     # Map intent to node (using elif to avoid duplicates from old code)
     nodes_to_traverse: List[Hashable] = []
