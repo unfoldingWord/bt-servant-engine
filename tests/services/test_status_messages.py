@@ -61,7 +61,7 @@ class TestGetStatusMessage:
         result = status_messages.get_status_message(
             status_messages.THINKING_ABOUT_MESSAGE, state
         )
-        assert result == "Give me a few moments to think about your message."
+        assert result == "🧠 Give me a few moments to think about your message."
 
     def test_returns_english_message_by_default(self):
         """Returns English text when no language specified."""
@@ -188,7 +188,7 @@ class TestDynamicTranslation:
         )
 
         # Should return English fallback
-        assert result == "Give me a few moments to think about your message."
+        assert result == "🧠 Give me a few moments to think about your message."
 
     def test_returns_english_for_unknown_message_key(self):
         """Returns empty string when message key doesn't exist."""

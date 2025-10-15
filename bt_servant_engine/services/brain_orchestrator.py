@@ -184,7 +184,7 @@ def _collect_resource_sources(docs: List[Dict[str, Any]]) -> List[str]:
         if not normalized or normalized in seen:
             continue
         seen.add(normalized)
-        ordered.append(normalized)
+        ordered.append(normalized.replace("_", " "))
     return ordered
 
 
