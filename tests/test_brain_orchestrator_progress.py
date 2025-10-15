@@ -105,7 +105,7 @@ def test_translation_progress_message_includes_sources() -> None:
     assert messages == [
         (
             "I found potentially relevant documents in the following resources: "
-            "uw_notes and uw_dictionary. I'm pulling everything together into a helpful response for you."
+            "uw notes and uw dictionary. I'm pulling everything together into a helpful response for you."
         )
     ]
 

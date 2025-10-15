@@ -51,24 +51,24 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
         return None
 
     # Use pre-generated continuation question if available (should be a complete question now)
-    if next_item.continuation_action:
-        complete_question = next_item.continuation_action
-        logger.info(
-            "[continuation-prompt] Using pre-generated question for user=%s: '%s'",
-            user_id,
-            complete_question,
-        )
-    else:
-        # Fallback for old queue items without continuation_action
-        # Simple English fallback - old queue items are rare and will be regenerated
+    if not next_item.continuation_action:
         logger.warning(
-            "[continuation-prompt] No pre-generated question for user=%s (old queue item), using English fallback",
+            "[continuation-prompt] Missing continuation question for user=%s, suppressing prompt to avoid language mismatch (intent=%s, context='%s')",
             user_id,
+            next_item.intent.value,
+            next_item.context_text,
         )
-        complete_question = "Would you like me to continue with that request?"
+        return None
+
+    logger.info(
+        "[continuation-prompt] Using queued continuation question for user=%s: '%s' (intent=%s)",
+        user_id,
+        next_item.continuation_action,
+        next_item.intent.value,
+    )
 
     # Prepend newlines for spacing
-    prompt = f"\n\n{complete_question}"
+    prompt = f"\n\n{next_item.continuation_action}"
 
     logger.info(
         "[continuation-prompt] Generated prompt for user=%s: intent=%s",

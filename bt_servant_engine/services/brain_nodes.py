@@ -111,6 +111,44 @@ LANG_DETECTION_SAMPLE_CHARS = 100
 # Response helper wrappers
 
 
+def _intent_query_for_node(state: Any, node_name: str) -> str:
+    """Return the intent-specific query text for the active node with logging."""
+    from bt_servant_engine.services.brain_orchestrator import BrainState
+
+    s = cast(BrainState, state)
+    context = cast(Optional[str], s.get("active_intent_context"))
+    source = cast(str, s.get("active_intent_context_source", "unknown"))
+    transformed = s.get("transformed_query", "")
+    if not context:
+        intent_context_map = cast(dict[str, str], s.get("intent_context_map", {}))
+        active_intents = cast(Optional[list], s.get("user_intents"))
+        if active_intents:
+            active_intent = active_intents[0]
+            intent_value = (
+                active_intent.value if hasattr(active_intent, "value") else str(active_intent)
+            )
+            mapped = intent_context_map.get(intent_value)
+            if mapped:
+                context = mapped
+                source = "intent_context_map"
+
+    if context:
+        logger.info(
+            "[intent-context] Node=%s will use active context (source=%s): '%s'",
+            node_name,
+            source,
+            context,
+        )
+        return context
+
+    logger.warning(
+        "[intent-context] Node=%s missing active context; falling back to transformed query: '%s'",
+        node_name,
+        transformed,
+    )
+    return transformed
+
+
 def _is_protected_response_item(item: dict) -> bool:
     """Return True if a response item carries scripture to protect from changes."""
     return _is_protected_response_item_impl(item)
@@ -228,14 +266,15 @@ def determine_intents(state: Any) -> dict:
 
             if is_affirmative:
                 logger.info(
-                    "[determine-intents] User responded affirmatively, using queued intent: %s with params=%s",
+                    "[determine-intents] User responded affirmatively, using queued intent: %s with context='%s'",
                     next_item.intent.value,
-                    next_item.parameters,
+                    next_item.context_text,
                 )
-                # Return single intent from queue with pre-extracted parameters
+                # Return single intent from queue with captured context snippet
                 return {
                     "user_intents": [next_item.intent],
-                    "queued_intent_context": next_item.parameters,
+                    "queued_intent_context": next_item.context_text,
+                    "intent_context_map": {next_item.intent.value: next_item.context_text},
                 }
 
             # User did not respond affirmatively - clear queue and fall through
@@ -251,19 +290,30 @@ def determine_intents(state: Any) -> dict:
 
     # If multiple intents, use structured extraction for parameter disambiguation
     if len(user_intents) > 1:
+        expected_intents = list(user_intents)
         logger.info(
             "[determine-intents] Multiple intents detected (%d), using structured extraction for parameter disambiguation",
             len(user_intents),
         )
-        intents_with_context = _determine_intents_structured_impl(open_ai_client, query)
+        intents_with_context = _determine_intents_structured_impl(
+            open_ai_client, query, expected_intents
+        )
 
         # Extract just the intent types for backward compatibility
         intent_types = [ic.intent for ic in intents_with_context]
+        context_map = {ctx.intent.value: ctx.trimmed_context() for ctx in intents_with_context}
 
         logger.info(
             "[determine-intents] Structured extraction complete, storing context for %d intents",
             len(intents_with_context),
         )
+        for idx, ctx in enumerate(intents_with_context):
+            logger.info(
+                "[determine-intents]   Intent %d context='%s' (intent=%s)",
+                idx + 1,
+                ctx.trimmed_context(),
+                ctx.intent.value,
+            )
 
         # Generate complete continuation questions for each intent in the appropriate language
         logger.info("[determine-intents] Generating continuation questions for multi-intent query")
@@ -281,6 +331,7 @@ def determine_intents(state: Any) -> dict:
         return {
             "user_intents": intent_types,
             "intents_with_context": intents_with_context,
+            "intent_context_map": context_map,
             "continuation_actions": continuation_actions,
         }
 
@@ -289,9 +340,11 @@ def determine_intents(state: Any) -> dict:
         "[determine-intents] Single intent detected: %s, skipping parameter extraction (entire query is context)",
         user_intents[0].value if user_intents else "none",
     )
+    context_map_single = {user_intents[0].value: query} if user_intents else {}
     return {
         "user_intents": user_intents,
-        # No queued_intent_context - handlers will use full transformed_query
+        "intent_context_map": context_map_single,
+        # No queued_intent_context - handlers will derive context directly from the transformed query
     }
 
 
@@ -300,10 +353,11 @@ def set_response_language(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "set_response_language_node")
     return set_response_language_impl(
         open_ai_client,
         s["user_id"],
-        s["user_query"],
+        intent_query,
         s["user_chat_history"],
         supported_language_map,
         set_user_response_language,
@@ -315,10 +369,11 @@ def set_agentic_strength(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "set_agentic_strength_node")
     return set_agentic_strength_impl(
         open_ai_client,
         s["user_id"],
-        s["user_query"],
+        intent_query,
         s["user_chat_history"],
         set_user_agentic_strength,
         config.LOG_PSEUDONYM_SECRET,
@@ -447,8 +502,9 @@ def query_vector_db(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "query_vector_db_node")
     return query_vector_db_impl(
-        s["transformed_query"],
+        intent_query,
         s["stack_rank_collections"],
         get_chroma_collection,
         BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
@@ -460,11 +516,12 @@ def query_open_ai(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "query_open_ai_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return query_open_ai_impl(
         open_ai_client,
         s["docs"],
-        s["transformed_query"],
+        intent_query,
         s["user_chat_history"],
         _model_for_agentic_strength,
         _extract_cached_input_tokens,
@@ -479,10 +536,11 @@ def consult_fia_resources(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "consult_fia_resources_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return consult_fia_resources_impl(
         open_ai_client,
-        s["transformed_query"],
+        intent_query,
         s["user_chat_history"],
         s.get("user_response_language"),
         s.get("query_language"),
@@ -521,7 +579,8 @@ def handle_unsupported_function(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
-    return handle_unsupported_function_impl(open_ai_client, s["user_query"], s["user_chat_history"])
+    intent_query = _intent_query_for_node(state, "handle_unsupported_function_node")
+    return handle_unsupported_function_impl(open_ai_client, intent_query, s["user_chat_history"])
 
 
 def handle_system_information_request(state: Any) -> dict:
@@ -529,8 +588,9 @@ def handle_system_information_request(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "handle_system_information_request_node")
     return handle_system_information_request_impl(
-        open_ai_client, s["user_query"], s["user_chat_history"]
+        open_ai_client, intent_query, s["user_chat_history"]
     )
 
 
@@ -539,7 +599,8 @@ def converse_with_bt_servant(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
-    return converse_with_bt_servant_impl(open_ai_client, s["user_query"], s["user_chat_history"])
+    intent_query = _intent_query_for_node(state, "converse_with_bt_servant_node")
+    return converse_with_bt_servant_impl(open_ai_client, intent_query, s["user_chat_history"])
 
 
 # Passage helper wrappers
@@ -588,10 +649,11 @@ def handle_get_passage_summary(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "handle_get_passage_summary_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return get_passage_summary_impl(
         open_ai_client,
-        s["transformed_query"],
+        intent_query,
         s["query_language"],
         BSB_BOOK_MAP,
         _detect_mentioned_books,
@@ -608,9 +670,10 @@ def handle_get_passage_keywords(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "handle_get_passage_keywords_node")
     return get_passage_keywords_impl(
         open_ai_client,
-        s["transformed_query"],
+        intent_query,
         s["query_language"],
         BSB_BOOK_MAP,
         _detect_mentioned_books,
@@ -623,10 +686,11 @@ def handle_get_translation_helps(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "handle_get_translation_helps_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return get_translation_helps_impl(
         open_ai_client,
-        s["transformed_query"],
+        intent_query,
         s["query_language"],
         BSB_BOOK_MAP,
         _detect_mentioned_books,
@@ -645,10 +709,11 @@ def handle_retrieve_scripture(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "handle_retrieve_scripture_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return retrieve_scripture_impl(
         open_ai_client,
-        s["transformed_query"],
+        intent_query,
         s["query_language"],
         BSB_BOOK_MAP,
         _detect_mentioned_books,
@@ -665,10 +730,11 @@ def handle_listen_to_scripture(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "handle_listen_to_scripture_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return listen_to_scripture_impl(
         open_ai_client,
-        s["transformed_query"],
+        intent_query,
         s["query_language"],
         BSB_BOOK_MAP,
         _detect_mentioned_books,
@@ -686,10 +752,11 @@ def handle_translate_scripture(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    intent_query = _intent_query_for_node(state, "handle_translate_scripture_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     return translate_scripture_impl(
         open_ai_client,
-        s["transformed_query"],
+        intent_query,
         s["query_language"],
         BSB_BOOK_MAP,
         _detect_mentioned_books,

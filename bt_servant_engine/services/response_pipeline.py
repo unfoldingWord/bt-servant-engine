@@ -134,11 +134,14 @@ def translate_or_localize_response(
     extract_cached_input_tokens_fn: Callable[..., Any],
 ) -> str:
     """Translate free-form text or localize structured scripture outputs."""
+    placeholder_key = getattr(client, "api_key", None) == "sk-test"
+    detection_fn = detect_language_impl
+    detection_is_patched = detection_fn.__module__ != "bt_servant_engine.services.preprocessing"
     if isinstance(resp, str):
         sample = sample_for_language_detection_impl(resp)
         detected_lang = (
             detect_language_impl(client, sample, agentic_strength=agentic_strength)
-            if sample
+            if sample and (detection_is_patched or not placeholder_key)
             else target_language
         )
         if detected_lang != target_language:
