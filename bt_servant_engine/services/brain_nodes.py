@@ -361,7 +361,7 @@ def translate_responses(state: Any) -> dict:
 
     # Multi-intent continuation prompt: If user has queued intents, append continuation prompt
     user_id = s.get("user_id")
-    if user_id:
+    if user_id and not s.get("suppress_internal_followups", False):
         continuation_prompt = generate_continuation_prompt(user_id, s)
         if continuation_prompt and translated_responses:
             # Append to the last response

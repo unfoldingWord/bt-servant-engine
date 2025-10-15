@@ -216,7 +216,7 @@ def _normalize_followup_prompt(prompt: Optional[str]) -> Optional[str]:
     return text[0].upper() + text[1:]
 
 
-def _build_intent_query(
+def _build_intent_query(  # pylint: disable=too-many-branches
     intent: IntentType,
     base_query: str,
     params: Optional[Dict[str, Any]],
@@ -441,11 +441,13 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
         action_idx = original_intent_order.index(intent_to_process)
     except ValueError:
         action_idx = -1
-    if action_idx >= 0 and action_idx < len(continuation_actions):
+    if 0 <= action_idx < len(continuation_actions):
         action_prompt = continuation_actions[action_idx]
 
     base_query = s.get("transformed_query", "")
-    active_intent_query = _build_intent_query(intent_to_process, base_query, active_params, action_prompt)
+    active_intent_query = _build_intent_query(
+        intent_to_process, base_query, active_params, action_prompt
+    )
 
     s["active_intent"] = intent_to_process
     s["active_intent_query"] = active_intent_query

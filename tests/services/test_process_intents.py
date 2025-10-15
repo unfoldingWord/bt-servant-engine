@@ -12,7 +12,7 @@ from bt_servant_engine.services import brain_nodes, brain_orchestrator
 
 
 @pytest.fixture()
-def patch_intent_queue(monkeypatch: pytest.MonkeyPatch) -> Dict[str, List[Any]]:
+def capture_intent_queue(monkeypatch: pytest.MonkeyPatch) -> Dict[str, List[Any]]:
     """Patch intent queue helpers for deterministic tests."""
 
     captured: Dict[str, List[Any]] = {}
@@ -36,8 +36,8 @@ def patch_intent_queue(monkeypatch: pytest.MonkeyPatch) -> Dict[str, List[Any]]:
     return captured
 
 
-def test_process_intents_sets_active_query_and_suppresses_followup(
-    patch_intent_queue: Dict[str, List[Any]],
+def test_process_intents_sets_active_query_and_suppresses_followup(  # pylint: disable=redefined-outer-name
+    capture_intent_queue: Dict[str, List[Any]],
 ) -> None:
     """Multi-intent flows should focus the active query and defer follow-ups."""
 
@@ -71,7 +71,7 @@ def test_process_intents_sets_active_query_and_suppresses_followup(
     assert state["has_more_queued_intents"] is True
     assert state["deferred_intent_topics"] == ["Barnabas from the Bible"]
 
-    queued = patch_intent_queue.get("user-1")
+    queued = capture_intent_queue.get("user-1")
     assert queued is not None and len(queued) == 1
     queued_item = queued[0]
     assert queued_item.intent is IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE

@@ -9,6 +9,7 @@ from __future__ import annotations
 import os
 import sys
 from pathlib import Path
+import pytest
 
 from dotenv import load_dotenv
 
@@ -29,3 +30,25 @@ os.environ.setdefault("FACEBOOK_USER_AGENT", "test")
 os.environ.setdefault("BASE_URL", "http://example.com")
 os.environ.setdefault("LOG_PSEUDONYM_SECRET", "test-secret")
 os.environ.setdefault("ENABLE_ADMIN_AUTH", "false")
+
+
+@pytest.fixture(autouse=True)
+def _bypass_openai_calls(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Short-circuit OpenAI-dependent helpers when bypass flag is set (e.g., in pre-commit)."""
+
+    if os.environ.get("BT_SERVANT_BYPASS_OPENAI", "") != "1":
+        return
+
+    from bt_servant_engine.services import brain_nodes
+    def _translate_text_brain(
+        response_text: str,
+        target_language: str,
+        *,
+        agentic_strength: str | None = None,
+    ) -> str:
+        """Return text unchanged when OpenAI calls are bypassed (brain_nodes wrapper)."""
+
+        _ = (target_language, agentic_strength)
+        return response_text
+
+    monkeypatch.setattr(brain_nodes, "translate_text", _translate_text_brain, raising=True)

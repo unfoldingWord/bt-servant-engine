@@ -194,10 +194,10 @@ def consult_fia_resources(
                 "role": "developer",
                 "content": "Focus only on the portion of the user's message that requests FIA guidance. Ignore any other requests or book references in the message.",
             },
-            {
-                "role": "developer",
-                "content": f"Use this conversation history if helpful: {json.dumps(chat_history)}",
-            },
+            # {
+            #     "role": "developer",
+            #     "content": f"Use this conversation history if helpful: {json.dumps(chat_history)}",
+            # },
             {
                 "role": "user",
                 "content": query,

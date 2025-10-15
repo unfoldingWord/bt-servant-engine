@@ -12,4 +12,6 @@ if [[ "${SKIP_CHECKS:-}" == "1" ]]; then
 fi
 
 repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+# Force OpenAI bypass during hook checks so we don't hit live APIs.
+export BT_SERVANT_BYPASS_OPENAI="${BT_SERVANT_BYPASS_OPENAI:-1}"
 "$repo_root/scripts/check_repo.sh"
