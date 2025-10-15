@@ -97,17 +97,22 @@ Progress messages will be sent at strategic points based on empirical performanc
 
 1. **Progress Service Module** (`bt_servant_engine/services/progress_messaging.py`):
 ```python
-from typing import Any, Optional, cast
 from time import time
+from typing import Any, Awaitable, Callable, cast
+
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services import status_messages
 
 logger = get_logger(__name__)
 
+ProgressMessenger = Callable[[status_messages.LocalizedProgressMessage], Awaitable[None]]
+
+
 async def maybe_send_progress(
     state: Any,
-    message: str,
+    message: status_messages.LocalizedProgressMessage,
     force: bool = False,
-    min_interval: float = 3.0
+    min_interval: float = 3.0,
 ) -> None:
     """Send a progress message if conditions are met."""
     from bt_servant_engine.services.brain_orchestrator import BrainState
@@ -124,34 +129,47 @@ async def maybe_send_progress(
     last_time = s.get("last_progress_time", 0)
     throttle = s.get("progress_throttle_seconds", min_interval)
 
-    # Check throttling unless forced
     if not force and (current_time - last_time) < throttle:
-        logger.debug("Throttling progress message: %s", message)
+        logger.debug(
+            "Throttling progress message: %s", message.get("text")
+        )
         return
 
     try:
         await messenger(message)
         s["last_progress_time"] = current_time
-        logger.info("Sent progress message: %s", message)
+        logger.info("Sent progress message: %s", message.get("text"))
     except Exception:
         logger.warning("Failed to send progress message", exc_info=True)
 ```
 
 2. **Node Wrapper Enhancement** (`bt_servant_engine/services/brain_orchestrator.py`):
 ```python
+ProgressMessageInput = (
+    status_messages.LocalizedProgressMessage
+    | str
+    | Callable[[Any], Optional[status_messages.LocalizedProgressMessage | str]]
+)
+
+
 def wrap_node_with_progress(
     node_fn,
     node_name: str,
-    progress_message: Optional[str] = None,
+    progress_message: ProgressMessageInput | None = None,
     condition: Optional[Callable[[Any], bool]] = None,
-    force: bool = False  # Add force parameter for critical messages
+    force: bool = False,
 ):
     """Wrap a node with timing and optional progress messaging."""
 
     async def wrapped(state: Any) -> dict:
-        # Send progress message before node execution if configured
-        if progress_message and (condition is None or condition(state)):
-            await maybe_send_progress(state, progress_message, force=force)
+        if progress_message is not None and (condition is None or condition(state)):
+            raw = progress_message(state) if callable(progress_message) else progress_message
+            if isinstance(raw, str):
+                payload = status_messages.make_progress_message(raw)
+            else:
+                payload = raw
+            if payload:
+                await maybe_send_progress(state, payload, force=force)
 
         # Execute the original node with timing
         trace_id = cast(dict, state).get("perf_trace_id")
@@ -170,11 +188,17 @@ Modify the webhook handler to inject progress messaging capability:
 ```python
 # In bt_servant_engine/apps/api/routes/webhooks.py
 
-async def progress_callback(user_id: str) -> Callable[[str], Awaitable[None]]:
+async def progress_callback(
+    user_id: str,
+) -> Callable[[status_messages.LocalizedProgressMessage], Awaitable[None]]:
     """Create a progress message sender for a specific user."""
-    async def send_progress(message: str) -> None:
+
+    async def send_progress(message: status_messages.LocalizedProgressMessage) -> None:
         try:
-            await send_text_message(user_id=user_id, text=f"⏳ {message}")
+            emoji = message.get("emoji", config.PROGRESS_MESSAGE_EMOJI)
+            text_msg = message.get("text", "")
+            if text_msg:
+                await send_text_message(user_id=user_id, text=f"{emoji} {text_msg}")
         except Exception:
             logger.warning("Failed to send progress message", exc_info=True)
     return send_progress
@@ -200,7 +224,9 @@ builder.add_node(
     wrap_node_with_progress(
         brain_nodes.query_vector_db,
         "query_vector_db_node",
-        progress_message="Searching Bible translation resources...",
+        progress_message=lambda s: status_messages.get_progress_message(
+            status_messages.SEARCHING_BIBLE_RESOURCES, s
+        ),
         condition=lambda s: IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE in s.get("user_intents", [])
     )
 )
@@ -210,7 +236,7 @@ builder.add_node(
     wrap_node_with_progress(
         brain_nodes.query_open_ai,
         "query_open_ai_node",
-        progress_message="Analyzing resources and preparing response...",
+        progress_message=build_translation_assistance_progress_message,
         condition=lambda s: IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE in s.get("user_intents", []),
         force=True  # ALWAYS send this message, bypass throttling
     )
@@ -227,6 +253,10 @@ Add configuration options to control progress messaging:
 PROGRESS_MESSAGES_ENABLED: bool = env.bool("PROGRESS_MESSAGES_ENABLED", default=True)
 PROGRESS_MESSAGE_MIN_INTERVAL: float = env.float("PROGRESS_MESSAGE_MIN_INTERVAL", default=3.0)
 PROGRESS_MESSAGE_EMOJI: str = env.str("PROGRESS_MESSAGE_EMOJI", default="⏳")
+PROGRESS_MESSAGE_EMOJI_OVERRIDES: dict[str, str] = env.json(
+    "PROGRESS_MESSAGE_EMOJI_OVERRIDES",  # Defaults handled in code
+    default={}
+)
 ```
 
 ### 5. User Preferences

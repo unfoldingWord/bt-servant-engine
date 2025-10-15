@@ -1,6 +1,6 @@
 {
   "THINKING_ABOUT_MESSAGE": {
-    "en": "🧠 Give me a few moments to think about your message.",
+    "en": "Give me a few moments to think about your message.",
     "ar": "أعطني بضع لحظات لأفكر في رسالتك.",
     "fr": "Laissez‑moi quelques instants pour réfléchir à votre message.",
     "es": "Dame unos momentos para pensar en tu mensaje.",
@@ -13,7 +13,7 @@
     "nl": "Geef me even de tijd om over je bericht na te denken."
   },
   "SEARCHING_BIBLE_RESOURCES": {
-    "en": "📚 I'm searching various Bible resources to help answer your question.",
+    "en": "I'm searching various Bible resources to help answer your question.",
     "ar": "أبحث في مختلف موارد الكتاب المقدس لمساعدتك في الإجابة على سؤالك.",
     "fr": "Je consulte diverses ressources bibliques pour répondre à votre question.",
     "es": "Estoy buscando en varios recursos bíblicos para ayudarte a responder tu pregunta.",

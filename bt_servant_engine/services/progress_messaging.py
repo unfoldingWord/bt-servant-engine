@@ -10,17 +10,19 @@ from __future__ import annotations
 from time import time
 from typing import Any, Awaitable, Callable, cast
 
+
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services import status_messages
 
 logger = get_logger(__name__)
 
 # Type alias for progress messenger callback
-ProgressMessenger = Callable[[str], Awaitable[None]]
+ProgressMessenger = Callable[[status_messages.LocalizedProgressMessage], Awaitable[None]]
 
 
 async def maybe_send_progress(
     state: Any,
-    message: str,
+    message: status_messages.LocalizedProgressMessage,
     force: bool = False,
     min_interval: float = 3.0,
 ) -> None:
@@ -28,7 +30,7 @@ async def maybe_send_progress(
 
     Args:
         state: The BrainState dictionary containing progress configuration
-        message: The progress message to send to the user
+        message: Structured progress message (text + emoji metadata)
         force: If True, bypass throttling and always send the message
         min_interval: Minimum seconds between messages (default: 3.0)
 
@@ -50,7 +52,7 @@ async def maybe_send_progress(
     # Get the messenger callback
     messenger = s.get("progress_messenger")
     if not messenger:
-        logger.debug("No progress messenger configured, skipping message: %s", message)
+        logger.debug("No progress messenger configured, skipping message: %s", message.get("text"))
         return
 
     # Apply throttling unless forced
@@ -62,7 +64,7 @@ async def maybe_send_progress(
     if not force and time_since_last < throttle:
         logger.debug(
             "Throttled progress message: '%s' (only %.1fs since last, need %.1fs)",
-            message,
+            message.get("text"),
             time_since_last,
             throttle,
         )
@@ -74,13 +76,13 @@ async def maybe_send_progress(
         s["last_progress_time"] = current_time
         logger.info(
             "Sent progress message: '%s' (%.1fs since last%s)",
-            message,
+            message.get("text"),
             time_since_last,
             " [FORCED]" if force else "",
         )
     except Exception:  # pylint: disable=broad-exception-caught
         # Log but don't interrupt processing if progress message fails
-        logger.warning("Failed to send progress message: %s", message, exc_info=True)
+        logger.warning("Failed to send progress message: %s", message.get("text"), exc_info=True)
 
 
 def should_show_translation_progress(state: Any) -> bool:

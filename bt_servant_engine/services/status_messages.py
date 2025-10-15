@@ -16,7 +16,7 @@ import os
 import shutil
 import tempfile
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Dict, Optional, TypedDict, cast
 
 from openai import OpenAI
 
@@ -52,6 +52,19 @@ _TEMPLATE_PATH = Path(__file__).parent / "status_messages_template.json"
 DATA_DIR = Path(config.DATA_DIR)
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 _STATUS_MESSAGES_PATH = DATA_DIR / "status_messages_data.json"
+
+# Default emoji overrides applied unless superseded by configuration
+_DEFAULT_PROGRESS_MESSAGE_EMOJI_OVERRIDES: Dict[str, str] = {
+    THINKING_ABOUT_MESSAGE: "🧠",
+}
+
+
+class LocalizedProgressMessage(TypedDict):
+    """Structured progress status message with emoji metadata."""
+
+    key: str
+    text: str
+    emoji: str
 
 
 def _initialize_status_messages_file() -> None:
@@ -286,6 +299,47 @@ def get_status_message(message_key: str, state: Any, **format_params: Any) -> st
     return message
 
 
+def _resolve_progress_emoji(message_key: str) -> str:
+    """Select the emoji to display for a status message.
+
+    Priority:
+        1. Explicit override from configuration (PROGRESS_MESSAGE_EMOJI_OVERRIDES)
+        2. Built-in defaults defined in this module
+        3. Global default emoji from configuration (PROGRESS_MESSAGE_EMOJI)
+    """
+    overrides_value = getattr(config, "PROGRESS_MESSAGE_EMOJI_OVERRIDES", {})
+    if isinstance(overrides_value, dict):
+        maybe_override = overrides_value.get(message_key)
+        if isinstance(maybe_override, str):
+            return maybe_override
+    if message_key in _DEFAULT_PROGRESS_MESSAGE_EMOJI_OVERRIDES:
+        return _DEFAULT_PROGRESS_MESSAGE_EMOJI_OVERRIDES[message_key]
+    return config.PROGRESS_MESSAGE_EMOJI
+
+
+def get_progress_message(
+    message_key: str, state: Any, **format_params: Any
+) -> LocalizedProgressMessage:
+    """Return localized progress message text and emoji metadata."""
+    text = get_status_message(message_key, state, **format_params)
+    emoji = _resolve_progress_emoji(message_key)
+    return cast(
+        LocalizedProgressMessage,
+        {"key": message_key, "text": text, "emoji": emoji},
+    )
+
+
+def make_progress_message(
+    text: str, *, message_key: str = "", emoji: Optional[str] = None
+) -> LocalizedProgressMessage:
+    """Build a custom progress message with optional emoji override."""
+    final_emoji = emoji if emoji is not None else config.PROGRESS_MESSAGE_EMOJI
+    return cast(
+        LocalizedProgressMessage,
+        {"key": message_key, "text": text, "emoji": final_emoji},
+    )
+
+
 __all__ = [
     # Message key constants
     "THINKING_ABOUT_MESSAGE",
@@ -308,4 +362,7 @@ __all__ = [
     # Functions
     "get_status_message",
     "get_effective_response_language",
+    "get_progress_message",
+    "LocalizedProgressMessage",
+    "make_progress_message",
 ]

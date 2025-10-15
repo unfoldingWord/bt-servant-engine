@@ -41,6 +41,7 @@ class Settings(BaseSettings):
     PROGRESS_MESSAGES_ENABLED: bool = Field(default=True)
     PROGRESS_MESSAGE_MIN_INTERVAL: float = Field(default=3.0)
     PROGRESS_MESSAGE_EMOJI: str = Field(default="⏳")
+    PROGRESS_MESSAGE_EMOJI_OVERRIDES: dict[str, str] = Field(default_factory=dict)
 
     DATA_DIR: Path = Field(default=Path("/data"))
     OPENAI_PRICING_JSON: str = Field(

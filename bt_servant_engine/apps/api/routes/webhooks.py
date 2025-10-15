@@ -203,13 +203,19 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                 except httpx.HTTPError as e:
                     logger.warning("Failed to send typing indicator: %s", e)
 
-                async def _send_progress_update(message: str) -> None:
+                async def _send_progress_update(
+                    message: status_messages.LocalizedProgressMessage,
+                ) -> None:
                     if not config.PROGRESS_MESSAGES_ENABLED:
                         return
                     try:
-                        emoji = config.PROGRESS_MESSAGE_EMOJI
+                        emoji = message.get("emoji", config.PROGRESS_MESSAGE_EMOJI)
+                        text_msg = message.get("text", "")
+                        if not text_msg:
+                            logger.debug("Empty progress message text, skipping send")
+                            return
                         await send_text_message(
-                            user_id=user_message.user_id, text=f"{emoji} {message}"
+                            user_id=user_message.user_id, text=f"{emoji} {text_msg}"
                         )
                     except httpx.HTTPError:
                         logger.warning("Failed to send progress message", exc_info=True)
@@ -221,7 +227,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                             user_id=user_message.user_id
                         )
                     }
-                    transcribe_msg = status_messages.get_status_message(
+                    transcribe_msg = status_messages.get_progress_message(
                         status_messages.TRANSCRIBING_VOICE, minimal_state
                     )
                     await _send_progress_update(transcribe_msg)
@@ -237,7 +243,9 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                 )
 
                 # Create progress messenger callback for this user
-                async def send_progress_message(message: str) -> None:
+                async def send_progress_message(
+                    message: status_messages.LocalizedProgressMessage,
+                ) -> None:
                     """Send a progress message to the user via WhatsApp."""
                     await _send_progress_update(message)
 
@@ -273,7 +281,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
 
                 if send_voice:
                     if voice_text or full_response_text:
-                        packaging_msg = status_messages.get_status_message(
+                        packaging_msg = status_messages.get_progress_message(
                             status_messages.PACKAGING_VOICE_RESPONSE, result
                         )
                         await _send_progress_update(packaging_msg)

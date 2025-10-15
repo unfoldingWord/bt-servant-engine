@@ -3,6 +3,8 @@
 
 from unittest.mock import MagicMock, Mock, patch
 
+import pytest
+
 from bt_servant_engine.core.language import LANGUAGE_UNKNOWN
 from bt_servant_engine.services import status_messages
 
@@ -61,7 +63,7 @@ class TestGetStatusMessage:
         result = status_messages.get_status_message(
             status_messages.THINKING_ABOUT_MESSAGE, state
         )
-        assert result == "🧠 Give me a few moments to think about your message."
+        assert result == "Give me a few moments to think about your message."
 
     def test_returns_english_message_by_default(self):
         """Returns English text when no language specified."""
@@ -119,6 +121,45 @@ class TestGetStatusMessage:
             status_messages.THINKING_ABOUT_MESSAGE, "de"
         )
         assert result == "Übersetzter Text"
+
+
+class TestProgressMessages:
+    """Tests for structured progress message helpers."""
+
+    def test_thinking_message_uses_brain_emoji(self):
+        """Brain status message includes the 🧠 emoji override."""
+        state = {"user_response_language": "en"}
+        result = status_messages.get_progress_message(
+            status_messages.THINKING_ABOUT_MESSAGE, state
+        )
+        assert result["text"] == "Give me a few moments to think about your message."
+        assert result["emoji"] == "🧠"
+
+    def test_default_progress_message_uses_config_emoji(self, monkeypatch: pytest.MonkeyPatch):
+        """Default emoji falls back to the configured global symbol."""
+        state = {"user_response_language": "en"}
+        monkeypatch.setattr(status_messages.config, "PROGRESS_MESSAGE_EMOJI", "⏳")
+        monkeypatch.setattr(status_messages.config, "PROGRESS_MESSAGE_EMOJI_OVERRIDES", {})
+
+        result = status_messages.get_progress_message(
+            status_messages.TRANSCRIBING_VOICE, state
+        )
+        assert result["emoji"] == "⏳"
+
+    def test_config_override_takes_precedence(self, monkeypatch: pytest.MonkeyPatch):
+        """Configuration overrides take precedence over built-in defaults."""
+        state = {"user_response_language": "en"}
+        monkeypatch.setattr(status_messages.config, "PROGRESS_MESSAGE_EMOJI", "⏳")
+        monkeypatch.setattr(
+            status_messages.config,
+            "PROGRESS_MESSAGE_EMOJI_OVERRIDES",
+            {status_messages.THINKING_ABOUT_MESSAGE: "✨"},
+        )
+
+        result = status_messages.get_progress_message(
+            status_messages.THINKING_ABOUT_MESSAGE, state
+        )
+        assert result["emoji"] == "✨"
 
 
 class TestDynamicTranslation:
@@ -188,7 +229,7 @@ class TestDynamicTranslation:
         )
 
         # Should return English fallback
-        assert result == "🧠 Give me a few moments to think about your message."
+        assert result == "Give me a few moments to think about your message."
 
     def test_returns_english_for_unknown_message_key(self):
         """Returns empty string when message key doesn't exist."""

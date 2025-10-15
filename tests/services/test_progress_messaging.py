@@ -2,6 +2,7 @@
 
 import asyncio
 
+from bt_servant_engine.services import status_messages
 from bt_servant_engine.services.progress_messaging import (
     maybe_send_progress,
     should_show_translation_progress,
@@ -71,7 +72,7 @@ def test_maybe_send_progress_disabled():
         }
 
         # Should return early without calling messenger
-        await maybe_send_progress(state, "Test message")
+        await maybe_send_progress(state, status_messages.make_progress_message("Test message"))
         # No assertion needed - just verify it doesn't crash
 
     asyncio.run(run_test())
@@ -87,7 +88,7 @@ def test_maybe_send_progress_no_messenger():
         }
 
         # Should return early without calling messenger
-        await maybe_send_progress(state, "Test message")
+        await maybe_send_progress(state, status_messages.make_progress_message("Test message"))
         # No assertion needed - just verify it doesn't crash
 
     asyncio.run(run_test())
@@ -110,7 +111,9 @@ def test_maybe_send_progress_throttled():
         }
 
         # Should be throttled
-        await maybe_send_progress(state, "Test message", force=False)
+        await maybe_send_progress(
+            state, status_messages.make_progress_message("Test message"), force=False
+        )
         assert len(calls) == 0  # Message not sent
 
     asyncio.run(run_test())
@@ -133,9 +136,11 @@ def test_maybe_send_progress_forced():
         }
 
         # Should bypass throttling with force=True
-        await maybe_send_progress(state, "Forced message", force=True)
+        await maybe_send_progress(
+            state, status_messages.make_progress_message("Forced message"), force=True
+        )
         assert len(calls) == 1
-        assert calls[0] == "Forced message"
+        assert calls[0]["text"] == "Forced message"
 
     asyncio.run(run_test())
 
@@ -156,9 +161,9 @@ def test_maybe_send_progress_success():
             "progress_throttle_seconds": 3.0,
         }
 
-        await maybe_send_progress(state, "Success message")
+        await maybe_send_progress(state, status_messages.make_progress_message("Success message"))
         assert len(calls) == 1
-        assert calls[0] == "Success message"
+        assert calls[0]["text"] == "Success message"
         assert state["last_progress_time"] > 0  # Time was updated
 
     asyncio.run(run_test())
@@ -179,7 +184,7 @@ def test_maybe_send_progress_messenger_failure():
         }
 
         # Should not raise exception
-        await maybe_send_progress(state, "Test message")
+        await maybe_send_progress(state, status_messages.make_progress_message("Test message"))
         # Just verify it doesn't crash
 
     asyncio.run(run_test())

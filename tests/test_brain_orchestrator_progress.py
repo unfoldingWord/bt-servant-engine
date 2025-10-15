@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 from typing import Any, Dict, List
 
+from bt_servant_engine.services import status_messages
 from bt_servant_engine.services.brain_orchestrator import (
     build_translation_assistance_progress_message,
     wrap_node_with_progress,
@@ -25,9 +26,9 @@ def _make_state(messenger):
 def test_wrap_node_with_progress_runs_without_event_loop() -> None:
     """Progress messages run via `asyncio.run` when no loop is active."""
 
-    messages: List[str] = []
+    messages: List[status_messages.LocalizedProgressMessage] = []
 
-    async def messenger(message: str) -> None:
+    async def messenger(message: status_messages.LocalizedProgressMessage) -> None:
         messages.append(message)
 
     state = _make_state(messenger)
@@ -36,7 +37,7 @@ def test_wrap_node_with_progress_runs_without_event_loop() -> None:
 
     wrapped(state)
 
-    assert messages == ["Working..."]
+    assert [m["text"] for m in messages] == ["Working..."]
     assert state["last_progress_time"] > 0
 
 
@@ -60,9 +61,9 @@ def test_should_show_translation_progress_skips_english_codes() -> None:
 def test_wrap_node_with_progress_schedules_on_running_loop() -> None:
     """Progress messages use the current loop when one is already running."""
 
-    messages: List[str] = []
+    messages: List[status_messages.LocalizedProgressMessage] = []
 
-    async def messenger(message: str) -> None:
+    async def messenger(message: status_messages.LocalizedProgressMessage) -> None:
         messages.append(message)
 
     state = _make_state(messenger)
@@ -75,16 +76,16 @@ def test_wrap_node_with_progress_schedules_on_running_loop() -> None:
 
     asyncio.run(run())
 
-    assert messages == ["Working..."]
+    assert [m["text"] for m in messages] == ["Working..."]
     assert state["last_progress_time"] > 0
 
 
 def test_translation_progress_message_includes_sources() -> None:
     """Translation assistance progress message lists unique resource origins."""
 
-    messages: List[str] = []
+    messages: List[status_messages.LocalizedProgressMessage] = []
 
-    async def messenger(message: str) -> None:
+    async def messenger(message: status_messages.LocalizedProgressMessage) -> None:
         messages.append(message)
 
     state = _make_state(messenger)
@@ -102,7 +103,7 @@ def test_translation_progress_message_includes_sources() -> None:
 
     wrapped(state)
 
-    assert messages == [
+    assert [m["text"] for m in messages] == [
         (
             "I found potentially relevant documents in the following resources: "
             "uw notes and uw dictionary. I'm pulling everything together into a helpful response for you."
@@ -113,9 +114,9 @@ def test_translation_progress_message_includes_sources() -> None:
 def test_translation_progress_message_falls_back_without_sources() -> None:
     """Translation assistance progress message reuses base text when no sources."""
 
-    messages: List[str] = []
+    messages: List[status_messages.LocalizedProgressMessage] = []
 
-    async def messenger(message: str) -> None:
+    async def messenger(message: status_messages.LocalizedProgressMessage) -> None:
         messages.append(message)
 
     state = _make_state(messenger)
@@ -129,4 +130,6 @@ def test_translation_progress_message_falls_back_without_sources() -> None:
 
     wrapped(state)
 
-    assert messages == ["I'm pulling everything together into a helpful response for you."]
+    assert [m["text"] for m in messages] == [
+        "I'm pulling everything together into a helpful response for you."
+    ]

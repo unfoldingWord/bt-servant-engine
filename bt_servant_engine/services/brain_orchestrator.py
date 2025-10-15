@@ -76,7 +76,9 @@ class BrainState(TypedDict, total=False):
     voice_message_text: str
     # Progress messaging fields
     progress_enabled: bool
-    progress_messenger: Optional[Callable[[str], Awaitable[None]]]
+    progress_messenger: Optional[
+        Callable[[status_messages.LocalizedProgressMessage], Awaitable[None]]
+    ]
     last_progress_time: float
     progress_throttle_seconds: float
     # Intent queue fields for sequential multi-intent processing
@@ -90,7 +92,11 @@ class BrainState(TypedDict, total=False):
     followup_question_added: bool  # Set to True when any follow-up question is added to response
 
 
-ProgressMessageInput = str | Callable[[Any], Optional[str]]
+ProgressMessageInput = (
+    status_messages.LocalizedProgressMessage
+    | str
+    | Callable[[Any], Optional[status_messages.LocalizedProgressMessage | str]]
+)
 
 
 def wrap_node_with_timing(node_fn, node_name: str):  # type: ignore[no-untyped-def]
@@ -130,17 +136,23 @@ def wrap_node_with_progress(  # type: ignore[no-untyped-def]
     def wrapped(state: Any) -> dict:
         # Send progress message before node execution if configured
         should_show = condition is None or condition(state)
-        message_text: Optional[str] = None
+        message_payload: Optional[status_messages.LocalizedProgressMessage] = None
         if progress_message is not None and should_show:
-            message_text = (
+            raw_message = (
                 progress_message(state) if callable(progress_message) else progress_message
             )
+            if isinstance(raw_message, str):
+                message_payload = status_messages.make_progress_message(raw_message)
+            elif isinstance(raw_message, dict):
+                message_payload = cast(status_messages.LocalizedProgressMessage, raw_message)
+            else:
+                message_payload = raw_message
 
-        if message_text:
+        if message_payload:
             # Import here to avoid circular dependency
             from bt_servant_engine.services.progress_messaging import maybe_send_progress
 
-            coroutine = maybe_send_progress(state, message_text, force=force)
+            coroutine = maybe_send_progress(state, message_payload, force=force)
             try:
                 loop = asyncio.get_running_loop()
             except RuntimeError:
@@ -188,18 +200,26 @@ def _collect_resource_sources(docs: List[Dict[str, Any]]) -> List[str]:
     return ordered
 
 
-def build_translation_assistance_progress_message(state: Any) -> Optional[str]:
+def build_translation_assistance_progress_message(
+    state: Any,
+) -> Optional[status_messages.LocalizedProgressMessage]:
     """Generate the progress message for translation assistance summarizing resource origins."""
     s = cast(BrainState, state)
     docs = cast(List[Dict[str, Any]], s.get("docs", []))
     sources = _collect_resource_sources(docs)
     if not sources:
-        return status_messages.get_status_message(status_messages.FINALIZING_RESPONSE, s)
+        return status_messages.get_progress_message(status_messages.FINALIZING_RESPONSE, s)
 
     resources_list = _format_series(sources)
-    found_docs_msg = status_messages.get_status_message(status_messages.FOUND_RELEVANT_DOCUMENTS, s)
+    found_docs_msg = status_messages.get_status_message(
+        status_messages.FOUND_RELEVANT_DOCUMENTS, s, resources=resources_list
+    )
     finalizing_msg = status_messages.get_status_message(status_messages.FINALIZING_RESPONSE, s)
-    return f"{found_docs_msg.replace('{resources}', resources_list)} {finalizing_msg}"
+    combined = f"{found_docs_msg} {finalizing_msg}"
+    return status_messages.make_progress_message(
+        combined,
+        message_key=status_messages.FOUND_RELEVANT_DOCUMENTS,
+    )
 
 
 def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-branches
@@ -458,7 +478,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.start,
             "start_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.THINKING_ABOUT_MESSAGE, s
             ),
             force=True,
@@ -491,7 +511,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.query_vector_db,
             "query_vector_db_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.SEARCHING_BIBLE_RESOURCES, s
             ),
             condition=lambda s: IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE
@@ -515,7 +535,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.consult_fia_resources,
             "consult_fia_resources_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.REVIEWING_FIA_GUIDANCE, s
             ),
             force=True,
@@ -529,7 +549,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.handle_unsupported_function,
             "handle_unsupported_function_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.CHECKING_CAPABILITIES, s
             ),
             force=True,
@@ -540,7 +560,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.handle_system_information_request,
             "handle_system_information_request_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.GENERATING_HELP_RESPONSE, s
             ),
             force=True,
@@ -557,7 +577,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.handle_get_passage_summary,
             "handle_get_passage_summary_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.GATHERING_PASSAGE_SUMMARY, s
             ),
             force=True,
@@ -568,7 +588,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.handle_get_passage_keywords,
             "handle_get_passage_keywords_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.EXTRACTING_KEYWORDS, s
             ),
             force=True,
@@ -579,7 +599,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.handle_get_translation_helps,
             "handle_get_translation_helps_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.COMPILING_TRANSLATION_HELPS, s
             ),
             force=True,
@@ -590,7 +610,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.handle_retrieve_scripture,
             "handle_retrieve_scripture_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.GATHERING_PASSAGE_TEXT, s
             ),
             force=True,
@@ -601,7 +621,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.handle_listen_to_scripture,
             "handle_listen_to_scripture_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.PREPARING_AUDIO, s
             ),
             force=True,
@@ -612,7 +632,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.handle_translate_scripture,
             "handle_translate_scripture_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.TRANSLATING_PASSAGE, s
             ),
             force=True,
@@ -623,7 +643,7 @@ def create_brain():
         wrap_node_with_progress(
             brain_nodes.translate_responses,
             "translate_responses_node",
-            progress_message=lambda s: status_messages.get_status_message(
+            progress_message=lambda s: status_messages.get_progress_message(
                 status_messages.TRANSLATING_RESPONSE, s
             ),
             condition=_should_show_translation_progress,
