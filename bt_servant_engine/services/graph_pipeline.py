@@ -48,9 +48,10 @@ Generate this naturally in the response language and make it contextual to what 
 like to know more about Aaron's duties in the tabernacle?" or "Should I explain how this concept appears in the New
 Testament?").
 
-Do not end with a yes/no follow-up. Instead, frame the prompt so the user must specify what they want next (e.g., "Which
-biblical person, place, or concept would you like to explore next?" or "Which aspect of Aaron's ministry should we dive
-into now?").
+Strongly prefer an open-ended follow-up that begins with "What", "Which", "How", or "Where" so the user must specify the
+next step. If you end up with a yes/no construction, pack it with concrete detail so that a plain "yes" still implies a
+fully qualified action the system can expand (e.g., "Would you like me to compare Apollos's ministry in Acts 18 to Paul's
+teaching in Corinth next?"). Avoid vague yes/no prompts such as "Would you like more help?".
 """
 
 

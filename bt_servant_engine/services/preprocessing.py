@@ -873,13 +873,16 @@ You are generating complete continuation questions for a multi-intent query in t
 Given a user query and a list of detected intents, generate a complete, grammatically correct continuation question for each intent in the target language.
 
 # Rules
-- Generate COMPLETE questions, not fragments (e.g., "Would you like me to show key terms from Gen 4:2?")
-- Each question must be grammatically correct and natural in the target language
-- Include specific context from the query (passage references, names, topics)
-- Use polite, conversational tone appropriate for the target language
-- Keep questions concise (under 20 words)
-- Generate in the target language specified (ISO 639-1 code: {target_language})
-- DO NOT translate word-by-word from English - use natural phrasing for that language
+- Generate COMPLETE questions, not fragments (e.g., "Which key terms from Gen 4:2 should I surface next?")
+- Strongly prefer open-ended questions that begin with "What", "Which", "How", or "Where" so the user must supply detail.
+- If you must produce a yes/no question, pack it with concrete detail so a plain "yes" implies a fully qualified action.
+- Avoid generic yes/no phrasing like "Would you like more help?".
+- Each question must be grammatically correct and natural in the target language.
+- Include specific context from the query (passage references, names, topics).
+- Use polite, conversational tone appropriate for the target language.
+- Keep questions concise (under 20 words).
+- Generate in the target language specified (ISO 639-1 code: {target_language}).
+- DO NOT translate word-by-word from English - use natural phrasing for that language.
 
 # Intent Types
 - get-passage-keywords: Extract key terms from a passage
@@ -896,17 +899,17 @@ Given a user query and a list of detected intents, generate a complete, grammati
 Query: "Tell me about Barnabas, keywords in Gen 4:2, help translating John 1:4"
 Intents: ["get-bible-translation-assistance", "get-passage-keywords", "get-translation-helps"]
 Questions:
-["Would you like me to tell you about Barnabas in the Bible?", "Would you like me to show key terms from Gen 4:2?", "Would you like me to provide translation helps for John 1:4?"]
+["What aspect of Barnabas's ministry should we explore next?", "Which key terms from Gen 4:2 would help your study most?", "How should I focus the translation helps for John 1:4?"]
 
 Query: "Summarize Romans 8 and translate it to Spanish"
 Intents: ["get-passage-summary", "translate-scripture"]
 Questions:
-["Would you like me to summarize Romans 8?", "Would you like me to translate Romans 8 to Spanish?"]
+["Which themes in Romans 8 should I summarize for you next?", "How should I translate Romans 8 into Spanish for your needs?"]
 
 Query: "What does Ephesus mean and give me keywords in Acts 19"
 Intents: ["get-bible-translation-assistance", "get-passage-keywords"]
 Questions:
-["Would you like me to tell you about Ephesus?", "Would you like me to show key terms from Acts 19?"]
+["What background on Ephesus would support your translation work?", "Which key terms from Acts 19 should I list for you?"]
 
 # Examples (French - note natural phrasing, not word-for-word translation)
 
@@ -1229,7 +1232,7 @@ def generate_continuation_actions(
         content = response.choices[0].message.content
         if not content:
             logger.warning("[continuation-questions] Empty response from LLM")
-            return ["Would you like me to continue with that request?"] * len(intents)
+            return ["What part of that request should I tackle next?"] * len(intents)
 
         # Parse JSON array
         questions = json.loads(content.strip())
@@ -1241,7 +1244,7 @@ def generate_continuation_actions(
                 len(intents),
                 len(questions) if isinstance(questions, list) else "non-list",
             )
-            return ["Would you like me to continue with that request?"] * len(intents)
+            return ["What part of that request should I tackle next?"] * len(intents)
 
         logger.info("[continuation-questions] Generated questions: %s", questions)
         return questions
@@ -1249,7 +1252,7 @@ def generate_continuation_actions(
     except Exception:  # pylint: disable=broad-except
         logger.error("[continuation-questions] Error generating questions", exc_info=True)
         # Fallback to generic question
-        return ["Would you like me to continue with that request?"] * len(intents)
+        return ["What part of that request should I tackle next?"] * len(intents)
 
 
 def preprocess_user_query(

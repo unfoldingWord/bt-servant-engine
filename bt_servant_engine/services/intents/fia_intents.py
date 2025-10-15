@@ -55,8 +55,10 @@ Generate this naturally in the response language and make it contextual to what 
 like to explore how to apply Step 3 to this passage?" or "Should I explain how the Internalization phase works for your
 target language?").
 
-Do not end with a yes/no follow-up. Invite the user to specify their next focus (e.g., "Which FIA step would you like to
-apply next to this passage?" or "What part of the Internalization phase do you want to work on?").
+Strongly prefer an open-ended follow-up that starts with "What", "Which", "How", or "Where" so the user has to name the
+next focus. If you must use a yes/no framing, make it highly specific so a simple "yes" still captures the exact action
+the system should pursue (e.g., "Would you like me to outline how Step 3 addresses checking draft verses with your
+language community next?"). Avoid generic yes/no prompts like "Would you like more help with FIA?".
 """
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
