@@ -964,7 +964,9 @@ def determine_intents(client: OpenAI, query: str) -> list[IntentType]:
     return user_intents_model.intents
 
 
-def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithContext]:
+def determine_intents_structured(
+    client: OpenAI, query: str, expected_intents: list[IntentType]
+) -> list[IntentWithContext]:
     """Classify the user's query into intents WITH extracted parameters.
 
     This enhanced version performs structured intent detection, extracting relevant
@@ -985,8 +987,16 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
         List of IntentWithContext objects with pre-extracted parameters
     """
     logger.info(
-        "[intent-detection-structured] Classifying query with parameter extraction: %s", query[:100]
+        "[intent-detection-structured] Extracting context snippets for %d pre-classified intent(s): %s",
+        len(expected_intents),
+        [intent.value for intent in expected_intents],
     )
+
+    if not expected_intents:
+        logger.warning(
+            "[intent-detection-structured] No expected intents provided; skipping structured extraction"
+        )
+        return []
 
     messages: list[EasyInputMessageParam] = [
         {
@@ -995,7 +1005,12 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
         },
         {
             "role": "user",
-            "content": f"Classify this message and extract parameters: {query}",
+            "content": json.dumps(
+                {
+                    "query": query,
+                    "intents": [intent.value for intent in expected_intents],
+                }
+            ),
         },
     ]
 
@@ -1010,6 +1025,7 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
         track_openai_usage(usage, "gpt-4o", _extract_cached_input_tokens, add_tokens)
 
         structured_intents = cast(UserIntentsStructured, response.output_parsed)
+        provided_by_model: dict[IntentType, str] = {}
 
         # Log extracted intents with parameters
         logger.info(
@@ -1023,25 +1039,49 @@ def determine_intents_structured(client: OpenAI, query: str) -> list[IntentWithC
                 intent_ctx.intent.value,
                 intent_ctx.trimmed_context(),
             )
+            provided_by_model.setdefault(intent_ctx.intent, intent_ctx.trimmed_context())
 
-        return structured_intents.intents
+        # Warn if the model hallucinated extra intents
+        unexpected = [
+            intent_ctx.intent.value
+            for intent_ctx in structured_intents.intents
+            if intent_ctx.intent not in expected_intents
+        ]
+        if unexpected:
+            logger.warning(
+                "[intent-detection-structured] Ignoring unexpected intent(s) from structured extraction: %s",
+                unexpected,
+            )
+
+        results: list[IntentWithContext] = []
+        for intent in expected_intents:
+            context = provided_by_model.get(intent, "")
+            if context:
+                results.append(IntentWithContext(intent=intent, context_text=context))
+                continue
+
+            logger.warning(
+                "[intent-detection-structured] No context returned for intent=%s; using full query fallback",
+                intent.value,
+            )
+            results.append(IntentWithContext(intent=intent, context_text=query.strip() or ""))
+
+        return results
 
     except Exception:  # pylint: disable=broad-except
         logger.error(
             "[intent-detection-structured] Structured detection failed, falling back to simple detection",
             exc_info=True,
         )
-        # Fallback to simple detection if structured fails
-        simple_intents = determine_intents(client, query)
-        logger.warning(
-            "[intent-detection-structured] Fell back to simple detection, got %d intent(s): %s",
-            len(simple_intents),
-            [i.value for i in simple_intents],
-        )
-        # Convert to IntentWithContext using the full query as the fallback context
+        # Fallback: use the full query for every expected intent
+        fallback_context = query.strip()
+        if not fallback_context:
+            logger.warning(
+                "[intent-detection-structured] Query is empty after strip; fallback context will be empty"
+            )
         return [
-            IntentWithContext(intent=intent, context_text=query.strip())
-            for intent in simple_intents
+            IntentWithContext(intent=intent, context_text=fallback_context)
+            for intent in expected_intents
         ]
 
 
@@ -1282,84 +1322,28 @@ __all__ = [
     "preprocess_user_query",
 ]
 INTENT_CLASSIFICATION_STRUCTURED_PROMPT = """
-You are a node in a chatbot system called "BT Servant", which provides intelligent assistance to Bible translators.
-Your responsibility is to classify the intent(s) in the user's latest message and capture the exact portion of the
-message that supplies the context for each intent.
+You support BT Servant by extracting context snippets for already-classified user intents.
 
-# Critical rules
-1. Always return at least one intent from the approved list.
-2. For multi-intent messages, return every applicable intent.
-3. For each intent, emit a `context_text` value that contains only the words from the user's message that matter for
-   that intent. If the relevant spans are non-contiguous, rewrite them into one or more fluent sentences while staying
-   faithful to the user's meaning. Never invent new facts or expand beyond the user's wording.
-4. Preserve the user's language in `context_text`.
-5. If the user's request is outside Bible translation scope, classify it as `perform-unsupported-function`.
-6. Requests for "help" or "what can you do" map to `retrieve-system-information`.
-7. When nothing matches, fall back to `perform-unsupported-function`.
+The user will send a JSON payload with two keys:
+- `query`: the user's latest message.
+- `intents`: an ordered array of intent strings that have already been approved. You MUST honor this list exactly.
 
-# Output schema
-Return a single JSON object shaped like:
-```json
-{
-  "intents": [
-    {
-      "intent": "get-passage-summary",
-      "context_text": "Summarize Romans 8."
-    }
-  ]
-}
-```
+Your task:
+- For every intent in the `intents` array, produce a `context_text` string that captures only the portion(s) of `query`
+  relevant to that intent.
+- Return a JSON object shaped like:
+  {
+    "intents": [
+      {"intent": "<first-intent>", "context_text": "<snippet>"},
+      {"intent": "<second-intent>", "context_text": "<snippet>"},
+      ...
+    ]
+  }
 
-# Examples
-
-## Example 1: Single intent
-<message>Summarize Romans 8</message>
-<classification>
-{
-  "intents": [
-    {
-      "intent": "get-passage-summary",
-      "context_text": "Summarize Romans 8."
-    }
-  ]
-}
-</classification>
-
-## Example 2: Multiple intents with natural context
-<message>Summarize Romans 8 and translate it to Spanish</message>
-<classification>
-{
-  "intents": [
-    {
-      "intent": "get-passage-summary",
-      "context_text": "Summarize Romans 8."
-    },
-    {
-      "intent": "translate-scripture",
-      "context_text": "Translate Romans 8 into Spanish."
-    }
-  ]
-}
-</classification>
-
-## Example 3: Non-contiguous spans rewritten smoothly
-<message>Summarize Romans 8, list the key terms in Gen 4:2, and then translate John 1:4 into Spanish.</message>
-<classification>
-{
-  "intents": [
-    {
-      "intent": "get-passage-summary",
-      "context_text": "Summarize Romans 8."
-    },
-    {
-      "intent": "get-passage-keywords",
-      "context_text": "List the key terms in Genesis 4:2."
-    },
-    {
-      "intent": "translate-scripture",
-      "context_text": "Translate John 1:4 into Spanish."
-    }
-  ]
-}
-</classification>
+Critical rules:
+1. Preserve the ordering and spelling of the provided intents. Do not add, remove, rename, or reorder them.
+2. Each `context_text` should quote or lightly paraphrase the user's wording so the downstream handler can operate on it directly.
+3. If multiple non-contiguous spans apply to the same intent, rewrite them into fluent sentences while staying faithful to the user.
+4. If you cannot find intent-specific wording, set `context_text` to an empty string rather than inventing details.
+5. Never emit intents that are not in the provided list.
 """

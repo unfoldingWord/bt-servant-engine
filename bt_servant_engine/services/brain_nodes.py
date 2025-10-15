@@ -276,11 +276,14 @@ def determine_intents(state: Any) -> dict:
 
     # If multiple intents, use structured extraction for parameter disambiguation
     if len(user_intents) > 1:
+        expected_intents = list(user_intents)
         logger.info(
             "[determine-intents] Multiple intents detected (%d), using structured extraction for parameter disambiguation",
             len(user_intents),
         )
-        intents_with_context = _determine_intents_structured_impl(open_ai_client, query)
+        intents_with_context = _determine_intents_structured_impl(
+            open_ai_client, query, expected_intents
+        )
 
         # Extract just the intent types for backward compatibility
         intent_types = [ic.intent for ic in intents_with_context]
