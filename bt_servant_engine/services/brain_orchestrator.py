@@ -211,14 +211,15 @@ def build_translation_assistance_progress_message(
         return status_messages.get_progress_message(status_messages.FINALIZING_RESPONSE, s)
 
     resources_list = _format_series(sources)
-    found_docs_msg = status_messages.get_status_message(
+    found_docs_payload = status_messages.get_progress_message(
         status_messages.FOUND_RELEVANT_DOCUMENTS, s, resources=resources_list
     )
     finalizing_msg = status_messages.get_status_message(status_messages.FINALIZING_RESPONSE, s)
-    combined = f"{found_docs_msg} {finalizing_msg}"
+    combined = f"{found_docs_payload['text']} {finalizing_msg}"
     return status_messages.make_progress_message(
         combined,
         message_key=status_messages.FOUND_RELEVANT_DOCUMENTS,
+        emoji=found_docs_payload["emoji"],
     )
 
 

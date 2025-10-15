@@ -161,6 +161,14 @@ class TestProgressMessages:
         )
         assert result["emoji"] == "✨"
 
+    def test_found_documents_progress_uses_books_icon(self):
+        """Found-documents status message defaults to the books emoji."""
+        state = {"user_response_language": "en"}
+        result = status_messages.get_progress_message(
+            status_messages.FOUND_RELEVANT_DOCUMENTS, state, resources="example"
+        )
+        assert result["emoji"] == "📚"
+
 
 class TestDynamicTranslation:
     """Test dynamic translation functionality."""

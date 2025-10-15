@@ -56,6 +56,7 @@ _STATUS_MESSAGES_PATH = DATA_DIR / "status_messages_data.json"
 # Default emoji overrides applied unless superseded by configuration
 _DEFAULT_PROGRESS_MESSAGE_EMOJI_OVERRIDES: Dict[str, str] = {
     THINKING_ABOUT_MESSAGE: "🧠",
+    FOUND_RELEVANT_DOCUMENTS: "📚",
 }
 
 

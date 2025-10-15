@@ -38,6 +38,7 @@ def test_wrap_node_with_progress_runs_without_event_loop() -> None:
     wrapped(state)
 
     assert [m["text"] for m in messages] == ["Working..."]
+    assert [m["emoji"] for m in messages] == ["⏳"]
     assert state["last_progress_time"] > 0
 
 
@@ -77,6 +78,7 @@ def test_wrap_node_with_progress_schedules_on_running_loop() -> None:
     asyncio.run(run())
 
     assert [m["text"] for m in messages] == ["Working..."]
+    assert [m["emoji"] for m in messages] == ["⏳"]
     assert state["last_progress_time"] > 0
 
 
@@ -109,6 +111,7 @@ def test_translation_progress_message_includes_sources() -> None:
             "uw notes and uw dictionary. I'm pulling everything together into a helpful response for you."
         )
     ]
+    assert [m["emoji"] for m in messages] == ["📚"]
 
 
 def test_translation_progress_message_falls_back_without_sources() -> None:
@@ -133,3 +136,4 @@ def test_translation_progress_message_falls_back_without_sources() -> None:
     assert [m["text"] for m in messages] == [
         "I'm pulling everything together into a helpful response for you."
     ]
+    assert [m["emoji"] for m in messages] == ["⏳"]
