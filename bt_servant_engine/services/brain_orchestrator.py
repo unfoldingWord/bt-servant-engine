@@ -232,46 +232,68 @@ def _build_intent_query(  # pylint: disable=too-many-branches
         return None
 
     intent_query: Optional[str] = None
+    source_hint = "base_query"
 
     if intent == IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE:
         intent_query = _get_str("query") or _get_str("topic") or _get_str("subject")
+        if intent_query:
+            source_hint = "parameters.query-like"
     elif intent == IntentType.CONSULT_FIA_RESOURCES:
         focus = _get_str("topic") or _get_str("focus") or _get_str("passage")
         if focus:
             intent_query = f"Explain the FIA process for {focus}"
+            source_hint = "parameters.fia-focus"
     elif intent == IntentType.GET_PASSAGE_SUMMARY:
         passage = _get_str("passage")
         if passage:
             intent_query = f"Summarize {passage}"
+            source_hint = "parameters.passage"
     elif intent == IntentType.GET_PASSAGE_KEYWORDS:
         passage = _get_str("passage")
         if passage:
             intent_query = f"List key terms for {passage}"
+            source_hint = "parameters.passage"
     elif intent == IntentType.GET_TRANSLATION_HELPS:
         passage = _get_str("passage")
         if passage:
             intent_query = f"Provide translation helps for {passage}"
+            source_hint = "parameters.passage"
     elif intent == IntentType.RETRIEVE_SCRIPTURE:
         passage = _get_str("passage")
         if passage:
             intent_query = f"Retrieve scripture for {passage}"
+            source_hint = "parameters.passage"
     elif intent == IntentType.LISTEN_TO_SCRIPTURE:
         passage = _get_str("passage")
         if passage:
             intent_query = f"Read aloud {passage}"
+            source_hint = "parameters.passage"
     elif intent == IntentType.TRANSLATE_SCRIPTURE:
         passage = _get_str("passage")
         target = _get_str("target_language") or _get_str("targetLanguage")
         if passage and target:
             intent_query = f"Translate {passage} to {target}"
+            source_hint = "parameters.passage+target_language"
         elif passage:
             intent_query = f"Translate {passage}"
+            source_hint = "parameters.passage"
 
     if not intent_query:
-        intent_query = _normalize_followup_prompt(fallback_prompt)
+        normalized_followup = _normalize_followup_prompt(fallback_prompt)
+        if normalized_followup:
+            intent_query = normalized_followup
+            source_hint = "continuation_prompt"
 
     final_query = (intent_query or base_query).strip()
-    return final_query or base_query
+    resolved_query = final_query or base_query
+    logger.info(
+        "[process-intents] Focus query resolved: intent=%s source=%s query='%s' base='%s'",
+        intent.value,
+        source_hint,
+        resolved_query,
+        base_query,
+    )
+    return resolved_query
 
 
 def build_translation_assistance_progress_message(state: Any) -> Optional[str]:
@@ -398,6 +420,12 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
                     original_query=s["user_query"],
                 )
             )
+            logger.info(
+                "[process-intents] Queue item prepared: intent=%s params=%s continuation='%s'",
+                intent.value,
+                params,
+                continuation_action or "",
+            )
 
         # Save queue
         logger.info(
@@ -463,6 +491,17 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
         s["has_more_queued_intents"] = False
     s["suppress_internal_followups"] = suppress_internal_followups
     s["deferred_intent_topics"] = deferred_topics
+
+    logger.info(
+        "[process-intents] Active intent context: intent=%s focus_query='%s' params=%s continuation='%s' suppress_followups=%s deferred_topics=%s has_more=%s",
+        intent_to_process.value,
+        active_intent_query,
+        active_params or {},
+        action_prompt or "",
+        suppress_internal_followups,
+        deferred_topics,
+        s.get("has_more_queued_intents"),
+    )
 
     # Map intent to node (using elif to avoid duplicates from old code)
     nodes_to_traverse: List[Hashable] = []

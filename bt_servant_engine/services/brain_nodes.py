@@ -359,6 +359,17 @@ def translate_responses(state: Any) -> dict:
         for resp in responses_for_translation
     ]
 
+    logger.info(
+        "[translate] user_id=%s target_language=%s agentic_strength=%s suppress_followups=%s has_more=%s deferred_topics=%s response_count=%d",
+        s.get("user_id"),
+        target_language,
+        agentic_strength,
+        s.get("suppress_internal_followups", False),
+        s.get("has_more_queued_intents"),
+        s.get("deferred_intent_topics"),
+        len(translated_responses),
+    )
+
     # Multi-intent continuation prompt: If user has queued intents, append continuation prompt
     user_id = s.get("user_id")
     if user_id and not s.get("suppress_internal_followups", False):
@@ -419,7 +430,17 @@ def query_vector_db(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
-    query_text = s.get("active_intent_query") or s["transformed_query"]
+    focus_query = s.get("active_intent_query")
+    active_intent_name = getattr(s.get("active_intent"), "value", None)
+    query_text = focus_query or s["transformed_query"]
+    logger.info(
+        "[brain-node:query-vector-db] user_id=%s intent=%s query_mode=%s query_text='%s' stacks=%s",
+        s.get("user_id"),
+        active_intent_name,
+        "focused" if focus_query else "transformed",
+        query_text,
+        s.get("stack_rank_collections"),
+    )
     return query_vector_db_impl(
         query_text,
         s["stack_rank_collections"],
@@ -434,9 +455,22 @@ def query_open_ai(state: Any) -> dict:
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
-    query_text = s.get("active_intent_query") or s["transformed_query"]
+    focus_query = s.get("active_intent_query")
+    active_intent_name = getattr(s.get("active_intent"), "value", None)
+    query_text = focus_query or s["transformed_query"]
     include_followup = not s.get("suppress_internal_followups", False)
     ignored_topics = cast(List[str], s.get("deferred_intent_topics", []))
+    logger.info(
+        "[brain-node:query-open-ai] user_id=%s intent=%s query_mode=%s query_text='%s' include_followup=%s ignored_topics=%s agentic_strength=%s docs=%d",
+        s.get("user_id"),
+        active_intent_name,
+        "focused" if focus_query else "transformed",
+        query_text,
+        include_followup,
+        ignored_topics,
+        agentic_strength,
+        len(cast(List[Any], s.get("docs", []))),
+    )
     return query_open_ai_impl(
         open_ai_client,
         s["docs"],
@@ -458,8 +492,22 @@ def consult_fia_resources(state: Any) -> dict:
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
-    query_text = s.get("active_intent_query") or s["transformed_query"]
+    focus_query = s.get("active_intent_query")
+    active_intent_name = getattr(s.get("active_intent"), "value", None)
+    query_text = focus_query or s["transformed_query"]
     ignored_topics = cast(List[str], s.get("deferred_intent_topics", []))
+    include_followup = not s.get("suppress_internal_followups", False)
+    logger.info(
+        "[brain-node:consult-fia] user_id=%s intent=%s query_mode=%s query_text='%s' include_followup=%s ignored_topics=%s agentic_strength=%s chat_history_events=%d",
+        s.get("user_id"),
+        active_intent_name,
+        "focused" if focus_query else "transformed",
+        query_text,
+        include_followup,
+        ignored_topics,
+        agentic_strength,
+        len(cast(List[Any], s.get("user_chat_history", []))),
+    )
     return consult_fia_resources_impl(
         open_ai_client,
         query_text,
@@ -470,7 +518,7 @@ def consult_fia_resources(state: Any) -> dict:
         _model_for_agentic_strength,
         _extract_cached_input_tokens,
         agentic_strength,
-        include_followup=not s.get("suppress_internal_followups", False),
+        include_followup=include_followup,
         ignored_topics=ignored_topics,
     )
 
