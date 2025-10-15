@@ -7,6 +7,7 @@ for the brain decision pipeline.
 from __future__ import annotations
 
 import operator
+import re
 from collections.abc import Hashable
 from typing import TYPE_CHECKING, Annotated, Any, Awaitable, Callable, Dict, List, Optional, cast
 
@@ -84,6 +85,10 @@ class BrainState(TypedDict, total=False):
     queued_intent_context: Optional[Dict[str, Any]]  # Parameters from queued intent
     has_more_queued_intents: bool  # Whether user has remaining queued intents
     next_queued_intent_preview: Optional[str]  # Preview of next intent for continuation prompt
+    active_intent: IntentType
+    active_intent_query: str
+    suppress_internal_followups: bool
+    deferred_intent_topics: List[str]
 
 
 ProgressMessageInput = str | Callable[[Any], Optional[str]]
@@ -184,6 +189,91 @@ def _collect_resource_sources(docs: List[Dict[str, Any]]) -> List[str]:
     return ordered
 
 
+def _normalize_followup_prompt(prompt: Optional[str]) -> Optional[str]:
+    if not prompt:
+        return None
+    text = prompt.strip()
+    if not text:
+        return None
+    text = re.sub(r"[?]+$", "", text).strip()
+    lowered = text.lower()
+    prefixes = [
+        "would you like me to",
+        "would you like to",
+        "do you want me to",
+        "should i",
+        "could i",
+        "can i",
+        "shall i",
+    ]
+    for prefix in prefixes:
+        if lowered.startswith(prefix):
+            text = text[len(prefix) :].lstrip(",. ").strip()
+            break
+    if not text:
+        return None
+    # Capitalize first letter for a clean imperative-style command
+    return text[0].upper() + text[1:]
+
+
+def _build_intent_query(
+    intent: IntentType,
+    base_query: str,
+    params: Optional[Dict[str, Any]],
+    fallback_prompt: Optional[str],
+) -> str:
+    """Derive a focused query string for the active intent."""
+
+    def _get_str(key: str) -> Optional[str]:
+        value = (params or {}).get(key)
+        if isinstance(value, str):
+            stripped = value.strip()
+            return stripped or None
+        return None
+
+    intent_query: Optional[str] = None
+
+    if intent == IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE:
+        intent_query = _get_str("query") or _get_str("topic") or _get_str("subject")
+    elif intent == IntentType.CONSULT_FIA_RESOURCES:
+        focus = _get_str("topic") or _get_str("focus") or _get_str("passage")
+        if focus:
+            intent_query = f"Explain the FIA process for {focus}"
+    elif intent == IntentType.GET_PASSAGE_SUMMARY:
+        passage = _get_str("passage")
+        if passage:
+            intent_query = f"Summarize {passage}"
+    elif intent == IntentType.GET_PASSAGE_KEYWORDS:
+        passage = _get_str("passage")
+        if passage:
+            intent_query = f"List key terms for {passage}"
+    elif intent == IntentType.GET_TRANSLATION_HELPS:
+        passage = _get_str("passage")
+        if passage:
+            intent_query = f"Provide translation helps for {passage}"
+    elif intent == IntentType.RETRIEVE_SCRIPTURE:
+        passage = _get_str("passage")
+        if passage:
+            intent_query = f"Retrieve scripture for {passage}"
+    elif intent == IntentType.LISTEN_TO_SCRIPTURE:
+        passage = _get_str("passage")
+        if passage:
+            intent_query = f"Read aloud {passage}"
+    elif intent == IntentType.TRANSLATE_SCRIPTURE:
+        passage = _get_str("passage")
+        target = _get_str("target_language") or _get_str("targetLanguage")
+        if passage and target:
+            intent_query = f"Translate {passage} to {target}"
+        elif passage:
+            intent_query = f"Translate {passage}"
+
+    if not intent_query:
+        intent_query = _normalize_followup_prompt(fallback_prompt)
+
+    final_query = (intent_query or base_query).strip()
+    return final_query or base_query
+
+
 def build_translation_assistance_progress_message(state: Any) -> Optional[str]:
     """Generate the progress message for translation assistance summarizing resource origins."""
     s = cast(BrainState, state)
@@ -208,7 +298,11 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
     import time
 
     from bt_servant_engine.core.intents import IntentQueueItem
-    from bt_servant_engine.services.intent_queue import pop_next_intent, save_intent_queue
+    from bt_servant_engine.services.intent_queue import (
+        has_queued_intents,
+        pop_next_intent,
+        save_intent_queue,
+    )
 
     s = cast(BrainState, state)
     user_intents = s["user_intents"]
@@ -217,6 +311,8 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
     if not user_intents:
         raise ValueError("no intents found. something went very wrong.")
 
+    intents_to_queue: List[IntentType] = []
+    deferred_topics: List[str] = []
     # Check if we're processing a queued intent
     queued_intent_context = s.get("queued_intent_context")
     if queued_intent_context:
@@ -227,7 +323,8 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
         pop_next_intent(user_id)
 
     # Determine which intent to process
-    if len(user_intents) == 1:
+    multi_intent = len(user_intents) > 1
+    if not multi_intent:
         # Single intent - process it
         intent_to_process = user_intents[0]
         logger.info(
@@ -263,7 +360,7 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
         )
 
         # Build queue items
-        queue_items = []
+        queue_items: list[IntentQueueItem] = []
         for intent in intents_to_queue:
             # Find matching context if available
             params = {}
@@ -307,6 +404,63 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
             "[process-intents] Queueing %d remaining intents for user=%s", len(queue_items), user_id
         )
         save_intent_queue(user_id, queue_items)
+
+        for item in queue_items:
+            topic = ""
+            if isinstance(item.parameters, dict):
+                topic = (
+                    cast(str, item.parameters.get("query", ""))
+                    or cast(str, item.parameters.get("topic", ""))
+                    or cast(str, item.parameters.get("passage", ""))
+                ).strip()
+            if not topic and item.continuation_action:
+                topic = _normalize_followup_prompt(item.continuation_action) or ""
+            if topic:
+                deferred_topics.append(topic)
+
+    intents_with_context = s.get("intents_with_context")
+    continuation_actions = cast(list[str], s.get("continuation_actions", []))
+    original_intent_order = (
+        [ic.intent for ic in intents_with_context] if intents_with_context else user_intents
+    )
+
+    # Determine parameters for the active intent
+    active_params: Dict[str, Any] = {}
+    if queued_intent_context:
+        active_params = queued_intent_context
+    elif intents_with_context:
+        matching_context = next(
+            (ic for ic in intents_with_context if ic.intent == intent_to_process), None
+        )
+        if matching_context and matching_context.parameters:
+            active_params = matching_context.parameters
+
+    # Continuation action (if generated) in original detection order
+    action_prompt: Optional[str] = None
+    try:
+        action_idx = original_intent_order.index(intent_to_process)
+    except ValueError:
+        action_idx = -1
+    if action_idx >= 0 and action_idx < len(continuation_actions):
+        action_prompt = continuation_actions[action_idx]
+
+    base_query = s.get("transformed_query", "")
+    active_intent_query = _build_intent_query(intent_to_process, base_query, active_params, action_prompt)
+
+    s["active_intent"] = intent_to_process
+    s["active_intent_query"] = active_intent_query
+
+    if multi_intent:
+        suppress_internal_followups = True
+        s["has_more_queued_intents"] = bool(intents_to_queue)
+    elif queued_intent_context:
+        suppress_internal_followups = has_queued_intents(user_id)
+        s["has_more_queued_intents"] = suppress_internal_followups
+    else:
+        suppress_internal_followups = False
+        s["has_more_queued_intents"] = False
+    s["suppress_internal_followups"] = suppress_internal_followups
+    s["deferred_intent_topics"] = deferred_topics
 
     # Map intent to node (using elif to avoid duplicates from old code)
     nodes_to_traverse: List[Hashable] = []

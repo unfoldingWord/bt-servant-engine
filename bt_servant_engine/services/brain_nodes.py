@@ -8,7 +8,7 @@ while handling state extraction and dependency injection.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Iterable, Optional, cast
+from typing import Any, Iterable, List, Optional, cast
 
 from openai import OpenAI
 
@@ -419,8 +419,9 @@ def query_vector_db(state: Any) -> dict:
     from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
+    query_text = s.get("active_intent_query") or s["transformed_query"]
     return query_vector_db_impl(
-        s["transformed_query"],
+        query_text,
         s["stack_rank_collections"],
         get_chroma_collection,
         BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
@@ -433,16 +434,21 @@ def query_open_ai(state: Any) -> dict:
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
+    query_text = s.get("active_intent_query") or s["transformed_query"]
+    include_followup = not s.get("suppress_internal_followups", False)
+    ignored_topics = cast(List[str], s.get("deferred_intent_topics", []))
     return query_open_ai_impl(
         open_ai_client,
         s["docs"],
-        s["transformed_query"],
+        query_text,
         s["user_chat_history"],
         _model_for_agentic_strength,
         _extract_cached_input_tokens,
         add_tokens,
         agentic_strength,
         BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
+        include_followup=include_followup,
+        ignored_topics=ignored_topics,
     )
 
 
@@ -452,9 +458,11 @@ def consult_fia_resources(state: Any) -> dict:
 
     s = cast(BrainState, state)
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
+    query_text = s.get("active_intent_query") or s["transformed_query"]
+    ignored_topics = cast(List[str], s.get("deferred_intent_topics", []))
     return consult_fia_resources_impl(
         open_ai_client,
-        s["transformed_query"],
+        query_text,
         s["user_chat_history"],
         s.get("user_response_language"),
         s.get("query_language"),
@@ -462,6 +470,8 @@ def consult_fia_resources(state: Any) -> dict:
         _model_for_agentic_strength,
         _extract_cached_input_tokens,
         agentic_strength,
+        include_followup=not s.get("suppress_internal_followups", False),
+        ignored_topics=ignored_topics,
     )
 
 

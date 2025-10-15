@@ -20,7 +20,7 @@ from utils.perf import add_tokens
 
 logger = get_logger(__name__)
 
-CONSULT_FIA_RESOURCES_SYSTEM_PROMPT = """
+CONSULT_FIA_RESOURCES_SYSTEM_PROMPT_BASE = """
 # Identity
 
 You are the FIA specialist node of BT Servant. You help Bible translators understand and apply the Familiarization,
@@ -42,7 +42,9 @@ Internalization, and Articulation (FIA) process using only the supplied context.
 - Be practical, encouraging, and concise while remaining thorough enough for translators to act on the guidance.
 - Use natural paragraphs (no bullet lists unless the context itself is a list that must be echoed for clarity).
 - Include references to FIA steps or resource names when they help the user follow along.
+"""
 
+CONSULT_FIA_RESOURCES_FOLLOWUP_GUIDANCE = """
 # Follow-up Question
 
 After providing your response, suggest a related follow-up question that flows naturally from the current topic. Leverage
@@ -60,6 +62,11 @@ next focus. If you must use a yes/no framing, make it highly specific so a simpl
 the system should pursue (e.g., "Would you like me to outline how Step 3 addresses checking draft verses with your
 language community next?"). Avoid generic yes/no prompts like "Would you like more help with FIA?".
 """
+
+# Backward compatibility constant (defaults to including follow-up guidance).
+CONSULT_FIA_RESOURCES_SYSTEM_PROMPT = (
+    CONSULT_FIA_RESOURCES_SYSTEM_PROMPT_BASE + CONSULT_FIA_RESOURCES_FOLLOWUP_GUIDANCE
+)
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 FIA_REFERENCE_PATH = BASE_DIR / "sources" / "fia" / "fia.md"
@@ -84,6 +91,9 @@ def consult_fia_resources(
     model_for_agentic_strength_fn: Callable[..., Any],
     extract_cached_input_tokens_fn: Callable[..., Any],
     agentic_strength: str,
+    *,
+    include_followup: bool = True,
+    ignored_topics: Optional[list[str]] = None,
 ) -> dict[str, Any]:
     """Answer FIA-specific questions using FIA collections and reference material."""
     candidate_lang = (user_response_language or query_language or "en").lower()
@@ -171,6 +181,8 @@ def consult_fia_resources(
     context_payload = json.dumps(context_docs, indent=2)
     logger.info("[consult-fia] context passed to LLM:\n%s", context_payload)
 
+    ignore_list = ignored_topics or []
+
     messages = cast(
         List[EasyInputMessageParam],
         [
@@ -192,6 +204,25 @@ def consult_fia_resources(
             },
         ],
     )
+    if ignore_list:
+        messages.insert(
+            2,
+            {
+                "role": "developer",
+                "content": (
+                    "The user has other pending requests that will be handled later. Do NOT address these topics now: "
+                    + ", ".join(ignore_list)
+                    + "."
+                ),
+            },
+        )
+    if not include_followup:
+        messages.append(
+            {
+                "role": "developer",
+                "content": "Do not add a follow-up question. End the response after covering the requested FIA guidance.",
+            }
+        )
 
     try:
         model_name = model_for_agentic_strength_fn(
@@ -199,7 +230,11 @@ def consult_fia_resources(
         )
         response = client.responses.create(
             model=model_name,
-            instructions=CONSULT_FIA_RESOURCES_SYSTEM_PROMPT,
+            instructions=(
+                CONSULT_FIA_RESOURCES_SYSTEM_PROMPT_BASE + CONSULT_FIA_RESOURCES_FOLLOWUP_GUIDANCE
+                if include_followup
+                else CONSULT_FIA_RESOURCES_SYSTEM_PROMPT_BASE
+            ),
             input=cast(Any, messages),
         )
         usage = getattr(response, "usage", None)
@@ -231,6 +266,8 @@ def consult_fia_resources(
 
 
 __all__ = [
+    "CONSULT_FIA_RESOURCES_SYSTEM_PROMPT_BASE",
+    "CONSULT_FIA_RESOURCES_FOLLOWUP_GUIDANCE",
     "CONSULT_FIA_RESOURCES_SYSTEM_PROMPT",
     "consult_fia_resources",
 ]

@@ -7,7 +7,7 @@ querying vector databases (ChromaDB) and generating responses using OpenAI.
 from __future__ import annotations
 
 import json
-from typing import Any, Callable, Optional, cast
+from typing import Any, Callable, List, Optional, cast
 
 from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
@@ -21,7 +21,7 @@ logger = get_logger(__name__)
 RELEVANCE_CUTOFF = 0.65
 TOP_K = 5
 
-FINAL_RESPONSE_AGENT_SYSTEM_PROMPT = """
+FINAL_RESPONSE_AGENT_SYSTEM_PROMPT_BASE = """
 You are an assistant to Bible translators. Your main job is to answer questions about content found in various biblical
 resources: commentaries, translation notes, bible dictionaries, and various resources like FIA. In addition to answering
 questions, you may be called upon to: summarize the data from resources, transform the data from resources (like
@@ -34,7 +34,9 @@ conversation history. Use this to understand the user's current message or query
 history is not relevant to the user's current message, just ignore it. FINALLY, UNDER NO CIRCUMSTANCES ARE YOU TO SAY
 ANYTHING THAT WOULD BE DEEMED EVEN REMOTELY HERETICAL BY ORTHODOX CHRISTIANS. If you can't do what the user is asking
 because your response would be heretical, explain to the user why you cannot comply with their request or command.
+"""
 
+FOLLOW_UP_GUIDANCE_TRANSLATION = """
 # Follow-up Question
 
 After providing your response, suggest a related follow-up question that naturally flows from the current topic and the
@@ -53,6 +55,11 @@ next step. If you end up with a yes/no construction, pack it with concrete detai
 fully qualified action the system can expand (e.g., "Would you like me to compare Apollos's ministry in Acts 18 to Paul's
 teaching in Corinth next?"). Avoid vague yes/no prompts such as "Would you like more help?".
 """
+
+# Backward compatibility constant (defaults to including follow-up guidance).
+FINAL_RESPONSE_AGENT_SYSTEM_PROMPT = (
+    FINAL_RESPONSE_AGENT_SYSTEM_PROMPT_BASE + FOLLOW_UP_GUIDANCE_TRANSLATION
+)
 
 
 def query_vector_db(
@@ -133,6 +140,9 @@ def query_open_ai(
     add_tokens_fn: Callable[..., None],
     agentic_strength: str,
     boilerplate_features_message: str,
+    *,
+    include_followup: bool = True,
+    ignored_topics: Optional[List[str]] = None,
 ) -> dict[str, list[dict[str, Any]]]:
     """Generate the final response text using RAG context and OpenAI.
 
@@ -146,11 +156,15 @@ def query_open_ai(
         add_tokens_fn: Function to track token usage
         agentic_strength: User's agentic strength preference
         boilerplate_features_message: Fallback message when no docs are found
+        include_followup: Whether to instruct the model to add a follow-up question
+        ignored_topics: Topics/questions that must be deferred to other intents
 
     Returns:
         Dictionary with "responses" key containing response list
     """
     # pylint: disable=too-many-locals
+    ignored_list = ignored_topics or []
+
     try:
         if len(docs) == 0:
             no_docs_msg = (
@@ -188,12 +202,36 @@ def query_open_ai(
                 {"role": "user", "content": transformed_query},
             ],
         )
+        if ignored_list:
+            ignore_text = ", ".join(ignored_list)
+            messages.insert(
+                2,
+                {
+                    "role": "developer",
+                    "content": (
+                        "The user has other pending requests that will be handled separately. Do NOT address the following topics now: "
+                        + ignore_text
+                        + "."
+                    ),
+                },
+            )
+        if not include_followup:
+            messages.append(
+                {
+                    "role": "developer",
+                    "content": "Do not add a follow-up question. End your response after providing the requested information.",
+                }
+            )
         model_name = model_for_agentic_strength_fn(
             agentic_strength, allow_low=False, allow_very_low=True
         )
         response = client.responses.create(
             model=model_name,
-            instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
+            instructions=(
+                FINAL_RESPONSE_AGENT_SYSTEM_PROMPT_BASE + FOLLOW_UP_GUIDANCE_TRANSLATION
+                if include_followup
+                else FINAL_RESPONSE_AGENT_SYSTEM_PROMPT_BASE
+            ),
             input=cast(Any, messages),
         )
         usage = getattr(response, "usage", None)
