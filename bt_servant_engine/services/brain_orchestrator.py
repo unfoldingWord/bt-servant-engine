@@ -83,6 +83,7 @@ class BrainState(TypedDict, total=False):
     intents_with_context: Optional[List[Any]]  # IntentWithContext list from structured detection
     continuation_actions: Optional[List[str]]
     queued_intent_context: Optional[str]  # Context text from queued intent
+    intent_context_map: Optional[Dict[str, str]]  # Mapping of intent value to context snippet
     active_intent_context: str  # Effective query text for the node currently executing
     active_intent_context_source: str  # Origin of the active context (structured, queue, fallback)
     # Follow-up question tracking - prevents duplicate follow-ups when multi-intent is active
@@ -222,6 +223,7 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
 
     intents_with_context = cast(list[Any] | None, s.get("intents_with_context"))
     continuation_actions = cast(list[str], s.get("continuation_actions", []))
+    intent_context_map = cast(dict[str, str], s.get("intent_context_map") or {})
     context_pool = list(intents_with_context or [])
     active_context = ""
     active_context_source = "transformed_query"
@@ -243,6 +245,8 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
         )
         # Clear the queued context from state to avoid re-use in later turns
         s["queued_intent_context"] = None
+        if user_intents:
+            user_intents[:] = [user_intents[0]]
 
     # Determine which intent to process
     if len(user_intents) == 1:
@@ -270,6 +274,8 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
             INTENT_PRIORITY.get(intent_to_process, 0),
             user_id,
         )
+        # Trim user_intents down to the active intent for downstream nodes
+        user_intents[:] = [intent_to_process]
 
         # Determine context snippet for the active intent if not set via queue
         if not active_context and context_pool:
@@ -292,10 +298,20 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
                     intent_to_process.value,
                     user_id,
                 )
+        if not active_context:
+            mapped_context = intent_context_map.get(intent_to_process.value, "")
+            if mapped_context:
+                active_context = mapped_context
+                active_context_source = "intent_context_map"
+                logger.info(
+                    "[process-intents] Using mapped context for active intent %s: '%s'",
+                    intent_to_process.value,
+                    active_context,
+                )
 
         # Get original intent order (before sorting) for action lookup
         original_intent_order = (
-            [ic.intent for ic in intents_with_context] if intents_with_context else user_intents
+            [ic.intent for ic in intents_with_context] if intents_with_context else sorted_intents
         )
 
         # Build queue items
@@ -313,6 +329,8 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
                 )
                 if matching_context:
                     context_text = matching_context.trimmed_context()
+            if not context_text:
+                context_text = intent_context_map.get(intent.value, "")
             if not context_text:
                 logger.warning(
                     "[process-intents] No context snippet available for deferred intent=%s (user=%s); downstream will fall back to active context resolution",

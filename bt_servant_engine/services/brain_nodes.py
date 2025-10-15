@@ -119,6 +119,19 @@ def _intent_query_for_node(state: Any, node_name: str) -> str:
     context = cast(Optional[str], s.get("active_intent_context"))
     source = cast(str, s.get("active_intent_context_source", "unknown"))
     transformed = s.get("transformed_query", "")
+    if not context:
+        intent_context_map = cast(dict[str, str], s.get("intent_context_map", {}))
+        active_intents = cast(Optional[list], s.get("user_intents"))
+        if active_intents:
+            active_intent = active_intents[0]
+            intent_value = (
+                active_intent.value if hasattr(active_intent, "value") else str(active_intent)
+            )
+            mapped = intent_context_map.get(intent_value)
+            if mapped:
+                context = mapped
+                source = "intent_context_map"
+
     if context:
         logger.info(
             "[intent-context] Node=%s will use active context (source=%s): '%s'",
@@ -261,6 +274,7 @@ def determine_intents(state: Any) -> dict:
                 return {
                     "user_intents": [next_item.intent],
                     "queued_intent_context": next_item.context_text,
+                    "intent_context_map": {next_item.intent.value: next_item.context_text},
                 }
 
             # User did not respond affirmatively - clear queue and fall through
@@ -287,6 +301,7 @@ def determine_intents(state: Any) -> dict:
 
         # Extract just the intent types for backward compatibility
         intent_types = [ic.intent for ic in intents_with_context]
+        context_map = {ctx.intent.value: ctx.trimmed_context() for ctx in intents_with_context}
 
         logger.info(
             "[determine-intents] Structured extraction complete, storing context for %d intents",
@@ -316,6 +331,7 @@ def determine_intents(state: Any) -> dict:
         return {
             "user_intents": intent_types,
             "intents_with_context": intents_with_context,
+            "intent_context_map": context_map,
             "continuation_actions": continuation_actions,
         }
 
@@ -324,8 +340,10 @@ def determine_intents(state: Any) -> dict:
         "[determine-intents] Single intent detected: %s, skipping parameter extraction (entire query is context)",
         user_intents[0].value if user_intents else "none",
     )
+    context_map_single = {user_intents[0].value: query} if user_intents else {}
     return {
         "user_intents": user_intents,
+        "intent_context_map": context_map_single,
         # No queued_intent_context - handlers will derive context directly from the transformed query
     }
 
