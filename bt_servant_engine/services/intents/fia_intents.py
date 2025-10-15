@@ -54,6 +54,9 @@ the user's original query and the FIA steps you discussed to make it specific an
 Generate this naturally in the response language and make it contextual to what you just discussed (e.g., "Would you
 like to explore how to apply Step 3 to this passage?" or "Should I explain how the Internalization phase works for your
 target language?").
+
+Do not end with a yes/no follow-up. Invite the user to specify their next focus (e.g., "Which FIA step would you like to
+apply next to this passage?" or "What part of the Internalization phase do you want to work on?").
 """
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent

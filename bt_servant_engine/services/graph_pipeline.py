@@ -47,6 +47,10 @@ and helpful. For example:
 Generate this naturally in the response language and make it contextual to what you just discussed (e.g., "Would you
 like to know more about Aaron's duties in the tabernacle?" or "Should I explain how this concept appears in the New
 Testament?").
+
+Do not end with a yes/no follow-up. Instead, frame the prompt so the user must specify what they want next (e.g., "Which
+biblical person, place, or concept would you like to explore next?" or "Which aspect of Aaron's ministry should we dive
+into now?").
 """
 
 
