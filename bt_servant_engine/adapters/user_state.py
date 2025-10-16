@@ -6,7 +6,7 @@ Provides TinyDB database wiring and user data access helpers.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Mapping, Optional, cast
 
 from tinydb import Query, TinyDB
 
@@ -181,6 +181,12 @@ def is_first_interaction(user_id: str) -> bool:
 
 class UserStateAdapter(UserStatePort):
     """Concrete adapter wrapping TinyDB helper functions."""
+
+    def load_user_state(self, user_id: str) -> dict[str, Any]:
+        return get_user_state(user_id)
+
+    def save_user_state(self, user_id: str, state: Mapping[str, Any]) -> None:
+        set_user_state(user_id, dict(state))
 
     def get_chat_history(self, user_id: str) -> list[dict[str, str]]:
         return get_user_chat_history(user_id)

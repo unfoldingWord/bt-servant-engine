@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 from typing import Callable, Iterable, Mapping, MutableMapping, Optional, Sequence, Tuple, cast
@@ -11,6 +12,7 @@ from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
 from utils.bsb import (
     BOOK_MAP,
+    FULL_BOOK_SENTINEL,
     label_ranges,
     load_book_json,
     parse_ch_verse_from_reference,
@@ -23,6 +25,15 @@ BOOK_SEQUENCE = list(BOOK_MAP.keys())
 
 PassageRange = Tuple[int, int, int]
 RawRange = Tuple[int, int | None, int | None, int | None]
+RANGE_TUPLE_LENGTH = 4
+
+
+@dataclass(slots=True)
+class _FollowupPosition:
+    book: str
+    chapter: int
+    verse: int
+    chapter_lengths: MutableMapping[int, int]
 
 
 @lru_cache(maxsize=128)
@@ -54,9 +65,9 @@ def _resolve_range_endpoint(
 ) -> tuple[int, int]:
     """Return the final (chapter, verse) that was delivered for a range tuple."""
     _start_chapter, _start_verse, end_chapter, end_verse = range_tuple
-    if end_chapter is None or end_chapter >= 10_000:
+    if end_chapter is None or end_chapter >= FULL_BOOK_SENTINEL:
         end_chapter = max(lengths.keys())
-    if end_verse is None or end_verse >= 10_000:
+    if end_verse is None or end_verse >= FULL_BOOK_SENTINEL:
         end_verse = lengths[end_chapter]
     return end_chapter, end_verse
 
@@ -75,7 +86,7 @@ def _normalize_ranges(ranges: Sequence[Iterable[int | None]]) -> list[RawRange]:
     out: list[RawRange] = []
     for r in ranges:
         items = list(r)
-        if len(items) != 4:
+        if len(items) != RANGE_TUPLE_LENGTH:
             raise ValueError(f"Expected 4-tuple range, got {items!r}")
         start_chapter = items[0]
         if start_chapter is None:
@@ -95,6 +106,103 @@ class _PassageFollowupAbort(Exception):
     """Internal control-flow exception for deterministic follow-up selection."""
 
 
+def _validate_ranges(ranges: Sequence[Iterable[int | None]]) -> list[RawRange]:
+    if not ranges:
+        logger.warning("[passage-followup] Empty ranges supplied; skipping suggestion")
+        raise _PassageFollowupAbort
+    try:
+        return _normalize_ranges(ranges)
+    except ValueError as exc:  # pragma: no cover - defensive guard
+        logger.exception("[passage-followup] Invalid ranges supplied; skipping suggestion")
+        raise _PassageFollowupAbort from exc
+
+
+def _prepare_initial_position(
+    book: str, ranges: Sequence[Iterable[int | None]]
+) -> _FollowupPosition:
+    normalized = _validate_ranges(ranges)
+    return _start_followup_position(book, normalized)
+
+
+def _start_followup_position(book: str, normalized_ranges: Sequence[RawRange]) -> _FollowupPosition:
+    try:
+        chapter_lengths = _chapter_lengths(book)
+    except KeyError as exc:
+        logger.exception("[passage-followup] Unknown book '%s'; skipping suggestion", book)
+        raise _PassageFollowupAbort from exc
+
+    last_range = normalized_ranges[-1]
+    end_chapter, end_verse = _resolve_range_endpoint(last_range, chapter_lengths)
+    return _FollowupPosition(
+        book=book,
+        chapter=end_chapter,
+        verse=end_verse + 1,
+        chapter_lengths=chapter_lengths,
+    )
+
+
+def _advance_position(position: _FollowupPosition) -> _FollowupPosition:
+    chapter_length = position.chapter_lengths.get(position.chapter, 0)
+    if 0 < chapter_length >= position.verse:
+        return position
+
+    next_book = position.book
+    next_chapter = position.chapter + 1
+    chapter_lengths = position.chapter_lengths
+
+    if next_chapter not in chapter_lengths:
+        next_book = _next_book_name(position.book)
+        try:
+            chapter_lengths = _chapter_lengths(next_book)
+        except KeyError as exc:  # pragma: no cover - defensive guard
+            logger.exception(
+                "[passage-followup] Unknown next book '%s'; skipping suggestion", next_book
+            )
+            raise _PassageFollowupAbort from exc
+        next_chapter = 1
+
+    return _FollowupPosition(
+        book=next_book,
+        chapter=next_chapter,
+        verse=1,
+        chapter_lengths=chapter_lengths,
+    )
+
+
+def _chapter_max(position: _FollowupPosition) -> int:
+    chapter_length = position.chapter_lengths.get(position.chapter, 0)
+    if chapter_length <= 0:
+        logger.warning(
+            "[passage-followup] No verse data recorded for %s %s; skipping suggestion",
+            position.book,
+            position.chapter,
+        )
+        raise _PassageFollowupAbort
+    return chapter_length
+
+
+def _finalize_position(book: str, ranges: Sequence[Iterable[int | None]]) -> _FollowupPosition:
+    position = _prepare_initial_position(book, ranges)
+    return _advance_position(position)
+
+
+def _build_suggestion(position: _FollowupPosition, verse_limit: int) -> tuple[str, PassageRange]:
+    chapter_max = _chapter_max(position)
+    end_suggested = min(position.verse + verse_limit - 1, chapter_max)
+    return position.book, (position.chapter, position.verse, end_suggested)
+
+
+def _propose_followup_impl(
+    book: str,
+    ranges: Sequence[Iterable[int | None]],
+    verse_limit: int,
+) -> Optional[tuple[str, PassageRange]]:
+    try:
+        return _build_suggestion(_finalize_position(book, ranges), verse_limit)
+    except _PassageFollowupAbort:
+        return None
+
+
 def propose_next_passage_range(
     book: str,
     ranges: Sequence[Iterable[int | None]],
@@ -107,73 +215,11 @@ def propose_next_passage_range(
     the suggestion wraps to the first chapter of the next canonical book. After
     Revelation, the suggestion wraps back to Genesis.
     """
-    try:
-        if verse_limit <= 0:
-            logger.warning("[passage-followup] verse_limit <= 0; skipping suggestion")
-            raise _PassageFollowupAbort
-
-        try:
-            normalized_ranges = _normalize_ranges(ranges)
-        except ValueError as exc:  # pragma: no cover - defensive guard
-            logger.exception("[passage-followup] Invalid ranges supplied; skipping suggestion")
-            raise _PassageFollowupAbort from exc
-
-        if not normalized_ranges:
-            logger.warning("[passage-followup] Empty ranges supplied; skipping suggestion")
-            raise _PassageFollowupAbort
-
-        try:
-            chapter_lengths = _chapter_lengths(book)
-        except KeyError as exc:
-            logger.exception("[passage-followup] Unknown book '%s'; skipping suggestion", book)
-            raise _PassageFollowupAbort from exc
-
-        last_range = normalized_ranges[-1]
-        end_chapter, end_verse = _resolve_range_endpoint(last_range, chapter_lengths)
-        next_book = book
-        next_chapter = end_chapter
-        next_verse = end_verse + 1
-
-        chapter_length = chapter_lengths.get(next_chapter, 0)
-        if 0 < chapter_length < next_verse:
-            # Advance to next chapter within the same book
-            next_chapter += 1
-            if next_chapter not in chapter_lengths:
-                # Roll over to the next canonical book
-                next_book = _next_book_name(book)
-                try:
-                    chapter_lengths = _chapter_lengths(next_book)
-                except KeyError as exc:  # pragma: no cover - defensive guard
-                    logger.exception(
-                        "[passage-followup] Unknown next book '%s'; skipping suggestion", next_book
-                    )
-                    raise _PassageFollowupAbort from exc
-                next_chapter = 1
-            next_verse = 1
-            chapter_length = chapter_lengths.get(next_chapter, 0)
-
-        if chapter_length == 0:
-            logger.warning(
-                "[passage-followup] No verse data recorded for %s %s; skipping suggestion",
-                book,
-                next_chapter,
-            )
-            raise _PassageFollowupAbort
-
-        # Clamp to available verses without crossing chapter boundaries
-        chapter_max = chapter_lengths.get(next_chapter)
-        if not chapter_max:
-            logger.warning(
-                "[passage-followup] Missing chapter length for %s %s; skipping suggestion",
-                next_book,
-                next_chapter,
-            )
-            raise _PassageFollowupAbort
-        end_suggested = min(next_verse + verse_limit - 1, chapter_max)
-
-        return next_book, (next_chapter, next_verse, end_suggested)
-    except _PassageFollowupAbort:
+    if verse_limit <= 0:
+        logger.warning("[passage-followup] verse_limit <= 0; skipping suggestion")
         return None
+
+    return _propose_followup_impl(book, ranges, verse_limit)
 
 
 ENGLISH_FOLLOWUP_TEMPLATES: dict[IntentType, str] = {
@@ -184,6 +230,11 @@ ENGLISH_FOLLOWUP_TEMPLATES: dict[IntentType, str] = {
     IntentType.LISTEN_TO_SCRIPTURE: "Would you like me to read {label} aloud?",
     IntentType.TRANSLATE_SCRIPTURE: "Would you like me to translate {label}?",
 }
+
+
+def _suggestion_label(suggestion: tuple[str, PassageRange]) -> str:
+    next_book, (chapter, start_verse, end_verse) = suggestion
+    return label_ranges(next_book, [(chapter, start_verse, chapter, end_verse)])
 
 
 def build_followup_question(
@@ -203,21 +254,15 @@ def build_followup_question(
         logger.debug("[passage-followup] Missing or invalid context for intent=%s", intent.value)
         return None
 
-    normalized_ranges = cast(Sequence[Iterable[int | None]], ranges)
     suggestion = propose_next_passage_range(
         book,
-        normalized_ranges,
+        cast(Sequence[Iterable[int | None]], ranges),
         config.TRANSLATION_HELPS_VERSE_LIMIT,
     )
     if not suggestion:
         return None
 
-    next_book, (chapter, start_verse, end_verse) = suggestion
-    label = label_ranges(
-        next_book,
-        [(chapter, start_verse, chapter, end_verse)],
-    )
-    english_question = template.format(label=label)
+    english_question = template.format(label=_suggestion_label(suggestion))
 
     lang = (target_language or "").strip().lower() or "en"
     if lang == "en" or translate_text_fn is None:

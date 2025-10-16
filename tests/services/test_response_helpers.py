@@ -4,6 +4,11 @@ from __future__ import annotations
 
 from bt_servant_engine.services import response_helpers as rh
 
+EXPECTED_PROTECTED_COUNT = 2
+EXPECTED_NORMAL_COUNT = 1
+LANG_SAMPLE_LENGTH = 10
+RAW_SAMPLE_LENGTH = 5
+
 # pylint: disable=missing-function-docstring
 
 
@@ -29,8 +34,8 @@ def test_partition_response_items_splits_groups() -> None:
         {"response": {"segments": [{"type": "scripture"}]}},
     ]
     protected, normal = rh.partition_response_items(responses)
-    assert len(protected) == 2
-    assert len(normal) == 1
+    assert len(protected) == EXPECTED_PROTECTED_COUNT
+    assert len(normal) == EXPECTED_NORMAL_COUNT
     assert normal[0]["response"] == "plain"
 
 
@@ -45,6 +50,9 @@ def test_sample_for_language_detection_trims_and_snaps() -> None:
     assert rh.sample_for_language_detection("   hello world") == "hello world"
     # Sample truncated at whitespace boundary
     text = "word1 word2 word3"
-    assert rh.sample_for_language_detection(text, sample_chars=10) == "word1"
+    assert rh.sample_for_language_detection(text, sample_chars=LANG_SAMPLE_LENGTH) == "word1"
     # When no whitespace in snippet, fall back to raw clipping
-    assert rh.sample_for_language_detection("abcdefghijk", sample_chars=5) == "abcde"
+    assert (
+        rh.sample_for_language_detection("abcdefghijk", sample_chars=RAW_SAMPLE_LENGTH)
+        == "abcde"
+    )

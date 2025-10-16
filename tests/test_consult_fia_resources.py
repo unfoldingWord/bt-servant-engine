@@ -2,12 +2,15 @@
 
 from __future__ import annotations
 
-from typing import Any, cast
+from typing import Any, Iterable, Mapping, cast
 
 import pytest
 
+from bt_servant_engine.core.exceptions import CollectionNotFoundError
+from bt_servant_engine.core.ports import ChromaPort
 from bt_servant_engine.core.intents import IntentType
-from bt_servant_engine.services import brain_nodes
+from bt_servant_engine.services import brain_nodes, runtime
+from bt_servant_engine.services.intents import fia_intents
 
 
 class _FakeCollection:  # pylint: disable=too-few-public-methods
@@ -29,18 +32,77 @@ class _FakeCollection:  # pylint: disable=too-few-public-methods
         }
 
 
+class StubChromaPort(ChromaPort):
+    """Minimal ChromaPort stub for consult FIA tests."""
+
+    def __init__(self, mapping: Mapping[str, _FakeCollection | None] | None = None) -> None:
+        self._mapping = dict(mapping or {})
+
+    def get_collection(self, name: str) -> _FakeCollection | None:  # noqa: D401
+        return self._mapping.get(name)
+
+    def list_collections(self) -> list[str]:
+        return list(self._mapping.keys())
+
+    def create_collection(self, name: str) -> None:  # noqa: D401
+        self._mapping.setdefault(name, None)
+
+    def delete_collection(self, name: str) -> None:  # noqa: D401
+        self._mapping.pop(name, None)
+
+    def delete_document(self, name: str, document_id: str) -> None:  # noqa: D401
+        del name, document_id
+
+    def count_documents(self, name: str) -> int:
+        del name
+        return 0
+
+    def get_document_text_and_metadata(
+        self, name: str, document_id: str
+    ) -> tuple[str, Mapping[str, Any]]:
+        del name, document_id
+        return "", {}
+
+    def list_document_ids(self, name: str) -> list[str]:
+        del name
+        return []
+
+    def iter_batches(
+        self,
+        name: str,
+        *,
+        batch_size: int = 1000,
+        include_embeddings: bool = False,
+    ) -> Iterable[dict[str, Any]]:
+        del name, batch_size, include_embeddings
+        return []
+
+    def get_collections_pair(self, source: str, dest: str) -> tuple[Any, Any]:
+        src = self.get_collection(source)
+        dst = self.get_collection(dest)
+        if src is None or dst is None:
+            raise CollectionNotFoundError("Missing collection for merge")
+        return src, dst
+
+    def max_numeric_id(self, name: str) -> int:
+        del name
+        return 0
+
+
 def test_consult_fia_resources_falls_back_to_english(monkeypatch: pytest.MonkeyPatch) -> None:
     """Falls back to the English FIA collection when localized resources are missing."""
 
     captured_messages: dict[str, Any] = {}
 
-    def _fake_get_collection(name: str) -> _FakeCollection | None:
-        if name == "en_fia_resources":
-            docs = [
-                ("English FIA doc", 0.1, {"name": "EN FIA", "source": "fia/en.doc"}),
-            ]
-            return _FakeCollection(docs)
-        return None
+    services = runtime.get_services()
+    services.chroma = StubChromaPort(
+        {
+            "es_fia_resources": None,
+            "en_fia_resources": _FakeCollection(
+                [("English FIA doc", 0.1, {"name": "EN FIA", "source": "fia/en.doc"})]
+            ),
+        }
+    )
 
     class _FakeResponse:  # pylint: disable=too-few-public-methods
         usage = None
@@ -51,9 +113,6 @@ def test_consult_fia_resources_falls_back_to_english(monkeypatch: pytest.MonkeyP
         captured_messages["model"] = kwargs.get("model")
         return _FakeResponse()
 
-    from bt_servant_engine.services.intents import fia_intents
-
-    monkeypatch.setattr(brain_nodes, "get_chroma_collection", _fake_get_collection)
     monkeypatch.setattr(brain_nodes.open_ai_client.responses, "create", _fake_create)
     monkeypatch.setattr(fia_intents, "FIA_REFERENCE_CONTENT", "FIA manual reference text")
 
@@ -91,14 +150,13 @@ def test_consult_fia_resources_uses_normal_model(monkeypatch: pytest.MonkeyPatch
         captured["model"] = kwargs.get("model")
         return _FakeResponse()
 
-    def _fake_get_collection(_name: str) -> _FakeCollection:
-        return _FakeCollection(
-            [
-                ("Localized", 0.2, {"name": "Localized", "source": "fia/local.md"}),
-            ]
-        )
-
-    monkeypatch.setattr(brain_nodes, "get_chroma_collection", _fake_get_collection)
+    runtime.get_services().chroma = StubChromaPort(
+        {
+            "en_fia_resources": _FakeCollection(
+                [("Localized", 0.2, {"name": "Localized", "source": "fia/local.md"})]
+            )
+        }
+    )
     monkeypatch.setattr(brain_nodes.open_ai_client.responses, "create", _fake_create)
     monkeypatch.setattr(brain_nodes, "FIA_REFERENCE_CONTENT", "reference body")
 
@@ -118,9 +176,8 @@ def test_consult_fia_resources_uses_normal_model(monkeypatch: pytest.MonkeyPatch
 
 def test_consult_fia_resources_handles_missing_context(monkeypatch: pytest.MonkeyPatch) -> None:
     """Returns a helpful fallback when no FIA resources are available."""
-    from bt_servant_engine.services.intents import fia_intents
-
-    monkeypatch.setattr(brain_nodes, "get_chroma_collection", lambda _name: None)
+    services = runtime.get_services()
+    services.chroma = StubChromaPort({})
     monkeypatch.setattr(fia_intents, "FIA_REFERENCE_CONTENT", "")
 
     state: dict[str, Any] = {

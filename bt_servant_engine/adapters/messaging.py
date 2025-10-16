@@ -7,6 +7,7 @@ import datetime
 import os
 import tempfile
 import time
+from http import HTTPStatus
 from typing import IO, Mapping, Optional, Sequence, Tuple
 
 import httpx
@@ -16,7 +17,7 @@ from bt_servant_engine.core.config import config
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.core.ports import MessagingPort
 from utils.identifiers import get_log_safe_user_id
-from utils.perf import add_tokens, record_timing
+from utils.perf import TokenIncrements, add_tokens, record_timing
 
 logger = get_logger(__name__)
 open_ai_client = OpenAI(api_key=config.OPENAI_API_KEY)
@@ -27,6 +28,8 @@ FileItem = Tuple[
     Tuple[Optional[str], IO[bytes] | bytes | str] | Tuple[Optional[str], IO[bytes], Optional[str]],
 ]
 FilesParam = Sequence[FileItem]
+
+HTTP_ERROR_THRESHOLD = HTTPStatus.BAD_REQUEST
 
 VOICE_VIBE_PROMPT = """
 Personality/Affect: A knowledgeable and trustworthy guide, providing Scripture readings and translation support with calm confidence.
@@ -60,7 +63,7 @@ async def send_text_message(user_id: str, text: str) -> None:
     log_user_id = get_log_safe_user_id(user_id, secret=config.LOG_PSEUDONYM_SECRET)
     async with httpx.AsyncClient() as client:
         response = await client.post(url, headers=headers, json=payload)
-        if response.status_code >= 400:
+        if response.status_code >= HTTP_ERROR_THRESHOLD:
             logger.error("Failed to send Meta message: %s", response.text)
         else:
             logger.info("Sent Meta message to %s: %s", log_user_id, text)
@@ -88,7 +91,7 @@ async def send_voice_message(user_id: str, text: str) -> None:
         }
         async with httpx.AsyncClient() as client:
             response = await client.post(url, headers=headers, json=payload)
-            if response.status_code >= 400:
+            if response.status_code >= HTTP_ERROR_THRESHOLD:
                 logger.error("Failed to send Meta voice message: %s", response.text)
             else:
                 logger.info("Sent Meta voice message to %s.", log_user_id)
@@ -113,7 +116,7 @@ async def send_typing_indicator_message(message_id: str) -> None:
     }
     async with httpx.AsyncClient() as client:
         response = await client.post(url, headers=headers, json=payload)
-        if response.status_code >= 400:
+        if response.status_code >= HTTP_ERROR_THRESHOLD:
             logger.error("Failed to send typing indicator (via read status): %s", response.text)
         else:
             logger.info("Sent typing indicator via message_id=%s", message_id)
@@ -127,14 +130,15 @@ def _record_stt_usage(usage: object) -> None:
         tt = getattr(usage, "total_tokens", None)
         ait = getattr(usage, "audio_tokens", None) or getattr(usage, "input_audio_tokens", None)
         aot = getattr(usage, "output_audio_tokens", None)
-        add_tokens(
-            it,
-            ot,
-            tt,
+        increments = TokenIncrements(
+            input_tokens=it,
+            output_tokens=ot,
+            total_tokens=tt,
             model="gpt-4o-transcribe",
             audio_input_tokens=ait,
             audio_output_tokens=aot,
         )
+        add_tokens(increments)
     except (AttributeError, TypeError, ValueError):
         # Defensive: ignore unknown usage shapes
         pass
@@ -149,7 +153,7 @@ async def transcribe_voice_message(media_id: str) -> str:
     try:
         async with httpx.AsyncClient() as client:
             response = await client.get(voice_message_url, headers=headers)
-            if response.status_code >= 400:
+            if response.status_code >= HTTP_ERROR_THRESHOLD:
                 logger.error("Failed to download voice message audio file: %s", response.text)
                 raise RuntimeError("Media retrieval failed")
 
@@ -183,7 +187,7 @@ async def _get_media_message_url(media_id: str) -> str:
     headers = {"Authorization": f"Bearer {config.META_WHATSAPP_TOKEN}"}
     async with httpx.AsyncClient() as client:
         response = await client.get(url, headers=headers)
-        if response.status_code >= 400:
+        if response.status_code >= HTTP_ERROR_THRESHOLD:
             logger.error("Failed to get media metadata: %s", response.text)
             raise RuntimeError("Media url retrieval failed")
         url = response.json().get("url", "")
@@ -213,7 +217,7 @@ def _create_voice_message(user_id: str, text: str) -> str:
     # Attribute text input tokens for TTS based on a simple heuristic when SDK usage is not exposed
     try:
         est_tokens = max(1, int(len(text) / 4))
-        add_tokens(input_tokens=est_tokens, model="gpt-4o-mini-tts")
+        add_tokens(TokenIncrements(input_tokens=est_tokens, model="gpt-4o-mini-tts"))
     except (TypeError, ValueError):
         # Ignore if text length or add_tokens inputs are unexpected
         pass
@@ -242,7 +246,7 @@ def _upload_voice_message_sync(audio_file_path: str) -> str:
             ("messaging_product", (None, "whatsapp")),
         ]
         response = httpx.post(url, headers=headers, files=files)
-    if response.status_code >= 400:
+    if response.status_code >= HTTP_ERROR_THRESHOLD:
         logger.error("Failed to upload voice message: %s", response.text)
         raise RuntimeError(f"Upload failed: {response.status_code} - {response.text}")
 

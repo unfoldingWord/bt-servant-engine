@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import re
+from textwrap import dedent
 from typing import Any, Optional, cast
 
 from openai import OpenAI
@@ -31,6 +32,8 @@ from bt_servant_engine.services.openai_utils import (
 from utils.perf import add_tokens
 
 logger = get_logger(__name__)
+
+AFFIRMATIVE_LOG_PREVIEW_LENGTH = 50
 
 # ========== PROMPTS ==========
 
@@ -939,7 +942,7 @@ def determine_query_language(
     ]
     # If the detected language is not English, also search the matching
     # language-specific resources collection (e.g., "es_resources").
-    if query_language and query_language != "en" and query_language != Language.OTHER.value:
+    if query_language and query_language not in {"en", Language.OTHER.value}:
         localized_collection = f"{query_language}_resources"
         stack_rank_collections.append(localized_collection)
         logger.info(
@@ -988,8 +991,19 @@ def determine_intents_structured(
     For example:
     - "Summarize Romans 8 and translate it to Spanish"
       Returns:
-        [IntentWithContext(intent=GET_PASSAGE_SUMMARY, parameters={"passage": "Romans 8"}),
-         IntentWithContext(intent=TRANSLATE_SCRIPTURE, parameters={"passage": "Romans 8", "target_language": "Spanish"})]
+        [
+            IntentWithContext(
+                intent=GET_PASSAGE_SUMMARY,
+                parameters={"passage": "Romans 8"},
+            ),
+            IntentWithContext(
+                intent=TRANSLATE_SCRIPTURE,
+                parameters={
+                    "passage": "Romans 8",
+                    "target_language": "Spanish",
+                },
+            ),
+        ]
 
     Args:
         client: OpenAI client instance
@@ -999,14 +1013,20 @@ def determine_intents_structured(
         List of IntentWithContext objects with pre-extracted parameters
     """
     logger.info(
-        "[intent-detection-structured] Extracting context snippets for %d pre-classified intent(s): %s",
+        (
+            "[intent-detection-structured] Extracting context snippets for %d "
+            "pre-classified intent(s): %s"
+        ),
         len(expected_intents),
         [intent.value for intent in expected_intents],
     )
 
     if not expected_intents:
         logger.warning(
-            "[intent-detection-structured] No expected intents provided; skipping structured extraction"
+            (
+                "[intent-detection-structured] No expected intents provided; "
+                "skipping structured extraction"
+            )
         )
         return []
 
@@ -1046,7 +1066,7 @@ def determine_intents_structured(
         )
         for idx, intent_ctx in enumerate(structured_intents.intents):
             logger.info(
-                "[intent-detection-structured]   Intent %d: %s with context='%s'",
+                ("[intent-detection-structured]   Intent %d: %s with context='%s'"),
                 idx + 1,
                 intent_ctx.intent.value,
                 intent_ctx.trimmed_context(),
@@ -1061,7 +1081,10 @@ def determine_intents_structured(
         ]
         if unexpected:
             logger.warning(
-                "[intent-detection-structured] Ignoring unexpected intent(s) from structured extraction: %s",
+                (
+                    "[intent-detection-structured] Ignoring unexpected intent(s) "
+                    "from structured extraction: %s"
+                ),
                 unexpected,
             )
 
@@ -1073,7 +1096,10 @@ def determine_intents_structured(
                 continue
 
             logger.warning(
-                "[intent-detection-structured] No context returned for intent=%s; using full query fallback",
+                (
+                    "[intent-detection-structured] No context returned for "
+                    "intent=%s; using full query fallback"
+                ),
                 intent.value,
             )
             results.append(IntentWithContext(intent=intent, context_text=query.strip() or ""))
@@ -1082,14 +1108,20 @@ def determine_intents_structured(
 
     except Exception:  # pylint: disable=broad-except
         logger.error(
-            "[intent-detection-structured] Structured detection failed, falling back to simple detection",
+            (
+                "[intent-detection-structured] Structured detection failed, "
+                "falling back to simple detection"
+            ),
             exc_info=True,
         )
         # Fallback: use the full query for every expected intent
         fallback_context = query.strip()
         if not fallback_context:
             logger.warning(
-                "[intent-detection-structured] Query is empty after strip; fallback context will be empty"
+                (
+                    "[intent-detection-structured] Query is empty after strip; "
+                    "fallback context will be empty"
+                )
             )
         return [
             IntentWithContext(intent=intent, context_text=fallback_context)
@@ -1125,7 +1157,10 @@ def generate_continuation_actions(
         List of complete continuation questions, one per intent, in the same order
     """
     logger.info(
-        "[continuation-questions] Generating continuation questions for %d intents in language '%s'",
+        (
+            "[continuation-questions] Generating continuation questions for %d "
+            "intents in language '%s'"
+        ),
         len(intents),
         target_language,
     )
@@ -1241,42 +1276,54 @@ def is_affirmative_response_to_continuation(
         - is_affirmative("no", "translate...") -> False
         - is_affirmative("what's Romans 9 about?", "translate...") -> False (pivoted)
     """
+    preview_message = (
+        f"{user_message[:AFFIRMATIVE_LOG_PREVIEW_LENGTH]}..."
+        if len(user_message) > AFFIRMATIVE_LOG_PREVIEW_LENGTH
+        else user_message
+    )
+    preview_context = (
+        f"{continuation_context[:AFFIRMATIVE_LOG_PREVIEW_LENGTH]}..."
+        if len(continuation_context) > AFFIRMATIVE_LOG_PREVIEW_LENGTH
+        else continuation_context
+    )
     logger.info(
         "[affirmative-detection] Checking if '%s' is affirmative to: %s",
-        user_message[:50] + "..." if len(user_message) > 50 else user_message,
-        continuation_context[:50] + "..."
-        if len(continuation_context) > 50
-        else continuation_context,
+        preview_message,
+        preview_context,
     )
 
-    prompt = f"""You are analyzing whether a user is responding affirmatively to a continuation question.
+    prompt = dedent(
+        """\
+        You are analyzing whether a user is responding affirmatively to a continuation question.
 
-Context: We asked the user if they wanted us to: "{continuation_context}"
+        Context: We asked the user if they wanted us to: "{context}"
 
-User's response: "{user_message}"
+        User's response: "{message}"
 
-Determine if the user is saying YES (affirmative) or NO/SOMETHING_ELSE.
+        Determine if the user is saying YES (affirmative) or NO/SOMETHING_ELSE.
 
-Return "YES" if the user is clearly agreeing, confirming, or saying yes.
-Return "NO" if:
-- They explicitly decline (no, nope, cancel, skip, etc.)
-- They ask a different question (pivot to new topic)
-- They ignore the continuation and make a new request
-- They respond with anything other than clear agreement
+        Return "YES" if the user is clearly agreeing, confirming, or saying yes.
+        Return "NO" if:
+        - They explicitly decline (no, nope, cancel, skip, etc.)
+        - They ask a different question (pivot to new topic)
+        - They ignore the continuation and make a new request
+        - They respond with anything other than clear agreement
 
-Examples:
-- "yes" -> YES
-- "sure" -> YES
-- "ok" -> YES
-- "please" -> YES
-- "go ahead" -> YES
-- "no" -> NO
-- "not now" -> NO
-- "what about Romans 9?" -> NO (new question)
-- "summarize John 3" -> NO (new request)
-- "tell me about David" -> NO (different topic)
+        Examples:
+        - "yes" -> YES
+        - "sure" -> YES
+        - "ok" -> YES
+        - "please" -> YES
+        - "go ahead" -> YES
+        - "no" -> NO
+        - "not now" -> NO
+        - "what about Romans 9?" -> NO (new question)
+        - "summarize John 3" -> NO (new request)
+        - "tell me about David" -> NO (different topic)
 
-Respond with exactly one word: YES or NO"""
+        Respond with exactly one word: YES or NO.
+        """
+    ).format(context=continuation_context, message=user_message)
 
     try:
         response = client.chat.completions.create(

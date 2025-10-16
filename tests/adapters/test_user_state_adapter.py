@@ -1,10 +1,9 @@
 """Tests for the user state TinyDB adapter."""
 
-# pylint: disable=missing-function-docstring,missing-class-docstring,redefined-outer-name,useless-return
-
 from __future__ import annotations
 
 from pathlib import Path
+from typing import cast
 
 import pytest
 from tinydb import Query, TinyDB
@@ -12,8 +11,8 @@ from tinydb import Query, TinyDB
 from bt_servant_engine.adapters import user_state
 
 
-@pytest.fixture()
-def temp_user_db(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+@pytest.fixture(name="temp_user_db")
+def _temp_user_db(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     """Provide a temporary TinyDB instance and patch the module globals."""
     db_path = tmp_path / "db.json"
     db = TinyDB(db_path)
@@ -24,6 +23,8 @@ def temp_user_db(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
 
 
 def test_chat_history_roundtrip_respects_max(temp_user_db: TinyDB) -> None:
+    """Chat history stays capped and preserves the latest response."""
+    del temp_user_db
     user_id = "tester"
     for i in range(user_state.CHAT_HISTORY_MAX + 1):
         user_state.update_user_chat_history(user_id, f"q{i}", f"r{i}")
@@ -34,6 +35,8 @@ def test_chat_history_roundtrip_respects_max(temp_user_db: TinyDB) -> None:
 
 
 def test_response_language_roundtrip(temp_user_db: TinyDB) -> None:
+    """Response language round-trips through the adapter."""
+    del temp_user_db
     user_id = "lang-user"
     assert user_state.get_user_response_language(user_id) is None
     user_state.set_user_response_language(user_id, "es")
@@ -41,6 +44,8 @@ def test_response_language_roundtrip(temp_user_db: TinyDB) -> None:
 
 
 def test_agentic_strength_roundtrip(temp_user_db: TinyDB) -> None:
+    """Agentic strength enforces the allowed value set."""
+    del temp_user_db
     user_id = "agentic"
     assert user_state.get_user_agentic_strength(user_id) is None
 
@@ -58,6 +63,8 @@ def test_agentic_strength_roundtrip(temp_user_db: TinyDB) -> None:
 
 
 def test_first_interaction_flags(temp_user_db: TinyDB) -> None:
+    """First-interaction flag flips and persists via adapter helpers."""
+    del temp_user_db
     user_id = "first"
     assert user_state.is_first_interaction(user_id) is True
 
@@ -69,6 +76,7 @@ def test_first_interaction_flags(temp_user_db: TinyDB) -> None:
 
 
 def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Adapter delegates work to the module-level helpers."""
     adapter = user_state.UserStateAdapter()
 
     calls: list[str] = []
@@ -85,14 +93,14 @@ def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) ->
 
     def fake_get_lang(uid: str) -> str | None:
         record(f"get_lang:{uid}")
-        return None
+        return cast(str | None, None)
 
     def fake_set_lang(uid: str, lang: str) -> None:
         record(f"set_lang:{uid}:{lang}")
 
     def fake_get_strength(uid: str) -> str | None:
         record(f"get_strength:{uid}")
-        return None
+        return cast(str | None, None)
 
     def fake_set_strength(uid: str, strength: str) -> None:
         record(f"set_strength:{uid}:{strength}")

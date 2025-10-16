@@ -1,5 +1,4 @@
 """Unit tests for webhooks router helpers to maintain coverage."""
-# pylint: disable=missing-function-docstring,too-few-public-methods,unused-argument
 
 from __future__ import annotations
 
@@ -9,7 +8,9 @@ import hmac
 import json
 import time
 from contextlib import asynccontextmanager
-from typing import Any
+from types import SimpleNamespace
+
+from http import HTTPStatus
 
 import pytest
 from fastapi.testclient import TestClient
@@ -19,11 +20,16 @@ from bt_servant_engine.apps.api.routes import webhooks
 from bt_servant_engine.apps.api.state import set_brain
 from bt_servant_engine.core.config import config as app_config
 from bt_servant_engine.core.models import UserMessage
+from bt_servant_engine.services import runtime
 
 
 @asynccontextmanager
 async def _noop_time_block(_: str):
     yield
+
+
+async def _noop_sleep(*args, **kwargs) -> None:
+    del args, kwargs
 
 
 def test_process_message_text_flow(monkeypatch) -> None:
@@ -40,47 +46,31 @@ def test_process_message_text_flow(monkeypatch) -> None:
     }
     user_message = UserMessage.from_data(message_data)
 
-    sent_text: list[str] = []
+    services = runtime.get_services()
+    messaging = services.messaging
+    assert messaging is not None
+    messaging.sent_text.clear()  # type: ignore[attr-defined]
+    messaging.sent_voice.clear()  # type: ignore[attr-defined]
+    messaging.typing.clear()  # type: ignore[attr-defined]
 
-    async def _fake_send_text_message(user_id: str, text: str) -> None:
-        sent_text.append(f"{user_id}:{text}")
-
-    async def _fake_send_voice_message(*_, **__) -> None:
-        return None
-
-    async def _fake_sleep(*_, **__) -> None:
-        return None
-
-    async def _fake_typing_indicator(*_, **__) -> None:
-        return None
-
-    async def _fake_transcribe(*_, **__) -> str:
-        return "ignored"
-
-    monkeypatch.setattr(webhooks, "send_text_message", _fake_send_text_message)
-    monkeypatch.setattr(webhooks, "send_voice_message", _fake_send_voice_message)
-    monkeypatch.setattr(webhooks.asyncio, "sleep", _fake_sleep)
-    monkeypatch.setattr(webhooks, "send_typing_indicator_message", _fake_typing_indicator)
-    monkeypatch.setattr(webhooks, "transcribe_voice_message", _fake_transcribe)
-    monkeypatch.setattr(webhooks, "get_user_chat_history", lambda **_: [])
-    monkeypatch.setattr(webhooks, "update_user_chat_history", lambda **_: None)
-    monkeypatch.setattr(webhooks, "get_user_response_language", lambda **_: "en")
-    monkeypatch.setattr(webhooks, "get_user_agentic_strength", lambda **_: None)
+    monkeypatch.setattr(webhooks.asyncio, "sleep", _noop_sleep)
     monkeypatch.setattr(webhooks, "time_block", _noop_time_block)
     monkeypatch.setattr(webhooks, "log_final_report", lambda *_, **__: None)
 
-    class _FakeBrain:
-        def invoke(self, payload: dict[str, Any]) -> dict[str, Any]:
-            return {
-                "translated_responses": ["response1", "response2"],
-                "send_voice_message": False,
-            }
+    brain = SimpleNamespace(
+        invoke=lambda payload: {
+            "translated_responses": ["response1", "response2"],
+            "send_voice_message": False,
+        }
+    )
+    set_brain(brain)
 
-    set_brain(_FakeBrain())
+    asyncio.run(webhooks.process_message(user_message, services))
 
-    asyncio.run(webhooks.process_message(user_message))
-
-    assert len(sent_text) == 2
+    assert messaging.sent_text == [  # type: ignore[attr-defined]
+        ("15555555555", "(1/2) response1"),
+        ("15555555555", "(2/2) response2"),
+    ]
     set_brain(None)
 
 
@@ -98,55 +88,48 @@ def test_process_message_audio_flow(monkeypatch) -> None:
     }
     user_message = UserMessage.from_data(message_data)
 
-    sent_text: list[str] = []
-    sent_voice: list[str] = []
+    services = runtime.get_services()
+    messaging = services.messaging
+    assert messaging is not None
+    messaging.sent_text.clear()  # type: ignore[attr-defined]
+    messaging.sent_voice.clear()  # type: ignore[attr-defined]
+    messaging.typing.clear()  # type: ignore[attr-defined]
 
-    async def _fake_send_text_message(user_id: str, text: str) -> None:
-        sent_text.append(f"{user_id}:{text}")
-
-    async def _fake_send_voice_message(user_id: str, text: str) -> None:
-        sent_voice.append(f"{user_id}:{text}")
-
-    async def _fake_sleep(*_, **__):
-        return None
-
-    async def _fake_typing_indicator_message(*_, **__):
-        return None
-
-    async def _fake_transcribe_voice_message(*_, **__) -> str:
+    async def _fake_transcribe_voice_message(*args, **kwargs) -> str:
+        del args, kwargs
         return "transcribed"
 
-    monkeypatch.setattr(webhooks, "send_text_message", _fake_send_text_message)
-    monkeypatch.setattr(webhooks, "send_voice_message", _fake_send_voice_message)
-    monkeypatch.setattr(webhooks.asyncio, "sleep", _fake_sleep)
-    monkeypatch.setattr(webhooks, "send_typing_indicator_message", _fake_typing_indicator_message)
-    monkeypatch.setattr(webhooks, "transcribe_voice_message", _fake_transcribe_voice_message)
-    monkeypatch.setattr(webhooks, "get_user_chat_history", lambda **_: [])
-    monkeypatch.setattr(webhooks, "update_user_chat_history", lambda **_: None)
-    monkeypatch.setattr(webhooks, "get_user_response_language", lambda **_: "en")
-    monkeypatch.setattr(webhooks, "get_user_agentic_strength", lambda **_: None)
+    monkeypatch.setattr(webhooks.asyncio, "sleep", _noop_sleep)
+    monkeypatch.setattr(messaging, "transcribe_voice_message", _fake_transcribe_voice_message)
     monkeypatch.setattr(webhooks, "time_block", _noop_time_block)
     monkeypatch.setattr(webhooks, "log_final_report", lambda *_, **__: None)
 
-    class _FakeBrain:
-        def invoke(self, payload: dict[str, Any]) -> dict[str, Any]:
-            return {
-                "translated_responses": ["response"],
-                "send_voice_message": True,
-                "voice_message_text": "spoken reply",
-            }
+    brain = SimpleNamespace(
+        invoke=lambda payload: {
+            "translated_responses": ["response"],
+            "send_voice_message": True,
+            "voice_message_text": "spoken reply",
+        }
+    )
+    set_brain(brain)
 
-    set_brain(_FakeBrain())
-
-    asyncio.run(webhooks.process_message(user_message))
+    asyncio.run(webhooks.process_message(user_message, services))
 
     progress_prefix = app_config.PROGRESS_MESSAGE_EMOJI
-    assert sent_text == [
-        f"15555555555:{progress_prefix} I'm transcribing your voice message. Give me a moment.",
-        f"15555555555:{progress_prefix} I'm packaging up a voice message response.",
-        "15555555555:response",
+    assert messaging.sent_text == [  # type: ignore[attr-defined]
+        (
+            "15555555555",
+            f"{progress_prefix} I'm transcribing your voice message. Give me a moment.",
+        ),
+        (
+            "15555555555",
+            f"{progress_prefix} I'm packaging up a voice message response.",
+        ),
+        ("15555555555", "response"),
     ]
-    assert sent_voice == ["15555555555:spoken reply"]
+    assert messaging.sent_voice == [  # type: ignore[attr-defined]
+        ("15555555555", "spoken reply")
+    ]
     set_brain(None)
 
 
@@ -170,8 +153,9 @@ def test_verify_facebook_signature(header: str, secret: str, payload: bytes) -> 
 
 
 def test_verify_webhook_success(monkeypatch):
+    """Verification endpoint echoes the hub challenge on success."""
     monkeypatch.setattr(app_config, "META_VERIFY_TOKEN", "verify", raising=True)
-    client = TestClient(create_app())
+    client = TestClient(create_app(services=runtime.get_services()))
     resp = client.get(
         "/meta-whatsapp",
         params={
@@ -180,14 +164,15 @@ def test_verify_webhook_success(monkeypatch):
             "hub.challenge": "ok",
         },
     )
-    assert resp.status_code == 200
+    assert resp.status_code == HTTPStatus.OK
     assert resp.text == "ok"
 
 
 def test_handle_meta_webhook_invalid_signature(monkeypatch):
+    """Webhook rejects requests with an invalid signature."""
     monkeypatch.setattr(app_config, "META_APP_SECRET", "secret", raising=True)
     monkeypatch.setattr(app_config, "FACEBOOK_USER_AGENT", "facebookexternalua", raising=True)
-    client = TestClient(create_app())
+    client = TestClient(create_app(services=runtime.get_services()))
     resp = client.post(
         "/meta-whatsapp",
         headers={
@@ -196,10 +181,11 @@ def test_handle_meta_webhook_invalid_signature(monkeypatch):
         },
         json={},
     )
-    assert resp.status_code == 401
+    assert resp.status_code == HTTPStatus.UNAUTHORIZED
 
 
 def test_handle_meta_webhook_processes_message(monkeypatch):
+    """Webhook accepts valid signatures and invokes process_message."""
     monkeypatch.setattr(app_config, "META_APP_SECRET", "secret", raising=True)
     monkeypatch.setattr(app_config, "FACEBOOK_USER_AGENT", "facebookexternalua", raising=True)
     monkeypatch.setattr(app_config, "IN_META_SANDBOX_MODE", False, raising=True)
@@ -207,7 +193,7 @@ def test_handle_meta_webhook_processes_message(monkeypatch):
 
     calls: list[str] = []
 
-    async def _fake_process_message(user_message: UserMessage) -> None:
+    async def _fake_process_message(user_message: UserMessage, **_) -> None:  # noqa: ANN001
         calls.append(user_message.user_id)
 
     monkeypatch.setattr(webhooks, "process_message", _fake_process_message)
@@ -236,7 +222,7 @@ def test_handle_meta_webhook_processes_message(monkeypatch):
     body = json.dumps(payload).encode("utf-8")
     signature = "sha256=" + hmac.new(b"secret", body, hashlib.sha256).hexdigest()
 
-    client = TestClient(create_app())
+    client = TestClient(create_app(services=runtime.get_services()))
     resp = client.post(
         "/meta-whatsapp",
         headers={
@@ -245,5 +231,5 @@ def test_handle_meta_webhook_processes_message(monkeypatch):
         },
         content=body,
     )
-    assert resp.status_code == 200
+    assert resp.status_code == HTTPStatus.OK
     assert calls == ["15555555555"]

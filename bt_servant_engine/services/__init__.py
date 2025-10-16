@@ -3,12 +3,10 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Optional
+from typing import Optional
 
 from bt_servant_engine.core.ports import ChromaPort, MessagingPort, UserStatePort
-
-if TYPE_CHECKING:  # pragma: no cover - type narrowing only
-    from .intent_router import IntentRouter
+from bt_servant_engine.services.intent_router import IntentRouter
 
 
 @dataclass(slots=True)
@@ -28,9 +26,6 @@ def build_default_services(
     messaging_port: Optional[MessagingPort] = None,
 ) -> ServiceContainer:
     """Return a service container with the default intent router wiring."""
-
-    from .intent_router import IntentRouter  # pylint: disable=import-outside-toplevel
-
     intent_router = IntentRouter()
     return ServiceContainer(
         chroma=chroma_port,

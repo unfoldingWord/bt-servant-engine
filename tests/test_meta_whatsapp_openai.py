@@ -15,6 +15,7 @@ import json
 import os
 import re
 import time
+from http import HTTPStatus
 
 import pytest
 from dotenv import load_dotenv
@@ -22,8 +23,9 @@ from fastapi.testclient import TestClient
 from tinydb import TinyDB
 
 from bt_servant_engine.apps.api.app import create_app
+from bt_servant_engine.bootstrap import build_default_service_container
 from bt_servant_engine.apps.api.routes import webhooks
-from bt_servant_engine.services import brain_nodes
+from bt_servant_engine.services import brain_nodes, runtime
 from bt_servant_engine.apps.api.state import set_brain
 from bt_servant_engine.core.config import config as app_config
 import bt_servant_engine.adapters.user_state as user_db
@@ -102,11 +104,6 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first
     async def _fake_typing_indicator_message(message_id: str) -> None:  # message_id unused in test
         return None
 
-    # Patch the functions as imported into the API module to ensure the endpoint uses fakes
-    monkeypatch.setattr(webhooks, "send_text_message", _fake_send_text_message)
-    monkeypatch.setattr(webhooks, "send_voice_message", _fake_send_voice_message)
-    monkeypatch.setattr(webhooks, "send_typing_indicator_message", _fake_typing_indicator_message)
-
     # Capture that the keywords handler node actually ran (state-based validation)
     # Patch at the module where the graph actually imports from (brain_nodes)
 
@@ -122,7 +119,15 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first
     set_brain(None)
 
     # Use context manager to ensure client/session cleanup
-    with TestClient(create_app()) as client:
+    with TestClient(create_app(build_default_service_container())) as client:
+        services = runtime.get_services()
+        messaging = services.messaging
+        assert messaging is not None
+        monkeypatch.setattr(messaging, "send_text_message", _fake_send_text_message)
+        monkeypatch.setattr(messaging, "send_voice_message", _fake_send_voice_message)
+        monkeypatch.setattr(messaging, "send_typing_indicator", _fake_typing_indicator_message)
+        monkeypatch.setattr(webhooks.asyncio, "sleep", lambda *_, **__: None)
+
         body_obj = _meta_text_payload("What are the keywords in 3 John?")
         body = json.dumps(body_obj).encode("utf-8")
 
@@ -140,7 +145,7 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first
                 "User-Agent": ua,
             },
         )
-        assert resp.status_code == 200
+        assert resp.status_code == HTTPStatus.OK
 
         # Poll for side-effect (background task) to finish.
         # OpenAI-backed paths can occasionally exceed 20s; allow up to 60s.

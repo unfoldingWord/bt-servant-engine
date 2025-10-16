@@ -36,8 +36,12 @@ class TestGetFollowupForIntent:
     def test_all_defined_intents_have_english_translations(self):
         """All intents in INTENT_FOLLOWUP_QUESTIONS have English translations."""
         for intent_type, translations in INTENT_FOLLOWUP_QUESTIONS.items():
-            assert "en" in translations, f"Intent {intent_type} missing English translation"
-            assert len(translations["en"]) > 0, f"Intent {intent_type} has empty English translation"
+            assert "en" in translations, (
+                f"Intent {intent_type} missing English translation"
+            )
+            assert translations["en"], (
+                f"Intent {intent_type} has empty English translation"
+            )
 
     def test_followup_questions_have_multiple_languages(self):
         """Follow-up questions support multiple languages."""

@@ -15,6 +15,11 @@ from chromadb.config import Settings
 from chromadb.utils import embedding_functions
 
 from bt_servant_engine.core.config import config
+from bt_servant_engine.core.exceptions import (
+    CollectionExistsError,
+    CollectionNotFoundError,
+    DocumentNotFoundError,
+)
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.core.ports import ChromaPort
 
@@ -35,18 +40,6 @@ settings = Settings(
 _aquifer_chroma_db = chromadb.PersistentClient(path=str(DATA_DIR), settings=settings)
 
 logger = get_logger(__name__)
-
-
-class CollectionExistsError(Exception):
-    """Raised when attempting to create a collection that already exists."""
-
-
-class CollectionNotFoundError(Exception):
-    """Raised when attempting to access or delete a missing collection."""
-
-
-class DocumentNotFoundError(Exception):
-    """Raised when attempting to delete a missing document from a collection."""
 
 
 def get_or_create_chroma_collection(name: str) -> Any:
@@ -332,6 +325,9 @@ def get_chroma_collections_pair(source: str, dest: str) -> Tuple[Any, Any]:
 class ChromaAdapter(ChromaPort):
     """Concrete adapter around the Chroma helpers."""
 
+    def get_collection(self, name: str) -> Any | None:
+        return get_chroma_collection(name)
+
     def list_collections(self) -> list[str]:
         return list_chroma_collections()
 
@@ -377,9 +373,6 @@ class ChromaAdapter(ChromaPort):
 
 __all__ = [
     "ChromaAdapter",
-    "CollectionExistsError",
-    "CollectionNotFoundError",
-    "DocumentNotFoundError",
     "get_or_create_chroma_collection",
     "get_chroma_collection",
     "get_next_doc_id",

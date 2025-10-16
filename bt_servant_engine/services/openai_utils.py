@@ -2,7 +2,7 @@
 
 from typing import Any, Callable, Optional
 
-from utils.perf import add_tokens
+from utils.perf import TokenIncrements, add_tokens
 
 
 def extract_cached_input_tokens(usage: Any) -> int | None:
@@ -72,7 +72,14 @@ def track_openai_usage(
 
     # Add tokens to tracking
     tokens_fn = add_tokens_fn or add_tokens
-    tokens_fn(it, ot, tt, model=model, cached_input_tokens=cit)
+    increments = TokenIncrements(
+        input_tokens=it,
+        output_tokens=ot,
+        total_tokens=tt,
+        model=model,
+        cached_input_tokens=cit,
+    )
+    tokens_fn(increments)
 
 
 __all__ = ["extract_cached_input_tokens", "track_openai_usage"]

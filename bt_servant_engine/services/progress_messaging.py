@@ -8,13 +8,26 @@ callbacks rather than direct adapter dependencies.
 from __future__ import annotations
 
 from time import time
-from typing import Any, Awaitable, Callable, cast
-
+from typing import TYPE_CHECKING, Any, Awaitable, Callable, Dict, cast
 
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services import status_messages
 
+if TYPE_CHECKING:
+    from bt_servant_engine.services.brain_orchestrator import BrainState
+else:
+    BrainState = Dict[str, Any]  # type: ignore[assignment]
+
 logger = get_logger(__name__)
+
+PROGRESS_LENGTH_THRESHOLD = 500
+COMPLEX_SCRIPT_LANGUAGES = (
+    "Arabic",
+    "Chinese",
+    "Japanese",
+    "Hebrew",
+    "Hindi",
+)
 
 # Type alias for progress messenger callback
 ProgressMessenger = Callable[[status_messages.LocalizedProgressMessage], Awaitable[None]]
@@ -40,9 +53,6 @@ async def maybe_send_progress(
         - Failures to send progress messages are logged but don't interrupt processing
         - Progress messaging can be disabled per-request via progress_enabled flag
     """
-    # Import here to avoid circular dependency
-    from bt_servant_engine.services.brain_orchestrator import BrainState
-
     s = cast(BrainState, state)
 
     # Check if progress messaging is enabled for this request
@@ -99,7 +109,6 @@ def should_show_translation_progress(state: Any) -> bool:
     Returns:
         True if translation progress should be shown
     """
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
     s = cast(BrainState, state)
     responses = s.get("responses", [])
@@ -120,11 +129,10 @@ def should_show_translation_progress(state: Any) -> bool:
     total_length = sum(len(r.get("response", "")) for r in responses)
 
     # Complex scripts need more processing time
-    complex_scripts = ["Arabic", "Chinese", "Japanese", "Hebrew", "Hindi"]
-    is_complex = target_lang in complex_scripts
+    is_complex = target_lang in COMPLEX_SCRIPT_LANGUAGES
 
     # Show progress for long responses or complex scripts
-    return total_length > 500 or is_complex
+    return total_length > PROGRESS_LENGTH_THRESHOLD or is_complex
 
 
 __all__ = [

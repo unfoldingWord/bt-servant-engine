@@ -7,16 +7,15 @@ while handling state extraction and dependency injection.
 
 from __future__ import annotations
 
-from functools import partial
 from pathlib import Path
-from typing import Any, Iterable, Mapping, Optional, cast
+from typing import TYPE_CHECKING, Any, Iterable, Optional, cast
 
 from openai import OpenAI
 
 from bt_servant_engine.core.config import config
-from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.core.ports import ChromaPort, UserStatePort
 from bt_servant_engine.services.openai_utils import (
     extract_cached_input_tokens as _extract_cached_input_tokens,
 )
@@ -31,6 +30,8 @@ from bt_servant_engine.services.response_helpers import (
     partition_response_items as _partition_response_items_impl,
     sample_for_language_detection as _sample_for_language_detection_impl,
 )
+from bt_servant_engine.services.brain_followups import FollowupConfig, apply_followups
+from bt_servant_engine.services.continuation_prompts import INTENT_ACTION_DESCRIPTIONS
 from bt_servant_engine.services.preprocessing import (
     determine_intents as _determine_intents_impl,
     determine_intents_structured as _determine_intents_structured_impl,
@@ -39,11 +40,13 @@ from bt_servant_engine.services.preprocessing import (
     model_for_agentic_strength as _model_for_agentic_strength,
     preprocess_user_query as _preprocess_user_query_impl,
     resolve_agentic_strength as _resolve_agentic_strength,
+    generate_continuation_actions as _generate_continuation_actions_impl,
 )
 from bt_servant_engine.services.passage_selection import (
+    PassageSelectionDependencies,
+    PassageSelectionRequest,
     resolve_selection_for_single_book as resolve_selection_for_single_book_impl,
 )
-from bt_servant_engine.services.passage_followups import build_followup_question
 from bt_servant_engine.services.intents.simple_intents import (
     BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
     converse_with_bt_servant as converse_with_bt_servant_impl,
@@ -51,24 +54,48 @@ from bt_servant_engine.services.intents.simple_intents import (
     handle_unsupported_function as handle_unsupported_function_impl,
 )
 from bt_servant_engine.services.intents.settings_intents import (
+    AgenticStrengthDependencies,
+    AgenticStrengthRequest,
+    ResponseLanguageDependencies,
+    ResponseLanguageRequest,
     set_agentic_strength as set_agentic_strength_impl,
     set_response_language as set_response_language_impl,
 )
 from bt_servant_engine.services.intents.passage_intents import (
+    ListenToScriptureRequest,
+    PassageKeywordsRequest,
+    PassageSummaryRequest,
+    RetrieveScriptureRequest,
     get_passage_keywords as get_passage_keywords_impl,
     get_passage_summary as get_passage_summary_impl,
     listen_to_scripture as listen_to_scripture_impl,
     retrieve_scripture as retrieve_scripture_impl,
 )
 from bt_servant_engine.services.intents.translation_intents import (
+    TranslationDependencies,
+    TranslationHelpsDependencies,
+    TranslationHelpsRequestParams,
+    TranslationRequestParams,
     get_translation_helps as get_translation_helps_impl,
     translate_scripture as translate_scripture_impl,
 )
 from bt_servant_engine.services.intents.fia_intents import (
+    FIADependencies,
+    FIARequest,
     consult_fia_resources as consult_fia_resources_impl,
     FIA_REFERENCE_CONTENT,
 )
+from bt_servant_engine.services.intent_queue import (
+    clear_queue,
+    has_queued_intents,
+    peek_next_intent,
+)
 from bt_servant_engine.services.response_pipeline import (
+    ChunkingDependencies,
+    ChunkingRequest,
+    ResponseLocalizationRequest,
+    ResponseTranslationDependencies,
+    ResponseTranslationRequest,
     chunk_message as chunk_message_impl,
     needs_chunking as needs_chunking_impl,
     reconstruct_structured_text as reconstruct_structured_text_impl,
@@ -78,6 +105,8 @@ from bt_servant_engine.services.response_pipeline import (
     resolve_target_language as resolve_target_language_impl,
 )
 from bt_servant_engine.services.graph_pipeline import (
+    OpenAIQueryDependencies,
+    OpenAIQueryPayload,
     query_open_ai as query_open_ai_impl,
     query_vector_db as query_vector_db_impl,
 )
@@ -86,13 +115,8 @@ from bt_servant_engine.services.translation_helpers import (
     build_translation_helps_messages as build_translation_helps_messages_impl,
     prepare_translation_helps as prepare_translation_helps_impl,
 )
-from bt_servant_engine.adapters.chroma import get_chroma_collection
-from bt_servant_engine.adapters.user_state import (
-    is_first_interaction,
-    set_first_interaction,
-    set_user_agentic_strength,
-    set_user_response_language,
-)
+from bt_servant_engine.services.status_messages import get_effective_response_language
+from bt_servant_engine.services import runtime
 from utils.bsb import BOOK_MAP as BSB_BOOK_MAP
 from utils.perf import add_tokens
 
@@ -100,6 +124,15 @@ from utils.perf import add_tokens
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 open_ai_client = OpenAI(api_key=config.OPENAI_API_KEY)
 logger = get_logger(__name__)
+
+if TYPE_CHECKING:
+    from bt_servant_engine.services.brain_orchestrator import BrainState
+
+
+def _brain_state(state: Any) -> "BrainState":
+    """Return the langgraph state as a typed BrainState for downstream helpers."""
+    return cast("BrainState", state)
+
 
 # Constants
 FIRST_INTERACTION_MESSAGE = f"""
@@ -111,14 +144,26 @@ Hello! I am the BT Servant. This is our first conversation. Let's work together 
 LANG_DETECTION_SAMPLE_CHARS = 100
 
 
+def _user_state_port() -> UserStatePort:
+    services = runtime.get_services()
+    if services.user_state is None:
+        raise RuntimeError("User state port is not configured.")
+    return services.user_state
+
+
+def _chroma_port() -> ChromaPort:
+    services = runtime.get_services()
+    if services.chroma is None:
+        raise RuntimeError("Chroma port is not configured.")
+    return services.chroma
+
+
 # Response helper wrappers
 
 
 def _intent_query_for_node(state: Any, node_name: str) -> str:
     """Return the intent-specific query text for the active node with logging."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
-
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     context = cast(Optional[str], s.get("active_intent_context"))
     source = cast(str, s.get("active_intent_context_source", "unknown"))
     transformed = s.get("transformed_query", "")
@@ -195,41 +240,17 @@ def _translate_or_localize_response(
     agentic_strength: str,
 ) -> str:
     """Translate free-form text or localize structured scripture outputs."""
-    return translate_or_localize_response_impl(
-        open_ai_client,
-        resp,
-        target_language,
-        agentic_strength,
-        _model_for_agentic_strength,
-        _extract_cached_input_tokens,
+    request = ResponseLocalizationRequest(
+        client=open_ai_client,
+        response=resp,
+        target_language=target_language,
+        agentic_strength=agentic_strength,
     )
-
-
-def _custom_followup_for_intent(
-    state: Mapping[str, Any],
-    intent: IntentType,
-    target_language: str,
-    agentic_strength: str,
-) -> Optional[str]:
-    """Return a deterministic follow-up question for passage-based intents."""
-    suggestion_ctx = state.get("passage_followup_context")
-    if not isinstance(suggestion_ctx, Mapping):
-        return None
-    if suggestion_ctx.get("intent") != intent:
-        return None
-    lang_code = str(target_language).strip().lower()
-    translate_fn = None
-    if lang_code != "en":
-        translate_fn = partial(
-            translate_text,
-            agentic_strength=agentic_strength,
-        )
-    return build_followup_question(
-        intent,
-        suggestion_ctx,
-        target_language,
-        translate_fn,
+    dependencies = ResponseTranslationDependencies(
+        model_for_agentic_strength=_model_for_agentic_strength,
+        extract_cached_input_tokens=_extract_cached_input_tokens,
     )
+    return translate_or_localize_response_impl(request, dependencies)
 
 
 # Graph node functions
@@ -237,14 +258,11 @@ def _custom_followup_for_intent(
 
 def start(state: Any) -> dict:
     """Handle first interaction greeting, otherwise no-op."""
-    from bt_servant_engine.services.brain_orchestrator import (
-        BrainState,
-    )  # Import here to avoid circular dependency
-
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     user_id = s["user_id"]
-    if is_first_interaction(user_id):
-        set_first_interaction(user_id, False)
+    user_state = _user_state_port()
+    if user_state.is_first_interaction(user_id):
+        user_state.set_first_interaction(user_id, False)
         return {
             "responses": [{"intent": "first-interaction", "response": FIRST_INTERACTION_MESSAGE}]
         }
@@ -262,161 +280,157 @@ def determine_intents(state: Any) -> dict:
     5. If multiple intents detected, use structured extraction for parameter disambiguation
     6. If single intent, skip extraction (whole query is context - no need for LLM overhead)
     """
-    from bt_servant_engine.services.brain_orchestrator import BrainState
-    from bt_servant_engine.services.continuation_prompts import INTENT_ACTION_DESCRIPTIONS
-    from bt_servant_engine.services.intent_queue import (
-        clear_queue,
-        has_queued_intents,
-        peek_next_intent,
-    )
-
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     query = s["transformed_query"]
-    user_id = s.get("user_id")
+    queued_result = _resolve_queued_intent_response(s, query)
+    if queued_result:
+        return queued_result
 
-    # Check if user has queued intents (only if user_id is present)
-    if user_id and has_queued_intents(user_id):
-        next_item = peek_next_intent(user_id)
-        if next_item:
-            # Get context description for LLM
-            action_description = INTENT_ACTION_DESCRIPTIONS.get(
-                next_item.intent, f"help with {next_item.intent.value.replace('-', ' ')}"
-            )
-
-            logger.info(
-                "[determine-intents] User has queued intent (%s: '%s'), checking if response is affirmative",
-                next_item.intent.value,
-                action_description,
-            )
-
-            # Use LLM to determine if user is responding affirmatively
-            is_affirmative = _is_affirmative_response_to_continuation_impl(
-                open_ai_client, query, action_description
-            )
-
-            if is_affirmative:
-                logger.info(
-                    "[determine-intents] User responded affirmatively, using queued intent: %s with context='%s'",
-                    next_item.intent.value,
-                    next_item.context_text,
-                )
-                # Return single intent from queue with captured context snippet
-                return {
-                    "user_intents": [next_item.intent],
-                    "queued_intent_context": next_item.context_text,
-                    "intent_context_map": {next_item.intent.value: next_item.context_text},
-                }
-
-            # User did not respond affirmatively - clear queue and fall through
-            logger.info(
-                "[determine-intents] User did NOT respond affirmatively (said 'no' or pivoted), clearing queue"
-            )
-            clear_queue(user_id)
-            # Fall through to detect new intent from their message
-
-    # No queue or user pivoted - detect intents from query
     logger.info("[determine-intents] Detecting intents from query: %s", query[:100])
     user_intents = _determine_intents_impl(open_ai_client, query)
 
-    # If multiple intents, use structured extraction for parameter disambiguation
     if len(user_intents) > 1:
-        expected_intents = list(user_intents)
-        logger.info(
-            "[determine-intents] Multiple intents detected (%d), using structured extraction for parameter disambiguation",
-            len(user_intents),
-        )
-        intents_with_context = _determine_intents_structured_impl(
-            open_ai_client, query, expected_intents
-        )
-
-        # Extract just the intent types for backward compatibility
-        intent_types = [ic.intent for ic in intents_with_context]
-        context_map = {ctx.intent.value: ctx.trimmed_context() for ctx in intents_with_context}
-
-        logger.info(
-            "[determine-intents] Structured extraction complete, storing context for %d intents",
-            len(intents_with_context),
-        )
-        for idx, ctx in enumerate(intents_with_context):
-            logger.info(
-                "[determine-intents]   Intent %d context='%s' (intent=%s)",
-                idx + 1,
-                ctx.trimmed_context(),
-                ctx.intent.value,
-            )
-
-        # Generate complete continuation questions for each intent in the appropriate language
-        logger.info("[determine-intents] Generating continuation questions for multi-intent query")
-        from bt_servant_engine.services.preprocessing import generate_continuation_actions
-        from bt_servant_engine.services.status_messages import get_effective_response_language
-
-        target_language = get_effective_response_language(s)
-        # Note: despite the name, this now generates complete questions, not just action phrases
-        continuation_actions = generate_continuation_actions(
-            open_ai_client, query, intent_types, target_language
-        )
-
-        # Store structured data for use in process_intents
-        # We'll add this to BrainState to pass the full context through
-        return {
-            "user_intents": intent_types,
-            "intents_with_context": intents_with_context,
-            "intent_context_map": context_map,
-            "continuation_actions": continuation_actions,
-        }
+        return _handle_multiple_detected_intents(s, query, user_intents)
 
     # Single intent - no extraction needed, whole query is context
     logger.info(
-        "[determine-intents] Single intent detected: %s, skipping parameter extraction (entire query is context)",
+        "[determine-intents] Single intent detected=%s; skipping parameter extraction",
         user_intents[0].value if user_intents else "none",
     )
     context_map_single = {user_intents[0].value: query} if user_intents else {}
     return {
         "user_intents": user_intents,
         "intent_context_map": context_map_single,
-        # No queued_intent_context - handlers will derive context directly from the transformed query
+        # Handlers derive context directly from the transformed query
+    }
+
+
+def _resolve_queued_intent_response(state: "BrainState", query: str) -> dict | None:
+    """Return queued intent metadata when the user affirms a continuation prompt."""
+    user_id = cast(Optional[str], state.get("user_id"))
+    if not user_id or not has_queued_intents(user_id):
+        return None
+
+    next_item = peek_next_intent(user_id)
+    if not next_item:
+        return None
+
+    action_description = INTENT_ACTION_DESCRIPTIONS.get(
+        next_item.intent, f"help with {next_item.intent.value.replace('-', ' ')}"
+    )
+    logger.info(
+        "[determine-intents] Queued intent=%s (%s); checking for affirmative response",
+        next_item.intent.value,
+        action_description,
+    )
+
+    is_affirmative = _is_affirmative_response_to_continuation_impl(
+        open_ai_client, query, action_description
+    )
+    if is_affirmative:
+        logger.info(
+            "[determine-intents] Affirmative reply detected; resuming queued intent=%s",
+            next_item.intent.value,
+        )
+        return {
+            "user_intents": [next_item.intent],
+            "queued_intent_context": next_item.context_text,
+            "intent_context_map": {next_item.intent.value: next_item.context_text},
+        }
+
+    logger.info(
+        "[determine-intents] User declined continuation; clearing queue for user=%s",
+        user_id,
+    )
+    clear_queue(user_id)
+    return None
+
+
+def _handle_multiple_detected_intents(
+    state: "BrainState",
+    query: str,
+    detected_intents: list,
+) -> dict:
+    """Return structured context for multi-intent queries and follow-up prompts."""
+    logger.info(
+        "[determine-intents] Multiple intents detected (%d); running structured extraction",
+        len(detected_intents),
+    )
+    intents_with_context = _determine_intents_structured_impl(
+        open_ai_client, query, list(detected_intents)
+    )
+    intent_types = [intent_context.intent for intent_context in intents_with_context]
+    context_map = {
+        intent_context.intent.value: intent_context.trimmed_context()
+        for intent_context in intents_with_context
+    }
+    logger.info(
+        "[determine-intents] Structured extraction complete; storing context for %d intents",
+        len(intents_with_context),
+    )
+    for index, intent_context in enumerate(intents_with_context, start=1):
+        logger.info(
+            "[determine-intents]   Intent %d context='%s' (intent=%s)",
+            index,
+            intent_context.trimmed_context(),
+            intent_context.intent.value,
+        )
+
+    logger.info("[determine-intents] Building continuation prompts for multi-intent query")
+    target_language = get_effective_response_language(state)
+    continuation_actions = _generate_continuation_actions_impl(
+        open_ai_client, query, intent_types, target_language
+    )
+    return {
+        "user_intents": intent_types,
+        "intents_with_context": intents_with_context,
+        "intent_context_map": context_map,
+        "continuation_actions": continuation_actions,
     }
 
 
 def set_response_language(state: Any) -> dict:
     """Detect and persist the user's desired response language."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "set_response_language_node")
-    return set_response_language_impl(
-        open_ai_client,
-        s["user_id"],
-        intent_query,
-        s["user_chat_history"],
-        supported_language_map,
-        set_user_response_language,
+    user_state = _user_state_port()
+    request = ResponseLanguageRequest(
+        client=open_ai_client,
+        user_id=s["user_id"],
+        user_query=intent_query,
+        chat_history=s["user_chat_history"],
     )
+    dependencies = ResponseLanguageDependencies(
+        supported_language_map=supported_language_map,
+        set_user_response_language=user_state.set_response_language,
+    )
+    return set_response_language_impl(request, dependencies)
 
 
 def set_agentic_strength(state: Any) -> dict:
     """Detect and persist the user's preferred agentic strength."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "set_agentic_strength_node")
-    return set_agentic_strength_impl(
-        open_ai_client,
-        s["user_id"],
-        intent_query,
-        s["user_chat_history"],
-        set_user_agentic_strength,
-        config.LOG_PSEUDONYM_SECRET,
+    user_state = _user_state_port()
+    request = AgenticStrengthRequest(
+        client=open_ai_client,
+        user_id=s["user_id"],
+        user_query=intent_query,
+        chat_history=s["user_chat_history"],
+        log_pseudonym_secret=config.LOG_PSEUDONYM_SECRET,
     )
+    dependencies = AgenticStrengthDependencies(
+        set_user_agentic_strength=user_state.set_agentic_strength
+    )
+    return set_agentic_strength_impl(request, dependencies)
 
 
 def translate_responses(state: Any) -> dict:
     """Translate or localize responses into the user's desired language."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
-    from bt_servant_engine.services.continuation_prompts import generate_continuation_prompt
-    from bt_servant_engine.services.intents.followup_questions import add_followup_if_needed
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     raw_responses = [
         resp for resp in cast(list[dict], s["responses"]) if not resp.get("suppress_text_delivery")
     ]
@@ -437,7 +451,8 @@ def translate_responses(state: Any) -> dict:
     target_language, passthrough = _resolve_target_language(s, responses_for_translation)
     if passthrough is not None:
         return {"translated_responses": passthrough}
-    assert target_language is not None  # nosec B101 - type narrowing; exactly one is None per contract
+    if target_language is None:
+        raise RuntimeError("target language resolution failed")
 
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     translated_responses = [
@@ -445,71 +460,25 @@ def translate_responses(state: Any) -> dict:
         for resp in responses_for_translation
     ]
 
-    updates: dict[str, Any] = {}
-    followup_already_added = bool(s.get("followup_question_added", False))
+    followup_config = FollowupConfig(
+        target_language=target_language,
+        agentic_strength=agentic_strength,
+        followup_already_added=bool(s.get("followup_question_added", False)),
+    )
 
-    # PRIORITY 1: Multi-intent continuation prompt (takes precedence over intent-specific follow-ups)
-    # Check for queued intents first - if present, this supersedes intent-specific follow-ups
-    user_id = s.get("user_id")
-    if user_id:
-        continuation_prompt = generate_continuation_prompt(user_id, s)
-        if continuation_prompt and translated_responses:
-            # Append to the last response
-            logger.info(
-                "[translate] Appending continuation prompt to final response for user=%s", user_id
-            )
-            translated_responses[-1] = translated_responses[-1] + continuation_prompt
-            # Mark that a follow-up question has been added to prevent duplicates
-            followup_already_added = True
-            updates["followup_question_added"] = True
+    def _translate_followup(text: str, language: str) -> str:
+        return translate_text(text, language, agentic_strength=agentic_strength)
 
-    # PRIORITY 2: Intent-specific follow-up (only if no multi-intent follow-up was added)
-    if not followup_already_added and translated_responses and raw_responses:
-        # Get the intent from the last raw response (before translation)
-        last_raw_response = raw_responses[-1]
-        intent = last_raw_response.get("intent")
+    updates = apply_followups(
+        s,
+        translated_responses,
+        raw_responses,
+        followup_config,
+        translate_text_fn=_translate_followup,
+    )
 
-        # Only add follow-ups for intents that should have them
-        # Skip intents that already have their own follow-ups:
-        # - CONVERSE_WITH_BT_SERVANT: conversation intents handle their own flow
-        # - RETRIEVE_SYSTEM_INFORMATION: help responses already have follow-ups
-        # - PERFORM_UNSUPPORTED_FUNCTION: unsupported function responses already have follow-ups
-        if intent and intent not in {
-            IntentType.CONVERSE_WITH_BT_SERVANT,
-            IntentType.RETRIEVE_SYSTEM_INFORMATION,
-            IntentType.PERFORM_UNSUPPORTED_FUNCTION,
-        }:
-            custom_followup = _custom_followup_for_intent(
-                s,
-                intent,
-                target_language,
-                agentic_strength,
-            )
-            followup_translator = (
-                None
-                if custom_followup
-                else partial(
-                    translate_text,
-                    agentic_strength=agentic_strength,
-                )
-            )
-            updated_response, added_flag = add_followup_if_needed(
-                translated_responses[-1],
-                s,
-                intent,
-                custom_followup=custom_followup,
-                translate_text_fn=followup_translator,
-            )
-            translated_responses[-1] = updated_response
-            if added_flag:
-                followup_already_added = True
-                updates["followup_question_added"] = True
-                intent_str = intent.value if hasattr(intent, "value") else str(intent)
-                logger.info("[translate] Added intent-specific follow-up for intent=%s", intent_str)
-
-    # Clear passage follow-up context to avoid leaking suggestions across turns
     if "passage_followup_context" in s:
-        updates["passage_followup_context"] = {}
+        updates.setdefault("passage_followup_context", {})
 
     result = {"translated_responses": translated_responses}
     if updates:
@@ -524,21 +493,23 @@ def translate_text(
     agentic_strength: Optional[str] = None,
 ) -> str:
     """Translate a single text into the target ISO 639-1 language code."""
-    return translate_text_impl(
-        open_ai_client,
-        response_text,
-        target_language,
-        _model_for_agentic_strength,
-        _extract_cached_input_tokens,
+    request = ResponseTranslationRequest(
+        client=open_ai_client,
+        text=response_text,
+        target_language=target_language,
         agentic_strength=agentic_strength,
     )
+    dependencies = ResponseTranslationDependencies(
+        model_for_agentic_strength=_model_for_agentic_strength,
+        extract_cached_input_tokens=_extract_cached_input_tokens,
+    )
+    return translate_text_impl(request, dependencies)
 
 
 def determine_query_language(state: Any) -> dict:
     """Determine the language of the user's original query and set collection order."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     query = s["user_query"]
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     query_language, stack_rank_collections = _determine_query_language_impl(
@@ -549,9 +520,8 @@ def determine_query_language(state: Any) -> dict:
 
 def preprocess_user_query(state: Any) -> dict:
     """Lightly clarify or correct the user's query using conversation history."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     query = s["user_query"]
     chat_history = s["user_chat_history"]
     transformed_query, _, _ = _preprocess_user_query_impl(open_ai_client, query, chat_history)
@@ -560,73 +530,77 @@ def preprocess_user_query(state: Any) -> dict:
 
 def query_vector_db(state: Any) -> dict:
     """Query the vector DB (Chroma) across ranked collections and filter by relevance."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "query_vector_db_node")
     return query_vector_db_impl(
         intent_query,
         s["stack_rank_collections"],
-        get_chroma_collection,
+        _chroma_port().get_collection,
         BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
     )
 
 
 def query_open_ai(state: Any) -> dict:
     """Generate the final response text using RAG context and OpenAI."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "query_open_ai_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
-    return query_open_ai_impl(
-        open_ai_client,
-        s["docs"],
-        intent_query,
-        s["user_chat_history"],
-        _model_for_agentic_strength,
-        _extract_cached_input_tokens,
-        add_tokens,
-        agentic_strength,
-        BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
+    payload = OpenAIQueryPayload(
+        docs=s["docs"],
+        transformed_query=intent_query,
+        chat_history=s["user_chat_history"],
+        agentic_strength=agentic_strength,
+        boilerplate_features_message=BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
     )
+    dependencies = OpenAIQueryDependencies(
+        model_for_agentic_strength=_model_for_agentic_strength,
+        extract_cached_input_tokens=_extract_cached_input_tokens,
+        add_tokens=add_tokens,
+    )
+    return query_open_ai_impl(open_ai_client, payload, dependencies)
 
 
 def consult_fia_resources(state: Any) -> dict:
     """Answer FIA-specific questions using FIA collections and reference material."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "consult_fia_resources_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
-    return consult_fia_resources_impl(
-        open_ai_client,
-        intent_query,
-        s["user_chat_history"],
-        s.get("user_response_language"),
-        s.get("query_language"),
-        get_chroma_collection,
-        _model_for_agentic_strength,
-        _extract_cached_input_tokens,
-        agentic_strength,
+    request = FIARequest(
+        client=open_ai_client,
+        query=intent_query,
+        chat_history=s["user_chat_history"],
+        user_response_language=s.get("user_response_language"),
+        query_language=s.get("query_language"),
+        agentic_strength=agentic_strength,
     )
+    dependencies = FIADependencies(
+        get_chroma_collection=_chroma_port().get_collection,
+        model_for_agentic_strength=_model_for_agentic_strength,
+        extract_cached_input_tokens=_extract_cached_input_tokens,
+    )
+    return consult_fia_resources_impl(request, dependencies)
 
 
 def chunk_message(state: Any) -> dict:
     """Chunk oversized responses to respect WhatsApp limits, via LLM or fallback."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     responses = s["translated_responses"]
     text_to_chunk = responses[0]
     chunk_max = config.MAX_META_TEXT_LENGTH - 100
-    chunks = chunk_message_impl(
-        open_ai_client,
-        text_to_chunk,
-        _extract_cached_input_tokens,
-        responses[1:],
-        chunk_max,
+    request = ChunkingRequest(
+        client=open_ai_client,
+        text_to_chunk=text_to_chunk,
+        additional_responses=responses[1:],
+        chunk_max=chunk_max,
     )
+    dependencies = ChunkingDependencies(
+        extract_cached_input_tokens=_extract_cached_input_tokens,
+    )
+    chunks = chunk_message_impl(request, dependencies)
     return {"translated_responses": chunks}
 
 
@@ -637,18 +611,16 @@ def needs_chunking(state: Any) -> str:
 
 def handle_unsupported_function(state: Any) -> dict:
     """Generate a helpful response when the user requests unsupported functionality."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_unsupported_function_node")
     return handle_unsupported_function_impl(open_ai_client, intent_query, s["user_chat_history"])
 
 
 def handle_system_information_request(state: Any) -> dict:
     """Provide help/about information for the BT Servant system."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_system_information_request_node")
     return handle_system_information_request_impl(
         open_ai_client, intent_query, s["user_chat_history"]
@@ -657,9 +629,8 @@ def handle_system_information_request(state: Any) -> dict:
 
 def converse_with_bt_servant(state: Any) -> dict:
     """Respond conversationally to the user based on context and history."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "converse_with_bt_servant_node")
     return converse_with_bt_servant_impl(open_ai_client, intent_query, s["user_chat_history"])
 
@@ -685,21 +656,30 @@ def _choose_primary_book(text: str, candidates: list[str]) -> str | None:
     return _choose_primary_book_impl(text, candidates, BSB_BOOK_MAP)
 
 
+def _build_selection_dependencies() -> PassageSelectionDependencies:
+    """Construct shared dependencies for passage selection helpers."""
+    return PassageSelectionDependencies(
+        client=open_ai_client,
+        book_map=BSB_BOOK_MAP,
+        detect_mentioned_books=_detect_mentioned_books,
+        translate_text=translate_text,
+    )
+
+
 def resolve_selection_for_single_book(
     query: str,
     query_lang: str,
     focus_hint: str | None = None,
 ) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
     """Parse and normalize a user query into a single canonical book and ranges."""
-    return resolve_selection_for_single_book_impl(
-        client=open_ai_client,
+    dependencies = _build_selection_dependencies()
+    request = PassageSelectionRequest(
         query=query,
         query_lang=query_lang,
-        book_map=BSB_BOOK_MAP,
-        detect_mentioned_books_fn=_detect_mentioned_books,
-        translate_text_fn=translate_text,
+        dependencies=dependencies,
         focus_hint=focus_hint,
     )
+    return resolve_selection_for_single_book_impl(request)
 
 
 # Passage intent node functions
@@ -707,126 +687,129 @@ def resolve_selection_for_single_book(
 
 def handle_get_passage_summary(state: Any) -> dict:
     """Handle get-passage-summary: extract refs, retrieve verses, summarize."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_get_passage_summary_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
-    return get_passage_summary_impl(
-        open_ai_client,
-        intent_query,
-        s["query_language"],
-        BSB_BOOK_MAP,
-        _detect_mentioned_books,
-        translate_text,
-        _model_for_agentic_strength,
-        _extract_cached_input_tokens,
-        s.get("user_response_language"),
-        agentic_strength,
+    selection_request = PassageSelectionRequest(
+        query=intent_query,
+        query_lang=s["query_language"],
+        dependencies=_build_selection_dependencies(),
     )
+    request = PassageSummaryRequest(
+        selection=selection_request,
+        user_response_language=s.get("user_response_language"),
+        agentic_strength=agentic_strength,
+        model_for_agentic_strength=_model_for_agentic_strength,
+        extract_cached_input_tokens=_extract_cached_input_tokens,
+    )
+    return get_passage_summary_impl(request)
 
 
 def handle_get_passage_keywords(state: Any) -> dict:
     """Handle get-passage-keywords: extract refs, retrieve keywords, and list them."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_get_passage_keywords_node")
-    return get_passage_keywords_impl(
-        open_ai_client,
-        intent_query,
-        s["query_language"],
-        BSB_BOOK_MAP,
-        _detect_mentioned_books,
-        translate_text,
+    selection_request = PassageSelectionRequest(
+        query=intent_query,
+        query_lang=s["query_language"],
+        dependencies=_build_selection_dependencies(),
     )
+    request = PassageKeywordsRequest(selection=selection_request)
+    return get_passage_keywords_impl(request)
 
 
 def handle_get_translation_helps(state: Any) -> dict:
     """Generate focused translation helps guidance for a selected passage."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_get_translation_helps_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
-    return get_translation_helps_impl(
-        open_ai_client,
-        intent_query,
-        s["query_language"],
-        BSB_BOOK_MAP,
-        _detect_mentioned_books,
-        translate_text,
-        _model_for_agentic_strength,
-        _extract_cached_input_tokens,
-        prepare_translation_helps_impl,
-        build_translation_helps_context_impl,
-        build_translation_helps_messages_impl,
-        agentic_strength,
+    request = TranslationHelpsRequestParams(
+        client=open_ai_client,
+        query=intent_query,
+        query_lang=s["query_language"],
+        book_map=BSB_BOOK_MAP,
+        agentic_strength=agentic_strength,
     )
+    dependencies = TranslationHelpsDependencies(
+        detect_books_fn=_detect_mentioned_books,
+        translate_text_fn=translate_text,
+        select_model_fn=_model_for_agentic_strength,
+        extract_cached_tokens_fn=_extract_cached_input_tokens,
+        prepare_translation_helps_fn=prepare_translation_helps_impl,
+        build_context_fn=build_translation_helps_context_impl,
+        build_messages_fn=build_translation_helps_messages_impl,
+    )
+    return get_translation_helps_impl(request, dependencies)
 
 
 def handle_retrieve_scripture(state: Any) -> dict:
     """Handle retrieve-scripture with optional auto-translation."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_retrieve_scripture_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
-    return retrieve_scripture_impl(
-        open_ai_client,
-        intent_query,
-        s["query_language"],
-        BSB_BOOK_MAP,
-        _detect_mentioned_books,
-        translate_text,
-        _model_for_agentic_strength,
-        _extract_cached_input_tokens,
-        s.get("user_response_language"),
-        agentic_strength,
+    selection_request = PassageSelectionRequest(
+        query=intent_query,
+        query_lang=s["query_language"],
+        dependencies=_build_selection_dependencies(),
     )
+    request = RetrieveScriptureRequest(
+        selection=selection_request,
+        user_response_language=s.get("user_response_language"),
+        agentic_strength=agentic_strength,
+        extract_cached_input_tokens=_extract_cached_input_tokens,
+    )
+    return retrieve_scripture_impl(request)
 
 
 def handle_listen_to_scripture(state: Any) -> dict:
     """Delegate to retrieve-scripture and request voice delivery."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_listen_to_scripture_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
-    return listen_to_scripture_impl(
-        open_ai_client,
-        intent_query,
-        s["query_language"],
-        BSB_BOOK_MAP,
-        _detect_mentioned_books,
-        translate_text,
-        _reconstruct_structured_text,
-        _model_for_agentic_strength,
-        _extract_cached_input_tokens,
-        s.get("user_response_language"),
-        agentic_strength,
+    selection_request = PassageSelectionRequest(
+        query=intent_query,
+        query_lang=s["query_language"],
+        dependencies=_build_selection_dependencies(),
     )
+    retrieve_request = RetrieveScriptureRequest(
+        selection=selection_request,
+        user_response_language=s.get("user_response_language"),
+        agentic_strength=agentic_strength,
+        extract_cached_input_tokens=_extract_cached_input_tokens,
+    )
+    request = ListenToScriptureRequest(
+        retrieve_request=retrieve_request,
+        reconstruct_structured_text=_reconstruct_structured_text,
+    )
+    return listen_to_scripture_impl(request)
 
 
 def handle_translate_scripture(state: Any) -> dict:
     """Handle translate-scripture: return verses translated into a target language."""
-    from bt_servant_engine.services.brain_orchestrator import BrainState
 
-    s = cast(BrainState, state)
+    s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_translate_scripture_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
-    return translate_scripture_impl(
-        open_ai_client,
-        intent_query,
-        s["query_language"],
-        BSB_BOOK_MAP,
-        _detect_mentioned_books,
-        translate_text,
-        _model_for_agentic_strength,
-        _extract_cached_input_tokens,
-        s.get("user_response_language"),
-        agentic_strength,
+    request = TranslationRequestParams(
+        client=open_ai_client,
+        query=intent_query,
+        query_lang=s["query_language"],
+        book_map=BSB_BOOK_MAP,
+        user_response_language=s.get("user_response_language"),
+        agentic_strength=agentic_strength,
     )
+    dependencies = TranslationDependencies(
+        detect_books_fn=_detect_mentioned_books,
+        translate_text_fn=translate_text,
+        select_model_fn=_model_for_agentic_strength,
+        extract_cached_tokens_fn=_extract_cached_input_tokens,
+    )
+    return translate_scripture_impl(request, dependencies)
 
 
 # Language detection helpers
@@ -840,9 +823,6 @@ def _sample_for_language_detection(text: str) -> str:
 __all__ = [
     # Dependencies (for test compatibility)
     "open_ai_client",
-    "get_chroma_collection",
-    "set_user_agentic_strength",
-    "set_user_response_language",
     "FIA_REFERENCE_CONTENT",
     # Node functions
     "start",

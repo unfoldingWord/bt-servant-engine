@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Callable, List, Optional, cast
+from dataclasses import dataclass
+from typing import Any, Callable, Optional, cast
 
 from langgraph.graph import END
 from openai import OpenAI, OpenAIError
@@ -11,8 +12,10 @@ from openai.types.chat.chat_completion_message_param import ChatCompletionMessag
 
 from bt_servant_engine.core.agentic import ALLOWED_AGENTIC_STRENGTH
 from bt_servant_engine.core.config import config
-from bt_servant_engine.core.language import LANGUAGE_UNKNOWN
-from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
+from bt_servant_engine.core.language import (
+    LANGUAGE_UNKNOWN,
+    SUPPORTED_LANGUAGE_MAP as supported_language_map,
+)
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import track_openai_usage
 from bt_servant_engine.services.preprocessing import detect_language as detect_language_impl
@@ -26,17 +29,67 @@ from utils.perf import add_tokens
 
 logger = get_logger(__name__)
 
-RESPONSE_TRANSLATOR_SYSTEM_PROMPT = """
-    You are a translator for the final output in a chatbot system. You will receive text that
-    needs to be translated into the language represented by the specified ISO 639-1 code.
-"""
+COMMA_SPLIT_THRESHOLD = 10
+
+RESPONSE_TRANSLATOR_SYSTEM_PROMPT = (
+    "You are a translator for the final output in a chatbot system. "
+    "You will receive text that needs to be translated into the language represented by "
+    "the specified ISO 639-1 code."
+)
 
 CHOP_AGENT_SYSTEM_PROMPT = (
-    "You are an agent tasked to ensure that a message intended for Whatsapp fits within the 1500 character limit. Chop "
-    "the supplied text in the biggest possible semantic chunks, while making sure no chuck is >= 1500 characters. "
-    "Your output should be a valid JSON array containing strings (wrapped in double quotes!!) constituting the chunks. "
-    "Only return the json array!! No ```json wrapper or the like. Again, make chunks as big as possible!!!"
+    "You are an agent tasked to ensure that a message intended for Whatsapp fits within the "
+    "1500 character limit. Chop the supplied text in the biggest possible semantic chunks, "
+    "while making sure no chunk is >= 1500 characters. Your output should be a valid JSON "
+    "array containing strings (wrapped in double quotes!!) constituting the chunks. Only "
+    "return the json array!! No ```json wrapper or the like. Again, make chunks as big as "
+    "possible!!!"
 )
+
+
+@dataclass(slots=True)
+class ResponseTranslationDependencies:
+    """Callable hooks used to resolve model selection and cached token usage."""
+
+    model_for_agentic_strength: Callable[..., Any]
+    extract_cached_input_tokens: Callable[..., Any]
+
+
+@dataclass(slots=True)
+class ResponseTranslationRequest:
+    """Inputs required to translate free-form text into a target language."""
+
+    client: OpenAI
+    text: str
+    target_language: str
+    agentic_strength: Optional[str] = None
+
+
+@dataclass(slots=True)
+class ResponseLocalizationRequest:
+    """Container describing a localization request for structured responses."""
+
+    client: OpenAI
+    response: dict | str
+    target_language: str
+    agentic_strength: str
+
+
+@dataclass(slots=True)
+class ChunkingDependencies:
+    """Shared utilities relied on by chunking helpers."""
+
+    extract_cached_input_tokens: Callable[..., Any]
+
+
+@dataclass(slots=True)
+class ChunkingRequest:
+    """Inputs required to chunk a translated response down to message limits."""
+
+    client: OpenAI
+    text_to_chunk: str
+    additional_responses: list[str]
+    chunk_max: int
 
 
 def reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[str]) -> str:
@@ -44,7 +97,8 @@ def reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[str
 
     - If `resp_item` is a plain string, return it.
     - If structured with segments, rebuild: "<Book> <suffix>:\n\n<scripture>".
-    - If `localize_to` is provided, map the book to that language via get_book_name; else use canonical.
+    - If `localize_to` is provided, map the book to that language via get_book_name.
+      Otherwise fall back to the canonical name.
     """
     if isinstance(resp_item, str):
         return resp_item
@@ -72,28 +126,25 @@ def reconstruct_structured_text(resp_item: dict | str, localize_to: Optional[str
 
 
 def translate_text(
-    client: OpenAI,
-    response_text: str,
-    target_language: str,
-    model_for_agentic_strength_fn: Callable[..., Any],
-    extract_cached_input_tokens_fn: Callable[..., Any],
-    *,
-    agentic_strength: Optional[str] = None,
+    request: ResponseTranslationRequest,
+    dependencies: ResponseTranslationDependencies,
 ) -> str:
     """Translate a single text into the target ISO 639-1 language code.
 
     Returns a plain string. If the OpenAI SDK returns a structured content
     list or None, normalize it to a string.
     """
-    resolved_strength = agentic_strength if agentic_strength in ALLOWED_AGENTIC_STRENGTH else None
+    resolved_strength = (
+        request.agentic_strength if request.agentic_strength in ALLOWED_AGENTIC_STRENGTH else None
+    )
     if resolved_strength is None:
         configured = getattr(config, "AGENTIC_STRENGTH", "normal")
         resolved_strength = configured if configured in ALLOWED_AGENTIC_STRENGTH else "normal"
-    model_name = model_for_agentic_strength_fn(
+    model_name = dependencies.model_for_agentic_strength(
         resolved_strength, allow_low=False, allow_very_low=True
     )
     chat_messages = cast(
-        List[ChatCompletionMessageParam],
+        list[ChatCompletionMessageParam],
         [
             {
                 "role": "system",
@@ -102,18 +153,18 @@ def translate_text(
             {
                 "role": "user",
                 "content": (
-                    f"text to translate: {response_text}\n\n"
-                    f"ISO 639-1 code representing target language: {target_language}"
+                    f"text to translate: {request.text}\n\n"
+                    f"ISO 639-1 code representing target language: {request.target_language}"
                 ),
             },
         ],
     )
-    completion = client.chat.completions.create(
+    completion = request.client.chat.completions.create(
         model=model_name,
         messages=chat_messages,
     )
     usage = getattr(completion, "usage", None)
-    track_openai_usage(usage, model_name, extract_cached_input_tokens_fn, add_tokens)
+    track_openai_usage(usage, model_name, dependencies.extract_cached_input_tokens, add_tokens)
     content = completion.choices[0].message.content
     if isinstance(content, list):
         text = "".join(part.get("text", "") if isinstance(part, dict) else "" for part in content)
@@ -121,48 +172,45 @@ def translate_text(
         text = ""
     else:
         text = content
-    logger.info("chunk: \n%s\n\ntranslated to:\n%s", response_text, text)
+    logger.info("chunk: \n%s\n\ntranslated to:\n%s", request.text, text)
     return cast(str, text)
 
 
 def translate_or_localize_response(
-    client: OpenAI,
-    resp: dict | str,
-    target_language: str,
-    agentic_strength: str,
-    model_for_agentic_strength_fn: Callable[..., Any],
-    extract_cached_input_tokens_fn: Callable[..., Any],
+    request: ResponseLocalizationRequest,
+    dependencies: ResponseTranslationDependencies,
 ) -> str:
     """Translate free-form text or localize structured scripture outputs."""
-    placeholder_key = getattr(client, "api_key", None) == "sk-test"
+    placeholder_key = getattr(request.client, "api_key", None) == "sk-test"
     detection_fn = detect_language_impl
     detection_is_patched = detection_fn.__module__ != "bt_servant_engine.services.preprocessing"
-    if isinstance(resp, str):
-        sample = sample_for_language_detection_impl(resp)
+    if isinstance(request.response, str):
+        sample = sample_for_language_detection_impl(request.response)
         detected_lang = (
-            detect_language_impl(client, sample, agentic_strength=agentic_strength)
+            detect_language_impl(request.client, sample, agentic_strength=request.agentic_strength)
             if sample and (detection_is_patched or not placeholder_key)
-            else target_language
+            else request.target_language
         )
-        if detected_lang != target_language:
-            logger.info("preparing to translate to %s", target_language)
+        if detected_lang != request.target_language:
+            logger.info("preparing to translate to %s", request.target_language)
             return translate_text(
-                client,
-                response_text=resp,
-                target_language=target_language,
-                model_for_agentic_strength_fn=model_for_agentic_strength_fn,
-                extract_cached_input_tokens_fn=extract_cached_input_tokens_fn,
-                agentic_strength=agentic_strength,
+                ResponseTranslationRequest(
+                    client=request.client,
+                    text=request.response,
+                    target_language=request.target_language,
+                    agentic_strength=request.agentic_strength,
+                ),
+                dependencies,
             )
         logger.info("chunk translation not required. using chunk as is.")
-        return resp
+        return request.response
 
-    body = cast(dict | str, resp.get("response"))
+    body = cast(dict | str, request.response.get("response"))
     if isinstance(body, dict) and isinstance(body.get("segments"), list):
         item_lang = cast(Optional[str], body.get("content_language"))
         header_is_translated = bool(body.get("header_is_translated"))
-        localize_to = None if header_is_translated else (item_lang or target_language)
-        return reconstruct_structured_text(resp_item=resp, localize_to=localize_to)
+        localize_to = None if header_is_translated else (item_lang or request.target_language)
+        return reconstruct_structured_text(resp_item=request.response, localize_to=localize_to)
     return str(body)
 
 
@@ -203,28 +251,33 @@ def resolve_target_language(
         reconstruct_structured_text(resp_item=resp, localize_to=None)
         for resp in responses_for_translation
     ]
-    notice = (
-        "You haven't set your desired response language and I wasn't able to determine the language of your "
-        "original message in order to match it. You can set your desired response language at any time by "
-        "saying: Set my response language to Spanish, or Indonesian, or any of the supported languages: "
-        f"{', '.join(supported_language_map.keys())}."
+    supported_lang_list = ", ".join(supported_language_map.keys())
+    notice = " ".join(
+        [
+            (
+                "You haven't set your desired response language and I wasn't able to determine the "
+                "language of your original message in order to match it."
+            ),
+            (
+                "You can set your desired response language at any time by saying: "
+                "Set my response language to Spanish, Indonesian, or any supported language."
+            ),
+            f"Supported languages: {supported_lang_list}.",
+        ]
     )
     passthrough_texts.append(notice)
     return None, passthrough_texts
 
 
 def chunk_message(
-    client: OpenAI,
-    text_to_chunk: str,
-    extract_cached_input_tokens_fn: Callable[..., Any],
-    additional_responses: list[str],
-    chunk_max: int,
+    request: ChunkingRequest,
+    dependencies: ChunkingDependencies,
 ) -> list[str]:
     """Chunk oversized responses to respect WhatsApp limits, via LLM or fallback."""
     logger.info("MESSAGE TOO BIG. CHUNKING...")
     try:
         chat_messages = cast(
-            List[ChatCompletionMessageParam],
+            list[ChatCompletionMessageParam],
             [
                 {
                     "role": "system",
@@ -232,16 +285,16 @@ def chunk_message(
                 },
                 {
                     "role": "user",
-                    "content": f"text to chop: \n\n{text_to_chunk}",
+                    "content": f"text to chop: \n\n{request.text_to_chunk}",
                 },
             ],
         )
-        completion = client.chat.completions.create(
+        completion = request.client.chat.completions.create(
             model="gpt-4o",
             messages=chat_messages,
         )
         usage = getattr(completion, "usage", None)
-        track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens_fn, add_tokens)
+        track_openai_usage(usage, "gpt-4o", dependencies.extract_cached_input_tokens, add_tokens)
         response_content = completion.choices[0].message.content
         if not isinstance(response_content, str):
             raise ValueError("empty or non-text content from chat completion")
@@ -275,27 +328,26 @@ def chunk_message(
 
     if not isinstance(chunks, list) or any(not isinstance(c, str) for c in chunks):
         # Try delimiter-aware fallback for comma-heavy lists first
-        if text_to_chunk.count(",") >= 10:
-            parts = [p.strip() for p in text_to_chunk.split(",") if p.strip()]
-            chunks = _pack_items(parts, chunk_max)
+        if request.text_to_chunk.count(",") >= COMMA_SPLIT_THRESHOLD:
+            parts = [p.strip() for p in request.text_to_chunk.split(",") if p.strip()]
+            chunks = _pack_items(parts, request.chunk_max)
         else:
-            chunks = chop_text(text=text_to_chunk, n=chunk_max)
+            chunks = chop_text(text=request.text_to_chunk, n=request.chunk_max)
     else:
         # Ensure each chunk respects the limit; if not, re-split deterministically
         fixed: list[str] = []
         for c in chunks:
-            if len(c) <= chunk_max:
+            if len(c) <= request.chunk_max:
                 fixed.append(c)
+            elif c.count(",") >= COMMA_SPLIT_THRESHOLD:
+                parts = [p.strip() for p in c.split(",") if p.strip()]
+                fixed.extend(_pack_items(parts, request.chunk_max))
             else:
-                if c.count(",") >= 10:
-                    parts = [p.strip() for p in c.split(",") if p.strip()]
-                    fixed.extend(_pack_items(parts, chunk_max))
-                else:
-                    fixed.extend(chop_text(text=c, n=chunk_max))
+                fixed.extend(chop_text(text=c, n=request.chunk_max))
         chunks = fixed
 
-    chunks.extend(additional_responses)
-    return combine_chunks(chunks=chunks, chunk_max=chunk_max)
+    chunks.extend(request.additional_responses)
+    return combine_chunks(chunks=chunks, chunk_max=request.chunk_max)
 
 
 def needs_chunking(state: dict[str, Any]) -> str:
@@ -314,6 +366,11 @@ def needs_chunking(state: dict[str, Any]) -> str:
 __all__ = [
     "RESPONSE_TRANSLATOR_SYSTEM_PROMPT",
     "CHOP_AGENT_SYSTEM_PROMPT",
+    "ResponseTranslationDependencies",
+    "ResponseTranslationRequest",
+    "ResponseLocalizationRequest",
+    "ChunkingDependencies",
+    "ChunkingRequest",
     "reconstruct_structured_text",
     "translate_text",
     "translate_or_localize_response",

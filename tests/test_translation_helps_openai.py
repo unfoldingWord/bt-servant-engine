@@ -4,7 +4,6 @@ These tests exercise intent classification for get-translation-helps and an API
 flow using the Meta webhook with a small selection to keep token usage modest.
 """
 
-# pylint: disable=missing-function-docstring,line-too-long,duplicate-code,unused-argument,too-many-locals
 from __future__ import annotations
 
 import hashlib
@@ -15,6 +14,8 @@ import re
 import time
 from typing import Any, cast
 
+from http import HTTPStatus
+
 import pytest
 from dotenv import load_dotenv
 from fastapi.testclient import TestClient
@@ -22,11 +23,12 @@ from tinydb import TinyDB
 
 from bt_servant_engine.apps.api.app import create_app
 from bt_servant_engine.apps.api.routes import webhooks
-from bt_servant_engine.core.intents import IntentType
-from bt_servant_engine.services import brain_nodes
-from bt_servant_engine.services.brain_nodes import determine_intents
 from bt_servant_engine.apps.api.state import set_brain
+from bt_servant_engine.bootstrap import build_default_service_container
 from bt_servant_engine.core.config import config as app_config
+from bt_servant_engine.core.intents import IntentType
+from bt_servant_engine.services import brain_nodes, runtime
+from bt_servant_engine.services.brain_nodes import determine_intents
 import bt_servant_engine.adapters.user_state as user_db
 
 
@@ -36,6 +38,8 @@ def _has_real_openai() -> bool:
 
 
 load_dotenv(override=True)
+
+_TEST_USER_ID = "15555555555"
 
 
 @pytest.mark.openai
@@ -59,6 +63,7 @@ load_dotenv(override=True)
     ],
 )
 def test_intents_detect_translation_helps(query: str, acceptable_intents: set[IntentType]) -> None:
+    """Structured translation-helps queries should produce related intents."""
     state: dict[str, Any] = {"transformed_query": query}
     out = determine_intents(cast(Any, state))
     intents = set(out["user_intents"])  # list[IntentType]
@@ -75,6 +80,107 @@ def _make_signature(app_secret: str, body: bytes) -> str:
     return "sha256=" + hmac.new(app_secret.encode("utf-8"), body, hashlib.sha256).hexdigest()
 
 
+def _initialize_user_state(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Any, is_first: bool, request: Any
+) -> None:
+    """Seed user state storage for translation helps tests."""
+
+    tmp_db_path = tmp_path / "db.json"
+    test_db = TinyDB(str(tmp_db_path))
+    request.addfinalizer(test_db.close)
+    monkeypatch.setattr(user_db, "get_user_db", lambda: test_db)
+    user_db.set_first_interaction(_TEST_USER_ID, is_first)
+
+
+def _patch_messaging(monkeypatch: pytest.MonkeyPatch, services: Any, sent: list[str]) -> None:
+    """Patch messaging send hooks to capture outputs."""
+
+    messaging = services.messaging
+    if messaging is None:
+        raise RuntimeError("Messaging service is not configured.")
+
+    async def send_text_message(_user_id: str, text: str) -> None:
+        sent.append(text)
+
+    async def send_voice_message(_user_id: str, text: str) -> None:
+        sent.append(f"[voice] {text}")
+
+    async def send_typing_indicator(_message_id: str) -> None:
+        return None
+
+    monkeypatch.setattr(messaging, "send_text_message", send_text_message)
+    monkeypatch.setattr(messaging, "send_voice_message", send_voice_message)
+    monkeypatch.setattr(messaging, "send_typing_indicator", send_typing_indicator)
+
+
+def _wrap_translation_handler(monkeypatch: pytest.MonkeyPatch) -> list[bool]:
+    """Wrap translation helps handler to track invocation."""
+
+    invoked: list[bool] = []
+    orig_handler = brain_nodes.handle_get_translation_helps
+
+    def _wrapped(state: Any) -> Any:
+        invoked.append(True)
+        return orig_handler(state)
+
+    monkeypatch.setattr(brain_nodes, "handle_get_translation_helps", _wrapped)
+    set_brain(None)
+    return invoked
+
+
+def _build_meta_payload(text: str) -> dict:
+    """Construct a Meta webhook payload for the test user."""
+
+    ts = str(int(time.time()))
+    return {
+        "entry": [
+            {
+                "changes": [
+                    {
+                        "value": {
+                            "messages": [
+                                {
+                                    "from": _TEST_USER_ID,
+                                    "id": "wamid.TEST",
+                                    "timestamp": ts,
+                                    "type": "text",
+                                    "text": {"body": text},
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+
+
+def _post_meta_request(client: TestClient, payload: dict) -> Any:
+    """Send a Meta webhook request with appropriate headers."""
+
+    body = json.dumps(payload).encode("utf-8")
+    app_secret = os.environ.get("META_APP_SECRET", "test")
+    signature = _make_signature(app_secret, body)
+    user_agent = os.environ.get("FACEBOOK_USER_AGENT", "test")
+    return client.post(
+        "/meta-whatsapp",
+        content=body,
+        headers={
+            "Content-Type": "application/json",
+            "X-Hub-Signature-256": signature,
+            "User-Agent": user_agent,
+        },
+    )
+
+
+def _wait_for_messages(sent: list[str], timeout: float = 60.0) -> None:
+    """Spin until captured messages are available or the timeout elapses."""
+
+    deadline = time.time() + timeout
+    while time.time() < deadline and not sent:
+        time.sleep(0.25)
+
+
 @pytest.mark.openai
 @pytest.mark.skipif(
     not _has_real_openai() or _RUN_OPENAI_API != "1",
@@ -88,87 +194,21 @@ def _make_signature(app_secret: str, body: bytes) -> str:
 def test_meta_whatsapp_translation_helps_flow_with_openai(
     monkeypatch, tmp_path, is_first: bool, request
 ):
-    # Ensure sandbox guard does not block the test sender
+    """End-to-end Meta WhatsApp flow sends translation helps via OpenAI."""
     monkeypatch.setattr(app_config, "IN_META_SANDBOX_MODE", False, raising=True)
-    # Use an isolated TinyDB for user state so we can control first_interaction
-    tmp_db_path = tmp_path / "db.json"
-    test_db = TinyDB(str(tmp_db_path))
-    request.addfinalizer(test_db.close)
-    monkeypatch.setattr(user_db, "get_user_db", lambda: test_db)
-    user_id = "15555555555"
-    user_db.set_first_interaction(user_id, is_first)
+    _initialize_user_state(monkeypatch, tmp_path, is_first, request)
 
     sent: list[str] = []
+    invoked = _wrap_translation_handler(monkeypatch)
 
-    async def _fake_send_text_message(user_id: str, text: str) -> None:  # user_id unused in test
-        sent.append(text)
-
-    async def _fake_send_voice_message(user_id: str, text: str) -> None:  # user_id unused in test
-        sent.append("[voice] " + text)
-
-    async def _fake_typing_indicator_message(message_id: str) -> None:  # message_id unused in test
-        return None
-
-    monkeypatch.setattr(webhooks, "send_text_message", _fake_send_text_message)
-    monkeypatch.setattr(webhooks, "send_voice_message", _fake_send_voice_message)
-    monkeypatch.setattr(webhooks, "send_typing_indicator_message", _fake_typing_indicator_message)
-
-    # Patch at the module where the graph actually imports from (brain_nodes)
-
-    invoked: list[bool] = []
-    orig_handler = brain_nodes.handle_get_translation_helps
-
-    def _wrapped(state):  # type: ignore[no-redef]
-        invoked.append(True)
-        return orig_handler(state)
-
-    monkeypatch.setattr(brain_nodes, "handle_get_translation_helps", _wrapped)
-    set_brain(None)
-
-    def _meta_text_payload(text: str) -> dict:
-        ts = str(int(time.time()))
-        return {
-            "entry": [
-                {
-                    "changes": [
-                        {
-                            "value": {
-                                "messages": [
-                                    {
-                                        "from": "15555555555",
-                                        "id": "wamid.TEST",
-                                        "timestamp": ts,
-                                        "type": "text",
-                                        "text": {"body": text},
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-
-    with TestClient(create_app()) as client:
-        # Choose a tiny book to minimize tokens (e.g., 3 John)
-        body_obj = _meta_text_payload("Help me translate 3 John")
-        body = json.dumps(body_obj).encode("utf-8")
-        app_secret = os.environ.get("META_APP_SECRET", "test")
-        sig = _make_signature(app_secret, body)
-        ua = os.environ.get("FACEBOOK_USER_AGENT", "test")
-        resp = client.post(
-            "/meta-whatsapp",
-            content=body,
-            headers={
-                "Content-Type": "application/json",
-                "X-Hub-Signature-256": sig,
-                "User-Agent": ua,
-            },
-        )
-        assert resp.status_code == 200
-        deadline = time.time() + 60
-        while time.time() < deadline and not sent:
-            time.sleep(0.25)
+    with TestClient(create_app(build_default_service_container())) as client:
+        services = runtime.get_services()
+        _patch_messaging(monkeypatch, services, sent)
+        monkeypatch.setattr(webhooks.asyncio, "sleep", lambda *_, **__: None)
+        payload = _build_meta_payload("Help me translate 3 John")
+        resp = _post_meta_request(client, payload)
+        assert resp.status_code == HTTPStatus.OK
+        _wait_for_messages(sent)
 
     assert sent, "No outbound messages captured from translation-helps flow"
     assert invoked, "Translation helps handler was not invoked"

@@ -4,6 +4,7 @@
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
+from openai import OpenAIError
 
 from bt_servant_engine.core.language import LANGUAGE_UNKNOWN
 from bt_servant_engine.services import status_messages
@@ -177,7 +178,7 @@ class TestDynamicTranslation:
     def test_translates_using_openai(self, mock_get_client):
         """Uses OpenAI to translate when language not pre-loaded."""
         # Clear cache to ensure fresh translation
-        status_messages._DYNAMIC_TRANSLATION_CACHE.clear()
+        status_messages.clear_dynamic_translation_cache()
 
         mock_client = MagicMock()
         mock_get_client.return_value = mock_client
@@ -198,7 +199,7 @@ class TestDynamicTranslation:
     def test_caches_dynamic_translations(self, mock_get_client):
         """Caches dynamically translated messages to avoid repeated API calls."""
         # Clear cache to ensure fresh translation
-        status_messages._DYNAMIC_TRANSLATION_CACHE.clear()
+        status_messages.clear_dynamic_translation_cache()
 
         mock_client = MagicMock()
         mock_get_client.return_value = mock_client
@@ -226,11 +227,11 @@ class TestDynamicTranslation:
     def test_handles_openai_error_gracefully(self, mock_get_client):
         """Falls back to English when OpenAI translation fails."""
         # Clear cache
-        status_messages._DYNAMIC_TRANSLATION_CACHE.clear()
+        status_messages.clear_dynamic_translation_cache()
 
         mock_client = MagicMock()
         mock_get_client.return_value = mock_client
-        mock_client.chat.completions.create.side_effect = Exception("API Error")
+        mock_client.chat.completions.create.side_effect = OpenAIError("API Error")
 
         result = status_messages._translate_dynamically(
             status_messages.THINKING_ABOUT_MESSAGE, "de"
@@ -242,7 +243,7 @@ class TestDynamicTranslation:
     def test_returns_english_for_unknown_message_key(self):
         """Returns empty string when message key doesn't exist."""
         # Clear cache
-        status_messages._DYNAMIC_TRANSLATION_CACHE.clear()
+        status_messages.clear_dynamic_translation_cache()
 
         result = status_messages._translate_dynamically("NONEXISTENT_KEY", "fr")
 
@@ -256,7 +257,7 @@ class TestOpenAIClientInitialization:  # pylint: disable=too-few-public-methods
     def test_lazy_initializes_openai_client(self, mock_openai_class):
         """OpenAI client is lazily initialized on first use."""
         # Reset global client
-        status_messages._openai_client = None
+        status_messages.reset_openai_client_cache()
 
         mock_client_instance = MagicMock()
         mock_openai_class.return_value = mock_client_instance
@@ -283,10 +284,11 @@ class TestIntegration:
         result = status_messages.get_status_message(
             status_messages.PROCESSING_ERROR, state
         )
-        assert (
-            result
-            == "It looks like I'm having trouble processing your message. Please report this issue to my creators."
+        expected = (
+            "It looks like I'm having trouble processing your message. "
+            "Please report this issue to my creators."
         )
+        assert result == expected
 
     def test_full_flow_with_query_language_fallback(self):
         """Full flow: No user preference, uses query language."""
@@ -297,10 +299,8 @@ class TestIntegration:
         result = status_messages.get_status_message(
             status_messages.FINALIZING_RESPONSE, state
         )
-        assert (
-            result
-            == "I'm pulling everything together into a helpful response for you."
-        )
+        expected = "I'm pulling everything together into a helpful response for you."
+        assert result == expected
 
     @patch("bt_servant_engine.services.status_messages._translate_dynamically")
     def test_full_flow_with_dynamic_translation(self, mock_translate):

@@ -11,6 +11,8 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Dict, Iterable, List, Tuple
 
+FULL_BOOK_SENTINEL = 10_000
+
 # Centralized mapping of canonical book names to file stem and reference abbreviation.
 # File stems correspond to per-book JSONs under a chosen data root
 # (e.g., sources/bible_data/en/bsb/<stem>.json). The ref_abbr matches the
@@ -227,7 +229,7 @@ def select_range(
     s_ch = start_ch
     s_vs = start_vs if start_vs is not None else 1
     e_ch = end_ch if end_ch is not None else s_ch
-    e_vs = end_vs if end_vs is not None else 10_000  # big sentinel
+    e_vs = end_vs if end_vs is not None else FULL_BOOK_SENTINEL  # big sentinel
 
     for (ch, vs), pair in sorted(idx.items()):
         if (ch < s_ch) or (ch == s_ch and vs < s_vs):
@@ -270,10 +272,16 @@ def label_ranges(
     - Cross-chapter with verses: "Book 3:16-4:2"
     """
     # Special-case: treat a sentinel full-book range as just the book name.
-    # Upstream callers represent a whole-book selection as (1, None, 10_000, None).
+    # Upstream callers represent a whole-book selection as (1, None, FULL_BOOK_SENTINEL, None).
     if len(ranges) == 1:
         sc, sv, ec, ev = ranges[0]
-        full_book = sc == 1 and sv is None and ev is None and ec is not None and ec >= 10_000
+        full_book = (
+            sc == 1
+            and sv is None
+            and ev is None
+            and ec is not None
+            and ec >= FULL_BOOK_SENTINEL
+        )
         if full_book:
             return f"{canonical_book}"
     parts: List[str] = []
@@ -333,7 +341,7 @@ def clamp_ranges_by_verse_limit(
             s_ch = sc
             s_vs = sv if sv is not None else 1
             e_ch = ec if ec is not None else s_ch
-            e_vs = ev if ev is not None else 10_000
+            e_vs = ev if ev is not None else FULL_BOOK_SENTINEL
             if (ch < s_ch) or (ch == s_ch and vs < s_vs):
                 continue
             if (ch > e_ch) or (ch == e_ch and vs > e_vs):

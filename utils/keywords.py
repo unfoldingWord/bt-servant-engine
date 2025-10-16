@@ -10,6 +10,8 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Dict, Iterable, List, Set, Tuple
 
+from .bsb import FULL_BOOK_SENTINEL
+
 # Map canonical book names to the 3-letter (or 4 with leading digit) codes
 # used by the keyword dataset filenames, e.g., sources/keyword_data/keywords_JHN.json
 BOOK_TO_CODE: Dict[str, str] = {
@@ -106,7 +108,7 @@ def _in_range(
     start_ch, start_vs, end_ch, end_vs = sel
     s_vs = start_vs if start_vs is not None else 1
     e_ch = end_ch if end_ch is not None else start_ch
-    e_vs = end_vs if end_vs is not None else 10_000
+    e_vs = end_vs if end_vs is not None else FULL_BOOK_SENTINEL
     if ch < start_ch or ch > e_ch:
         return False
     if ch == start_ch and vs < s_vs:

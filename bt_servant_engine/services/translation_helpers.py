@@ -3,15 +3,17 @@
 from __future__ import annotations
 
 import json
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Optional, cast
+from typing import Any, Optional, cast
 
-from openai import OpenAI
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.passage_selection import (
+    PassageSelectionDependencies,
+    PassageSelectionRequest,
     resolve_selection_for_single_book,
 )
 from utils.bsb import (
@@ -26,6 +28,18 @@ logger = get_logger(__name__)
 
 # Type alias for translation ranges
 TranslationRange = tuple[int, int | None, int | None, int | None]
+
+
+@dataclass(slots=True)
+class TranslationHelpsRequest:
+    """Inputs required to prepare translation helps for a given scripture selection."""
+
+    query: str
+    query_lang: str
+    th_root: Path
+    bsb_root: Path
+    dependencies: PassageSelectionDependencies
+    selection_focus_hint: str | None = None
 
 
 def _compact_translation_help_entries(entries: list[dict]) -> list[dict]:
@@ -54,16 +68,7 @@ def _compact_translation_help_entries(entries: list[dict]) -> list[dict]:
 
 
 def prepare_translation_helps(
-    client: OpenAI,
-    query: str,
-    query_lang: str,
-    th_root: Path,
-    bsb_root: Path,
-    *,
-    book_map: dict[str, Any],
-    detect_mentioned_books_fn: Callable[..., Any],
-    translate_text_fn: Callable[..., Any],
-    selection_focus_hint: str | None = None,
+    request: TranslationHelpsRequest,
 ) -> tuple[
     Optional[str],
     Optional[list[TranslationRange]],
@@ -72,40 +77,38 @@ def prepare_translation_helps(
     Optional[str],
 ]:
     """Resolve canonical selection, enforce limits, and load raw help entries."""
-    canonical_book, ranges, err = resolve_selection_for_single_book(
-        client,
-        query,
-        query_lang,
-        book_map,
-        detect_mentioned_books_fn,
-        translate_text_fn,
-        focus_hint=selection_focus_hint,
+    selection_request = PassageSelectionRequest(
+        query=request.query,
+        query_lang=request.query_lang,
+        dependencies=request.dependencies,
+        focus_hint=request.selection_focus_hint,
     )
+    canonical_book, ranges, err = resolve_selection_for_single_book(selection_request)
     if err:
         return None, None, None, None, err
-    assert canonical_book is not None and ranges is not None  # nosec B101 - type narrowing after err check
+    assert (  # nosec B101
+        canonical_book is not None and ranges is not None
+    )
+    # err guard ensures non-None
 
-    missing_books = set(get_missing_th_books(th_root))
+    missing_books = set(get_missing_th_books(request.th_root))
     if canonical_book in missing_books:
-        return (
-            None,
-            None,
-            None,
-            None,
+        missing_list = ", ".join(sorted(BSB_BOOK_MAP[book]["ref_abbr"] for book in missing_books))
+        message_parts = [
             (
                 "Translation helps for "
-                f"{BSB_BOOK_MAP[canonical_book]['ref_abbr']} are not available yet. "
-                "Currently missing books: "
-                f"{', '.join(sorted(BSB_BOOK_MAP[b]['ref_abbr'] for b in missing_books))}. "
-                "Would you like translation help for one of the supported books instead?"
+                f"{BSB_BOOK_MAP[canonical_book]['ref_abbr']} are not available yet."
             ),
-        )
+            f"Currently missing books: {missing_list}.",
+            "Would you like translation help for one of the supported books instead?",
+        ]
+        return None, None, None, None, " ".join(message_parts)
 
     original_ranges = list(ranges)
-    verse_count = len(select_verses(bsb_root, canonical_book, original_ranges))
+    verse_count = len(select_verses(request.bsb_root, canonical_book, original_ranges))
 
     limited_ranges = clamp_ranges_by_verse_limit(
-        bsb_root,
+        request.bsb_root,
         canonical_book,
         original_ranges,
         max_verses=config.TRANSLATION_HELPS_VERSE_LIMIT,
@@ -116,10 +119,13 @@ def prepare_translation_helps(
             None,
             None,
             None,
-            "I couldn't identify verses for that selection in the BSB index. Please try another reference.",
+            (
+                "I couldn't identify verses for that selection in the BSB index. "
+                "Please try another reference."
+            ),
         )
 
-    raw_helps = select_translation_helps(th_root, canonical_book, limited_ranges)
+    raw_helps = select_translation_helps(request.th_root, canonical_book, limited_ranges)
     logger.info("[translation-helps] selected %d help entries", len(raw_helps))
     if not raw_helps:
         return (
@@ -127,7 +133,10 @@ def prepare_translation_helps(
             None,
             None,
             None,
-            "I couldn't locate translation helps for that selection. Please check the reference and try again.",
+            (
+                "I couldn't locate translation helps for that selection. "
+                "Please check the reference and try again."
+            ),
         )
 
     metadata: dict[str, Any] | None = None
@@ -191,7 +200,10 @@ def build_translation_helps_messages(
     messages: list[EasyInputMessageParam] = [
         {
             "role": "developer",
-            "content": "Focus only on the portion of the user's message that asked for translation helps. Ignore any other requests or book references in the message.",
+            "content": (
+                "Focus only on the portion of the user's message that asked for translation helps. "
+                "Ignore any other requests or book references in the message."
+            ),
         },
         {"role": "developer", "content": f"Selection: {ref_label}"},
         {"role": "developer", "content": "Use the JSON context below strictly:"},
@@ -199,7 +211,8 @@ def build_translation_helps_messages(
         {
             "role": "user",
             "content": (
-                "Using the provided context, explain the translation challenges and give actionable guidance for this selection."
+                "Using the provided context, explain the translation challenges "
+                "and give actionable guidance for this selection."
             ),
         },
     ]

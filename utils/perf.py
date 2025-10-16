@@ -12,8 +12,10 @@ import json
 import asyncio
 import threading
 from contextvars import ContextVar
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Optional, Any, Dict, List
+
+from .pricing import get_pricing, get_pricing_details
 
 
 # Current trace id propagated via ContextVar for async tasks
@@ -21,22 +23,13 @@ _current_trace_id: ContextVar[Optional[str]] = ContextVar("perf_current_trace_id
 
 
 @dataclass
-class Span:  # pylint: disable=too-many-instance-attributes
+class Span:
     """A single timed span with a name and timestamps."""
 
     name: str
     start: float
     end: float
-    input_tokens_expended: Optional[int] = None
-    output_tokens_expended: Optional[int] = None
-    total_tokens_expended: Optional[int] = None
-    cached_input_tokens_expended: Optional[int] = None
-    # Audio token accounting (optional, when SDK provides counts or we estimate)
-    audio_input_tokens_expended: Optional[int] = None
-    audio_output_tokens_expended: Optional[int] = None
-    # Optional model-level token breakdown:
-    # { model: {"input": int, "output": int, "total": int, "cached_input": int,
-    #           "audio_input": int, "audio_output": int} }
+    tokens: Dict[str, Optional[int]]
     model_token_breakdown: Optional[Dict[str, Dict[str, int]]] = None
 
     @property
@@ -72,21 +65,125 @@ class _TraceStore:
 _store = _TraceStore()
 
 
+TIMING_MATCH_TOLERANCE = 1e-6
+
+INTENT_NODE_MAP = {
+    "query_vector_db_node": "get-bible-translation-assistance",
+    "query_open_ai_node": "get-bible-translation-assistance",
+    "handle_get_passage_summary_node": "get-passage-summary",
+    "handle_get_passage_keywords_node": "get-passage-keywords",
+    "handle_get_translation_helps_node": "get-translation-helps",
+    "set_response_language_node": "set-response-language",
+    "handle_unsupported_function_node": "perform-unsupported-function",
+    "handle_system_information_request_node": "retrieve-system-information",
+    "converse_with_bt_servant_node": "converse-with-bt-servant",
+}
+
+
 @dataclass
-class _OpenSpan:  # pylint: disable=too-many-instance-attributes
+class _OpenSpan:
     name: str
     start: float
-    input_tokens_expended: int = 0
-    output_tokens_expended: int = 0
-    total_tokens_expended: int = 0
-    cached_input_tokens_expended: int = 0
-    audio_input_tokens_expended: int = 0
-    audio_output_tokens_expended: int = 0
+    tokens: Dict[str, int] = field(default_factory=lambda: {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "cached_input": 0,
+        "audio_input": 0,
+        "audio_output": 0,
+    })
     model_token_breakdown: Dict[str, Dict[str, int]] | None = None
 
 
 # Stack of open spans (per-task via ContextVar) to attribute tokens
 _active_spans: ContextVar[List[_OpenSpan] | tuple] = ContextVar("perf_active_spans", default=())
+
+
+@dataclass(slots=True)
+class TokenIncrements:
+    """Token deltas captured from model usage callbacks."""
+
+    input_tokens: Optional[int] = None
+    output_tokens: Optional[int] = None
+    total_tokens: Optional[int] = None
+    model: Optional[str] = None
+    cached_input_tokens: Optional[int] = None
+    audio_input_tokens: Optional[int] = None
+    audio_output_tokens: Optional[int] = None
+
+
+@dataclass(slots=True)
+class TokenCounts:
+    """Aggregate token counts for a span or grouped roll-up."""
+
+    input_tokens: int = 0
+    output_tokens: int = 0
+    total_tokens: int = 0
+    cached_input_tokens: int = 0
+    audio_input_tokens: int = 0
+    audio_output_tokens: int = 0
+
+
+@dataclass(slots=True)
+class CostSnapshot:
+    """Cost totals (USD) attributed to a span or group."""
+
+    input_cost_usd: float = 0.0
+    output_cost_usd: float = 0.0
+    cached_input_cost_usd: float = 0.0
+    audio_input_cost_usd: float = 0.0
+    audio_output_cost_usd: float = 0.0
+
+    @property
+    def total_cost_usd(self) -> float:
+        """Return the combined cost of all token categories."""
+        return (
+            self.input_cost_usd
+            + self.output_cost_usd
+            + self.cached_input_cost_usd
+            + self.audio_input_cost_usd
+            + self.audio_output_cost_usd
+        )
+
+
+@dataclass(slots=True)
+class AggregateTotals:
+    """Roll-up of token, cost, and timing information for grouped spans."""
+
+    tokens: TokenCounts = field(default_factory=TokenCounts)
+    costs: CostSnapshot = field(default_factory=CostSnapshot)
+    duration_ms: float = 0.0
+
+    def add_counts(self, counts: TokenCounts) -> None:
+        """Accumulate token totals into the grouped aggregate."""
+        self.tokens.input_tokens += counts.input_tokens
+        self.tokens.output_tokens += counts.output_tokens
+        self.tokens.total_tokens += counts.total_tokens
+        self.tokens.cached_input_tokens += counts.cached_input_tokens
+        self.tokens.audio_input_tokens += counts.audio_input_tokens
+        self.tokens.audio_output_tokens += counts.audio_output_tokens
+
+    def add_costs(self, costs: CostSnapshot) -> None:
+        """Accumulate cost totals into the grouped aggregate."""
+        self.costs.input_cost_usd += costs.input_cost_usd
+        self.costs.output_cost_usd += costs.output_cost_usd
+        self.costs.cached_input_cost_usd += costs.cached_input_cost_usd
+        self.costs.audio_input_cost_usd += costs.audio_input_cost_usd
+        self.costs.audio_output_cost_usd += costs.audio_output_cost_usd
+
+
+@dataclass(slots=True)
+class TimingSummary:
+    """Wall-clock timing metadata derived from collected spans."""
+
+    start: float
+    total_ms: float
+    total_s: float
+
+    @property
+    def denominator(self) -> float:
+        """Return a safe denominator to avoid division by zero."""
+        return self.total_ms if self.total_ms > 0 else 1.0
 
 
 def set_current_trace(trace_id: Optional[str]) -> None:
@@ -109,20 +206,20 @@ def _record_span(name: str, start: float, end: float, trace_id: Optional[str] = 
         "input": None,
         "output": None,
         "total": None,
+        "cached_input": None,
         "audio_input": None,
         "audio_output": None,
     }
     mtb: Optional[Dict[str, Dict[str, int]]] = None
-    cached_input = None
-    if stack and stack[-1].name == name and abs(stack[-1].start - start) < 1e-6:
+    if stack and stack[-1].name == name and abs(stack[-1].start - start) < TIMING_MATCH_TOLERANCE:
         os = stack[-1]
-        # Normalize zero totals to None when no tokens were added at all
-        tokens["input"] = os.input_tokens_expended or None
-        tokens["output"] = os.output_tokens_expended or None
-        tokens["total"] = os.total_tokens_expended or None
-        cached_input = os.cached_input_tokens_expended or None
-        tokens["audio_input"] = os.audio_input_tokens_expended or None
-        tokens["audio_output"] = os.audio_output_tokens_expended or None
+        current_tokens = os.tokens
+        tokens["input"] = current_tokens.get("input") or None
+        tokens["output"] = current_tokens.get("output") or None
+        tokens["total"] = current_tokens.get("total") or None
+        tokens["cached_input"] = current_tokens.get("cached_input") or None
+        tokens["audio_input"] = current_tokens.get("audio_input") or None
+        tokens["audio_output"] = current_tokens.get("audio_output") or None
         mtb = os.model_token_breakdown
     _store.add(
         tid,
@@ -130,12 +227,7 @@ def _record_span(name: str, start: float, end: float, trace_id: Optional[str] = 
             name=name,
             start=start,
             end=end,
-            input_tokens_expended=tokens["input"],
-            output_tokens_expended=tokens["output"],
-            total_tokens_expended=tokens["total"],
-            cached_input_tokens_expended=cached_input,
-            audio_input_tokens_expended=tokens["audio_input"],
-            audio_output_tokens_expended=tokens["audio_output"],
+            tokens=tokens,
             model_token_breakdown=mtb,
         ),
     )
@@ -228,306 +320,298 @@ def record_external_span(
     _record_span(name, start, end, trace_id=trace_id)
 
 
-def add_tokens(  # pylint: disable=too-many-branches,too-many-arguments
-    input_tokens: Optional[int] = None,
-    output_tokens: Optional[int] = None,
-    total_tokens: Optional[int] = None,
-    *,
-    model: Optional[str] = None,
-    cached_input_tokens: Optional[int] = None,
-    audio_input_tokens: Optional[int] = None,
-    audio_output_tokens: Optional[int] = None,
-) -> None:
-    """Attach token counts to the current open span (if any).
+def _apply_token_deltas(open_span: _OpenSpan, increments: TokenIncrements) -> None:
+    tokens = open_span.tokens
+    if increments.input_tokens is not None:
+        tokens["input"] += int(increments.input_tokens)
+    if increments.output_tokens is not None:
+        tokens["output"] += int(increments.output_tokens)
+    if increments.total_tokens is not None:
+        tokens["total"] += int(increments.total_tokens)
+    elif increments.input_tokens is not None and increments.output_tokens is not None:
+        tokens["total"] += int(increments.input_tokens) + int(increments.output_tokens)
+    if increments.cached_input_tokens is not None:
+        tokens["cached_input"] += int(increments.cached_input_tokens)
+    if increments.audio_input_tokens is not None:
+        tokens["audio_input"] += int(increments.audio_input_tokens)
+    if increments.audio_output_tokens is not None:
+        tokens["audio_output"] += int(increments.audio_output_tokens)
 
-    - Sums values if called multiple times within the same span.
-    - If ``total_tokens`` is not provided, a sum of available inputs is computed
-      when both input and output tokens are present.
-    """
+
+def _apply_model_breakdown(open_span: _OpenSpan, increments: TokenIncrements) -> None:
+    if not increments.model:
+        return
+    if open_span.model_token_breakdown is None:
+        open_span.model_token_breakdown = {}
+    bucket = open_span.model_token_breakdown.setdefault(
+        increments.model,
+        {
+            "input": 0,
+            "output": 0,
+            "total": 0,
+            "cached_input": 0,
+            "audio_input": 0,
+            "audio_output": 0,
+        },
+    )
+    if increments.input_tokens is not None:
+        bucket["input"] += int(increments.input_tokens)
+    if increments.output_tokens is not None:
+        bucket["output"] += int(increments.output_tokens)
+    if increments.total_tokens is not None:
+        bucket["total"] += int(increments.total_tokens)
+    elif increments.input_tokens is not None and increments.output_tokens is not None:
+        bucket["total"] += int(increments.input_tokens) + int(increments.output_tokens)
+    if increments.cached_input_tokens is not None:
+        bucket["cached_input"] += int(increments.cached_input_tokens)
+    if increments.audio_input_tokens is not None:
+        bucket["audio_input"] += int(increments.audio_input_tokens)
+    if increments.audio_output_tokens is not None:
+        bucket["audio_output"] += int(increments.audio_output_tokens)
+
+
+def add_tokens(increments: TokenIncrements) -> None:
+    """Attach token counts to the current open span (if any)."""
     stack = _active_spans.get()
     if not stack:
         return
-    os = stack[-1]
-    if input_tokens is not None:
-        os.input_tokens_expended += int(input_tokens)
-    if output_tokens is not None:
-        os.output_tokens_expended += int(output_tokens)
-    if total_tokens is not None:
-        os.total_tokens_expended += int(total_tokens)
-    elif input_tokens is not None or output_tokens is not None:
-        # Estimate total for this call if both parts available; otherwise leave
-        # accumulation to future calls when the missing part arrives.
-        if input_tokens is not None and output_tokens is not None:
-            os.total_tokens_expended += int(input_tokens) + int(output_tokens)
-    # Track cached input tokens
-    if cached_input_tokens is not None:
-        os.cached_input_tokens_expended += int(cached_input_tokens)
-
-    # Track audio tokens (separately from text tokens)
-    if audio_input_tokens is not None:
-        os.audio_input_tokens_expended += int(audio_input_tokens)
-    if audio_output_tokens is not None:
-        os.audio_output_tokens_expended += int(audio_output_tokens)
-
-    # Track per-model breakdown
-    if model:
-        if os.model_token_breakdown is None:
-            os.model_token_breakdown = {}
-        bucket = os.model_token_breakdown.setdefault(
-            model,
-            {
-                "input": 0,
-                "output": 0,
-                "total": 0,
-                "cached_input": 0,
-                "audio_input": 0,
-                "audio_output": 0,
-            },
-        )
-        if input_tokens is not None:
-            bucket["input"] += int(input_tokens)
-        if output_tokens is not None:
-            bucket["output"] += int(output_tokens)
-        if total_tokens is not None:
-            bucket["total"] += int(total_tokens)
-        elif input_tokens is not None and output_tokens is not None:
-            bucket["total"] += int(input_tokens) + int(output_tokens)
-        if cached_input_tokens is not None:
-            bucket["cached_input"] += int(cached_input_tokens)
-        if audio_input_tokens is not None:
-            bucket["audio_input"] += int(audio_input_tokens)
-        if audio_output_tokens is not None:
-            bucket["audio_output"] += int(audio_output_tokens)
+    open_span = stack[-1]
+    _apply_token_deltas(open_span, increments)
+    _apply_model_breakdown(open_span, increments)
 
 
-def summarize_report(trace_id: str) -> Dict[str, Any]:  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
-    """Return an ordered summary of spans for the given trace id.
+def _sorted_spans(trace_id: str) -> list[Span]:
+    return sorted(_store.get(trace_id), key=lambda span: span.start)
 
-    Adds both millisecond and second totals, and augments each span with
-    seconds and a duration_percentage (duration_ms / total_ms).
-    """
-    spans = sorted(_store.get(trace_id), key=lambda s: s.start)
-    if not spans:
-        return {"trace_id": trace_id, "total_ms": 0.0, "total_s": 0.0, "spans": []}
 
+def _empty_summary(trace_id: str) -> Dict[str, Any]:
+    return {"trace_id": trace_id, "total_ms": 0.0, "total_s": 0.0, "spans": []}
+
+
+def _build_timing_summary(spans: list[Span]) -> TimingSummary:
     t0 = spans[0].start
-    t1 = max(s.end for s in spans)
+    t1 = max(span.end for span in spans)
     total_ms = round((t1 - t0) * 1000.0, 2)
-    total_s = round((t1 - t0), 2)
+    total_s = round(t1 - t0, 2)
+    return TimingSummary(start=t0, total_ms=total_ms, total_s=total_s)
 
-    # Guard against divide-by-zero if timestamps are identical
-    denom = total_ms if total_ms > 0 else 1.0
 
-    from .pricing import get_pricing, get_pricing_details  # pylint: disable=import-outside-toplevel
+def _token_denominator(spans: list[Span]) -> int:
+    return sum(_span_token_counts(span).total_tokens for span in spans)
 
-    # Precompute total token denominator for token_percentage.
-    token_total_denominator = 0
-    for _s in spans:
-        _itok = _s.input_tokens_expended or 0
-        _otok = _s.output_tokens_expended or 0
-        _ttok = _s.total_tokens_expended or (_itok + _otok)
-        token_total_denominator += _ttok
 
-    items: List[Dict[str, Any]] = []
-    total_input_tokens = 0
-    total_output_tokens = 0
-    total_tokens = 0
-    total_cost_input_usd = 0.0
-    total_cost_output_usd = 0.0
-    total_cost_cached_input_usd = 0.0
-    total_cost_usd = 0.0
-    total_cached_input_tokens = 0
-    total_audio_input_tokens = 0
-    total_audio_output_tokens = 0
-    total_cost_audio_input_usd = 0.0
-    total_cost_audio_output_usd = 0.0
+def _span_token_counts(span: Span) -> TokenCounts:
+    bucket = span.tokens
+    itok = bucket.get("input") or 0
+    otok = bucket.get("output") or 0
+    ttok = bucket.get("total") or (itok + otok)
+    citok = bucket.get("cached_input") or 0
+    aitok = bucket.get("audio_input") or 0
+    aotok = bucket.get("audio_output") or 0
+    return TokenCounts(
+        input_tokens=itok,
+        output_tokens=otok,
+        total_tokens=ttok,
+        cached_input_tokens=citok,
+        audio_input_tokens=aitok,
+        audio_output_tokens=aotok,
+    )
 
-    # Intent grouping: map node names to intent identifiers
-    intent_node_map: Dict[str, str] = {
-        "query_vector_db_node": "get-bible-translation-assistance",
-        "query_open_ai_node": "get-bible-translation-assistance",
-        "handle_get_passage_summary_node": "get-passage-summary",
-        "handle_get_passage_keywords_node": "get-passage-keywords",
-        "handle_get_translation_helps_node": "get-translation-helps",
-        "set_response_language_node": "set-response-language",
-        "handle_unsupported_function_node": "perform-unsupported-function",
-        "handle_system_information_request_node": "retrieve-system-information",
-        "converse_with_bt_servant_node": "converse-with-bt-servant",
-    }
-    grouped: Dict[str, Dict[str, float]] = {}
-    for s in spans:
-        dur_ms = round((s.end - s.start) * 1000.0, 2)
-        item: Dict[str, Any] = {
-            "name": s.name,
-            "duration_ms": dur_ms,
-            "duration_se": round((s.end - s.start), 2),
-            "duration_percentage": f"{round((dur_ms / denom) * 100.0, 1)}%",
-            "start_offset_ms": round((s.start - t0) * 1000.0, 2),
+
+def _calculate_costs(span: Span) -> CostSnapshot:
+    if not span.model_token_breakdown:
+        return CostSnapshot()
+
+    costs = CostSnapshot()
+    for model_name, tokens in span.model_token_breakdown.items():
+        pricing = get_pricing(model_name)
+        pricing_details = get_pricing_details(model_name)
+        if not pricing:
+            continue
+        input_rate, output_rate = pricing
+        costs.input_cost_usd += (tokens.get("input", 0) / 1_000_000.0) * input_rate
+        costs.output_cost_usd += (tokens.get("output", 0) / 1_000_000.0) * output_rate
+        if pricing_details and "cached_input_per_million" in pricing_details:
+            costs.cached_input_cost_usd += (
+                tokens.get("cached_input", 0) / 1_000_000.0
+            ) * pricing_details["cached_input_per_million"]
+        if pricing_details and "audio_input_per_million" in pricing_details:
+            costs.audio_input_cost_usd += (
+                tokens.get("audio_input", 0) / 1_000_000.0
+            ) * pricing_details["audio_input_per_million"]
+        if pricing_details and "audio_output_per_million" in pricing_details:
+            costs.audio_output_cost_usd += (
+                tokens.get("audio_output", 0) / 1_000_000.0
+            ) * pricing_details["audio_output_per_million"]
+    return costs
+
+
+def _attach_costs(item: Dict[str, Any], costs: CostSnapshot) -> None:
+    if not costs.total_cost_usd:
+        return
+    item["input_cost_usd"] = round(costs.input_cost_usd, 6)
+    item["output_cost_usd"] = round(costs.output_cost_usd, 6)
+    if costs.cached_input_cost_usd:
+        item["cached_input_cost_usd"] = round(costs.cached_input_cost_usd, 6)
+    if costs.audio_input_cost_usd:
+        item["audio_input_cost_usd"] = round(costs.audio_input_cost_usd, 6)
+    if costs.audio_output_cost_usd:
+        item["audio_output_cost_usd"] = round(costs.audio_output_cost_usd, 6)
+    item["total_cost_usd"] = round(costs.total_cost_usd, 6)
+
+
+def _update_group_totals(
+    grouped: Dict[str, AggregateTotals],
+    span: Span,
+    counts: TokenCounts,
+    costs: CostSnapshot,
+    duration_ms: float,
+) -> None:
+    if not span.name.startswith("brain:"):
+        return
+    node = span.name.split(":", 1)[1]
+    intent = INTENT_NODE_MAP.get(node)
+    if not intent:
+        return
+    aggregate = grouped.setdefault(intent, AggregateTotals())
+    aggregate.add_counts(counts)
+    aggregate.add_costs(costs)
+    aggregate.duration_ms += duration_ms
+
+
+def _token_percentage(total_tokens: int, denominator: int) -> str:
+    denom = float(denominator) if denominator > 0 else 1.0
+    return f"{round((total_tokens / denom) * 100.0, 1)}%"
+
+
+def _format_grouped_totals(
+    grouped: Dict[str, AggregateTotals],
+    timing: TimingSummary,
+    token_denominator: int,
+) -> Dict[str, Dict[str, Any]]:
+    total_ms = timing.total_ms or 0.0
+    token_denom = token_denominator or 1
+    result: Dict[str, Dict[str, Any]] = {}
+    for intent, totals in grouped.items():
+        duration_denom = total_ms if total_ms > 0 else 1.0
+        tokens = totals.tokens
+        costs = totals.costs
+        result[intent] = {
+            "input_tokens": int(tokens.input_tokens),
+            "output_tokens": int(tokens.output_tokens),
+            "total_tokens": int(tokens.total_tokens),
+            "cached_input_tokens": int(tokens.cached_input_tokens),
+            "audio_input_tokens": int(tokens.audio_input_tokens),
+            "audio_output_tokens": int(tokens.audio_output_tokens),
+            "input_cost_usd": round(costs.input_cost_usd, 6),
+            "output_cost_usd": round(costs.output_cost_usd, 6),
+            "cached_input_cost_usd": round(costs.cached_input_cost_usd, 6),
+            "audio_input_cost_usd": round(costs.audio_input_cost_usd, 6),
+            "audio_output_cost_usd": round(costs.audio_output_cost_usd, 6),
+            "total_cost_usd": round(costs.total_cost_usd, 6),
+            "duration_percentage": f"{round((totals.duration_ms / duration_denom) * 100.0, 1)}%",
+            "token_percentage": _token_percentage(tokens.total_tokens, token_denom),
         }
-        if s.input_tokens_expended is not None:
-            item["input_tokens_expended"] = s.input_tokens_expended
-        if s.output_tokens_expended is not None:
-            item["output_tokens_expended"] = s.output_tokens_expended
-        if s.total_tokens_expended is not None:
-            item["total_tokens_expended"] = s.total_tokens_expended
-        # Compute cost per span using model breakdown when available
-        span_cost_input = 0.0
-        span_cost_output = 0.0
-        span_cost_cached_input = 0.0
-        span_cost_total = 0.0
-        span_cost_audio_input = 0.0
-        span_cost_audio_output = 0.0
-        if s.model_token_breakdown:
-            for model_name, tok in s.model_token_breakdown.items():
-                pricing = get_pricing(model_name)
-                pricing_details = get_pricing_details(model_name)
-                if not pricing:
-                    continue
-                in_price, out_price = pricing
-                span_cost_input += (tok.get("input", 0) / 1_000_000.0) * in_price
-                span_cost_output += (tok.get("output", 0) / 1_000_000.0) * out_price
-                if pricing_details and "cached_input_per_million" in pricing_details:
-                    span_cost_cached_input += (
-                        tok.get("cached_input", 0) / 1_000_000.0
-                    ) * pricing_details["cached_input_per_million"]
-                if pricing_details and "audio_input_per_million" in pricing_details:
-                    span_cost_audio_input += (
-                        tok.get("audio_input", 0) / 1_000_000.0
-                    ) * pricing_details["audio_input_per_million"]
-                if pricing_details and "audio_output_per_million" in pricing_details:
-                    span_cost_audio_output += (
-                        tok.get("audio_output", 0) / 1_000_000.0
-                    ) * pricing_details["audio_output_per_million"]
-        # If no per-model breakdown is available, we skip cost for this span.
-        # Pricing requires a model to resolve input/output rates.
-        if (
-            span_cost_input
-            or span_cost_output
-            or span_cost_cached_input
-            or span_cost_audio_input
-            or span_cost_audio_output
-        ):
-            span_cost_total = (
-                span_cost_input
-                + span_cost_output
-                + span_cost_cached_input
-                + span_cost_audio_input
-                + span_cost_audio_output
-            )
-            item["input_cost_usd"] = round(span_cost_input, 6)
-            item["output_cost_usd"] = round(span_cost_output, 6)
-            if span_cost_cached_input:
-                item["cached_input_cost_usd"] = round(span_cost_cached_input, 6)
-            if span_cost_audio_input:
-                item["audio_input_cost_usd"] = round(span_cost_audio_input, 6)
-            if span_cost_audio_output:
-                item["audio_output_cost_usd"] = round(span_cost_audio_output, 6)
-            item["total_cost_usd"] = round(span_cost_total, 6)
+    return result
 
-        # Update top-level totals
-        itok = s.input_tokens_expended or 0
-        otok = s.output_tokens_expended or 0
-        ttok = s.total_tokens_expended or (itok + otok)
-        citok = s.cached_input_tokens_expended or 0
-        aitok = s.audio_input_tokens_expended or 0
-        aotok = s.audio_output_tokens_expended or 0
-        total_input_tokens += itok
-        total_output_tokens += otok
-        total_tokens += ttok
-        total_cached_input_tokens += citok
-        total_audio_input_tokens += aitok
-        total_audio_output_tokens += aotok
-        total_cost_input_usd += span_cost_input
-        total_cost_output_usd += span_cost_output
-        total_cost_cached_input_usd += span_cost_cached_input
-        total_cost_audio_input_usd += span_cost_audio_input
-        total_cost_audio_output_usd += span_cost_audio_output
-        total_cost_usd += span_cost_total
 
-        # Token percentage: share of total tokens in this trace.
-        token_den = float(token_total_denominator) if token_total_denominator > 0 else 1.0
-        item["token_percentage"] = f"{round((ttok / token_den) * 100.0, 1)}%"
+@dataclass(slots=True)
+class SummaryAssemblyContext:
+    """Container of intermediate state while building a trace summary."""
 
-        # Group by intent when the span name matches a known intent node
-        if s.name.startswith("brain:"):
-            node = s.name.split(":", 1)[1]
-            intent = intent_node_map.get(node)
-            if intent:
-                agg = grouped.setdefault(
-                    intent,
-                    {
-                        "input_tokens": 0.0,
-                        "output_tokens": 0.0,
-                        "total_tokens": 0.0,
-                        "cached_input_tokens": 0.0,
-                        "audio_input_tokens": 0.0,
-                        "audio_output_tokens": 0.0,
-                        "input_cost_usd": 0.0,
-                        "output_cost_usd": 0.0,
-                        "cached_input_cost_usd": 0.0,
-                        "audio_input_cost_usd": 0.0,
-                        "audio_output_cost_usd": 0.0,
-                        "total_cost_usd": 0.0,
-                        "duration_ms": 0.0,
-                    },
-                )
-                agg["input_tokens"] += itok
-                agg["output_tokens"] += otok
-                agg["total_tokens"] += ttok
-                agg["cached_input_tokens"] += citok
-                agg["audio_input_tokens"] += aitok
-                agg["audio_output_tokens"] += aotok
-                agg["input_cost_usd"] += span_cost_input
-                agg["output_cost_usd"] += span_cost_output
-                agg["cached_input_cost_usd"] += span_cost_cached_input
-                agg["audio_input_cost_usd"] += span_cost_audio_input
-                agg["audio_output_cost_usd"] += span_cost_audio_output
-                agg["total_cost_usd"] += span_cost_total
-                agg["duration_ms"] += dur_ms
+    trace_id: str
+    timing: TimingSummary
+    totals: AggregateTotals
+    grouped: Dict[str, AggregateTotals]
+    items: list[Dict[str, Any]]
+    token_denominator: int
 
-        items.append(item)
 
-    return {
-        "trace_id": trace_id,
-        "total_ms": total_ms,
-        "total_s": total_s,
-        "total_input_tokens": total_input_tokens,
-        "total_output_tokens": total_output_tokens,
-        "total_tokens": total_tokens,
-        "total_cached_input_tokens": total_cached_input_tokens,
-        "total_audio_input_tokens": total_audio_input_tokens,
-        "total_audio_output_tokens": total_audio_output_tokens,
-        "total_input_cost_usd": round(total_cost_input_usd, 6),
-        "total_output_cost_usd": round(total_cost_output_usd, 6),
-        "total_cached_input_cost_usd": round(total_cost_cached_input_usd, 6),
-        "total_audio_input_cost_usd": round(total_cost_audio_input_usd, 6),
-        "total_audio_output_cost_usd": round(total_cost_audio_output_usd, 6),
-        "total_cost_usd": round(total_cost_usd, 6),
-        "grouped_totals_by_intent": {
-            k: {
-                "input_tokens": int(v["input_tokens"]),
-                "output_tokens": int(v["output_tokens"]),
-                "total_tokens": int(v["total_tokens"]),
-                "cached_input_tokens": int(v["cached_input_tokens"]),
-                "audio_input_tokens": int(v["audio_input_tokens"]),
-                "audio_output_tokens": int(v["audio_output_tokens"]),
-                "input_cost_usd": round(v["input_cost_usd"], 6),
-                "output_cost_usd": round(v["output_cost_usd"], 6),
-                "cached_input_cost_usd": round(v["cached_input_cost_usd"], 6),
-                "audio_input_cost_usd": round(v["audio_input_cost_usd"], 6),
-                "audio_output_cost_usd": round(v["audio_output_cost_usd"], 6),
-                "total_cost_usd": round(v["total_cost_usd"], 6),
-                "duration_percentage": "{:.1f}%".format(  # pylint: disable=consider-using-f-string
-                    (v.get("duration_ms", 0.0) or 0.0) / (total_ms or 1.0) * 100.0
-                ),
-                "token_percentage": "{:.1f}%".format(  # pylint: disable=consider-using-f-string
-                    (v.get("total_tokens", 0.0) or 0.0) / (token_total_denominator or 1.0) * 100.0
-                ),
-            }
-            for k, v in grouped.items()
-        },
-        "spans": items,
+def _span_summary(
+    span: Span,
+    timing: TimingSummary,
+    token_denominator: int,
+    totals: AggregateTotals,
+    grouped: Dict[str, AggregateTotals],
+) -> Dict[str, Any]:
+    duration_seconds = span.end - span.start
+    duration_ms = round(duration_seconds * 1000.0, 2)
+    item: Dict[str, Any] = {
+        "name": span.name,
+        "duration_ms": duration_ms,
+        "duration_se": round(duration_seconds, 2),
+        "duration_percentage": f"{round((duration_ms / timing.denominator) * 100.0, 1)}%",
+        "start_offset_ms": round((span.start - timing.start) * 1000.0, 2),
     }
+    bucket = span.tokens
+    if bucket.get("input") is not None:
+        item["input_tokens_expended"] = bucket["input"]
+    if bucket.get("output") is not None:
+        item["output_tokens_expended"] = bucket["output"]
+    if bucket.get("total") is not None:
+        item["total_tokens_expended"] = bucket["total"]
+
+    counts = _span_token_counts(span)
+    costs = _calculate_costs(span)
+    _attach_costs(item, costs)
+
+    totals.add_counts(counts)
+    totals.add_costs(costs)
+    _update_group_totals(grouped, span, counts, costs, duration_ms)
+    item["token_percentage"] = _token_percentage(counts.total_tokens, token_denominator)
+    return item
+
+
+def _assemble_summary(context: SummaryAssemblyContext) -> Dict[str, Any]:
+    totals = context.totals
+    timing = context.timing
+    return {
+        "trace_id": context.trace_id,
+        "total_ms": timing.total_ms,
+        "total_s": timing.total_s,
+        "total_input_tokens": totals.tokens.input_tokens,
+        "total_output_tokens": totals.tokens.output_tokens,
+        "total_tokens": totals.tokens.total_tokens,
+        "total_cached_input_tokens": totals.tokens.cached_input_tokens,
+        "total_audio_input_tokens": totals.tokens.audio_input_tokens,
+        "total_audio_output_tokens": totals.tokens.audio_output_tokens,
+        "total_input_cost_usd": round(totals.costs.input_cost_usd, 6),
+        "total_output_cost_usd": round(totals.costs.output_cost_usd, 6),
+        "total_cached_input_cost_usd": round(totals.costs.cached_input_cost_usd, 6),
+        "total_audio_input_cost_usd": round(totals.costs.audio_input_cost_usd, 6),
+        "total_audio_output_cost_usd": round(totals.costs.audio_output_cost_usd, 6),
+        "total_cost_usd": round(totals.costs.total_cost_usd, 6),
+        "grouped_totals_by_intent": _format_grouped_totals(
+            context.grouped, timing, context.token_denominator
+        ),
+        "spans": context.items,
+    }
+
+
+def summarize_report(trace_id: str) -> Dict[str, Any]:
+    """Return an ordered summary of spans for the given trace id."""
+    spans = _sorted_spans(trace_id)
+    if not spans:
+        return _empty_summary(trace_id)
+
+    timing = _build_timing_summary(spans)
+    token_denominator = _token_denominator(spans)
+
+    totals = AggregateTotals()
+    grouped: Dict[str, AggregateTotals] = {}
+    items = [
+        _span_summary(span, timing, token_denominator, totals, grouped) for span in spans
+    ]
+
+    context = SummaryAssemblyContext(
+        trace_id=trace_id,
+        timing=timing,
+        totals=totals,
+        grouped=grouped,
+        items=items,
+        token_denominator=token_denominator,
+    )
+    return _assemble_summary(context)
 
 
 def log_final_report(logger: Any, trace_id: str, **metadata: Any) -> None:

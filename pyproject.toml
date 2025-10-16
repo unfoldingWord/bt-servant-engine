@@ -39,12 +39,27 @@ dev = [
   "typing-extensions>=4.12",
 ]
 
+[tool.setuptools]
+license-files = []
+
+[tool.setuptools.packages.find]
+include = ["bt_servant_engine*"]
+exclude = [
+  "tests*",
+  "scripts*",
+  "sources*",
+  "visualizations*",
+  "data*",
+  "docs*",
+  "logs*",
+]
+
 [tool.ruff]
 target-version = "py312"
 line-length = 100
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "B", "DTZ"]
+select = ["E", "F", "W", "B", "DTZ", "PL"]
 # Allow long prompt strings and whitespace artifacts that are intentionally preserved.
 ignore = ["E501", "W291", "W293"]
 
@@ -85,16 +100,3 @@ DEP002 = ["uvicorn"]
 [tool.pylint.similarities]
 # Effectively disable duplicate-code (R0801) warnings by requiring 1000+ similar lines
 min-similarity-lines = 1000
-
-[tool.pylint.messages_control]
-disable = [
-    "import-outside-toplevel",  # C0415 - Used intentionally in brain_nodes.py
-    "cyclic-import",             # R0401 - Intentional pattern for test compatibility
-    "line-too-long",             # C0301 - Pre-existing
-    "too-many-arguments",        # R0913 - Pre-existing design patterns
-    "R0917",                     # too-many-positional-arguments - Pre-existing design patterns
-    "too-many-locals",           # R0914 - Pre-existing design patterns
-    "too-many-statements",       # R0915 - Pre-existing design patterns
-    "unused-argument",           # W0613 - Pre-existing
-    "implicit-str-concat",       # W1404 - Pre-existing in scripts
-]

@@ -10,6 +10,7 @@ Pylint is relaxed for this test module to keep fakes concise.
 from __future__ import annotations
 
 import time
+from http import HTTPStatus
 from typing import Any, Dict, List, Optional
 
 import pytest
@@ -17,6 +18,15 @@ from fastapi.testclient import TestClient
 
 import bt_servant_engine.adapters.chroma as chroma_db
 from bt_servant_engine.apps.api.app import create_app
+from bt_servant_engine.bootstrap import build_default_service_container
+
+DUPLICATES_PREVIEW_LIMIT = 2
+BATCH_SIZE_LIMIT = 2
+BACKGROUND_START_DELAY_SECONDS = 0.2
+MERGE_POLL_ATTEMPTS = 1000
+MERGE_POLL_INTERVAL_SECONDS = 0.05
+CANCEL_BATCH_SIZE = 5
+CANCEL_START_DELAY_SECONDS = 0.1
 
 
 class FakeCollection:
@@ -115,20 +125,21 @@ def test_dry_run_duplicates_preview_limit(fake_chroma):
     )
     dst.add(ids=["2", "5"], documents=["x", "y"], metadatas=[{}, {}], embeddings=[[0.9], [1.0]])
 
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
     resp = client.post(
         "/chroma/collections/dst/merge",
-        json={
+        json=
+        {
             "source": "src",
             "on_duplicate": "fail",
             "dry_run": True,
-            "duplicates_preview_limit": 2,
+            "duplicates_preview_limit": DUPLICATES_PREVIEW_LIMIT,
         },
     )
-    assert resp.status_code == 200, resp.text
+    assert resp.status_code == HTTPStatus.OK, resp.text
     body = resp.json()
     assert body["duplicates_found"] is True
-    assert len(body["duplicate_preview"]) <= 2
+    assert len(body["duplicate_preview"]) <= DUPLICATES_PREVIEW_LIMIT
 
 
 @pytest.mark.skip(
@@ -146,33 +157,34 @@ def test_merge_create_new_id_with_tags_and_copy(fake_chroma):
         embeddings=[[0.1], [0.2], [0.3]],
     )
 
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
     # Start merge
     resp = client.post(
         "/chroma/collections/dst/merge",
-        json={
+        json=
+        {
             "source": "src",
             "mode": "copy",
             "create_new_id": True,
             "use_source_embeddings": True,
-            "batch_size": 2,
+            "batch_size": BATCH_SIZE_LIMIT,
         },
     )
-    assert resp.status_code == 202, resp.text
+    assert resp.status_code == HTTPStatus.ACCEPTED, resp.text
     task = resp.json()
     task_id = task["task_id"]
 
     # Give background thread time to start
-    time.sleep(0.2)
+    time.sleep(BACKGROUND_START_DELAY_SECONDS)
 
     # Poll for completion with generous timeout
-    for _ in range(1000):  # 50s total timeout for CI environments
+    for _ in range(MERGE_POLL_ATTEMPTS):  # 50s total timeout for CI environments
         st = client.get(f"/chroma/merge-tasks/{task_id}")
-        assert st.status_code == 200
+        assert st.status_code == HTTPStatus.OK
         data = st.json()
         if data["status"] in ("completed", "failed"):
             break
-        time.sleep(0.05)
+        time.sleep(MERGE_POLL_INTERVAL_SECONDS)
     assert data["status"] == "completed"
     # Verify dest content and ids
     dst = fake_chroma.get_collection("dst")
@@ -201,36 +213,37 @@ def test_cancel_merge(fake_chroma):
         embeddings=[[0.0]] * len(ids),
     )
 
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
     resp = client.post(
         "/chroma/collections/dst/merge",
-        json={
+        json=
+        {
             "source": "src",
             "mode": "copy",
             "create_new_id": True,
             "use_source_embeddings": True,
-            "batch_size": 5,
+            "batch_size": CANCEL_BATCH_SIZE,
         },
     )
-    assert resp.status_code == 202
+    assert resp.status_code == HTTPStatus.ACCEPTED
     task_id = resp.json()["task_id"]
 
     # Give background thread time to start before canceling
-    time.sleep(0.1)
+    time.sleep(CANCEL_START_DELAY_SECONDS)
 
     # Request cancel
     cancel = client.delete(f"/chroma/merge-tasks/{task_id}")
     # If the task already completed, cancellation can return 409
-    assert cancel.status_code in (202, 409)
+    assert cancel.status_code in (HTTPStatus.ACCEPTED, HTTPStatus.CONFLICT)
 
     # Wait for cancel to be acknowledged with generous timeout
-    for _ in range(1000):  # 50s timeout for CI environments
+    for _ in range(MERGE_POLL_ATTEMPTS):  # 50s timeout for CI environments
         st = client.get(f"/chroma/merge-tasks/{task_id}")
-        assert st.status_code == 200
+        assert st.status_code == HTTPStatus.OK
         data = st.json()
         if data["status"] in ("cancelled", "completed", "failed"):
             break
-        time.sleep(0.05)
+        time.sleep(MERGE_POLL_INTERVAL_SECONDS)
     assert data["status"] in ("cancelled", "completed")
     # If cancelled, ensure partial progress
     if data["status"] == "cancelled":

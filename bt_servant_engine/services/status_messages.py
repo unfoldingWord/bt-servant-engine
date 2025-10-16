@@ -15,10 +15,12 @@ import json
 import os
 import shutil
 import tempfile
+from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Optional, TypedDict, cast
 
-from openai import OpenAI
+from openai import OpenAI, OpenAIError
 
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.language import LANGUAGE_UNKNOWN
@@ -60,6 +62,18 @@ _DEFAULT_PROGRESS_MESSAGE_EMOJI_OVERRIDES: Dict[str, str] = {
 }
 
 
+@dataclass(slots=True)
+class StatusMessageStore:
+    """In-memory view of status message translations and dynamic cache."""
+
+    status_messages: dict[str, dict[str, str]]
+    dynamic_cache: dict[tuple[str, str], str]
+
+    def cache_translation(self, message_key: str, language: str, text: str) -> None:
+        """Add a dynamic translation to the in-memory cache."""
+        self.dynamic_cache[(message_key, language)] = text
+
+
 class LocalizedProgressMessage(TypedDict):
     """Structured progress status message with emoji metadata."""
 
@@ -87,23 +101,46 @@ def _initialize_status_messages_file() -> None:
 # Initialize the file on module load
 _initialize_status_messages_file()
 
-# Load pre-translated messages from DATA_DIR
-with open(_STATUS_MESSAGES_PATH, encoding="utf-8") as f:
-    _STATUS_MESSAGES: dict[str, dict[str, str]] = json.load(f)
 
-# Cache for dynamically translated messages: (message_key, language) -> translated_text
-_DYNAMIC_TRANSLATION_CACHE: dict[tuple[str, str], str] = {}
-
-# OpenAI client for dynamic translations
-_openai_client: Optional[OpenAI] = None
+def _load_status_messages() -> dict[str, dict[str, str]]:
+    with open(_STATUS_MESSAGES_PATH, encoding="utf-8") as f:
+        data = json.load(f)
+    return cast(dict[str, dict[str, str]], data)
 
 
+_STATUS_STORE = StatusMessageStore(
+    status_messages=_load_status_messages(),
+    dynamic_cache={},
+)
+
+# Expose dynamic cache for testability without encouraging direct mutation.
+_DYNAMIC_TRANSLATION_CACHE = _STATUS_STORE.dynamic_cache
+
+
+def get_dynamic_translation_cache() -> dict[tuple[str, str], str]:
+    """Return the in-memory dynamic translation cache."""
+    return _STATUS_STORE.dynamic_cache
+
+
+def clear_dynamic_translation_cache() -> None:
+    """Clear cached dynamic translations (useful in tests)."""
+    _STATUS_STORE.dynamic_cache.clear()
+
+
+def update_dynamic_translation_cache(entries: dict[tuple[str, str], str]) -> None:
+    """Populate the dynamic cache with the provided translations."""
+    _STATUS_STORE.dynamic_cache.update(entries)
+
+
+@lru_cache(maxsize=1)
 def _get_openai_client() -> OpenAI:
     """Lazy initialize OpenAI client."""
-    global _openai_client  # pylint: disable=global-statement
-    if _openai_client is None:
-        _openai_client = OpenAI(api_key=config.OPENAI_API_KEY)
-    return _openai_client
+    return OpenAI(api_key=config.OPENAI_API_KEY)
+
+
+def reset_openai_client_cache() -> None:
+    """Reset the cached OpenAI client (primarily for tests)."""
+    _get_openai_client.cache_clear()
 
 
 def _persist_translation(message_key: str, language: str, translation: str) -> None:
@@ -120,7 +157,7 @@ def _persist_translation(message_key: str, language: str, translation: str) -> N
     try:
         # Read current data
         with open(_STATUS_MESSAGES_PATH, encoding="utf-8") as json_file:
-            data = json.load(json_file)
+            data = cast(dict[str, dict[str, str]], json.load(json_file))
 
         # Add the new translation
         if message_key in data:
@@ -146,22 +183,19 @@ def _persist_translation(message_key: str, language: str, translation: str) -> N
                 language,
             )
 
-            # Update in-memory cache
-            global _STATUS_MESSAGES  # pylint: disable=global-statement
-            _STATUS_MESSAGES = data
+            _STATUS_STORE.status_messages = data
 
-        except Exception:  # pylint: disable=broad-exception-caught
+        except (OSError, ValueError, TypeError):
             # Clean up temp file if something went wrong
             if os.path.exists(temp_path):
                 os.unlink(temp_path)
             raise
 
-    except Exception:  # pylint: disable=broad-exception-caught
-        logger.error(
+    except (OSError, json.JSONDecodeError, ValueError):
+        logger.exception(
             "Failed to persist translation for message '%s' in language '%s'",
             message_key,
             language,
-            exc_info=True,
         )
         # Don't crash the application if persistence fails
 
@@ -205,11 +239,12 @@ def _translate_dynamically(message_key: str, target_language: str) -> str:
         Translated message text
     """
     cache_key = (message_key, target_language)
-    if cache_key in _DYNAMIC_TRANSLATION_CACHE:
-        return _DYNAMIC_TRANSLATION_CACHE[cache_key]
+    cached = _STATUS_STORE.dynamic_cache.get(cache_key)
+    if cached is not None:
+        return cached
 
     # Get the English version as source
-    english_text = _STATUS_MESSAGES.get(message_key, {}).get("en", "")
+    english_text = _STATUS_STORE.status_messages.get(message_key, {}).get("en", "")
     if not english_text:
         logger.warning("No English text found for message key: %s", message_key)
         return english_text
@@ -235,7 +270,7 @@ def _translate_dynamically(message_key: str, target_language: str) -> str:
         translated_text = translated_text.strip()
 
         # Cache the translation in memory
-        _DYNAMIC_TRANSLATION_CACHE[cache_key] = translated_text
+        _STATUS_STORE.cache_translation(message_key, target_language, translated_text)
 
         # Persist the translation to JSON file for future use
         _persist_translation(message_key, target_language, translated_text)
@@ -247,7 +282,7 @@ def _translate_dynamically(message_key: str, target_language: str) -> str:
         )
         return translated_text
 
-    except Exception:  # pylint: disable=broad-exception-caught
+    except (OpenAIError, ValueError, TypeError, RuntimeError):
         logger.warning(
             "Failed to dynamically translate message '%s' to '%s', using English fallback",
             message_key,
@@ -263,7 +298,8 @@ def get_status_message(message_key: str, state: Any, **format_params: Any) -> st
     Args:
         message_key: One of the message key constants (e.g., THINKING_ABOUT_MESSAGE)
         state: The BrainState dictionary containing language information
-        **format_params: Optional format parameters for template messages (e.g., action="do something")
+        **format_params: Optional format parameters for template messages
+            (e.g., action="do something")
 
     Returns:
         Localized status message text, with format parameters applied if provided
@@ -271,18 +307,21 @@ def get_status_message(message_key: str, state: Any, **format_params: Any) -> st
     target_language = get_effective_response_language(state)
 
     # Check if message key exists
-    if message_key not in _STATUS_MESSAGES:
+    if message_key not in _STATUS_STORE.status_messages:
         logger.error("Unknown status message key: %s", message_key)
         return f"[Unknown message: {message_key}]"
 
     # Check for pre-loaded translation
-    translations = _STATUS_MESSAGES[message_key]
+    translations = _STATUS_STORE.status_messages[message_key]
     if target_language in translations:
         message = translations[target_language]
     else:
         # Fall back to dynamic translation
         logger.debug(
-            "No pre-loaded translation for message '%s' in language '%s', using dynamic translation",
+            (
+                "No pre-loaded translation for message '%s' in language '%s'; "
+                "using dynamic translation"
+            ),
             message_key,
             target_language,
         )
@@ -364,6 +403,10 @@ __all__ = [
     "get_status_message",
     "get_effective_response_language",
     "get_progress_message",
+    "get_dynamic_translation_cache",
+    "clear_dynamic_translation_cache",
+    "update_dynamic_translation_cache",
+    "reset_openai_client_cache",
     "LocalizedProgressMessage",
     "make_progress_message",
 ]

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, List, Optional, cast
 
@@ -57,81 +58,134 @@ except FileNotFoundError:
     FIA_REFERENCE_CONTENT = ""  # pylint: disable=invalid-name
 
 
-def consult_fia_resources(
-    client: OpenAI,
-    query: str,
-    chat_history: list[dict[str, str]],
-    user_response_language: Optional[str],
-    query_language: Optional[str],
-    get_chroma_collection_fn: Callable[..., Any],
-    model_for_agentic_strength_fn: Callable[..., Any],
-    extract_cached_input_tokens_fn: Callable[..., Any],
-    agentic_strength: str,
-) -> dict[str, Any]:
-    """Answer FIA-specific questions using FIA collections and reference material."""
-    candidate_lang = (user_response_language or query_language or "en").lower()
-    if candidate_lang not in supported_language_map:
-        candidate_lang = "en"
+@dataclass(slots=True)
+class FIARequest:
+    """Inputs required to consult FIA resources for a user query."""
 
+    client: OpenAI
+    query: str
+    chat_history: list[dict[str, str]]
+    user_response_language: Optional[str]
+    query_language: Optional[str]
+    agentic_strength: str
+
+
+@dataclass(slots=True)
+class FIADependencies:
+    """External services needed to fulfill an FIA request."""
+
+    get_chroma_collection: Callable[..., Any]
+    model_for_agentic_strength: Callable[..., str]
+    extract_cached_input_tokens: Callable[[Any], Optional[int]]
+
+
+def consult_fia_resources(request: FIARequest, dependencies: FIADependencies) -> dict[str, Any]:
+    """Answer FIA-specific questions using FIA collections and reference material."""
+    candidate_lang = _resolve_candidate_language(request)
+
+    vector_docs, collection_used = _gather_vector_documents(
+        request.query,
+        candidate_lang,
+        dependencies,
+    )
+
+    context_docs = _build_context_documents(vector_docs)
+    if not context_docs:
+        return _fia_fallback()
+
+    return _generate_fia_response(
+        request,
+        dependencies,
+        context_docs,
+        collection_used,
+    )
+
+
+def _resolve_candidate_language(request: FIARequest) -> str:
+    candidate = (request.user_response_language or request.query_language or "en").lower()
+    if candidate not in supported_language_map:
+        logger.info("[consult-fia] unsupported language '%s'; defaulting to English", candidate)
+        return "en"
+    return candidate
+
+
+def _gather_vector_documents(
+    query: str,
+    candidate_lang: str,
+    dependencies: FIADependencies,
+) -> tuple[list[dict[str, str]], Optional[str]]:
     localized_collection = f"{candidate_lang}_fia_resources"
     logger.info("[consult-fia] primary collection candidate: %s", localized_collection)
+    vector_docs = _query_collection(dependencies, query, localized_collection)
+    if vector_docs:
+        return vector_docs, localized_collection
+    if localized_collection == "en_fia_resources":
+        return [], None
+    logger.info("[consult-fia] falling back to en_fia_resources collection")
+    fallback_docs = _query_collection(dependencies, query, "en_fia_resources")
+    if fallback_docs:
+        return fallback_docs, "en_fia_resources"
+    return [], None
 
-    def _query_collection(name: str) -> list[dict[str, str]]:
-        collection = get_chroma_collection_fn(name)
-        if not collection:
-            logger.warning("[consult-fia] collection %s was not found in chroma db.", name)
-            return []
-        chroma_collection = cast(Any, collection)
-        results = chroma_collection.query(query_texts=[query], n_results=TOP_K)
-        documents = cast(list, results.get("documents", []))
-        distances = cast(list, results.get("distances", []))
-        metadatas = cast(list, results.get("metadatas", []))
-        if not documents:
-            return []
-        hits: list[dict[str, str]] = []
-        docs_for_query = documents[0]
-        dists_for_query = distances[0] if distances else []
-        metas_for_query = metadatas[0] if metadatas else []
-        for idx, doc in enumerate(docs_for_query):
-            try:
-                similarity = 1 - float(dists_for_query[idx])
-            except (IndexError, TypeError, ValueError):
-                similarity = 0.0
-            metadata = metas_for_query[idx] if idx < len(metas_for_query) else {}
-            resource_name = (
-                cast(str, metadata.get("name", "")) if isinstance(metadata, dict) else ""
+
+def _query_collection(
+    dependencies: FIADependencies,
+    query: str,
+    name: str,
+) -> list[dict[str, str]]:
+    collection = dependencies.get_chroma_collection(name)
+    if not collection:
+        logger.warning("[consult-fia] collection %s was not found in chroma db.", name)
+        return []
+    results = cast(Any, collection).query(query_texts=[query], n_results=TOP_K)
+    document_rows = cast(list[list[str]], results.get("documents", []))
+    if not document_rows:
+        return []
+    hits: list[dict[str, str]] = []
+    doc_row = document_rows[0]
+    distance_row = cast(
+        list[float],
+        (results.get("distances") or [[0.0] * len(doc_row)])[0],
+    )
+    metadata_row = cast(
+        list[Any],
+        (results.get("metadatas") or [[{} for _ in doc_row]])[0],
+    )
+    for idx, doc in enumerate(doc_row):
+        similarity = _similarity_from_distances(distance_row, idx)
+        metadata = metadata_row[idx] if idx < len(metadata_row) else {}
+        metadata_dict = metadata if isinstance(metadata, dict) else {}
+        logger.info(
+            "[consult-fia] processing %s from %s with similarity %.4f",
+            (metadata_dict.get("name", "") or "<unnamed>"),
+            (metadata_dict.get("source", "") or "<unknown>"),
+            similarity,
+        )
+        if similarity >= RELEVANCE_CUTOFF:
+            hits.append(
+                {
+                    "collection_name": name,
+                    "resource_name": cast(str, metadata_dict.get("name", "")),
+                    "source": cast(str, metadata_dict.get("source", "")),
+                    "document_text": cast(str, doc),
+                }
             )
-            source = cast(str, metadata.get("source", "")) if isinstance(metadata, dict) else ""
-            logger.info(
-                "[consult-fia] processing %s from %s with similarity %.4f",
-                resource_name or "<unnamed>",
-                source or "<unknown>",
-                similarity,
-            )
-            if similarity >= RELEVANCE_CUTOFF:
-                hits.append(
-                    {
-                        "collection_name": name,
-                        "resource_name": resource_name,
-                        "source": source,
-                        "document_text": cast(str, doc),
-                    }
-                )
-        if hits:
-            logger.info("[consult-fia] found %d hit(s) in %s", len(hits), name)
-        return hits
+    if hits:
+        logger.info("[consult-fia] found %d hit(s) in %s", len(hits), name)
+    return hits
 
-    vector_docs = _query_collection(localized_collection)
-    collection_used: Optional[str] = localized_collection if vector_docs else None
-    if not vector_docs and localized_collection != "en_fia_resources":
-        logger.info("[consult-fia] falling back to en_fia_resources collection")
-        vector_docs = _query_collection("en_fia_resources")
-        if vector_docs:
-            collection_used = "en_fia_resources"
 
-    context_docs: list[dict[str, str]] = []
+def _similarity_from_distances(distances: list[Any], idx: int) -> float:
+    try:
+        return 1 - float(distances[idx])
+    except (IndexError, TypeError, ValueError):
+        return 0.0
+
+
+def _build_context_documents(vector_docs: list[dict[str, str]]) -> list[dict[str, str]]:
+    docs: list[dict[str, str]] = []
     if FIA_REFERENCE_CONTENT:
-        context_docs.append(
+        docs.append(
             {
                 "collection_name": "fia_reference",
                 "resource_name": "FIA Reference Manual",
@@ -141,20 +195,53 @@ def consult_fia_resources(
         )
     else:
         logger.warning("[consult-fia] FIA reference content unavailable")
+    docs.extend(vector_docs)
+    return docs
 
-    context_docs.extend(vector_docs)
 
-    if not context_docs:
-        fallback = (
-            "Sorry, I couldn't find any FIA resources to service your request or command.\n\n"
-            f"{BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}"
+def _generate_fia_response(
+    request: FIARequest,
+    dependencies: FIADependencies,
+    context_docs: list[dict[str, str]],
+    collection_used: Optional[str],
+) -> dict[str, Any]:
+    """Call the FIA model with context and return the formatted response payload."""
+    try:
+        context_payload = json.dumps(context_docs, indent=2)
+        logger.info("[consult-fia] context passed to LLM:\n%s", context_payload)
+        messages = _build_messages(request.query, request.chat_history, context_payload)
+        fia_response = _call_fia_model(request, dependencies, messages)
+    except OpenAIError:
+        logger.error("[consult-fia] Error during OpenAI request", exc_info=True)
+        error_msg = (
+            "I encountered some problems while consulting FIA resources. "
+            "Please let Ian know about this one."
         )
-        return {"responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fallback}]}
+        return {"responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": error_msg}]}
 
-    context_payload = json.dumps(context_docs, indent=2)
-    logger.info("[consult-fia] context passed to LLM:\n%s", context_payload)
+    _log_vector_usage(context_docs)
+    update: dict[str, Any] = {
+        "responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fia_response}]
+    }
+    if collection_used:
+        update["collection_used"] = collection_used
+    return update
 
-    messages = cast(
+
+def _fia_fallback() -> dict[str, Any]:
+    fallback = (
+        "Sorry, I couldn't find any FIA resources to service your request or command.\n\n"
+        f"{BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}"
+    )
+    return {"responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fallback}]}
+
+
+def _build_messages(
+    query: str,
+    chat_history: list[dict[str, str]],
+    context_payload: str,
+) -> List[EasyInputMessageParam]:
+    return cast(
         List[EasyInputMessageParam],
         [
             {
@@ -163,7 +250,10 @@ def consult_fia_resources(
             },
             {
                 "role": "developer",
-                "content": "Focus only on the portion of the user's message that requests FIA guidance. Ignore any other requests or book references in the message.",
+                "content": (
+                    "Focus only on the portion of the user's message that requests FIA guidance. "
+                    "Ignore any other requests or book references in the message."
+                ),
             },
             {
                 "role": "developer",
@@ -176,41 +266,44 @@ def consult_fia_resources(
         ],
     )
 
-    try:
-        model_name = model_for_agentic_strength_fn(
-            agentic_strength, allow_low=True, allow_very_low=True
-        )
-        response = client.responses.create(
-            model=model_name,
-            instructions=CONSULT_FIA_RESOURCES_SYSTEM_PROMPT,
-            input=cast(Any, messages),
-        )
-        usage = getattr(response, "usage", None)
-        track_openai_usage(usage, model_name, extract_cached_input_tokens_fn, add_tokens)
 
-        fia_response = response.output_text
-        logger.info("[consult-fia] response from openai: %s", fia_response)
+def _call_fia_model(
+    request: FIARequest,
+    dependencies: FIADependencies,
+    messages: list[EasyInputMessageParam],
+) -> str:
+    model_name = dependencies.model_for_agentic_strength(
+        request.agentic_strength,
+        allow_low=True,
+        allow_very_low=True,
+    )
+    response = request.client.responses.create(
+        model=model_name,
+        instructions=CONSULT_FIA_RESOURCES_SYSTEM_PROMPT,
+        input=cast(Any, messages),
+    )
+    usage = getattr(response, "usage", None)
+    track_openai_usage(
+        usage,
+        model_name,
+        dependencies.extract_cached_input_tokens,
+        add_tokens,
+    )
+    fia_response = response.output_text
+    logger.info("[consult-fia] response from openai: %s", fia_response)
+    return fia_response
 
-        resource_list = ", ".join(
-            {
-                (f"{doc.get('resource_name', 'unknown')} from {doc.get('source', 'unknown')}")
-                for doc in context_docs
-                if doc.get("collection_name") != "fia_reference"
-            }
-        )
-        if resource_list:
-            logger.info("[consult-fia] vector resources used: %s", resource_list)
 
-        update: dict[str, Any] = {
-            "responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": fia_response}]
+def _log_vector_usage(context_docs: list[dict[str, str]]) -> None:
+    resource_list = ", ".join(
+        {
+            (f"{doc.get('resource_name', 'unknown')} from {doc.get('source', 'unknown')}")
+            for doc in context_docs
+            if doc.get("collection_name") != "fia_reference"
         }
-        if collection_used:
-            update["collection_used"] = collection_used
-        return update
-    except OpenAIError:
-        logger.error("[consult-fia] Error during OpenAI request", exc_info=True)
-        error_msg = "I encountered some problems while consulting FIA resources. Please let Ian know about this one."
-        return {"responses": [{"intent": IntentType.CONSULT_FIA_RESOURCES, "response": error_msg}]}
+    )
+    if resource_list:
+        logger.info("[consult-fia] vector resources used: %s", resource_list)
 
 
 __all__ = [
