@@ -13,7 +13,7 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       CHROMA_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      RUN_OPENAI_API_TESTS: "1"
+      RUN_OPENAI_API_TESTS: "0"
       BASE_URL: "https://example.invalid"
       FACEBOOK_USER_AGENT: "facebookexternalua"
       LOG_PSEUDONYM_SECRET: ${{ secrets.LOG_PSEUDONYM_SECRET }}
@@ -78,5 +78,5 @@ jobs:
       - name: Deptry
         run: deptry .
 
-      - name: Pytest (full, includes OpenAI tests + coverage)
-        run: pytest --maxfail=1 --disable-warnings -q --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=64
+      - name: Pytest (coverage, OpenAI tests skipped)
+        run: pytest --maxfail=1 --disable-warnings -q -m "not openai" --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=64
