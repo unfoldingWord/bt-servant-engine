@@ -35,7 +35,7 @@ class TestFollowupIntegration:
             assert len(result["translated_responses"]) == 1
             response = result["translated_responses"][0]
             assert "Would you like to look up another Bible passage?" in response
-            assert state["followup_question_added"] is True
+            assert result.get("followup_question_added") is True
 
     def test_multi_intent_followup_takes_precedence(self):
         """Multi-intent continuation prompt takes precedence over intent-specific follow-up."""
@@ -68,7 +68,7 @@ class TestFollowupIntegration:
             # Should have continuation prompt, NOT intent-specific follow-up
             assert "continue with your next request" in response
             assert "Would you like to look up another Bible passage?" not in response
-            assert state["followup_question_added"] is True
+            assert result.get("followup_question_added") is True
 
     def test_no_followup_for_converse_intent(self):
         """Does not add follow-up for CONVERSE_WITH_BT_SERVANT intent."""
@@ -96,7 +96,7 @@ class TestFollowupIntegration:
             # Should not add any follow-up question markers
             assert "?" not in response or response == "Hello! How can I help you?"
             # Flag should remain False since we explicitly skip these intents
-            assert not state.get("followup_question_added", False)
+            assert not result.get("followup_question_added")
 
     def test_no_followup_for_help_intent(self):
         """Does not add follow-up for RETRIEVE_SYSTEM_INFORMATION (help) intent (has its own)."""
@@ -118,10 +118,11 @@ class TestFollowupIntegration:
         ) as mock_continuation:
             mock_continuation.return_value = None
 
-            translate_responses(state)
+            result = translate_responses(state)
 
             # Should not add intent-specific follow-up
             assert not state.get("followup_question_added", False)
+            assert not result.get("followup_question_added")
 
     def test_followup_uses_user_language(self):
         """Follow-up question uses user's response language."""
@@ -148,6 +149,7 @@ class TestFollowupIntegration:
             response = result["translated_responses"][0]
             # Should have Spanish follow-up
             assert "¿Le gustaría buscar otro pasaje bíblico?" in response
+            assert result.get("followup_question_added") is True
 
     def test_different_intents_get_different_followups(self):
         """Different intent types receive appropriate follow-up questions."""
@@ -155,8 +157,8 @@ class TestFollowupIntegration:
             (IntentType.RETRIEVE_SCRIPTURE, "Bible passage"),
             (IntentType.GET_TRANSLATION_HELPS, "translation question"),
             (IntentType.SET_RESPONSE_LANGUAGE, "What else"),
-            (IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "Bible translation question"),
-            (IntentType.CONSULT_FIA_RESOURCES, "biblical topic"),
+            (IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "person, place, or concept"),
+            (IntentType.CONSULT_FIA_RESOURCES, "FIA process"),
         ]
 
         for intent, keyword in intents_and_keywords:
@@ -182,6 +184,7 @@ class TestFollowupIntegration:
                 response = result["translated_responses"][0]
 
                 assert keyword in response, f"Intent {intent} missing expected keyword '{keyword}'"
+                assert result.get("followup_question_added") in {True, None}
 
 
 class TestFollowupWithMultipleResponses:  # pylint: disable=too-few-public-methods
@@ -223,3 +226,4 @@ class TestFollowupWithMultipleResponses:  # pylint: disable=too-few-public-metho
             assert "Would you like" not in result["translated_responses"][0]
             # Last response should have follow-up
             assert "Would you like to look up another Bible passage?" in result["translated_responses"][1]
+            assert result.get("followup_question_added") is True

@@ -11,6 +11,7 @@ from collections.abc import Hashable
 from typing import TYPE_CHECKING, Annotated, Any, Awaitable, Callable, Dict, List, Optional, cast
 
 from langgraph.graph import StateGraph
+from langgraph.types import Send
 from typing_extensions import TypedDict
 
 from bt_servant_engine.core.intents import IntentType
@@ -90,6 +91,7 @@ class BrainState(TypedDict, total=False):
     active_intent_context_source: str  # Origin of the active context (structured, queue, fallback)
     # Follow-up question tracking - prevents duplicate follow-ups when multi-intent is active
     followup_question_added: bool  # Set to True when any follow-up question is added to response
+    passage_followup_context: Dict[str, Any]
 
 
 ProgressMessageInput = (
@@ -248,6 +250,7 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
     context_pool = list(intents_with_context or [])
     active_context = ""
     active_context_source = "transformed_query"
+    updates: dict[str, Any] = {}
 
     # Check if we're processing a queued intent
     queued_intent_context = s.get("queued_intent_context")
@@ -265,9 +268,9 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
             active_context,
         )
         # Clear the queued context from state to avoid re-use in later turns
-        s["queued_intent_context"] = None
+        updates["queued_intent_context"] = None
         if user_intents:
-            user_intents[:] = [user_intents[0]]
+            updates["user_intents"] = [user_intents[0]]
 
     # Determine which intent to process
     if len(user_intents) == 1:
@@ -296,7 +299,7 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
             user_id,
         )
         # Trim user_intents down to the active intent for downstream nodes
-        user_intents[:] = [intent_to_process]
+        updates["user_intents"] = [intent_to_process]
 
         # Determine context snippet for the active intent if not set via queue
         if not active_context and context_pool:
@@ -411,8 +414,8 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
             active_context,
         )
 
-    s["active_intent_context"] = active_context
-    s["active_intent_context_source"] = active_context_source
+    updates["active_intent_context"] = active_context
+    updates["active_intent_context_source"] = active_context_source
     logger.info(
         "[process-intents] Intent routing context established (source=%s, intent=%s, user=%s)",
         active_context_source,
@@ -421,7 +424,7 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
     )
 
     # Map intent to node (using elif to avoid duplicates from old code)
-    nodes_to_traverse: List[Hashable] = []
+    nodes_to_traverse: List[str] = []
 
     if intent_to_process == IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE:
         nodes_to_traverse.append("query_vector_db_node")
@@ -454,7 +457,15 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
 
     logger.info("[process-intents] Routing to node: %s for user=%s", nodes_to_traverse[0], user_id)
 
-    return nodes_to_traverse
+    if not updates:
+        next_state = s
+    else:
+        merged_state = dict(s)
+        merged_state.update(updates)
+        next_state = cast(BrainState, merged_state)
+
+    sends = [Send(node, next_state) for node in nodes_to_traverse]
+    return cast(List[Hashable], sends)
 
 
 def create_brain():

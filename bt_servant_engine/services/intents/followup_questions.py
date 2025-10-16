@@ -7,7 +7,7 @@ questions that are only added when no multi-intent follow-up has been added.
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Callable, Optional
 
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
@@ -30,30 +30,30 @@ INTENT_FOLLOWUP_QUESTIONS = {
         "nl": "Wilt u nog een Bijbelgedeelte opzoeken?",
     },
     IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE: {
-        "en": "Do you have another Bible translation question?",
-        "es": "¿Tiene otra pregunta sobre traducción bíblica?",
-        "fr": "Avez-vous une autre question sur la traduction biblique?",
-        "pt": "Você tem outra pergunta sobre tradução bíblica?",
-        "sw": "Je, una swali lingine kuhusu tafsiri ya Biblia?",
-        "ar": "هل لديك سؤال آخر عن ترجمة الكتاب المقدس؟",
-        "hi": "क्या आपके पास बाइबिल अनुवाद के बारे में कोई अन्य प्रश्न है?",
-        "zh": "您还有其他圣经翻译问题吗？",
-        "ru": "У вас есть другой вопрос о переводе Библии?",
-        "id": "Apakah Anda memiliki pertanyaan lain tentang terjemahan Alkitab?",
-        "nl": "Heeft u nog een vraag over Bijbelvertaling?",
+        "en": "Which biblical person, place, or concept would you like to explore next?",
+        "es": "¿Qué persona, lugar o concepto bíblico le gustaría explorar a continuación?",
+        "fr": "Quelle personne, lieu ou notion biblique souhaitez-vous explorer ensuite ?",
+        "pt": "Qual pessoa, lugar ou conceito bíblico você gostaria de explorar em seguida?",
+        "sw": "Ni mtu, mahali, au dhana gani ya Biblia ungependa kuchunguza inayofuata?",
+        "ar": "أي شخصية أو مكان أو مفهوم كتابي تود استكشافه بعد ذلك؟",
+        "hi": "आप अगला कौन-सा बाइबिल पात्र, स्थान या विषय खोजने चाहेंगे?",
+        "zh": "接下来你想探索哪位圣经人物、地点或概念？",
+        "ru": "Какого библейского персонажа, место или понятие вы хотели бы изучить дальше?",
+        "id": "Tokoh, tempat, atau konsep Alkitab apa yang ingin Anda jelajahi berikutnya?",
+        "nl": "Welke bijbelse persoon, plaats of welk concept wilt u hierna verkennen?",
     },
     IntentType.CONSULT_FIA_RESOURCES: {
-        "en": "Would you like to explore another biblical topic?",
-        "es": "¿Le gustaría explorar otro tema bíblico?",
-        "fr": "Souhaitez-vous explorer un autre sujet biblique?",
-        "pt": "Gostaria de explorar outro tópico bíblico?",
-        "sw": "Je, ungependa kuchunguza mada nyingine ya Biblia?",
-        "ar": "هل تريد استكشاف موضوع كتابي آخر؟",
-        "hi": "क्या आप किसी अन्य बाइबिल विषय का अन्वेषण करना चाहेंगे?",
-        "zh": "您想探索另一个圣经主题吗？",
-        "ru": "Хотите изучить другую библейскую тему?",
-        "id": "Apakah Anda ingin menjelajahi topik Alkitab lainnya?",
-        "nl": "Wilt u een ander Bijbels onderwerp verkennen?",
+        "en": "How else can I help you with the FIA process?",
+        "es": "¿De qué otra manera puedo ayudarle con el proceso FIA?",
+        "fr": "Comment puis-je encore vous aider dans le processus FIA ?",
+        "pt": "Como mais posso ajudá-lo no processo FIA?",
+        "sw": "Naweza kukusaidiaje zaidi katika mchakato wa FIA?",
+        "ar": "كيف يمكنني مساعدتك أكثر في عملية FIA؟",
+        "hi": "FIA प्रक्रिया में मैं और कैसे आपकी मदद कर सकता हूँ?",
+        "zh": "我还能如何帮助你推进 FIA 流程？",
+        "ru": "Чем ещё я могу помочь вам в процессе FIA?",
+        "id": "Bagaimana lagi saya dapat membantu Anda dalam proses FIA?",
+        "nl": "Hoe kan ik u verder helpen met het FIA-proces?",
     },
     IntentType.GET_TRANSLATION_HELPS: {
         "en": "Do you need help with another translation question?",
@@ -162,7 +162,38 @@ INTENT_FOLLOWUP_QUESTIONS = {
 }
 
 
-def get_followup_for_intent(intent_type: IntentType, language: str) -> str:
+def _translate_and_cache(
+    questions: dict[str, str],
+    language: str,
+    base_text: str,
+    translate_text_fn: Optional[Callable[[str, str], str]],
+    intent_label: str,
+) -> str:
+    if not translate_text_fn:
+        return base_text
+    try:
+        translated = translate_text_fn(base_text, language)
+    except Exception:  # pylint: disable=broad-except
+        logger.exception(
+            "[followup] Dynamic translation failed for intent=%s language=%s",
+            intent_label,
+            language,
+        )
+        return base_text
+    questions[language] = translated
+    logger.info(
+        "[followup] Cached dynamically translated follow-up for intent=%s language=%s",
+        intent_label,
+        language,
+    )
+    return translated
+
+
+def get_followup_for_intent(
+    intent_type: IntentType,
+    language: str,
+    translate_text_fn: Optional[Callable[[str, str], str]] = None,
+) -> str:
     """Get the localized follow-up question for a given intent type.
 
     Args:
@@ -195,24 +226,50 @@ def get_followup_for_intent(intent_type: IntentType, language: str) -> str:
             "id": "Apakah ada hal lain yang bisa saya bantu?",
             "nl": "Is er nog iets anders waarmee ik u kan helpen?",
         }
-        return generic_fallback.get(language, generic_fallback["en"])
+        if language in generic_fallback:
+            return generic_fallback[language]
+        translated = _translate_and_cache(
+            generic_fallback,
+            language,
+            generic_fallback["en"],
+            translate_text_fn,
+            intent_str,
+        )
+        return translated
 
     # Get the localized question, fallback to English if language not available
     question = questions.get(language)
     if not question:
         # Handle both IntentType enum and string intents (for test compatibility)
         intent_str = intent_type.value if hasattr(intent_type, "value") else str(intent_type)
-        logger.debug(
-            "[followup] No translation for intent=%s language=%s, using English",
-            intent_str,
-            language,
-        )
-        question = questions.get("en", "Is there anything else I can help you with?")
+        base = questions.get("en")
+        if base:
+            question = _translate_and_cache(
+                questions,
+                language,
+                base,
+                translate_text_fn,
+                intent_str,
+            )
+        else:
+            logger.debug(
+                "[followup] No translation for intent=%s language=%s, using default fallback",
+                intent_str,
+                language,
+            )
+            question = "Is there anything else I can help you with?"
 
     return question
 
 
-def add_followup_if_needed(response: str, state: Any, intent_type: IntentType) -> str:
+def add_followup_if_needed(
+    response: str,
+    state: Any,
+    intent_type: IntentType,
+    *,
+    custom_followup: str | None = None,
+    translate_text_fn: Optional[Callable[[str, str], str]] = None,
+) -> tuple[str, bool]:
     """Add a follow-up question to a response if one hasn't already been added.
 
     This function checks the state's followup_question_added flag. If it's False,
@@ -236,7 +293,7 @@ def add_followup_if_needed(response: str, state: Any, intent_type: IntentType) -
             "[followup] Follow-up already added for intent=%s, skipping",
             intent_str,
         )
-        return response
+        return response, False
 
     # Get the user's language preference
     language = state.get("user_response_language", "en")
@@ -244,13 +301,16 @@ def add_followup_if_needed(response: str, state: Any, intent_type: IntentType) -
         language = "en"
 
     # Get the appropriate follow-up question
-    followup = get_followup_for_intent(intent_type, language)
+    followup = custom_followup or get_followup_for_intent(
+        intent_type,
+        language,
+        translate_text_fn,
+    )
+    if not followup:
+        return response, False
 
     # Append with double newlines for spacing
     enhanced_response = f"{response}\n\n{followup}"
-
-    # Mark that we've added a follow-up
-    state["followup_question_added"] = True
 
     # Handle both IntentType enum and string intents (for test compatibility)
     intent_str = intent_type.value if hasattr(intent_type, "value") else str(intent_type)
@@ -260,7 +320,7 @@ def add_followup_if_needed(response: str, state: Any, intent_type: IntentType) -
         language,
     )
 
-    return enhanced_response
+    return enhanced_response, True
 
 
 __all__ = [

@@ -16,6 +16,7 @@ from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import track_openai_usage
 from bt_servant_engine.services.passage_selection import resolve_selection_for_single_book
+from bt_servant_engine.services.translation_helpers import TranslationRange
 from utils.bible_data import list_available_sources, resolve_bible_data_root
 from utils.bsb import label_ranges, select_verses
 from utils.perf import add_tokens
@@ -255,7 +256,14 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,t
                 {"type": "scripture", "text": body_src},
             ],
         }
-        return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
+        return {
+            "responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}],
+            "passage_followup_context": {
+                "intent": IntentType.TRANSLATE_SCRIPTURE,
+                "book": canonical_book,
+                "ranges": [tuple(r) for r in ranges],
+            },
+        }
 
     # Attempt structured translation (book header + body) via Responses.parse
     translated: TranslatedPassage | None = None
@@ -328,7 +336,14 @@ def translate_scripture(  # pylint: disable=too-many-arguments,too-many-locals,t
                 {"type": "scripture", "text": _norm_ws(translated.body)},
             ],
         }
-    return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}]}
+    return {
+        "responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": response_obj}],
+        "passage_followup_context": {
+            "intent": IntentType.TRANSLATE_SCRIPTURE,
+            "book": canonical_book,
+            "ranges": [tuple(r) for r in ranges],
+        },
+    }
 
 
 def get_translation_helps(
@@ -352,7 +367,7 @@ def get_translation_helps(
     bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
     logger.info("[translation-helps] loading helps from %s", th_root)
 
-    canonical_book, ranges, raw_helps, err = prepare_translation_helps_fn(
+    canonical_book, ranges, raw_helps, metadata, err = prepare_translation_helps_fn(
         client,
         query,
         query_lang,
@@ -367,8 +382,40 @@ def get_translation_helps(
         return {"responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": err}]}
     assert canonical_book is not None and ranges is not None and raw_helps is not None  # nosec B101 - type narrowing after err check
 
-    ref_label, context_obj = build_translation_helps_context_fn(canonical_book, ranges, raw_helps)
-    messages = build_translation_helps_messages_fn(ref_label, context_obj)
+    original_ranges = None
+    if metadata and metadata.get("original_ranges"):
+        original_ranges = cast(list[TranslationRange], metadata["original_ranges"])
+
+    ref_label, context_obj = build_translation_helps_context_fn(
+        canonical_book,
+        ranges,
+        raw_helps,
+        original_ranges=original_ranges,
+    )
+
+    selection_note: str | None = None
+    if metadata and metadata.get("truncated"):
+        original_label_value = metadata.get("original_label")
+        if original_label_value is None and original_ranges is not None:
+            original_label_value = label_ranges(canonical_book, original_ranges)
+        original_label = cast(Optional[str], original_label_value)
+        selection_section = context_obj.setdefault("selection", {})
+        selection_section["truncated"] = True
+        if original_label:
+            selection_section["truncated_from"] = original_label
+            selection_note = (
+                f"The user requested {original_label}, but translation helps responses are limited to "
+                f"{config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time. Explain that you are covering {ref_label} "
+                "now and encourage them to ask for the next section afterward."
+            )
+        else:
+            selection_note = (
+                "The user requested a selection longer than the configured verse limit. "
+                f"Explain that you are providing guidance for {ref_label} (first {config.TRANSLATION_HELPS_VERSE_LIMIT} verses) "
+                "and invite them to request the following verses next."
+            )
+
+    messages = build_translation_helps_messages_fn(ref_label, context_obj, selection_note)
 
     logger.info("[translation-helps] invoking LLM with %d helps", len(raw_helps))
     model_name = model_for_agentic_strength_fn(
@@ -391,7 +438,12 @@ def get_translation_helps(
                 "intent": IntentType.GET_TRANSLATION_HELPS,
                 "response": response_text,
             }
-        ]
+        ],
+        "passage_followup_context": {
+            "intent": IntentType.GET_TRANSLATION_HELPS,
+            "book": canonical_book,
+            "ranges": [tuple(r) for r in ranges],
+        },
     }
 
 

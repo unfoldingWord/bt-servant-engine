@@ -47,6 +47,24 @@ def test_build_translation_helps_context_shapes_payload() -> None:
     assert context["translation_helps"][0]["notes"][0]["note"] == "Example"
 
 
+def test_build_translation_helps_context_includes_original_ranges() -> None:
+    info: list[dict[str, Any]] = [
+        {
+            "reference": "Gen 1:1-5",
+            "ult_verse_text": "In the beginning",
+            "notes": [{"note": "Example"}],
+        }
+    ]
+    ranges: list[helpers.TranslationRange] = [(1, 1, 1, 5)]
+    original: list[helpers.TranslationRange] = [(1, 1, 1, 11)]
+    _, context = helpers.build_translation_helps_context(
+        "Genesis", ranges, info, original_ranges=original
+    )
+    selection = context["selection"]
+    assert selection["original_ranges"][0]["end_verse"] == 11
+    assert selection["original_reference_label"] == "Genesis 1:1-11"
+
+
 def test_build_translation_helps_messages_includes_payload() -> None:
     ref_label = "John 1:1-2"
     context: dict[str, object] = {
@@ -54,8 +72,11 @@ def test_build_translation_helps_messages_includes_payload() -> None:
         "selection": {"book": "John", "ranges": []},
         "translation_helps": [],
     }
-    messages = helpers.build_translation_helps_messages(ref_label, context)
-    assert len(messages) == 5
-    assert messages[0]["role"] == "developer"
-    assert ref_label in messages[1]["content"]
+    messages = helpers.build_translation_helps_messages(
+        ref_label, context, selection_note="Explain truncation"
+    )
+    assert len(messages) == 6
+    assert messages[1]["role"] == "developer"
+    assert "Explain truncation" in messages[1]["content"]
+    assert ref_label in messages[2]["content"]
     assert messages[-1]["role"] == "user"

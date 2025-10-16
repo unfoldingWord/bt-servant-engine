@@ -538,6 +538,10 @@ request is outside the scope of Bible translation, the Bible translation process
 If the user is clearly asking for information about the BT Servant system itself—especially short cues like "help",
 "help!", "help me", or "help please"—classify the message as `retrieve-system-information`.
 
+If the user declines or rejects a follow-up offer (even when the preprocessor expands the response, for example
+"No, I don't want to summarize John 3:5."), always classify it as `converse-with-bt-servant`. Never treat these "no"
+responses as unsupported requests.
+
 You must choose one or more intents from the following list:
 
 <intents>
@@ -703,6 +707,14 @@ Here are example classifications:
   </example>
   <example>
     <message>How are you doing today?</message>
+    <intent>converse-with-bt-servant</intent>
+  </example>
+  <example>
+    <message>No, I don't want keywords from another passage.</message>
+    <intent>converse-with-bt-servant</intent>
+  </example>
+  <example>
+    <message>No, I don't need translation helps for John 3:16.</message>
     <intent>converse-with-bt-servant</intent>
   </example>
 </examples>

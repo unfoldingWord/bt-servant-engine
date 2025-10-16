@@ -259,6 +259,13 @@ The refactor is partially complete. Major accomplishments and remaining work:
 4. **Preserve behavior** - Each change must maintain functionality
 5. **Update imports atomically** - Change all references in the same commit
 
+### LangGraph State Handling
+- Do **not** mutate the LangGraph state dict in-place inside nodes. Always
+  return a dict of updates so the orchestrator can merge changes deterministically.
+- For conditional edges added via `add_conditional_edges`, emit
+  `langgraph.types.Send` packets that carry a merged state instead of writing to
+  the original dict. This prevents double follow-up prompts and stale context.
+
 ### What NOT to Do
 
 - **DON'T create new features** during the refactor - only restructure existing code
