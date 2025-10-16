@@ -31,6 +31,7 @@ venv/
 data/
 db/data/
 logs/
+.coverage
 
 # node stuff
 node_modules/
