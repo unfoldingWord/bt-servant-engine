@@ -15,24 +15,14 @@ import httpx
 from fastapi import APIRouter, Header, HTTPException, Request, Response, status
 from fastapi.responses import JSONResponse
 
-from bt_servant_engine.adapters.messaging import (
-    send_text_message,
-    send_typing_indicator_message,
-    send_voice_message,
-    transcribe_voice_message,
-)
 from bt_servant_engine.apps.api.state import get_brain, set_brain
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.core.ports import MessagingPort, UserStatePort
+from bt_servant_engine.services import ServiceContainer
 from bt_servant_engine.services import status_messages
 from bt_servant_engine.services.brain_orchestrator import create_brain
 from bt_servant_engine.core.models import UserMessage
-from bt_servant_engine.adapters.user_state import (
-    get_user_agentic_strength,
-    get_user_chat_history,
-    get_user_response_language,
-    update_user_chat_history,
-)
 from utils.identifiers import get_log_safe_user_id
 from utils.perf import log_final_report, record_external_span, set_current_trace, time_block
 
@@ -42,9 +32,32 @@ logger = get_logger(__name__)
 user_locks: DefaultDict[str, asyncio.Lock] = defaultdict(asyncio.Lock)
 
 
-def _compute_agentic_strengths(user_id: str) -> tuple[str, Optional[str]]:
+def _get_services(request: Request) -> ServiceContainer:
+    services = getattr(request.app.state, "services", None)
+    if not isinstance(services, ServiceContainer):
+        raise RuntimeError("Service container is not configured on app.state.")
+    return services
+
+
+def _require_messaging(services: ServiceContainer) -> MessagingPort:
+    messaging = services.messaging
+    if messaging is None:
+        raise RuntimeError("MessagingPort has not been configured.")
+    return messaging
+
+
+def _require_user_state(services: ServiceContainer) -> UserStatePort:
+    user_state = services.user_state
+    if user_state is None:
+        raise RuntimeError("UserStatePort has not been configured.")
+    return user_state
+
+
+def _compute_agentic_strengths(
+    user_id: str, user_state: UserStatePort
+) -> tuple[str, Optional[str]]:
     """Return effective agentic strength and stored user preference (if any)."""
-    user_strength = get_user_agentic_strength(user_id=user_id)
+    user_strength = user_state.get_agentic_strength(user_id=user_id)
     system_strength = str(config.AGENTIC_STRENGTH).lower()
     if system_strength not in {"normal", "low", "very_low"}:
         system_strength = "normal"
@@ -93,6 +106,7 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
             )
             raise HTTPException(status_code=401, detail="Invalid User Agent")
 
+        services = _get_services(request)
         payload = await request.json()
         for entry in payload.get("entry", []):
             for change in entry.get("changes", []):
@@ -144,7 +158,7 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
                         # In OpenAI API test mode, run synchronously to avoid background flakiness
                         if os.environ.get("RUN_OPENAI_API_TESTS", "") == "1":
                             try:
-                                await process_message(user_message=user_message)
+                                await process_message(user_message=user_message, services=services)
                             finally:
                                 record_external_span(
                                     name="bt_servant:handle_meta_webhook",
@@ -153,7 +167,9 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
                                     trace_id=user_message.message_id,
                                 )
                         else:
-                            task = asyncio.create_task(process_message(user_message=user_message))
+                            task = asyncio.create_task(
+                                process_message(user_message=user_message, services=services)
+                            )
 
                             # Record span when the background task completes
                             def _on_done(
@@ -181,9 +197,14 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
         )
 
 
-async def process_message(user_message: UserMessage):  # pylint: disable=too-many-branches,too-many-locals,too-many-statements
+async def process_message(  # pylint: disable=too-many-branches,too-many-locals,too-many-statements
+    user_message: UserMessage,
+    services: ServiceContainer,
+) -> None:
     """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
+        messaging = _require_messaging(services)
+        user_state = _require_user_state(services)
         log_user_id = get_log_safe_user_id(user_message.user_id, secret=config.LOG_PSEUDONYM_SECRET)
         start_time = time.time()
         # ensure all spans produced in this coroutine are associated to this message
@@ -199,7 +220,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
         try:
             async with time_block("bt_servant:process_message"):
                 try:
-                    await send_typing_indicator_message(user_message.message_id)
+                    await messaging.send_typing_indicator(user_message.message_id)
                 except httpx.HTTPError as e:
                     logger.warning("Failed to send typing indicator: %s", e)
 
@@ -214,8 +235,8 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                         if not text_msg:
                             logger.debug("Empty progress message text, skipping send")
                             return
-                        await send_text_message(
-                            user_id=user_message.user_id, text=f"{emoji} {text_msg}"
+                        await messaging.send_text_message(
+                            user_message.user_id, f"{emoji} {text_msg}"
                         )
                     except httpx.HTTPError:
                         logger.warning("Failed to send progress message", exc_info=True)
@@ -223,7 +244,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                 if user_message.message_type == "audio":
                     # Create minimal state for status message localization
                     minimal_state = {
-                        "user_response_language": get_user_response_language(
+                        "user_response_language": user_state.get_response_language(
                             user_id=user_message.user_id
                         )
                     }
@@ -231,7 +252,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                         status_messages.TRANSCRIBING_VOICE, minimal_state
                     )
                     await _send_progress_update(transcribe_msg)
-                    text = await transcribe_voice_message(user_message.media_id)
+                    text = await messaging.transcribe_voice_message(user_message.media_id)
                 else:
                     text = user_message.text
 
@@ -239,7 +260,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                 if brain_instance is None:
                     raise RuntimeError("Brain instance should be initialized before invocation")
                 effective_agentic_strength, user_agentic_strength = _compute_agentic_strengths(
-                    user_message.user_id
+                    user_message.user_id, user_state
                 )
 
                 # Create progress messenger callback for this user
@@ -252,8 +273,8 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                 brain_payload: dict[str, Any] = {
                     "user_id": user_message.user_id,
                     "user_query": text,
-                    "user_chat_history": get_user_chat_history(user_id=user_message.user_id),
-                    "user_response_language": get_user_response_language(
+                    "user_chat_history": user_state.get_chat_history(user_id=user_message.user_id),
+                    "user_response_language": user_state.get_response_language(
                         user_id=user_message.user_id
                     ),
                     "agentic_strength": effective_agentic_strength,
@@ -287,7 +308,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                         await _send_progress_update(packaging_msg)
                     voice_payload = voice_text or full_response_text
                     if voice_payload:
-                        await send_voice_message(user_id=user_message.user_id, text=voice_payload)
+                        await messaging.send_voice_message(user_message.user_id, voice_payload)
 
                 should_send_text = True
                 if send_voice and voice_text is None and user_message.message_type == "audio":
@@ -306,7 +327,7 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                     for response in formatted_responses:
                         logger.info("Response from bt_servant: %s", response)
                         try:
-                            await send_text_message(user_id=user_message.user_id, text=response)
+                            await messaging.send_text_message(user_message.user_id, response)
                             await asyncio.sleep(4)
                         except httpx.HTTPError as send_err:
                             logger.error(
@@ -315,10 +336,8 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
                                 send_err,
                             )
 
-                update_user_chat_history(
-                    user_id=user_message.user_id,
-                    query=user_message.text,
-                    response=full_response_text,
+                user_state.append_chat_history(
+                    user_message.user_id, user_message.text, full_response_text
                 )
         except Exception:  # pylint: disable=broad-except
             # Catch-all for any failure during processing
@@ -329,13 +348,15 @@ async def process_message(user_message: UserMessage):  # pylint: disable=too-man
             )
             # Create minimal state for error message localization
             error_state = {
-                "user_response_language": get_user_response_language(user_id=user_message.user_id)
+                "user_response_language": user_state.get_response_language(
+                    user_id=user_message.user_id
+                )
             }
             fallback_msg = status_messages.get_status_message(
                 status_messages.PROCESSING_ERROR, error_state
             )
             try:
-                await send_text_message(user_id=user_message.user_id, text=fallback_msg)
+                await messaging.send_text_message(user_message.user_id, fallback_msg)
             except httpx.HTTPError as send_err:
                 logger.error(
                     "Failed to send fallback message to Meta for user %s: %s", log_user_id, send_err

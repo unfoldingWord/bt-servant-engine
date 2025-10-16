@@ -17,6 +17,7 @@ from fastapi.testclient import TestClient
 
 import bt_servant_engine.adapters.chroma as chroma_db
 from bt_servant_engine.apps.api.app import create_app
+from bt_servant_engine.bootstrap import build_default_service_container
 
 
 class FakeCollection:
@@ -115,7 +116,7 @@ def test_dry_run_duplicates_preview_limit(fake_chroma):
     )
     dst.add(ids=["2", "5"], documents=["x", "y"], metadatas=[{}, {}], embeddings=[[0.9], [1.0]])
 
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
     resp = client.post(
         "/chroma/collections/dst/merge",
         json={
@@ -146,7 +147,7 @@ def test_merge_create_new_id_with_tags_and_copy(fake_chroma):
         embeddings=[[0.1], [0.2], [0.3]],
     )
 
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
     # Start merge
     resp = client.post(
         "/chroma/collections/dst/merge",
@@ -201,7 +202,7 @@ def test_cancel_merge(fake_chroma):
         embeddings=[[0.0]] * len(ids),
     )
 
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
     resp = client.post(
         "/chroma/collections/dst/merge",
         json={

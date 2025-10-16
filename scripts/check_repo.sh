@@ -12,6 +12,8 @@ RST=\033[0m
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")"/.. && pwd)"
 cd "$repo_root"
 
+export PYTHONPATH="$repo_root:${PYTHONPATH:-}"
+
 if [[ -f .venv/bin/activate ]]; then
   # shellcheck disable=SC1091
   source .venv/bin/activate

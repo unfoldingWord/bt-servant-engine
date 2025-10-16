@@ -5,6 +5,7 @@ import chromadb
 from fastapi.testclient import TestClient
 
 from bt_servant_engine.apps.api.app import create_app
+from bt_servant_engine.bootstrap import build_default_service_container
 import bt_servant_engine.adapters.chroma as cdb
 from bt_servant_engine.core.config import config as app_config
 
@@ -43,7 +44,7 @@ def test_create_and_delete_collection(monkeypatch, tmp_path):
     monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
 
     # Patch startup to avoid brain initialization
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
 
     # Create a collection
     resp = client.post("/chroma/collections", json={"name": "testcol"})
@@ -80,7 +81,7 @@ def test_list_collections_and_delete_document(monkeypatch, tmp_path):
     monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
 
     # Patch startup to avoid brain initialization
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
 
     # Initially, list is empty
     resp = client.get("/chroma/collections")
@@ -125,7 +126,7 @@ def test_admin_auth_401_json_body(monkeypatch):
     monkeypatch.setattr(app_config, "ENABLE_ADMIN_AUTH", True)
     monkeypatch.setattr(app_config, "ADMIN_API_TOKEN", "secret")
 
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
     # No Authorization headers provided
     resp = client.get("/chroma/collections")
     assert resp.status_code == 401
@@ -147,7 +148,7 @@ def test_chroma_root_unauthorized_returns_401(monkeypatch):
     monkeypatch.setattr(app_config, "ENABLE_ADMIN_AUTH", True)
     monkeypatch.setattr(app_config, "ADMIN_API_TOKEN", "secret")
 
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
     resp = client.get("/chroma")
     assert resp.status_code == 401
     assert resp.headers.get("WWW-Authenticate") == "Bearer"
@@ -168,7 +169,7 @@ def test_count_documents_in_collection(monkeypatch, tmp_path):
     monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
 
     # Patch startup to avoid brain initialization
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
 
     # Missing collection -> 404
     resp = client.get("/chroma/collections/missing/count")
@@ -201,7 +202,7 @@ def test_list_document_ids_endpoint(monkeypatch, tmp_path):
     monkeypatch.setattr(cdb, "openai_ef", DummyEmbeddingFunction())
 
     # Patch startup to avoid brain initialization
-    client = TestClient(create_app())
+    client = TestClient(create_app(build_default_service_container()))
 
     # Missing collection -> 404
     resp = client.get("/chroma/collection/missing/ids")

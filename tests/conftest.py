@@ -9,11 +9,17 @@ from __future__ import annotations
 import os
 import sys
 from pathlib import Path
+from typing import Any, Dict, Iterable, Iterator, Mapping
 
+import pytest
 from dotenv import load_dotenv
 
+from bt_servant_engine.core.ports import ChromaPort, MessagingPort, UserStatePort
+from bt_servant_engine.services import ServiceContainer, runtime
+from bt_servant_engine.services.intent_router import IntentRouter
+
 # Ensure repository root is on sys.path for local package imports
-sys.path.append(str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 # Load .env first so OPENAI_API_KEY and friends are available for tests
 load_dotenv(override=False)
@@ -29,3 +35,137 @@ os.environ.setdefault("FACEBOOK_USER_AGENT", "test")
 os.environ.setdefault("BASE_URL", "http://example.com")
 os.environ.setdefault("LOG_PSEUDONYM_SECRET", "test-secret")
 os.environ.setdefault("ENABLE_ADMIN_AUTH", "false")
+
+
+class InMemoryUserStatePort(UserStatePort):
+    """Simple in-memory user state store for tests."""
+
+    def __init__(self) -> None:
+        self._states: Dict[str, Dict[str, Any]] = {}
+
+    def load_user_state(self, user_id: str) -> Mapping[str, Any]:
+        return self._states.get(user_id, {"user_id": user_id}).copy()
+
+    def save_user_state(self, user_id: str, state: Mapping[str, Any]) -> None:
+        current = self._states.get(user_id, {"user_id": user_id}).copy()
+        current.update(dict(state))
+        self._states[user_id] = current
+
+    def get_chat_history(self, user_id: str) -> list[dict[str, str]]:
+        state = self._states.get(user_id, {})
+        return list(state.get("history", []))
+
+    def append_chat_history(self, user_id: str, query: str, response: str) -> None:
+        history = self.get_chat_history(user_id)
+        history.append({"user_message": query, "assistant_response": response})
+        self.save_user_state(user_id, {"history": history[-5:]})
+
+    def get_response_language(self, user_id: str) -> str | None:
+        state = self._states.get(user_id, {})
+        return state.get("response_language")
+
+    def set_response_language(self, user_id: str, language: str) -> None:
+        self.save_user_state(user_id, {"response_language": language})
+
+    def get_agentic_strength(self, user_id: str) -> str | None:
+        state = self._states.get(user_id, {})
+        return state.get("agentic_strength")
+
+    def set_agentic_strength(self, user_id: str, strength: str) -> None:
+        normalized = strength.strip().lower()
+        if normalized not in {"normal", "low", "very_low"}:
+            raise ValueError(f"Invalid agentic strength: {strength}")
+        self.save_user_state(user_id, {"agentic_strength": normalized})
+
+    def set_first_interaction(self, user_id: str, is_first: bool) -> None:
+        self.save_user_state(user_id, {"first_interaction": is_first})
+
+    def is_first_interaction(self, user_id: str) -> bool:
+        state = self._states.get(user_id, {})
+        return bool(state.get("first_interaction", True))
+
+
+class RecordingMessagingPort(MessagingPort):
+    """Messaging stub that records interactions for assertions."""
+
+    def __init__(self) -> None:
+        self.sent_text: list[tuple[str, str]] = []
+        self.sent_voice: list[tuple[str, str]] = []
+        self.typing: list[str] = []
+
+    async def send_text_message(self, user_id: str, text: str) -> None:
+        self.sent_text.append((user_id, text))
+
+    async def send_voice_message(self, user_id: str, text: str) -> None:
+        self.sent_voice.append((user_id, text))
+
+    async def send_typing_indicator(self, message_id: str) -> None:
+        self.typing.append(message_id)
+
+    async def transcribe_voice_message(self, media_id: str) -> str:
+        return f"transcribed:{media_id}"
+
+
+class NullChromaPort(ChromaPort):
+    """Minimal Chroma port stub for tests that don't touch vector search."""
+
+    def get_collection(self, name: str) -> Any | None:  # noqa: ANN401
+        return None
+
+    def list_collections(self) -> list[str]:
+        return []
+
+    def create_collection(self, name: str) -> None:  # noqa: D401
+        del name
+
+    def delete_collection(self, name: str) -> None:  # noqa: D401
+        del name
+
+    def delete_document(self, name: str, document_id: str) -> None:  # noqa: D401
+        del name, document_id
+
+    def count_documents(self, name: str) -> int:
+        del name
+        return 0
+
+    def get_document_text_and_metadata(
+        self, name: str, document_id: str
+    ) -> tuple[str, Mapping[str, Any]]:
+        del name, document_id
+        return "", {}
+
+    def list_document_ids(self, name: str) -> list[str]:
+        del name
+        return []
+
+    def iter_batches(
+        self,
+        name: str,
+        *,
+        batch_size: int = 1000,
+        include_embeddings: bool = False,
+    ) -> Iterable[dict[str, Any]]:
+        del name, batch_size, include_embeddings
+        return []
+
+    def get_collections_pair(self, source: str, dest: str) -> tuple[Any, Any]:
+        del source, dest
+        raise RuntimeError("Collection pair not supported in test stub.")
+
+    def max_numeric_id(self, name: str) -> int:
+        del name
+        return 0
+
+
+@pytest.fixture(autouse=True)
+def service_container() -> Iterator[ServiceContainer]:
+    """Provide a default in-memory service container for tests."""
+    container = ServiceContainer(
+        chroma=NullChromaPort(),
+        user_state=InMemoryUserStatePort(),
+        messaging=RecordingMessagingPort(),
+        intent_router=IntentRouter(),
+    )
+    runtime.set_services(container)
+    yield container
+    runtime.clear_services()

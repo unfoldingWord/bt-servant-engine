@@ -17,6 +17,7 @@ from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.core.ports import ChromaPort, UserStatePort
 from bt_servant_engine.services.openai_utils import (
     extract_cached_input_tokens as _extract_cached_input_tokens,
 )
@@ -86,13 +87,7 @@ from bt_servant_engine.services.translation_helpers import (
     build_translation_helps_messages as build_translation_helps_messages_impl,
     prepare_translation_helps as prepare_translation_helps_impl,
 )
-from bt_servant_engine.adapters.chroma import get_chroma_collection
-from bt_servant_engine.adapters.user_state import (
-    is_first_interaction,
-    set_first_interaction,
-    set_user_agentic_strength,
-    set_user_response_language,
-)
+from bt_servant_engine.services import runtime
 from utils.bsb import BOOK_MAP as BSB_BOOK_MAP
 from utils.perf import add_tokens
 
@@ -109,6 +104,20 @@ Hello! I am the BT Servant. This is our first conversation. Let's work together 
 """
 
 LANG_DETECTION_SAMPLE_CHARS = 100
+
+
+def _user_state_port() -> UserStatePort:
+    services = runtime.get_services()
+    if services.user_state is None:
+        raise RuntimeError("User state port is not configured.")
+    return services.user_state
+
+
+def _chroma_port() -> ChromaPort:
+    services = runtime.get_services()
+    if services.chroma is None:
+        raise RuntimeError("Chroma port is not configured.")
+    return services.chroma
 
 
 # Response helper wrappers
@@ -243,8 +252,9 @@ def start(state: Any) -> dict:
 
     s = cast(BrainState, state)
     user_id = s["user_id"]
-    if is_first_interaction(user_id):
-        set_first_interaction(user_id, False)
+    user_state = _user_state_port()
+    if user_state.is_first_interaction(user_id):
+        user_state.set_first_interaction(user_id, False)
         return {
             "responses": [{"intent": "first-interaction", "response": FIRST_INTERACTION_MESSAGE}]
         }
@@ -384,13 +394,14 @@ def set_response_language(state: Any) -> dict:
 
     s = cast(BrainState, state)
     intent_query = _intent_query_for_node(state, "set_response_language_node")
+    user_state = _user_state_port()
     return set_response_language_impl(
         open_ai_client,
         s["user_id"],
         intent_query,
         s["user_chat_history"],
         supported_language_map,
-        set_user_response_language,
+        user_state.set_response_language,
     )
 
 
@@ -400,12 +411,13 @@ def set_agentic_strength(state: Any) -> dict:
 
     s = cast(BrainState, state)
     intent_query = _intent_query_for_node(state, "set_agentic_strength_node")
+    user_state = _user_state_port()
     return set_agentic_strength_impl(
         open_ai_client,
         s["user_id"],
         intent_query,
         s["user_chat_history"],
-        set_user_agentic_strength,
+        user_state.set_agentic_strength,
         config.LOG_PSEUDONYM_SECRET,
     )
 
@@ -567,7 +579,7 @@ def query_vector_db(state: Any) -> dict:
     return query_vector_db_impl(
         intent_query,
         s["stack_rank_collections"],
-        get_chroma_collection,
+        _chroma_port().get_collection,
         BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
     )
 
@@ -605,7 +617,7 @@ def consult_fia_resources(state: Any) -> dict:
         s["user_chat_history"],
         s.get("user_response_language"),
         s.get("query_language"),
-        get_chroma_collection,
+        _chroma_port().get_collection,
         _model_for_agentic_strength,
         _extract_cached_input_tokens,
         agentic_strength,
@@ -840,9 +852,6 @@ def _sample_for_language_detection(text: str) -> str:
 __all__ = [
     # Dependencies (for test compatibility)
     "open_ai_client",
-    "get_chroma_collection",
-    "set_user_agentic_strength",
-    "set_user_response_language",
     "FIA_REFERENCE_CONTENT",
     # Node functions
     "start",

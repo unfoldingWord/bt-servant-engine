@@ -4,13 +4,14 @@ These tests stub OpenAI SDK calls to avoid network and to return `usage`
 objects so that `utils.perf.add_tokens(...)` is invoked within active spans.
 """
 
-from typing import Any, cast
+from typing import Any, Iterable, Mapping, cast
 
 import pytest
 
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType, UserIntents
-from bt_servant_engine.services import brain_nodes
+from bt_servant_engine.core.ports import ChromaPort
+from bt_servant_engine.services import brain_nodes, runtime
 from bt_servant_engine.core.models import PassageRef, PassageSelection
 from utils import perf
 
@@ -270,7 +271,59 @@ def test_consult_fia_resources_span_has_tokens(monkeypatch: pytest.MonkeyPatch) 
         usage = _FakeUsage(it=45, ot=12, tt=57, cached=6)
         output_text = "fia response"
 
-    monkeypatch.setattr(brain_nodes, "get_chroma_collection", lambda _name: _FakeCollection())
+    class _StubChromaPort(ChromaPort):
+        def __init__(self) -> None:
+            self._collection = _FakeCollection()
+
+        def get_collection(self, name: str) -> _FakeCollection | None:  # noqa: D401
+            del name
+            return self._collection
+
+        def list_collections(self) -> list[str]:
+            return ["fia"]
+
+        def create_collection(self, name: str) -> None:  # noqa: D401
+            del name
+
+        def delete_collection(self, name: str) -> None:  # noqa: D401
+            del name
+
+        def delete_document(self, name: str, document_id: str) -> None:  # noqa: D401
+            del name, document_id
+
+        def count_documents(self, name: str) -> int:
+            del name
+            return 0
+
+        def get_document_text_and_metadata(
+            self, name: str, document_id: str
+        ) -> tuple[str, Mapping[str, Any]]:
+            del name, document_id
+            return "", {}
+
+        def list_document_ids(self, name: str) -> list[str]:
+            del name
+            return []
+
+        def iter_batches(
+            self,
+            name: str,
+            *,
+            batch_size: int = 1000,
+            include_embeddings: bool = False,
+        ) -> Iterable[dict[str, Any]]:
+            del name, batch_size, include_embeddings
+            return []
+
+        def get_collections_pair(self, source: str, dest: str) -> tuple[Any, Any]:
+            del source, dest
+            raise RuntimeError("Not supported")
+
+        def max_numeric_id(self, name: str) -> int:
+            del name
+            return 0
+
+    runtime.get_services().chroma = _StubChromaPort()
     monkeypatch.setattr(brain_nodes, "FIA_REFERENCE_CONTENT", "manual snippet")
     monkeypatch.setattr(
         brain_nodes.open_ai_client.responses, "create", lambda **_k: _FakeResponse()

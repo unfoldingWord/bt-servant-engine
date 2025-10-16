@@ -10,6 +10,10 @@ from typing import Any, Iterable, Mapping, Protocol
 class ChromaPort(Protocol):
     """Port exposing collection storage operations backed by Chroma."""
 
+    def get_collection(self, name: str) -> Any | None:
+        """Return an existing collection handle or ``None`` if missing."""
+        ...
+
     def list_collections(self) -> list[str]:
         """Return the available Chroma collection names."""
         ...
@@ -61,6 +65,14 @@ class ChromaPort(Protocol):
 
 class UserStatePort(Protocol):
     """Port exposing user preference and history persistence."""
+
+    def load_user_state(self, user_id: str) -> Mapping[str, Any]:
+        """Return the entire persisted state dictionary for ``user_id``."""
+        ...
+
+    def save_user_state(self, user_id: str, state: Mapping[str, Any]) -> None:
+        """Persist the provided state dictionary for ``user_id``."""
+        ...
 
     def get_chat_history(self, user_id: str) -> list[dict[str, str]]:
         """Return the recent chat history for ``user_id``."""

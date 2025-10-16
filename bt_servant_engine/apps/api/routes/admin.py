@@ -17,23 +17,13 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from bt_servant_engine.apps.api.dependencies import require_admin_token
-from bt_servant_engine.core.logging import get_logger
-from bt_servant_engine.adapters.chroma import (
+from bt_servant_engine.core.exceptions import (
     CollectionExistsError,
     CollectionNotFoundError,
     DocumentNotFoundError,
-    count_documents_in_collection,
-    create_chroma_collection,
-    delete_chroma_collection,
-    delete_document,
-    get_chroma_collections_pair,
-    get_document_text_and_metadata,
-    get_or_create_chroma_collection,
-    iter_collection_batches,
-    list_chroma_collections,
-    list_document_ids_in_collection,
-    max_numeric_id_in_collection,
 )
+from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services import runtime
 
 router = APIRouter()
 logger = get_logger(__name__)
@@ -41,6 +31,119 @@ logger = get_logger(__name__)
 _EMBEDDING_MAX_TOKENS_PER_REQUEST = int(
     os.environ.get("OPENAI_EMBED_MAX_TOKENS_PER_REQUEST", "290000")
 )
+
+
+def _chroma_port():
+    """Return the configured Chroma port from the service container."""
+    services = runtime.get_services()
+    if services.chroma is None:
+        raise RuntimeError("Chroma port is not configured.")
+    return services.chroma
+
+
+def list_chroma_collections() -> list[str]:
+    """List available Chroma collection names."""
+    return _chroma_port().list_collections()
+
+
+def create_chroma_collection(name: str) -> None:
+    """Create a new Chroma collection."""
+    _chroma_port().create_collection(name)
+
+
+def delete_chroma_collection(name: str) -> None:
+    """Delete an existing Chroma collection if present."""
+    _chroma_port().delete_collection(name)
+
+
+def delete_document(name: str, document_id: str) -> None:
+    """Delete a document from the specified collection."""
+    _chroma_port().delete_document(name, document_id)
+
+
+def count_documents_in_collection(name: str) -> int:
+    """Return the number of documents stored in a collection."""
+    return _chroma_port().count_documents(name)
+
+
+def get_document_text_and_metadata(name: str, document_id: str) -> tuple[str, dict[str, Any]]:
+    """Fetch text and metadata for a stored document."""
+    text, metadata = _chroma_port().get_document_text_and_metadata(name, document_id)
+    return text, dict(metadata)
+
+
+def list_document_ids_in_collection(name: str) -> list[str]:
+    """Return document identifiers for the collection."""
+    return _chroma_port().list_document_ids(name)
+
+
+def max_numeric_id_in_collection(name: str) -> int:
+    """Return the maximum numeric identifier stored in the collection."""
+    chroma = _chroma_port()
+    collection = chroma.get_collection(name)
+    if collection is None:
+        raise CollectionNotFoundError(f"Collection '{name}' not found")
+    max_id = 0
+    for batch in iter_collection_batches(collection, batch_size=10000):
+        ids = batch.get("ids") or []
+        for value in ids:
+            if isinstance(value, str) and value.isdigit():
+                max_id = max(max_id, int(value))
+    return max_id
+
+
+def get_chroma_collections_pair(source: str, dest: str) -> tuple[Any, Any]:
+    """Return collection handles for a source/destination pair."""
+    return _chroma_port().get_collections_pair(source, dest)
+
+
+def get_or_create_chroma_collection(name: str) -> Any:
+    """Return collection handle, creating the collection if absent."""
+    chroma = _chroma_port()
+    collection = chroma.get_collection(name)
+    if collection is not None:
+        return collection
+    chroma.create_collection(name)
+    collection = chroma.get_collection(name)
+    if collection is None:
+        raise CollectionNotFoundError(f"Collection '{name}' not found")
+    return collection
+
+
+def iter_collection_batches(
+    collection: Any,
+    *,
+    batch_size: int = 1000,
+    include_embeddings: bool = False,
+) -> list[dict[str, Any]]:
+    """Return a list of batch dictionaries from a collection handle."""
+    if collection is None:
+        return []
+    kwargs: dict[str, Any] = {"limit": batch_size}
+    includes: list[str] = ["documents", "metadatas"]
+    if include_embeddings:
+        includes.append("embeddings")
+    kwargs_with_include = dict(kwargs)
+    kwargs_with_include["include"] = includes
+
+    offset = 0
+    batches: list[dict[str, Any]] = []
+    while True:
+        try:
+            result = collection.get(offset=offset, **kwargs_with_include)
+        except (TypeError, ValueError):
+            try:
+                result = collection.get(**kwargs)
+            except (TypeError, ValueError):
+                result = collection.get()
+        ids = result.get("ids") or []
+        if not ids:
+            break
+        batches.append(result)
+        if len(ids) < batch_size:
+            break
+        offset += batch_size
+    return batches
 
 
 def _estimate_tokens(text: str | None) -> int:

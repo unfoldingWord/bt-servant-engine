@@ -7,7 +7,7 @@ from typing import Any, cast
 import pytest
 
 from bt_servant_engine.core.agentic import AgenticStrengthChoice, AgenticStrengthSetting
-from bt_servant_engine.services import brain_nodes
+from bt_servant_engine.services import brain_nodes, runtime
 
 
 class _StubResponse:  # pylint: disable=too-few-public-methods
@@ -34,7 +34,10 @@ def test_set_agentic_strength_persists_choice(monkeypatch: pytest.MonkeyPatch) -
         captured["user_id"] = user_id
         captured["strength"] = strength
 
-    monkeypatch.setattr(brain_nodes, "set_user_agentic_strength", _fake_set)
+    services = runtime.get_services()
+    assert services.user_state is not None
+    user_state = services.user_state
+    monkeypatch.setattr(user_state, "set_agentic_strength", _fake_set)
 
     state: dict[str, Any] = {
         "user_id": "user-123",
@@ -68,7 +71,10 @@ def test_set_agentic_strength_handles_unknown(monkeypatch: pytest.MonkeyPatch) -
         nonlocal called
         called = True
 
-    monkeypatch.setattr(brain_nodes, "set_user_agentic_strength", _fail_set)
+    services = runtime.get_services()
+    assert services.user_state is not None
+    user_state = services.user_state
+    monkeypatch.setattr(user_state, "set_agentic_strength", _fail_set)
 
     state: dict[str, Any] = {
         "user_id": "user-456",
