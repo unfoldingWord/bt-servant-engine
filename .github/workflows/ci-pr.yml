@@ -30,6 +30,7 @@ jobs:
       ENABLE_ADMIN_AUTH: "False"
       ADMIN_API_TOKEN: "admin-token"
       HEALTHCHECK_API_TOKEN: "health-token"
+      PYTHONPATH: "${{ github.workspace }}"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
