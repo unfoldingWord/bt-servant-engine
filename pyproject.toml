@@ -39,6 +39,21 @@ dev = [
   "typing-extensions>=4.12",
 ]
 
+[tool.setuptools]
+license-files = []
+
+[tool.setuptools.packages.find]
+include = ["bt_servant_engine*"]
+exclude = [
+  "tests*",
+  "scripts*",
+  "sources*",
+  "visualizations*",
+  "data*",
+  "docs*",
+  "logs*",
+]
+
 [tool.ruff]
 target-version = "py312"
 line-length = 100
