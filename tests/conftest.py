@@ -7,8 +7,6 @@ Also load .env before setting defaults so real keys are used when present.
 from __future__ import annotations
 
 import os
-import sys
-from pathlib import Path
 from typing import Any, Dict, Iterable, Iterator, Mapping
 
 import pytest
@@ -17,9 +15,6 @@ from dotenv import load_dotenv
 from bt_servant_engine.core.ports import ChromaPort, MessagingPort, UserStatePort
 from bt_servant_engine.services import ServiceContainer, runtime
 from bt_servant_engine.services.intent_router import IntentRouter
-
-# Ensure repository root is on sys.path for local package imports
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 # Load .env first so OPENAI_API_KEY and friends are available for tests
 load_dotenv(override=False)

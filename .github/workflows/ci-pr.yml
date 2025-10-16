@@ -45,6 +45,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest pytest-cov ruff pylint mypy pyright import-linter bandit pip-audit deptry pre-commit
+          pip install -e .
 
       - name: Ensure data dir
         run: mkdir -p data
