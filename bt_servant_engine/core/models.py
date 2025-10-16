@@ -8,6 +8,8 @@ from typing import Any, List, Mapping, Optional
 
 from pydantic import BaseModel
 
+from bt_servant_engine.core.config import config
+
 
 @dataclass(slots=True)
 class RequestContext:
@@ -22,25 +24,19 @@ class RequestContext:
 valid_message_types = {"text", "audio"}
 
 
+@dataclass(slots=True)
 class UserMessage:
     """Normalized user message with basic validation and helpers."""
 
-    def __init__(
-        self,
-        message_id: str,
-        user_id: str,
-        message_type: str,
-        timestamp: str,
-        text: str = "",
-        media_id: str = "",
-    ):
-        """Create a message instance."""  # pylint: disable=too-many-arguments
-        self.message_id = message_id
-        self.user_id = user_id
-        self.message_type = message_type
-        self.timestamp = int(timestamp)
-        self.text = text
-        self.media_id = media_id
+    message_id: str
+    user_id: str
+    message_type: str
+    timestamp: int
+    text: str = ""
+    media_id: str = ""
+
+    def __post_init__(self) -> None:
+        self.timestamp = int(self.timestamp)
 
     @classmethod
     def from_data(cls, data: Mapping[str, Any]):
@@ -58,6 +54,10 @@ class UserMessage:
             raise ValueError("missing or invalid message type")
         if not isinstance(timestamp, str) or not timestamp:
             raise ValueError("missing or invalid timestamp")
+        try:
+            timestamp_int = int(timestamp)
+        except (TypeError, ValueError) as exc:
+            raise ValueError("timestamp must be numeric") from exc
 
         text = ""
         media_id = ""
@@ -81,7 +81,7 @@ class UserMessage:
             user_id=user_id,
             message_id=message_id,
             message_type=message_type,
-            timestamp=timestamp,
+            timestamp=timestamp_int,
             text=text,
             media_id=media_id,
         )
@@ -93,14 +93,10 @@ class UserMessage:
 
     def too_old(self) -> bool:
         """Whether the message is older than our accepted threshold."""
-        from bt_servant_engine.core.config import config  # pylint: disable=import-outside-toplevel
-
         return self.age() > config.MESSAGE_AGE_CUTOFF_IN_SECONDS
 
     def is_unauthorized_sender(self) -> bool:
         """True when sandbox mode is on and sender is not the sandbox number."""
-        from bt_servant_engine.core.config import config  # pylint: disable=import-outside-toplevel
-
         return config.IN_META_SANDBOX_MODE and self.user_id != config.META_SANDBOX_PHONE_NUMBER
 
     def is_supported_type(self) -> bool:

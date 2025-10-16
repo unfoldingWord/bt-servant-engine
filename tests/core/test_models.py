@@ -9,10 +9,9 @@ import pytest
 
 from bt_servant_engine.core import models
 
-# pylint: disable=missing-function-docstring
 
-
-def test_user_message_from_data_text_and_audio(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_user_message_from_data_text_and_audio() -> None:
+    """Factory builds message objects for text and audio payloads."""
     now = int(time.time())
     text_payload = {
         "from": "user-1",
@@ -37,7 +36,8 @@ def test_user_message_from_data_text_and_audio(monkeypatch: pytest.MonkeyPatch) 
     assert audio_msg.media_id == "media-123"
 
 
-def test_user_message_validations(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_user_message_validations() -> None:
+    """Factory rejects malformed payloads across supported message types."""
     now = int(time.time())
     with pytest.raises(ValueError):
         models.UserMessage.from_data({"id": "x", "type": "text", "timestamp": str(now)})
@@ -73,18 +73,21 @@ def test_user_message_validations(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 def test_user_message_age_and_flags(monkeypatch: pytest.MonkeyPatch) -> None:
-    now = int(time.time())
-    msg = models.UserMessage("id", "user", "text", str(now - 10), text="hi")
-    assert msg.age() >= 0
-
+    """Age and sandbox flags flag outdated or unauthorized messages."""
     fake_config = SimpleNamespace(
         MESSAGE_AGE_CUTOFF_IN_SECONDS=5,
         IN_META_SANDBOX_MODE=True,
         META_SANDBOX_PHONE_NUMBER="allowed",
     )
     monkeypatch.setattr("bt_servant_engine.core.config.config", fake_config)
+    monkeypatch.setattr("bt_servant_engine.core.models.config", fake_config)
+
+    now = int(time.time())
+    stale_timestamp = now - fake_config.MESSAGE_AGE_CUTOFF_IN_SECONDS - 1
+    msg = models.UserMessage("id", "user", "text", stale_timestamp, text="hi")
+    assert msg.age() >= 0
 
     assert msg.too_old() is True
 
-    msg_sandbox = models.UserMessage("id2", "blocked", "text", str(now), text="hi")
+    msg_sandbox = models.UserMessage("id2", "blocked", "text", now, text="hi")
     assert msg_sandbox.is_unauthorized_sender() is True

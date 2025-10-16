@@ -15,6 +15,7 @@ import json
 import os
 import re
 import time
+from http import HTTPStatus
 
 import pytest
 from dotenv import load_dotenv
@@ -144,7 +145,7 @@ def test_meta_whatsapp_keywords_flow_with_openai(monkeypatch, tmp_path, is_first
                 "User-Agent": ua,
             },
         )
-        assert resp.status_code == 200
+        assert resp.status_code == HTTPStatus.OK
 
         # Poll for side-effect (background task) to finish.
         # OpenAI-backed paths can occasionally exceed 20s; allow up to 60s.

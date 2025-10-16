@@ -1,5 +1,8 @@
 # Repository Guidelines
 
+> **ABSOLUTE RULE**: NEVER SURPRESS ANYTHING AT ALL EVER AGAIN WITHOUT GETTING EXPLICIT PERMISSION FROM THE USER FIRST. NEVER AGAIN!
+> **Non-negotiable**: Never introduce new suppressions, ignores, or disables for linters, type-checkers, or tests without explicit, written approval from the user. If you believe a suppression is necessary, pause work and ask first.
+
 ## ⚠️ Active Architectural Refactor (October 2025)
 
 **IMPORTANT**: This codebase is undergoing a major refactor to achieve strict onion/hexagonal architecture.

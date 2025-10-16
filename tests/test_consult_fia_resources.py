@@ -6,10 +6,11 @@ from typing import Any, Iterable, Mapping, cast
 
 import pytest
 
-from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.exceptions import CollectionNotFoundError
 from bt_servant_engine.core.ports import ChromaPort
+from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.services import brain_nodes, runtime
+from bt_servant_engine.services.intents import fia_intents
 
 
 class _FakeCollection:  # pylint: disable=too-few-public-methods
@@ -112,8 +113,6 @@ def test_consult_fia_resources_falls_back_to_english(monkeypatch: pytest.MonkeyP
         captured_messages["model"] = kwargs.get("model")
         return _FakeResponse()
 
-    from bt_servant_engine.services.intents import fia_intents
-
     monkeypatch.setattr(brain_nodes.open_ai_client.responses, "create", _fake_create)
     monkeypatch.setattr(fia_intents, "FIA_REFERENCE_CONTENT", "FIA manual reference text")
 
@@ -177,8 +176,6 @@ def test_consult_fia_resources_uses_normal_model(monkeypatch: pytest.MonkeyPatch
 
 def test_consult_fia_resources_handles_missing_context(monkeypatch: pytest.MonkeyPatch) -> None:
     """Returns a helpful fallback when no FIA resources are available."""
-    from bt_servant_engine.services.intents import fia_intents
-
     services = runtime.get_services()
     services.chroma = StubChromaPort({})
     monkeypatch.setattr(fia_intents, "FIA_REFERENCE_CONTENT", "")

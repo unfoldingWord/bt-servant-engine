@@ -6,6 +6,8 @@ from unittest.mock import patch
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.services.brain_nodes import translate_responses
 
+EXPECTED_TRANSLATED_RESPONSE_COUNT = 2
+
 
 class TestFollowupIntegration:
     """Test follow-up questions integration with translate_responses."""
@@ -26,7 +28,7 @@ class TestFollowupIntegration:
         }
 
         with patch(
-            "bt_servant_engine.services.continuation_prompts.generate_continuation_prompt"
+            "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
         ) as mock_continuation:
             mock_continuation.return_value = None  # No queued intents
 
@@ -56,7 +58,7 @@ class TestFollowupIntegration:
         continuation_prompt = "\n\nWould you like me to continue with your next request?"
 
         with patch(
-            "bt_servant_engine.services.continuation_prompts.generate_continuation_prompt"
+            "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
         ) as mock_continuation:
             mock_continuation.return_value = continuation_prompt
 
@@ -86,7 +88,7 @@ class TestFollowupIntegration:
         }
 
         with patch(
-            "bt_servant_engine.services.continuation_prompts.generate_continuation_prompt"
+            "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
         ) as mock_continuation:
             mock_continuation.return_value = None
 
@@ -114,7 +116,7 @@ class TestFollowupIntegration:
         }
 
         with patch(
-            "bt_servant_engine.services.continuation_prompts.generate_continuation_prompt"
+            "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
         ) as mock_continuation:
             mock_continuation.return_value = None
 
@@ -140,7 +142,7 @@ class TestFollowupIntegration:
         }
 
         with patch(
-            "bt_servant_engine.services.continuation_prompts.generate_continuation_prompt"
+            "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
         ) as mock_continuation:
             mock_continuation.return_value = None
 
@@ -176,7 +178,7 @@ class TestFollowupIntegration:
             }
 
             with patch(
-                "bt_servant_engine.services.continuation_prompts.generate_continuation_prompt"
+                "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
             ) as mock_continuation:
                 mock_continuation.return_value = None
 
@@ -215,15 +217,18 @@ class TestFollowupWithMultipleResponses:  # pylint: disable=too-few-public-metho
         }
 
         with patch(
-            "bt_servant_engine.services.continuation_prompts.generate_continuation_prompt"
+            "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
         ) as mock_continuation:
             mock_continuation.return_value = None
 
             result = translate_responses(state)
 
-            assert len(result["translated_responses"]) == 2
+            assert len(result["translated_responses"]) == EXPECTED_TRANSLATED_RESPONSE_COUNT
             # First response should not have follow-up
             assert "Would you like" not in result["translated_responses"][0]
             # Last response should have follow-up
-            assert "Would you like to look up another Bible passage?" in result["translated_responses"][1]
+            assert (
+                "Would you like to look up another Bible passage?"
+                in result["translated_responses"][1]
+            )
             assert result.get("followup_question_added") is True

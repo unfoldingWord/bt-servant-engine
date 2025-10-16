@@ -28,6 +28,7 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass
+from http import HTTPStatus
 from pathlib import Path
 from typing import Optional
 
@@ -102,7 +103,7 @@ class TAEntry:
 def _fetch_text(client: httpx.Client, url: str) -> Optional[str]:
     try:
         r = client.get(url, timeout=20)
-        if r.status_code == 200:
+        if r.status_code == HTTPStatus.OK:
             return r.text
         return None
     except httpx.HTTPError:

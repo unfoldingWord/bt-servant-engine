@@ -16,19 +16,15 @@ from __future__ import annotations
 
 import json
 import os
+from functools import lru_cache
 from typing import Dict, Optional, Tuple
 
-_PRICING_CACHE: Optional[Dict[str, Dict[str, float]]] = None  # pylint: disable=invalid-name
 
-
+@lru_cache(maxsize=1)
 def _load_pricing() -> Dict[str, Dict[str, float]]:
-    global _PRICING_CACHE  # pylint: disable=global-statement
-    if _PRICING_CACHE is not None:
-        return _PRICING_CACHE
     raw = os.environ.get("OPENAI_PRICING_JSON", "").strip()
     table: Dict[str, Dict[str, float]] = {}
     if not raw:
-        _PRICING_CACHE = table
         return table
     try:
         data = json.loads(raw)
@@ -55,7 +51,6 @@ def _load_pricing() -> Dict[str, Dict[str, float]]:
                 if isinstance(aout, (int, float)):
                     entry["audio_output_per_million"] = float(aout)
                 table[str(model)] = entry
-    _PRICING_CACHE = table
     return table
 
 

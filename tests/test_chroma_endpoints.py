@@ -1,6 +1,8 @@
 """Chroma endpoints test suite with FastAPI TestClient and monkeypatching."""
 
 # pylint: disable=redefined-builtin
+from http import HTTPStatus
+
 import chromadb
 from fastapi.testclient import TestClient
 
@@ -8,6 +10,8 @@ from bt_servant_engine.apps.api.app import create_app
 from bt_servant_engine.bootstrap import build_default_service_container
 import bt_servant_engine.adapters.chroma as cdb
 from bt_servant_engine.core.config import config as app_config
+
+EXPECTED_COLLECTION_DOCUMENT_COUNT = 3
 
 
 class DummyEmbeddingFunction:
@@ -48,26 +52,26 @@ def test_create_and_delete_collection(monkeypatch, tmp_path):
 
     # Create a collection
     resp = client.post("/chroma/collections", json={"name": "testcol"})
-    assert resp.status_code == 201, resp.text
+    assert resp.status_code == HTTPStatus.CREATED, resp.text
     assert resp.json()["status"] == "created"
 
     # Creating the same collection again should yield 409
     resp = client.post("/chroma/collections", json={"name": "testcol"})
-    assert resp.status_code == 409
+    assert resp.status_code == HTTPStatus.CONFLICT
     assert resp.json()["error"] == "Collection already exists"
 
     # Delete the collection
     resp = client.delete("/chroma/collections/testcol")
-    assert resp.status_code == 204
+    assert resp.status_code == HTTPStatus.NO_CONTENT
 
     # Deleting again should yield 404
     resp = client.delete("/chroma/collections/testcol")
-    assert resp.status_code == 404
+    assert resp.status_code == HTTPStatus.NOT_FOUND
     assert resp.json()["error"] == "Collection not found"
 
     # Invalid name cases
     resp = client.post("/chroma/collections", json={"name": "   "})
-    assert resp.status_code == 400
+    assert resp.status_code == HTTPStatus.BAD_REQUEST
     err = resp.json()["error"]
     assert ("Invalid" in err) or ("must be non-empty" in err)
 
@@ -85,16 +89,16 @@ def test_list_collections_and_delete_document(monkeypatch, tmp_path):
 
     # Initially, list is empty
     resp = client.get("/chroma/collections")
-    assert resp.status_code == 200
+    assert resp.status_code == HTTPStatus.OK
     assert resp.json()["collections"] == []
 
     # Create a collection
     resp = client.post("/chroma/collections", json={"name": "col1"})
-    assert resp.status_code == 201
+    assert resp.status_code == HTTPStatus.CREATED
 
     # List should include col1
     resp = client.get("/chroma/collections")
-    assert resp.status_code == 200
+    assert resp.status_code == HTTPStatus.OK
     assert "col1" in resp.json()["collections"]
 
     # Add a document via existing endpoint
@@ -106,15 +110,15 @@ def test_list_collections_and_delete_document(monkeypatch, tmp_path):
         "metadata": {"k": "v"},
     }
     resp = client.post("/add-document", json=doc_payload)
-    assert resp.status_code == 200
+    assert resp.status_code == HTTPStatus.OK
 
     # Delete the document
     resp = client.delete("/chroma/collections/col1/documents/42")
-    assert resp.status_code == 204
+    assert resp.status_code == HTTPStatus.NO_CONTENT
 
     # Deleting again should yield 404
     resp = client.delete("/chroma/collections/col1/documents/42")
-    assert resp.status_code == 404
+    assert resp.status_code == HTTPStatus.NOT_FOUND
     assert resp.json()["error"] == "Document not found"
 
 
@@ -129,7 +133,7 @@ def test_admin_auth_401_json_body(monkeypatch):
     client = TestClient(create_app(build_default_service_container()))
     # No Authorization headers provided
     resp = client.get("/chroma/collections")
-    assert resp.status_code == 401
+    assert resp.status_code == HTTPStatus.UNAUTHORIZED
     # JSON body present with detail
     assert resp.headers.get("WWW-Authenticate") == "Bearer"
     data = resp.json()
@@ -150,7 +154,7 @@ def test_chroma_root_unauthorized_returns_401(monkeypatch):
 
     client = TestClient(create_app(build_default_service_container()))
     resp = client.get("/chroma")
-    assert resp.status_code == 401
+    assert resp.status_code == HTTPStatus.UNAUTHORIZED
     assert resp.headers.get("WWW-Authenticate") == "Bearer"
     data = resp.json()
     assert data.get("detail") in {
@@ -173,7 +177,7 @@ def test_count_documents_in_collection(monkeypatch, tmp_path):
 
     # Missing collection -> 404
     resp = client.get("/chroma/collections/missing/count")
-    assert resp.status_code == 404
+    assert resp.status_code == HTTPStatus.NOT_FOUND
     assert resp.json()["error"] == "Collection not found"
 
     # Create a collection and add documents directly via client
@@ -187,10 +191,10 @@ def test_count_documents_in_collection(monkeypatch, tmp_path):
 
     # Count should be 3
     resp = client.get("/chroma/collections/countcol/count")
-    assert resp.status_code == 200
+    assert resp.status_code == HTTPStatus.OK
     body = resp.json()
     assert body["collection"] == "countcol"
-    assert body["count"] == 3
+    assert body["count"] == EXPECTED_COLLECTION_DOCUMENT_COUNT
 
 
 def test_list_document_ids_endpoint(monkeypatch, tmp_path):
@@ -206,7 +210,7 @@ def test_list_document_ids_endpoint(monkeypatch, tmp_path):
 
     # Missing collection -> 404
     resp = client.get("/chroma/collection/missing/ids")
-    assert resp.status_code == 404
+    assert resp.status_code == HTTPStatus.NOT_FOUND
     assert resp.json()["error"] == "Collection not found"
 
     # Create a collection and add documents directly via client
@@ -220,8 +224,8 @@ def test_list_document_ids_endpoint(monkeypatch, tmp_path):
 
     # Fetch ids via endpoint
     resp = client.get("/chroma/collection/idscol/ids")
-    assert resp.status_code == 200
+    assert resp.status_code == HTTPStatus.OK
     body = resp.json()
     assert body["collection"] == "idscol"
-    assert body["count"] == 3
+    assert body["count"] == EXPECTED_COLLECTION_DOCUMENT_COUNT
     assert sorted(body["ids"]) == sorted(["tn_ACT_vcsw", "2", "3"])

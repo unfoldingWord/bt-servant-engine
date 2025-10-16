@@ -120,7 +120,7 @@ BOOK_MAP: Dict[str, BookMap] = {
 
 # Regex to match lines like: "Genesis 1:1\tIn the beginning..."
 VERSE_RE = re.compile(
-    r"^(?P<book>[1-3] [A-Za-z]+|[A-Za-z]+(?: [A-Za-z]+)*) " r"(?P<ch>\d+):(?P<v>\d+)\t(?P<text>.+)$"
+    r"^(?P<book>[1-3] [A-Za-z]+|[A-Za-z]+(?: [A-Za-z]+)*) (?P<ch>\d+):(?P<v>\d+)\t(?P<text>.+)$"
 )
 
 
@@ -140,8 +140,8 @@ def parse_lines_to_entries(lines: List[str]) -> Dict[str, List[Tuple[str, str]]]
     """
     grouped: Dict[str, List[Tuple[str, str]]] = {}
 
-    for line in lines:
-        line = line.rstrip("\n\r")
+    for raw_line in lines:
+        line = raw_line.rstrip("\n\r")
         if not line:
             continue
         m = VERSE_RE.match(line)

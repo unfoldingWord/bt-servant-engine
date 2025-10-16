@@ -6,7 +6,7 @@ encouraging them to continue the conversation in a natural way.
 
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any, Optional, cast
 
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
@@ -37,12 +37,19 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
 
     Args:
         user_id: The user's identifier
-        state: The BrainState dictionary containing language information (unused, kept for API compatibility)
+        state: BrainState dictionary holding language metadata for logging
 
     Returns:
         A continuation prompt string (complete question), or None if no queued intents
     """
-    logger.debug("[continuation-prompt] Checking for queued intents for user=%s", user_id)
+    response_language = None
+    if isinstance(state, dict):
+        response_language = cast(Optional[str], state.get("user_response_language"))
+    logger.debug(
+        "[continuation-prompt] Checking queued intents for user=%s (resp_language=%s)",
+        user_id,
+        response_language,
+    )
 
     # Check if there's a next intent in the queue
     next_item = peek_next_intent(user_id)
@@ -53,7 +60,8 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
     # Use pre-generated continuation question if available (should be a complete question now)
     if not next_item.continuation_action:
         logger.warning(
-            "[continuation-prompt] Missing continuation question for user=%s, suppressing prompt to avoid language mismatch (intent=%s, context='%s')",
+            "[continuation-prompt] Missing continuation question for user=%s "
+            "(intent=%s, context='%s'); skipping prompt",
             user_id,
             next_item.intent.value,
             next_item.context_text,

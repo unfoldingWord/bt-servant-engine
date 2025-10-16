@@ -22,6 +22,8 @@ QUEUE_TTL_SECONDS = 10 * 60
 
 # Maximum number of queued intents to prevent unbounded growth
 MAX_QUEUE_SIZE = 5
+# Maximum characters to log/save from the original query when previewing
+QUERY_PREVIEW_MAX_LENGTH = 50
 
 
 def _user_state_port() -> UserStatePort:
@@ -94,8 +96,8 @@ def save_intent_queue(user_id: str, intents: list[IntentQueueItem]) -> None:
             idx,
             item.intent.value,
             item.context_text,
-            item.original_query[:50] + "..."
-            if len(item.original_query) > 50
+            item.original_query[:QUERY_PREVIEW_MAX_LENGTH] + "..."
+            if len(item.original_query) > QUERY_PREVIEW_MAX_LENGTH
             else item.original_query,
         )
 

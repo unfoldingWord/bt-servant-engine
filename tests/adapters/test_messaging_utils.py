@@ -8,29 +8,37 @@ from types import SimpleNamespace
 
 from bt_servant_engine.adapters import messaging
 
+INPUT_TOKENS = 10
+OUTPUT_TOKENS = 5
+TOTAL_TOKENS = 15
+AUDIO_INPUT_TOKENS = 3
+AUDIO_OUTPUT_TOKENS = 2
+
 
 def test_record_stt_usage_tracks_audio_tokens(monkeypatch) -> None:
-    captured: list[tuple] = []
+    captured: list = []
 
-    def fake_add_tokens(*args, **kwargs):
-        captured.append((args, kwargs))
+    def fake_add_tokens(increments):
+        captured.append(increments)
 
     monkeypatch.setattr(messaging, "add_tokens", fake_add_tokens)
 
     usage = SimpleNamespace(
-        input_tokens=10,
-        output_tokens=5,
-        total_tokens=15,
-        audio_tokens=3,
-        output_audio_tokens=2,
+        input_tokens=INPUT_TOKENS,
+        output_tokens=OUTPUT_TOKENS,
+        total_tokens=TOTAL_TOKENS,
+        audio_tokens=AUDIO_INPUT_TOKENS,
+        output_audio_tokens=AUDIO_OUTPUT_TOKENS,
     )
 
     messaging._record_stt_usage(usage)  # pylint: disable=protected-access
     assert captured
-    args, kwargs = captured[0]
-    assert args[:3] == (10, 5, 15)
-    assert kwargs["audio_input_tokens"] == 3
-    assert kwargs["audio_output_tokens"] == 2
+    increments = captured[0]
+    assert getattr(increments, "input_tokens", None) == INPUT_TOKENS
+    assert getattr(increments, "output_tokens", None) == OUTPUT_TOKENS
+    assert getattr(increments, "total_tokens", None) == TOTAL_TOKENS
+    assert getattr(increments, "audio_input_tokens", None) == AUDIO_INPUT_TOKENS
+    assert getattr(increments, "audio_output_tokens", None) == AUDIO_OUTPUT_TOKENS
 
 
 def test_record_stt_usage_ignores_bad_usage() -> None:

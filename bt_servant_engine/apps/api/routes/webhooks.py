@@ -9,7 +9,19 @@ import json
 import os
 import time
 from collections import defaultdict
-from typing import Annotated, Any, DefaultDict, Optional, cast
+from dataclasses import dataclass
+from types import TracebackType
+from typing import (
+    Annotated,
+    Any,
+    Awaitable,
+    Callable,
+    DefaultDict,
+    Iterable,
+    NamedTuple,
+    Optional,
+    cast,
+)
 
 import httpx
 from fastapi import APIRouter, Header, HTTPException, Request, Response, status
@@ -80,8 +92,13 @@ async def verify_webhook(request: Request):
     return Response(status_code=403)
 
 
+class _SignatureTiming(NamedTuple):
+    start: float
+    end: float
+
+
 @router.post("/meta-whatsapp")
-async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-many-locals,too-many-branches
+async def handle_meta_webhook(
     request: Request,
     x_hub_signature_256: Annotated[Optional[str], Header(alias="X-Hub-Signature-256")] = None,
     x_hub_signature: Annotated[Optional[str], Header(alias="X-Hub-Signature")] = None,
@@ -90,291 +107,437 @@ async def handle_meta_webhook(  # pylint: disable=too-many-nested-blocks,too-man
     """Process Meta webhook events: validate signature/UA and dispatch to brain."""
     try:
         body = await request.body()
-        # measure signature verification time and attach it to each message trace below
-        _sig_t0 = time.time()
-        if not verify_facebook_signature(
-            config.META_APP_SECRET, body, x_hub_signature_256, x_hub_signature
-        ):
-            raise HTTPException(status_code=401, detail="Invalid signature")
-        _sig_t1 = time.time()
-
-        if not user_agent or user_agent.strip() != config.FACEBOOK_USER_AGENT:
-            logger.error(
-                "received invalid user agent: %s. expected: %s",
-                user_agent,
-                config.FACEBOOK_USER_AGENT,
-            )
-            raise HTTPException(status_code=401, detail="Invalid User Agent")
+        signature_timing = _verify_request_signature(
+            body,
+            x_hub_signature_256=x_hub_signature_256,
+            x_hub_signature=x_hub_signature,
+        )
+        _validate_user_agent(user_agent)
 
         services = _get_services(request)
         payload = await request.json()
-        for entry in payload.get("entry", []):
-            for change in entry.get("changes", []):
-                value = change.get("value", {})
-                messages = value.get("messages", [])
-                for message_data in messages:
-                    try:
-                        user_message = UserMessage.from_data(message_data)
-                        # Correlate timing to the specific WhatsApp message id
-                        set_current_trace(user_message.message_id)
-                        # Attribute earlier signature verification time to this trace
-                        record_external_span(
-                            name="bt_servant:verify_facebook_signature",
-                            start=_sig_t0,
-                            end=_sig_t1,
-                            trace_id=user_message.message_id,
-                        )
-                        log_user_id = get_log_safe_user_id(
-                            user_message.user_id, secret=config.LOG_PSEUDONYM_SECRET
-                        )
-                        logger.info(
-                            "%s message from %s with id %s and timestamp %s received.",
-                            user_message.message_type,
-                            log_user_id,
-                            user_message.message_id,
-                            user_message.timestamp,
-                        )
-                        if not user_message.is_supported_type():
-                            logger.warning(
-                                "unsupported message type: %s received. Skipping message.",
-                                user_message.message_type,
-                            )
-                            continue
-                        if user_message.too_old():
-                            logger.warning(
-                                "message %d sec old. dropping old message.", user_message.age()
-                            )
-                            continue
-                        if user_message.is_unauthorized_sender():
-                            logger.warning("Unauthorized sender: %s", log_user_id)
-                            return JSONResponse(
-                                status_code=status.HTTP_401_UNAUTHORIZED,
-                                content={"error": "Unauthorized sender"},
-                            )
-
-                        # Attribute total handling time per message,
-                        # including background task duration.
-                        _msg_t0 = time.time()
-                        # In OpenAI API test mode, run synchronously to avoid background flakiness
-                        if os.environ.get("RUN_OPENAI_API_TESTS", "") == "1":
-                            try:
-                                await process_message(user_message=user_message, services=services)
-                            finally:
-                                record_external_span(
-                                    name="bt_servant:handle_meta_webhook",
-                                    start=_msg_t0,
-                                    end=time.time(),
-                                    trace_id=user_message.message_id,
-                                )
-                        else:
-                            task = asyncio.create_task(
-                                process_message(user_message=user_message, services=services)
-                            )
-
-                            # Record span when the background task completes
-                            def _on_done(
-                                _: asyncio.Task,
-                                start: float = _msg_t0,
-                                trace_id: str = user_message.message_id,
-                            ) -> None:
-                                record_external_span(
-                                    name="bt_servant:handle_meta_webhook",
-                                    start=start,
-                                    end=time.time(),
-                                    trace_id=trace_id,
-                                )
-
-                            task.add_done_callback(_on_done)
-                    except ValueError:
-                        logger.error("Error while processing user message...", exc_info=True)
-                        continue
+        response = await _dispatch_meta_payload(
+            payload,
+            services=services,
+            signature_timing=signature_timing,
+        )
+        if response is not None:
+            return response
         return Response(status_code=200)
-
     except json.JSONDecodeError:
         logger.error("Invalid JSON received", exc_info=True)
         return JSONResponse(
-            status_code=status.HTTP_400_BAD_REQUEST, content={"error": "Invalid JSON"}
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content={"error": "Invalid JSON"},
         )
 
 
-async def process_message(  # pylint: disable=too-many-branches,too-many-locals,too-many-statements
+def _validate_user_agent(user_agent: Optional[str]) -> None:
+    if user_agent and user_agent.strip() == config.FACEBOOK_USER_AGENT:
+        return
+    logger.error(
+        "received invalid user agent: %s. expected: %s",
+        user_agent,
+        config.FACEBOOK_USER_AGENT,
+    )
+    raise HTTPException(status_code=401, detail="Invalid User Agent")
+
+
+def _verify_request_signature(
+    body: bytes,
+    *,
+    x_hub_signature_256: Optional[str],
+    x_hub_signature: Optional[str],
+) -> _SignatureTiming:
+    start = time.time()
+    if not verify_facebook_signature(
+        config.META_APP_SECRET,
+        body,
+        x_hub_signature_256,
+        x_hub_signature,
+    ):
+        raise HTTPException(status_code=401, detail="Invalid signature")
+    return _SignatureTiming(start=start, end=time.time())
+
+
+async def _dispatch_meta_payload(
+    payload: dict[str, Any],
+    *,
+    services: ServiceContainer,
+    signature_timing: _SignatureTiming,
+) -> Response | None:
+    for message_data in _iter_meta_messages(payload):
+        response = await _handle_meta_message(
+            message_data,
+            services=services,
+            signature_timing=signature_timing,
+        )
+        if response is not None:
+            return response
+    return None
+
+
+def _iter_meta_messages(payload: dict[str, Any]) -> Iterable[dict[str, Any]]:
+    for entry in payload.get("entry", []):
+        for change in entry.get("changes", []):
+            value = change.get("value", {})
+            yield from value.get("messages", [])
+
+
+async def _handle_meta_message(
+    message_data: dict[str, Any],
+    *,
+    services: ServiceContainer,
+    signature_timing: _SignatureTiming,
+) -> Response | None:
+    try:
+        user_message = UserMessage.from_data(message_data)
+    except ValueError:
+        logger.error("Error while processing user message...", exc_info=True)
+        return None
+
+    set_current_trace(user_message.message_id)
+    record_external_span(
+        name="bt_servant:verify_facebook_signature",
+        start=signature_timing.start,
+        end=signature_timing.end,
+        trace_id=user_message.message_id,
+    )
+    log_user_id = get_log_safe_user_id(
+        user_message.user_id,
+        secret=config.LOG_PSEUDONYM_SECRET,
+    )
+    logger.info(
+        "%s message from %s with id %s and timestamp %s received.",
+        user_message.message_type,
+        log_user_id,
+        user_message.message_id,
+        user_message.timestamp,
+    )
+    if not user_message.is_supported_type():
+        logger.warning(
+            "unsupported message type: %s received. Skipping message.",
+            user_message.message_type,
+        )
+        return None
+    if user_message.too_old():
+        logger.warning(
+            "message %d sec old. dropping old message.",
+            user_message.age(),
+        )
+        return None
+    if user_message.is_unauthorized_sender():
+        logger.warning("Unauthorized sender: %s", log_user_id)
+        return JSONResponse(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            content={"error": "Unauthorized sender"},
+        )
+
+    await _dispatch_user_message(
+        user_message=user_message,
+        services=services,
+    )
+    return None
+
+
+async def _dispatch_user_message(
+    *,
+    user_message: UserMessage,
+    services: ServiceContainer,
+) -> None:
+    start_time = time.time()
+    if os.environ.get("RUN_OPENAI_API_TESTS", "") == "1":
+        try:
+            await process_message(user_message=user_message, services=services)
+        finally:
+            record_external_span(
+                name="bt_servant:handle_meta_webhook",
+                start=start_time,
+                end=time.time(),
+                trace_id=user_message.message_id,
+            )
+        return
+
+    task = asyncio.create_task(process_message(user_message=user_message, services=services))
+
+    def _on_done(_: asyncio.Task) -> None:
+        record_external_span(
+            name="bt_servant:handle_meta_webhook",
+            start=start_time,
+            end=time.time(),
+            trace_id=user_message.message_id,
+        )
+
+    task.add_done_callback(_on_done)
+
+
+@dataclass(slots=True)
+class _MessageProcessingContext:
+    user_message: UserMessage
+    messaging: MessagingPort
+    user_state: UserStatePort
+    log_user_id: str
+    brain: Any
+    start_time: float
+
+
+class _ProcessingGuard:
+    """Async context manager to handle message processing cleanup and fallback."""
+
+    def __init__(self, context: _MessageProcessingContext) -> None:
+        self._context = context
+
+    async def __aenter__(self) -> _MessageProcessingContext:
+        return self._context
+
+    async def __aexit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc: BaseException | None,
+        tb: TracebackType | None,
+    ) -> bool:
+        try:
+            if exc is None:
+                return False
+            if isinstance(exc, asyncio.CancelledError):
+                return False
+            logger.error(
+                "Unhandled error during process_message; sending fallback to user.",
+                exc_info=True,
+            )
+            await _handle_processing_failure(self._context)
+            return True
+        finally:
+            _finalize_processing(self._context)
+
+
+async def process_message(
     user_message: UserMessage,
     services: ServiceContainer,
 ) -> None:
     """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
-        messaging = _require_messaging(services)
-        user_state = _require_user_state(services)
-        log_user_id = get_log_safe_user_id(user_message.user_id, secret=config.LOG_PSEUDONYM_SECRET)
-        start_time = time.time()
-        # ensure all spans produced in this coroutine are associated to this message
         set_current_trace(user_message.message_id)
-        # Lazily initialize brain if lifespan didn't run (e.g., certain test harnesses)
-        brain_instance = get_brain()
-        if brain_instance is None:
-            logger.warning("Brain not initialized at message time; initializing lazily.")
-            brain_instance = create_brain()
-            set_brain(brain_instance)
+        context = _create_processing_context(user_message, services)
+        async with _ProcessingGuard(context):
+            await _process_with_brain(context)
 
-        # Top-level guard: ensure any unexpected errors result in a friendly reply
+
+def _create_processing_context(
+    user_message: UserMessage,
+    services: ServiceContainer,
+) -> _MessageProcessingContext:
+    messaging = _require_messaging(services)
+    user_state = _require_user_state(services)
+    log_user_id = get_log_safe_user_id(
+        user_message.user_id,
+        secret=config.LOG_PSEUDONYM_SECRET,
+    )
+    brain_instance = get_brain()
+    if brain_instance is None:
+        logger.warning("Brain not initialized at message time; initializing lazily.")
+        brain_instance = create_brain()
+        set_brain(brain_instance)
+    if brain_instance is None:
+        raise RuntimeError("Brain instance should be initialized before invocation")
+    return _MessageProcessingContext(
+        user_message=user_message,
+        messaging=messaging,
+        user_state=user_state,
+        log_user_id=log_user_id,
+        brain=brain_instance,
+        start_time=time.time(),
+    )
+
+
+async def _process_with_brain(context: _MessageProcessingContext) -> None:
+    async with time_block("bt_servant:process_message"):
+        await _send_typing_indicator(context)
+        progress_sender = _build_progress_sender(context)
+        user_query = await _resolve_user_text(context, progress_sender)
+        result = await _invoke_brain(context, user_query, progress_sender)
+        full_response_text = await _deliver_responses(context, result, progress_sender)
+        context.user_state.append_chat_history(
+            context.user_message.user_id,
+            context.user_message.text,
+            full_response_text,
+        )
+
+
+async def _send_typing_indicator(context: _MessageProcessingContext) -> None:
+    try:
+        await context.messaging.send_typing_indicator(context.user_message.message_id)
+    except httpx.HTTPError as exc:
+        logger.warning("Failed to send typing indicator: %s", exc)
+
+
+def _build_progress_sender(
+    context: _MessageProcessingContext,
+) -> Callable[[status_messages.LocalizedProgressMessage], Awaitable[None]]:
+    async def _send(message: status_messages.LocalizedProgressMessage) -> None:
+        if not config.PROGRESS_MESSAGES_ENABLED:
+            return
         try:
-            async with time_block("bt_servant:process_message"):
-                try:
-                    await messaging.send_typing_indicator(user_message.message_id)
-                except httpx.HTTPError as e:
-                    logger.warning("Failed to send typing indicator: %s", e)
-
-                async def _send_progress_update(
-                    message: status_messages.LocalizedProgressMessage,
-                ) -> None:
-                    if not config.PROGRESS_MESSAGES_ENABLED:
-                        return
-                    try:
-                        emoji = message.get("emoji", config.PROGRESS_MESSAGE_EMOJI)
-                        text_msg = message.get("text", "")
-                        if not text_msg:
-                            logger.debug("Empty progress message text, skipping send")
-                            return
-                        await messaging.send_text_message(
-                            user_message.user_id, f"{emoji} {text_msg}"
-                        )
-                    except httpx.HTTPError:
-                        logger.warning("Failed to send progress message", exc_info=True)
-
-                if user_message.message_type == "audio":
-                    # Create minimal state for status message localization
-                    minimal_state = {
-                        "user_response_language": user_state.get_response_language(
-                            user_id=user_message.user_id
-                        )
-                    }
-                    transcribe_msg = status_messages.get_progress_message(
-                        status_messages.TRANSCRIBING_VOICE, minimal_state
-                    )
-                    await _send_progress_update(transcribe_msg)
-                    text = await messaging.transcribe_voice_message(user_message.media_id)
-                else:
-                    text = user_message.text
-
-                loop = asyncio.get_event_loop()
-                if brain_instance is None:
-                    raise RuntimeError("Brain instance should be initialized before invocation")
-                effective_agentic_strength, user_agentic_strength = _compute_agentic_strengths(
-                    user_message.user_id, user_state
-                )
-
-                # Create progress messenger callback for this user
-                async def send_progress_message(
-                    message: status_messages.LocalizedProgressMessage,
-                ) -> None:
-                    """Send a progress message to the user via WhatsApp."""
-                    await _send_progress_update(message)
-
-                brain_payload: dict[str, Any] = {
-                    "user_id": user_message.user_id,
-                    "user_query": text,
-                    "user_chat_history": user_state.get_chat_history(user_id=user_message.user_id),
-                    "user_response_language": user_state.get_response_language(
-                        user_id=user_message.user_id
-                    ),
-                    "agentic_strength": effective_agentic_strength,
-                    # Attach perf trace id for cross-thread node timing
-                    "perf_trace_id": user_message.message_id,
-                    # Progress messaging configuration
-                    "progress_enabled": config.PROGRESS_MESSAGES_ENABLED,
-                    "progress_messenger": send_progress_message,
-                    "progress_throttle_seconds": config.PROGRESS_MESSAGE_MIN_INTERVAL,
-                    "last_progress_time": 0,
-                }
-                if user_agentic_strength is not None:
-                    brain_payload["user_agentic_strength"] = user_agentic_strength
-
-                result = await loop.run_in_executor(
-                    None,
-                    lambda: brain_instance.invoke(cast(Any, brain_payload)),
-                )
-                responses = list(result["translated_responses"])
-                full_response_text = "\n\n".join(responses).rstrip()
-                send_voice = (
-                    bool(result.get("send_voice_message")) or user_message.message_type == "audio"
-                )
-                voice_text = result.get("voice_message_text")
-
-                if send_voice:
-                    if voice_text or full_response_text:
-                        packaging_msg = status_messages.get_progress_message(
-                            status_messages.PACKAGING_VOICE_RESPONSE, result
-                        )
-                        await _send_progress_update(packaging_msg)
-                    voice_payload = voice_text or full_response_text
-                    if voice_payload:
-                        await messaging.send_voice_message(user_message.user_id, voice_payload)
-
-                should_send_text = True
-                if send_voice and voice_text is None and user_message.message_type == "audio":
-                    # Preserve legacy behavior for audio conversations without
-                    # explicit voice payloads.
-                    should_send_text = False
-
-                if should_send_text and responses:
-                    response_count = len(responses)
-                    formatted_responses = list(responses)
-                    if response_count > 1:
-                        formatted_responses = [
-                            f"({i}/{response_count}) {r}"
-                            for i, r in enumerate(formatted_responses, start=1)
-                        ]
-                    for response in formatted_responses:
-                        logger.info("Response from bt_servant: %s", response)
-                        try:
-                            await messaging.send_text_message(user_message.user_id, response)
-                            await asyncio.sleep(4)
-                        except httpx.HTTPError as send_err:
-                            logger.error(
-                                "Failed to send message to Meta for user %s: %s",
-                                log_user_id,
-                                send_err,
-                            )
-
-                user_state.append_chat_history(
-                    user_message.user_id, user_message.text, full_response_text
-                )
-        except Exception:  # pylint: disable=broad-except
-            # Catch-all for any failure during processing
-            # (e.g., upstream rate-limits, unexpected errors).
-            logger.error(
-                "Unhandled error during process_message; sending fallback to user.",
-                exc_info=True,
+            emoji = message.get("emoji", config.PROGRESS_MESSAGE_EMOJI)
+            text_msg = message.get("text", "")
+            if not text_msg:
+                logger.debug("Empty progress message text, skipping send")
+                return
+            await context.messaging.send_text_message(
+                context.user_message.user_id,
+                f"{emoji} {text_msg}",
             )
-            # Create minimal state for error message localization
-            error_state = {
-                "user_response_language": user_state.get_response_language(
-                    user_id=user_message.user_id
-                )
-            }
-            fallback_msg = status_messages.get_status_message(
-                status_messages.PROCESSING_ERROR, error_state
+        except httpx.HTTPError:
+            logger.warning("Failed to send progress message", exc_info=True)
+
+    return _send
+
+
+async def _resolve_user_text(
+    context: _MessageProcessingContext,
+    progress_sender: Callable[[status_messages.LocalizedProgressMessage], Awaitable[None]],
+) -> str:
+    if context.user_message.message_type != "audio":
+        return context.user_message.text
+    minimal_state = {
+        "user_response_language": context.user_state.get_response_language(
+            user_id=context.user_message.user_id
+        )
+    }
+    transcribe_msg = status_messages.get_progress_message(
+        status_messages.TRANSCRIBING_VOICE,
+        minimal_state,
+    )
+    await progress_sender(transcribe_msg)
+    return await context.messaging.transcribe_voice_message(context.user_message.media_id)
+
+
+async def _invoke_brain(
+    context: _MessageProcessingContext,
+    user_query: str,
+    progress_sender: Callable[[status_messages.LocalizedProgressMessage], Awaitable[None]],
+) -> dict[str, Any]:
+    effective_agentic_strength, user_agentic_strength = _compute_agentic_strengths(
+        context.user_message.user_id,
+        context.user_state,
+    )
+    brain_payload: dict[str, Any] = {
+        "user_id": context.user_message.user_id,
+        "user_query": user_query,
+        "user_chat_history": context.user_state.get_chat_history(
+            user_id=context.user_message.user_id
+        ),
+        "user_response_language": context.user_state.get_response_language(
+            user_id=context.user_message.user_id
+        ),
+        "agentic_strength": effective_agentic_strength,
+        "perf_trace_id": context.user_message.message_id,
+        "progress_enabled": config.PROGRESS_MESSAGES_ENABLED,
+        "progress_messenger": progress_sender,
+        "progress_throttle_seconds": config.PROGRESS_MESSAGE_MIN_INTERVAL,
+        "last_progress_time": 0,
+    }
+    if user_agentic_strength is not None:
+        brain_payload["user_agentic_strength"] = user_agentic_strength
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(
+        None,
+        lambda: context.brain.invoke(cast(Any, brain_payload)),
+    )
+
+
+async def _deliver_responses(
+    context: _MessageProcessingContext,
+    result: dict[str, Any],
+    progress_sender: Callable[[status_messages.LocalizedProgressMessage], Awaitable[None]],
+) -> str:
+    responses = list(result["translated_responses"])
+    full_response_text = "\n\n".join(responses).rstrip()
+    send_voice = bool(result.get("send_voice_message")) or (
+        context.user_message.message_type == "audio"
+    )
+    voice_text = result.get("voice_message_text")
+    if send_voice:
+        if voice_text or full_response_text:
+            packaging_msg = status_messages.get_progress_message(
+                status_messages.PACKAGING_VOICE_RESPONSE,
+                result,
             )
+            await progress_sender(packaging_msg)
+        voice_payload = voice_text or full_response_text
+        if voice_payload:
+            await context.messaging.send_voice_message(
+                context.user_message.user_id,
+                voice_payload,
+            )
+    should_send_text = True
+    if send_voice and voice_text is None and context.user_message.message_type == "audio":
+        should_send_text = False
+    if should_send_text and responses:
+        response_count = len(responses)
+        formatted_responses = list(responses)
+        if response_count > 1:
+            formatted_responses = [
+                f"({i}/{response_count}) {response}"
+                for i, response in enumerate(formatted_responses, start=1)
+            ]
+        for response in formatted_responses:
+            logger.info("Response from bt_servant: %s", response)
             try:
-                await messaging.send_text_message(user_message.user_id, fallback_msg)
+                await context.messaging.send_text_message(
+                    context.user_message.user_id,
+                    response,
+                )
+                await asyncio.sleep(4)
             except httpx.HTTPError as send_err:
                 logger.error(
-                    "Failed to send fallback message to Meta for user %s: %s", log_user_id, send_err
+                    "Failed to send message to Meta for user %s: %s",
+                    context.log_user_id,
+                    send_err,
                 )
-        finally:
-            logger.info(
-                "Overall process_message processing time: %.2f seconds",
-                time.time() - start_time,
-            )
-            # Emit a structured performance report for this message id
-            try:
-                log_final_report(logger, trace_id=user_message.message_id, user_id=log_user_id)
-            except Exception:  # pylint: disable=broad-except  # guard logging path
-                logger.warning(
-                    "Failed to emit performance report for message_id=%s",
-                    user_message.message_id,
-                    exc_info=True,
-                )
+    return full_response_text
+
+
+async def _handle_processing_failure(context: _MessageProcessingContext) -> None:
+    error_state = {
+        "user_response_language": context.user_state.get_response_language(
+            user_id=context.user_message.user_id
+        )
+    }
+    fallback_msg = status_messages.get_status_message(
+        status_messages.PROCESSING_ERROR,
+        error_state,
+    )
+    try:
+        await context.messaging.send_text_message(
+            context.user_message.user_id,
+            fallback_msg,
+        )
+    except httpx.HTTPError as send_err:
+        logger.error(
+            "Failed to send fallback message to Meta for user %s: %s",
+            context.log_user_id,
+            send_err,
+        )
+
+
+def _finalize_processing(context: _MessageProcessingContext) -> None:
+    logger.info(
+        "Overall process_message processing time: %.2f seconds",
+        time.time() - context.start_time,
+    )
+    try:
+        log_final_report(
+            logger,
+            trace_id=context.user_message.message_id,
+            user_id=context.log_user_id,
+        )
+    except (RuntimeError, ValueError, TypeError, KeyError):
+        logger.warning(
+            "Failed to emit performance report for message_id=%s",
+            context.user_message.message_id,
+            exc_info=True,
+        )
 
 
 def verify_facebook_signature(

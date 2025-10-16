@@ -14,26 +14,25 @@ from typing import Optional
 
 from . import ServiceContainer
 
-_services: Optional[ServiceContainer] = None
+_registry: dict[str, Optional[ServiceContainer]] = {"services": None}
 
 
 def set_services(container: ServiceContainer) -> None:
     """Register the active service container."""
-    global _services  # noqa: PLW0603 - intentional module-level registry
-    _services = container
+    _registry["services"] = container
 
 
 def get_services() -> ServiceContainer:
     """Return the registered service container or raise if missing."""
-    if _services is None:
+    container = _registry.get("services")
+    if container is None:
         raise RuntimeError("Service container has not been configured.")
-    return _services
+    return container
 
 
 def clear_services() -> None:
     """Reset the registry (used primarily in tests)."""
-    global _services  # noqa: PLW0603
-    _services = None
+    _registry["services"] = None
 
 
 __all__ = ["set_services", "get_services", "clear_services"]

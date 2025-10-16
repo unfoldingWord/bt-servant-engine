@@ -5,7 +5,6 @@ These tests call the real OpenAI Responses API via the helper
 OPENAI_API_KEY is not configured for networked runs.
 """
 
-# pylint: disable=missing-function-docstring,line-too-long,duplicate-code
 from __future__ import annotations
 
 import pytest
@@ -14,6 +13,7 @@ from dotenv import load_dotenv
 from bt_servant_engine.core.config import config as app_config
 from bt_servant_engine.services.brain_nodes import resolve_selection_for_single_book
 from bt_servant_engine.core.language import Language
+from utils.bsb import FULL_BOOK_SENTINEL
 
 
 def _has_real_openai() -> bool:
@@ -47,24 +47,40 @@ pytestmark = [
 def test_selection_parsing_varied_queries(
     query: str, expect_book: str, expect_range_kind: str
 ) -> None:
+    """Resolve selections across mixed queries and verify range typing."""
     book, ranges, err = resolve_selection_for_single_book(query, Language.ENGLISH.value)
     assert err is None, f"unexpected error for {query}: {err}"
     assert book == expect_book
     assert ranges and isinstance(ranges, list)
     sc, sv, ec, ev = ranges[0]
     if expect_range_kind == "whole_book":
-        assert sc == 1 and sv is None and (ec is not None and ec >= 10_000) and ev is None
+        assert sc == 1
+        assert sv is None
+        assert ec is not None and ec >= FULL_BOOK_SENTINEL
+        assert ev is None
     elif expect_range_kind == "whole_chapter":
-        assert sc >= 1 and sv is None and (ec is None or ec == sc) and ev is None
+        assert sc >= 1
+        assert sv is None
+        assert ec is None or ec == sc
+        assert ev is None
     elif expect_range_kind == "same_chapter_range":
-        assert sc >= 1 and sv is not None and (ec is None or ec == sc) and ev is not None
+        assert sc >= 1
+        assert sv is not None
+        assert ec is None or ec == sc
+        assert ev is not None
     elif expect_range_kind == "cross_chapter_range":
-        assert sc >= 1 and sv is not None and (ec is not None and ec > sc)
+        assert sc >= 1
+        assert sv is not None
+        assert ec is not None and ec > sc
     elif expect_range_kind == "multi_chapter":
-        assert sc >= 1 and sv is None and (ec is not None and ec >= sc) and ev is None
+        assert sc >= 1
+        assert sv is None
+        assert ec is not None and ec >= sc
+        assert ev is None
 
 
 def test_selection_multiple_books_returns_guidance_message() -> None:
+    """Ambiguous multi-book references should produce guidance text."""
     # Ambiguous cross-book input should not fabricate a selection
     query = "Gen–Exo"
     book, ranges, err = resolve_selection_for_single_book(query, Language.ENGLISH.value)

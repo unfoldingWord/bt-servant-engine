@@ -6,24 +6,28 @@ for the brain decision pipeline.
 
 from __future__ import annotations
 
+import asyncio
 import operator
+import time
+from dataclasses import dataclass
 from collections.abc import Hashable
-from typing import TYPE_CHECKING, Annotated, Any, Awaitable, Callable, Dict, List, Optional, cast
+from typing import Annotated, Any, Awaitable, Callable, Dict, List, Optional, cast
 
 from langgraph.graph import StateGraph
 from langgraph.types import Send
 from typing_extensions import TypedDict
 
-from bt_servant_engine.core.intents import IntentType
+from bt_servant_engine.core.intents import IntentQueueItem, IntentType
 from bt_servant_engine.core.logging import get_logger
-from bt_servant_engine.services import status_messages
+from bt_servant_engine.services import brain_nodes, status_messages
+from bt_servant_engine.services.intent_queue import pop_next_intent, save_intent_queue
+from bt_servant_engine.services.progress_messaging import (
+    maybe_send_progress,
+    should_show_translation_progress,
+)
 from utils.perf import set_current_trace, time_block
 
 logger = get_logger(__name__)
-
-if TYPE_CHECKING:
-    pass
-
 
 # Intent priority map for sequential processing
 # Higher values = higher priority = processed first when multiple intents detected
@@ -49,6 +53,215 @@ INTENT_PRIORITY: Dict[IntentType, int] = {
     IntentType.RETRIEVE_SYSTEM_INFORMATION: 10,
     IntentType.PERFORM_UNSUPPORTED_FUNCTION: 5,
 }
+
+INTENT_NODE_MAP: Dict[IntentType, str] = {
+    IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE: "query_vector_db_node",
+    IntentType.CONSULT_FIA_RESOURCES: "consult_fia_resources_node",
+    IntentType.GET_PASSAGE_SUMMARY: "handle_get_passage_summary_node",
+    IntentType.GET_PASSAGE_KEYWORDS: "handle_get_passage_keywords_node",
+    IntentType.GET_TRANSLATION_HELPS: "handle_get_translation_helps_node",
+    IntentType.RETRIEVE_SCRIPTURE: "handle_retrieve_scripture_node",
+    IntentType.LISTEN_TO_SCRIPTURE: "handle_listen_to_scripture_node",
+    IntentType.SET_RESPONSE_LANGUAGE: "set_response_language_node",
+    IntentType.SET_AGENTIC_STRENGTH: "set_agentic_strength_node",
+    IntentType.PERFORM_UNSUPPORTED_FUNCTION: "handle_unsupported_function_node",
+    IntentType.RETRIEVE_SYSTEM_INFORMATION: "handle_system_information_request_node",
+    IntentType.CONVERSE_WITH_BT_SERVANT: "converse_with_bt_servant_node",
+    IntentType.TRANSLATE_SCRIPTURE: "handle_translate_scripture_node",
+}
+
+_SINGLE_RESOURCE_COUNT = 1
+_PAIR_RESOURCE_COUNT = 2
+
+
+@dataclass(slots=True)
+class ActiveContext:
+    """Describes the text and provenance for the intent context."""
+
+    text: str = ""
+    source: str = "transformed_query"
+
+
+@dataclass(slots=True)
+class IntentSelection:
+    """Primary intent to process plus any deferred intents to queue."""
+
+    primary: IntentType
+    deferred: List[IntentType]
+
+
+@dataclass(slots=True)
+class DeferredQueueContext:
+    """Inputs required to build intent queue entries."""
+
+    selection: IntentSelection
+    context_pool: List[Any]
+    intent_context_map: Dict[str, str]
+    continuation_actions: List[str]
+    intents_with_context: Optional[List[Any]]
+    user_id: str
+    original_query: str
+
+
+def _consume_queued_intent(
+    state: BrainState,
+    user_id: str,
+    updates: Dict[str, Any],
+    pop_next: Callable[[str], Optional[IntentQueueItem]],
+) -> ActiveContext:
+    queued_context = state.get("queued_intent_context")
+    if not queued_context:
+        return ActiveContext()
+
+    logger.info(
+        "[process-intents] Processing queued intent, popping from queue for user=%s", user_id
+    )
+    pop_next(user_id)
+    context_text = str(queued_context).strip()
+    logger.info(
+        "[process-intents] Using queued intent context for user=%s: '%s'", user_id, context_text
+    )
+    updates["queued_intent_context"] = None
+    if state.get("user_intents"):
+        updates["user_intents"] = [state["user_intents"][0]]
+    return ActiveContext(text=context_text, source="queued_intent_context")
+
+
+def _select_intent(user_intents: List[IntentType], user_id: str) -> IntentSelection:
+    if len(user_intents) == 1:
+        intent = user_intents[0]
+        logger.info("[process-intents] Single intent: %s for user=%s", intent.value, user_id)
+        return IntentSelection(primary=intent, deferred=[])
+
+    logger.info(
+        "[process-intents] Multiple intents detected (%d), sorting by priority for user=%s",
+        len(user_intents),
+        user_id,
+    )
+    sorted_intents = sorted(user_intents, key=lambda i: INTENT_PRIORITY.get(i, 0), reverse=True)
+    primary = sorted_intents[0]
+    deferred = sorted_intents[1:]
+    logger.info(
+        "[process-intents] Processing highest priority intent: %s (priority=%d) for user=%s",
+        primary.value,
+        INTENT_PRIORITY.get(primary, 0),
+        user_id,
+    )
+    return IntentSelection(primary=primary, deferred=deferred)
+
+
+def _resolve_active_context(
+    current: ActiveContext,
+    *,
+    context_pool: List[Any],
+    intent_context_map: Dict[str, str],
+    primary_intent: IntentType,
+    user_id: str,
+) -> ActiveContext:
+    if current.text:
+        return current
+
+    if context_pool:
+        index = next(
+            (idx for idx, item in enumerate(context_pool) if item.intent == primary_intent),
+            None,
+        )
+        match = context_pool.pop(index) if index is not None else None
+        if match:
+            context_text = match.trimmed_context()
+            logger.info(
+                "[process-intents] Active intent context (structured) for user=%s: '%s'",
+                user_id,
+                context_text,
+            )
+            return ActiveContext(text=context_text, source="structured_context")
+        logger.warning(
+            "[process-intents] Structured context missing for intent=%s (user=%s); falling back",
+            primary_intent.value,
+            user_id,
+        )
+
+    mapped_context = intent_context_map.get(primary_intent.value, "")
+    if mapped_context:
+        logger.info(
+            "[process-intents] Using mapped context for active intent %s: '%s'",
+            primary_intent.value,
+            mapped_context,
+        )
+        return ActiveContext(text=mapped_context, source="intent_context_map")
+    return current
+
+
+def _queue_deferred_intents(queue_ctx: DeferredQueueContext) -> None:
+    if not queue_ctx.selection.deferred:
+        return
+
+    original_order = (
+        [ic.intent for ic in queue_ctx.intents_with_context]
+        if queue_ctx.intents_with_context
+        else [queue_ctx.selection.primary, *queue_ctx.selection.deferred]
+    )
+
+    queue_items: List[IntentQueueItem] = []
+    for intent in queue_ctx.selection.deferred:
+        context_text = ""
+        if queue_ctx.context_pool:
+            idx = next(
+                (i for i, item in enumerate(queue_ctx.context_pool) if item.intent == intent),
+                None,
+            )
+            match = queue_ctx.context_pool.pop(idx) if idx is not None else None
+            if match:
+                context_text = match.trimmed_context()
+        if not context_text:
+            context_text = queue_ctx.intent_context_map.get(intent.value, "")
+        if not context_text:
+            logger.warning(
+                "[process-intents] Missing context for deferred intent=%s "
+                "(user=%s); using fallback",
+                intent.value,
+                queue_ctx.user_id,
+            )
+
+        try:
+            action_idx = original_order.index(intent)
+            continuation_action = (
+                queue_ctx.continuation_actions[action_idx]
+                if action_idx < len(queue_ctx.continuation_actions)
+                else ""
+            )
+        except ValueError:
+            continuation_action = ""
+            logger.warning(
+                "[process-intents] Intent %s not found in original order for user=%s",
+                intent.value,
+                queue_ctx.user_id,
+            )
+
+        logger.info(
+            "[process-intents] Queueing deferred intent=%s with context='%s' "
+            "(user=%s, continuation_action=%s)",
+            intent.value,
+            context_text,
+            queue_ctx.user_id,
+            bool(continuation_action),
+        )
+        queue_items.append(
+            IntentQueueItem(
+                intent=intent,
+                context_text=context_text,
+                continuation_action=continuation_action,
+                created_at=time.time(),
+                original_query=queue_ctx.original_query,
+            )
+        )
+
+    logger.info(
+        "[process-intents] Queueing %d remaining intents for user=%s",
+        len(queue_items),
+        queue_ctx.user_id,
+    )
+    save_intent_queue(queue_ctx.user_id, queue_items)
 
 
 class BrainState(TypedDict, total=False):
@@ -133,7 +346,6 @@ def wrap_node_with_progress(  # type: ignore[no-untyped-def]
     Returns:
         Wrapped node function with progress messaging support
     """
-    import asyncio
 
     def wrapped(state: Any) -> dict:
         # Send progress message before node execution if configured
@@ -151,9 +363,6 @@ def wrap_node_with_progress(  # type: ignore[no-untyped-def]
                 message_payload = raw_message
 
         if message_payload:
-            # Import here to avoid circular dependency
-            from bt_servant_engine.services.progress_messaging import maybe_send_progress
-
             coroutine = maybe_send_progress(state, message_payload, force=force)
             try:
                 loop = asyncio.get_running_loop()
@@ -177,9 +386,9 @@ def wrap_node_with_progress(  # type: ignore[no-untyped-def]
 def _format_series(resources: List[str]) -> str:
     if not resources:
         return ""
-    if len(resources) == 1:
+    if len(resources) == _SINGLE_RESOURCE_COUNT:
         return resources[0]
-    if len(resources) == 2:
+    if len(resources) == _PAIR_RESOURCE_COUNT:
         return f"{resources[0]} and {resources[1]}"
     return f"{', '.join(resources[:-1])}, and {resources[-1]}"
 
@@ -225,18 +434,13 @@ def build_translation_assistance_progress_message(
     )
 
 
-def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-branches
+def process_intents(state: Any) -> List[Hashable]:
     """Map detected intents to the list of nodes to traverse.
 
     Sequential processing: Only handles the highest priority intent and queues the rest.
     When multiple intents are detected, we process the highest priority one and save
     the others to the intent queue for subsequent requests.
     """
-    import time
-
-    from bt_servant_engine.core.intents import IntentQueueItem
-    from bt_servant_engine.services.intent_queue import pop_next_intent, save_intent_queue
-
     s = cast(BrainState, state)
     user_intents = s["user_intents"]
     user_id = s["user_id"]
@@ -244,235 +448,67 @@ def process_intents(state: Any) -> List[Hashable]:  # pylint: disable=too-many-b
     if not user_intents:
         raise ValueError("no intents found. something went very wrong.")
 
-    intents_with_context = cast(list[Any] | None, s.get("intents_with_context"))
-    continuation_actions = cast(list[str], s.get("continuation_actions", []))
+    context_pool = list(cast(List[Any] | None, s.get("intents_with_context")) or [])
+    continuation_actions = cast(List[str], s.get("continuation_actions") or [])
     intent_context_map = cast(dict[str, str], s.get("intent_context_map") or {})
-    context_pool = list(intents_with_context or [])
-    active_context = ""
-    active_context_source = "transformed_query"
-    updates: dict[str, Any] = {}
+    updates: Dict[str, Any] = {}
 
-    # Check if we're processing a queued intent
-    queued_intent_context = s.get("queued_intent_context")
-    if queued_intent_context:
-        # Pop from queue since we're processing it
-        logger.info(
-            "[process-intents] Processing queued intent, popping from queue for user=%s", user_id
+    active_context = _consume_queued_intent(s, user_id, updates, pop_next_intent)
+    selection = _select_intent(user_intents, user_id)
+
+    if selection.deferred and "user_intents" not in updates:
+        updates["user_intents"] = [selection.primary]
+
+    active_context = _resolve_active_context(
+        active_context,
+        context_pool=context_pool,
+        intent_context_map=intent_context_map,
+        primary_intent=selection.primary,
+        user_id=user_id,
+    )
+
+    if selection.deferred:
+        queue_ctx = DeferredQueueContext(
+            selection=selection,
+            context_pool=context_pool,
+            intent_context_map=intent_context_map,
+            continuation_actions=continuation_actions,
+            intents_with_context=cast(Optional[List[Any]], s.get("intents_with_context")),
+            user_id=user_id,
+            original_query=s["user_query"],
         )
-        pop_next_intent(user_id)
-        active_context = str(queued_intent_context).strip()
-        active_context_source = "queued_intent_context"
+        _queue_deferred_intents(queue_ctx)
+
+    if not active_context.text:
+        fallback_text = s["transformed_query"]
+        active_context = ActiveContext(text=fallback_text, source="transformed_query")
         logger.info(
-            "[process-intents] Using queued intent context for user=%s: '%s'",
+            "[process-intents] No specialized context; using transformed query for user=%s: '%s'",
             user_id,
-            active_context,
-        )
-        # Clear the queued context from state to avoid re-use in later turns
-        updates["queued_intent_context"] = None
-        if user_intents:
-            updates["user_intents"] = [user_intents[0]]
-
-    # Determine which intent to process
-    if len(user_intents) == 1:
-        # Single intent - process it
-        intent_to_process = user_intents[0]
-        logger.info(
-            "[process-intents] Single intent: %s for user=%s", intent_to_process.value, user_id
-        )
-    else:
-        # Multiple intents - process highest priority, queue the rest
-        logger.info(
-            "[process-intents] Multiple intents detected (%d), sorting by priority for user=%s",
-            len(user_intents),
-            user_id,
+            fallback_text,
         )
 
-        # Sort by priority (highest first)
-        sorted_intents = sorted(user_intents, key=lambda i: INTENT_PRIORITY.get(i, 0), reverse=True)
-        intent_to_process = sorted_intents[0]
-        intents_to_queue = sorted_intents[1:]
-
-        logger.info(
-            "[process-intents] Processing highest priority intent: %s (priority=%d) for user=%s",
-            intent_to_process.value,
-            INTENT_PRIORITY.get(intent_to_process, 0),
-            user_id,
-        )
-        # Trim user_intents down to the active intent for downstream nodes
-        updates["user_intents"] = [intent_to_process]
-
-        # Determine context snippet for the active intent if not set via queue
-        if not active_context and context_pool:
-            active_idx = next(
-                (idx for idx, ic in enumerate(context_pool) if ic.intent == intent_to_process),
-                None,
-            )
-            active_match = context_pool.pop(active_idx) if active_idx is not None else None
-            if active_match:
-                active_context = active_match.trimmed_context()
-                active_context_source = "structured_context"
-                logger.info(
-                    "[process-intents] Active intent context (structured) for user=%s: '%s'",
-                    user_id,
-                    active_context,
-                )
-            else:
-                logger.warning(
-                    "[process-intents] Structured context missing for active intent=%s (user=%s); will rely on fallback context",
-                    intent_to_process.value,
-                    user_id,
-                )
-        if not active_context:
-            mapped_context = intent_context_map.get(intent_to_process.value, "")
-            if mapped_context:
-                active_context = mapped_context
-                active_context_source = "intent_context_map"
-                logger.info(
-                    "[process-intents] Using mapped context for active intent %s: '%s'",
-                    intent_to_process.value,
-                    active_context,
-                )
-
-        # Get original intent order (before sorting) for action lookup
-        original_intent_order = (
-            [ic.intent for ic in intents_with_context] if intents_with_context else sorted_intents
-        )
-
-        # Build queue items
-        queue_items = []
-        for intent in intents_to_queue:
-            # Find matching context snippet if available
-            context_text = ""
-            if context_pool:
-                matching_index = next(
-                    (idx for idx, ic in enumerate(context_pool) if ic.intent == intent),
-                    None,
-                )
-                matching_context = (
-                    context_pool.pop(matching_index) if matching_index is not None else None
-                )
-                if matching_context:
-                    context_text = matching_context.trimmed_context()
-            if not context_text:
-                context_text = intent_context_map.get(intent.value, "")
-            if not context_text:
-                logger.warning(
-                    "[process-intents] No context snippet available for deferred intent=%s (user=%s); downstream will fall back to active context resolution",
-                    intent.value,
-                    user_id,
-                )
-
-            # Get corresponding continuation action using ORIGINAL order (not sorted)
-            # continuation_actions are in the same order as original intent detection
-            try:
-                action_idx = original_intent_order.index(intent)
-                continuation_action = (
-                    continuation_actions[action_idx]
-                    if action_idx < len(continuation_actions)
-                    else ""
-                )
-            except ValueError:
-                # Intent not found in original order (shouldn't happen)
-                continuation_action = ""
-                logger.warning(
-                    "[process-intents] Intent %s not found in original order for user=%s",
-                    intent.value,
-                    user_id,
-                )
-
-            logger.info(
-                "[process-intents] Queueing deferred intent=%s with context='%s' (user=%s, continuation_action_present=%s)",
-                intent.value,
-                context_text,
-                user_id,
-                bool(continuation_action),
-            )
-
-            queue_items.append(
-                IntentQueueItem(
-                    intent=intent,
-                    context_text=context_text,
-                    continuation_action=continuation_action,
-                    created_at=time.time(),
-                    original_query=s["user_query"],
-                )
-            )
-
-        # Save queue
-        logger.info(
-            "[process-intents] Queueing %d remaining intents for user=%s", len(queue_items), user_id
-        )
-        save_intent_queue(user_id, queue_items)
-
-    # Fallback: if no explicit context captured, default to transformed query
-    if not active_context:
-        active_context = s["transformed_query"]
-        active_context_source = "transformed_query"
-        logger.info(
-            "[process-intents] No specialized context found; defaulting to transformed query for user=%s: '%s'",
-            user_id,
-            active_context,
-        )
-
-    updates["active_intent_context"] = active_context
-    updates["active_intent_context_source"] = active_context_source
+    updates["active_intent_context"] = active_context.text
+    updates["active_intent_context_source"] = active_context.source
     logger.info(
         "[process-intents] Intent routing context established (source=%s, intent=%s, user=%s)",
-        active_context_source,
-        intent_to_process.value,
+        active_context.source,
+        selection.primary.value,
         user_id,
     )
 
-    # Map intent to node (using elif to avoid duplicates from old code)
-    nodes_to_traverse: List[str] = []
+    node_name = INTENT_NODE_MAP.get(selection.primary)
+    if node_name is None:
+        raise ValueError(f"Unknown intent type: {selection.primary}")
 
-    if intent_to_process == IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE:
-        nodes_to_traverse.append("query_vector_db_node")
-    elif intent_to_process == IntentType.CONSULT_FIA_RESOURCES:
-        nodes_to_traverse.append("consult_fia_resources_node")
-    elif intent_to_process == IntentType.GET_PASSAGE_SUMMARY:
-        nodes_to_traverse.append("handle_get_passage_summary_node")
-    elif intent_to_process == IntentType.GET_PASSAGE_KEYWORDS:
-        nodes_to_traverse.append("handle_get_passage_keywords_node")
-    elif intent_to_process == IntentType.GET_TRANSLATION_HELPS:
-        nodes_to_traverse.append("handle_get_translation_helps_node")
-    elif intent_to_process == IntentType.RETRIEVE_SCRIPTURE:
-        nodes_to_traverse.append("handle_retrieve_scripture_node")
-    elif intent_to_process == IntentType.LISTEN_TO_SCRIPTURE:
-        nodes_to_traverse.append("handle_listen_to_scripture_node")
-    elif intent_to_process == IntentType.SET_RESPONSE_LANGUAGE:
-        nodes_to_traverse.append("set_response_language_node")
-    elif intent_to_process == IntentType.SET_AGENTIC_STRENGTH:
-        nodes_to_traverse.append("set_agentic_strength_node")
-    elif intent_to_process == IntentType.PERFORM_UNSUPPORTED_FUNCTION:
-        nodes_to_traverse.append("handle_unsupported_function_node")
-    elif intent_to_process == IntentType.RETRIEVE_SYSTEM_INFORMATION:
-        nodes_to_traverse.append("handle_system_information_request_node")
-    elif intent_to_process == IntentType.CONVERSE_WITH_BT_SERVANT:
-        nodes_to_traverse.append("converse_with_bt_servant_node")
-    elif intent_to_process == IntentType.TRANSLATE_SCRIPTURE:
-        nodes_to_traverse.append("handle_translate_scripture_node")
-    else:
-        raise ValueError(f"Unknown intent type: {intent_to_process}")
-
-    logger.info("[process-intents] Routing to node: %s for user=%s", nodes_to_traverse[0], user_id)
-
-    if not updates:
-        next_state = s
-    else:
-        merged_state = dict(s)
-        merged_state.update(updates)
-        next_state = cast(BrainState, merged_state)
-
-    sends = [Send(node, next_state) for node in nodes_to_traverse]
+    next_state = cast(BrainState, {**s, **updates}) if updates else s
+    sends = [Send(node_name, next_state)]
+    logger.info("[process-intents] Routing to node: %s for user=%s", node_name, user_id)
     return cast(List[Hashable], sends)
 
 
 def create_brain():
     """Assemble and compile the LangGraph for the BT Servant brain."""
-    # Import here to avoid circular dependency
-    from bt_servant_engine.services import brain_nodes
-    from bt_servant_engine.services.progress_messaging import should_show_translation_progress
 
     def _make_state_graph(schema: Any) -> StateGraph:
         # Accept Any to satisfy IDE variance on schema param; schema is BrainState

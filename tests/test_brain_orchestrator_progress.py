@@ -105,12 +105,12 @@ def test_translation_progress_message_includes_sources() -> None:
 
     wrapped(state)
 
-    assert [m["text"] for m in messages] == [
-        (
-            "I found potentially relevant documents in the following resources: "
-            "uw notes and uw dictionary. I'm pulling everything together into a helpful response for you."
-        )
-    ]
+    expected_text = (
+        "I found potentially relevant documents in the following resources: "
+        "uw notes and uw dictionary. I'm pulling everything together into a helpful response "
+        "for you."
+    )
+    assert [m["text"] for m in messages] == [expected_text]
     assert [m["emoji"] for m in messages] == ["📚"]
 
 

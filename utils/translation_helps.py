@@ -12,7 +12,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
 
-from .bsb import BOOK_MAP, parse_ch_verse_from_reference
+from .bsb import BOOK_MAP, FULL_BOOK_SENTINEL, parse_ch_verse_from_reference
 
 
 @lru_cache(maxsize=128)
@@ -51,7 +51,7 @@ def _select_range(
     s_ch = start_ch
     s_vs = start_vs if start_vs is not None else 1
     e_ch = end_ch if end_ch is not None else s_ch
-    e_vs = end_vs if end_vs is not None else 10_000
+    e_vs = end_vs if end_vs is not None else FULL_BOOK_SENTINEL
     for (ch, vs), entry in sorted(idx.items()):
         if (ch < s_ch) or (ch == s_ch and vs < s_vs):
             continue

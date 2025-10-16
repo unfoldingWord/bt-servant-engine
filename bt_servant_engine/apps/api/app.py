@@ -9,11 +9,11 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from bt_servant_engine.apps.api.middleware import CorrelationIdMiddleware
+from bt_servant_engine.apps.api.routes import admin, health, webhooks
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.brain_orchestrator import create_brain
 from bt_servant_engine.services import ServiceContainer
 from bt_servant_engine.services import runtime
-
 from .state import get_brain, set_brain
 
 logger = get_logger(__name__)
@@ -48,9 +48,6 @@ def create_app(services: ServiceContainer | None = None) -> FastAPI:
     app.state.services = service_container
     runtime.set_services(service_container)
     app.add_middleware(CorrelationIdMiddleware)
-
-    # Import lazily to avoid potential circular imports when routers grow.
-    from .routes import admin, health, webhooks  # pylint: disable=import-outside-toplevel
 
     app.include_router(health.router)
     app.include_router(admin.router)

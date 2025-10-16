@@ -6,6 +6,9 @@ from typing import Any
 
 from bt_servant_engine.services import translation_helpers as helpers
 
+GENESIS_END_VERSE = 11
+EXPECTED_MESSAGE_COUNT = 6
+
 # pylint: disable=missing-function-docstring
 
 
@@ -61,7 +64,7 @@ def test_build_translation_helps_context_includes_original_ranges() -> None:
         "Genesis", ranges, info, original_ranges=original
     )
     selection = context["selection"]
-    assert selection["original_ranges"][0]["end_verse"] == 11
+    assert selection["original_ranges"][0]["end_verse"] == GENESIS_END_VERSE
     assert selection["original_reference_label"] == "Genesis 1:1-11"
 
 
@@ -75,7 +78,7 @@ def test_build_translation_helps_messages_includes_payload() -> None:
     messages = helpers.build_translation_helps_messages(
         ref_label, context, selection_note="Explain truncation"
     )
-    assert len(messages) == 6
+    assert len(messages) == EXPECTED_MESSAGE_COUNT
     assert messages[1]["role"] == "developer"
     assert "Explain truncation" in messages[1]["content"]
     assert ref_label in messages[2]["content"]

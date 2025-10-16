@@ -2,6 +2,8 @@
 
 from utils.identifiers import clear_log_safe_user_cache, get_log_safe_user_id
 
+PSEUDONYM_LENGTH = 16
+
 
 def test_get_log_safe_user_id_is_deterministic(monkeypatch) -> None:
     """Same user id + secret should always yield the same pseudonym."""
@@ -12,7 +14,7 @@ def test_get_log_safe_user_id_is_deterministic(monkeypatch) -> None:
     token_second = get_log_safe_user_id("+15551234567")
 
     assert token_first == token_second
-    assert len(token_first) == 16
+    assert len(token_first) == PSEUDONYM_LENGTH
     clear_log_safe_user_cache()
 
 

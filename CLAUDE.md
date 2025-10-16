@@ -1,5 +1,8 @@
 # Claude Instructions - bt-servant-engine
 
+> **ABSOLUTE RULE**: NEVER SURPRESS ANYTHING AT ALL EVER AGAIN WITHOUT GETTING EXPLICIT PERMISSION FROM THE USER FIRST. NEVER AGAIN!
+> **Do not add, retain, or extend any lint/type/test suppression without explicit user approval.** If a warning appears, fix the root cause or stop and ask—the user must authorize every suppression.
+
 ## Project Overview
 
 BT Servant Engine is a WhatsApp chatbot that provides Bible translation assistance and scripture resources. It uses:
