@@ -192,7 +192,10 @@ def clear_queue(user_id: str) -> None:
         port = _user_state_port()
         state = dict(port.load_user_state(user_id))
         if "intent_queue" in state:
-            state.pop("intent_queue", None)
+            # Some UserStatePort implementations merge updates rather than replacing the
+            # stored dict outright. Set the field to None before saving so that the queue
+            # is effectively cleared regardless of merge semantics.
+            state["intent_queue"] = None
             port.save_user_state(user_id, state)
             logger.info("[intent-queue] Successfully cleared queue for user=%s", user_id)
         else:
