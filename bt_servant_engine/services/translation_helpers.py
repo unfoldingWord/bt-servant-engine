@@ -64,7 +64,13 @@ def prepare_translation_helps(
     detect_mentioned_books_fn: Callable[..., Any],
     translate_text_fn: Callable[..., Any],
     selection_focus_hint: str | None = None,
-) -> tuple[Optional[str], Optional[list[TranslationRange]], Optional[list[dict]], Optional[str]]:
+) -> tuple[
+    Optional[str],
+    Optional[list[TranslationRange]],
+    Optional[list[dict]],
+    Optional[dict[str, Any]],
+    Optional[str],
+]:
     """Resolve canonical selection, enforce limits, and load raw help entries."""
     canonical_book, ranges, err = resolve_selection_for_single_book(
         client,
@@ -76,12 +82,13 @@ def prepare_translation_helps(
         focus_hint=selection_focus_hint,
     )
     if err:
-        return None, None, None, err
+        return None, None, None, None, err
     assert canonical_book is not None and ranges is not None  # nosec B101 - type narrowing after err check
 
     missing_books = set(get_missing_th_books(th_root))
     if canonical_book in missing_books:
         return (
+            None,
             None,
             None,
             None,
@@ -94,29 +101,18 @@ def prepare_translation_helps(
             ),
         )
 
-    verse_count = len(select_verses(bsb_root, canonical_book, ranges))
-    if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
-        return (
-            None,
-            None,
-            None,
-            (
-                "I can only provide translate help for "
-                f"{config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time. "
-                "Your selection "
-                f"{label_ranges(canonical_book, ranges)} includes {verse_count} verses. "
-                "Please narrow the range (e.g., a chapter or a shorter span)."
-            ),
-        )
+    original_ranges = list(ranges)
+    verse_count = len(select_verses(bsb_root, canonical_book, original_ranges))
 
     limited_ranges = clamp_ranges_by_verse_limit(
         bsb_root,
         canonical_book,
-        ranges,
+        original_ranges,
         max_verses=config.TRANSLATION_HELPS_VERSE_LIMIT,
     )
     if not limited_ranges:
         return (
+            None,
             None,
             None,
             None,
@@ -130,15 +126,25 @@ def prepare_translation_helps(
             None,
             None,
             None,
+            None,
             "I couldn't locate translation helps for that selection. Please check the reference and try again.",
         )
-    return canonical_book, list(limited_ranges), raw_helps, None
+
+    metadata: dict[str, Any] | None = None
+    if verse_count > config.TRANSLATION_HELPS_VERSE_LIMIT:
+        metadata = {
+            "truncated": True,
+            "original_ranges": original_ranges,
+            "original_label": label_ranges(canonical_book, original_ranges),
+        }
+    return canonical_book, list(limited_ranges), raw_helps, metadata, None
 
 
 def build_translation_helps_context(
     canonical_book: str,
     ranges: list[TranslationRange],
     raw_helps: list[dict],
+    original_ranges: list[TranslationRange] | None = None,
 ) -> tuple[str, dict[str, Any]]:
     """Return the reference label and compact JSON context for the LLM."""
     ref_label = label_ranges(canonical_book, ranges)
@@ -158,15 +164,31 @@ def build_translation_helps_context(
         },
         "translation_helps": _compact_translation_help_entries(raw_helps),
     }
+    if original_ranges:
+        selection_section = cast(dict[str, Any], context_obj["selection"])
+        selection_section["original_ranges"] = [
+            {
+                "start_chapter": sc,
+                "start_verse": sv,
+                "end_chapter": ec,
+                "end_verse": ev,
+            }
+            for (sc, sv, ec, ev) in original_ranges
+        ]
+        selection_section["original_reference_label"] = label_ranges(
+            canonical_book, original_ranges
+        )
     return ref_label, context_obj
 
 
 def build_translation_helps_messages(
-    ref_label: str, context_obj: dict[str, object]
+    ref_label: str,
+    context_obj: dict[str, object],
+    selection_note: str | None = None,
 ) -> list[EasyInputMessageParam]:
     """Construct the LLM messages for the translation helps prompt."""
     payload = json.dumps(context_obj, ensure_ascii=False)
-    return [
+    messages: list[EasyInputMessageParam] = [
         {
             "role": "developer",
             "content": "Focus only on the portion of the user's message that asked for translation helps. Ignore any other requests or book references in the message.",
@@ -181,6 +203,15 @@ def build_translation_helps_messages(
             ),
         },
     ]
+    if selection_note:
+        messages.insert(
+            1,
+            {
+                "role": "developer",
+                "content": selection_note,
+            },
+        )
+    return messages
 
 
 __all__ = [

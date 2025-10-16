@@ -346,3 +346,12 @@ Recommended workflow
     can sometimes lose the concrete type and infer a callable union. Use
     `cast(str, ...)` or `str(...)` at the call site to make the argument type
     explicit, e.g., `set_user_response_language(cast(str, user_id), cast(str, code))`.
+
+### LangGraph State Updates
+- Never mutate the incoming LangGraph `state` in-place. Always return a dict of
+  changes from the node so the orchestrator can merge them. Direct assignments
+  like `state["foo"] = bar` are ignored once execution resumes and lead to
+  duplicated follow-ups or stale context.
+- When branching with `add_conditional_edges`, return `langgraph.types.Send`
+  instances that carry a merged copy of the state instead of mutating the
+  original reference. This keeps state propagation deterministic.

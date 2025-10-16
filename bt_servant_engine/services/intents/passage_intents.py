@@ -167,7 +167,12 @@ def get_passage_summary(
                 "intent": IntentType.GET_PASSAGE_SUMMARY,
                 "response": response_text,
             }
-        ]
+        ],
+        "passage_followup_context": {
+            "intent": IntentType.GET_PASSAGE_SUMMARY,
+            "book": canonical_book,
+            "ranges": [tuple(r) for r in ranges],
+        },
     }
 
 
@@ -223,7 +228,12 @@ def get_passage_keywords(
                 "intent": IntentType.GET_PASSAGE_KEYWORDS,
                 "response": response_text,
             }
-        ]
+        ],
+        "passage_followup_context": {
+            "intent": IntentType.GET_PASSAGE_KEYWORDS,
+            "book": canonical_book,
+            "ranges": [tuple(r) for r in ranges],
+        },
     }
 
 
@@ -440,7 +450,14 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-locals,to
                 {"type": "scripture", "text": translated_body},
             ],
         }
-        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
+        return {
+            "responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}],
+            "passage_followup_context": {
+                "intent": IntentType.RETRIEVE_SCRIPTURE,
+                "book": canonical_book,
+                "ranges": [tuple(r) for r in ranges],
+            },
+        }
 
     # No auto-translation required; return verbatim with canonical header (to be localized downstream if desired)
     # Load localized titles for the resolved source language (if present)
@@ -458,7 +475,14 @@ def retrieve_scripture(  # pylint: disable=too-many-arguments,too-many-locals,to
             {"type": "scripture", "text": scripture_text},
         ],
     }
-    return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}]}
+    return {
+        "responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_obj}],
+        "passage_followup_context": {
+            "intent": IntentType.RETRIEVE_SCRIPTURE,
+            "book": canonical_book,
+            "ranges": [tuple(r) for r in ranges],
+        },
+    }
 
 
 def listen_to_scripture(
@@ -501,6 +525,9 @@ def listen_to_scripture(
         )
         for resp in responses:
             resp["suppress_text_delivery"] = True
+    ctx = out.get("passage_followup_context")
+    if isinstance(ctx, dict):
+        ctx["intent"] = IntentType.LISTEN_TO_SCRIPTURE
     return out
 
 

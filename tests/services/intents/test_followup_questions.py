@@ -58,10 +58,10 @@ class TestAddFollowupIfNeeded:
         }
         response = "Here is your scripture passage."
 
-        result = add_followup_if_needed(response, state, IntentType.RETRIEVE_SCRIPTURE)
+        result, added = add_followup_if_needed(response, state, IntentType.RETRIEVE_SCRIPTURE)
 
         assert "Would you like to look up another Bible passage?" in result
-        assert state["followup_question_added"] is True
+        assert added is True
 
     def test_does_not_add_followup_when_already_added(self):
         """Does not add follow-up when flag is already True."""
@@ -71,11 +71,12 @@ class TestAddFollowupIfNeeded:
         }
         response = "Here is your scripture passage."
 
-        result = add_followup_if_needed(response, state, IntentType.RETRIEVE_SCRIPTURE)
+        result, added = add_followup_if_needed(response, state, IntentType.RETRIEVE_SCRIPTURE)
 
         # Should return unchanged
         assert result == response
         assert "Would you like" not in result
+        assert added is False
 
     def test_uses_correct_language_from_state(self):
         """Uses user's preferred language from state."""
@@ -85,19 +86,20 @@ class TestAddFollowupIfNeeded:
         }
         response = "Aquí está su pasaje de las Escrituras."
 
-        result = add_followup_if_needed(response, state, IntentType.RETRIEVE_SCRIPTURE)
+        result, added = add_followup_if_needed(response, state, IntentType.RETRIEVE_SCRIPTURE)
 
         assert "¿Le gustaría buscar otro pasaje bíblico?" in result
-        assert state["followup_question_added"] is True
+        assert added is True
 
     def test_defaults_to_english_when_language_not_in_state(self):
         """Defaults to English when language not specified in state."""
         state = {"followup_question_added": False}
         response = "Here is your scripture passage."
 
-        result = add_followup_if_needed(response, state, IntentType.RETRIEVE_SCRIPTURE)
+        result, added = add_followup_if_needed(response, state, IntentType.RETRIEVE_SCRIPTURE)
 
         assert "Would you like to look up another Bible passage?" in result
+        assert added is True
 
     def test_preserves_response_content(self):
         """Preserves original response content when adding follow-up."""
@@ -107,10 +109,11 @@ class TestAddFollowupIfNeeded:
         }
         response = "Original content here."
 
-        result = add_followup_if_needed(response, state, IntentType.RETRIEVE_SCRIPTURE)
+        result, added = add_followup_if_needed(response, state, IntentType.RETRIEVE_SCRIPTURE)
 
         assert result.startswith("Original content here.")
         assert "\n\n" in result  # Check for spacing
+        assert added is True
 
     def test_different_intents_get_different_followups(self):
         """Different intent types get different follow-up questions."""
@@ -123,16 +126,46 @@ class TestAddFollowupIfNeeded:
             "user_response_language": "en",
         }
 
-        result_scripture = add_followup_if_needed(
+        result_scripture, _ = add_followup_if_needed(
             "Response 1", state_scripture, IntentType.RETRIEVE_SCRIPTURE
         )
-        result_translation = add_followup_if_needed(
+        result_translation, _ = add_followup_if_needed(
             "Response 2", state_translation, IntentType.GET_TRANSLATION_HELPS
         )
 
         assert "Bible passage" in result_scripture
         assert "translation question" in result_translation
         assert result_scripture != result_translation
+
+    def test_translates_missing_language_and_caches(self):
+        """Dynamically translates follow-up when language is missing and caches it."""
+        state = {
+            "followup_question_added": False,
+            "user_response_language": "xx",
+        }
+
+        translations: list[tuple[str, str]] = []
+
+        def fake_translate(text: str, lang: str) -> str:
+            translations.append((text, lang))
+            return f"{text}-{lang}"
+
+        followups = INTENT_FOLLOWUP_QUESTIONS[IntentType.SET_RESPONSE_LANGUAGE]
+        english_base = followups["en"]
+        try:
+            followups.pop("xx", None)
+            result, added = add_followup_if_needed(
+                "Content",
+                state,
+                IntentType.SET_RESPONSE_LANGUAGE,
+                translate_text_fn=fake_translate,
+            )
+            assert added is True
+            assert translations == [(english_base, "xx")]
+            assert "-xx" in result
+            assert followups.get("xx") == f"{english_base}-xx"
+        finally:
+            followups.pop("xx", None)
 
 
 class TestFollowupQuestionsCoverage:

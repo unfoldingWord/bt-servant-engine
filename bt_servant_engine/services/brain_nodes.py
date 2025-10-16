@@ -7,12 +7,14 @@ while handling state extraction and dependency injection.
 
 from __future__ import annotations
 
+from functools import partial
 from pathlib import Path
-from typing import Any, Iterable, Optional, cast
+from typing import Any, Iterable, Mapping, Optional, cast
 
 from openai import OpenAI
 
 from bt_servant_engine.core.config import config
+from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import (
@@ -41,6 +43,7 @@ from bt_servant_engine.services.preprocessing import (
 from bt_servant_engine.services.passage_selection import (
     resolve_selection_for_single_book as resolve_selection_for_single_book_impl,
 )
+from bt_servant_engine.services.passage_followups import build_followup_question
 from bt_servant_engine.services.intents.simple_intents import (
     BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
     converse_with_bt_servant as converse_with_bt_servant_impl,
@@ -199,6 +202,33 @@ def _translate_or_localize_response(
         agentic_strength,
         _model_for_agentic_strength,
         _extract_cached_input_tokens,
+    )
+
+
+def _custom_followup_for_intent(
+    state: Mapping[str, Any],
+    intent: IntentType,
+    target_language: str,
+    agentic_strength: str,
+) -> Optional[str]:
+    """Return a deterministic follow-up question for passage-based intents."""
+    suggestion_ctx = state.get("passage_followup_context")
+    if not isinstance(suggestion_ctx, Mapping):
+        return None
+    if suggestion_ctx.get("intent") != intent:
+        return None
+    lang_code = str(target_language).strip().lower()
+    translate_fn = None
+    if lang_code != "en":
+        translate_fn = partial(
+            translate_text,
+            agentic_strength=agentic_strength,
+        )
+    return build_followup_question(
+        intent,
+        suggestion_ctx,
+        target_language,
+        translate_fn,
     )
 
 
@@ -384,6 +414,7 @@ def translate_responses(state: Any) -> dict:
     """Translate or localize responses into the user's desired language."""
     from bt_servant_engine.services.brain_orchestrator import BrainState
     from bt_servant_engine.services.continuation_prompts import generate_continuation_prompt
+    from bt_servant_engine.services.intents.followup_questions import add_followup_if_needed
 
     s = cast(BrainState, state)
     raw_responses = [
@@ -414,6 +445,9 @@ def translate_responses(state: Any) -> dict:
         for resp in responses_for_translation
     ]
 
+    updates: dict[str, Any] = {}
+    followup_already_added = bool(s.get("followup_question_added", False))
+
     # PRIORITY 1: Multi-intent continuation prompt (takes precedence over intent-specific follow-ups)
     # Check for queued intents first - if present, this supersedes intent-specific follow-ups
     user_id = s.get("user_id")
@@ -426,13 +460,11 @@ def translate_responses(state: Any) -> dict:
             )
             translated_responses[-1] = translated_responses[-1] + continuation_prompt
             # Mark that a follow-up question has been added to prevent duplicates
-            s["followup_question_added"] = True
+            followup_already_added = True
+            updates["followup_question_added"] = True
 
     # PRIORITY 2: Intent-specific follow-up (only if no multi-intent follow-up was added)
-    if not s.get("followup_question_added", False) and translated_responses and raw_responses:
-        from bt_servant_engine.services.intents.followup_questions import add_followup_if_needed
-        from bt_servant_engine.core.intents import IntentType
-
+    if not followup_already_added and translated_responses and raw_responses:
         # Get the intent from the last raw response (before translation)
         last_raw_response = raw_responses[-1]
         intent = last_raw_response.get("intent")
@@ -447,13 +479,42 @@ def translate_responses(state: Any) -> dict:
             IntentType.RETRIEVE_SYSTEM_INFORMATION,
             IntentType.PERFORM_UNSUPPORTED_FUNCTION,
         }:
-            # Add follow-up to the last translated response
-            translated_responses[-1] = add_followup_if_needed(translated_responses[-1], s, intent)
-            # Handle both IntentType enum and string intents (for test compatibility)
-            intent_str = intent.value if hasattr(intent, "value") else str(intent)
-            logger.info("[translate] Added intent-specific follow-up for intent=%s", intent_str)
+            custom_followup = _custom_followup_for_intent(
+                s,
+                intent,
+                target_language,
+                agentic_strength,
+            )
+            followup_translator = (
+                None
+                if custom_followup
+                else partial(
+                    translate_text,
+                    agentic_strength=agentic_strength,
+                )
+            )
+            updated_response, added_flag = add_followup_if_needed(
+                translated_responses[-1],
+                s,
+                intent,
+                custom_followup=custom_followup,
+                translate_text_fn=followup_translator,
+            )
+            translated_responses[-1] = updated_response
+            if added_flag:
+                followup_already_added = True
+                updates["followup_question_added"] = True
+                intent_str = intent.value if hasattr(intent, "value") else str(intent)
+                logger.info("[translate] Added intent-specific follow-up for intent=%s", intent_str)
 
-    return {"translated_responses": translated_responses}
+    # Clear passage follow-up context to avoid leaking suggestions across turns
+    if "passage_followup_context" in s:
+        updates["passage_followup_context"] = {}
+
+    result = {"translated_responses": translated_responses}
+    if updates:
+        result.update(updates)
+    return result
 
 
 def translate_text(
