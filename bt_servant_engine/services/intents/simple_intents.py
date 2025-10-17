@@ -285,9 +285,13 @@ def handle_system_information_request(
     usage = getattr(response, "usage", None)
     track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
     help_response_text = response.output_text.strip()
-    version_line = f"Current version: v{BT_SERVANT_VERSION}"
-    if version_line not in help_response_text:
-        help_response_text = f"{help_response_text}\n\n{version_line}"
+    version_tag = f"v{BT_SERVANT_VERSION}"
+    if version_tag not in help_response_text:
+        marker = "The BT Servant system"
+        if marker in help_response_text:
+            help_response_text = help_response_text.replace(marker, f"{marker} ({version_tag})", 1)
+        else:
+            help_response_text = f"Current version: {version_tag}\n\n{help_response_text}"
     logger.info("help response from openai: %s", help_response_text)
     return {
         "responses": [
