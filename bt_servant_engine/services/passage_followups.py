@@ -9,6 +9,7 @@ from typing import Callable, Iterable, Mapping, MutableMapping, Optional, Sequen
 
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType
+from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP
 from bt_servant_engine.core.logging import get_logger
 from utils.bsb import (
     BOOK_MAP,
@@ -262,7 +263,18 @@ def build_followup_question(
     if not suggestion:
         return None
 
-    english_question = template.format(label=_suggestion_label(suggestion))
+    label = _suggestion_label(suggestion)
+    target_label = None
+    if intent is IntentType.TRANSLATE_SCRIPTURE:
+        raw_target = context.get("target_language")
+        if isinstance(raw_target, str) and raw_target.strip():
+            target_code = raw_target.strip().lower()
+            target_label = SUPPORTED_LANGUAGE_MAP.get(target_code, raw_target.strip().title())
+
+    if target_label:
+        english_question = f"Would you like me to translate {label} into {target_label}?"
+    else:
+        english_question = template.format(label=label)
 
     lang = (target_language or "").strip().lower() or "en"
     if lang == "en" or translate_text_fn is None:

@@ -1,6 +1,10 @@
 """Tests for deterministic passage follow-up helpers."""
 
 from bt_servant_engine.core.intents import IntentType
+from bt_servant_engine.services.intents.translation_intents import (
+    TranslationContext,
+    _wrap_translation_response,
+)
 from bt_servant_engine.services.passage_followups import (
     build_followup_question,
     propose_next_passage_range,
@@ -64,3 +68,33 @@ class TestBuildFollowupQuestion:  # pylint: disable=too-few-public-methods
         )
         assert question is not None
         assert "John 3:21-25" in question
+
+    def test_translation_followup_includes_target_language(self) -> None:
+        """Translation follow-up mentions the resolved target language."""
+        context = {
+            "intent": IntentType.TRANSLATE_SCRIPTURE,
+            "book": "John",
+            "ranges": [(1, 1, 1, 1)],
+            "target_language": "es",
+        }
+        question = build_followup_question(
+            IntentType.TRANSLATE_SCRIPTURE,
+            context,
+            target_language="en",
+        )
+        assert question == "Would you like me to translate John 1:2-6 into Spanish?"
+
+
+def test_translation_followup_context_carries_target_language() -> None:
+    """Translation responses expose the target language for follow-up generation."""
+    context = TranslationContext(
+        canonical_book="John",
+        ranges=[(1, 1, 1, 1)],
+        target_code="es",
+        resolved_lang="en",
+        body_source="In the beginning...",
+        header_suffix="1:1",
+        verses=[("1:1", "In the beginning...")],
+    )
+    response = _wrap_translation_response(context, {"segments": []})
+    assert response["passage_followup_context"]["target_language"] == "es"

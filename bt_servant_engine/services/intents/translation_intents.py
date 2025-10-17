@@ -624,6 +624,7 @@ def _wrap_translation_response(
             "intent": IntentType.TRANSLATE_SCRIPTURE,
             "book": context.canonical_book,
             "ranges": [tuple(r) for r in context.ranges],
+            "target_language": context.target_code,
         },
     }
 
