@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -15,6 +17,7 @@ from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.language import Language, ResponseLanguage, TranslatedPassage
 from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services.cache_manager import CACHE_SCHEMA_VERSION, get_cache
 from bt_servant_engine.services.openai_utils import track_openai_usage
 from bt_servant_engine.services.passage_selection import (
     PassageSelectionDependencies,
@@ -138,6 +141,23 @@ class TranslationHelpsDependencies:
     prepare_translation_helps_fn: Callable[..., Any]
     build_context_fn: Callable[..., Any]
     build_messages_fn: Callable[..., Any]
+
+
+@dataclass(frozen=True)
+class TranslationHelpsCacheKey:
+    """Cache key for translation helps responses."""
+
+    schema: str
+    canonical_book: str
+    ranges: tuple[TranslationRange, ...]
+    selection_note: str
+    agentic_strength: str
+    model_name: str
+    raw_helps_digest: str
+
+
+TRANSLATION_HELPS_CACHE_SCHEMA = f"{CACHE_SCHEMA_VERSION}:translation_helps:v1"
+_TRANSLATION_HELPS_CACHE = get_cache("translation_helps")
 
 
 TRANSLATE_PASSAGE_AGENT_SYSTEM_PROMPT = """
@@ -674,40 +694,64 @@ def get_translation_helps(
             "I couldn't prepare translation helps for that selection. Please try again."
         )
 
-    messages = dependencies.build_messages_fn(
-        payload.ref_label,
-        payload.context_obj,
-        payload.selection_note,
-    )
-
-    logger.info("[translation-helps] invoking LLM with %d helps", len(payload.raw_helps))
     model_name = dependencies.select_model_fn(
         request.agentic_strength, allow_low=True, allow_very_low=True
     )
-    resp = request.client.responses.create(
-        model=model_name,
-        instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
-        input=cast(Any, messages),
-        store=False,
+    raw_helps_digest = hashlib.sha256(
+        json.dumps(payload.raw_helps, ensure_ascii=False, sort_keys=True).encode("utf-8")
+    ).hexdigest()
+    selection_note = payload.selection_note or ""
+    cache_key = TranslationHelpsCacheKey(
+        schema=TRANSLATION_HELPS_CACHE_SCHEMA,
+        canonical_book=payload.canonical_book,
+        ranges=tuple(payload.ranges),
+        selection_note=selection_note,
+        agentic_strength=request.agentic_strength,
+        model_name=model_name,
+        raw_helps_digest=raw_helps_digest,
     )
-    usage = getattr(resp, "usage", None)
-    track_openai_usage(usage, model_name, dependencies.extract_cached_tokens_fn, add_tokens)
 
-    header = f"Translation helps for {payload.ref_label}\n\n"
-    response_text = header + (resp.output_text or "")
-    return {
-        "responses": [
-            {
+    def _compute_translation_helps() -> dict[str, Any]:
+        messages = dependencies.build_messages_fn(
+            payload.ref_label,
+            payload.context_obj,
+            payload.selection_note,
+        )
+        logger.info("[translation-helps] invoking LLM with %d helps", len(payload.raw_helps))
+        resp = request.client.responses.create(
+            model=model_name,
+            instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
+            input=cast(Any, messages),
+            store=False,
+        )
+        usage = getattr(resp, "usage", None)
+        track_openai_usage(usage, model_name, dependencies.extract_cached_tokens_fn, add_tokens)
+
+        header = f"Translation helps for {payload.ref_label}\n\n"
+        response_text = header + (resp.output_text or "")
+        logger.info("[translation-helps] done (generated)")
+        return {
+            "responses": [
+                {
+                    "intent": IntentType.GET_TRANSLATION_HELPS,
+                    "response": response_text,
+                }
+            ],
+            "passage_followup_context": {
                 "intent": IntentType.GET_TRANSLATION_HELPS,
-                "response": response_text,
-            }
-        ],
-        "passage_followup_context": {
-            "intent": IntentType.GET_TRANSLATION_HELPS,
-            "book": payload.canonical_book,
-            "ranges": payload.ranges,
-        },
-    }
+                "book": payload.canonical_book,
+                "ranges": payload.ranges,
+            },
+        }
+
+    helps_response, hit = _TRANSLATION_HELPS_CACHE.get_or_set(cache_key, _compute_translation_helps)
+    if hit:
+        logger.info(
+            "[translation-helps] served from cache for book=%s ranges=%s",
+            payload.canonical_book,
+            payload.ranges,
+        )
+    return helps_response
 
 
 __all__ = [

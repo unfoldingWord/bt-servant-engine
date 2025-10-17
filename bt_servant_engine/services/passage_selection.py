@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from typing import Any, Callable, Optional, cast
@@ -12,6 +13,7 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 from bt_servant_engine.core.language import Language
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.core.models import PassageRef, PassageSelection
+from bt_servant_engine.services.cache_manager import CACHE_SCHEMA_VERSION, get_cache
 from bt_servant_engine.services.openai_utils import extract_cached_input_tokens, track_openai_usage
 from utils.bsb import FULL_BOOK_SENTINEL, normalize_book_name
 from utils.perf import add_tokens
@@ -74,6 +76,17 @@ Return JSON parsable into the provided schema.
 """
 
 
+@dataclass(frozen=True)
+class SelectionCacheKey:
+    """Cache key for passage selection normalization."""
+
+    schema: str
+    query: str
+    query_lang: str
+    focus_hint: str | None
+    book_map_digest: str
+
+
 @dataclass(slots=True)
 class PassageSelectionDependencies:
     """External services required for passage selection parsing."""
@@ -92,6 +105,17 @@ class PassageSelectionRequest:
     query_lang: str
     dependencies: PassageSelectionDependencies
     focus_hint: Optional[str] = None
+
+
+_SELECTION_CACHE = get_cache("selection")
+
+
+def _book_map_digest(book_map: dict[str, Any]) -> str:
+    keys = ",".join(sorted(book_map.keys()))
+    return hashlib.sha256(keys.encode("utf-8")).hexdigest()
+
+
+SelectionResult = tuple[str | None, list["RangeSelection"] | None, str | None]
 
 
 def _prepare_parse_input(request: PassageSelectionRequest) -> str:
@@ -234,20 +258,35 @@ def _ranges_from_selections(
 
 def resolve_selection_for_single_book(
     request: PassageSelectionRequest,
-) -> tuple[str | None, list[tuple[int, int | None, int | None, int | None]] | None, str | None]:
-    """Parse and normalize a user query into a single canonical book and ranges.
+) -> SelectionResult:
+    """Parse and normalize a user query into a single canonical book and ranges."""
 
-    Args:
-        request: Structured selection request containing query metadata and dependencies.
+    schema = f"{CACHE_SCHEMA_VERSION}:selection:v1"
+    cache_key = SelectionCacheKey(
+        schema=schema,
+        query=request.query,
+        query_lang=request.query_lang,
+        focus_hint=request.focus_hint or "",
+        book_map_digest=_book_map_digest(request.dependencies.book_map),
+    )
 
-    Returns:
-        Tuple of (canonical_book, ranges, error_message). On success, the
-        error_message is None. On failure, canonical_book and ranges are None and
-        error_message contains a user-friendly explanation.
+    def _compute() -> SelectionResult:
+        return _resolve_selection_uncached(request)
 
-        If ``focus_hint`` is provided, it is sent as a developer message to steer the
-        selection model toward the clause relevant to the current intent.
-    """
+    result, hit = _SELECTION_CACHE.get_or_set(cache_key, _compute)
+    if hit:
+        logger.info(
+            "[selection-helper] cache hit; query_lang=%s; query=%s",
+            request.query_lang,
+            request.query,
+        )
+    return result
+
+
+def _resolve_selection_uncached(
+    request: PassageSelectionRequest,
+) -> SelectionResult:
+    """Uncached passage selection parsing for cache miss handling."""
     logger.info(
         "[selection-helper] start; query_lang=%s; query=%s",
         request.query_lang,
@@ -275,6 +314,9 @@ def resolve_selection_for_single_book(
     logger.info("[selection-helper] canonical_book=%s", canonical_book)
     logger.info("[selection-helper] ranges=%s", ranges)
     return canonical_book, ranges, None
+
+
+RangeSelection = tuple[int, int | None, int | None, int | None]
 
 
 __all__ = [

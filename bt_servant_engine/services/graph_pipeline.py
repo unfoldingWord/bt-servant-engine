@@ -6,6 +6,7 @@ querying vector databases (ChromaDB) and generating responses using OpenAI.
 
 from __future__ import annotations
 
+import hashlib
 import json
 from dataclasses import dataclass
 from typing import Any, Callable, Optional, cast
@@ -15,6 +16,7 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services.cache_manager import CACHE_SCHEMA_VERSION, get_cache
 from bt_servant_engine.services.openai_utils import track_openai_usage
 
 logger = get_logger(__name__)
@@ -64,6 +66,36 @@ class OpenAIQueryPayload:
     chat_history: list[dict[str, str]]
     agentic_strength: str
     boilerplate_features_message: str
+
+
+@dataclass(frozen=True)
+class VectorCacheKey:
+    """Cache key for vector database queries."""
+
+    schema: str
+    transformed_query: str
+    collections: tuple[str, ...]
+    top_k: int
+    relevance_cutoff: float
+
+
+@dataclass(frozen=True)
+class FinalResponseCacheKey:
+    """Cache key for final RAG responses."""
+
+    schema: str
+    transformed_query: str
+    agentic_strength: str
+    model_name: str
+    docs_digest: str
+    chat_history_digest: str
+
+
+VECTOR_CACHE_SCHEMA = f"{CACHE_SCHEMA_VERSION}:rag_vector:v1"
+FINAL_CACHE_SCHEMA = f"{CACHE_SCHEMA_VERSION}:rag_final:v1"
+
+_VECTOR_CACHE = get_cache("rag_vector")
+_FINAL_CACHE = get_cache("rag_final")
 
 
 def _extract_query_rows(results: Any) -> tuple[list[str], list[float], list[Any]]:
@@ -202,7 +234,7 @@ def query_vector_db(
     _boilerplate_features_message: str,
     *,
     config: VectorQueryConfig | None = None,
-) -> dict[str, list[dict[str, str]]]:
+) -> dict[str, list[dict[str, Any]]]:
     """Query the vector DB (Chroma) across ranked collections and filter by relevance.
 
     Args:
@@ -217,18 +249,40 @@ def query_vector_db(
         Dictionary with "docs" key containing filtered document list
     """
     vector_config = config or VectorQueryConfig()
-    filtered_docs: list[dict[str, Any]] = []
-    # this loop is the current implementation of the "stacked ranked" algorithm
-    for collection_name in stack_rank_collections:
-        filtered_docs.extend(
-            _query_collection_docs(
-                transformed_query,
-                collection_name,
-                get_chroma_collection_fn,
-                vector_config,
+    cache_key = VectorCacheKey(
+        schema=VECTOR_CACHE_SCHEMA,
+        transformed_query=transformed_query,
+        collections=tuple(stack_rank_collections),
+        top_k=vector_config.top_k,
+        relevance_cutoff=vector_config.relevance_cutoff,
+    )
+
+    def _compute_vector() -> dict[str, list[dict[str, Any]]]:
+        filtered_docs: list[dict[str, Any]] = []
+        for collection_name in stack_rank_collections:
+            filtered_docs.extend(
+                _query_collection_docs(
+                    transformed_query,
+                    collection_name,
+                    get_chroma_collection_fn,
+                    vector_config,
+                )
             )
+        logger.info(
+            "[rag-vector] retrieved %d docs for query signature %s",
+            len(filtered_docs),
+            cache_key.collections,
         )
-    return {"docs": filtered_docs}
+        return {"docs": filtered_docs}
+
+    vector_response, hit = _VECTOR_CACHE.get_or_set(cache_key, _compute_vector)
+    if hit:
+        logger.info(
+            "[rag-vector] cache hit for query=%s collections=%s",
+            transformed_query,
+            cache_key.collections,
+        )
+    return vector_response
 
 
 def query_open_ai(
@@ -246,58 +300,90 @@ def query_open_ai(
     Returns:
         Dictionary with "responses" key containing response list
     """
-    try:
-        if not payload.docs:
-            return _no_docs_response(payload.boilerplate_features_message)
+    if not payload.docs:
+        return _no_docs_response(payload.boilerplate_features_message)
 
-        context = json.dumps(payload.docs, indent=2)
-        logger.info("context passed to final node:\n\n%s", context)
-        messages = _build_rag_messages(payload, context)
-        model_name = dependencies.model_for_agentic_strength(
-            payload.agentic_strength,
-            allow_low=False,
-            allow_very_low=True,
-        )
-        response = client.responses.create(
-            model=model_name,
-            instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
-            input=cast(Any, messages),
-        )
-        usage = getattr(response, "usage", None)
-        track_openai_usage(
-            usage,
-            model_name,
-            dependencies.extract_cached_input_tokens,
-            dependencies.add_tokens,
-        )
-        bt_servant_response = response.output_text
-        logger.info("response from openai: %s", bt_servant_response)
-        logger.debug("%d characters returned from openAI", len(bt_servant_response))
+    docs_digest = hashlib.sha256(
+        json.dumps(payload.docs, ensure_ascii=False, sort_keys=True).encode("utf-8")
+    ).hexdigest()
+    history_slice = payload.chat_history[-4:] if payload.chat_history else []
+    chat_history_digest = hashlib.sha256(
+        json.dumps(history_slice, ensure_ascii=False, sort_keys=True).encode("utf-8")
+    ).hexdigest()
+    model_name = dependencies.model_for_agentic_strength(
+        payload.agentic_strength,
+        allow_low=False,
+        allow_very_low=True,
+    )
+    cache_key = FinalResponseCacheKey(
+        schema=FINAL_CACHE_SCHEMA,
+        transformed_query=payload.transformed_query,
+        agentic_strength=payload.agentic_strength,
+        model_name=model_name,
+        docs_digest=docs_digest,
+        chat_history_digest=chat_history_digest,
+    )
+    store_flag = {"store": True}
 
-        resource_summary = _summarize_resource_usage(payload.docs)
+    def _compute_final_response() -> dict[str, list[dict[str, Any]]]:
+        try:
+            context = json.dumps(payload.docs, indent=2)
+            logger.info("context passed to final node:\n\n%s", context)
+            messages = _build_rag_messages(payload, context)
+            response = client.responses.create(
+                model=model_name,
+                instructions=FINAL_RESPONSE_AGENT_SYSTEM_PROMPT,
+                input=cast(Any, messages),
+            )
+            usage = getattr(response, "usage", None)
+            track_openai_usage(
+                usage,
+                model_name,
+                dependencies.extract_cached_input_tokens,
+                dependencies.add_tokens,
+            )
+            bt_servant_response = response.output_text
+            logger.info("response from openai: %s", bt_servant_response)
+            logger.debug("%d characters returned from openAI", len(bt_servant_response))
+
+            resource_summary = _summarize_resource_usage(payload.docs)
+            logger.info(
+                "bt servant used the following resources to generate its response: %s",
+                resource_summary,
+            )
+
+            return {
+                "responses": [
+                    {
+                        "intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE,
+                        "response": bt_servant_response,
+                    }
+                ]
+            }
+        except OpenAIError:
+            store_flag["store"] = False
+            logger.error("Error during OpenAI request", exc_info=True)
+            error_msg = (
+                "I encountered some problems while trying to respond. Let Ian know about this one."
+            )
+            return {
+                "responses": [
+                    {
+                        "intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE,
+                        "response": error_msg,
+                    }
+                ]
+            }
+
+    final_response, hit = _FINAL_CACHE.get_or_set(
+        cache_key,
+        _compute_final_response,
+        should_store=lambda _: store_flag["store"],
+    )
+    if hit:
         logger.info(
-            "bt servant used the following resources to generate its response: %s",
-            resource_summary,
+            "[rag-final] cache hit for query=%s docs=%d",
+            payload.transformed_query,
+            len(payload.docs),
         )
-
-        return {
-            "responses": [
-                {
-                    "intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE,
-                    "response": bt_servant_response,
-                }
-            ]
-        }
-    except OpenAIError:
-        logger.error("Error during OpenAI request", exc_info=True)
-        error_msg = (
-            "I encountered some problems while trying to respond. Let Ian know about this one."
-        )
-        return {
-            "responses": [
-                {
-                    "intent": IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE,
-                    "response": error_msg,
-                }
-            ]
-        }
+    return final_response

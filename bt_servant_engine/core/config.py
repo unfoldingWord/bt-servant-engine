@@ -43,6 +43,30 @@ class Settings(BaseSettings):
     PROGRESS_MESSAGE_EMOJI: str = Field(default="⏳")
     PROGRESS_MESSAGE_EMOJI_OVERRIDES: dict[str, str] = Field(default_factory=dict)
 
+    # Cache configuration
+    CACHE_ENABLED: bool = Field(default=True)
+    CACHE_BACKEND: Literal["disk", "memory"] = Field(default="disk")
+    CACHE_DISK_MAX_BYTES: int = Field(default=500 * 1024 * 1024)  # 500MB
+    CACHE_DEFAULT_TTL_SECONDS: int = Field(default=-1)
+    CACHE_SELECTION_ENABLED: bool = Field(default=False)
+    CACHE_SELECTION_TTL_SECONDS: int = Field(default=-1)
+    CACHE_SELECTION_MAX_ENTRIES: int = Field(default=5000)
+    CACHE_SUMMARY_ENABLED: bool = Field(default=True)
+    CACHE_SUMMARY_TTL_SECONDS: int = Field(default=-1)
+    CACHE_SUMMARY_MAX_ENTRIES: int = Field(default=1500)
+    CACHE_KEYWORDS_ENABLED: bool = Field(default=True)
+    CACHE_KEYWORDS_TTL_SECONDS: int = Field(default=-1)
+    CACHE_KEYWORDS_MAX_ENTRIES: int = Field(default=3000)
+    CACHE_TRANSLATION_HELPS_ENABLED: bool = Field(default=True)
+    CACHE_TRANSLATION_HELPS_TTL_SECONDS: int = Field(default=-1)
+    CACHE_TRANSLATION_HELPS_MAX_ENTRIES: int = Field(default=1000)
+    CACHE_RAG_VECTOR_ENABLED: bool = Field(default=True)
+    CACHE_RAG_VECTOR_TTL_SECONDS: int = Field(default=-1)
+    CACHE_RAG_VECTOR_MAX_ENTRIES: int = Field(default=3000)
+    CACHE_RAG_FINAL_ENABLED: bool = Field(default=True)
+    CACHE_RAG_FINAL_TTL_SECONDS: int = Field(default=-1)
+    CACHE_RAG_FINAL_MAX_ENTRIES: int = Field(default=1500)
+
     DATA_DIR: Path = Field(default=Path("/data"))
     OPENAI_PRICING_JSON: str = Field(
         default=(

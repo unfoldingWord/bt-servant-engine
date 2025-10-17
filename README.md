@@ -157,7 +157,22 @@ Pytest marks warnings as errors; update fixtures or add targeted `filterwarnings
 ## WhatsApp & Admin Endpoints
 - **Webhook:** `POST /meta-whatsapp` (signature verification + LangGraph processing). Verification handshake uses `GET /meta-whatsapp`.
 - **Progress messaging:** Status texts sourced from `bt_servant_engine.services.status_messages`.
-- **Admin API:** See `bt_servant_engine.apps.api.routes.admin` for vector store maintenance (collection merges, document management) secured via bearer token headers when `ENABLE_ADMIN_AUTH=True`.
+- **Admin API:** See `bt_servant_engine.apps.api.routes.admin` for vector store maintenance (collection merges, document management) secured via bearer token headers when `ENABLE_ADMIN_AUTH=True`. Cache controls are exposed here as well:
+  - `POST /cache/clear` wipes every cache namespace.
+  - `POST /cache/{name}/clear` clears an individual cache (e.g., `passage_summary`).
+  - `GET /cache/stats` reports global cache settings, hit/miss counters, and disk usage.
+  - `GET /cache/{name}?sample_limit=10` inspects a specific cache with recent entry metadata.
+  - Both clear endpoints accept `older_than_days=<float>` to prune only entries older than the cutoff instead of nuking everything.
+
+---
+
+## Cache Configuration
+- Defaults: caching is enabled with a disk backend under `${DATA_DIR}/cache`, entries never expire (`TTL=-1`), and a 500 MB cap (per cache) enforced by environment variables.
+- Toggle or tune via env settings (see `bt_servant_engine/core/config.py`):
+  - `CACHE_ENABLED`, `CACHE_BACKEND` (`disk` | `memory`), `CACHE_DISK_MAX_BYTES`
+  - Per-cache toggles: `CACHE_SELECTION_ENABLED` (default `false`), `CACHE_SUMMARY_ENABLED`, `CACHE_KEYWORDS_ENABLED`, `CACHE_TRANSLATION_HELPS_ENABLED`, `CACHE_RAG_VECTOR_ENABLED`, `CACHE_RAG_FINAL_ENABLED`
+  - Per-cache TTL/size controls: `CACHE_SELECTION_TTL_SECONDS`, `CACHE_SUMMARY_TTL_SECONDS`, `CACHE_TRANSLATION_HELPS_TTL_SECONDS`, etc. (set to `-1` for no expiry)
+- Admin endpoints (above) can purge or inspect caches without redeploying; deleting the cache directory in `${DATA_DIR}/cache` also resets disk stores.
 
 ---
 
