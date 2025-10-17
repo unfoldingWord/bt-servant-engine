@@ -356,9 +356,9 @@ class CacheStore:
             return value, False
         key_hash, key_repr = _hash_key(key)
         now = time.time()
-        start = time.time()
+        lookup_start = time.time()
         cached = self._backend.get(key_hash, now)
-        duration = time.time() - start
+        lookup_end = time.time()
         if cached:
             self._stats.hits += 1
             _, meta = cached
@@ -369,12 +369,16 @@ class CacheStore:
                 meta.size_bytes,
                 now - meta.created_at,
             )
-            _perf_span(f"cache_hit:{self.name}", start, start + duration)
+            _perf_span(f"cache_hit:{self.name}", lookup_start, lookup_end)
             return cached[0], True
         self._stats.misses += 1
         logger.info("[cache] miss name=%s key=%s", self.name, key_repr)
-        _perf_span(f"cache_miss:{self.name}", start, start + duration)
-        value = compute()
+        compute_start = time.time()
+        try:
+            value = compute()
+        finally:
+            compute_end = time.time()
+            _perf_span(f"cache_miss:{self.name}", compute_start, compute_end)
         if should_store is not None and not should_store(value):
             logger.info(
                 "[cache] store skipped name=%s key=%s (predicate)",

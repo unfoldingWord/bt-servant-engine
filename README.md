@@ -170,7 +170,7 @@ Pytest marks warnings as errors; update fixtures or add targeted `filterwarnings
 - Defaults: caching is enabled with a disk backend under `${DATA_DIR}/cache`, entries never expire (`TTL=-1`), and a 500 MB cap (per cache) enforced by environment variables.
 - Toggle or tune via env settings (see `bt_servant_engine/core/config.py`):
   - `CACHE_ENABLED`, `CACHE_BACKEND` (`disk` | `memory`), `CACHE_DISK_MAX_BYTES`
-  - Per-cache toggles: `CACHE_SELECTION_ENABLED` (default `false`), `CACHE_SUMMARY_ENABLED`, `CACHE_KEYWORDS_ENABLED`, `CACHE_TRANSLATION_HELPS_ENABLED`, `CACHE_RAG_VECTOR_ENABLED`, `CACHE_RAG_FINAL_ENABLED`
+  - Per-cache toggles (defaults in parentheses): `CACHE_SELECTION_ENABLED` (`false`), `CACHE_SUMMARY_ENABLED` (`true`), `CACHE_KEYWORDS_ENABLED` (`true`), `CACHE_TRANSLATION_HELPS_ENABLED` (`true`), `CACHE_RAG_VECTOR_ENABLED` (`false`), `CACHE_RAG_FINAL_ENABLED` (`false`)
   - Per-cache TTL/size controls: `CACHE_SELECTION_TTL_SECONDS`, `CACHE_SUMMARY_TTL_SECONDS`, `CACHE_TRANSLATION_HELPS_TTL_SECONDS`, etc. (set to `-1` for no expiry)
 - Admin endpoints (above) can purge or inspect caches without redeploying; deleting the cache directory in `${DATA_DIR}/cache` also resets disk stores.
 

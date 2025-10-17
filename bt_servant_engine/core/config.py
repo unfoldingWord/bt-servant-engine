@@ -60,10 +60,10 @@ class Settings(BaseSettings):
     CACHE_TRANSLATION_HELPS_ENABLED: bool = Field(default=True)
     CACHE_TRANSLATION_HELPS_TTL_SECONDS: int = Field(default=-1)
     CACHE_TRANSLATION_HELPS_MAX_ENTRIES: int = Field(default=1000)
-    CACHE_RAG_VECTOR_ENABLED: bool = Field(default=True)
+    CACHE_RAG_VECTOR_ENABLED: bool = Field(default=False)
     CACHE_RAG_VECTOR_TTL_SECONDS: int = Field(default=-1)
     CACHE_RAG_VECTOR_MAX_ENTRIES: int = Field(default=3000)
-    CACHE_RAG_FINAL_ENABLED: bool = Field(default=True)
+    CACHE_RAG_FINAL_ENABLED: bool = Field(default=False)
     CACHE_RAG_FINAL_TTL_SECONDS: int = Field(default=-1)
     CACHE_RAG_FINAL_MAX_ENTRIES: int = Field(default=1500)
 
