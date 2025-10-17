@@ -25,6 +25,7 @@ from bt_servant_engine.core.exceptions import (
 )
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services import runtime
+from bt_servant_engine.services.cache_manager import cache_manager
 
 router = APIRouter()
 logger = get_logger(__name__)
@@ -32,6 +33,8 @@ logger = get_logger(__name__)
 _EMBEDDING_MAX_TOKENS_PER_REQUEST = int(
     os.environ.get("OPENAI_EMBED_MAX_TOKENS_PER_REQUEST", "290000")
 )
+
+MAX_CACHE_SAMPLE_LIMIT = 100
 
 # Re-export merge helpers for compatibility with existing references.
 iter_collection_batches = merge_helpers.iter_collection_batches
@@ -870,3 +873,114 @@ async def chroma_catch_all(_path: str, _: None = Depends(require_admin_token)):
 
 
 __all__ = ["router"]
+
+
+@router.post("/cache/clear")
+async def clear_all_caches(
+    older_than_days: float | None = None,
+    _: None = Depends(require_admin_token),
+):
+    """Clear all registered caches."""
+    if older_than_days is not None:
+        if older_than_days <= 0:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail={"error": "older_than_days must be greater than 0"},
+            )
+        cutoff = time.time() - older_than_days * 86400
+        logger.info(
+            "[cache-admin] pruning all caches older than %.2f days (cutoff=%s)",
+            older_than_days,
+            cutoff,
+        )
+        removed = cache_manager.prune_all(cutoff)
+        return JSONResponse(
+            status_code=status.HTTP_200_OK,
+            content={
+                "status": "pruned",
+                "cutoff_epoch": cutoff,
+                "removed": removed,
+            },
+        )
+    logger.info("[cache-admin] clearing all caches via admin endpoint")
+    cache_manager.clear_all()
+    return JSONResponse(status_code=status.HTTP_200_OK, content={"status": "cleared"})
+
+
+@router.post("/cache/{name}/clear")
+async def clear_named_cache(
+    name: str,
+    older_than_days: float | None = None,
+    _: None = Depends(require_admin_token),
+):
+    """Clear a specific cache namespace."""
+    if older_than_days is not None:
+        if older_than_days <= 0:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail={"error": "older_than_days must be greater than 0"},
+            )
+        cutoff = time.time() - older_than_days * 86400
+        try:
+            removed = cache_manager.prune_cache(name, cutoff)
+        except KeyError as exc:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail={"error": f"Cache '{name}' not found"},
+            ) from exc
+        logger.info(
+            "[cache-admin] pruned cache %s older than %.2f days (cutoff=%s, removed=%d)",
+            name,
+            older_than_days,
+            cutoff,
+            removed,
+        )
+        return JSONResponse(
+            status_code=status.HTTP_200_OK,
+            content={
+                "status": "pruned",
+                "cache": name,
+                "cutoff_epoch": cutoff,
+                "removed": removed,
+            },
+        )
+    try:
+        cache_manager.clear_cache(name)
+    except KeyError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail={"error": f"Cache '{name}' not found"}
+        ) from exc
+    logger.info("[cache-admin] cleared cache %s via admin endpoint", name)
+    return JSONResponse(
+        status_code=status.HTTP_200_OK,
+        content={"status": "cleared", "cache": name},
+    )
+
+
+@router.get("/cache/stats")
+async def get_cache_stats(_: None = Depends(require_admin_token)):
+    """Return summary stats for all caches."""
+    data = cache_manager.stats()
+    return JSONResponse(status_code=status.HTTP_200_OK, content=data)
+
+
+@router.get("/cache/{name}")
+async def inspect_cache(name: str, sample_limit: int = 10, _: None = Depends(require_admin_token)):
+    """Return detailed stats and samples for a specific cache."""
+    if sample_limit <= 0 or sample_limit > MAX_CACHE_SAMPLE_LIMIT:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail={
+                "error": f"sample_limit must be between 1 and {MAX_CACHE_SAMPLE_LIMIT}",
+            },
+        )
+    try:
+        cache = cache_manager.cache(name)
+    except KeyError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail={"error": f"Cache '{name}' not found"}
+        ) from exc
+    logger.info("[cache-admin] inspecting cache %s (limit=%d)", name, sample_limit)
+    details = cache.detailed_stats(sample_limit=sample_limit)
+    details["sample_limit"] = sample_limit
+    return JSONResponse(status_code=status.HTTP_200_OK, content=details)

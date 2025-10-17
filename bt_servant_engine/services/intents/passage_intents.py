@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -15,6 +16,7 @@ from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.language import Language, ResponseLanguage
 from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services.cache_manager import CACHE_SCHEMA_VERSION, get_cache
 from bt_servant_engine.services.openai_utils import track_openai_usage
 from bt_servant_engine.services.passage_selection import (
     PassageSelectionRequest,
@@ -77,6 +79,39 @@ class PassageSelectionResult:
 
     canonical_book: str
     ranges: list[RangeSelection]
+
+
+# pylint: disable=too-many-instance-attributes
+@dataclass(frozen=True)
+class SummaryCacheKey:
+    """Cache key for passage summaries."""
+
+    schema: str
+    canonical_book: str
+    ranges: tuple["RangeSelection", ...]
+    source_language: str
+    source_version: str | None
+    agentic_strength: str
+    model_name: str
+    verses_digest: str
+
+
+@dataclass(frozen=True)
+class KeywordsCacheKey:
+    """Cache key for keyword lookups."""
+
+    schema: str
+    canonical_book: str
+    ranges: tuple["RangeSelection", ...]
+    data_root: str
+    data_root_mtime: int
+
+
+SUMMARY_CACHE_SCHEMA = f"{CACHE_SCHEMA_VERSION}:passage_summary:v1"
+KEYWORDS_CACHE_SCHEMA = f"{CACHE_SCHEMA_VERSION}:passage_keywords:v1"
+
+_SUMMARY_CACHE = get_cache("passage_summary")
+_KEYWORDS_CACHE = get_cache("passage_keywords")
 
 
 @dataclass(slots=True)
@@ -236,17 +271,14 @@ def _build_summary_messages(ref_label: str, verses_text: str) -> list[EasyInputM
 
 def _summarize_passage(
     ref_label: str,
-    verses: list[tuple[str, str]],
+    verses_text: str,
+    verses_count: int,
     request: PassageSummaryRequest,
+    model_name: str,
 ) -> str:
-    messages = _build_summary_messages(ref_label, _join_passage_text(verses))
+    messages = _build_summary_messages(ref_label, verses_text)
     deps = request.selection.dependencies
-    model_name = request.model_for_agentic_strength(
-        request.agentic_strength,
-        allow_low=True,
-        allow_very_low=True,
-    )
-    logger.info("[passage-summary] summarizing %d verses", len(verses))
+    logger.info("[passage-summary] summarizing %d verses", verses_count)
     summary_resp = deps.client.responses.create(
         model=model_name,
         instructions=PASSAGE_SUMMARY_AGENT_SYSTEM_PROMPT,
@@ -489,7 +521,7 @@ def _build_verbatim_passage_response(passage: RetrievedPassage) -> dict[str, Any
     }
 
 
-def get_passage_summary(request: PassageSummaryRequest) -> dict[str, Any]:
+def get_passage_summary(request: PassageSummaryRequest) -> dict[str, Any]:  # pylint: disable=too-many-locals
     """Handle get-passage-summary: extract refs, retrieve verses, summarize.
 
     - If user query language is not English, translate the transformed query to English
@@ -544,21 +576,52 @@ def get_passage_summary(request: PassageSummaryRequest) -> dict[str, Any]:
 
     _, ref_label = _localize_reference(selection_result, source)
     logger.info("[passage-summary] label=%s", ref_label)
-    summary_text = _summarize_passage(ref_label, verses, request)
-    response_text = f"Summary of {ref_label}:\n\n{summary_text}"
-    logger.info("[passage-summary] done")
-    return {
-        "responses": [
-            {
-                "intent": IntentType.GET_PASSAGE_SUMMARY,
-                "response": response_text,
-            }
-        ],
-        "passage_followup_context": _passage_followup_context(
-            IntentType.GET_PASSAGE_SUMMARY,
-            selection_result,
-        ),
-    }
+    verses_text = _join_passage_text(verses)
+    model_name = request.model_for_agentic_strength(
+        request.agentic_strength,
+        allow_low=True,
+        allow_very_low=True,
+    )
+    ranges_tuple = tuple(selection_result.ranges)
+    verses_digest = hashlib.sha256(verses_text.encode("utf-8")).hexdigest()
+    cache_key = SummaryCacheKey(
+        schema=SUMMARY_CACHE_SCHEMA,
+        canonical_book=selection_result.canonical_book,
+        ranges=ranges_tuple,
+        source_language=source.language,
+        source_version=source.version,
+        agentic_strength=request.agentic_strength,
+        model_name=model_name,
+        verses_digest=verses_digest,
+    )
+
+    def _compute_summary() -> dict[str, Any]:
+        summary_text = _summarize_passage(
+            ref_label,
+            verses_text,
+            len(verses),
+            request,
+            model_name,
+        )
+        response_text = f"Summary of {ref_label}:\n\n{summary_text}"
+        logger.info("[passage-summary] done (generated)")
+        return {
+            "responses": [
+                {
+                    "intent": IntentType.GET_PASSAGE_SUMMARY,
+                    "response": response_text,
+                }
+            ],
+            "passage_followup_context": _passage_followup_context(
+                IntentType.GET_PASSAGE_SUMMARY,
+                selection_result,
+            ),
+        }
+
+    summary_response, hit = _SUMMARY_CACHE.get_or_set(cache_key, _compute_summary)
+    if hit:
+        logger.info("[passage-summary] served from cache label=%s", ref_label)
+    return summary_response
 
 
 def get_passage_keywords(request: PassageKeywordsRequest) -> dict[str, Any]:
@@ -581,39 +644,63 @@ def get_passage_keywords(request: PassageKeywordsRequest) -> dict[str, Any]:
 
     # Retrieve keywords from keyword dataset
     data_root = Path("sources") / "keyword_data"
-    logger.info("[passage-keywords] retrieving keywords from %s", data_root)
-    keywords = select_keywords(
-        data_root,
-        selection_result.canonical_book,
-        selection_result.ranges,
+    try:
+        data_root_mtime = int(data_root.stat().st_mtime_ns)
+    except OSError:
+        data_root_mtime = 0
+    cache_key = KeywordsCacheKey(
+        schema=KEYWORDS_CACHE_SCHEMA,
+        canonical_book=selection_result.canonical_book,
+        ranges=tuple(selection_result.ranges),
+        data_root=str(data_root),
+        data_root_mtime=data_root_mtime,
     )
-    logger.info("[passage-keywords] retrieved %d keyword(s)", len(keywords))
 
-    if not keywords:
-        logger.info("[passage-keywords] no keywords found; prompting user")
+    def _compute_keywords() -> dict[str, Any]:
+        logger.info("[passage-keywords] retrieving keywords from %s", data_root)
+        keywords = select_keywords(
+            data_root,
+            selection_result.canonical_book,
+            selection_result.ranges,
+        )
+        logger.info("[passage-keywords] retrieved %d keyword(s)", len(keywords))
+
+        if not keywords:
+            logger.info("[passage-keywords] no keywords found; prompting user")
+            return {
+                "responses": [
+                    {
+                        "intent": IntentType.GET_PASSAGE_KEYWORDS,
+                        "response": MISSING_KEYWORDS_MESSAGE,
+                    }
+                ],
+            }
+
+        ref_label = label_ranges(selection_result.canonical_book, selection_result.ranges)
+        header = f"Keywords in {ref_label}\n\n"
+        body = ", ".join(keywords)
+        response_text = header + body
+        logger.info("[passage-keywords] done (generated)")
         return {
             "responses": [
-                {"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": MISSING_KEYWORDS_MESSAGE}
-            ]
+                {
+                    "intent": IntentType.GET_PASSAGE_KEYWORDS,
+                    "response": response_text,
+                }
+            ],
+            "passage_followup_context": _passage_followup_context(
+                IntentType.GET_PASSAGE_KEYWORDS,
+                selection_result,
+            ),
         }
 
-    ref_label = label_ranges(selection_result.canonical_book, selection_result.ranges)
-    header = f"Keywords in {ref_label}\n\n"
-    body = ", ".join(keywords)
-    response_text = header + body
-    logger.info("[passage-keywords] done")
-    return {
-        "responses": [
-            {
-                "intent": IntentType.GET_PASSAGE_KEYWORDS,
-                "response": response_text,
-            }
-        ],
-        "passage_followup_context": _passage_followup_context(
-            IntentType.GET_PASSAGE_KEYWORDS,
-            selection_result,
-        ),
-    }
+    keyword_response, hit = _KEYWORDS_CACHE.get_or_set(cache_key, _compute_keywords)
+    if hit:
+        logger.info(
+            "[passage-keywords] served from cache for book=%s",
+            selection_result.canonical_book,
+        )
+    return keyword_response
 
 
 def retrieve_scripture(request: RetrieveScriptureRequest) -> dict[str, Any]:
