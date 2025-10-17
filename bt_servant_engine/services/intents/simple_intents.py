@@ -289,8 +289,8 @@ def handle_system_information_request(
     if version_tag not in help_response_text:
         version_line = "\n".join(
             [
-                f"🗒️ Current version: {version_tag}",
-                f"release notes: {BT_SERVANT_RELEASES_URL}",
+                f"Current version: {version_tag}",
+                f"Release notes: {BT_SERVANT_RELEASES_URL}",
             ]
         )
         marker = "The BT Servant system"
