@@ -8,7 +8,7 @@ from typing import Any, List, TypedDict, cast
 from openai import OpenAI
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 
-from bt_servant_engine import BT_SERVANT_VERSION
+from bt_servant_engine import BT_SERVANT_RELEASES_URL, BT_SERVANT_VERSION
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import extract_cached_input_tokens, track_openai_usage
@@ -287,11 +287,16 @@ def handle_system_information_request(
     help_response_text = response.output_text.strip()
     version_tag = f"v{BT_SERVANT_VERSION}"
     if version_tag not in help_response_text:
+        version_line = (
+            f"🚀 Current version: {version_tag} (release notes: {BT_SERVANT_RELEASES_URL})"
+        )
         marker = "The BT Servant system"
         if marker in help_response_text:
-            help_response_text = help_response_text.replace(marker, f"{marker} ({version_tag})", 1)
+            help_response_text = help_response_text.replace(
+                marker, f"{version_line}\n\n{marker}", 1
+            )
         else:
-            help_response_text = f"Current version: {version_tag}\n\n{help_response_text}"
+            help_response_text = f"{version_line}\n\n{help_response_text}"
     logger.info("help response from openai: %s", help_response_text)
     return {
         "responses": [
