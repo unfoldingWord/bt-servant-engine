@@ -21,7 +21,7 @@ from utils.perf import get_current_trace, record_external_span
 
 logger = get_logger(__name__)
 
-CACHE_SCHEMA_VERSION = "2025-03-branch-v1"
+CACHE_SCHEMA_VERSION = "v1.0.0-cache"
 _INTENT_SENTINEL = "__cache_intent__"
 _TUPLE_SENTINEL = "__cache_tuple__"
 
@@ -51,6 +51,12 @@ def _decode_payload(data: bytes) -> Any:
             return IntentType(obj[_INTENT_SENTINEL])
         if len(obj) == 1 and _TUPLE_SENTINEL in obj:
             return tuple(obj[_TUPLE_SENTINEL])
+        intent_value = obj.get("intent")
+        if isinstance(intent_value, str):
+            try:
+                obj["intent"] = IntentType(intent_value)
+            except ValueError:
+                pass
         return obj
 
     text = data.decode("utf-8")
