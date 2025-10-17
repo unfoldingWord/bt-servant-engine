@@ -9,7 +9,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from bt_servant_engine.apps.api.middleware import CorrelationIdMiddleware
-from bt_servant_engine.apps.api.routes import admin, health, webhooks
+from bt_servant_engine.apps.api.routes import admin, admin_logs, health, webhooks
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.brain_orchestrator import create_brain
 from bt_servant_engine.services import ServiceContainer
@@ -50,6 +50,7 @@ def create_app(services: ServiceContainer | None = None) -> FastAPI:
     app.add_middleware(CorrelationIdMiddleware)
 
     app.include_router(health.router)
+    app.include_router(admin_logs.router)
     app.include_router(admin.router)
     app.include_router(webhooks.router)
     return app

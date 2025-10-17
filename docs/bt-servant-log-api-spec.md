@@ -33,7 +33,7 @@ No new secrets, OAuth flows, or middleware are introduced. The same token gates 
 
 ## 3. Endpoint Reference
 
-The routes live in the admin router (`bt_servant_engine/apps/api/routes/admin.py`) to share middleware and auth. To avoid conflicts, we namespace them under `/admin/logs`.
+The routes live alongside the existing admin endpoints in `bt_servant_engine/apps/api/routes/admin_logs.py` and are included by the API factory with the same admin-token dependency. To avoid conflicts, we namespace them under `/admin/logs`.
 
 ### 3.1 List Available Log Files
 
