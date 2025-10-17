@@ -8,6 +8,7 @@ from typing import Any, List, TypedDict, cast
 from openai import OpenAI
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 
+from bt_servant_engine import BT_SERVANT_VERSION
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import extract_cached_input_tokens, track_openai_usage
@@ -283,7 +284,10 @@ def handle_system_information_request(
     )
     usage = getattr(response, "usage", None)
     track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
-    help_response_text = response.output_text
+    help_response_text = response.output_text.strip()
+    version_line = f"Current version: v{BT_SERVANT_VERSION}"
+    if version_line not in help_response_text:
+        help_response_text = f"{help_response_text}\n\n{version_line}"
     logger.info("help response from openai: %s", help_response_text)
     return {
         "responses": [
