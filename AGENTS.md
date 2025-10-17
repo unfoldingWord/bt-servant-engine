@@ -99,6 +99,7 @@ Recommended workflow
 ## Commit & Pull Request Guidelines
 - Commits: subject must be succinct and prefixed as `(CODEX) <SUCINCT SUBJECT>`.
   - Set both the author and committer identity to `Codex Assistant` (e.g., export `GIT_AUTHOR_NAME="Codex Assistant"` and `GIT_COMMITTER_NAME="Codex Assistant"`) before committing; never use a personal identity.
+  - Also export `GIT_AUTHOR_EMAIL="codex@example.com"` and `GIT_COMMITTER_EMAIL="codex@example.com"` before every commit, and run `git log -1 --pretty=full` afterward to confirm the identity stuck. If it did not, amend immediately—do not leave stray commits.
   - Use a clear, imperative, and short subject (<= 72 chars when possible).
   - Always include a non-empty commit body that describes:
     - What changed, why, and any alternatives considered.

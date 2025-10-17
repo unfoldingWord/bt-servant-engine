@@ -139,7 +139,10 @@ lint-imports          # Architecture compliance
   ```bash
   export GIT_AUTHOR_NAME="Claude Assistant"
   export GIT_COMMITTER_NAME="Claude Assistant"
+  export GIT_AUTHOR_EMAIL="claude@example.com"
+  export GIT_COMMITTER_EMAIL="claude@example.com"
   ```
+  After every commit, run `git log -1 --pretty=full` to confirm the author/committer is correct; if not, amend immediately.
 - **No co-author**: Do not add Co-Authored-By lines to commits
 
 ## Development Workflows
