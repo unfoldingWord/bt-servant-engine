@@ -287,8 +287,11 @@ def handle_system_information_request(
     help_response_text = response.output_text.strip()
     version_tag = f"v{BT_SERVANT_VERSION}"
     if version_tag not in help_response_text:
-        version_line = (
-            f"🚀 Current version: {version_tag} (release notes: {BT_SERVANT_RELEASES_URL})"
+        version_line = "\n".join(
+            [
+                f"🗒️ Current version: {version_tag}",
+                f"release notes: {BT_SERVANT_RELEASES_URL}",
+            ]
         )
         marker = "The BT Servant system"
         if marker in help_response_text:
