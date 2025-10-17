@@ -128,9 +128,9 @@ def build_boilerplate_message() -> str:
         if c.get("include_in_boilerplate") and not c.get("developer_only", False)
     ]
     lines: list[str] = ["Here's what I can do:"]
-    for idx, c in enumerate(caps, start=1):
+    for c in caps:
         example = c["examples"][0] if c.get("examples") else ""
-        lines.append(f"{idx}) {c['label']} (e.g., '{example}')")
+        lines.append(f"- {c['label']} (e.g., '{example}')")
     lines.append("Which would you like me to do?")
     return "\n".join(lines)
 
@@ -139,8 +139,8 @@ def build_full_help_message() -> str:
     """Build a full help message with descriptions and examples for each capability."""
     lines: list[str] = ["Features:"]
     visible_caps = [c for c in get_capabilities() if not c.get("developer_only", False)]
-    for idx, c in enumerate(visible_caps, start=1):
-        lines.append(f"{idx}. {c['label']}: {c['description']}")
+    for c in visible_caps:
+        lines.append(f"- {c['label']}: {c['description']}")
         if c.get("examples"):
             for ex in c["examples"]:
                 lines.append(f"   - Example: '{ex}'")

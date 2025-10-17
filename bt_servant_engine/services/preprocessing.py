@@ -64,20 +64,6 @@ conjunctions like "and" or comma/semicolon lists), preserve them exactly as writ
 constraints — leave the message intact and let downstream nodes handle any rejection or guidance. For translation
 requests, do NOT add or change a target language; preserve only what the user explicitly stated.
 
-When the immediately preceding assistant response lists numbered capabilities (for example, "1. Summarize a passage"
-through "8. Set response language") and the user replies with a message that is just one of those numbers (optionally
-with whitespace or punctuation), expand it into the canonical request below, always referencing John 1:1 where
-scripture is involved:
-
-- 1 → "Summarize John 1:1."
-- 2 → "Guide me through the FIA process for John 1:1."
-- 3 → "Provide translation helps for John 1:1."
-- 4 → "List the key terms in John 1:1."
-- 5 → "Show me John 1:1."
-- 6 → "I want to listen to John 1:1."
-- 7 → "Translate John 1:1 into Spanish."
-- 8 → "Set my response language to Spanish."
-
 Return the clarified
 message and the reasons for clarifying or reasons for not changing anything. Examples below.
 
@@ -136,250 +122,7 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     message_changed: True
 </assistant_response>
 
-## Example 4
-
-<past_conversation>
-    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
-
-        1. Summarize a passage
-        2. FIA process guidance
-        3. Translation helps
-        4. Keywords
-        5. Show scripture text
-        6. Read aloud
-        7. Translate scripture
-        8. Set response language
-
-    Which of these capabilities would you like to explore?
-</past_conversation>
-
-<current_message>
-    user_message: 1
-</current_message>
-
-<assistant_response>
-    new_message: Summarize John 1:1.
-    reason_for_decision: The user chose option 1 from the numbered menu, which maps to summarizing John 1:1.
-    message_changed: True
-</assistant_response>
-
-## Example 5
-
-<past_conversation>
-    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
-
-        1. Summarize a passage
-        2. FIA process guidance
-        3. Translation helps
-        4. Keywords
-        5. Show scripture text
-        6. Read aloud
-        7. Translate scripture
-        8. Set response language
-
-    Which of these capabilities would you like to explore?
-</past_conversation>
-
-<current_message>
-    user_message: 2
-</current_message>
-
-<assistant_response>
-    new_message: Guide me through the FIA process for John 1:1.
-    reason_for_decision: The user selected option 2 from the numbered menu, which maps to FIA guidance for John 1:1.
-    message_changed: True
-</assistant_response>
-
-## Example 6
-
-<past_conversation>
-    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
-
-        1. Summarize a passage
-        2. FIA process guidance
-        3. Translation helps
-        4. Keywords
-        5. Show scripture text
-        6. Read aloud
-        7. Translate scripture
-        8. Set response language
-
-    Which of these capabilities would you like to explore?
-</past_conversation>
-
-<current_message>
-    user_message: 3
-</current_message>
-
-<assistant_response>
-    new_message: Provide translation helps for John 1:1.
-    reason_for_decision: The user selected option 3 from the numbered menu, which maps to translation helps for John 1:1.
-    message_changed: True
-</assistant_response>
-
-## Example 7
-
-<past_conversation>
-    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
-
-        1. Summarize a passage
-        2. FIA process guidance
-        3. Translation helps
-        4. Keywords
-        5. Show scripture text
-        6. Read aloud
-        7. Translate scripture
-        8. Set response language
-
-    Which of these capabilities would you like to explore?
-</past_conversation>
-
-<current_message>
-    user_message: 4
-</current_message>
-
-<assistant_response>
-    new_message: List the key terms in John 1:1.
-    reason_for_decision: The user selected option 4 from the numbered menu, which maps to keywords for John 1:1.
-    message_changed: True
-</assistant_response>
-
-## Example 8
-
-<past_conversation>
-    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
-
-        1. Summarize a passage
-        2. FIA process guidance
-        3. Translation helps
-        4. Keywords
-        5. Show scripture text
-        6. Read aloud
-        7. Translate scripture
-        8. Set response language
-
-    Which of these capabilities would you like to explore?
-</past_conversation>
-
-<current_message>
-    user_message: 5
-</current_message>
-
-<assistant_response>
-    new_message: Show me John 1:1.
-    reason_for_decision: The user selected option 5 from the numbered menu, which maps to showing John 1:1.
-    message_changed: True
-</assistant_response>
-
-## Example 9
-
-<past_conversation>
-    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
-
-        1. Summarize a passage
-        2. FIA process guidance
-        3. Translation helps
-        4. Keywords
-        5. Show scripture text
-        6. Read aloud
-        7. Translate scripture
-        8. Set response language
-
-    Which of these capabilities would you like to explore?
-</past_conversation>
-
-<current_message>
-    user_message: 6
-</current_message>
-
-<assistant_response>
-    new_message: I want to listen to John 1:1.
-    reason_for_decision: The user selected option 6 from the numbered menu, which maps to listening to John 1:1.
-    message_changed: True
-</assistant_response>
-
-## Example 10
-
-<past_conversation>
-    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
-
-        1. Summarize a passage
-        2. FIA process guidance
-        3. Translation helps
-        4. Keywords
-        5. Show scripture text
-        6. Read aloud
-        7. Translate scripture
-        8. Set response language
-
-    Which of these capabilities would you like to explore?
-</past_conversation>
-
-<current_message>
-    user_message: 7
-</current_message>
-
-<assistant_response>
-    new_message: Translate John 1:1 into Spanish.
-    reason_for_decision: The user selected option 7 from the numbered menu, so we translate John 1:1 into Spanish.
-    message_changed: True
-</assistant_response>
-
-## Example 11
-
-<past_conversation>
-    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
-
-        1. Summarize a passage
-        2. FIA process guidance
-        3. Translation helps
-        4. Keywords
-        5. Show scripture text
-        6. Read aloud
-        7. Translate scripture
-        8. Set response language
-
-    Which of these capabilities would you like to explore?
-</past_conversation>
-
-<current_message>
-    user_message: 8
-</current_message>
-
-<assistant_response>
-    new_message: Set my response language to Spanish.
-    reason_for_decision: The user selected option 8 from the numbered menu, which maps to setting the response language to Spanish.
-    message_changed: True
-</assistant_response>
-
-## Example 12
-
-<past_conversation>
-    assistant_response: Certainly! Here’s what I can do to assist with Bible translation tasks:
-
-        1. Summarize a passage
-        2. FIA process guidance
-        3. Translation helps
-        4. Keywords
-        5. Show scripture text
-        6. Read aloud
-        7. Translate scripture
-        8. Set response language
-
-    Which of these capabilities would you like to explore?
-</past_conversation>
-
-<current_message>
-    user_message: what can you do?
-</current_message>
-
-<assistant_response>
-    new_message: what can you do?
-    reason_for_decision: The user is repeating the capabilities question verbatim; the intent is already clear, so no changes were needed.
-    message_changed: False
-</assistant_response>
-
-## Example 13: Expanding "yes" after a follow-up question
+## Example 4: Expanding "yes" after a follow-up question
 
 <past_conversation>
     user_message: Show me John 3:16
@@ -398,7 +141,7 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     message_changed: True
 </assistant_response>
 
-## Example 14: Expanding "no" after a follow-up question
+## Example 5: Expanding "no" after a follow-up question
 
 <past_conversation>
     user_message: Provide translation helps for Romans 8:1
@@ -417,7 +160,7 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     message_changed: True
 </assistant_response>
 
-## Example 15: Expanding "yes please" with specific context
+## Example 6: Expanding "yes please" with specific context
 
 <past_conversation>
     user_message: Summarize Acts 2
@@ -436,7 +179,7 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     message_changed: True
 </assistant_response>
 
-## Example 16: Expanding "yeah" after passage suggestion
+## Example 7: Expanding "yeah" after passage suggestion
 
 <past_conversation>
     user_message: Provide translation helps for John 3:1-5
@@ -455,7 +198,7 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     message_changed: True
 </assistant_response>
 
-## Example 17: Expanding "nope" after topic suggestion
+## Example 8: Expanding "nope" after topic suggestion
 
 <past_conversation>
     user_message: Who was Apollos in the Bible?
@@ -474,7 +217,7 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     message_changed: True
 </assistant_response>
 
-## Example 18: Expanding "yes" with person/topic context
+## Example 9: Expanding "yes" with person/topic context
 
 <past_conversation>
     user_message: Who was Apollos in the Bible?
@@ -493,7 +236,7 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     message_changed: True
 </assistant_response>
 
-## Example 19: Not expanding "yes" when context is unclear
+## Example 10: Not expanding "yes" when context is unclear
 
 <past_conversation>
     user_message: What does "justification" mean in Romans 3?
@@ -510,7 +253,7 @@ message and the reasons for clarifying or reasons for not changing anything. Exa
     message_changed: False
 </assistant_response>
 
-## Example 20: Expanding "no thanks" after specific offer
+## Example 11: Expanding "no thanks" after specific offer
 
 <past_conversation>
     user_message: List the key terms in Matthew 5:1-10
