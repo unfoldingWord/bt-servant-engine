@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from typing import Any, List, TypedDict, cast
 
 from openai import OpenAI
@@ -121,6 +122,18 @@ def get_capabilities() -> List[Capability]:
     ]
 
 
+_NUMBERED_LIST_PATTERN = re.compile(r"(^|\n)(\s*)\d+\.\s+", re.MULTILINE)
+
+
+def _replace_numbered_lists_with_bullets(text: str) -> str:
+    """Convert numbered list prefixes into bullet markers for help messaging."""
+    if _NUMBERED_LIST_PATTERN.search(text):
+        logger.info("replacing numbers with bullets")
+        return _NUMBERED_LIST_PATTERN.sub(r"\1\2- ", text)
+    logger.info("no numbers found.")
+    return text
+
+
 def build_boilerplate_message() -> str:
     """Build a concise 'what I can do' list with examples."""
     caps = [
@@ -168,7 +181,7 @@ to perform an unsupported function.
 
 Respond appropriately to the user's request to do something that you currently can't do. Leverage the
 user's message and the conversation history if needed. Make sure to always end your response with some version of
-the boiler plate available features message (see below).
+the boiler plate available features message (see below). When you list those capabilities, format them as hyphen-prefixed bullet points and never as numbered lists.
 
 <boiler_plate_available_features_message>
     {BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}
@@ -187,7 +200,7 @@ the user based on the provided context.
 If we are here in the decision graph, the converse-with-bt-servant intent has been detected. You will be provided with
 the user's most recent message and conversation history. Your job is to respond conversationally to the user. Unless it
 doesn't make sense to do so, aim to end your response with some version of  the boiler plate available features message
-(see below).
+(see below). When listing capabilities, use hyphen bullets; never use numbered lists.
 
 <boiler_plate_available_features_message>
     {BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE}
@@ -207,7 +220,7 @@ make sure to always provide some help, to the best of your abilities. Always pro
 You will be supplied with the user's most recent message and also past conversation history. Using this context,
 provide the user with information detailing how the system works (the features of the BT Servant system). Use the
 feature information below. End your response with a single question inviting the user to pick one capability
-(for example: 'Which of these would you like me to do?').
+(for example: 'Which of these would you like me to do?'). Present the feature list as hyphen-prefixed bullet points and never as numbered lists.
 
 <features_full_help_message>
 {FULL_HELP_MESSAGE}
@@ -247,7 +260,7 @@ def handle_unsupported_function(
     )
     usage = getattr(response, "usage", None)
     track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
-    unsupported_function_response_text = response.output_text
+    unsupported_function_response_text = _replace_numbered_lists_with_bullets(response.output_text)
     logger.info(
         "perform_unsupported_function response from openai: %s",
         unsupported_function_response_text,
@@ -284,7 +297,7 @@ def handle_system_information_request(
     )
     usage = getattr(response, "usage", None)
     track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
-    help_response_text = response.output_text.strip()
+    help_response_text = _replace_numbered_lists_with_bullets(response.output_text.strip())
     version_tag = f"v{BT_SERVANT_VERSION}"
     if version_tag not in help_response_text:
         version_line = "\n".join(
@@ -300,6 +313,7 @@ def handle_system_information_request(
             )
         else:
             help_response_text = f"{version_line}\n\n{help_response_text}"
+    help_response_text = _replace_numbered_lists_with_bullets(help_response_text)
     logger.info("help response from openai: %s", help_response_text)
     return {
         "responses": [
@@ -330,7 +344,7 @@ def converse_with_bt_servant(
     )
     usage = getattr(response, "usage", None)
     track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
-    converse_response_text = response.output_text
+    converse_response_text = _replace_numbered_lists_with_bullets(response.output_text)
     logger.info("converse_with_bt_servant response from openai: %s", converse_response_text)
     return {
         "responses": [
