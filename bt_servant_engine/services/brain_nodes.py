@@ -460,21 +460,21 @@ def translate_responses(state: Any) -> dict:
         for resp in responses_for_translation
     ]
 
+    def _translate_followup(text: str, language: str) -> str:
+        return translate_text(text, language, agentic_strength=agentic_strength)
+
     followup_config = FollowupConfig(
         target_language=target_language,
         agentic_strength=agentic_strength,
+        translate_text=_translate_followup,
         followup_already_added=bool(s.get("followup_question_added", False)),
     )
-
-    def _translate_followup(text: str, language: str) -> str:
-        return translate_text(text, language, agentic_strength=agentic_strength)
 
     updates = apply_followups(
         s,
         translated_responses,
         raw_responses,
         followup_config,
-        translate_text_fn=_translate_followup,
     )
 
     if "passage_followup_context" in s:

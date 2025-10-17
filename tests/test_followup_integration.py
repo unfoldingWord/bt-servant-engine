@@ -72,6 +72,42 @@ class TestFollowupIntegration:
             assert "Would you like to look up another Bible passage?" not in response
             assert result.get("followup_question_added") is True
 
+    def test_continuation_prompt_translated_to_user_language(self):
+        """Continuation prompt is translated to match the user's response language."""
+        state = {
+            "responses": [
+                {
+                    "intent": IntentType.SET_RESPONSE_LANGUAGE,
+                    "response": "Configurando el idioma de respuesta a: Español",
+                }
+            ],
+            "user_id": "user-123",
+            "user_response_language": "es",
+            "query_language": "en",
+            "agentic_strength": "normal",
+            "followup_question_added": False,
+        }
+        continuation_prompt = "\n\nWould you like me to set the agentic strength to high?"
+
+        with patch(
+            "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
+        ) as mock_continuation, patch(
+            "bt_servant_engine.services.brain_nodes.translate_text"
+        ) as mock_translate:
+            mock_continuation.return_value = continuation_prompt
+            mock_translate.side_effect = (
+                lambda text, language, agentic_strength=None: f"{text} ({language})"
+            )
+
+            result = translate_responses(state)
+
+            response = result["translated_responses"][0]
+            assert "Configurando el idioma de respuesta a: Español" in response
+            assert (
+                "Would you like me to set the agentic strength to high? (es)" in response
+            )
+            assert result.get("followup_question_added") is True
+
     def test_no_followup_for_converse_intent(self):
         """Does not add follow-up for CONVERSE_WITH_BT_SERVANT intent."""
         state = {

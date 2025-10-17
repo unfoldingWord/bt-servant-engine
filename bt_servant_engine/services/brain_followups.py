@@ -20,6 +20,7 @@ class FollowupConfig:
 
     target_language: str
     agentic_strength: str
+    translate_text: Callable[[str, str], str]
     followup_already_added: bool = False
 
 
@@ -28,8 +29,6 @@ def apply_followups(
     translated_responses: list[str],
     raw_responses: Sequence[Mapping[str, Any]],
     config: FollowupConfig,
-    *,
-    translate_text_fn: Callable[[str, str], str],
 ) -> Dict[str, Any]:
     """Append continuation or intent-specific follow-ups when appropriate."""
     updates: Dict[str, Any] = {}
@@ -42,6 +41,7 @@ def apply_followups(
         translated_responses,
         followup_added,
         updates,
+        config,
     )
     if followup_added or not translated_responses or not raw_responses:
         return updates
@@ -55,7 +55,6 @@ def apply_followups(
         translated_responses,
         intent,
         config,
-        translate_text_fn,
     )
     if added:
         updates["followup_question_added"] = True
@@ -67,6 +66,7 @@ def _apply_continuation_prompt(
     translated_responses: list[str],
     followup_added: bool,
     updates: Dict[str, Any],
+    config: FollowupConfig,
 ) -> bool:
     """Append queued-intent continuation prompts to the final response."""
     user_id = state.get("user_id")
@@ -75,7 +75,26 @@ def _apply_continuation_prompt(
 
     continuation_prompt = generate_continuation_prompt(user_id, state)
     if continuation_prompt and translated_responses:
-        translated_responses[-1] = translated_responses[-1] + continuation_prompt
+        prompt_to_append = continuation_prompt
+        target_language = (config.target_language or "").strip().lower()
+        if target_language and target_language != "en":
+            stripped_prompt = continuation_prompt.lstrip()
+            prefix_length = len(continuation_prompt) - len(stripped_prompt)
+            prefix = continuation_prompt[:prefix_length]
+            prompt_body = stripped_prompt
+            if prompt_body:
+                try:
+                    translated_body = config.translate_text(prompt_body, target_language)
+                except Exception:  # pylint: disable=broad-except
+                    logger.exception(
+                        "[translate] Failed to translate continuation prompt for user=%s "
+                        "(language=%s); using original text",
+                        user_id,
+                        target_language,
+                    )
+                else:
+                    prompt_to_append = f"{prefix}{translated_body}"
+        translated_responses[-1] = translated_responses[-1] + prompt_to_append
         updates["followup_question_added"] = True
         logger.info(
             "[translate] Appended continuation prompt for user=%s",
@@ -90,7 +109,6 @@ def _apply_intent_followup(
     translated_responses: list[str],
     intent: IntentType | str,
     config: FollowupConfig,
-    translate_text_fn: Callable[[str, str], str],
 ) -> bool:
     """Append intent-specific follow-up questions when applicable."""
     typed_intent = _normalize_intent(intent)
@@ -108,11 +126,11 @@ def _apply_intent_followup(
         state,
         typed_intent,
         config.target_language,
-        translate_text_fn,
+        config.translate_text,
     )
     translate_fn: Optional[Callable[[str, str], str]] = None
     if custom_followup is None:
-        translate_fn = translate_text_fn
+        translate_fn = config.translate_text
 
     updated_response, added_flag = add_followup_if_needed(
         translated_responses[-1],
