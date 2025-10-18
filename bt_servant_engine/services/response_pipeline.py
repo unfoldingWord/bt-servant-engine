@@ -34,7 +34,9 @@ COMMA_SPLIT_THRESHOLD = 10
 RESPONSE_TRANSLATOR_SYSTEM_PROMPT = (
     "You are a translator for the final output in a chatbot system. "
     "You will receive text that needs to be translated into the language represented by "
-    "the specified ISO 639-1 code."
+    "the specified ISO 639-1 code. ALWAYS translate every part of the input text. NEVER drop, "
+    "summarize, or omit sentences, notices, or other content; return the entire text translated "
+    "faithfully."
 )
 
 CHOP_AGENT_SYSTEM_PROMPT = (
