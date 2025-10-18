@@ -7,7 +7,7 @@ from typing import Any
 from bt_servant_engine.services import translation_helpers as helpers
 
 GENESIS_END_VERSE = 11
-EXPECTED_MESSAGE_COUNT = 6
+EXPECTED_MESSAGE_COUNT = 5
 
 # pylint: disable=missing-function-docstring
 
@@ -75,11 +75,11 @@ def test_build_translation_helps_messages_includes_payload() -> None:
         "selection": {"book": "John", "ranges": []},
         "translation_helps": [],
     }
-    messages = helpers.build_translation_helps_messages(
-        ref_label, context, selection_note="Explain truncation"
-    )
+    messages = helpers.build_translation_helps_messages(ref_label, context)
     assert len(messages) == EXPECTED_MESSAGE_COUNT
     assert messages[1]["role"] == "developer"
-    assert "Explain truncation" in messages[1]["content"]
-    assert ref_label in messages[2]["content"]
+    assert messages[1]["content"] == f"Selection: {ref_label}"
+    assert messages[2]["role"] == "developer"
+    assert "Use the JSON context below strictly" in messages[2]["content"]
+    assert messages[3]["role"] == "developer"
     assert messages[-1]["role"] == "user"

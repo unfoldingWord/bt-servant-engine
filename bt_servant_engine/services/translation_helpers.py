@@ -193,7 +193,6 @@ def build_translation_helps_context(
 def build_translation_helps_messages(
     ref_label: str,
     context_obj: dict[str, object],
-    selection_note: str | None = None,
 ) -> list[EasyInputMessageParam]:
     """Construct the LLM messages for the translation helps prompt."""
     payload = json.dumps(context_obj, ensure_ascii=False)
@@ -216,14 +215,6 @@ def build_translation_helps_messages(
             ),
         },
     ]
-    if selection_note:
-        messages.insert(
-            1,
-            {
-                "role": "developer",
-                "content": selection_note,
-            },
-        )
     return messages
 
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
 import re
@@ -78,6 +79,13 @@ class TranslationSourceMetadata:
 
 
 @dataclass(slots=True)
+class TranslationTruncationDetails:
+    """Metadata describing a truncated translation helps selection."""
+
+    original_label: Optional[str]
+
+
+@dataclass(slots=True)
 class TranslationHelpsPayload:
     """Intermediate structure for translation helps generation."""
 
@@ -86,7 +94,7 @@ class TranslationHelpsPayload:
     ref_label: str
     context_obj: dict[str, Any]
     raw_helps: list[Any]
-    selection_note: Optional[str]
+    truncation: Optional[TranslationTruncationDetails]
 
 
 @dataclass(slots=True)
@@ -150,7 +158,6 @@ class TranslationHelpsCacheKey:
     schema: str
     canonical_book: str
     ranges: tuple[TranslationRange, ...]
-    selection_note: str
     agentic_strength: str
     model_name: str
     raw_helps_digest: str
@@ -404,12 +411,12 @@ def _load_translation_verses(
     return verses
 
 
-def _maybe_build_selection_note(
+def _maybe_collect_truncation_details(
     canonical_book: str,
     ref_label: str,
     metadata: Optional[dict[str, Any]],
     context_obj: dict[str, Any],
-) -> Optional[str]:
+) -> Optional[TranslationTruncationDetails]:
     if not metadata or not metadata.get("truncated"):
         return None
 
@@ -421,21 +428,10 @@ def _maybe_build_selection_note(
 
     selection_section = context_obj.setdefault("selection", {})
     selection_section["truncated"] = True
+    selection_section["delivered_label"] = ref_label
     if original_label:
         selection_section["truncated_from"] = original_label
-        return (
-            f"The user requested {original_label}, but translation helps responses are limited to "
-            f"{config.TRANSLATION_HELPS_VERSE_LIMIT} verses at a time. Explain that "
-            f"you are covering {ref_label} now and encourage them to ask for the next "
-            "section afterward."
-        )
-
-    return (
-        "The user requested a selection longer than the configured verse limit. "
-        f"Explain that you are providing guidance for {ref_label} (first "
-        f"{config.TRANSLATION_HELPS_VERSE_LIMIT} verses) and invite them to request "
-        "the following verses next."
-    )
+    return TranslationTruncationDetails(original_label=original_label)
 
 
 def _make_translation_helps_request(
@@ -491,14 +487,14 @@ def _prepare_translation_helps_payload(
         raw_helps,
         original_ranges=original_ranges,
     )
-    selection_note = _maybe_build_selection_note(canonical_book, ref_label, metadata, context_obj)
+    truncation = _maybe_collect_truncation_details(canonical_book, ref_label, metadata, context_obj)
     payload = TranslationHelpsPayload(
         canonical_book=canonical_book,
         ranges=normalized_ranges,
         ref_label=ref_label,
         context_obj=context_obj,
         raw_helps=raw_helps,
-        selection_note=selection_note,
+        truncation=truncation,
     )
     return payload, None
 
@@ -677,6 +673,43 @@ def translate_scripture(
     return _wrap_translation_response(context, response_obj)
 
 
+def _with_truncation_notice(
+    cached_response: dict[str, Any], payload: TranslationHelpsPayload
+) -> dict[str, Any]:
+    """Append a deterministic truncation notice when the selection was clipped."""
+    response_copy = copy.deepcopy(cached_response)
+    if payload.truncation is None:
+        return response_copy
+
+    responses = response_copy.get("responses")
+    if not isinstance(responses, list) or not responses:
+        return response_copy
+
+    first = responses[0]
+    body = first.get("response")
+    if not isinstance(body, str):
+        return response_copy
+
+    verse_limit = config.TRANSLATION_HELPS_VERSE_LIMIT
+    delivered_label = payload.ref_label
+    original_label = payload.truncation.original_label
+    if original_label:
+        notice = (
+            f"I can share translation helps for up to {verse_limit} verses at a time. "
+            f"You asked for {original_label}, so this response covers {delivered_label}. "
+            "Ask for the next section whenever you're ready to continue."
+        )
+    else:
+        notice = (
+            f"I can share translation helps for up to {verse_limit} verses at a time. "
+            f"This response covers {delivered_label}. "
+            "Ask for the next section whenever you're ready to continue."
+        )
+
+    first["response"] = f"{body}\n\n{notice}"
+    return response_copy
+
+
 def get_translation_helps(
     request: TranslationHelpsRequestParams,
     dependencies: TranslationHelpsDependencies,
@@ -700,12 +733,10 @@ def get_translation_helps(
     raw_helps_digest = hashlib.sha256(
         json.dumps(payload.raw_helps, ensure_ascii=False, sort_keys=True).encode("utf-8")
     ).hexdigest()
-    selection_note = payload.selection_note or ""
     cache_key = TranslationHelpsCacheKey(
         schema=TRANSLATION_HELPS_CACHE_SCHEMA,
         canonical_book=payload.canonical_book,
         ranges=tuple(payload.ranges),
-        selection_note=selection_note,
         agentic_strength=request.agentic_strength,
         model_name=model_name,
         raw_helps_digest=raw_helps_digest,
@@ -715,7 +746,6 @@ def get_translation_helps(
         messages = dependencies.build_messages_fn(
             payload.ref_label,
             payload.context_obj,
-            payload.selection_note,
         )
         logger.info("[translation-helps] invoking LLM with %d helps", len(payload.raw_helps))
         resp = request.client.responses.create(
@@ -751,7 +781,7 @@ def get_translation_helps(
             payload.canonical_book,
             payload.ranges,
         )
-    return helps_response
+    return _with_truncation_notice(helps_response, payload)
 
 
 __all__ = [
