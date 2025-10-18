@@ -7,8 +7,9 @@ while handling state extraction and dependency injection.
 
 from __future__ import annotations
 
+from functools import partial
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Iterable, Optional, cast
+from typing import TYPE_CHECKING, Any, Callable, Iterable, Optional, cast
 
 from openai import OpenAI
 
@@ -31,6 +32,7 @@ from bt_servant_engine.services.response_helpers import (
     sample_for_language_detection as _sample_for_language_detection_impl,
 )
 from bt_servant_engine.services.brain_followups import FollowupConfig, apply_followups
+from bt_servant_engine.services.truncation_notices import build_truncation_notice
 from bt_servant_engine.services.continuation_prompts import INTENT_ACTION_DESCRIPTIONS
 from bt_servant_engine.services.preprocessing import (
     determine_intents as _determine_intents_impl,
@@ -427,6 +429,73 @@ def set_agentic_strength(state: Any) -> dict:
     return set_agentic_strength_impl(request, dependencies)
 
 
+def _collect_truncation_notices(
+    protected_items: Iterable[dict[str, Any]],
+    normal_items: Iterable[dict[str, Any]],
+) -> list[Optional[dict[str, Any]]]:
+    notices: list[Optional[dict[str, Any]]] = []
+
+    def _extract(item: dict[str, Any]) -> Optional[dict[str, Any]]:
+        notice = item.get("truncation_notice")
+        if not isinstance(notice, dict):
+            return None
+        delivered_raw = notice.get("delivered_label")
+        delivered_label = str(delivered_raw).strip() if delivered_raw is not None else ""
+        if not delivered_label:
+            return None
+        verse_limit = int(notice.get("verse_limit", config.TRANSLATION_HELPS_VERSE_LIMIT))
+        original_raw = notice.get("original_label")
+        original_label = (
+            str(original_raw).strip()
+            if isinstance(original_raw, str) and original_raw.strip()
+            else None
+        )
+        return {
+            "verse_limit": verse_limit,
+            "delivered_label": delivered_label,
+            "original_label": original_label,
+        }
+
+    for item in protected_items:
+        notices.append(_extract(item))
+    for item in normal_items:
+        notices.append(_extract(item))
+    return notices
+
+
+def _translate_queue_with_notices(
+    queue: list[dict | str],
+    protected_items: Iterable[dict[str, Any]],
+    normal_items: Iterable[dict[str, Any]],
+    target_language: str,
+    agentic_strength: str,
+) -> tuple[list[str], Callable[[str, str], str]]:
+    translate_fn = partial(translate_text, agentic_strength=agentic_strength)
+    raw_translated = [
+        _translate_or_localize_response(resp, target_language, agentic_strength) for resp in queue
+    ]
+
+    translated: list[str] = []
+    for item in raw_translated:
+        translated.append(item if isinstance(item, str) else str(item))
+
+    notice_specs = _collect_truncation_notices(protected_items, normal_items)
+    for idx, notice in enumerate(notice_specs):
+        if not notice:
+            continue
+        notice_text = build_truncation_notice(
+            language=target_language,
+            verse_limit=notice["verse_limit"],
+            delivered_label=notice["delivered_label"],
+            original_label=notice["original_label"],
+            translate_text_fn=translate_fn,
+        )
+        if notice_text:
+            translated[idx] = f"{translated[idx]}\n\n{notice_text}"
+
+    return translated, translate_fn
+
+
 def translate_responses(state: Any) -> dict:
     """Translate or localize responses into the user's desired language."""
 
@@ -441,49 +510,48 @@ def translate_responses(state: Any) -> dict:
         raise ValueError("no responses to translate. something bad happened. bailing out.")
 
     protected_items, normal_items = _partition_response_items(raw_responses)
-    responses_for_translation = _build_translation_queue(s, protected_items, normal_items)
-    if not responses_for_translation:
+    queue = _build_translation_queue(s, protected_items, normal_items)
+    if not queue:
         if bool(s.get("send_voice_message")):
             logger.info("[translate] no text responses after queue assembly; voice-only delivery")
             return {"translated_responses": []}
         raise ValueError("no responses to translate. something bad happened. bailing out.")
 
-    target_language, passthrough = _resolve_target_language(s, responses_for_translation)
+    target_language, passthrough = _resolve_target_language(s, queue)
     if passthrough is not None:
         return {"translated_responses": passthrough}
     if target_language is None:
         raise RuntimeError("target language resolution failed")
 
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
-    translated_responses = [
-        _translate_or_localize_response(resp, target_language, agentic_strength)
-        for resp in responses_for_translation
-    ]
-
-    def _translate_followup(text: str, language: str) -> str:
-        return translate_text(text, language, agentic_strength=agentic_strength)
-
-    followup_config = FollowupConfig(
-        target_language=target_language,
-        agentic_strength=agentic_strength,
-        translate_text=_translate_followup,
-        followup_already_added=bool(s.get("followup_question_added", False)),
+    translated_responses, translate_fn = _translate_queue_with_notices(
+        queue,
+        protected_items,
+        normal_items,
+        target_language,
+        agentic_strength,
     )
 
     updates = apply_followups(
         s,
         translated_responses,
         raw_responses,
-        followup_config,
+        FollowupConfig(
+            target_language=target_language,
+            agentic_strength=agentic_strength,
+            translate_text=translate_fn,
+            followup_already_added=bool(s.get("followup_question_added", False)),
+        ),
     )
 
     if "passage_followup_context" in s:
         updates.setdefault("passage_followup_context", {})
 
-    result = {"translated_responses": translated_responses}
     if updates:
-        result.update(updates)
-    return result
+        merged = {"translated_responses": translated_responses}
+        merged.update(updates)
+        return merged
+    return {"translated_responses": translated_responses}
 
 
 def translate_text(

@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import copy
 import hashlib
 import json
 import re
@@ -673,43 +672,6 @@ def translate_scripture(
     return _wrap_translation_response(context, response_obj)
 
 
-def _with_truncation_notice(
-    cached_response: dict[str, Any], payload: TranslationHelpsPayload
-) -> dict[str, Any]:
-    """Append a deterministic truncation notice when the selection was clipped."""
-    response_copy = copy.deepcopy(cached_response)
-    if payload.truncation is None:
-        return response_copy
-
-    responses = response_copy.get("responses")
-    if not isinstance(responses, list) or not responses:
-        return response_copy
-
-    first = responses[0]
-    body = first.get("response")
-    if not isinstance(body, str):
-        return response_copy
-
-    verse_limit = config.TRANSLATION_HELPS_VERSE_LIMIT
-    delivered_label = payload.ref_label
-    original_label = payload.truncation.original_label
-    if original_label:
-        notice = (
-            f"I can share translation helps for up to {verse_limit} verses at a time. "
-            f"You asked for {original_label}, so this response covers {delivered_label}. "
-            "Ask for the next section whenever you're ready to continue."
-        )
-    else:
-        notice = (
-            f"I can share translation helps for up to {verse_limit} verses at a time. "
-            f"This response covers {delivered_label}. "
-            "Ask for the next section whenever you're ready to continue."
-        )
-
-    first["response"] = f"{body}\n\n{notice}"
-    return response_copy
-
-
 def get_translation_helps(
     request: TranslationHelpsRequestParams,
     dependencies: TranslationHelpsDependencies,
@@ -781,7 +743,17 @@ def get_translation_helps(
             payload.canonical_book,
             payload.ranges,
         )
-    return _with_truncation_notice(helps_response, payload)
+    if payload.truncation is not None:
+        responses = helps_response.get("responses")
+        if isinstance(responses, list) and responses:
+            notice_payload: dict[str, Any] = {
+                "verse_limit": config.TRANSLATION_HELPS_VERSE_LIMIT,
+                "delivered_label": payload.ref_label,
+            }
+            if payload.truncation.original_label:
+                notice_payload["original_label"] = payload.truncation.original_label
+            responses[0]["truncation_notice"] = notice_payload
+    return helps_response
 
 
 __all__ = [
