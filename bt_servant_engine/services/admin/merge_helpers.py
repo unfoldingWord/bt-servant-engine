@@ -156,13 +156,6 @@ def compute_duplicate_preview(
     return (len(preview) > 0), preview
 
 
-_estimate_tokens = estimate_tokens
-_yield_token_limited_slices = yield_token_limited_slices
-_now_iso = now_iso
-_apply_metadata_tags = apply_metadata_tags
-_compute_duplicate_preview = compute_duplicate_preview
-
-
 __all__ = [
     "MetadataTaggingConfig",
     "apply_metadata_tags",

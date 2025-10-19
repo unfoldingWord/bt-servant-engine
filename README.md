@@ -157,7 +157,7 @@ Pytest marks warnings as errors; update fixtures or add targeted `filterwarnings
 ## WhatsApp & Admin Endpoints
 - **Webhook:** `POST /meta-whatsapp` (signature verification + LangGraph processing). Verification handshake uses `GET /meta-whatsapp`.
 - **Progress messaging:** Status texts sourced from `bt_servant_engine.services.status_messages`.
-- **Admin API:** See `bt_servant_engine.apps.api.routes.admin` for vector store maintenance (collection merges, document management) secured via bearer token headers when `ENABLE_ADMIN_AUTH=True`. Cache controls are exposed here as well:
+- **Admin API:** See `bt_servant_engine.apps.api.routes.admin_datastore` for vector store maintenance (collection merges, document management) secured via bearer token headers when `ENABLE_ADMIN_AUTH=True`. Cache controls are exposed here as well:
   - `POST /cache/clear` wipes every cache namespace.
   - `POST /cache/{name}/clear` clears an individual cache (e.g., `passage_summary`).
   - `GET /cache/stats` reports global cache settings, hit/miss counters, and disk usage.

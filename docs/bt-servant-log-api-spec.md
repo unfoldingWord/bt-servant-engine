@@ -107,7 +107,7 @@ The routes live alongside the existing admin endpoints in `bt_servant_engine/app
 
 ## 5. Implementation Notes
 
-1. **Router placement** – Extend `bt_servant_engine/apps/api/routes/admin.py` with three new handlers. Each should include `Depends(require_admin_token)` to enforce the guard when `ENABLE_ADMIN_AUTH` is true.
+1. **Router placement** – Extend `bt_servant_engine/apps/api/routes/admin_datastore.py` with three new handlers. Each should include `Depends(require_admin_token)` to enforce the guard when `ENABLE_ADMIN_AUTH` is true.
 2. **Filesystem helpers** – Reuse `bt_servant_engine.core.logging.LOGS_DIR` to determine the directory. Define a small utility (e.g., `_iter_log_files()`) to consolidate validation and metadata collection.
 3. **Streaming** – Use `StreamingResponse` with a chunked file iterator (`open(...)` in binary mode, `read` 64KB chunks). Set `media_type="text/plain; charset=utf-8"`.
 4. **Serialization** – For responses, return plain dicts annotated with Pydantic models or `TypedDict` if desired; keep fields limited to `name`, `size_bytes`, `modified_at`, `created_at`.
