@@ -121,6 +121,7 @@ from bt_servant_engine.services.status_messages import get_effective_response_la
 from bt_servant_engine.services import runtime
 from utils.bsb import BOOK_MAP as BSB_BOOK_MAP
 from utils.perf import add_tokens
+from utils.identifiers import get_log_safe_user_id
 
 # Initialize module-level dependencies
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -340,9 +341,10 @@ def _resolve_queued_intent_response(state: "BrainState", query: str) -> dict | N
             "intent_context_map": {next_item.intent.value: next_item.context_text},
         }
 
+    log_user_id = get_log_safe_user_id(user_id, secret=config.LOG_PSEUDONYM_SECRET)
     logger.info(
         "[determine-intents] User declined continuation; clearing queue for user=%s",
-        user_id,
+        log_user_id,
     )
     clear_queue(user_id)
     return None

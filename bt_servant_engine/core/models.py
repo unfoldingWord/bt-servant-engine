@@ -19,6 +19,7 @@ class RequestContext:
     path: str
     method: str
     user_agent: Optional[str] = None
+    client_ip: Optional[str] = None
 
 
 valid_message_types = {"text", "audio"}

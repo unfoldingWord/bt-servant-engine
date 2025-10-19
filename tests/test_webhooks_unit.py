@@ -65,7 +65,14 @@ def test_process_message_text_flow(monkeypatch) -> None:
     )
     set_brain(brain)
 
-    asyncio.run(webhooks.process_message(user_message, services))
+    asyncio.run(
+        webhooks.process_message(
+            user_message,
+            services,
+            correlation_id="test-cid",
+            client_ip="203.0.113.10",
+        )
+    )
 
     assert messaging.sent_text == [  # type: ignore[attr-defined]
         ("15555555555", "(1/2) response1"),
@@ -113,7 +120,14 @@ def test_process_message_audio_flow(monkeypatch) -> None:
     )
     set_brain(brain)
 
-    asyncio.run(webhooks.process_message(user_message, services))
+    asyncio.run(
+        webhooks.process_message(
+            user_message,
+            services,
+            correlation_id="test-cid",
+            client_ip="203.0.113.10",
+        )
+    )
 
     progress_prefix = app_config.PROGRESS_MESSAGE_EMOJI
     assert messaging.sent_text == [  # type: ignore[attr-defined]
@@ -193,8 +207,16 @@ def test_handle_meta_webhook_processes_message(monkeypatch):
 
     calls: list[str] = []
 
-    async def _fake_process_message(user_message: UserMessage, **_) -> None:  # noqa: ANN001
+    async def _fake_process_message(  # noqa: ANN001
+        user_message: UserMessage,
+        *,
+        correlation_id: str | None,
+        client_ip: str | None,
+        **_,
+    ) -> None:
         calls.append(user_message.user_id)
+        assert correlation_id == "test-cid"
+        assert client_ip == "testclient"
 
     monkeypatch.setattr(webhooks, "process_message", _fake_process_message)
 
@@ -228,6 +250,7 @@ def test_handle_meta_webhook_processes_message(monkeypatch):
         headers={
             "X-Hub-Signature-256": signature,
             "User-Agent": app_config.FACEBOOK_USER_AGENT,
+            "X-Request-ID": "test-cid",
         },
         content=body,
     )
