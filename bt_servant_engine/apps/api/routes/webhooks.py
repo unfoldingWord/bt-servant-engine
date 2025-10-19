@@ -23,18 +23,29 @@ from typing import (
     cast,
 )
 
+from contextvars import copy_context
+
 import httpx
 from fastapi import APIRouter, Header, HTTPException, Request, Response, status
 from fastapi.responses import JSONResponse
 
 from bt_servant_engine.apps.api.state import get_brain, set_brain
 from bt_servant_engine.core.config import config
-from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.core.logging import (
+    bind_client_ip,
+    bind_correlation_id,
+    bind_log_user_id,
+    get_correlation_id,
+    get_logger,
+    reset_client_ip,
+    reset_correlation_id,
+    reset_log_user_id,
+)
 from bt_servant_engine.core.ports import MessagingPort, UserStatePort
 from bt_servant_engine.services import ServiceContainer
 from bt_servant_engine.services import status_messages
 from bt_servant_engine.services.brain_orchestrator import create_brain
-from bt_servant_engine.core.models import UserMessage
+from bt_servant_engine.core.models import RequestContext, UserMessage
 from utils.identifiers import get_log_safe_user_id
 from utils.perf import log_final_report, record_external_span, set_current_trace, time_block
 
@@ -116,10 +127,12 @@ async def handle_meta_webhook(
 
         services = _get_services(request)
         payload = await request.json()
+        request_context: RequestContext | None = getattr(request.state, "request_context", None)
         response = await _dispatch_meta_payload(
             payload,
             services=services,
             signature_timing=signature_timing,
+            request_context=request_context,
         )
         if response is not None:
             return response
@@ -165,12 +178,14 @@ async def _dispatch_meta_payload(
     *,
     services: ServiceContainer,
     signature_timing: _SignatureTiming,
+    request_context: RequestContext | None,
 ) -> Response | None:
     for message_data in _iter_meta_messages(payload):
         response = await _handle_meta_message(
             message_data,
             services=services,
             signature_timing=signature_timing,
+            request_context=request_context,
         )
         if response is not None:
             return response
@@ -189,6 +204,7 @@ async def _handle_meta_message(
     *,
     services: ServiceContainer,
     signature_timing: _SignatureTiming,
+    request_context: RequestContext | None,
 ) -> Response | None:
     try:
         user_message = UserMessage.from_data(message_data)
@@ -236,6 +252,8 @@ async def _handle_meta_message(
     await _dispatch_user_message(
         user_message=user_message,
         services=services,
+        correlation_id=request_context.correlation_id if request_context else get_correlation_id(),
+        client_ip=request_context.client_ip if request_context else None,
     )
     return None
 
@@ -244,11 +262,18 @@ async def _dispatch_user_message(
     *,
     user_message: UserMessage,
     services: ServiceContainer,
+    correlation_id: str | None,
+    client_ip: str | None,
 ) -> None:
     start_time = time.time()
     if os.environ.get("RUN_OPENAI_API_TESTS", "") == "1":
         try:
-            await process_message(user_message=user_message, services=services)
+            await process_message(
+                user_message=user_message,
+                services=services,
+                correlation_id=correlation_id,
+                client_ip=client_ip,
+            )
         finally:
             record_external_span(
                 name="bt_servant:handle_meta_webhook",
@@ -258,7 +283,14 @@ async def _dispatch_user_message(
             )
         return
 
-    task = asyncio.create_task(process_message(user_message=user_message, services=services))
+    task = asyncio.create_task(
+        process_message(
+            user_message=user_message,
+            services=services,
+            correlation_id=correlation_id,
+            client_ip=client_ip,
+        )
+    )
 
     def _on_done(_: asyncio.Task) -> None:
         record_external_span(
@@ -272,13 +304,15 @@ async def _dispatch_user_message(
 
 
 @dataclass(slots=True)
-class _MessageProcessingContext:
+class _MessageProcessingContext:  # pylint: disable=too-many-instance-attributes
     user_message: UserMessage
     messaging: MessagingPort
     user_state: UserStatePort
     log_user_id: str
     brain: Any
     start_time: float
+    correlation_id: Optional[str]
+    client_ip: Optional[str]
 
 
 class _ProcessingGuard:
@@ -314,18 +348,37 @@ class _ProcessingGuard:
 async def process_message(
     user_message: UserMessage,
     services: ServiceContainer,
+    *,
+    correlation_id: str | None,
+    client_ip: str | None,
 ) -> None:
     """Serialize user processing per user id and send responses back."""
     async with user_locks[user_message.user_id]:
+        token_correlation = bind_correlation_id(correlation_id)
+        token_client_ip = bind_client_ip(client_ip)
         set_current_trace(user_message.message_id)
-        context = _create_processing_context(user_message, services)
-        async with _ProcessingGuard(context):
-            await _process_with_brain(context)
+        context = _create_processing_context(
+            user_message,
+            services,
+            correlation_id=correlation_id,
+            client_ip=client_ip,
+        )
+        token = bind_log_user_id(context.log_user_id)
+        try:
+            async with _ProcessingGuard(context):
+                await _process_with_brain(context)
+        finally:
+            reset_log_user_id(token)
+            reset_client_ip(token_client_ip)
+            reset_correlation_id(token_correlation)
 
 
 def _create_processing_context(
     user_message: UserMessage,
     services: ServiceContainer,
+    *,
+    correlation_id: str | None,
+    client_ip: str | None,
 ) -> _MessageProcessingContext:
     messaging = _require_messaging(services)
     user_state = _require_user_state(services)
@@ -347,6 +400,8 @@ def _create_processing_context(
         log_user_id=log_user_id,
         brain=brain_instance,
         start_time=time.time(),
+        correlation_id=correlation_id,
+        client_ip=client_ip,
     )
 
 
@@ -440,10 +495,12 @@ async def _invoke_brain(
     if user_agentic_strength is not None:
         brain_payload["user_agentic_strength"] = user_agentic_strength
     loop = asyncio.get_event_loop()
-    return await loop.run_in_executor(
-        None,
-        lambda: context.brain.invoke(cast(Any, brain_payload)),
-    )
+    ctx = copy_context()
+
+    def _invoke_sync() -> dict[str, Any]:
+        return cast(dict[str, Any], ctx.run(context.brain.invoke, cast(Any, brain_payload)))
+
+    return await loop.run_in_executor(None, _invoke_sync)
 
 
 async def _deliver_responses(

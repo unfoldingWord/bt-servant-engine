@@ -8,9 +8,11 @@ from __future__ import annotations
 
 from typing import Any, Optional, cast
 
+from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.intent_queue import peek_next_intent
+from utils.identifiers import get_log_safe_user_id
 
 logger = get_logger(__name__)
 
@@ -45,16 +47,17 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
     response_language = None
     if isinstance(state, dict):
         response_language = cast(Optional[str], state.get("user_response_language"))
+    log_user_id = get_log_safe_user_id(user_id, secret=config.LOG_PSEUDONYM_SECRET)
     logger.debug(
         "[continuation-prompt] Checking queued intents for user=%s (resp_language=%s)",
-        user_id,
+        log_user_id,
         response_language,
     )
 
     # Check if there's a next intent in the queue
     next_item = peek_next_intent(user_id)
     if not next_item:
-        logger.debug("[continuation-prompt] No queued intents for user=%s", user_id)
+        logger.debug("[continuation-prompt] No queued intents for user=%s", log_user_id)
         return None
 
     # Use pre-generated continuation question if available (should be a complete question now)
@@ -62,7 +65,7 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
         logger.warning(
             "[continuation-prompt] Missing continuation question for user=%s "
             "(intent=%s, context='%s'); skipping prompt",
-            user_id,
+            log_user_id,
             next_item.intent.value,
             next_item.context_text,
         )
@@ -70,7 +73,7 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
 
     logger.info(
         "[continuation-prompt] Using queued continuation question for user=%s: '%s' (intent=%s)",
-        user_id,
+        log_user_id,
         next_item.continuation_action,
         next_item.intent.value,
     )
@@ -80,7 +83,7 @@ def generate_continuation_prompt(user_id: str, state: Any) -> Optional[str]:
 
     logger.info(
         "[continuation-prompt] Generated prompt for user=%s: intent=%s",
-        user_id,
+        log_user_id,
         next_item.intent.value,
     )
 
@@ -105,9 +108,10 @@ def generate_continuation_prompt_with_context(
     Returns:
         A context-aware continuation prompt string
     """
+    log_user_id = get_log_safe_user_id(user_id, secret=config.LOG_PSEUDONYM_SECRET)
     logger.debug(
         "[continuation-prompt-context] Generating for user=%s, intent=%s, params=%s",
-        user_id,
+        log_user_id,
         next_intent.value,
         parameters,
     )
@@ -139,7 +143,7 @@ def generate_continuation_prompt_with_context(
 
     logger.info(
         "[continuation-prompt-context] Generated context-aware prompt for user=%s: '%s'",
-        user_id,
+        log_user_id,
         base_action,
     )
 

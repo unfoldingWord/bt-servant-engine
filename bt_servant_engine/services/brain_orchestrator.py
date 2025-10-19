@@ -17,6 +17,7 @@ from langgraph.graph import StateGraph
 from langgraph.types import Send
 from typing_extensions import TypedDict
 
+from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentQueueItem, IntentType
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services import brain_nodes, status_messages
@@ -26,6 +27,7 @@ from bt_servant_engine.services.progress_messaging import (
     should_show_translation_progress,
 )
 from utils.perf import set_current_trace, time_block
+from utils.identifiers import get_log_safe_user_id
 
 logger = get_logger(__name__)
 
@@ -74,6 +76,10 @@ _SINGLE_RESOURCE_COUNT = 1
 _PAIR_RESOURCE_COUNT = 2
 
 
+def _log_safe_user(user_id: str) -> str:
+    return get_log_safe_user_id(user_id, secret=config.LOG_PSEUDONYM_SECRET)
+
+
 @dataclass(slots=True)
 class ActiveContext:
     """Describes the text and provenance for the intent context."""
@@ -113,13 +119,16 @@ def _consume_queued_intent(
     if not queued_context:
         return ActiveContext()
 
+    log_user_id = _log_safe_user(user_id)
     logger.info(
-        "[process-intents] Processing queued intent, popping from queue for user=%s", user_id
+        "[process-intents] Processing queued intent, popping from queue for user=%s", log_user_id
     )
     pop_next(user_id)
     context_text = str(queued_context).strip()
     logger.info(
-        "[process-intents] Using queued intent context for user=%s: '%s'", user_id, context_text
+        "[process-intents] Using queued intent context for user=%s: '%s'",
+        log_user_id,
+        context_text,
     )
     updates["queued_intent_context"] = None
     if state.get("user_intents"):
@@ -128,15 +137,16 @@ def _consume_queued_intent(
 
 
 def _select_intent(user_intents: List[IntentType], user_id: str) -> IntentSelection:
+    log_user_id = _log_safe_user(user_id)
     if len(user_intents) == 1:
         intent = user_intents[0]
-        logger.info("[process-intents] Single intent: %s for user=%s", intent.value, user_id)
+        logger.info("[process-intents] Single intent: %s for user=%s", intent.value, log_user_id)
         return IntentSelection(primary=intent, deferred=[])
 
     logger.info(
         "[process-intents] Multiple intents detected (%d), sorting by priority for user=%s",
         len(user_intents),
-        user_id,
+        log_user_id,
     )
     sorted_intents = sorted(user_intents, key=lambda i: INTENT_PRIORITY.get(i, 0), reverse=True)
     primary = sorted_intents[0]
@@ -145,7 +155,7 @@ def _select_intent(user_intents: List[IntentType], user_id: str) -> IntentSelect
         "[process-intents] Processing highest priority intent: %s (priority=%d) for user=%s",
         primary.value,
         INTENT_PRIORITY.get(primary, 0),
-        user_id,
+        log_user_id,
     )
     return IntentSelection(primary=primary, deferred=deferred)
 
@@ -158,6 +168,7 @@ def _resolve_active_context(
     primary_intent: IntentType,
     user_id: str,
 ) -> ActiveContext:
+    log_user_id = _log_safe_user(user_id)
     if current.text:
         return current
 
@@ -171,14 +182,14 @@ def _resolve_active_context(
             context_text = match.trimmed_context()
             logger.info(
                 "[process-intents] Active intent context (structured) for user=%s: '%s'",
-                user_id,
+                log_user_id,
                 context_text,
             )
             return ActiveContext(text=context_text, source="structured_context")
         logger.warning(
             "[process-intents] Structured context missing for intent=%s (user=%s); falling back",
             primary_intent.value,
-            user_id,
+            log_user_id,
         )
 
     mapped_context = intent_context_map.get(primary_intent.value, "")
@@ -195,6 +206,8 @@ def _resolve_active_context(
 def _queue_deferred_intents(queue_ctx: DeferredQueueContext) -> None:
     if not queue_ctx.selection.deferred:
         return
+
+    log_user_id = _log_safe_user(queue_ctx.user_id)
 
     original_order = (
         [ic.intent for ic in queue_ctx.intents_with_context]
@@ -220,7 +233,7 @@ def _queue_deferred_intents(queue_ctx: DeferredQueueContext) -> None:
                 "[process-intents] Missing context for deferred intent=%s "
                 "(user=%s); using fallback",
                 intent.value,
-                queue_ctx.user_id,
+                log_user_id,
             )
 
         try:
@@ -235,7 +248,7 @@ def _queue_deferred_intents(queue_ctx: DeferredQueueContext) -> None:
             logger.warning(
                 "[process-intents] Intent %s not found in original order for user=%s",
                 intent.value,
-                queue_ctx.user_id,
+                log_user_id,
             )
 
         logger.info(
@@ -243,7 +256,7 @@ def _queue_deferred_intents(queue_ctx: DeferredQueueContext) -> None:
             "(user=%s, continuation_action=%s)",
             intent.value,
             context_text,
-            queue_ctx.user_id,
+            log_user_id,
             bool(continuation_action),
         )
         queue_items.append(
@@ -259,7 +272,7 @@ def _queue_deferred_intents(queue_ctx: DeferredQueueContext) -> None:
     logger.info(
         "[process-intents] Queueing %d remaining intents for user=%s",
         len(queue_items),
-        queue_ctx.user_id,
+        log_user_id,
     )
     save_intent_queue(queue_ctx.user_id, queue_items)
 
@@ -484,7 +497,7 @@ def process_intents(state: Any) -> List[Hashable]:
         active_context = ActiveContext(text=fallback_text, source="transformed_query")
         logger.info(
             "[process-intents] No specialized context; using transformed query for user=%s: '%s'",
-            user_id,
+            _log_safe_user(user_id),
             fallback_text,
         )
 
@@ -494,7 +507,7 @@ def process_intents(state: Any) -> List[Hashable]:
         "[process-intents] Intent routing context established (source=%s, intent=%s, user=%s)",
         active_context.source,
         selection.primary.value,
-        user_id,
+        _log_safe_user(user_id),
     )
 
     node_name = INTENT_NODE_MAP.get(selection.primary)
@@ -503,7 +516,11 @@ def process_intents(state: Any) -> List[Hashable]:
 
     next_state = cast(BrainState, {**s, **updates}) if updates else s
     sends = [Send(node_name, next_state)]
-    logger.info("[process-intents] Routing to node: %s for user=%s", node_name, user_id)
+    logger.info(
+        "[process-intents] Routing to node: %s for user=%s",
+        node_name,
+        _log_safe_user(user_id),
+    )
     return cast(List[Hashable], sends)
 
 

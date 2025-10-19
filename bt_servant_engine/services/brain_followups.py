@@ -5,11 +5,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, Mapping, Optional, Sequence
 
+from bt_servant_engine.core.config import config as app_config
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.continuation_prompts import generate_continuation_prompt
 from bt_servant_engine.services.intents.followup_questions import add_followup_if_needed
 from bt_servant_engine.services.passage_followups import build_followup_question
+from utils.identifiers import get_log_safe_user_id
 
 logger = get_logger(__name__)
 
@@ -73,6 +75,7 @@ def _apply_continuation_prompt(
     if not user_id:
         return followup_added
 
+    log_user_id = get_log_safe_user_id(user_id, secret=app_config.LOG_PSEUDONYM_SECRET)
     continuation_prompt = generate_continuation_prompt(user_id, state)
     if continuation_prompt and translated_responses:
         prompt_to_append = continuation_prompt
@@ -89,7 +92,7 @@ def _apply_continuation_prompt(
                     logger.exception(
                         "[translate] Failed to translate continuation prompt for user=%s "
                         "(language=%s); using original text",
-                        user_id,
+                        log_user_id,
                         target_language,
                     )
                 else:
@@ -98,7 +101,7 @@ def _apply_continuation_prompt(
         updates["followup_question_added"] = True
         logger.info(
             "[translate] Appended continuation prompt for user=%s",
-            user_id,
+            log_user_id,
         )
         return True
     return followup_added

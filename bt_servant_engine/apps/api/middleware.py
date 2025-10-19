@@ -4,7 +4,12 @@ from __future__ import annotations
 
 import uuid
 
-from bt_servant_engine.core.logging import bind_correlation_id, reset_correlation_id
+from bt_servant_engine.core.logging import (
+    bind_client_ip,
+    bind_correlation_id,
+    reset_client_ip,
+    reset_correlation_id,
+)
 from bt_servant_engine.core.models import RequestContext
 
 
@@ -24,12 +29,18 @@ class CorrelationIdMiddleware:  # pylint: disable=too-few-public-methods
         headers = {k.decode().lower(): v.decode() for k, v in scope.get("headers", [])}
         correlation_id = self._resolve_correlation_id(headers)
         token = bind_correlation_id(correlation_id)
+        client_host: str | None = None
+        client = scope.get("client")
+        if isinstance(client, (tuple, list)) and client:
+            client_host = client[0]
+        token_ip = bind_client_ip(client_host)
         state = scope.setdefault("state", {})
         state["request_context"] = RequestContext(
             correlation_id=correlation_id,
             path=scope.get("path", ""),
             method=scope.get("method", ""),
             user_agent=headers.get("user-agent"),
+            client_ip=client_host,
         )
 
         async def send_wrapper(message):  # type: ignore[no-untyped-def]
@@ -46,6 +57,7 @@ class CorrelationIdMiddleware:  # pylint: disable=too-few-public-methods
             await self.app(scope, receive, send_wrapper)
         finally:
             reset_correlation_id(token)
+            reset_client_ip(token_ip)
 
     def _resolve_correlation_id(self, header_map: dict[str, str]) -> str:
         for header in self.header_names:

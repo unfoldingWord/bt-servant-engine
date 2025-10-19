@@ -21,6 +21,7 @@ dependencies = [
   "chromadb>=1.0",
   "tinydb>=4.8",
   "typing-extensions>=4.12",
+  "python-json-logger>=2.0.7",
 ]
 
 [project.optional-dependencies]
