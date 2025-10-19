@@ -35,7 +35,7 @@
 bt_servant_engine/
   apps/api/app.py                   # create_app(), register_routes()
   apps/api/routes/health.py
-  apps/api/routes/admin.py
+  apps/api/routes/admin_datastore.py
   apps/api/routes/webhooks.py
 
   services/intent_router.py

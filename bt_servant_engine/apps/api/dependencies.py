@@ -1,11 +1,13 @@
-"""Shared FastAPI dependencies for token validation."""
+"""Shared FastAPI dependencies for token validation and service access."""
 
 import hmac
 from typing import Annotated, Optional
 
-from fastapi import Header, HTTPException, status
+from fastapi import Depends, Header, HTTPException, status
 
 from bt_servant_engine.core.config import config
+from bt_servant_engine.services import ServiceContainer, runtime
+from bt_servant_engine.services.admin import AdminDatastoreService
 
 
 async def _validate_token(
@@ -70,4 +72,32 @@ async def require_healthcheck_token(
     )
 
 
-__all__ = ["require_admin_token", "require_healthcheck_token"]
+def get_service_container() -> ServiceContainer:
+    """Resolve the globally configured service container."""
+    try:
+        return runtime.get_services()
+    except RuntimeError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Service container not configured",
+        ) from exc
+
+
+def get_admin_datastore_service(
+    container: Annotated[ServiceContainer, Depends(get_service_container)],
+) -> AdminDatastoreService:
+    """Return an admin datastore service bound to the active container."""
+    if container.chroma is None:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Chroma service is unavailable",
+        )
+    return AdminDatastoreService(container.chroma)
+
+
+__all__ = [
+    "get_admin_datastore_service",
+    "get_service_container",
+    "require_admin_token",
+    "require_healthcheck_token",
+]

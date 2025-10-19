@@ -9,9 +9,12 @@ from http import HTTPStatus
 from fastapi.testclient import TestClient
 
 from bt_servant_engine.apps.api.app import create_app
-from bt_servant_engine.apps.api.routes import admin
+from bt_servant_engine.apps.api.routes import admin_datastore as admin_datastore_router
 from bt_servant_engine.bootstrap import build_default_service_container
 from bt_servant_engine.core.config import config as app_config
+from bt_servant_engine.services.admin import datastore as admin_datastore_service
+
+MAX_CACHE_SAMPLE_LIMIT = admin_datastore_router.MAX_CACHE_SAMPLE_LIMIT
 
 
 class _StubCache:
@@ -95,7 +98,7 @@ class _StubCacheManager:
 
 def _make_client(monkeypatch) -> tuple[TestClient, _StubCacheManager]:
     stub = _StubCacheManager()
-    monkeypatch.setattr(admin, "cache_manager", stub)
+    monkeypatch.setattr(admin_datastore_service, "cache_manager", stub, raising=True)
     monkeypatch.setattr(app_config, "ENABLE_ADMIN_AUTH", False)
     client = TestClient(create_app(build_default_service_container()))
     return client, stub
@@ -176,7 +179,7 @@ def test_inspect_cache_endpoint(monkeypatch):
     assert bad_resp.status_code == HTTPStatus.BAD_REQUEST
     assert (
         bad_resp.json()["detail"]["error"]
-        == f"sample_limit must be between 1 and {admin.MAX_CACHE_SAMPLE_LIMIT}"
+        == f"sample_limit must be between 1 and {MAX_CACHE_SAMPLE_LIMIT}"
     )
 
     missing = client.get("/cache/missing")

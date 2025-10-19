@@ -8,8 +8,8 @@ from typing import Generator
 
 import pytest
 
-from bt_servant_engine.apps.api.routes import admin
-from bt_servant_engine.apps.api.routes import admin_merge_helpers
+from bt_servant_engine.services.admin import datastore as admin_datastore
+from bt_servant_engine.services.admin import merge_helpers as admin_merge_helpers
 
 MIN_TOKEN_ESTIMATE = 1
 TOKEN_HEURISTIC_INPUT_LENGTH = 20
@@ -26,17 +26,22 @@ LARGE_TOKEN_BUDGET = MAX_TOKEN_BUDGET * 10
 
 def test_estimate_tokens_handles_empty_and_length() -> None:
     """Estimate tokens should fall back to minimum and scale with input length."""
-    assert admin.estimate_tokens(None) == MIN_TOKEN_ESTIMATE
-    assert admin.estimate_tokens("") == MIN_TOKEN_ESTIMATE
+    assert admin_merge_helpers.estimate_tokens(None) == MIN_TOKEN_ESTIMATE
+    assert admin_merge_helpers.estimate_tokens("") == MIN_TOKEN_ESTIMATE
     # 20 chars -> 5 tokens using //4 heuristic
-    assert admin.estimate_tokens("x" * TOKEN_HEURISTIC_INPUT_LENGTH) == EXPECTED_TOKEN_ESTIMATE
+    assert (
+        admin_merge_helpers.estimate_tokens("x" * TOKEN_HEURISTIC_INPUT_LENGTH)
+        == EXPECTED_TOKEN_ESTIMATE
+    )
 
 
 def test_yield_token_limited_slices_handles_edge_cases() -> None:
     """Slice helper splits inputs under the token budget and keeps metadata aligned."""
-    assert not admin.yield_token_limited_slices([], None, None, max_tokens=LARGE_TOKEN_BUDGET)
+    assert not admin_merge_helpers.yield_token_limited_slices(
+        [], None, None, max_tokens=LARGE_TOKEN_BUDGET
+    )
     ids = ["a", "b", "c"]
-    result = admin.yield_token_limited_slices(
+    result = admin_merge_helpers.yield_token_limited_slices(
         ids,
         None,
         [{"meta": 1}],
@@ -46,7 +51,7 @@ def test_yield_token_limited_slices_handles_edge_cases() -> None:
 
     docs = ["w" * 8, "x" * 8, "y" * 8]  # -> 2 tokens each
     metas = [{"id": 1}, {"id": 2}, {"id": 3}]
-    batched = admin.yield_token_limited_slices(
+    batched = admin_merge_helpers.yield_token_limited_slices(
         ids,
         docs,
         metas,
@@ -62,11 +67,11 @@ def test_yield_token_limited_slices_handles_edge_cases() -> None:
 def test_apply_metadata_tags_includes_optional_fields(monkeypatch: pytest.MonkeyPatch) -> None:
     """Metadata tagging stamps task markers and preserves the original dict."""
     monkeypatch.setattr(
-        "bt_servant_engine.apps.api.routes.admin_merge_helpers.now_iso",
+        "bt_servant_engine.services.admin.merge_helpers.now_iso",
         lambda: "2025-01-01T00:00:00Z",
     )
     original = [{"existing": True}]
-    config = admin.MetadataTaggingConfig(
+    config = admin_merge_helpers.MetadataTaggingConfig(
         enabled=True,
         tag_key="_merged_from",
         source="source-col",
@@ -75,7 +80,7 @@ def test_apply_metadata_tags_includes_optional_fields(monkeypatch: pytest.Monkey
         source_ids=["src-1"],
         source_id_key="_source_id",
     )
-    stamped = admin.apply_metadata_tags(original, config)
+    stamped = admin_merge_helpers.apply_metadata_tags(original, config)
     assert stamped is not original
     assert stamped == [
         {
@@ -87,9 +92,9 @@ def test_apply_metadata_tags_includes_optional_fields(monkeypatch: pytest.Monkey
         }
     ]
 
-    assert admin.apply_metadata_tags(
+    assert admin_merge_helpers.apply_metadata_tags(
         None,
-        admin.MetadataTaggingConfig(
+        admin_merge_helpers.MetadataTaggingConfig(
             enabled=True,
             tag_key="_merged_from",
             source="x",
@@ -97,9 +102,9 @@ def test_apply_metadata_tags_includes_optional_fields(monkeypatch: pytest.Monkey
             tag_timestamp=False,
         ),
     ) is None
-    disabled = admin.apply_metadata_tags(
+    disabled = admin_merge_helpers.apply_metadata_tags(
         original,
-        admin.MetadataTaggingConfig(
+        admin_merge_helpers.MetadataTaggingConfig(
             enabled=False,
             tag_key="_merged_from",
             source="source-col",
@@ -125,14 +130,14 @@ def test_compute_duplicate_preview_detects_duplicates(monkeypatch: pytest.Monkey
     dest = SimpleNamespace(batches=[["1", "2", "3"]])
     source = SimpleNamespace(batches=[["0", "2"], ["4"]])
 
-    found, preview = admin.compute_duplicate_preview(
+    found, preview = admin_merge_helpers.compute_duplicate_preview(
         source, dest, limit=DUPLICATE_PREVIEW_LIMIT, batch_size=MERGE_BATCH_SIZE
     )
     assert found is True
     assert preview == ["2"]
 
     empty_source = SimpleNamespace(batches=[["10"], ["11"]])
-    found, preview = admin.compute_duplicate_preview(
+    found, preview = admin_merge_helpers.compute_duplicate_preview(
         empty_source, dest, limit=DUPLICATE_PREVIEW_LIMIT, batch_size=MERGE_BATCH_SIZE
     )
     assert found is False
@@ -141,7 +146,7 @@ def test_compute_duplicate_preview_detects_duplicates(monkeypatch: pytest.Monkey
 
 def test_update_eta_metrics_updates_progress_fields() -> None:
     """ETA metrics compute rate fields when a task progresses."""
-    task = admin.MergeTaskStatus(
+    task = admin_datastore.MergeTaskStatus(
         task_id="task",
         source="src",
         dest="dest",
@@ -150,12 +155,12 @@ def test_update_eta_metrics_updates_progress_fields() -> None:
         completed=MAX_TOKEN_BUDGET // 2,
         started_at=time.time() - IN_PROGRESS_DURATION_SECONDS,
     )
-    admin.update_eta_metrics(task)
+    admin_datastore.update_eta_metrics(task)
     assert task.docs_per_second is not None
     assert task.eta_seconds is not None
     assert task.eta_at is not None
 
-    idle_task = admin.MergeTaskStatus(
+    idle_task = admin_datastore.MergeTaskStatus(
         task_id="idle",
         source="s",
         dest="d",
@@ -164,7 +169,7 @@ def test_update_eta_metrics_updates_progress_fields() -> None:
         completed=0,
         started_at=None,
     )
-    admin.update_eta_metrics(idle_task)
+    admin_datastore.update_eta_metrics(idle_task)
     assert idle_task.docs_per_second is None
     assert idle_task.eta_seconds is None
     assert idle_task.eta_at is None
