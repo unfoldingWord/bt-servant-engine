@@ -18,7 +18,7 @@ def test_create_app_has_routes():
         if (path := getattr(route, "path", getattr(route, "path_format", "")))
     }
     assert "/alive" in paths
-    assert any(path.startswith("/chroma") for path in paths)
+    assert any(path.startswith("/admin/chroma") for path in paths)
     assert hasattr(app.state, "services")
     assert app.state.services.intent_router is not None
     assert app.state.services.chroma is not None
