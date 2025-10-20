@@ -6,6 +6,8 @@ import logging
 import sys
 from contextlib import contextmanager
 from contextvars import ContextVar, Token
+from datetime import datetime, timezone
+from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from typing import Iterator, Optional
 
@@ -50,6 +52,46 @@ def _resolve_logs_dir() -> Path:
 
 LOGS_DIR = _resolve_logs_dir()
 LOG_FILE_PATH = LOGS_DIR / "bt_servant.log"
+LOG_MAX_BYTES = 5 * 1024 * 1024
+LOG_BACKUP_COUNT = 5
+
+
+def _archive_legacy_log_if_needed() -> None:
+    """Rename legacy logs that predate the configured cutoff."""
+    cutoff = getattr(settings, "BT_SERVANT_LOG_ROTATE_BEFORE", None)
+    if cutoff is None:
+        return
+
+    if cutoff.tzinfo is None:
+        cutoff = cutoff.replace(tzinfo=timezone.utc)
+    else:
+        cutoff = cutoff.astimezone(timezone.utc)
+
+    try:
+        stat_result = LOG_FILE_PATH.stat()
+    except FileNotFoundError:
+        return
+    except PermissionError:
+        return
+    except OSError:
+        return
+
+    modified_at = datetime.fromtimestamp(stat_result.st_mtime, tz=timezone.utc)
+    if modified_at >= cutoff:
+        return
+
+    archive_path = LOG_FILE_PATH.with_name(f"{LOG_FILE_PATH.name}.old")
+    if archive_path.exists():
+        timestamp_suffix = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+        archive_path = archive_path.with_name(f"{archive_path.name}.{timestamp_suffix}")
+
+    try:
+        LOG_FILE_PATH.rename(archive_path)
+    except OSError:
+        return
+
+
+_archive_legacy_log_if_needed()
 
 
 class CorrelationIdFilter(logging.Filter):  # pylint: disable=too-few-public-methods
@@ -182,7 +224,9 @@ def _ensure_handlers(logger: logging.Logger) -> None:
     stream_handler.setFormatter(formatter)
     logger.addHandler(stream_handler)
 
-    file_handler = logging.FileHandler(LOG_FILE_PATH, mode="a", encoding="utf-8")
+    file_handler = RotatingFileHandler(
+        LOG_FILE_PATH, maxBytes=LOG_MAX_BYTES, backupCount=LOG_BACKUP_COUNT, encoding="utf-8"
+    )
     file_handler.addFilter(correlation_filter)
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)

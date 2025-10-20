@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Literal
 
@@ -28,6 +29,9 @@ class Settings(BaseSettings):
     BASE_URL: str = Field(...)
     BT_SERVANT_LOG_LEVEL: str = Field(default="info")
     BT_SERVANT_LOG_DIR: Path | None = Field(default=None)
+    BT_SERVANT_LOG_ROTATE_BEFORE: datetime | None = Field(
+        default=datetime(2025, 10, 20, tzinfo=timezone.utc)
+    )
     MAX_META_TEXT_LENGTH: int = Field(default=4096)
     TRANSLATION_HELPS_VERSE_LIMIT: int = Field(default=5)
     RETRIEVE_SCRIPTURE_VERSE_LIMIT: int = Field(default=120)
