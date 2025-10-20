@@ -15,6 +15,7 @@ from bt_servant_engine.core.config import config as app_config
 from bt_servant_engine.services.admin import datastore as admin_datastore_service
 
 MAX_CACHE_SAMPLE_LIMIT = admin_datastore_router.MAX_CACHE_SAMPLE_LIMIT
+ADMIN_PREFIX = "/admin"
 
 
 class _StubCache:
@@ -106,7 +107,7 @@ def _make_client(monkeypatch) -> tuple[TestClient, _StubCacheManager]:
 
 def test_clear_all_caches_endpoint(monkeypatch):
     client, stub = _make_client(monkeypatch)
-    resp = client.post("/cache/clear")
+    resp = client.post(f"{ADMIN_PREFIX}/cache/clear")
     assert resp.status_code == HTTPStatus.OK
     assert resp.json()["status"] == "cleared"
     assert stub.clear_all_called
@@ -114,19 +115,19 @@ def test_clear_all_caches_endpoint(monkeypatch):
 
 def test_clear_named_cache_endpoint(monkeypatch):
     client, stub = _make_client(monkeypatch)
-    resp = client.post("/cache/selection/clear")
+    resp = client.post(f"{ADMIN_PREFIX}/cache/selection/clear")
     assert resp.status_code == HTTPStatus.OK
     assert resp.json()["cache"] == "selection"
     assert stub.clear_called == ["selection"]
 
-    resp = client.post("/cache/unknown/clear")
+    resp = client.post(f"{ADMIN_PREFIX}/cache/unknown/clear")
     assert resp.status_code == HTTPStatus.NOT_FOUND
     assert resp.json()["detail"]["error"] == "Cache 'unknown' not found"
 
 
 def test_prune_all_caches_endpoint(monkeypatch):
     client, stub = _make_client(monkeypatch)
-    resp = client.post("/cache/clear", params={"older_than_days": 1})
+    resp = client.post(f"{ADMIN_PREFIX}/cache/clear", params={"older_than_days": 1})
     assert resp.status_code == HTTPStatus.OK
     payload = resp.json()
     assert payload["status"] == "pruned"
@@ -138,7 +139,9 @@ def test_prune_all_caches_endpoint(monkeypatch):
 def test_prune_named_cache_endpoint(monkeypatch):
     client, stub = _make_client(monkeypatch)
     days = 2
-    resp = client.post("/cache/selection/clear", params={"older_than_days": days})
+    resp = client.post(
+        f"{ADMIN_PREFIX}/cache/selection/clear", params={"older_than_days": days}
+    )
     assert resp.status_code == HTTPStatus.OK
     payload = resp.json()
     assert payload["status"] == "pruned"
@@ -149,15 +152,17 @@ def test_prune_named_cache_endpoint(monkeypatch):
 
 def test_prune_invalid_params(monkeypatch):
     client, _ = _make_client(monkeypatch)
-    resp = client.post("/cache/clear", params={"older_than_days": -1})
+    resp = client.post(f"{ADMIN_PREFIX}/cache/clear", params={"older_than_days": -1})
     assert resp.status_code == HTTPStatus.BAD_REQUEST
-    resp = client.post("/cache/selection/clear", params={"older_than_days": 0})
+    resp = client.post(
+        f"{ADMIN_PREFIX}/cache/selection/clear", params={"older_than_days": 0}
+    )
     assert resp.status_code == HTTPStatus.BAD_REQUEST
 
 
 def test_get_cache_stats_endpoint(monkeypatch):
     client, _ = _make_client(monkeypatch)
-    resp = client.get("/cache/stats")
+    resp = client.get(f"{ADMIN_PREFIX}/cache/stats")
     assert resp.status_code == HTTPStatus.OK
     data = resp.json()
     assert data["enabled"] is True
@@ -167,7 +172,9 @@ def test_get_cache_stats_endpoint(monkeypatch):
 def test_inspect_cache_endpoint(monkeypatch):
     client, stub = _make_client(monkeypatch)
     sample_limit = 5
-    resp = client.get("/cache/selection", params={"sample_limit": sample_limit})
+    resp = client.get(
+        f"{ADMIN_PREFIX}/cache/selection", params={"sample_limit": sample_limit}
+    )
     assert resp.status_code == HTTPStatus.OK
     data = resp.json()
     assert data["name"] == "selection"
@@ -175,13 +182,15 @@ def test_inspect_cache_endpoint(monkeypatch):
     assert stub.cache_obj.sample_limit == sample_limit
     assert data["samples"]
 
-    bad_resp = client.get("/cache/selection", params={"sample_limit": 0})
+    bad_resp = client.get(
+        f"{ADMIN_PREFIX}/cache/selection", params={"sample_limit": 0}
+    )
     assert bad_resp.status_code == HTTPStatus.BAD_REQUEST
     assert (
         bad_resp.json()["detail"]["error"]
         == f"sample_limit must be between 1 and {MAX_CACHE_SAMPLE_LIMIT}"
     )
 
-    missing = client.get("/cache/missing")
+    missing = client.get(f"{ADMIN_PREFIX}/cache/missing")
     assert missing.status_code == HTTPStatus.NOT_FOUND
     assert missing.json()["detail"]["error"] == "Cache 'missing' not found"

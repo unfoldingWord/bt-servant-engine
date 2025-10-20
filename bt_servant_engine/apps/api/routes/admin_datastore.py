@@ -23,7 +23,7 @@ from bt_servant_engine.services.admin.datastore import (
     MergeRequest,
 )
 
-router = APIRouter()
+router = APIRouter(prefix="/admin")
 
 MAX_CACHE_SAMPLE_LIMIT = 100
 
@@ -43,20 +43,6 @@ async def add_document(
     service: AdminServiceDependency,
 ) -> JSONResponse:
     """Accept a document payload for ingestion into Chroma."""
-    try:
-        payload = service.add_document(document)
-    except CollectionNotFoundError as exc:
-        return _http_error(status.HTTP_404_NOT_FOUND, str(exc))
-    return JSONResponse(status_code=status.HTTP_200_OK, content=dict(payload))
-
-
-@router.post("/add-document")
-async def add_document_alias(
-    document: Document,
-    _: AuthDependency,
-    service: AdminServiceDependency,
-) -> JSONResponse:
-    """Backwards-compatible alias for `/chroma/add-document`."""
     try:
         payload = service.add_document(document)
     except CollectionNotFoundError as exc:
@@ -259,7 +245,7 @@ async def get_document_text_endpoint(
 
 @router.api_route("/chroma", methods=["GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS", "HEAD"])
 async def chroma_root(_: AuthDependency) -> None:
-    """Catch-all /chroma root to enforce admin auth and 404 unknown paths."""
+    """Catch-all /admin/chroma root to enforce admin auth and 404 unknown paths."""
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not Found")
 
 
@@ -268,7 +254,7 @@ async def chroma_root(_: AuthDependency) -> None:
     methods=["GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS", "HEAD"],
 )
 async def chroma_catch_all(_path: str, _: AuthDependency) -> None:
-    """Catch-all for any /chroma subpath to enforce admin auth and 404."""
+    """Catch-all for any /admin/chroma subpath to enforce admin auth and 404."""
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not Found")
 
 

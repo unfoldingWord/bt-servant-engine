@@ -27,6 +27,8 @@ MERGE_POLL_ATTEMPTS = 1000
 MERGE_POLL_INTERVAL_SECONDS = 0.05
 CANCEL_BATCH_SIZE = 5
 CANCEL_START_DELAY_SECONDS = 0.1
+ADMIN_PREFIX = "/admin"
+ADMIN_CHROMA_PREFIX = f"{ADMIN_PREFIX}/chroma"
 
 
 class FakeCollection:
@@ -127,7 +129,7 @@ def test_dry_run_duplicates_preview_limit(fake_chroma):
 
     client = TestClient(create_app(build_default_service_container()))
     resp = client.post(
-        "/chroma/collections/dst/merge",
+        f"{ADMIN_CHROMA_PREFIX}/collections/dst/merge",
         json=
         {
             "source": "src",
@@ -160,7 +162,7 @@ def test_merge_create_new_id_with_tags_and_copy(fake_chroma):
     client = TestClient(create_app(build_default_service_container()))
     # Start merge
     resp = client.post(
-        "/chroma/collections/dst/merge",
+        f"{ADMIN_CHROMA_PREFIX}/collections/dst/merge",
         json=
         {
             "source": "src",
@@ -179,7 +181,7 @@ def test_merge_create_new_id_with_tags_and_copy(fake_chroma):
 
     # Poll for completion with generous timeout
     for _ in range(MERGE_POLL_ATTEMPTS):  # 50s total timeout for CI environments
-        st = client.get(f"/chroma/merge-tasks/{task_id}")
+        st = client.get(f"{ADMIN_CHROMA_PREFIX}/merge-tasks/{task_id}")
         assert st.status_code == HTTPStatus.OK
         data = st.json()
         if data["status"] in ("completed", "failed"):
@@ -215,7 +217,7 @@ def test_cancel_merge(fake_chroma):
 
     client = TestClient(create_app(build_default_service_container()))
     resp = client.post(
-        "/chroma/collections/dst/merge",
+        f"{ADMIN_CHROMA_PREFIX}/collections/dst/merge",
         json=
         {
             "source": "src",
@@ -232,13 +234,13 @@ def test_cancel_merge(fake_chroma):
     time.sleep(CANCEL_START_DELAY_SECONDS)
 
     # Request cancel
-    cancel = client.delete(f"/chroma/merge-tasks/{task_id}")
+    cancel = client.delete(f"{ADMIN_CHROMA_PREFIX}/merge-tasks/{task_id}")
     # If the task already completed, cancellation can return 409
     assert cancel.status_code in (HTTPStatus.ACCEPTED, HTTPStatus.CONFLICT)
 
     # Wait for cancel to be acknowledged with generous timeout
     for _ in range(MERGE_POLL_ATTEMPTS):  # 50s timeout for CI environments
-        st = client.get(f"/chroma/merge-tasks/{task_id}")
+        st = client.get(f"{ADMIN_CHROMA_PREFIX}/merge-tasks/{task_id}")
         assert st.status_code == HTTPStatus.OK
         data = st.json()
         if data["status"] in ("cancelled", "completed", "failed"):
