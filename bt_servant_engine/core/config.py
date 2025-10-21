@@ -32,6 +32,10 @@ class Settings(BaseSettings):
     BT_SERVANT_LOG_ROTATE_BEFORE: datetime | None = Field(
         default=datetime(2025, 10, 20, tzinfo=timezone.utc)
     )
+    BT_SERVANT_LOG_SCHEMA_VERSION: str = Field(default="1.0.0")
+    BT_SERVANT_LOG_API_MIN_MODIFIED_AT: datetime = Field(
+        default=datetime(2025, 10, 21, 3, 30, tzinfo=timezone.utc)
+    )
     MAX_META_TEXT_LENGTH: int = Field(default=4096)
     TRANSLATION_HELPS_VERSE_LIMIT: int = Field(default=5)
     RETRIEVE_SCRIPTURE_VERSE_LIMIT: int = Field(default=120)

@@ -29,12 +29,15 @@ def _auth_headers() -> dict[str, str]:
 def _logs_client(monkeypatch, tmp_path) -> Tuple[TestClient, os.PathLike[str]]:
     """Provision a TestClient with admin auth and a temporary logs directory."""
 
+    cutoff = datetime.now(timezone.utc) - timedelta(days=30)
     monkeypatch.setattr(app_config, "ENABLE_ADMIN_AUTH", True, raising=True)
     monkeypatch.setattr(app_config, "ADMIN_API_TOKEN", ADMIN_TOKEN, raising=True)
 
     monkeypatch.setattr(core_logging, "LOGS_DIR", tmp_path, raising=True)
     monkeypatch.setattr(core_logging, "LOG_FILE_PATH", tmp_path / "bt_servant.log", raising=True)
+    monkeypatch.setattr(core_logging, "LOG_API_MIN_MODIFIED_AT", cutoff, raising=True)
     monkeypatch.setattr(admin_logs, "LOGS_DIR", tmp_path, raising=True)
+    monkeypatch.setattr(admin_logs, "LOG_API_MIN_MODIFIED_AT", cutoff, raising=True)
 
     client = TestClient(create_app(build_default_service_container()))
     return client, tmp_path

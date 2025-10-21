@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Iterator, TypedDict, cast
@@ -11,11 +12,12 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.responses import StreamingResponse
 
 from bt_servant_engine.apps.api.dependencies import require_admin_token
-from bt_servant_engine.core.logging import LOGS_DIR
+from bt_servant_engine.core.logging import LOGS_DIR, LOG_API_MIN_MODIFIED_AT
 
 router = APIRouter()
 
 LOG_SUFFIX = ".log"
+LOG_FILENAME_PATTERN = re.compile(rf"^[\w.-]+{re.escape(LOG_SUFFIX)}(?:\.[\w-]+)?$")
 LOG_CHUNK_SIZE = 64 * 1024
 RECENT_DAYS_MIN = 1
 RECENT_DAYS_MAX = 90
@@ -45,12 +47,17 @@ def _isoformat_utc(timestamp: float) -> str:
     return datetime.fromtimestamp(timestamp, tz=timezone.utc).isoformat().replace("+00:00", "Z")
 
 
+def _is_supported_log_file(path: Path) -> bool:
+    """Return True for log files and rollover artifacts recognized by the API."""
+    return path.is_file() and bool(LOG_FILENAME_PATTERN.match(path.name))
+
+
 def _iter_log_files() -> Iterator[Path]:
-    """Yield .log files located in the configured logs directory."""
+    """Yield recognized log files located in the configured logs directory."""
     try:
-        yield from (
-            entry for entry in LOGS_DIR.iterdir() if entry.is_file() and entry.suffix == LOG_SUFFIX
-        )
+        for entry in LOGS_DIR.iterdir():
+            if _is_supported_log_file(entry):
+                yield entry
     except FileNotFoundError as exc:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Log directory not found"
@@ -85,7 +92,7 @@ def _validated_log_path(filename: str) -> Path:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid log filename")
     if any(sep in filename for sep in ("/", "\\")) or ".." in filename:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid log filename")
-    if not filename.endswith(LOG_SUFFIX):
+    if not LOG_FILENAME_PATTERN.match(filename):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid log filename")
 
     candidate = LOGS_DIR / filename
@@ -103,6 +110,25 @@ def _validated_log_path(filename: str) -> Path:
     if candidate_resolved.parent != LOGS_DIR.resolve():
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid log filename")
     if not candidate_resolved.exists() or not candidate_resolved.is_file():
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Log file not found")
+    try:
+        stat_result = candidate_resolved.stat()
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Log file not found"
+        ) from exc
+    except PermissionError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Log file not accessible"
+        ) from exc
+    except OSError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Unable to read log file metadata",
+        ) from exc
+
+    modified_at = datetime.fromtimestamp(stat_result.st_mtime, tz=timezone.utc)
+    if modified_at < LOG_API_MIN_MODIFIED_AT:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Log file not found")
     return candidate_resolved
 
@@ -147,6 +173,10 @@ def _collect_log_entries() -> LogFilesPayload:
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail="Unable to read log file metadata",
             ) from exc
+
+        modified_at = datetime.fromtimestamp(stat_result.st_mtime, tz=timezone.utc)
+        if modified_at < LOG_API_MIN_MODIFIED_AT:
+            continue
 
         files.append(_build_log_entry(file_path, stat_result))
         total_size += stat_result.st_size

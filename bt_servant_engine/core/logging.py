@@ -9,7 +9,7 @@ from contextvars import ContextVar, Token
 from datetime import datetime, timezone
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
-from typing import Iterator, Optional
+from typing import Any, Iterator, Optional
 
 from pythonjsonlogger import jsonlogger
 
@@ -51,6 +51,23 @@ def _resolve_logs_dir() -> Path:
 
 
 LOGS_DIR = _resolve_logs_dir()
+LOG_SCHEMA_VERSION = str(getattr(settings, "BT_SERVANT_LOG_SCHEMA_VERSION", "1.0.0"))
+
+
+def _resolve_log_api_cutoff() -> datetime:
+    """Normalize the minimum modified timestamp expected by admin log APIs."""
+
+    configured = getattr(
+        settings,
+        "BT_SERVANT_LOG_API_MIN_MODIFIED_AT",
+        datetime.now(timezone.utc),
+    )
+    if configured.tzinfo is None:
+        return configured.replace(tzinfo=timezone.utc)
+    return configured.astimezone(timezone.utc)
+
+
+LOG_API_MIN_MODIFIED_AT = _resolve_log_api_cutoff()
 LOG_FILE_PATH = LOGS_DIR / "bt_servant.log"
 LOG_MAX_BYTES = 5 * 1024 * 1024
 LOG_BACKUP_COUNT = 5
@@ -92,6 +109,25 @@ def _archive_legacy_log_if_needed() -> None:
 
 
 _archive_legacy_log_if_needed()
+
+
+class VersionedJsonFormatter(jsonlogger.JsonFormatter):
+    """Inject a schema version into each structured log entry."""
+
+    def __init__(self, *args, schema_version: str, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self._schema_version = schema_version
+
+    def add_fields(
+        self,
+        log_record: dict[str, Any],
+        record: logging.LogRecord,
+        message_dict: dict[str, Any],
+    ) -> None:
+        super().add_fields(log_record, record, message_dict)
+        # Preserve explicit overrides on the record.
+        # Otherwise ensure every entry includes the schema version.
+        log_record.setdefault("schema_version", self._schema_version)
 
 
 class CorrelationIdFilter(logging.Filter):  # pylint: disable=too-few-public-methods
@@ -195,7 +231,7 @@ def _ensure_handlers(logger: logging.Logger) -> None:
     if logger.handlers:
         return
 
-    formatter = jsonlogger.JsonFormatter(
+    formatter = VersionedJsonFormatter(
         " ".join(
             [
                 "%(asctime)s",
@@ -216,6 +252,7 @@ def _ensure_handlers(logger: logging.Logger) -> None:
         },
         datefmt="%Y-%m-%d %H:%M:%S",
         json_ensure_ascii=False,
+        schema_version=LOG_SCHEMA_VERSION,
     )
     correlation_filter = CorrelationIdFilter()
 
@@ -256,4 +293,6 @@ __all__ = [
     "client_ip_context",
     "log_user_id_context",
     "get_logger",
+    "LOG_SCHEMA_VERSION",
+    "LOG_API_MIN_MODIFIED_AT",
 ]
