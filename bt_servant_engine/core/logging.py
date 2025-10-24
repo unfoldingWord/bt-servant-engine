@@ -9,6 +9,7 @@ from contextvars import ContextVar, Token
 from datetime import datetime, timezone
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
+from threading import Event, Lock
 from typing import Any, Iterator, Optional
 
 from pythonjsonlogger import jsonlogger
@@ -109,6 +110,10 @@ def _archive_legacy_log_if_needed() -> None:
 
 
 _archive_legacy_log_if_needed()
+
+
+_handler_lock = Lock()
+_handlers_configured = Event()
 
 
 class VersionedJsonFormatter(jsonlogger.JsonFormatter):
@@ -227,46 +232,97 @@ def client_ip_context(value: Optional[str]) -> Iterator[None]:
         reset_client_ip(token)
 
 
-def _ensure_handlers(logger: logging.Logger) -> None:
-    if logger.handlers:
+def _install_handler_once(logger: logging.Logger, handler: logging.Handler) -> None:
+    """Attach handler to logger unless an equivalent one already exists."""
+
+    for existing in logger.handlers:
+        if existing == handler:
+            return
+        if type(existing) is not type(handler):  # noqa: E721 - intentional exact type check
+            continue
+        if isinstance(handler, RotatingFileHandler) and getattr(
+            existing, "baseFilename", None
+        ) == getattr(handler, "baseFilename", None):
+            return
+        if isinstance(handler, logging.StreamHandler) and getattr(
+            existing, "stream", None
+        ) is getattr(handler, "stream", None):
+            return
+    logger.addHandler(handler)
+
+
+def _ensure_handlers() -> None:
+    """Configure shared handlers on the root logger exactly once."""
+
+    if _handlers_configured.is_set():
         return
 
-    formatter = VersionedJsonFormatter(
-        " ".join(
-            [
-                "%(asctime)s",
-                "%(levelname)s",
-                "%(name)s",
-                "%(message)s",
-                "%(correlation_id)s",
-                "%(log_user_id)s",
-                "%(client_ip)s",
-            ]
-        ),
-        rename_fields={
-            "asctime": "timestamp",
-            "levelname": "level",
-            "name": "logger",
-            "correlation_id": "cid",
-            "log_user_id": "user",
-        },
-        datefmt="%Y-%m-%d %H:%M:%S",
-        json_ensure_ascii=False,
-        schema_version=LOG_SCHEMA_VERSION,
-    )
-    correlation_filter = CorrelationIdFilter()
+    with _handler_lock:
+        if _handlers_configured.is_set():
+            return
 
-    stream_handler = logging.StreamHandler(sys.stdout)
-    stream_handler.addFilter(correlation_filter)
-    stream_handler.setFormatter(formatter)
-    logger.addHandler(stream_handler)
+        formatter = VersionedJsonFormatter(
+            " ".join(
+                [
+                    "%(asctime)s",
+                    "%(levelname)s",
+                    "%(name)s",
+                    "%(message)s",
+                    "%(correlation_id)s",
+                    "%(log_user_id)s",
+                    "%(client_ip)s",
+                ]
+            ),
+            rename_fields={
+                "asctime": "timestamp",
+                "levelname": "level",
+                "name": "logger",
+                "correlation_id": "cid",
+                "log_user_id": "user",
+            },
+            datefmt="%Y-%m-%d %H:%M:%S",
+            json_ensure_ascii=False,
+            schema_version=LOG_SCHEMA_VERSION,
+        )
+        correlation_filter = CorrelationIdFilter()
 
-    file_handler = RotatingFileHandler(
-        LOG_FILE_PATH, maxBytes=LOG_MAX_BYTES, backupCount=LOG_BACKUP_COUNT, encoding="utf-8"
-    )
-    file_handler.addFilter(correlation_filter)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
+        root_logger = logging.getLogger()
+        root_logger.setLevel(LOG_LEVEL)
+
+        stream_handler = logging.StreamHandler(sys.stdout)
+        stream_handler.addFilter(correlation_filter)
+        stream_handler.setFormatter(formatter)
+        _install_handler_once(root_logger, stream_handler)
+
+        file_handler = RotatingFileHandler(
+            LOG_FILE_PATH,
+            maxBytes=LOG_MAX_BYTES,
+            backupCount=LOG_BACKUP_COUNT,
+            encoding="utf-8",
+        )
+        file_handler.addFilter(correlation_filter)
+        file_handler.setFormatter(formatter)
+        _install_handler_once(root_logger, file_handler)
+
+        _handlers_configured.set()
+
+
+def _remove_duplicate_handlers(logger: logging.Logger) -> None:
+    """Drop per-logger handlers that would duplicate the shared root handlers."""
+
+    stale: list[logging.Handler] = []
+    for handler in logger.handlers:
+        if isinstance(handler, RotatingFileHandler) and getattr(
+            handler, "baseFilename", None
+        ) == str(LOG_FILE_PATH):
+            stale.append(handler)
+        elif (
+            isinstance(handler, logging.StreamHandler)
+            and getattr(handler, "stream", None) is sys.stdout
+        ):
+            stale.append(handler)
+    for handler in stale:
+        logger.removeHandler(handler)
 
 
 def get_logger(name: str) -> logging.Logger:
@@ -274,7 +330,9 @@ def get_logger(name: str) -> logging.Logger:
 
     logger = logging.getLogger(name)
     logger.setLevel(LOG_LEVEL)
-    _ensure_handlers(logger)
+    _ensure_handlers()
+    _remove_duplicate_handlers(logger)
+    logger.propagate = True
     return logger
 
 
