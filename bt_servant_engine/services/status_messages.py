@@ -18,7 +18,7 @@ import tempfile
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, Optional, TypedDict, cast
+from typing import Any, Optional, TypedDict, cast
 
 from openai import OpenAI, OpenAIError
 
@@ -29,7 +29,6 @@ from bt_servant_engine.core.logging import get_logger
 logger = get_logger(__name__)
 
 # Message key constants
-THINKING_ABOUT_MESSAGE = "THINKING_ABOUT_MESSAGE"
 SEARCHING_BIBLE_RESOURCES = "SEARCHING_BIBLE_RESOURCES"
 REVIEWING_FIA_GUIDANCE = "REVIEWING_FIA_GUIDANCE"
 CHECKING_CAPABILITIES = "CHECKING_CAPABILITIES"
@@ -55,12 +54,6 @@ DATA_DIR = Path(config.DATA_DIR)
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 _STATUS_MESSAGES_PATH = DATA_DIR / "status_messages_data.json"
 
-# Default emoji overrides applied unless superseded by configuration
-_DEFAULT_PROGRESS_MESSAGE_EMOJI_OVERRIDES: Dict[str, str] = {
-    THINKING_ABOUT_MESSAGE: "🧠",
-    FOUND_RELEVANT_DOCUMENTS: "📚",
-}
-
 
 @dataclass(slots=True)
 class StatusMessageStore:
@@ -75,7 +68,7 @@ class StatusMessageStore:
 
 
 class LocalizedProgressMessage(TypedDict):
-    """Structured progress status message with emoji metadata."""
+    """Structured progress status message (emoji field retained for compatibility)."""
 
     key: str
     text: str
@@ -296,7 +289,7 @@ def get_status_message(message_key: str, state: Any, **format_params: Any) -> st
     """Get a localized status message for the given key and state.
 
     Args:
-        message_key: One of the message key constants (e.g., THINKING_ABOUT_MESSAGE)
+        message_key: One of the message key constants (e.g., REVIEWING_FIA_GUIDANCE)
         state: The BrainState dictionary containing language information
         **format_params: Optional format parameters for template messages
             (e.g., action="do something")
@@ -309,7 +302,7 @@ def get_status_message(message_key: str, state: Any, **format_params: Any) -> st
     # Check if message key exists
     if message_key not in _STATUS_STORE.status_messages:
         logger.error("Unknown status message key: %s", message_key)
-        return f"[Unknown message: {message_key}]"
+        return _apply_whatsapp_italics(f"[Unknown message: {message_key}]")
 
     # Check for pre-loaded translation
     translations = _STATUS_STORE.status_messages[message_key]
@@ -336,25 +329,22 @@ def get_status_message(message_key: str, state: Any, **format_params: Any) -> st
                 "Format parameter %s not found in message '%s': %s", e, message_key, message
             )
 
-    return message
+    return _apply_whatsapp_italics(message)
 
 
-def _resolve_progress_emoji(message_key: str) -> str:
-    """Select the emoji to display for a status message.
+def _apply_whatsapp_italics(message: str) -> str:
+    """Wrap a message in underscores so it renders as italics."""
+    sanitized = message.strip()
+    if not sanitized:
+        return ""
+    if sanitized.startswith("_") and sanitized.endswith("_"):
+        return sanitized
+    return f"_{sanitized}_"
 
-    Priority:
-        1. Explicit override from configuration (PROGRESS_MESSAGE_EMOJI_OVERRIDES)
-        2. Built-in defaults defined in this module
-        3. Global default emoji from configuration (PROGRESS_MESSAGE_EMOJI)
-    """
-    overrides_value = getattr(config, "PROGRESS_MESSAGE_EMOJI_OVERRIDES", {})
-    if isinstance(overrides_value, dict):
-        maybe_override = overrides_value.get(message_key)
-        if isinstance(maybe_override, str):
-            return maybe_override
-    if message_key in _DEFAULT_PROGRESS_MESSAGE_EMOJI_OVERRIDES:
-        return _DEFAULT_PROGRESS_MESSAGE_EMOJI_OVERRIDES[message_key]
-    return config.PROGRESS_MESSAGE_EMOJI
+
+def _resolve_progress_emoji(_: str) -> str:
+    """Return an empty string to disable emoji usage in status messages."""
+    return ""
 
 
 def get_progress_message(
@@ -370,19 +360,18 @@ def get_progress_message(
 
 
 def make_progress_message(
-    text: str, *, message_key: str = "", emoji: Optional[str] = None
+    text: str, *, message_key: str = "", _emoji: Optional[str] = None
 ) -> LocalizedProgressMessage:
-    """Build a custom progress message with optional emoji override."""
-    final_emoji = emoji if emoji is not None else config.PROGRESS_MESSAGE_EMOJI
+    """Build a custom progress message (emojis disabled)."""
+    italicized = _apply_whatsapp_italics(text)
     return cast(
         LocalizedProgressMessage,
-        {"key": message_key, "text": text, "emoji": final_emoji},
+        {"key": message_key, "text": italicized, "emoji": ""},
     )
 
 
 __all__ = [
     # Message key constants
-    "THINKING_ABOUT_MESSAGE",
     "SEARCHING_BIBLE_RESOURCES",
     "REVIEWING_FIA_GUIDANCE",
     "CHECKING_CAPABILITIES",

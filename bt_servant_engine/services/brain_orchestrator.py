@@ -443,7 +443,6 @@ def build_translation_assistance_progress_message(
     return status_messages.make_progress_message(
         combined,
         message_key=status_messages.FOUND_RELEVANT_DOCUMENTS,
-        emoji=found_docs_payload["emoji"],
     )
 
 
@@ -540,13 +539,9 @@ def create_brain():
     # Add all nodes with timing wrappers
     builder.add_node(
         "start_node",
-        wrap_node_with_progress(
+        wrap_node_with_timing(
             brain_nodes.start,
             "start_node",
-            progress_message=lambda s: status_messages.get_progress_message(
-                status_messages.THINKING_ABOUT_MESSAGE, s
-            ),
-            force=True,
         ),
     )
     builder.add_node(
@@ -573,15 +568,9 @@ def create_brain():
     )
     builder.add_node(
         "query_vector_db_node",
-        wrap_node_with_progress(
+        wrap_node_with_timing(
             brain_nodes.query_vector_db,
             "query_vector_db_node",
-            progress_message=lambda s: status_messages.get_progress_message(
-                status_messages.SEARCHING_BIBLE_RESOURCES, s
-            ),
-            condition=lambda s: IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE
-            in s.get("user_intents", []),
-            force=True,
         ),
     )
     builder.add_node(

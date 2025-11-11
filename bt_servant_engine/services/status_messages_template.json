@@ -1,17 +1,4 @@
 {
-  "THINKING_ABOUT_MESSAGE": {
-    "en": "Give me a few moments to think about your message.",
-    "ar": "أعطني بضع لحظات لأفكر في رسالتك.",
-    "fr": "Laissez‑moi quelques instants pour réfléchir à votre message.",
-    "es": "Dame unos momentos para pensar en tu mensaje.",
-    "hi": "आपके संदेश पर विचार करने के लिए मुझे कुछ क्षण दें।",
-    "ru": "Дайте мне несколько мгновений, чтобы обдумать ваше сообщение.",
-    "id": "Berikan saya beberapa saat untuk memikirkan pesan Anda.",
-    "sw": "Nipe muda kidogo kufikiria kuhusu ujumbe wako.",
-    "pt": "Dê‑me alguns instantes para refletir sobre sua mensagem.",
-    "zh": "请给我一点时间思考你的消息。",
-    "nl": "Geef me even de tijd om over je bericht na te denken."
-  },
   "SEARCHING_BIBLE_RESOURCES": {
     "en": "I'm searching various Bible resources to help answer your question.",
     "ar": "أبحث في مختلف موارد الكتاب المقدس لمساعدتك في الإجابة على سؤالك.",

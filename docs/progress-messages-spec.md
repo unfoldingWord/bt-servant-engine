@@ -195,10 +195,9 @@ async def progress_callback(
 
     async def send_progress(message: status_messages.LocalizedProgressMessage) -> None:
         try:
-            emoji = message.get("emoji", config.PROGRESS_MESSAGE_EMOJI)
             text_msg = message.get("text", "")
             if text_msg:
-                await send_text_message(user_id=user_id, text=f"{emoji} {text_msg}")
+                await send_text_message(user_id=user_id, text=text_msg)
         except Exception:
             logger.warning("Failed to send progress message", exc_info=True)
     return send_progress
@@ -221,13 +220,9 @@ Update specific nodes to send progress messages:
 
 builder.add_node(
     "query_vector_db_node",
-    wrap_node_with_progress(
+    wrap_node_with_timing(
         brain_nodes.query_vector_db,
         "query_vector_db_node",
-        progress_message=lambda s: status_messages.get_progress_message(
-            status_messages.SEARCHING_BIBLE_RESOURCES, s
-        ),
-        condition=lambda s: IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE in s.get("user_intents", [])
     )
 )
 
@@ -241,6 +236,9 @@ builder.add_node(
         force=True  # ALWAYS send this message, bypass throttling
     )
 )
+
+Status message text is automatically wrapped in underscores (WhatsApp italics) and no emoji
+prefixes are sent to users.
 ```
 
 ### 4. Configuration
@@ -252,10 +250,10 @@ Add configuration options to control progress messaging:
 
 PROGRESS_MESSAGES_ENABLED: bool = env.bool("PROGRESS_MESSAGES_ENABLED", default=True)
 PROGRESS_MESSAGE_MIN_INTERVAL: float = env.float("PROGRESS_MESSAGE_MIN_INTERVAL", default=3.0)
-PROGRESS_MESSAGE_EMOJI: str = env.str("PROGRESS_MESSAGE_EMOJI", default="⏳")
+PROGRESS_MESSAGE_EMOJI: str = env.str("PROGRESS_MESSAGE_EMOJI", default="⏳")  # currently unused
 PROGRESS_MESSAGE_EMOJI_OVERRIDES: dict[str, str] = env.json(
-    "PROGRESS_MESSAGE_EMOJI_OVERRIDES",  # Defaults handled in code
-    default={}
+    "PROGRESS_MESSAGE_EMOJI_OVERRIDES",
+    default={},  # currently unused
 )
 ```
 

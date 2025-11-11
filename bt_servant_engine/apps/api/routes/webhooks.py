@@ -433,14 +433,13 @@ def _build_progress_sender(
         if not config.PROGRESS_MESSAGES_ENABLED:
             return
         try:
-            emoji = message.get("emoji", config.PROGRESS_MESSAGE_EMOJI)
             text_msg = message.get("text", "")
             if not text_msg:
                 logger.debug("Empty progress message text, skipping send")
                 return
             await context.messaging.send_text_message(
                 context.user_message.user_id,
-                f"{emoji} {text_msg}",
+                text_msg,
             )
         except httpx.HTTPError:
             logger.warning("Failed to send progress message", exc_info=True)

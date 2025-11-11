@@ -140,7 +140,7 @@ def test_maybe_send_progress_forced():
             state, status_messages.make_progress_message("Forced message"), force=True
         )
         assert len(calls) == 1
-        assert calls[0]["text"] == "Forced message"
+        assert calls[0]["text"] == "_Forced message_"
 
     asyncio.run(run_test())
 
@@ -163,7 +163,7 @@ def test_maybe_send_progress_success():
 
         await maybe_send_progress(state, status_messages.make_progress_message("Success message"))
         assert len(calls) == 1
-        assert calls[0]["text"] == "Success message"
+        assert calls[0]["text"] == "_Success message_"
         assert state["last_progress_time"] > 0  # Time was updated
 
     asyncio.run(run_test())

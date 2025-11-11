@@ -129,15 +129,14 @@ def test_process_message_audio_flow(monkeypatch) -> None:
         )
     )
 
-    progress_prefix = app_config.PROGRESS_MESSAGE_EMOJI
     assert messaging.sent_text == [  # type: ignore[attr-defined]
         (
             "15555555555",
-            f"{progress_prefix} I'm transcribing your voice message. Give me a moment.",
+            "_I'm transcribing your voice message. Give me a moment._",
         ),
         (
             "15555555555",
-            f"{progress_prefix} I'm packaging up a voice message response.",
+            "_I'm packaging up a voice message response._",
         ),
         ("15555555555", "response"),
     ]

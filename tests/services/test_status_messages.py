@@ -62,9 +62,9 @@ class TestGetStatusMessage:
         """Returns English text when language is English."""
         state = {"user_response_language": "en"}
         result = status_messages.get_status_message(
-            status_messages.THINKING_ABOUT_MESSAGE, state
+            status_messages.REVIEWING_FIA_GUIDANCE, state
         )
-        assert result == "Give me a few moments to think about your message."
+        assert result == "_I'm reviewing the FIA guidance to answer your question._"
 
     def test_returns_english_message_by_default(self):
         """Returns English text when no language specified."""
@@ -72,13 +72,12 @@ class TestGetStatusMessage:
         result = status_messages.get_status_message(
             status_messages.TRANSCRIBING_VOICE, state
         )
-        assert result == "I'm transcribing your voice message. Give me a moment."
+        assert result == "_I'm transcribing your voice message. Give me a moment._"
 
     def test_all_message_keys_have_english_text(self):
         """All defined message keys have English translations."""
         state = {"user_response_language": "en"}
         message_keys = [
-            status_messages.THINKING_ABOUT_MESSAGE,
             status_messages.SEARCHING_BIBLE_RESOURCES,
             status_messages.REVIEWING_FIA_GUIDANCE,
             status_messages.CHECKING_CAPABILITIES,
@@ -101,12 +100,13 @@ class TestGetStatusMessage:
             assert isinstance(result, str)
             assert len(result) > 0
             assert not result.startswith("[Unknown")
+            assert result.startswith("_") and result.endswith("_")
 
     def test_returns_error_for_unknown_message_key(self):
         """Returns error message for unknown message keys."""
         state = {"user_response_language": "en"}
         result = status_messages.get_status_message("INVALID_KEY", state)
-        assert "[Unknown message: INVALID_KEY]" in result
+        assert result == "_[Unknown message: INVALID_KEY]_"
 
     @patch("bt_servant_engine.services.status_messages._translate_dynamically")
     def test_calls_dynamic_translation_for_missing_language(self, mock_translate):
@@ -115,60 +115,46 @@ class TestGetStatusMessage:
         state = {"user_response_language": "de"}  # German not pre-loaded
 
         result = status_messages.get_status_message(
-            status_messages.THINKING_ABOUT_MESSAGE, state
+            status_messages.REVIEWING_FIA_GUIDANCE, state
         )
 
         mock_translate.assert_called_once_with(
-            status_messages.THINKING_ABOUT_MESSAGE, "de"
+            status_messages.REVIEWING_FIA_GUIDANCE, "de"
         )
-        assert result == "Übersetzter Text"
+        assert result == "_Übersetzter Text_"
 
 
 class TestProgressMessages:
     """Tests for structured progress message helpers."""
 
-    def test_thinking_message_uses_brain_emoji(self):
-        """Brain status message includes the 🧠 emoji override."""
+    def test_progress_message_is_italicized_without_emoji(self):
+        """Progress messages are italicized and omit emojis entirely."""
         state = {"user_response_language": "en"}
         result = status_messages.get_progress_message(
-            status_messages.THINKING_ABOUT_MESSAGE, state
+            status_messages.REVIEWING_FIA_GUIDANCE, state
         )
-        assert result["text"] == "Give me a few moments to think about your message."
-        assert result["emoji"] == "🧠"
+        assert result["text"].startswith("_") and result["text"].endswith("_")
+        assert result["emoji"] == ""
 
-    def test_default_progress_message_uses_config_emoji(self, monkeypatch: pytest.MonkeyPatch):
-        """Default emoji falls back to the configured global symbol."""
-        state = {"user_response_language": "en"}
-        monkeypatch.setattr(status_messages.config, "PROGRESS_MESSAGE_EMOJI", "⏳")
-        monkeypatch.setattr(status_messages.config, "PROGRESS_MESSAGE_EMOJI_OVERRIDES", {})
+    def test_make_progress_message_also_applies_italics(self):
+        """Custom progress messages are wrapped in italics."""
+        message = status_messages.make_progress_message("Working hard")
+        assert message["text"] == "_Working hard_"
+        assert message["emoji"] == ""
 
-        result = status_messages.get_progress_message(
-            status_messages.TRANSCRIBING_VOICE, state
-        )
-        assert result["emoji"] == "⏳"
-
-    def test_config_override_takes_precedence(self, monkeypatch: pytest.MonkeyPatch):
-        """Configuration overrides take precedence over built-in defaults."""
-        state = {"user_response_language": "en"}
+    def test_config_overrides_are_ignored(self, monkeypatch: pytest.MonkeyPatch):
+        """Emoji configuration overrides do not change the blank emoji policy."""
         monkeypatch.setattr(status_messages.config, "PROGRESS_MESSAGE_EMOJI", "⏳")
         monkeypatch.setattr(
             status_messages.config,
             "PROGRESS_MESSAGE_EMOJI_OVERRIDES",
-            {status_messages.THINKING_ABOUT_MESSAGE: "✨"},
+            {status_messages.REVIEWING_FIA_GUIDANCE: "✨"},
         )
-
-        result = status_messages.get_progress_message(
-            status_messages.THINKING_ABOUT_MESSAGE, state
-        )
-        assert result["emoji"] == "✨"
-
-    def test_found_documents_progress_uses_books_icon(self):
-        """Found-documents status message defaults to the books emoji."""
         state = {"user_response_language": "en"}
         result = status_messages.get_progress_message(
-            status_messages.FOUND_RELEVANT_DOCUMENTS, state, resources="example"
+            status_messages.REVIEWING_FIA_GUIDANCE, state
         )
-        assert result["emoji"] == "📚"
+        assert result["emoji"] == ""
 
 
 class TestDynamicTranslation:
@@ -189,7 +175,7 @@ class TestDynamicTranslation:
         mock_client.chat.completions.create.return_value = mock_response
 
         result = status_messages._translate_dynamically(
-            status_messages.THINKING_ABOUT_MESSAGE, "es"
+            status_messages.REVIEWING_FIA_GUIDANCE, "es"
         )
 
         assert result == "Mensaje traducido al español"
@@ -211,14 +197,14 @@ class TestDynamicTranslation:
 
         # First call - should hit OpenAI
         result1 = status_messages._translate_dynamically(
-            status_messages.THINKING_ABOUT_MESSAGE, "it"
+            status_messages.REVIEWING_FIA_GUIDANCE, "it"
         )
         assert result1 == "Cached translation"
         assert mock_client.chat.completions.create.call_count == 1
 
         # Second call - should use cache
         result2 = status_messages._translate_dynamically(
-            status_messages.THINKING_ABOUT_MESSAGE, "it"
+            status_messages.REVIEWING_FIA_GUIDANCE, "it"
         )
         assert result2 == "Cached translation"
         assert mock_client.chat.completions.create.call_count == 1  # No additional calls
@@ -234,11 +220,11 @@ class TestDynamicTranslation:
         mock_client.chat.completions.create.side_effect = OpenAIError("API Error")
 
         result = status_messages._translate_dynamically(
-            status_messages.THINKING_ABOUT_MESSAGE, "de"
+            status_messages.REVIEWING_FIA_GUIDANCE, "de"
         )
 
         # Should return English fallback
-        assert result == "Give me a few moments to think about your message."
+        assert result == "I'm reviewing the FIA guidance to answer your question."
 
     def test_returns_english_for_unknown_message_key(self):
         """Returns empty string when message key doesn't exist."""
@@ -288,7 +274,7 @@ class TestIntegration:
             "It looks like I'm having trouble processing your message. "
             "Please report this issue to my creators."
         )
-        assert result == expected
+        assert result == f"_{expected}_"
 
     def test_full_flow_with_query_language_fallback(self):
         """Full flow: No user preference, uses query language."""
@@ -300,7 +286,7 @@ class TestIntegration:
             status_messages.FINALIZING_RESPONSE, state
         )
         expected = "I'm pulling everything together into a helpful response for you."
-        assert result == expected
+        assert result == f"_{expected}_"
 
     @patch("bt_servant_engine.services.status_messages._translate_dynamically")
     def test_full_flow_with_dynamic_translation(self, mock_translate):
@@ -313,7 +299,7 @@ class TestIntegration:
         result = status_messages.get_status_message(
             status_messages.PACKAGING_VOICE_RESPONSE, state
         )
-        assert result == "Mensaje en italiano"
+        assert result == "_Mensaje en italiano_"
         mock_translate.assert_called_once_with(
             status_messages.PACKAGING_VOICE_RESPONSE, "it"
         )
