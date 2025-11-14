@@ -14,7 +14,6 @@ from typing import TYPE_CHECKING, Any, Callable, Iterable, Optional, cast
 from openai import OpenAI
 
 from bt_servant_engine.core.config import config
-from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.core.ports import ChromaPort, UserStatePort
 from bt_servant_engine.services.openai_utils import (
@@ -406,7 +405,6 @@ def set_response_language(state: Any) -> dict:
         chat_history=s["user_chat_history"],
     )
     dependencies = ResponseLanguageDependencies(
-        supported_language_map=supported_language_map,
         set_user_response_language=user_state.set_response_language,
     )
     return set_response_language_impl(request, dependencies)

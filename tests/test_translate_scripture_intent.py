@@ -5,7 +5,7 @@ from typing import Any, cast
 
 import pytest
 
-from bt_servant_engine.core.language import Language, ResponseLanguage, TranslatedPassage
+from bt_servant_engine.core.language import ResponseLanguage, TranslatedPassage
 from bt_servant_engine.core.models import PassageRef, PassageSelection
 from bt_servant_engine.services import brain_nodes
 from bt_servant_engine.services.brain_orchestrator import BrainState
@@ -26,11 +26,11 @@ def _make_parse_stub(current_query: str):
         if text_format is ResponseLanguage:
             q = current_query.lower()
             if "dutch" in q:
-                return _StubParseResult(ResponseLanguage(language=Language.DUTCH))
+                return _StubParseResult(ResponseLanguage(language="nl"))
             if "chinese" in q:
-                return _StubParseResult(ResponseLanguage(language=Language.MANDARIN))
-            # For unsupported languages like Italian or when no target present
-            return _StubParseResult(ResponseLanguage(language=Language.OTHER))
+                return _StubParseResult(ResponseLanguage(language="zh"))
+            # For unsupported/ambiguous languages fall back to "other"
+            return _StubParseResult(ResponseLanguage(language="other"))
 
         # Passage selection parse: text_format=PassageSelection
         if text_format is PassageSelection:
@@ -80,14 +80,14 @@ def _state_for(query: str) -> BrainState:
     )
 
 
-def test_translate_scripture_translates_with_supported_target(monkeypatch: pytest.MonkeyPatch):
-    # Arrange: supported target (Dutch), stub both selection parse and translation parse
-    query = "translate gen 1:1 into dutch"
+def test_translate_scripture_translates_with_arbitrary_target(monkeypatch: pytest.MonkeyPatch):
+    # Arrange: target language (Turkish) was previously unsupported; ensure it now works
+    query = "translate gen 1:1 into turkish"
 
     def parse_stub(*args: Any, **kwargs: Any):  # noqa: ANN401 - test stub
         tf = kwargs.get("text_format")
         if tf is ResponseLanguage:
-            return _StubParseResult(ResponseLanguage(language=Language.DUTCH))
+            return _StubParseResult(ResponseLanguage(language="tr"))
         if tf is PassageSelection:
             sel = PassageSelection(
                 selections=[
@@ -101,8 +101,8 @@ def test_translate_scripture_translates_with_supported_target(monkeypatch: pytes
             tp = TranslatedPassage(
                 header_book="Genesis",
                 header_suffix="1:1",
-                body="In den beginne...",
-                content_language=Language.DUTCH,
+                body="Başlangıçta...",
+                content_language="tr",
             )
             return _StubParseResult(tp)
         return _StubParseResult(None)
@@ -117,7 +117,7 @@ def test_translate_scripture_translates_with_supported_target(monkeypatch: pytes
     item = (out.get("responses") or [])[0]
     resp = cast(dict, item["response"])
     assert resp.get("suppress_translation") is True
-    assert resp.get("content_language") == "nl"
+    assert resp.get("content_language") == "tr"
     segs = cast(list, resp.get("segments"))
     assert any(s.get("type") == "scripture" for s in segs)
 
@@ -146,11 +146,17 @@ def test_translate_scripture_unsupported_book_returns_selection_error(
     assert "not recognized" in msg and "Enoch" in msg
 
 
-def test_translate_scripture_guidance_when_unsupported_target(monkeypatch: pytest.MonkeyPatch):
-    # Arrange: Italian unsupported; expect guidance message
-    query = "translate gen 1:1-3 into italian"
+def test_translate_scripture_guidance_when_language_unspecified(monkeypatch: pytest.MonkeyPatch):
+    # Arrange: Parser cannot infer target and no fallbacks available; expect guidance message
+    query = "translate gen 1:1-3"
     monkeypatch.setattr(brain_nodes.open_ai_client.responses, "parse", _make_parse_stub(query))
+    monkeypatch.setattr(
+        brain_nodes,
+        "translate_text",
+        lambda response_text, target_language, *, agentic_strength=None: response_text,  # noqa: ANN001
+    )
     state = _state_for(query)
+    state["query_language"] = ""  # remove fallback so guidance path triggers
 
     # Act
     out = brain_nodes.handle_translate_scripture(state)
@@ -158,4 +164,4 @@ def test_translate_scripture_guidance_when_unsupported_target(monkeypatch: pytes
     # Assert
     items = out.get("responses") or []
     msg = cast(str, items[0]["response"])  # guidance returns a string
-    assert "Translating into Italian is currently not supported" in msg
+    assert "couldn't determine how to translate" in msg.lower()

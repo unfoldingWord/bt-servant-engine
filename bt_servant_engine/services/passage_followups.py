@@ -9,7 +9,7 @@ from typing import Callable, Iterable, Mapping, MutableMapping, Optional, Sequen
 
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType
-from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP
+from bt_servant_engine.core.language import friendly_language_name
 from bt_servant_engine.core.logging import get_logger
 from utils.bsb import (
     BOOK_MAP,
@@ -269,7 +269,7 @@ def build_followup_question(
         raw_target = context.get("target_language")
         if isinstance(raw_target, str) and raw_target.strip():
             target_code = raw_target.strip().lower()
-            target_label = SUPPORTED_LANGUAGE_MAP.get(target_code, raw_target.strip().title())
+            target_label = friendly_language_name(target_code, fallback=raw_target.strip().title())
 
     if target_label:
         english_question = f"Would you like me to translate {label} into {target_label}?"

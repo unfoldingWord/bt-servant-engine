@@ -11,7 +11,12 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 
 from bt_servant_engine.core.agentic import AgenticStrengthChoice, AgenticStrengthSetting
 from bt_servant_engine.core.intents import IntentType
-from bt_servant_engine.core.language import Language, ResponseLanguage
+from bt_servant_engine.core.language import (
+    LANGUAGE_OTHER,
+    ResponseLanguage,
+    friendly_language_name,
+    normalize_language_code,
+)
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import extract_cached_input_tokens, track_openai_usage
 from utils.identifiers import get_log_safe_user_id
@@ -22,12 +27,12 @@ logger = get_logger(__name__)
 SET_RESPONSE_LANGUAGE_AGENT_SYSTEM_PROMPT = """
 Task: Determine the language the user wants responses in, based on conversation context and the latest message.
 
-Allowed outputs: en, ar, fr, es, hi, ru, id, sw, pt, zh, nl, Other
+Allowed outputs: any ISO 639-1 language code (e.g., en, fr, tr). If unclear, return Other.
 
 Instructions:
 - Use conversation history and the most recent message to infer the user's desired response language.
-- Only return one of the allowed outputs. If unclear or unsupported, return Other.
-- Consider explicit requests like "reply in French" or language names/codes.
+- Prefer two-letter ISO codes; accept common lowercase variants like "pt-br" when the user is explicit.
+- If the request is ambiguous or mentions a language we cannot map to an ISO code, return Other.
 - Output must match the provided schema with no additional prose.
 """
 
@@ -58,7 +63,6 @@ class ResponseLanguageRequest:
 class ResponseLanguageDependencies:
     """External helpers needed to persist the detected response language."""
 
-    supported_language_map: dict[str, str]
     set_user_response_language: Callable[[str, str], Any]
 
 
@@ -97,26 +101,32 @@ def set_response_language(
     usage = getattr(response, "usage", None)
     track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
     resp_lang = cast(ResponseLanguage, response.output_parsed)
-    if resp_lang.language == Language.OTHER:
-        supported_language_list = ", ".join(dependencies.supported_language_map.keys())
+    if resp_lang.language == LANGUAGE_OTHER:
         response_text = (
-            "I think you're trying to set the response language. "
-            f"The supported languages are: {supported_language_list}. "
-            "If this is your intent, please clearly tell me which supported language "
-            "to use when responding."
+            "I can set my responses to any language. "
+            "Please mention the specific language or provide its ISO 639-1 code "
+            "(for example: en, fr, tr)."
         )
         return {
             "responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}]
         }
-    response_language_code: str = str(resp_lang.language.value)
-    dependencies.set_user_response_language(request.user_id, response_language_code)
-    language_name: str = dependencies.supported_language_map.get(
-        response_language_code, response_language_code
-    )
+
+    normalized_code = normalize_language_code(resp_lang.language)
+    if not normalized_code or normalized_code == LANGUAGE_OTHER:
+        response_text = (
+            "I wasn't able to determine the language you're requesting. "
+            "Please provide a clear ISO 639-1 code so I can save it."
+        )
+        return {
+            "responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}]
+        }
+
+    dependencies.set_user_response_language(request.user_id, normalized_code)
+    language_name = friendly_language_name(normalized_code, fallback=normalized_code)
     response_text = f"Setting response language to: {language_name}"
     return {
         "responses": [{"intent": IntentType.SET_RESPONSE_LANGUAGE, "response": response_text}],
-        "user_response_language": response_language_code,
+        "user_response_language": normalized_code,
     }
 
 

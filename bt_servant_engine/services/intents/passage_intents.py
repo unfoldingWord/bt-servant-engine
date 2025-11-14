@@ -13,8 +13,12 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType
-from bt_servant_engine.core.language import Language, ResponseLanguage
-from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
+from bt_servant_engine.core.language import (
+    LANGUAGE_OTHER,
+    ResponseLanguage,
+    lookup_language_code,
+    normalize_language_code,
+)
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.cache_manager import CACHE_SCHEMA_VERSION, get_cache
 from bt_servant_engine.services.openai_utils import track_openai_usage
@@ -363,8 +367,8 @@ def _detect_requested_language(request: RetrieveScriptureRequest) -> Optional[st
             add_tokens,
         )
         tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
-        if tl_parsed and tl_parsed.language != Language.OTHER:
-            return str(tl_parsed.language.value)
+        if tl_parsed and tl_parsed.language != LANGUAGE_OTHER:
+            return str(tl_parsed.language)
     except OpenAIError:
         logger.info(
             "[retrieve-scripture] requested-language parse failed; will fallback",
@@ -382,9 +386,9 @@ def _detect_requested_language(request: RetrieveScriptureRequest) -> Optional[st
     )
     if match:
         name = match.group(1).strip().title()
-        for code, friendly in supported_language_map.items():
-            if friendly.lower() == name.lower():
-                return code
+        lookup = lookup_language_code(name)
+        if lookup:
+            return lookup
     return None
 
 
@@ -460,11 +464,14 @@ def _determine_desired_target(
     requested_lang: Optional[str],
     request: RetrieveScriptureRequest,
 ) -> Optional[str]:
-    if requested_lang and requested_lang != resolved_language:
-        return requested_lang
     if requested_lang:
+        normalized_request = normalize_language_code(requested_lang)
+        if normalized_request and normalized_request != resolved_language:
+            return normalized_request
         return None
-    preferred = request.user_response_language or request.selection.query_lang
+    preferred = normalize_language_code(request.user_response_language) or normalize_language_code(
+        request.selection.query_lang
+    )
     if preferred and preferred != resolved_language:
         return preferred
     return None
@@ -754,7 +761,7 @@ def retrieve_scripture(request: RetrieveScriptureRequest) -> dict[str, Any]:
         requested_lang,
         request,
     )
-    if desired_target and desired_target in supported_language_map:
+    if desired_target:
         logger.info(
             "[retrieve-scripture] auto-translating scripture to %s",
             desired_target,

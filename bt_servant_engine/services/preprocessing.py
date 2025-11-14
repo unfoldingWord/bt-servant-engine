@@ -20,10 +20,7 @@ from bt_servant_engine.core.intents import (
     UserIntents,
     UserIntentsStructured,
 )
-from bt_servant_engine.core.language import (
-    Language,
-    MessageLanguage,
-)
+from bt_servant_engine.core.language import LANGUAGE_OTHER, MessageLanguage
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import (
     extract_cached_input_tokens as _extract_cached_input_tokens,
@@ -634,7 +631,7 @@ def detect_language(client: OpenAI, text: str, *, agentic_strength: Optional[str
     usage = getattr(response, "usage", None)
     track_openai_usage(usage, model_name, _extract_cached_input_tokens, add_tokens)
     message_language = cast(MessageLanguage | None, response.output_parsed)
-    predicted = message_language.language.value if message_language else "en"
+    predicted = message_language.language if message_language else "en"
     logger.info("language detection (model): %s", predicted)
 
     # Heuristic guard: If we predicted Indonesian ('id') but the text looks like
@@ -685,7 +682,7 @@ def determine_query_language(
     ]
     # If the detected language is not English, also search the matching
     # language-specific resources collection (e.g., "es_resources").
-    if query_language and query_language not in {"en", Language.OTHER.value}:
+    if query_language and query_language not in {"en", LANGUAGE_OTHER}:
         localized_collection = f"{query_language}_resources"
         stack_rank_collections.append(localized_collection)
         logger.info(

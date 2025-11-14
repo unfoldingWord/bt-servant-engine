@@ -14,8 +14,14 @@ from openai.types.responses.easy_input_message_param import EasyInputMessagePara
 
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.intents import IntentType
-from bt_servant_engine.core.language import Language, ResponseLanguage, TranslatedPassage
-from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
+from bt_servant_engine.core.language import (
+    LANGUAGE_OTHER,
+    ResponseLanguage,
+    TranslatedPassage,
+    friendly_language_name,
+    lookup_language_code,
+    normalize_language_code,
+)
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.cache_manager import CACHE_SCHEMA_VERSION, get_cache
 from bt_servant_engine.services.openai_utils import track_openai_usage
@@ -37,7 +43,6 @@ from utils.perf import add_tokens
 
 logger = get_logger(__name__)
 
-SUPPORTED_TARGET_CODES = ["en", "ar", "fr", "es", "hi", "ru", "id", "sw", "pt", "zh", "nl"]
 LANGUAGE_REGEX = re.compile(
     r"\b(?:into|to|in)\s+([A-Za-z][A-Za-z\- ]{1,30})\b", flags=re.IGNORECASE
 )
@@ -211,16 +216,13 @@ def _simple_response(message: str) -> dict[str, Any]:
     return {"responses": [{"intent": IntentType.TRANSLATE_SCRIPTURE, "response": message}]}
 
 
-def _supported_language_lines() -> str:
-    return "\n".join(f"- {supported_language_map[code]}" for code in SUPPORTED_TARGET_CODES)
-
-
-def _language_guidance_response(requested_name: str) -> dict[str, Any]:
+def _language_guidance_response(requested_name: Optional[str]) -> dict[str, Any]:
+    label = requested_name or "that language"
     guidance = (
-        f"Translating into {requested_name} is currently not supported.\n\n"
-        "BT Servant can set your response language to any of:\n\n"
-        f"{_supported_language_lines()}\n\n"
-        "Would you like me to set a specific language for your responses?"
+        f"I couldn't determine how to translate into {label}.\n\n"
+        "Please mention the language explicitly or provide its ISO 639-1 code (for example: "
+        "'tr' for Turkish, 'yo' for Yoruba, 'id' for Indonesian) so I can translate "
+        "Scripture accordingly."
     )
     return _simple_response(guidance)
 
@@ -263,8 +265,8 @@ def _structured_target_language(
     tl_usage = getattr(tl_resp, "usage", None)
     track_openai_usage(tl_usage, "gpt-4o", extract_cached_input_tokens_fn, add_tokens)
     tl_parsed = cast(ResponseLanguage | None, tl_resp.output_parsed)
-    if tl_parsed and tl_parsed.language != Language.OTHER:
-        return str(tl_parsed.language.value)
+    if tl_parsed and tl_parsed.language != LANGUAGE_OTHER:
+        return str(tl_parsed.language)
     return None
 
 
@@ -285,14 +287,24 @@ def _resolve_target_language(
     explicit_name = _extract_explicit_language(request.query) if structured_code is None else None
 
     if structured_code:
-        return structured_code, None
+        normalized = normalize_language_code(structured_code)
+        if normalized and normalized != LANGUAGE_OTHER:
+            return normalized, None
+
     if explicit_name:
+        lookup = lookup_language_code(explicit_name)
+        if lookup:
+            return lookup, None
         return None, explicit_name
 
-    if request.user_response_language and request.user_response_language in supported_language_map:
-        return request.user_response_language, None
-    if request.query_lang and request.query_lang in supported_language_map:
-        return request.query_lang, None
+    preferred = normalize_language_code(request.user_response_language)
+    if preferred and preferred != LANGUAGE_OTHER:
+        return preferred, None
+
+    detected = normalize_language_code(request.query_lang)
+    if detected and detected != LANGUAGE_OTHER:
+        return detected, None
+
     return None, None
 
 
@@ -352,11 +364,12 @@ def _determine_target_code(
     dependencies: TranslationDependencies,
 ) -> str:
     target_code, requested_name = _resolve_target_language(request, dependencies)
-    if target_code is None or target_code not in supported_language_map:
-        fallback_name = supported_language_map.get(target_code or "", "an unsupported language")
-        name = requested_name or fallback_name
-        raise TranslationContextError(_language_guidance_response(name))
-    return target_code
+    normalized = normalize_language_code(target_code)
+    if normalized and normalized != LANGUAGE_OTHER:
+        return normalized
+
+    name = requested_name or friendly_language_name(target_code, fallback="that language")
+    raise TranslationContextError(_language_guidance_response(name))
 
 
 def _load_translation_source(request: TranslationRequestParams) -> TranslationSourceMetadata:
@@ -581,7 +594,7 @@ def _build_structured_response(
 ) -> dict[str, Any]:
     return {
         "suppress_translation": True,
-        "content_language": str(translated.content_language.value),
+        "content_language": translated.content_language,
         "header_is_translated": True,
         "segments": [
             {
