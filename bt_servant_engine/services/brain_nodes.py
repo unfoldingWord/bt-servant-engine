@@ -57,8 +57,11 @@ from bt_servant_engine.services.intents.simple_intents import (
 from bt_servant_engine.services.intents.settings_intents import (
     AgenticStrengthDependencies,
     AgenticStrengthRequest,
+    ClearResponseLanguageDependencies,
+    ClearResponseLanguageRequest,
     ResponseLanguageDependencies,
     ResponseLanguageRequest,
+    clear_response_language as clear_response_language_impl,
     set_agentic_strength as set_agentic_strength_impl,
     set_response_language as set_response_language_impl,
 )
@@ -408,6 +411,18 @@ def set_response_language(state: Any) -> dict:
         set_user_response_language=user_state.set_response_language,
     )
     return set_response_language_impl(request, dependencies)
+
+
+def clear_response_language(state: Any) -> dict:
+    """Clear the user's stored response language preference."""
+
+    s = _brain_state(state)
+    user_state = _user_state_port()
+    request = ClearResponseLanguageRequest(user_id=s["user_id"])
+    dependencies = ClearResponseLanguageDependencies(
+        clear_user_response_language=user_state.clear_response_language
+    )
+    return clear_response_language_impl(request, dependencies)
 
 
 def set_agentic_strength(state: Any) -> dict:
@@ -917,4 +932,5 @@ __all__ = [
     "handle_translate_scripture",
     # Helper functions (for test compatibility)
     "resolve_selection_for_single_book",
+    "clear_response_language",
 ]

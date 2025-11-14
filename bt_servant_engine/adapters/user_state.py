@@ -124,6 +124,21 @@ def set_user_response_language(user_id: str, language: str) -> None:
     db.upsert(updated, cond)
 
 
+def clear_user_response_language(user_id: str) -> None:
+    """Remove the user's stored response language preference."""
+    q = Query()
+    db = get_user_db().table("users")
+    cond = cast(QueryLike, q.user_id == user_id)
+    existing_raw = db.get(cond)
+    existing = cast(Optional[Dict[str, Any]], existing_raw)
+    updated: Dict[str, Any] = (
+        existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
+    )
+    updated["user_id"] = user_id
+    updated["response_language"] = None
+    db.upsert(updated, cond)
+
+
 def get_user_agentic_strength(user_id: str) -> Optional[str]:
     """Get the user's preferred agentic strength, or None if not set."""
     q = Query()
@@ -199,6 +214,9 @@ class UserStateAdapter(UserStatePort):
 
     def set_response_language(self, user_id: str, language: str) -> None:
         set_user_response_language(user_id, language)
+
+    def clear_response_language(self, user_id: str) -> None:
+        clear_user_response_language(user_id)
 
     def get_agentic_strength(self, user_id: str) -> str | None:
         return get_user_agentic_strength(user_id)

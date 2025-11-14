@@ -119,6 +119,16 @@ def get_capabilities() -> List[Capability]:
             ],
             "include_in_boilerplate": True,
         },
+        {
+            "intent": IntentType.CLEAR_RESPONSE_LANGUAGE,
+            "label": "Clear response language",
+            "description": "Return to matching your message language automatically.",
+            "examples": [
+                "Stop forcing a specific response language.",
+                "Clear my response language setting.",
+            ],
+            "include_in_boilerplate": True,
+        },
     ]
 
 

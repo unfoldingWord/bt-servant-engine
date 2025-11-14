@@ -74,6 +74,7 @@ INTENT_NODE_MAP = {
     "handle_get_passage_keywords_node": "get-passage-keywords",
     "handle_get_translation_helps_node": "get-translation-helps",
     "set_response_language_node": "set-response-language",
+    "clear_response_language_node": "clear-response-language",
     "handle_unsupported_function_node": "perform-unsupported-function",
     "handle_system_information_request_node": "retrieve-system-information",
     "converse_with_bt_servant_node": "converse-with-bt-servant",

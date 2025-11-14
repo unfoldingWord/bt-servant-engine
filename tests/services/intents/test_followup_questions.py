@@ -187,6 +187,10 @@ class TestFollowupQuestionsCoverage:
         """SET_RESPONSE_LANGUAGE intent has follow-up defined."""
         assert IntentType.SET_RESPONSE_LANGUAGE in INTENT_FOLLOWUP_QUESTIONS
 
+    def test_clear_response_language_has_followup(self):
+        """CLEAR_RESPONSE_LANGUAGE intent has follow-up defined."""
+        assert IntentType.CLEAR_RESPONSE_LANGUAGE in INTENT_FOLLOWUP_QUESTIONS
+
     def test_retrieve_system_information_has_followup(self):
         """RETRIEVE_SYSTEM_INFORMATION intent has follow-up defined."""
         assert IntentType.RETRIEVE_SYSTEM_INFORMATION in INTENT_FOLLOWUP_QUESTIONS

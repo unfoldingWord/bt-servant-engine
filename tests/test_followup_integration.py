@@ -195,6 +195,7 @@ class TestFollowupIntegration:
             (IntentType.RETRIEVE_SCRIPTURE, "Bible passage"),
             (IntentType.GET_TRANSLATION_HELPS, "translation question"),
             (IntentType.SET_RESPONSE_LANGUAGE, "What else"),
+            (IntentType.CLEAR_RESPONSE_LANGUAGE, "response language"),
             (IntentType.GET_BIBLE_TRANSLATION_ASSISTANCE, "person, place, or concept"),
             (IntentType.CONSULT_FIA_RESOURCES, "FIA process"),
         ]

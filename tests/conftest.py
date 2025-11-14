@@ -62,6 +62,11 @@ class InMemoryUserStatePort(UserStatePort):
     def set_response_language(self, user_id: str, language: str) -> None:
         self.save_user_state(user_id, {"response_language": language})
 
+    def clear_response_language(self, user_id: str) -> None:
+        state = self._states.get(user_id, {"user_id": user_id}).copy()
+        state.pop("response_language", None)
+        self._states[user_id] = state
+
     def get_agentic_strength(self, user_id: str) -> str | None:
         state = self._states.get(user_id, {})
         return state.get("agentic_strength")

@@ -331,6 +331,10 @@ You must choose one or more intents from the following list:
   <intent name="set-response-language">
     The user wants to change the assistant's response language (for example: "Respond in Spanish", "Use Portuguese").
   </intent>
+  <intent name="clear-response-language">
+    The user wants to remove their previously set response language preference so the assistant matches the language
+    of their future messages (for example: "stop replying in Spanish", "clear my response language setting").
+  </intent>
   <intent name="set-agentic-strength">
     The user wants to change the agentic strength of the assistant's responses (for example: "Set my agentic strength to
     low", "Increase the detail of your answers"). Supported levels: normal, low, very_low.
@@ -423,6 +427,10 @@ Here are example classifications:
   <example>
     <message>Can you reply to me in French from now on?</message>
     <intent>set-response-language</intent>
+  </example>
+  <example>
+    <message>Stop forcing a specific response language.</message>
+    <intent>clear-response-language</intent>
   </example>
   <example>
     <message>Set my agentic strength to low.</message>

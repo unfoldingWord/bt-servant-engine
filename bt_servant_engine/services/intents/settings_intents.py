@@ -227,13 +227,46 @@ def set_agentic_strength(
     }
 
 
+@dataclass(slots=True)
+class ClearResponseLanguageRequest:
+    """Inputs required to clear the stored response language."""
+
+    user_id: str
+
+
+@dataclass(slots=True)
+class ClearResponseLanguageDependencies:
+    """Helpers needed to remove response language preferences."""
+
+    clear_user_response_language: Callable[[str], Any]
+
+
+def clear_response_language(
+    request: ClearResponseLanguageRequest,
+    dependencies: ClearResponseLanguageDependencies,
+) -> dict[str, Any]:
+    """Remove the persisted response language preference for the user."""
+    dependencies.clear_user_response_language(request.user_id)
+    response_text = (
+        "Cleared your response-language preference. "
+        "I'll match the language of your messages until you set a new preference."
+    )
+    return {
+        "responses": [{"intent": IntentType.CLEAR_RESPONSE_LANGUAGE, "response": response_text}],
+        "user_response_language": None,
+    }
+
+
 __all__ = [
     "SET_RESPONSE_LANGUAGE_AGENT_SYSTEM_PROMPT",
     "SET_AGENTIC_STRENGTH_AGENT_SYSTEM_PROMPT",
     "ResponseLanguageRequest",
     "ResponseLanguageDependencies",
+    "ClearResponseLanguageRequest",
+    "ClearResponseLanguageDependencies",
     "AgenticStrengthRequest",
     "AgenticStrengthDependencies",
     "set_response_language",
     "set_agentic_strength",
+    "clear_response_language",
 ]
