@@ -11,7 +11,6 @@ from openai import OpenAI, OpenAIError
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 
 from bt_servant_engine.core.intents import IntentType
-from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.intents.simple_intents import (
     BOILER_PLATE_AVAILABLE_FEATURES_MESSAGE,
@@ -102,11 +101,8 @@ def consult_fia_resources(request: FIARequest, dependencies: FIADependencies) ->
 
 
 def _resolve_candidate_language(request: FIARequest) -> str:
-    candidate = (request.user_response_language or request.query_language or "en").lower()
-    if candidate not in supported_language_map:
-        logger.info("[consult-fia] unsupported language '%s'; defaulting to English", candidate)
-        return "en"
-    return candidate
+    candidate = (request.user_response_language or request.query_language or "en").strip().lower()
+    return candidate or "en"
 
 
 def _gather_vector_documents(

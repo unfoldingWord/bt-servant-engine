@@ -14,7 +14,6 @@ from typing import TYPE_CHECKING, Any, Callable, Iterable, Optional, cast
 from openai import OpenAI
 
 from bt_servant_engine.core.config import config
-from bt_servant_engine.core.language import SUPPORTED_LANGUAGE_MAP as supported_language_map
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.core.ports import ChromaPort, UserStatePort
 from bt_servant_engine.services.openai_utils import (
@@ -58,8 +57,11 @@ from bt_servant_engine.services.intents.simple_intents import (
 from bt_servant_engine.services.intents.settings_intents import (
     AgenticStrengthDependencies,
     AgenticStrengthRequest,
+    ClearResponseLanguageDependencies,
+    ClearResponseLanguageRequest,
     ResponseLanguageDependencies,
     ResponseLanguageRequest,
+    clear_response_language as clear_response_language_impl,
     set_agentic_strength as set_agentic_strength_impl,
     set_response_language as set_response_language_impl,
 )
@@ -406,10 +408,21 @@ def set_response_language(state: Any) -> dict:
         chat_history=s["user_chat_history"],
     )
     dependencies = ResponseLanguageDependencies(
-        supported_language_map=supported_language_map,
         set_user_response_language=user_state.set_response_language,
     )
     return set_response_language_impl(request, dependencies)
+
+
+def clear_response_language(state: Any) -> dict:
+    """Clear the user's stored response language preference."""
+
+    s = _brain_state(state)
+    user_state = _user_state_port()
+    request = ClearResponseLanguageRequest(user_id=s["user_id"])
+    dependencies = ClearResponseLanguageDependencies(
+        clear_user_response_language=user_state.clear_response_language
+    )
+    return clear_response_language_impl(request, dependencies)
 
 
 def set_agentic_strength(state: Any) -> dict:
@@ -919,4 +932,5 @@ __all__ = [
     "handle_translate_scripture",
     # Helper functions (for test compatibility)
     "resolve_selection_for_single_book",
+    "clear_response_language",
 ]

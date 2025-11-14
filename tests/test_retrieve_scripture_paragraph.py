@@ -6,7 +6,7 @@ from typing import Any, cast
 
 import pytest
 
-from bt_servant_engine.core.language import Language, ResponseLanguage
+from bt_servant_engine.core.language import ResponseLanguage
 from bt_servant_engine.core.models import PassageRef, PassageSelection
 from bt_servant_engine.services import brain_nodes
 from bt_servant_engine.services.brain_orchestrator import BrainState
@@ -52,7 +52,7 @@ def test_retrieve_scripture_returns_paragraph_without_labels(monkeypatch: pytest
             return _StubParseResult(sel)
         if tf is ResponseLanguage:
             # No explicit requested language in message
-            return _StubParseResult(ResponseLanguage(language=Language.OTHER))
+            return _StubParseResult(ResponseLanguage(language="other"))
         return _StubParseResult(None)
 
     monkeypatch.setattr(brain_nodes.open_ai_client.responses, "parse", parse_stub)

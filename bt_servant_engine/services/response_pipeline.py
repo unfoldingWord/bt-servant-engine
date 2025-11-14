@@ -12,10 +12,7 @@ from openai.types.chat.chat_completion_message_param import ChatCompletionMessag
 
 from bt_servant_engine.core.agentic import ALLOWED_AGENTIC_STRENGTH
 from bt_servant_engine.core.config import config
-from bt_servant_engine.core.language import (
-    LANGUAGE_UNKNOWN,
-    SUPPORTED_LANGUAGE_MAP as supported_language_map,
-)
+from bt_servant_engine.core.language import LANGUAGE_UNKNOWN
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.openai_utils import track_openai_usage
 from bt_servant_engine.services.preprocessing import detect_language as detect_language_impl
@@ -253,19 +250,10 @@ def resolve_target_language(
         reconstruct_structured_text(resp_item=resp, localize_to=None)
         for resp in responses_for_translation
     ]
-    supported_lang_list = ", ".join(supported_language_map.keys())
-    notice = " ".join(
-        [
-            (
-                "You haven't set your desired response language and I wasn't able to determine the "
-                "language of your original message in order to match it."
-            ),
-            (
-                "You can set your desired response language at any time by saying: "
-                "Set my response language to Spanish, Indonesian, or any supported language."
-            ),
-            f"Supported languages: {supported_lang_list}.",
-        ]
+    notice = (
+        "You haven't set your desired response language and I couldn't determine the "
+        "language of your original message. Tell me something like "
+        "'Set my response language to Turkish (tr)' and I'll use that for future replies."
     )
     passthrough_texts.append(notice)
     return None, passthrough_texts

@@ -5,7 +5,7 @@ from typing import Any, cast
 
 import pytest
 
-from bt_servant_engine.core.language import Language, ResponseLanguage, TranslatedPassage
+from bt_servant_engine.core.language import ResponseLanguage, TranslatedPassage
 from bt_servant_engine.core.models import PassageRef, PassageSelection
 from bt_servant_engine.services import brain_nodes
 from bt_servant_engine.services.brain_orchestrator import BrainState
@@ -39,7 +39,7 @@ def test_translate_scripture_normalizes_whitespace(monkeypatch: pytest.MonkeyPat
     def parse_stub(*_args: Any, **kwargs: Any):  # noqa: ANN401 - test stub
         tf = kwargs.get("text_format")
         if tf is ResponseLanguage:
-            return _StubParseResult(ResponseLanguage(language=Language.DUTCH))
+            return _StubParseResult(ResponseLanguage(language="nl"))
         if tf is PassageSelection:
             sel = PassageSelection(
                 selections=[
@@ -58,7 +58,7 @@ def test_translate_scripture_normalizes_whitespace(monkeypatch: pytest.MonkeyPat
                 header_book="Genesis",
                 header_suffix="1:1-2",
                 body=("In den beginne\n\nschiep God\nde hemel en de aarde."),
-                content_language=Language.DUTCH,
+                content_language="nl",
             )
             return _StubParseResult(tp)
         return _StubParseResult(None)

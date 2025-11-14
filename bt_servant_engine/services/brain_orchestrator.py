@@ -35,6 +35,7 @@ logger = get_logger(__name__)
 # Higher values = higher priority = processed first when multiple intents detected
 INTENT_PRIORITY: Dict[IntentType, int] = {
     # Settings intents: Always process first to configure the session
+    IntentType.CLEAR_RESPONSE_LANGUAGE: 101,
     IntentType.SET_RESPONSE_LANGUAGE: 100,
     IntentType.SET_AGENTIC_STRENGTH: 99,
     # Scripture retrieval: Get the text before analyzing it
@@ -65,6 +66,7 @@ INTENT_NODE_MAP: Dict[IntentType, str] = {
     IntentType.RETRIEVE_SCRIPTURE: "handle_retrieve_scripture_node",
     IntentType.LISTEN_TO_SCRIPTURE: "handle_listen_to_scripture_node",
     IntentType.SET_RESPONSE_LANGUAGE: "set_response_language_node",
+    IntentType.CLEAR_RESPONSE_LANGUAGE: "clear_response_language_node",
     IntentType.SET_AGENTIC_STRENGTH: "set_agentic_strength_node",
     IntentType.PERFORM_UNSUPPORTED_FUNCTION: "handle_unsupported_function_node",
     IntentType.RETRIEVE_SYSTEM_INFORMATION: "handle_system_information_request_node",
@@ -563,6 +565,10 @@ def create_brain():
         wrap_node_with_timing(brain_nodes.set_response_language, "set_response_language_node"),
     )
     builder.add_node(
+        "clear_response_language_node",
+        wrap_node_with_timing(brain_nodes.clear_response_language, "clear_response_language_node"),
+    )
+    builder.add_node(
         "set_agentic_strength_node",
         wrap_node_with_timing(brain_nodes.set_agentic_strength, "set_agentic_strength_node"),
     )
@@ -714,6 +720,7 @@ def create_brain():
     builder.add_conditional_edges("determine_intents_node", process_intents)
     builder.add_edge("query_vector_db_node", "query_open_ai_node")
     builder.add_edge("set_response_language_node", "translate_responses_node")
+    builder.add_edge("clear_response_language_node", "translate_responses_node")
     builder.add_edge("set_agentic_strength_node", "translate_responses_node")
     # After chunking, finish. Do not loop back to translate, which can recreate
     # the long message and trigger an infinite chunk cycle.

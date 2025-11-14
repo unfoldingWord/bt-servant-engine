@@ -29,6 +29,7 @@ INTENT_ACTION_DESCRIPTIONS = {
     IntentType.PERFORM_UNSUPPORTED_FUNCTION: "help with that request",
     IntentType.RETRIEVE_SYSTEM_INFORMATION: "provide system information",
     IntentType.SET_RESPONSE_LANGUAGE: "set your response language",
+    IntentType.CLEAR_RESPONSE_LANGUAGE: "clear your response language preference",
     IntentType.SET_AGENTIC_STRENGTH: "adjust your agentic strength preference",
     IntentType.CONVERSE_WITH_BT_SERVANT: "continue our conversation",
 }

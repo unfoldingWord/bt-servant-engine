@@ -90,6 +90,10 @@ class UserStatePort(Protocol):
         """Persist the response language preference."""
         ...
 
+    def clear_response_language(self, user_id: str) -> None:
+        """Remove any stored response language preference."""
+        ...
+
     def get_agentic_strength(self, user_id: str) -> str | None:
         """Return the stored agentic strength preference."""
         ...

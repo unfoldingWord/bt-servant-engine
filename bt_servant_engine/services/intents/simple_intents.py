@@ -119,6 +119,16 @@ def get_capabilities() -> List[Capability]:
             ],
             "include_in_boilerplate": True,
         },
+        {
+            "intent": IntentType.CLEAR_RESPONSE_LANGUAGE,
+            "label": "Clear response language",
+            "description": "Return to matching your message language automatically.",
+            "examples": [
+                "Stop forcing a specific response language.",
+                "Clear my response language setting.",
+            ],
+            "include_in_boilerplate": True,
+        },
     ]
 
 
@@ -225,6 +235,20 @@ feature information below. End your response with a single question inviting the
 <features_full_help_message>
 {FULL_HELP_MESSAGE}
 </features_full_help_message>
+
+In addition, you can share these language capabilities when relevant:
+
+<language_capabilities>
+I can understand and generate text in over 100 languages to varying degrees of fluency. This includes:
+- Widely spoken languages like English, Spanish, Mandarin Chinese, Hindi, Arabic, French, Russian, and Portuguese
+- Less commonly used languages such as Swahili, Finnish, Haitian Creole, and Maori
+- Classical or liturgical languages like Latin, Ancient Greek, Biblical Hebrew, and Classical Arabic
+
+However, proficiency varies:
+- High fluency in major languages (especially English)
+- Basic understanding or limited generation in low-resource or endangered languages
+- Limited support for some complex scripts, grammatical systems, or dialectal variation
+</language_capabilities>
 
 # Using prior history for better responses
 
