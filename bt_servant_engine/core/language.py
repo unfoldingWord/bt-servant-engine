@@ -23,6 +23,10 @@ SUPPORTED_LANGUAGE_MAP = {
     "nl": "Dutch",
 }
 
+_GREEN_INDICATOR_LANGUAGES = tuple(code for code in SUPPORTED_LANGUAGE_MAP if code != "nl")
+_GREEN_INDICATOR = "🟢"
+_YELLOW_INDICATOR = "🟡"
+
 LANGUAGE_UNKNOWN = "UNKNOWN"
 LANGUAGE_OTHER = "other"
 _LANGUAGE_CODE_PATTERN = re.compile(r"^[a-z]{2}(?:-[a-z]{2})?$")
@@ -74,6 +78,12 @@ def normalized_or_other(value: Union[str, "Language", None]) -> str:
     """Normalize to an ISO code; fall back to 'other' when unknown."""
     normalized = normalize_language_code(value)
     return normalized or LANGUAGE_OTHER
+
+
+def language_indicator(value: Union[str, "Language", None]) -> str:
+    """Return the emoji indicator for the given response language."""
+    normalized = normalized_or_other(value)
+    return _GREEN_INDICATOR if normalized in _GREEN_INDICATOR_LANGUAGES else _YELLOW_INDICATOR
 
 
 def friendly_language_name(
@@ -152,6 +162,7 @@ __all__ = [
     "LANGUAGE_UNKNOWN",
     "LANGUAGE_OTHER",
     "Language",
+    "language_indicator",
     "ResponseLanguage",
     "MessageLanguage",
     "TranslatedPassage",

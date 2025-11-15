@@ -521,7 +521,7 @@ def translate_responses(state: Any) -> dict:
     if not raw_responses:
         if bool(s.get("send_voice_message")):
             logger.info("[translate] skipping text translation because delivery is voice-only")
-            return {"translated_responses": []}
+            return {"translated_responses": [], "final_response_language": None}
         raise ValueError("no responses to translate. something bad happened. bailing out.")
 
     protected_items, normal_items = _partition_response_items(raw_responses)
@@ -529,12 +529,12 @@ def translate_responses(state: Any) -> dict:
     if not queue:
         if bool(s.get("send_voice_message")):
             logger.info("[translate] no text responses after queue assembly; voice-only delivery")
-            return {"translated_responses": []}
+            return {"translated_responses": [], "final_response_language": None}
         raise ValueError("no responses to translate. something bad happened. bailing out.")
 
     target_language, passthrough = _resolve_target_language(s, queue)
     if passthrough is not None:
-        return {"translated_responses": passthrough}
+        return {"translated_responses": passthrough, "final_response_language": target_language}
     if target_language is None:
         raise RuntimeError("target language resolution failed")
 
@@ -562,11 +562,14 @@ def translate_responses(state: Any) -> dict:
     if "passage_followup_context" in s:
         updates.setdefault("passage_followup_context", {})
 
+    base_response = {
+        "translated_responses": translated_responses,
+        "final_response_language": target_language,
+    }
     if updates:
-        merged = {"translated_responses": translated_responses}
-        merged.update(updates)
-        return merged
-    return {"translated_responses": translated_responses}
+        base_response.update(updates)
+        return base_response
+    return base_response
 
 
 def translate_text(
@@ -684,7 +687,10 @@ def chunk_message(state: Any) -> dict:
         extract_cached_input_tokens=_extract_cached_input_tokens,
     )
     chunks = chunk_message_impl(request, dependencies)
-    return {"translated_responses": chunks}
+    return {
+        "translated_responses": chunks,
+        "final_response_language": s.get("final_response_language"),
+    }
 
 
 def needs_chunking(state: Any) -> str:

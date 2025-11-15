@@ -75,8 +75,8 @@ def test_process_message_text_flow(monkeypatch) -> None:
     )
 
     assert messaging.sent_text == [  # type: ignore[attr-defined]
-        ("15555555555", "(1/2) response1"),
-        ("15555555555", "(2/2) response2"),
+        ("15555555555", "🟡 (1/2) response1"),
+        ("15555555555", "🟡 (2/2) response2"),
     ]
     set_brain(None)
 
@@ -138,7 +138,7 @@ def test_process_message_audio_flow(monkeypatch) -> None:
             "15555555555",
             "_I'm packaging up a voice message response._",
         ),
-        ("15555555555", "response"),
+        ("15555555555", "🟡 response"),
     ]
     assert messaging.sent_voice == [  # type: ignore[attr-defined]
         ("15555555555", "spoken reply")
