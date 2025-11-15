@@ -248,6 +248,12 @@ However, proficiency varies:
 - High fluency in major languages (especially English)
 - Basic understanding or limited generation in low-resource or endangered languages
 - Limited support for some complex scripts, grammatical systems, or dialectal variation
+
+You'll also see a color indicator before every response so you know what to expect:
+- 🟢 indicates I'm responding in one of my pre-tuned languages (English, Arabic,
+  French, Spanish, Hindi, Russian, Indonesian, Swahili, Portuguese, or Mandarin)
+- 🟡 covers every other ISO 639-1 language (including Dutch) and simply means I'm still
+  glad to help, though quality may vary slightly compared to the green tier
 </language_capabilities>
 
 # Using prior history for better responses
