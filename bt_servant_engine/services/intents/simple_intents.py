@@ -278,6 +278,13 @@ def handle_unsupported_function(
             "content": f"Conversation history to use if needed: {json.dumps(chat_history)}",
         },
         {
+            "role": "developer",
+            "content": (
+                "The BT Servant version is always "
+                f"v{BT_SERVANT_VERSION}. Ignore any other version mentioned in the history."
+            ),
+        },
+        {
             "role": "user",
             "content": query,
         },
