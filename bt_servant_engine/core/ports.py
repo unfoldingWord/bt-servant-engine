@@ -94,6 +94,14 @@ class UserStatePort(Protocol):
         """Remove any stored response language preference."""
         ...
 
+    def get_last_response_language(self, user_id: str) -> str | None:
+        """Return the last response language sent to ``user_id`` (if stored)."""
+        ...
+
+    def set_last_response_language(self, user_id: str, language: str) -> None:
+        """Persist the last response language sent to ``user_id``."""
+        ...
+
     def get_agentic_strength(self, user_id: str) -> str | None:
         """Return the stored agentic strength preference."""
         ...

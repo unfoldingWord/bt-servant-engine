@@ -23,9 +23,9 @@ SUPPORTED_LANGUAGE_MAP = {
     "nl": "Dutch",
 }
 
-_GREEN_INDICATOR_LANGUAGES = tuple(code for code in SUPPORTED_LANGUAGE_MAP if code != "nl")
-_GREEN_INDICATOR = "🟢"
-_YELLOW_INDICATOR = "🟡"
+# Languages that receive the "fully supported" treatment in user-facing copy.
+FULLY_SUPPORTED_RESPONSE_LANGUAGES = tuple(code for code in SUPPORTED_LANGUAGE_MAP if code != "nl")
+PARTIAL_SUPPORT_INDICATOR = "🟡"
 
 LANGUAGE_UNKNOWN = "UNKNOWN"
 LANGUAGE_OTHER = "other"
@@ -80,10 +80,12 @@ def normalized_or_other(value: Union[str, "Language", None]) -> str:
     return normalized or LANGUAGE_OTHER
 
 
-def language_indicator(value: Union[str, "Language", None]) -> str:
-    """Return the emoji indicator for the given response language."""
-    normalized = normalized_or_other(value)
-    return _GREEN_INDICATOR if normalized in _GREEN_INDICATOR_LANGUAGES else _YELLOW_INDICATOR
+def is_fully_supported_response_language(value: Union[str, "Language", None]) -> bool:
+    """Return ``True`` when the language falls within the fully supported tier."""
+    normalized = normalize_language_code(value)
+    if not normalized or normalized == LANGUAGE_OTHER:
+        return False
+    return normalized in FULLY_SUPPORTED_RESPONSE_LANGUAGES
 
 
 def friendly_language_name(
@@ -159,10 +161,12 @@ class TranslatedPassage(BaseModel):
 
 __all__ = [
     "SUPPORTED_LANGUAGE_MAP",
+    "FULLY_SUPPORTED_RESPONSE_LANGUAGES",
+    "PARTIAL_SUPPORT_INDICATOR",
     "LANGUAGE_UNKNOWN",
     "LANGUAGE_OTHER",
     "Language",
-    "language_indicator",
+    "is_fully_supported_response_language",
     "ResponseLanguage",
     "MessageLanguage",
     "TranslatedPassage",

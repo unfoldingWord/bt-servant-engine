@@ -76,7 +76,7 @@ def test_process_message_text_flow(monkeypatch) -> None:
 
     assert messaging.sent_text == [  # type: ignore[attr-defined]
         ("15555555555", "🟡 (1/2) response1"),
-        ("15555555555", "🟡 (2/2) response2"),
+        ("15555555555", "(2/2) response2"),
     ]
     set_brain(None)
 
@@ -142,6 +142,81 @@ def test_process_message_audio_flow(monkeypatch) -> None:
     ]
     assert messaging.sent_voice == [  # type: ignore[attr-defined]
         ("15555555555", "spoken reply")
+    ]
+    set_brain(None)
+
+
+def test_partial_language_indicator_only_on_switch(monkeypatch) -> None:
+    """Yellow indicator appears only when switching into a partial-support language."""
+    monkeypatch.setattr(app_config, "IN_META_SANDBOX_MODE", False, raising=True)
+    monkeypatch.setattr(app_config, "MESSAGE_AGE_CUTOFF_IN_SECONDS", 60, raising=True)
+
+    base_message = {
+        "from": "15555555555",
+        "id": "wamid.TEXT",
+        "timestamp": str(int(time.time())),
+        "type": "text",
+        "text": {"body": "hello"},
+    }
+
+    services = runtime.get_services()
+    messaging = services.messaging
+    assert messaging is not None
+    messaging.sent_text.clear()  # type: ignore[attr-defined]
+    messaging.sent_voice.clear()  # type: ignore[attr-defined]
+    messaging.typing.clear()  # type: ignore[attr-defined]
+
+    monkeypatch.setattr(webhooks.asyncio, "sleep", _noop_sleep)
+    monkeypatch.setattr(webhooks, "time_block", _noop_time_block)
+    monkeypatch.setattr(webhooks, "log_final_report", lambda *_, **__: None)
+
+    responses = iter(
+        [
+            {
+                "translated_responses": ["partial-one"],
+                "send_voice_message": False,
+                "final_response_language": "nl",
+            },
+            {
+                "translated_responses": ["partial-two"],
+                "send_voice_message": False,
+                "final_response_language": "nl",
+            },
+            {
+                "translated_responses": ["supported"],
+                "send_voice_message": False,
+                "final_response_language": "fr",
+            },
+            {
+                "translated_responses": ["partial-three"],
+                "send_voice_message": False,
+                "final_response_language": "nl",
+            },
+        ]
+    )
+
+    brain = SimpleNamespace(invoke=lambda payload: next(responses))
+    set_brain(brain)
+
+    for idx in range(4):
+        message_id = f"{base_message['id']}.{idx}"
+        data = dict(base_message)
+        data["id"] = message_id
+        user_message = UserMessage.from_data(data)
+        asyncio.run(
+            webhooks.process_message(
+                user_message,
+                services,
+                correlation_id=f"cid-{idx}",
+                client_ip="203.0.113.10",
+            )
+        )
+
+    assert messaging.sent_text == [  # type: ignore[attr-defined]
+        ("15555555555", "🟡 partial-one"),
+        ("15555555555", "partial-two"),
+        ("15555555555", "supported"),
+        ("15555555555", "🟡 partial-three"),
     ]
     set_brain(None)
 

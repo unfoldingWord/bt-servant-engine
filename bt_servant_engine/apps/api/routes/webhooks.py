@@ -31,7 +31,11 @@ from fastapi.responses import JSONResponse
 
 from bt_servant_engine.apps.api.state import get_brain, set_brain
 from bt_servant_engine.core.config import config
-from bt_servant_engine.core.language import language_indicator
+from bt_servant_engine.core.language import (
+    PARTIAL_SUPPORT_INDICATOR,
+    is_fully_supported_response_language,
+    normalized_or_other,
+)
 from bt_servant_engine.core.logging import (
     bind_client_ip,
     bind_correlation_id,
@@ -516,11 +520,12 @@ async def _deliver_responses(
     voice_text = result.get("voice_message_text")
     if send_voice:
         if voice_text or full_response_text:
-            packaging_msg = status_messages.get_progress_message(
-                status_messages.PACKAGING_VOICE_RESPONSE,
-                result,
+            await progress_sender(
+                status_messages.get_progress_message(
+                    status_messages.PACKAGING_VOICE_RESPONSE,
+                    result,
+                )
             )
-            await progress_sender(packaging_msg)
         voice_payload = voice_text or full_response_text
         if voice_payload:
             await context.messaging.send_voice_message(
@@ -530,8 +535,14 @@ async def _deliver_responses(
     should_send_text = True
     if send_voice and voice_text is None and context.user_message.message_type == "audio":
         should_send_text = False
+    sent_text_response = False
+    response_language: Optional[str] = None
     if should_send_text and responses:
-        indicator = _response_language_indicator(result, context)
+        response_language = _resolve_response_language(result, context)
+        previous_language = context.user_state.get_last_response_language(
+            user_id=context.user_message.user_id
+        )
+        indicator = _partial_support_indicator(previous_language, response_language)
         for response in _format_indicator_responses(responses, indicator):
             logger.info("Response from bt_servant: %s", response)
             try:
@@ -540,16 +551,22 @@ async def _deliver_responses(
                     response,
                 )
                 await asyncio.sleep(4)
+                sent_text_response = True
             except httpx.HTTPError as send_err:
                 logger.error(
                     "Failed to send message to Meta for user %s: %s",
                     context.log_user_id,
                     send_err,
                 )
+    if sent_text_response and response_language is not None:
+        context.user_state.set_last_response_language(
+            user_id=context.user_message.user_id,
+            language=response_language,
+        )
     return full_response_text
 
 
-def _response_language_indicator(result: dict[str, Any], context: _MessageProcessingContext) -> str:
+def _resolve_response_language(result: dict[str, Any], context: _MessageProcessingContext) -> str:
     language = cast(Optional[str], result.get("final_response_language"))
     if not language:
         language = cast(Optional[str], result.get("user_response_language"))
@@ -557,15 +574,30 @@ def _response_language_indicator(result: dict[str, Any], context: _MessageProces
         language = context.user_state.get_response_language(user_id=context.user_message.user_id)
     if not language:
         language = cast(Optional[str], result.get("query_language"))
-    return language_indicator(language)
+    return normalized_or_other(language)
 
 
-def _format_indicator_responses(responses: list[str], indicator: str) -> list[str]:
+def _partial_support_indicator(
+    previous_language: Optional[str], current_language: str
+) -> str | None:
+    if previous_language == current_language:
+        return None
+    if is_fully_supported_response_language(current_language):
+        return None
+    return PARTIAL_SUPPORT_INDICATOR
+
+
+def _format_indicator_responses(responses: list[str], first_indicator: Optional[str]) -> list[str]:
     total = len(responses)
     formatted: list[str] = []
     for idx, response in enumerate(responses, start=1):
-        prefix = f"({idx}/{total}) " if total > 1 else ""
-        formatted.append(f"{indicator} {prefix}{response}")
+        segments: list[str] = []
+        if idx == 1 and first_indicator:
+            segments.append(first_indicator)
+        if total > 1:
+            segments.append(f"({idx}/{total})")
+        prefix = " ".join(segments)
+        formatted.append(f"{prefix} {response}" if prefix else response)
     return formatted
 
 
@@ -579,12 +611,20 @@ async def _handle_processing_failure(context: _MessageProcessingContext) -> None
         status_messages.PROCESSING_ERROR,
         error_state,
     )
-    indicator = language_indicator(error_state["user_response_language"])
-    fallback_payload = f"{indicator} {fallback_msg}"
+    fallback_language = normalized_or_other(error_state["user_response_language"])
+    previous_language = context.user_state.get_last_response_language(
+        user_id=context.user_message.user_id
+    )
+    indicator = _partial_support_indicator(previous_language, fallback_language)
+    fallback_payload = _format_indicator_responses([fallback_msg], indicator)[0]
     try:
         await context.messaging.send_text_message(
             context.user_message.user_id,
             fallback_payload,
+        )
+        context.user_state.set_last_response_language(
+            user_id=context.user_message.user_id,
+            language=fallback_language,
         )
     except httpx.HTTPError as send_err:
         logger.error(

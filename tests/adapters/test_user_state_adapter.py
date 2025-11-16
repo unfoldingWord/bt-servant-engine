@@ -53,6 +53,15 @@ def test_clear_response_language_removes_value(temp_user_db: TinyDB) -> None:
     assert user_state.get_user_response_language(user_id) is None
 
 
+def test_last_response_language_roundtrip(temp_user_db: TinyDB) -> None:
+    """Last response language fields round-trip via helper functions."""
+    del temp_user_db
+    user_id = "last-lang"
+    assert user_state.get_user_last_response_language(user_id) is None
+    user_state.set_user_last_response_language(user_id, "nl")
+    assert user_state.get_user_last_response_language(user_id) == "nl"
+
+
 def test_agentic_strength_roundtrip(temp_user_db: TinyDB) -> None:
     """Agentic strength enforces the allowed value set."""
     del temp_user_db
@@ -111,6 +120,13 @@ def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) ->
     def fake_clear_lang(uid: str) -> None:
         record(f"clear_lang:{uid}")
 
+    def fake_get_last_lang(uid: str) -> str | None:
+        record(f"get_last_lang:{uid}")
+        return cast(str | None, None)
+
+    def fake_set_last_lang(uid: str, lang: str) -> None:
+        record(f"set_last_lang:{uid}:{lang}")
+
     def fake_get_strength(uid: str) -> str | None:
         record(f"get_strength:{uid}")
         return cast(str | None, None)
@@ -130,6 +146,8 @@ def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) ->
     monkeypatch.setattr(user_state, "get_user_response_language", fake_get_lang)
     monkeypatch.setattr(user_state, "set_user_response_language", fake_set_lang)
     monkeypatch.setattr(user_state, "clear_user_response_language", fake_clear_lang)
+    monkeypatch.setattr(user_state, "get_user_last_response_language", fake_get_last_lang)
+    monkeypatch.setattr(user_state, "set_user_last_response_language", fake_set_last_lang)
     monkeypatch.setattr(user_state, "get_user_agentic_strength", fake_get_strength)
     monkeypatch.setattr(user_state, "set_user_agentic_strength", fake_set_strength)
     monkeypatch.setattr(user_state, "set_first_interaction", fake_set_first)
@@ -140,6 +158,8 @@ def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) ->
     adapter.get_response_language("u1")
     adapter.set_response_language("u1", "fr")
     adapter.clear_response_language("u1")
+    adapter.get_last_response_language("u1")
+    adapter.set_last_response_language("u1", "nl")
     adapter.get_agentic_strength("u1")
     adapter.set_agentic_strength("u1", "normal")
     adapter.set_first_interaction("u1", False)
@@ -151,6 +171,8 @@ def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) ->
         "get_lang:u1",
         "set_lang:u1:fr",
         "clear_lang:u1",
+        "get_last_lang:u1",
+        "set_last_lang:u1:nl",
         "get_strength:u1",
         "set_strength:u1:normal",
         "set_first:u1:False",

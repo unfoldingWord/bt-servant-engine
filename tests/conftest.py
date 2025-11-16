@@ -67,6 +67,13 @@ class InMemoryUserStatePort(UserStatePort):
         state.pop("response_language", None)
         self._states[user_id] = state
 
+    def get_last_response_language(self, user_id: str) -> str | None:
+        state = self._states.get(user_id, {})
+        return state.get("last_response_language")
+
+    def set_last_response_language(self, user_id: str, language: str) -> None:
+        self.save_user_state(user_id, {"last_response_language": language})
+
     def get_agentic_strength(self, user_id: str) -> str | None:
         state = self._states.get(user_id, {})
         return state.get("agentic_strength")

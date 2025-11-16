@@ -139,6 +139,30 @@ def clear_user_response_language(user_id: str) -> None:
     db.upsert(updated, cond)
 
 
+def get_user_last_response_language(user_id: str) -> Optional[str]:
+    """Return the last response language sent to the user (if stored)."""
+    q = Query()
+    cond = cast(QueryLike, q.user_id == user_id)
+    raw = get_user_db().table("users").get(cond)
+    result = cast(Optional[Dict[str, Any]], raw)
+    lang = result.get("last_response_language") if result else None
+    return cast(Optional[str], lang)
+
+
+def set_user_last_response_language(user_id: str, language: str) -> None:
+    """Persist the last response language sent to the user."""
+    q = Query()
+    db = get_user_db().table("users")
+    cond = cast(QueryLike, q.user_id == user_id)
+    existing_raw = db.get(cond)
+    existing = cast(Optional[Dict[str, Any]], existing_raw)
+    updated: Dict[str, Any] = (
+        existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
+    )
+    updated["last_response_language"] = language
+    db.upsert(updated, cond)
+
+
 def get_user_agentic_strength(user_id: str) -> Optional[str]:
     """Get the user's preferred agentic strength, or None if not set."""
     q = Query()
@@ -218,6 +242,12 @@ class UserStateAdapter(UserStatePort):
     def clear_response_language(self, user_id: str) -> None:
         clear_user_response_language(user_id)
 
+    def get_last_response_language(self, user_id: str) -> str | None:
+        return get_user_last_response_language(user_id)
+
+    def set_last_response_language(self, user_id: str, language: str) -> None:
+        set_user_last_response_language(user_id, language)
+
     def get_agentic_strength(self, user_id: str) -> str | None:
         return get_user_agentic_strength(user_id)
 
@@ -240,6 +270,8 @@ __all__ = [
     "update_user_chat_history",
     "get_user_response_language",
     "set_user_response_language",
+    "get_user_last_response_language",
+    "set_user_last_response_language",
     "get_user_agentic_strength",
     "set_user_agentic_strength",
     "set_first_interaction",
