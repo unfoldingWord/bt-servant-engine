@@ -114,6 +114,45 @@ def test_translation_progress_message_includes_sources() -> None:
     assert [m["emoji"] for m in messages] == [""]
 
 
+def test_translation_progress_message_localizes_series_for_arabic() -> None:
+    """Resource list uses Arabic separators instead of English conjunctions."""
+
+    messages: List[status_messages.LocalizedProgressMessage] = []
+
+    async def messenger(message: status_messages.LocalizedProgressMessage) -> None:
+        messages.append(message)
+
+    state = _make_state(messenger)
+    state.update(
+        {
+            "docs": [
+                {"metadata": {"_merged_from": "tyndale_dictionary"}},
+                {"metadata": {"_merged_from": "uw_translation_words"}},
+                {"metadata": {"_merged_from": "ust"}},
+                {"metadata": {"_merged_from": "ult"}},
+            ],
+            "user_response_language": "ar",
+        }
+    )
+
+    wrapped = wrap_node_with_progress(
+        lambda s: s,
+        "test_node",
+        progress_message=build_translation_assistance_progress_message,
+    )
+
+    wrapped(state)
+
+    assert messages
+    message_text = messages[0]["text"]
+    expected_resources = (
+        "tyndale dictionary\u060c uw translation words\u060c ust \u0648 ult"
+    )
+    assert expected_resources in message_text
+    assert " and " not in message_text
+    assert message_text.startswith("_") and message_text.endswith("_")
+
+
 def test_translation_progress_message_falls_back_without_sources() -> None:
     """Translation assistance progress message reuses base text when no sources."""
 

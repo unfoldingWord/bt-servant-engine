@@ -398,14 +398,37 @@ def wrap_node_with_progress(  # type: ignore[no-untyped-def]
     return wrapped
 
 
-def _format_series(resources: List[str]) -> str:
+_SERIES_JOINERS: Dict[str, Dict[str, str]] = {
+    # pair: separator for two items
+    # middle: separator between items except the last
+    # final: separator before the last item in lists with 3+ entries
+    "en": {"pair": " and ", "middle": ", ", "final": ", and "},
+    "ar": {"pair": " \u0648 ", "middle": "\u060c ", "final": " \u0648 "},
+    "fr": {"pair": " et ", "middle": ", ", "final": ", et "},
+    "es": {"pair": " y ", "middle": ", ", "final": ", y "},
+    "pt": {"pair": " e ", "middle": ", ", "final": ", e "},
+    "ru": {"pair": " \u0438 ", "middle": ", ", "final": ", \u0438 "},
+    "id": {"pair": " dan ", "middle": ", ", "final": ", dan "},
+    "sw": {"pair": " na ", "middle": ", ", "final": ", na "},
+    "nl": {"pair": " en ", "middle": ", ", "final": ", en "},
+    "hi": {"pair": " \u0914\u0930 ", "middle": ", ", "final": ", \u0914\u0930 "},
+    "zh": {"pair": "\u548c", "middle": "\u3001", "final": "\u548c"},
+}
+
+
+def _normalized_language_code(language: str) -> str:
+    return language.split("-", maxsplit=1)[0].strip().lower() or "en"
+
+
+def _format_series(resources: List[str], language: str) -> str:
     if not resources:
         return ""
+    joiners = _SERIES_JOINERS.get(_normalized_language_code(language), _SERIES_JOINERS["en"])
     if len(resources) == _SINGLE_RESOURCE_COUNT:
         return resources[0]
     if len(resources) == _PAIR_RESOURCE_COUNT:
-        return f"{resources[0]} and {resources[1]}"
-    return f"{', '.join(resources[:-1])}, and {resources[-1]}"
+        return f"{resources[0]}{joiners['pair']}{resources[1]}"
+    return f"{joiners['middle'].join(resources[:-1])}{joiners['final']}{resources[-1]}"
 
 
 def _collect_resource_sources(docs: List[Dict[str, Any]]) -> List[str]:
@@ -436,7 +459,8 @@ def build_translation_assistance_progress_message(
     if not sources:
         return status_messages.get_progress_message(status_messages.FINALIZING_RESPONSE, s)
 
-    resources_list = _format_series(sources)
+    target_language = status_messages.get_effective_response_language(s)
+    resources_list = _format_series(sources, target_language)
     found_docs_payload = status_messages.get_progress_message(
         status_messages.FOUND_RELEVANT_DOCUMENTS, s, resources=resources_list
     )
