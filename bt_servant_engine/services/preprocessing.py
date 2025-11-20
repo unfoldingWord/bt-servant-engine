@@ -413,6 +413,22 @@ Here are example classifications:
     <intent>retrieve-scripture</intent>
   </example>
   <example>
+    <message>What is John 1:1?</message>
+    <intent>retrieve-scripture</intent>
+  </example>
+  <example>
+    <message>What is Gen 1:1-7?</message>
+    <intent>retrieve-scripture</intent>
+  </example>
+  <example>
+    <message>What does Revelation 2:4 say?</message>
+    <intent>retrieve-scripture</intent>
+  </example>
+  <example>
+    <message>What does Romans 8:1-4 say?</message>
+    <intent>retrieve-scripture</intent>
+  </example>
+  <example>
     <message>Read John 3 out loud.</message>
     <intent>listen-to-scripture</intent>
   </example>
