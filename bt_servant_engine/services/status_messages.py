@@ -405,6 +405,17 @@ def get_status_message_translations(message_key: str) -> dict[str, str]:
     return copy.deepcopy(translations)
 
 
+def list_status_messages_for_language(language: str) -> dict[str, str]:
+    """Return all message texts for a given language keyed by message id."""
+    normalized = language.strip().lower()
+    results: dict[str, str] = {}
+    for message_key, translations in _STATUS_STORE.status_messages.items():
+        text = translations.get(normalized)
+        if text:
+            results[message_key] = text
+    return results
+
+
 def _persist_status_messages(messages: dict[str, dict[str, str]]) -> None:
     """Persist the full status message map to disk atomically."""
     temp_fd, temp_path = tempfile.mkstemp(
@@ -488,6 +499,7 @@ __all__ = [
     "make_progress_message",
     "list_status_message_cache",
     "get_status_message_translations",
+    "list_status_messages_for_language",
     "set_status_message_translation",
     "delete_status_message_translation",
 ]

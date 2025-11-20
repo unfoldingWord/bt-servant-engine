@@ -34,6 +34,13 @@ class StatusMessageUpdate(BaseModel):
     text: str = Field(..., min_length=1, description="Localized translation text")
 
 
+class StatusMessagesByLanguageResponse(BaseModel):
+    """All message texts for a single language keyed by message id."""
+
+    language: str
+    translations: dict[str, str]
+
+
 @router.get("", response_model=StatusMessageCacheResponse)
 async def list_status_messages(_: AuthDependency) -> StatusMessageCacheResponse:
     """Return the complete cache of status message translations."""
@@ -107,6 +114,19 @@ async def delete_status_message_translation(
         ) from exc
     except ValueError as exc:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+
+
+@router.get(
+    "/language/{language}",
+    response_model=StatusMessagesByLanguageResponse,
+)
+async def list_status_messages_by_language(
+    language: Annotated[str, Path(min_length=2, max_length=8)],
+    _: AuthDependency,
+) -> StatusMessagesByLanguageResponse:
+    """Return all translations for a given language across all message keys."""
+    translations = status_messages.list_status_messages_for_language(language)
+    return StatusMessagesByLanguageResponse(language=language, translations=translations)
 
 
 __all__ = ["router"]

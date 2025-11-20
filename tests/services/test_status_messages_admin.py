@@ -65,3 +65,17 @@ def test_guard_english_overrides(monkeypatch: pytest.MonkeyPatch, tmp_path: Path
         status_messages.delete_status_message_translation("TEST_KEY", "en")
     with pytest.raises(KeyError):
         status_messages.set_status_message_translation("UNKNOWN", "am", "text")
+
+
+def test_list_status_messages_for_language(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    """Listing by language returns only keys with that translation."""
+    _setup_temp_store(monkeypatch, tmp_path)
+    status_messages.set_status_message_translation("TEST_KEY", "am", "am text")
+    status_messages.set_status_message_translation("TEST_KEY", "fr", "fr text")
+
+    am_translations = status_messages.list_status_messages_for_language("am")
+    assert am_translations == {"TEST_KEY": "am text"}
+    fr_translations = status_messages.list_status_messages_for_language("fr")
+    assert fr_translations == {"TEST_KEY": "fr text"}
+    missing = status_messages.list_status_messages_for_language("sw")
+    assert not missing

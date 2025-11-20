@@ -163,6 +163,31 @@ Pytest marks warnings as errors; update fixtures or add targeted `filterwarnings
   - `GET /cache/stats` reports global cache settings, hit/miss counters, and disk usage.
   - `GET /cache/{name}?sample_limit=10` inspects a specific cache with recent entry metadata.
   - Both clear endpoints accept `older_than_days=<float>` to prune only entries older than the cutoff instead of nuking everything.
+- **Status message cache (translations) admin routes:** manage the on-disk status/progress message cache stored in `DATA_DIR/status_messages_data.json` (admin token required).
+  - List all translations: `GET /admin/status-messages`
+  - Get one message’s translations: `GET /admin/status-messages/{message_key}`
+  - Get all translations for a language: `GET /admin/status-messages/language/{language}`
+  - Upsert a translation: `PUT /admin/status-messages/{message_key}/{language}` with body `{"text": "..."}` (cannot overwrite English).
+  - Delete a translation: `DELETE /admin/status-messages/{message_key}/{language}` (cannot delete English).
+  - Examples (assuming `ADMIN_API_TOKEN` in env):
+    ```bash
+    TOKEN=$ADMIN_API_TOKEN
+    curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/admin/status-messages
+
+    curl -H "Authorization: Bearer $TOKEN" \
+      http://localhost:8080/admin/status-messages/EXTRACTING_KEYWORDS
+
+    curl -H "Authorization: Bearer $TOKEN" \
+      http://localhost:8080/admin/status-messages/language/am
+
+    curl -X PUT -H "Authorization: Bearer $TOKEN" \
+      -H "Content-Type: application/json" \
+      -d '{"text":"Amharic text here"}' \
+      http://localhost:8080/admin/status-messages/EXTRACTING_KEYWORDS/am
+
+    curl -X DELETE -H "Authorization: Bearer $TOKEN" \
+      http://localhost:8080/admin/status-messages/EXTRACTING_KEYWORDS/am
+    ```
 
 ---
 
