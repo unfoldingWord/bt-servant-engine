@@ -172,19 +172,25 @@ Pytest marks warnings as errors; update fixtures or add targeted `filterwarnings
   - Examples (assuming `ADMIN_API_TOKEN` in env):
     ```bash
     TOKEN=$ADMIN_API_TOKEN
+
+    # List all message keys and their translations
     curl -H "Authorization: Bearer $TOKEN" http://localhost:8080/admin/status-messages
 
+    # Get all translations for a single message key
     curl -H "Authorization: Bearer $TOKEN" \
       http://localhost:8080/admin/status-messages/EXTRACTING_KEYWORDS
 
+    # Get all message texts for a specific language across all keys
     curl -H "Authorization: Bearer $TOKEN" \
       http://localhost:8080/admin/status-messages/language/am
 
+    # Upsert a translation for one key/language
     curl -X PUT -H "Authorization: Bearer $TOKEN" \
       -H "Content-Type: application/json" \
       -d '{"text":"Amharic text here"}' \
       http://localhost:8080/admin/status-messages/EXTRACTING_KEYWORDS/am
 
+    # Delete a translation for one key/language
     curl -X DELETE -H "Authorization: Bearer $TOKEN" \
       http://localhost:8080/admin/status-messages/EXTRACTING_KEYWORDS/am
     ```
