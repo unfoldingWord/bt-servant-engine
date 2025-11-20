@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException, Path, status
+from fastapi import APIRouter, Depends, HTTPException, Path, Response, status
 from pydantic import BaseModel, Field
 
 from bt_servant_engine.apps.api.dependencies import require_admin_token
@@ -69,6 +69,8 @@ async def get_status_message_translations(
 @router.put(
     "/{message_key}/{language}",
     status_code=status.HTTP_204_NO_CONTENT,
+    response_model=None,
+    response_class=Response,
     responses={
         400: {"description": "Invalid input"},
         404: {"description": "Unknown message key"},
@@ -94,6 +96,8 @@ async def upsert_status_message_translation(
 @router.delete(
     "/{message_key}/{language}",
     status_code=status.HTTP_204_NO_CONTENT,
+    response_model=None,
+    response_class=Response,
     responses={
         400: {"description": "Invalid input"},
         404: {"description": "Unknown message key or translation"},
