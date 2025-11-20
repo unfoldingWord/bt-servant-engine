@@ -48,6 +48,45 @@ async def list_status_messages(_: AuthDependency) -> StatusMessageCacheResponse:
 
 
 @router.get(
+    "/language/{language}",
+    response_model=StatusMessagesByLanguageResponse,
+)
+async def list_status_messages_by_language(
+    language: Annotated[str, Path(min_length=2, max_length=8)],
+    _: AuthDependency,
+) -> StatusMessagesByLanguageResponse:
+    """Return all translations for a given language across all message keys."""
+    translations = status_messages.list_status_messages_for_language(language)
+    return StatusMessagesByLanguageResponse(language=language, translations=translations)
+
+
+@router.delete(
+    "/language/{language}",
+    status_code=status.HTTP_204_NO_CONTENT,
+    response_model=None,
+    response_class=Response,
+    responses={
+        400: {"description": "Invalid input"},
+        404: {"description": "No translations found for language"},
+    },
+)
+async def delete_status_messages_by_language(
+    language: Annotated[str, Path(min_length=2, max_length=8)],
+    _: AuthDependency,
+) -> None:
+    """Delete all translations for a given language across all message keys."""
+    try:
+        status_messages.delete_status_messages_for_language(language)
+    except KeyError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No translations found for language: {language}",
+        ) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+
+
+@router.get(
     "/{message_key}",
     response_model=StatusMessageTranslationsResponse,
     responses={404: {"description": "Unknown message key"}},
@@ -115,45 +154,6 @@ async def delete_status_message_translation(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Unknown translation for key={message_key}, language={language}",
-        ) from exc
-    except ValueError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
-
-
-@router.get(
-    "/language/{language}",
-    response_model=StatusMessagesByLanguageResponse,
-)
-async def list_status_messages_by_language(
-    language: Annotated[str, Path(min_length=2, max_length=8)],
-    _: AuthDependency,
-) -> StatusMessagesByLanguageResponse:
-    """Return all translations for a given language across all message keys."""
-    translations = status_messages.list_status_messages_for_language(language)
-    return StatusMessagesByLanguageResponse(language=language, translations=translations)
-
-
-@router.delete(
-    "/language/{language}",
-    status_code=status.HTTP_204_NO_CONTENT,
-    response_model=None,
-    response_class=Response,
-    responses={
-        400: {"description": "Invalid input"},
-        404: {"description": "No translations found for language"},
-    },
-)
-async def delete_status_messages_by_language(
-    language: Annotated[str, Path(min_length=2, max_length=8)],
-    _: AuthDependency,
-) -> None:
-    """Delete all translations for a given language across all message keys."""
-    try:
-        status_messages.delete_status_messages_for_language(language)
-    except KeyError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"No translations found for language: {language}",
         ) from exc
     except ValueError as exc:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
