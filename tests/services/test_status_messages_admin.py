@@ -35,7 +35,8 @@ def test_set_translation_updates_cache_and_disk(monkeypatch: pytest.MonkeyPatch,
     assert translations["am"] == "Amharic text"
     on_disk = json.loads(path.read_text(encoding="utf-8"))
     assert on_disk["TEST_KEY"]["am"] == "Amharic text"
-    assert status_messages._STATUS_STORE.dynamic_cache[("TEST_KEY", "am")] == "Amharic text"  # noqa: SLF001
+    cache = status_messages.get_dynamic_translation_cache()
+    assert cache[("TEST_KEY", "am")] == "Amharic text"
 
 
 def test_delete_translation_removes_cache_and_disk(
@@ -50,7 +51,8 @@ def test_delete_translation_removes_cache_and_disk(
     assert "am" not in translations
     on_disk = json.loads(path.read_text(encoding="utf-8"))
     assert "am" not in on_disk["TEST_KEY"]
-    assert ("TEST_KEY", "am") not in status_messages._STATUS_STORE.dynamic_cache  # noqa: SLF001
+    cache = status_messages.get_dynamic_translation_cache()
+    assert ("TEST_KEY", "am") not in cache
 
 
 def test_guard_english_overrides(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
