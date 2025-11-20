@@ -267,7 +267,7 @@ def _translate_dynamically(message_key: str, target_language: str) -> str:
     try:
         client = _get_openai_client()
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4o",
             messages=[
                 {
                     "role": "system",
