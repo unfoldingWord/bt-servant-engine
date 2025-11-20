@@ -80,14 +80,30 @@ def _state_for(query: str) -> BrainState:
     )
 
 
-def test_translate_scripture_translates_with_arbitrary_target(monkeypatch: pytest.MonkeyPatch):
-    # Arrange: target language (Turkish) was previously unsupported; ensure it now works
-    query = "translate gen 1:1 into turkish"
+@pytest.mark.parametrize(
+    ("query", "target_code", "translated_body"),
+    [
+        (
+            "translate gen 1:1 into turkish",
+            "tr",
+            "Başlangıçta...",
+        ),
+        (
+            "translate gen 1:1 into amharic",
+            "am",
+            "Amharic translation...",
+        ),
+    ],
+)
+def test_translate_scripture_translates_with_arbitrary_target(
+    monkeypatch: pytest.MonkeyPatch, query: str, target_code: str, translated_body: str
+):
+    # Arrange: target language was previously unsupported; ensure it now works
 
     def parse_stub(*args: Any, **kwargs: Any):  # noqa: ANN401 - test stub
         tf = kwargs.get("text_format")
         if tf is ResponseLanguage:
-            return _StubParseResult(ResponseLanguage(language="tr"))
+            return _StubParseResult(ResponseLanguage(language=target_code))
         if tf is PassageSelection:
             sel = PassageSelection(
                 selections=[
@@ -101,8 +117,8 @@ def test_translate_scripture_translates_with_arbitrary_target(monkeypatch: pytes
             tp = TranslatedPassage(
                 header_book="Genesis",
                 header_suffix="1:1",
-                body="Başlangıçta...",
-                content_language="tr",
+                body=translated_body,
+                content_language=target_code,
             )
             return _StubParseResult(tp)
         return _StubParseResult(None)
@@ -117,7 +133,7 @@ def test_translate_scripture_translates_with_arbitrary_target(monkeypatch: pytes
     item = (out.get("responses") or [])[0]
     resp = cast(dict, item["response"])
     assert resp.get("suppress_translation") is True
-    assert resp.get("content_language") == "tr"
+    assert resp.get("content_language") == target_code
     segs = cast(list, resp.get("segments"))
     assert any(s.get("type") == "scripture" for s in segs)
 

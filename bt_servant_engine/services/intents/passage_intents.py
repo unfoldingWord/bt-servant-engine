@@ -47,19 +47,20 @@ You summarize Bible passage content faithfully using only the verses provided.
 
 TARGET_TRANSLATION_LANGUAGE_AGENT_SYSTEM_PROMPT = """
 Task: Determine the target language the user is asking the system to translate scripture into, based solely on the
-user's latest message. Return an ISO 639-1 code from the allowed set.
+user's latest message. Return an ISO 639-1 code (e.g., en, fr, tr). If unclear, return Other.
 
-Allowed outputs: en, ar, fr, es, hi, ru, id, sw, pt, zh, nl, Other
+Allowed outputs: Any ISO 639-1 code (two-letter, optionally with region like pt-br) or Other when unspecified.
 
 Rules:
 - Identify explicit target-language mentions (language names, codes, or phrases like "into Russian", "to es",
   "in French").
-- If no target language is explicitly specified, return Other. DO NOT infer a target from the message's language.
+- Do NOT infer a target from the message's language; choose Other if the target is not explicitly requested.
 - Output must match the provided schema exactly with no extra prose.
 
 Examples:
 - message: "translate John 3:16 into Russian" -> { "language": "ru" }
 - message: "please translate Mark 1 in Spanish" -> { "language": "es" }
+- message: "translate Ephesians 2:8-9 into Amharic" -> { "language": "am" }
 - message: "translate Matthew 2" -> { "language": "Other" }
 """
 
