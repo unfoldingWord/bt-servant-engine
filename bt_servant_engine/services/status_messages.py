@@ -11,6 +11,7 @@ The file persists across container restarts when DATA_DIR is mounted as a volume
 
 from __future__ import annotations
 
+import copy
 import json
 import os
 import shutil
@@ -391,6 +392,72 @@ def make_progress_message(
     )
 
 
+def list_status_message_cache() -> dict[str, dict[str, str]]:
+    """Return a deep copy of the current status message cache."""
+    return copy.deepcopy(_STATUS_STORE.status_messages)
+
+
+def get_status_message_translations(message_key: str) -> dict[str, str]:
+    """Return translations for a specific message key."""
+    translations = _STATUS_STORE.status_messages.get(message_key)
+    if translations is None:
+        raise KeyError(message_key)
+    return copy.deepcopy(translations)
+
+
+def _persist_status_messages(messages: dict[str, dict[str, str]]) -> None:
+    """Persist the full status message map to disk atomically."""
+    temp_fd, temp_path = tempfile.mkstemp(
+        dir=_STATUS_MESSAGES_PATH.parent, prefix=".status_messages_", suffix=".json.tmp"
+    )
+    try:
+        with os.fdopen(temp_fd, "w", encoding="utf-8") as temp_file:
+            json.dump(messages, temp_file, indent=2, ensure_ascii=False)
+            temp_file.write("\n")
+        os.replace(temp_path, _STATUS_MESSAGES_PATH)
+    finally:
+        if os.path.exists(temp_path):
+            try:
+                os.unlink(temp_path)
+            except OSError:
+                pass
+
+
+def set_status_message_translation(message_key: str, language: str, text: str) -> None:
+    """Create or update a translation for the given message key and language."""
+    if not text.strip():
+        raise ValueError("translation text cannot be empty")
+    if language.lower().strip() == "en":
+        raise ValueError("cannot override the English source translation")
+    messages = _STATUS_STORE.status_messages.get(message_key)
+    if messages is None:
+        raise KeyError(message_key)
+
+    updated_messages = copy.deepcopy(_STATUS_STORE.status_messages)
+    updated_messages.setdefault(message_key, {})[language] = text
+
+    _persist_status_messages(updated_messages)
+    _STATUS_STORE.status_messages = updated_messages
+    _STATUS_STORE.cache_translation(message_key, language, text)
+
+
+def delete_status_message_translation(message_key: str, language: str) -> None:
+    """Delete a translation for the given message key and language."""
+    if language.lower().strip() == "en":
+        raise ValueError("cannot delete the English source translation")
+    messages = _STATUS_STORE.status_messages.get(message_key)
+    if messages is None:
+        raise KeyError(message_key)
+    if language not in messages:
+        raise KeyError(f"{message_key}:{language}")
+
+    updated_messages = copy.deepcopy(_STATUS_STORE.status_messages)
+    updated_messages[message_key].pop(language, None)
+    _persist_status_messages(updated_messages)
+    _STATUS_STORE.status_messages = updated_messages
+    _STATUS_STORE.dynamic_cache.pop((message_key, language), None)
+
+
 __all__ = [
     # Message key constants
     "SEARCHING_BIBLE_RESOURCES",
@@ -419,4 +486,8 @@ __all__ = [
     "reset_openai_client_cache",
     "LocalizedProgressMessage",
     "make_progress_message",
+    "list_status_message_cache",
+    "get_status_message_translations",
+    "set_status_message_translation",
+    "delete_status_message_translation",
 ]
