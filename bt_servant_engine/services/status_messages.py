@@ -469,6 +469,27 @@ def delete_status_message_translation(message_key: str, language: str) -> None:
     _STATUS_STORE.dynamic_cache.pop((message_key, language), None)
 
 
+def delete_status_messages_for_language(language: str) -> None:
+    """Delete all translations for a given language across all message keys."""
+    normalized = language.lower().strip()
+    if normalized == "en":
+        raise ValueError("cannot delete the English source translation")
+
+    updated_messages = copy.deepcopy(_STATUS_STORE.status_messages)
+    removed_any = False
+    for key, translations in updated_messages.items():
+        if normalized in translations:
+            translations.pop(normalized, None)
+            _STATUS_STORE.dynamic_cache.pop((key, normalized), None)
+            removed_any = True
+
+    if not removed_any:
+        raise KeyError(normalized)
+
+    _persist_status_messages(updated_messages)
+    _STATUS_STORE.status_messages = updated_messages
+
+
 __all__ = [
     # Message key constants
     "SEARCHING_BIBLE_RESOURCES",
@@ -502,4 +523,5 @@ __all__ = [
     "list_status_messages_for_language",
     "set_status_message_translation",
     "delete_status_message_translation",
+    "delete_status_messages_for_language",
 ]

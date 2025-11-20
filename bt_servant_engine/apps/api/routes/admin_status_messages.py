@@ -133,4 +133,30 @@ async def list_status_messages_by_language(
     return StatusMessagesByLanguageResponse(language=language, translations=translations)
 
 
+@router.delete(
+    "/language/{language}",
+    status_code=status.HTTP_204_NO_CONTENT,
+    response_model=None,
+    response_class=Response,
+    responses={
+        400: {"description": "Invalid input"},
+        404: {"description": "No translations found for language"},
+    },
+)
+async def delete_status_messages_by_language(
+    language: Annotated[str, Path(min_length=2, max_length=8)],
+    _: AuthDependency,
+) -> None:
+    """Delete all translations for a given language across all message keys."""
+    try:
+        status_messages.delete_status_messages_for_language(language)
+    except KeyError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No translations found for language: {language}",
+        ) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+
+
 __all__ = ["router"]

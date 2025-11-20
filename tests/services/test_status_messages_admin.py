@@ -12,7 +12,10 @@ from bt_servant_engine.services import status_messages
 
 
 def _setup_temp_store(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> Path:
-    data = {"TEST_KEY": {"en": "English source"}}
+    data = {
+        "TEST_KEY": {"en": "English source"},
+        "OTHER_KEY": {"en": "Other English source"},
+    }
     path = tmp_path / "status_messages_data.json"
     path.write_text(json.dumps(data), encoding="utf-8")
 
@@ -65,6 +68,29 @@ def test_guard_english_overrides(monkeypatch: pytest.MonkeyPatch, tmp_path: Path
         status_messages.delete_status_message_translation("TEST_KEY", "en")
     with pytest.raises(KeyError):
         status_messages.set_status_message_translation("UNKNOWN", "am", "text")
+
+
+def test_delete_status_messages_for_language(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    """Deleting by language removes translations across keys and clears cache."""
+    path = _setup_temp_store(monkeypatch, tmp_path)
+    status_messages.set_status_message_translation("TEST_KEY", "am", "am text")
+    status_messages.set_status_message_translation("OTHER_KEY", "am", "other am text")
+
+    status_messages.delete_status_messages_for_language("am")
+
+    assert "am" not in status_messages.get_status_message_translations("TEST_KEY")
+    assert "am" not in status_messages.get_status_message_translations("OTHER_KEY")
+    on_disk = json.loads(path.read_text(encoding="utf-8"))
+    assert "am" not in on_disk["TEST_KEY"]
+    assert "am" not in on_disk["OTHER_KEY"]
+    assert ("TEST_KEY", "am") not in status_messages.get_dynamic_translation_cache()
+    assert ("OTHER_KEY", "am") not in status_messages.get_dynamic_translation_cache()
+    with pytest.raises(KeyError):
+        status_messages.delete_status_messages_for_language("am")
+    with pytest.raises(ValueError):
+        status_messages.delete_status_messages_for_language("en")
 
 
 def test_list_status_messages_for_language(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:

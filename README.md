@@ -169,6 +169,7 @@ Pytest marks warnings as errors; update fixtures or add targeted `filterwarnings
   - Get all translations for a language: `GET /admin/status-messages/language/{language}`
   - Upsert a translation: `PUT /admin/status-messages/{message_key}/{language}` with body `{"text": "..."}` (cannot overwrite English).
   - Delete a translation: `DELETE /admin/status-messages/{message_key}/{language}` (cannot delete English).
+  - Delete all translations for a language: `DELETE /admin/status-messages/language/{language}` (cannot delete English).
   - Examples (assuming `ADMIN_API_TOKEN` in env):
     ```bash
     TOKEN=$ADMIN_API_TOKEN
@@ -193,6 +194,10 @@ Pytest marks warnings as errors; update fixtures or add targeted `filterwarnings
     # Delete a translation for one key/language
     curl -X DELETE -H "Authorization: Bearer $TOKEN" \
       http://localhost:8080/admin/status-messages/EXTRACTING_KEYWORDS/am
+
+    # Delete all translations for a language across every key
+    curl -X DELETE -H "Authorization: Bearer $TOKEN" \
+      http://localhost:8080/admin/status-messages/language/am
     ```
 
 ---
