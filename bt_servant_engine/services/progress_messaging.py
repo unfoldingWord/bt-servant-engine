@@ -82,6 +82,21 @@ async def maybe_send_progress(
 
     # Send the progress message
     try:
+        text = str(message.get("text", ""))
+        max_length = 3500
+        if len(text) > max_length:
+            logger.warning(
+                "Truncating oversized progress message (len=%d, max=%d): %s",
+                len(text),
+                max_length,
+                text[:200],
+            )
+            truncated = f"{text[: max_length - 1]}…"
+            message = cast(
+                status_messages.LocalizedProgressMessage,
+                {**message, "text": truncated},
+            )
+
         await messenger(message)
         s["last_progress_time"] = current_time
         logger.info(

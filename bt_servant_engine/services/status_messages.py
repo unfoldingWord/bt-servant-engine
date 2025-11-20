@@ -242,6 +242,27 @@ def _translate_dynamically(message_key: str, target_language: str) -> str:
         logger.warning("No English text found for message key: %s", message_key)
         return english_text
 
+    def _sanitize_translation(translated: str) -> str:
+        """Clamp pathological translations (e.g., runaway repetition)."""
+        translated = translated.strip()
+        if not translated:
+            return english_text
+
+        max_len = 500
+        ratio_limit = 8
+        if len(translated) > max(max_len, len(english_text) * ratio_limit):
+            logger.warning(
+                "Discarding oversized translation for message '%s' language '%s' "
+                "(len=%d, english_len=%d): %s",
+                message_key,
+                target_language,
+                len(translated),
+                len(english_text),
+                translated[:200],
+            )
+            return english_text
+        return translated
+
     try:
         client = _get_openai_client()
         response = client.chat.completions.create(
@@ -260,7 +281,7 @@ def _translate_dynamically(message_key: str, target_language: str) -> str:
             temperature=0.3,
         )
         translated_text = response.choices[0].message.content or english_text
-        translated_text = translated_text.strip()
+        translated_text = _sanitize_translation(translated_text)
 
         # Cache the translation in memory
         _STATUS_STORE.cache_translation(message_key, target_language, translated_text)
