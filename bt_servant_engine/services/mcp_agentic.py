@@ -38,6 +38,9 @@ ALLOWED_AGENTIC_TOOLS: set[str] = {
     "fetch_scripture",
 }
 
+MAX_TOOL_CONTENT_CHARS = int(os.getenv("MCP_TOOL_MAX_CHARS", "5000"))
+MAX_PLAN_TOTAL_CHARS = int(os.getenv("MCP_PLAN_TOTAL_MAX_CHARS", "15000"))
+
 PLAN_SYSTEM_PROMPT = """
 You select the best MCP tools/prompts to answer the user's request.
 
@@ -170,6 +173,51 @@ def _args_to_payload(args: ToolCallArgs | Mapping[str, Any] | None) -> dict[str,
     return {}
 
 
+def _truncate_text(text: Optional[str], limit: int, source: str) -> str:
+    """Trim oversized text to control token costs."""
+    if not text:
+        return ""
+    if limit <= 0 or len(text) <= limit:
+        return text
+    return text[:limit] + f"\n[truncated to {limit} chars from {source}]"
+
+
+def _enforce_total_limit(results: list[dict[str, Any]], total_limit: int) -> list[dict[str, Any]]:
+    """Ensure the aggregate content sent to the finalizer stays within budget."""
+    if total_limit <= 0:
+        return results
+    total = sum(len(r.get("content") or "") for r in results)
+    if total <= total_limit:
+        return results
+
+    # Scale down each item proportionally first.
+    ratio = total_limit / max(total, 1)
+    for item in results:
+        content = item.get("content") or ""
+        new_len = max(1, int(len(content) * ratio))
+        if new_len < len(content):
+            item["content"] = (
+                content[:new_len] + f"\n[truncated to fit total limit {total_limit} chars]"
+            )
+
+    # If still over, trim the largest items until under the cap.
+    total = sum(len(r.get("content") or "") for r in results)
+    if total <= total_limit:
+        return results
+    for item in sorted(results, key=lambda r: len(r.get("content") or ""), reverse=True):
+        if total <= total_limit:
+            break
+        content = item.get("content") or ""
+        excess = total - total_limit
+        keep = max(0, len(content) - excess)
+        if keep < len(content):
+            item["content"] = (
+                content[:keep] + f"\n[truncated to fit total limit {total_limit} chars]"
+            )
+            total = sum(len(r.get("content") or "") for r in results)
+    return results
+
+
 def _plan_calls(
     deps: MCPAgenticDependencies,
     user_message: str,
@@ -283,6 +331,7 @@ async def _execute_calls(
                 text = _extract_text_from_content(content)
                 if not text and resp.get("text"):
                     text = str(resp["text"])
+            text = _truncate_text(text, MAX_TOOL_CONTENT_CHARS, call.name)
             results.append({"name": call.name, "args": arg_payload, "content": text})
             logger.info("[agentic-mcp] Completed %s (chars=%d)", call.name, len(text or ""))
         except Exception as exc:  # pylint: disable=broad-except
@@ -362,6 +411,7 @@ async def _run_agentic_mcp_async(
             return FAILURE_MESSAGE_EN
 
         tool_results = await _execute_calls(mcp_client, plan, manifest)
+        tool_results = _enforce_total_limit(tool_results, MAX_PLAN_TOTAL_CHARS)
         logger.info(
             "[agentic-mcp] Executed %d calls successfully for intent=%s",
             len(tool_results),
