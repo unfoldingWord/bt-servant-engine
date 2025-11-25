@@ -814,6 +814,22 @@ def handle_get_passage_summary(state: Any) -> dict:
 
     s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_get_passage_summary_node")
+    dev_agentic_mcp = _resolve_dev_agentic_mcp(cast(dict[str, Any], s))
+    if dev_agentic_mcp:
+        agentic_deps = MCPAgenticDependencies(
+            openai_client=open_ai_client,
+            extract_cached_tokens_fn=_extract_cached_input_tokens,
+        )
+        logger.info("[agentic-mcp] using dev MCP flow for get-passage-summary")
+        response_text = run_agentic_mcp(
+            agentic_deps,
+            user_message=intent_query,
+            intent=IntentType.GET_PASSAGE_SUMMARY,
+        )
+        return {
+            "responses": [{"intent": IntentType.GET_PASSAGE_SUMMARY, "response": response_text}]
+        }
+
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     selection_request = PassageSelectionRequest(
         query=intent_query,

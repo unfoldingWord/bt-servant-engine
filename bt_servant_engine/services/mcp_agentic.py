@@ -52,6 +52,7 @@ FINALIZER_SYSTEM_PROMPT = """
 You are composing a reply using ONLY the provided MCP tool results.
 - Be concise and helpful.
 - If scripture text appears, keep it verbatim.
+- If the intent is get-passage-summary, produce a concise summary (3–5 sentences max).
 - If nothing useful is present, say so briefly.
 - Offer 2 short follow-up questions that relate to the data retrieved.
 """
@@ -309,6 +310,11 @@ async def _run_agentic_mcp_async(
             )
             validation_error = _validate_plan(plan, manifest)
             if validation_error is None:
+                logger.info(
+                    "[agentic-mcp] Plan validated with %d call(s): %s",
+                    len(plan.calls),
+                    ", ".join(call.name for call in plan.calls),
+                )
                 break
         if validation_error is not None:
             logger.info("[agentic-mcp] Plan failed after retries: %s", validation_error)
@@ -320,7 +326,13 @@ async def _run_agentic_mcp_async(
             len(tool_results),
             intent.value,
         )
-        return _finalize_response(deps, user_message, intent, tool_results)
+        final_response = _finalize_response(deps, user_message, intent, tool_results)
+        logger.info(
+            "[agentic-mcp] Final response length=%d chars for intent=%s",
+            len(final_response or ""),
+            intent.value,
+        )
+        return final_response
     finally:
         await mcp_client.close()
 
