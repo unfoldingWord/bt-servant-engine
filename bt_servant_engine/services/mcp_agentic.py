@@ -293,6 +293,7 @@ async def _run_agentic_mcp_async(
         if not manifest:
             logger.warning("[agentic-mcp] Manifest is empty; aborting.")
             return FAILURE_MESSAGE_EN
+        logger.info("[agentic-mcp] Loaded manifest with %d tools", len(manifest))
 
         manifest_summary = _manifest_summary(manifest)
         validation_error: str | None = None
@@ -314,6 +315,11 @@ async def _run_agentic_mcp_async(
             return FAILURE_MESSAGE_EN
 
         tool_results = await _execute_calls(mcp_client, plan, manifest)
+        logger.info(
+            "[agentic-mcp] Executed %d calls successfully for intent=%s",
+            len(tool_results),
+            intent.value,
+        )
         return _finalize_response(deps, user_message, intent, tool_results)
     finally:
         await mcp_client.close()
