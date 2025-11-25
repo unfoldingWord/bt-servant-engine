@@ -16,7 +16,7 @@ from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, cast
 from openai import OpenAI
 from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from translation_helps import TranslationHelpsClient  # type: ignore  # pylint: disable=import-error
 
 from bt_servant_engine.core.intents import IntentType
@@ -44,6 +44,8 @@ You select the best MCP tools/prompts to answer the user's request.
 Rules:
 - Choose 1-3 calls from the allowed list.
 - Use the required parameters shown in the manifest.
+- Only use argument keys from the manifest (reference, language, organization, format,
+  includeIntro, includeContext, includeVerseNumbers, term, category, rcLink, moduleId, path).
 - Do not guess parameters; prefer the user's wording and references.
 - Return ONLY a JSON object matching the schema.
 """
@@ -62,15 +64,38 @@ FAILURE_MESSAGE_EN = (
 )
 
 
+class ToolCallArgs(BaseModel):
+    """Allowed arguments for MCP tools/prompts (schema must forbid extras)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    reference: Optional[str] = None
+    language: Optional[str] = None
+    organization: Optional[str] = None
+    format: Optional[str] = None
+    includeIntro: Optional[bool] = None
+    includeContext: Optional[bool] = None
+    includeVerseNumbers: Optional[bool] = None
+    term: Optional[str] = None
+    category: Optional[str] = None
+    rcLink: Optional[str] = None
+    moduleId: Optional[str] = None
+    path: Optional[str] = None
+
+
 class ToolCall(BaseModel):
     """Single MCP invocation request."""
 
+    model_config = ConfigDict(extra="forbid")
+
     name: str
-    args: Dict[str, Any] = Field(default_factory=dict)
+    args: ToolCallArgs = Field(default_factory=ToolCallArgs)
 
 
 class Plan(BaseModel):
     """Structured plan produced by the planner LLM."""
+
+    model_config = ConfigDict(extra="forbid")
 
     calls: List[ToolCall] = Field(default_factory=list)
     rationale: Optional[str] = None
@@ -136,6 +161,15 @@ def _manifest_summary(specs: Mapping[str, MCPToolSpec]) -> str:
     return json.dumps(summary, ensure_ascii=False)
 
 
+def _args_to_payload(args: ToolCallArgs | Mapping[str, Any] | None) -> dict[str, Any]:
+    """Normalize args into a plain dict, dropping Nones."""
+    if isinstance(args, ToolCallArgs):
+        return args.model_dump(exclude_none=True)
+    if isinstance(args, Mapping):
+        return {k: v for k, v in args.items() if v is not None}
+    return {}
+
+
 def _plan_calls(
     deps: MCPAgenticDependencies,
     user_message: str,
@@ -184,10 +218,9 @@ def _validate_plan(plan: Plan, specs: Mapping[str, MCPToolSpec]) -> str | None:
         spec = specs.get(call.name)
         if spec is None:
             return f"unknown tool: {call.name}"
-        if not isinstance(call.args, dict):
-            return f"arguments for {call.name} must be an object"
+        args_dict = _args_to_payload(call.args)
         missing = [
-            req for req in spec.required if req not in call.args or call.args[req] in (None, "")
+            req for req in spec.required if req not in args_dict or args_dict[req] in (None, "")
         ]
         if missing:
             return f"{call.name} is missing required fields: {', '.join(missing)}"
@@ -233,27 +266,28 @@ async def _execute_calls(
     results: list[dict[str, Any]] = []
     for call in plan.calls:
         spec = specs[call.name]
+        arg_payload = _args_to_payload(call.args)
         try:
             logger.info(
                 "[agentic-mcp] Calling %s (prompt=%s) with args=%s",
                 call.name,
                 spec.is_prompt,
-                sorted(call.args.keys()),
+                sorted(arg_payload.keys()),
             )
             if spec.is_prompt:
                 prompt_name = call.name.replace("prompt_", "", 1)
-                text = await _execute_prompt(client, prompt_name, call.args)
+                text = await _execute_prompt(client, prompt_name, arg_payload)
             else:
-                resp = await client.call_tool(call.name, call.args)
+                resp = await client.call_tool(call.name, arg_payload)
                 content = resp.get("content", []) if isinstance(resp, dict) else []
                 text = _extract_text_from_content(content)
                 if not text and resp.get("text"):
                     text = str(resp["text"])
-            results.append({"name": call.name, "args": call.args, "content": text})
+            results.append({"name": call.name, "args": arg_payload, "content": text})
             logger.info("[agentic-mcp] Completed %s (chars=%d)", call.name, len(text or ""))
         except Exception as exc:  # pylint: disable=broad-except
             logger.warning("[agentic-mcp] %s failed: %s", call.name, exc)
-            results.append({"name": call.name, "args": call.args, "content": f"[ERROR] {exc}"})
+            results.append({"name": call.name, "args": arg_payload, "content": f"[ERROR] {exc}"})
     return results
 
 
