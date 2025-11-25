@@ -110,6 +110,14 @@ class UserStatePort(Protocol):
         """Persist the agentic strength preference."""
         ...
 
+    def get_dev_agentic_mcp(self, user_id: str) -> bool | None:
+        """Return whether the dev MCP agentic mode is enabled for the user."""
+        ...
+
+    def set_dev_agentic_mcp(self, user_id: str, enabled: bool) -> None:
+        """Persist the dev MCP agentic mode preference."""
+        ...
+
     def set_first_interaction(self, user_id: str, is_first: bool) -> None:
         """Mark whether ``user_id`` is on their first interaction."""
         ...

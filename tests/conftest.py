@@ -84,6 +84,14 @@ class InMemoryUserStatePort(UserStatePort):
             raise ValueError(f"Invalid agentic strength: {strength}")
         self.save_user_state(user_id, {"agentic_strength": normalized})
 
+    def get_dev_agentic_mcp(self, user_id: str) -> bool | None:
+        state = self._states.get(user_id, {})
+        value = state.get("dev_agentic_mcp")
+        return bool(value) if value is not None else None
+
+    def set_dev_agentic_mcp(self, user_id: str, enabled: bool) -> None:
+        self.save_user_state(user_id, {"dev_agentic_mcp": bool(enabled)})
+
     def set_first_interaction(self, user_id: str, is_first: bool) -> None:
         self.save_user_state(user_id, {"first_interaction": is_first})
 

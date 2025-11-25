@@ -193,6 +193,30 @@ def set_user_agentic_strength(user_id: str, strength: str) -> None:
     db.upsert(updated, cond)
 
 
+def get_user_dev_agentic_mcp(user_id: str) -> Optional[bool]:
+    """Return whether the user enabled the dev MCP agentic mode."""
+    q = Query()
+    cond = cast(QueryLike, q.user_id == user_id)
+    raw = get_user_db().table("users").get(cond)
+    result = cast(Optional[Dict[str, Any]], raw)
+    value = result.get("dev_agentic_mcp") if result else None
+    return bool(value) if value is not None else None
+
+
+def set_user_dev_agentic_mcp(user_id: str, enabled: bool) -> None:
+    """Persist the user's preference for the dev MCP agentic mode."""
+    q = Query()
+    db = get_user_db().table("users")
+    cond = cast(QueryLike, q.user_id == user_id)
+    existing_raw = db.get(cond)
+    existing = cast(Optional[Dict[str, Any]], existing_raw)
+    updated: Dict[str, Any] = (
+        existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
+    )
+    updated["dev_agentic_mcp"] = bool(enabled)
+    db.upsert(updated, cond)
+
+
 def set_first_interaction(user_id: str, is_first: bool) -> None:
     """Set whether this is the user's first interaction."""
     q = Query()
@@ -254,6 +278,12 @@ class UserStateAdapter(UserStatePort):
     def set_agentic_strength(self, user_id: str, strength: str) -> None:
         set_user_agentic_strength(user_id, strength)
 
+    def get_dev_agentic_mcp(self, user_id: str) -> bool | None:
+        return get_user_dev_agentic_mcp(user_id)
+
+    def set_dev_agentic_mcp(self, user_id: str, enabled: bool) -> None:
+        set_user_dev_agentic_mcp(user_id, enabled)
+
     def set_first_interaction(self, user_id: str, is_first: bool) -> None:
         set_first_interaction(user_id, is_first)
 
@@ -274,6 +304,8 @@ __all__ = [
     "set_user_last_response_language",
     "get_user_agentic_strength",
     "set_user_agentic_strength",
+    "get_user_dev_agentic_mcp",
+    "set_user_dev_agentic_mcp",
     "set_first_interaction",
     "is_first_interaction",
 ]

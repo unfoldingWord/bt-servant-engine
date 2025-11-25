@@ -339,6 +339,14 @@ You must choose one or more intents from the following list:
     The user wants to change the agentic strength of the assistant's responses (for example: "Set my agentic strength to
     low", "Increase the detail of your answers"). Supported levels: normal, low, very_low.
   </intent>
+  <intent name="set-dev-agentic-mcp">
+    The user wants to enable the developer MCP agentic mode for translation helps/key passages (for example:
+    "turn on dev MCP mode", "use the MCP developer mode", "enable the agentic MCP flow").
+  </intent>
+  <intent name="clear-dev-agentic-mcp">
+    The user wants to disable the developer MCP agentic mode and return to the standard flow (for example:
+    "turn off dev MCP mode", "stop using the MCP developer mode", "disable agentic MCP").
+  </intent>
   <intent name="retrieve-system-information">
     The user wants information about the BT Servant system itself—its resources, capabilities, uptime, data sources, or
     other operational details.
@@ -403,6 +411,14 @@ Here are example classifications:
   <example>
     <message>translate the French version of John 1:1 into Spanish</message>
     <intent>translate-scripture</intent>
+  </example>
+  <example>
+    <message>enable the MCP developer mode</message>
+    <intent>set-dev-agentic-mcp</intent>
+  </example>
+  <example>
+    <message>stop using the MCP dev flow</message>
+    <intent>clear-dev-agentic-mcp</intent>
   </example>
   <example>
     <message>Please provide the text of Job 1:1-5.</message>
@@ -602,6 +618,18 @@ def resolve_agentic_strength(state: dict[str, Any]) -> str:
         if configured_lower in ALLOWED_AGENTIC_STRENGTH:
             return configured_lower
     return "normal"
+
+
+def resolve_dev_agentic_mcp(state: dict[str, Any]) -> bool:
+    """Return whether the dev MCP agentic mode is enabled."""
+
+    for key in ("dev_agentic_mcp", "user_dev_agentic_mcp"):
+        val = state.get(key)
+        if isinstance(val, bool):
+            return val
+
+    configured = getattr(config, "BT_DEV_AGENTIC_MCP", False)
+    return bool(configured)
 
 
 def model_for_agentic_strength(
