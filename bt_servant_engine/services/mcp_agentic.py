@@ -234,6 +234,12 @@ async def _execute_calls(
     for call in plan.calls:
         spec = specs[call.name]
         try:
+            logger.info(
+                "[agentic-mcp] Calling %s (prompt=%s) with args=%s",
+                call.name,
+                spec.is_prompt,
+                sorted(call.args.keys()),
+            )
             if spec.is_prompt:
                 prompt_name = call.name.replace("prompt_", "", 1)
                 text = await _execute_prompt(client, prompt_name, call.args)
@@ -244,6 +250,7 @@ async def _execute_calls(
                 if not text and resp.get("text"):
                     text = str(resp["text"])
             results.append({"name": call.name, "args": call.args, "content": text})
+            logger.info("[agentic-mcp] Completed %s (chars=%d)", call.name, len(text or ""))
         except Exception as exc:  # pylint: disable=broad-except
             logger.warning("[agentic-mcp] %s failed: %s", call.name, exc)
             results.append({"name": call.name, "args": call.args, "content": f"[ERROR] {exc}"})
