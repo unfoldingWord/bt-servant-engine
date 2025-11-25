@@ -228,6 +228,50 @@ def set_agentic_strength(
 
 
 @dataclass(slots=True)
+class DevAgenticMCPRequest:
+    """Inputs required to toggle the dev MCP agentic mode."""
+
+    user_id: str
+
+
+@dataclass(slots=True)
+class DevAgenticMCPDependencies:
+    """Persistence callbacks for dev MCP agentic mode."""
+
+    set_user_dev_agentic_mcp: Callable[[str, bool], Any]
+
+
+def set_dev_agentic_mcp(
+    request: DevAgenticMCPRequest,
+    dependencies: DevAgenticMCPDependencies,
+) -> dict[str, Any]:
+    """Enable the agentic MCP flow for the current user."""
+
+    dependencies.set_user_dev_agentic_mcp(request.user_id, True)
+    response_text = "Developer MCP mode enabled for translation helps."
+    return {
+        "responses": [{"intent": IntentType.SET_DEV_AGENTIC_MCP, "response": response_text}],
+        "dev_agentic_mcp": True,
+        "user_dev_agentic_mcp": True,
+    }
+
+
+def clear_dev_agentic_mcp(
+    request: DevAgenticMCPRequest,
+    dependencies: DevAgenticMCPDependencies,
+) -> dict[str, Any]:
+    """Disable the agentic MCP flow for the current user."""
+
+    dependencies.set_user_dev_agentic_mcp(request.user_id, False)
+    response_text = "Developer MCP mode disabled. Using the standard flow."
+    return {
+        "responses": [{"intent": IntentType.CLEAR_DEV_AGENTIC_MCP, "response": response_text}],
+        "dev_agentic_mcp": False,
+        "user_dev_agentic_mcp": False,
+    }
+
+
+@dataclass(slots=True)
 class ClearResponseLanguageRequest:
     """Inputs required to clear the stored response language."""
 
@@ -266,7 +310,11 @@ __all__ = [
     "ClearResponseLanguageDependencies",
     "AgenticStrengthRequest",
     "AgenticStrengthDependencies",
+    "DevAgenticMCPRequest",
+    "DevAgenticMCPDependencies",
     "set_response_language",
     "set_agentic_strength",
+    "set_dev_agentic_mcp",
+    "clear_dev_agentic_mcp",
     "clear_response_language",
 ]

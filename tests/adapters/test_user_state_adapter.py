@@ -81,6 +81,19 @@ def test_agentic_strength_roundtrip(temp_user_db: TinyDB) -> None:
     assert user_state.get_user_agentic_strength(user_id) is None
 
 
+def test_dev_agentic_mcp_roundtrip(temp_user_db: TinyDB) -> None:
+    """Dev MCP toggle round-trips boolean values."""
+    del temp_user_db
+    user_id = "dev-mcp"
+    assert user_state.get_user_dev_agentic_mcp(user_id) is None
+
+    user_state.set_user_dev_agentic_mcp(user_id, True)
+    assert user_state.get_user_dev_agentic_mcp(user_id) is True
+
+    user_state.set_user_dev_agentic_mcp(user_id, False)
+    assert user_state.get_user_dev_agentic_mcp(user_id) is False
+
+
 def test_first_interaction_flags(temp_user_db: TinyDB) -> None:
     """First-interaction flag flips and persists via adapter helpers."""
     del temp_user_db
@@ -94,7 +107,10 @@ def test_first_interaction_flags(temp_user_db: TinyDB) -> None:
     assert user_state.is_first_interaction(user_id) is True
 
 
-def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) -> None:
+# pylint: disable=too-many-locals
+def test_user_state_adapter_methods_delegate(  # noqa: PLR0915
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     """Adapter delegates work to the module-level helpers."""
     adapter = user_state.UserStateAdapter()
 
@@ -134,6 +150,13 @@ def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) ->
     def fake_set_strength(uid: str, strength: str) -> None:
         record(f"set_strength:{uid}:{strength}")
 
+    def fake_get_dev_mcp(uid: str) -> bool | None:
+        record(f"get_dev:{uid}")
+        return cast(bool | None, None)
+
+    def fake_set_dev_mcp(uid: str, enabled: bool) -> None:
+        record(f"set_dev:{uid}:{enabled}")
+
     def fake_set_first(uid: str, val: bool) -> None:
         record(f"set_first:{uid}:{val}")
 
@@ -150,6 +173,8 @@ def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) ->
     monkeypatch.setattr(user_state, "set_user_last_response_language", fake_set_last_lang)
     monkeypatch.setattr(user_state, "get_user_agentic_strength", fake_get_strength)
     monkeypatch.setattr(user_state, "set_user_agentic_strength", fake_set_strength)
+    monkeypatch.setattr(user_state, "get_user_dev_agentic_mcp", fake_get_dev_mcp)
+    monkeypatch.setattr(user_state, "set_user_dev_agentic_mcp", fake_set_dev_mcp)
     monkeypatch.setattr(user_state, "set_first_interaction", fake_set_first)
     monkeypatch.setattr(user_state, "is_first_interaction", fake_is_first)
 
@@ -162,6 +187,8 @@ def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) ->
     adapter.set_last_response_language("u1", "nl")
     adapter.get_agentic_strength("u1")
     adapter.set_agentic_strength("u1", "normal")
+    adapter.get_dev_agentic_mcp("u1")
+    adapter.set_dev_agentic_mcp("u1", True)
     adapter.set_first_interaction("u1", False)
     adapter.is_first_interaction("u1")
 
@@ -175,6 +202,8 @@ def test_user_state_adapter_methods_delegate(monkeypatch: pytest.MonkeyPatch) ->
         "set_last_lang:u1:nl",
         "get_strength:u1",
         "set_strength:u1:normal",
+        "get_dev:u1",
+        "set_dev:u1:True",
         "set_first:u1:False",
         "is_first:u1",
     ]

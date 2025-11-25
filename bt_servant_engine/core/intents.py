@@ -22,6 +22,8 @@ class IntentType(str, Enum):
     SET_RESPONSE_LANGUAGE = "set-response-language"
     CLEAR_RESPONSE_LANGUAGE = "clear-response-language"
     SET_AGENTIC_STRENGTH = "set-agentic-strength"
+    SET_DEV_AGENTIC_MCP = "set-dev-agentic-mcp"
+    CLEAR_DEV_AGENTIC_MCP = "clear-dev-agentic-mcp"
     CONVERSE_WITH_BT_SERVANT = "converse-with-bt-servant"
 
 

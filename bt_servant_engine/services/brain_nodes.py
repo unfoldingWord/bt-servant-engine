@@ -4,6 +4,7 @@ This module contains all node implementations and helper functions used in the
 brain decision graph. These are thin wrappers that delegate to service modules
 while handling state extraction and dependency injection.
 """
+# pylint: disable=too-many-lines
 
 from __future__ import annotations
 
@@ -14,6 +15,7 @@ from typing import TYPE_CHECKING, Any, Callable, Iterable, Optional, cast
 from openai import OpenAI
 
 from bt_servant_engine.core.config import config
+from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.core.ports import ChromaPort, UserStatePort
 from bt_servant_engine.services.openai_utils import (
@@ -41,6 +43,7 @@ from bt_servant_engine.services.preprocessing import (
     model_for_agentic_strength as _model_for_agentic_strength,
     preprocess_user_query as _preprocess_user_query_impl,
     resolve_agentic_strength as _resolve_agentic_strength,
+    resolve_dev_agentic_mcp as _resolve_dev_agentic_mcp,
     generate_continuation_actions as _generate_continuation_actions_impl,
 )
 from bt_servant_engine.services.passage_selection import (
@@ -59,11 +62,15 @@ from bt_servant_engine.services.intents.settings_intents import (
     AgenticStrengthRequest,
     ClearResponseLanguageDependencies,
     ClearResponseLanguageRequest,
+    DevAgenticMCPDependencies,
+    DevAgenticMCPRequest,
     ResponseLanguageDependencies,
     ResponseLanguageRequest,
     clear_response_language as clear_response_language_impl,
     set_agentic_strength as set_agentic_strength_impl,
+    set_dev_agentic_mcp as set_dev_agentic_mcp_impl,
     set_response_language as set_response_language_impl,
+    clear_dev_agentic_mcp as clear_dev_agentic_mcp_impl,
 )
 from bt_servant_engine.services.intents.passage_intents import (
     ListenToScriptureRequest,
@@ -118,6 +125,10 @@ from bt_servant_engine.services.translation_helpers import (
     build_translation_helps_context as build_translation_helps_context_impl,
     build_translation_helps_messages as build_translation_helps_messages_impl,
     prepare_translation_helps as prepare_translation_helps_impl,
+)
+from bt_servant_engine.services.mcp_agentic import (
+    MCPAgenticDependencies,
+    run_agentic_mcp,
 )
 from bt_servant_engine.services.status_messages import get_effective_response_language
 from bt_servant_engine.services import runtime
@@ -442,6 +453,30 @@ def set_agentic_strength(state: Any) -> dict:
         set_user_agentic_strength=user_state.set_agentic_strength
     )
     return set_agentic_strength_impl(request, dependencies)
+
+
+def set_dev_agentic_mcp(state: Any) -> dict:
+    """Enable the developer MCP agentic mode for the user."""
+
+    s = _brain_state(state)
+    user_state = _user_state_port()
+    request = DevAgenticMCPRequest(user_id=s["user_id"])
+    dependencies = DevAgenticMCPDependencies(
+        set_user_dev_agentic_mcp=user_state.set_dev_agentic_mcp
+    )
+    return set_dev_agentic_mcp_impl(request, dependencies)
+
+
+def clear_dev_agentic_mcp(state: Any) -> dict:
+    """Disable the developer MCP agentic mode for the user."""
+
+    s = _brain_state(state)
+    user_state = _user_state_port()
+    request = DevAgenticMCPRequest(user_id=s["user_id"])
+    dependencies = DevAgenticMCPDependencies(
+        set_user_dev_agentic_mcp=user_state.set_dev_agentic_mcp
+    )
+    return clear_dev_agentic_mcp_impl(request, dependencies)
 
 
 def _collect_truncation_notices(
@@ -800,6 +835,22 @@ def handle_get_passage_keywords(state: Any) -> dict:
 
     s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_get_passage_keywords_node")
+    dev_agentic_mcp = _resolve_dev_agentic_mcp(cast(dict[str, Any], s))
+    if dev_agentic_mcp:
+        agentic_deps = MCPAgenticDependencies(
+            openai_client=open_ai_client,
+            extract_cached_tokens_fn=_extract_cached_input_tokens,
+        )
+        logger.info("[agentic-mcp] using dev MCP flow for get-passage-keywords")
+        response_text = run_agentic_mcp(
+            agentic_deps,
+            user_message=intent_query,
+            intent=IntentType.GET_PASSAGE_KEYWORDS,
+        )
+        return {
+            "responses": [{"intent": IntentType.GET_PASSAGE_KEYWORDS, "response": response_text}]
+        }
+
     selection_request = PassageSelectionRequest(
         query=intent_query,
         query_lang=s["query_language"],
@@ -815,6 +866,23 @@ def handle_get_translation_helps(state: Any) -> dict:
     s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_get_translation_helps_node")
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
+    dev_agentic_mcp = _resolve_dev_agentic_mcp(cast(dict[str, Any], s))
+
+    if dev_agentic_mcp:
+        agentic_deps = MCPAgenticDependencies(
+            openai_client=open_ai_client,
+            extract_cached_tokens_fn=_extract_cached_input_tokens,
+        )
+        logger.info("[agentic-mcp] using dev MCP flow for get-translation-helps")
+        response_text = run_agentic_mcp(
+            agentic_deps,
+            user_message=intent_query,
+            intent=IntentType.GET_TRANSLATION_HELPS,
+        )
+        return {
+            "responses": [{"intent": IntentType.GET_TRANSLATION_HELPS, "response": response_text}]
+        }
+
     request = TranslationHelpsRequestParams(
         client=open_ai_client,
         query=intent_query,
@@ -839,6 +907,20 @@ def handle_retrieve_scripture(state: Any) -> dict:
 
     s = _brain_state(state)
     intent_query = _intent_query_for_node(state, "handle_retrieve_scripture_node")
+    dev_agentic_mcp = _resolve_dev_agentic_mcp(cast(dict[str, Any], s))
+    if dev_agentic_mcp:
+        agentic_deps = MCPAgenticDependencies(
+            openai_client=open_ai_client,
+            extract_cached_tokens_fn=_extract_cached_input_tokens,
+        )
+        logger.info("[agentic-mcp] using dev MCP flow for retrieve-scripture")
+        response_text = run_agentic_mcp(
+            agentic_deps,
+            user_message=intent_query,
+            intent=IntentType.RETRIEVE_SCRIPTURE,
+        )
+        return {"responses": [{"intent": IntentType.RETRIEVE_SCRIPTURE, "response": response_text}]}
+
     agentic_strength = _resolve_agentic_strength(cast(dict[str, Any], s))
     selection_request = PassageSelectionRequest(
         query=intent_query,
@@ -918,6 +1000,8 @@ __all__ = [
     "determine_intents",
     "set_response_language",
     "set_agentic_strength",
+    "set_dev_agentic_mcp",
+    "clear_dev_agentic_mcp",
     "translate_responses",
     "translate_text",
     "determine_query_language",

@@ -93,6 +93,16 @@ def _compute_agentic_strengths(
     return effective, user_strength
 
 
+def _compute_dev_agentic_mcp(
+    user_id: str, user_state: UserStatePort
+) -> tuple[bool, Optional[bool]]:
+    """Return effective dev MCP flag and stored user preference (if any)."""
+    user_pref = user_state.get_dev_agentic_mcp(user_id=user_id)
+    system_pref = bool(getattr(config, "BT_DEV_AGENTIC_MCP", False))
+    effective = user_pref if user_pref is not None else system_pref
+    return effective, user_pref
+
+
 @router.get("/meta-whatsapp")
 async def verify_webhook(request: Request):
     """Meta webhook verification endpoint following the standard handshake."""
@@ -480,6 +490,10 @@ async def _invoke_brain(
         context.user_message.user_id,
         context.user_state,
     )
+    effective_dev_agentic_mcp, user_dev_agentic_mcp = _compute_dev_agentic_mcp(
+        context.user_message.user_id,
+        context.user_state,
+    )
     brain_payload: dict[str, Any] = {
         "user_id": context.user_message.user_id,
         "user_query": user_query,
@@ -490,6 +504,7 @@ async def _invoke_brain(
             user_id=context.user_message.user_id
         ),
         "agentic_strength": effective_agentic_strength,
+        "dev_agentic_mcp": effective_dev_agentic_mcp,
         "perf_trace_id": context.user_message.message_id,
         "progress_enabled": config.PROGRESS_MESSAGES_ENABLED,
         "progress_messenger": progress_sender,
@@ -498,6 +513,8 @@ async def _invoke_brain(
     }
     if user_agentic_strength is not None:
         brain_payload["user_agentic_strength"] = user_agentic_strength
+    if user_dev_agentic_mcp is not None:
+        brain_payload["user_dev_agentic_mcp"] = user_dev_agentic_mcp
     loop = asyncio.get_event_loop()
     ctx = copy_context()
 

@@ -22,6 +22,7 @@ dependencies = [
   "tinydb>=4.8",
   "typing-extensions>=4.12",
   "python-json-logger>=2.0.7",
+  "translation-helps-mcp-client>=1.2.0",
 ]
 
 [project.optional-dependencies]
@@ -72,6 +73,9 @@ max-args      = 5     # PLR0913
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10   # C901
+
+[tool.deptry.package_module_name_map]
+"translation-helps-mcp-client" = "translation_helps"
 
 [tool.mypy]
 python_version = "3.12"

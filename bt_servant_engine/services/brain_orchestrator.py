@@ -38,6 +38,8 @@ INTENT_PRIORITY: Dict[IntentType, int] = {
     IntentType.CLEAR_RESPONSE_LANGUAGE: 101,
     IntentType.SET_RESPONSE_LANGUAGE: 100,
     IntentType.SET_AGENTIC_STRENGTH: 99,
+    IntentType.SET_DEV_AGENTIC_MCP: 98,
+    IntentType.CLEAR_DEV_AGENTIC_MCP: 97,
     # Scripture retrieval: Get the text before analyzing it
     IntentType.RETRIEVE_SCRIPTURE: 80,
     IntentType.LISTEN_TO_SCRIPTURE: 79,  # Audio variant of retrieval
@@ -68,6 +70,8 @@ INTENT_NODE_MAP: Dict[IntentType, str] = {
     IntentType.SET_RESPONSE_LANGUAGE: "set_response_language_node",
     IntentType.CLEAR_RESPONSE_LANGUAGE: "clear_response_language_node",
     IntentType.SET_AGENTIC_STRENGTH: "set_agentic_strength_node",
+    IntentType.SET_DEV_AGENTIC_MCP: "set_dev_agentic_mcp_node",
+    IntentType.CLEAR_DEV_AGENTIC_MCP: "clear_dev_agentic_mcp_node",
     IntentType.PERFORM_UNSUPPORTED_FUNCTION: "handle_unsupported_function_node",
     IntentType.RETRIEVE_SYSTEM_INFORMATION: "handle_system_information_request_node",
     IntentType.CONVERSE_WITH_BT_SERVANT: "converse_with_bt_servant_node",
@@ -291,6 +295,8 @@ class BrainState(TypedDict, total=False):
     user_response_language: str
     agentic_strength: str
     user_agentic_strength: str
+    dev_agentic_mcp: bool
+    user_dev_agentic_mcp: bool
     transformed_query: str
     docs: List[Dict[str, Any]]
     collection_used: str
@@ -549,7 +555,7 @@ def process_intents(state: Any) -> List[Hashable]:
     return cast(List[Hashable], sends)
 
 
-def create_brain():
+def create_brain():  # noqa: PLR0915
     """Assemble and compile the LangGraph for the BT Servant brain."""
 
     def _make_state_graph(schema: Any) -> StateGraph:
@@ -595,6 +601,14 @@ def create_brain():
     builder.add_node(
         "set_agentic_strength_node",
         wrap_node_with_timing(brain_nodes.set_agentic_strength, "set_agentic_strength_node"),
+    )
+    builder.add_node(
+        "set_dev_agentic_mcp_node",
+        wrap_node_with_timing(brain_nodes.set_dev_agentic_mcp, "set_dev_agentic_mcp_node"),
+    )
+    builder.add_node(
+        "clear_dev_agentic_mcp_node",
+        wrap_node_with_timing(brain_nodes.clear_dev_agentic_mcp, "clear_dev_agentic_mcp_node"),
     )
     builder.add_node(
         "query_vector_db_node",
@@ -746,6 +760,8 @@ def create_brain():
     builder.add_edge("set_response_language_node", "translate_responses_node")
     builder.add_edge("clear_response_language_node", "translate_responses_node")
     builder.add_edge("set_agentic_strength_node", "translate_responses_node")
+    builder.add_edge("set_dev_agentic_mcp_node", "translate_responses_node")
+    builder.add_edge("clear_dev_agentic_mcp_node", "translate_responses_node")
     # After chunking, finish. Do not loop back to translate, which can recreate
     # the long message and trigger an infinite chunk cycle.
 
