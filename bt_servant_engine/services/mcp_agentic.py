@@ -333,6 +333,7 @@ async def _execute_calls(
             text = _truncate_text(text, MAX_TOOL_CONTENT_CHARS, call.name)
             results.append({"name": call.name, "args": arg_payload, "content": text})
             logger.info("[agentic-mcp] Completed %s (chars=%d)", call.name, len(text or ""))
+            logger.info("[agentic-mcp] Raw content for %s: %s", call.name, text[:500])
         except Exception as exc:  # pylint: disable=broad-except
             logger.warning("[agentic-mcp] %s failed: %s", call.name, exc)
             results.append({"name": call.name, "args": arg_payload, "content": f"[ERROR] {exc}"})
