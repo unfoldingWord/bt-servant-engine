@@ -321,6 +321,11 @@ async def _execute_calls(
                 spec.is_prompt,
                 sorted(arg_payload.keys()),
             )
+            logger.info(
+                "[agentic-mcp] Payload for %s: %s",
+                call.name,
+                json.dumps(arg_payload, ensure_ascii=False),
+            )
             if spec.is_prompt:
                 prompt_name = call.name.replace("prompt_", "", 1)
                 text = await _execute_prompt(client, prompt_name, arg_payload)
