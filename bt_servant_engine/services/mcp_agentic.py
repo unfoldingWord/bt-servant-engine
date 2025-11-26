@@ -59,7 +59,6 @@ You are composing a reply using ONLY the provided MCP tool results.
 - If scripture text appears, keep it verbatim.
 - If the intent is get-passage-summary, produce a concise summary (3–5 sentences max).
 - If nothing useful is present, say so briefly.
-- Offer 2 short follow-up questions that relate to the data retrieved.
 """
 
 FAILURE_MESSAGE_EN = (
