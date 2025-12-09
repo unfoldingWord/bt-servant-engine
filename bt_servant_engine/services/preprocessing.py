@@ -321,7 +321,8 @@ You must choose one or more intents from the following list:
   </intent>
   <intent name="listen-to-scripture">
     The user wants scripture read aloud (audio output) for a specific passage, verse range, chapter(s), or book. This is
-    the audio equivalent of `retrieve-scripture`. Examples: "Read John 3 out loud", "Let me listen to John 1:1-5",
+    the audio equivalent of `retrieve-scripture`. Treat "Read [passage]" commands (e.g., "Read John 3", "Read Lev 25")
+    as requests for audio. Examples: "Read John 3 out loud", "Let me listen to John 1:1-5",
     "Play Genesis 1 in Spanish".
   </intent>
   <intent name="translate-scripture">
@@ -454,6 +455,14 @@ Here are example classifications:
   </example>
   <example>
     <message>Play Genesis 1 in Spanish.</message>
+    <intent>listen-to-scripture</intent>
+  </example>
+  <example>
+    <message>Read Lev 25 ESV</message>
+    <intent>listen-to-scripture</intent>
+  </example>
+  <example>
+    <message>Read John 3</message>
     <intent>listen-to-scripture</intent>
   </example>
   <example>

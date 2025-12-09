@@ -72,6 +72,8 @@ def test_intents_detect_keywords(query: str) -> None:
         "I want to listen to John 1:1.",
         "Please read John 3 out loud.",
         "Play Genesis 1 in Spanish.",
+        "Read Lev 25 ESV",
+        "Read John 3",
     ],
 )
 def test_intents_detect_listen_to_scripture(query: str) -> None:
