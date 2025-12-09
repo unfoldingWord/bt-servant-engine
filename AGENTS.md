@@ -97,9 +97,9 @@ Recommended workflow
 - When adding loaders, test parsing and chunking separately.
 
 ## Commit & Pull Request Guidelines
-- Commits: subject must be succinct and prefixed as `(CODEX) <SUCINCT SUBJECT>`.
-  - Set both the author and committer identity to `Codex Assistant` (e.g., export `GIT_AUTHOR_NAME="Codex Assistant"` and `GIT_COMMITTER_NAME="Codex Assistant"`) before committing; never use a personal identity.
-  - Also export `GIT_AUTHOR_EMAIL="codex@example.com"` and `GIT_COMMITTER_EMAIL="codex@example.com"` before every commit, and run `git log -1 --pretty=full` afterward to confirm the identity stuck. If it did not, amend immediately—do not leave stray commits.
+- Commits: subject must be succinct and prefixed as `(GEMINI) <SUCINCT SUBJECT>`.
+  - Set both the author and committer identity to `Gemini` (e.g., export `GIT_AUTHOR_NAME="Gemini"` and `GIT_COMMITTER_NAME="Gemini"`) before committing; never use a personal identity.
+  - Also export `GIT_AUTHOR_EMAIL="gemini@google.com"` and `GIT_COMMITTER_EMAIL="gemini@google.com"` before every commit, and run `git log -1 --pretty=full` afterward to confirm the identity stuck. If it did not, amend immediately—do not leave stray commits.
   - Use a clear, imperative, and short subject (<= 72 chars when possible).
   - Always include a non-empty commit body that describes:
     - What changed, why, and any alternatives considered.
@@ -107,21 +107,21 @@ Recommended workflow
     - Test plan (commands run, tests added/updated, results) and any manual verification.
     - Backwards-compatibility notes, migrations, or operational considerations.
     - Follow-ups or known limitations.
-  - Do not leave the description blank.
+    - Do not leave the description blank.
 - Commit body formatting (newlines must render properly):
   - Do not embed literal "\n" into commit messages with normal quotes; these show up as text.
   - Use one of the following methods to ensure real newlines:
     - Here-doc body:
-      - `git commit -m "(CODEX) <SUCINCT SUBJECT>" -F- <<'MSG'`
+      - `git commit -m "(GEMINI) <SUCINCT SUBJECT>" -F- <<'MSG'`
       - `Detailed body line 1`
       - `- bullet 1`
       - `- bullet 2`
       - `MSG`
     - ANSI-C quoting for `-m`:
-      - `git commit -m "(CODEX) <SUCINCT SUBJECT>" -m $'Line 1\n\n- bullet 1\n- bullet 2'`
+      - `git commit -m "(GEMINI) <SUCINCT SUBJECT>" -m $'Line 1\n\n- bullet 1\n- bullet 2'`
     - Or write to a temp file and use `-F`:
       - `printf '%s\n' "Line 1" "" "- bullet 1" "- bullet 2" > /tmp/msg.txt`
-      - `git commit -m "(CODEX) <SUCINCT SUBJECT>" -F /tmp/msg.txt`
+      - `git commit -m "(GEMINI) <SUCINCT SUBJECT>" -F /tmp/msg.txt`
 - Scope changes narrowly; keep diffs focused and self-contained.
 - PRs: include description, rationale, screenshots/logs when useful, and a test plan.
 - Link related issues; note any follow-ups or known limitations.
@@ -191,7 +191,7 @@ Recommended workflow
   - Treat any diagnostics as failures and fix or document with precise, minimal ignores.
 
 ## Why The Venv Doesn’t “Persist” Here
-- Codex sessions are stateless shells. Each new session starts without your previous shell state (no activated venv, no PATH changes), unlike an IDE terminal that reuses your environment.
+- Gemini sessions are stateless shells. Each new session starts without your previous shell state (no activated venv, no PATH changes), unlike an IDE terminal that reuses your environment.
 - The `.venv` directory itself persists on disk, but activation does not carry over across sessions. Always re‑activate (`source .venv/bin/activate`) or rerun `scripts/init_env.sh` if tools are missing.
 - Repo policy consequence: The agent must ensure a runnable environment at the start of each session and must not continue work until all repo checks and tests run green locally.
 
@@ -205,8 +205,8 @@ Recommended workflow
   via `Authorization: Bearer <token>` or `X-Admin-Token: <token>`. When
   disabled (default), no auth is required for these endpoints.
 - Commit message convention:
-  - Always prefix the commit subject with `(CODEX)` and keep it succinct:
-    `(CODEX) <SUCINCT SUBJECT>`.
+  - Always prefix the commit subject with `(GEMINI)` and keep it succinct:
+    `(GEMINI) <SUCINCT SUBJECT>`.
   - Always provide a meaty, non-empty commit body detailing what changed,
     rationale, test plan, and any risks/limitations. Never leave the
     description blank.
