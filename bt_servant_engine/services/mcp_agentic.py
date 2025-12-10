@@ -17,7 +17,7 @@ from openai import OpenAI
 from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
 from openai.types.responses.easy_input_message_param import EasyInputMessageParam
 from pydantic import BaseModel, ConfigDict, Field
-from translation_helps import TranslationHelpsClient  # type: ignore  # pylint: disable=import-error
+from translation_helps import ClientOptions, TranslationHelpsClient  # type: ignore  # pylint: disable=import-error
 
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.core.logging import get_logger
@@ -381,7 +381,9 @@ async def _run_agentic_mcp_async(
 ) -> str:
     """Async workflow to plan, validate, execute, and finalize MCP calls."""
     server_url = os.getenv("MCP_SERVER_URL")
-    client_options = {"serverUrl": server_url} if server_url else {}
+    client_options: ClientOptions | None = (
+        cast(ClientOptions, {"serverUrl": server_url}) if server_url else None
+    )
     mcp_client = TranslationHelpsClient(client_options)
     await mcp_client.connect()
     try:

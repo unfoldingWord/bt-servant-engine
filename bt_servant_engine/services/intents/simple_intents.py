@@ -144,6 +144,11 @@ def _replace_numbered_lists_with_bullets(text: str) -> str:
     return text
 
 
+def _format_capability_label(label: str) -> str:
+    """Format capability labels for user-facing help text."""
+    return f"**{label}**"
+
+
 def build_boilerplate_message() -> str:
     """Build a concise 'what I can do' list with examples."""
     caps = [
@@ -154,7 +159,8 @@ def build_boilerplate_message() -> str:
     lines: list[str] = ["Here's what I can do:"]
     for c in caps:
         example = c["examples"][0] if c.get("examples") else ""
-        lines.append(f"- {c['label']} (e.g., '{example}')")
+        display_label = _format_capability_label(c["label"])
+        lines.append(f"- {display_label} (e.g., '{example}')")
     lines.append("Which would you like me to do?")
     return "\n".join(lines)
 
@@ -164,7 +170,8 @@ def build_full_help_message() -> str:
     lines: list[str] = ["Features:"]
     visible_caps = [c for c in get_capabilities() if not c.get("developer_only", False)]
     for c in visible_caps:
-        lines.append(f"- {c['label']}: {c['description']}")
+        display_label = _format_capability_label(c["label"])
+        lines.append(f"- {display_label}: {c['description']}")
         if c.get("examples"):
             for ex in c["examples"]:
                 lines.append(f"   - Example: '{ex}'")
@@ -314,6 +321,7 @@ def handle_unsupported_function(
 def handle_system_information_request(
     client: OpenAI, query: str, chat_history: list[dict[str, str]]
 ) -> dict[str, Any]:
+    """Generate a help response with capability info and version details."""
     messages: list[EasyInputMessageParam] = [
         {
             "role": "developer",

@@ -33,7 +33,7 @@ mypy .
 
 echo -e "${YLW}Running pyright on repo...${RST}"
 if command -v pyright >/dev/null 2>&1; then
-  pyright
+  pyright --warnings
 else
   echo -e "${RED}pyright not found in PATH. Install with: pip install pyright${RST}"
   exit 1

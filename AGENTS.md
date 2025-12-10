@@ -66,6 +66,7 @@ It will be updated once the refactor is complete.
 - Do not stop until all findings introduced by your change are resolved. If pre‑existing issues remain, surface them in the PR and get explicit sign‑off before merging.
 - Zero warnings policy: treat all linter/type-checker warnings as failures.
   - `ruff`, `pylint`, `mypy`, and `pyright` must report 0 diagnostics.
+  - Pyright runs with `--warnings` in the hooks/scripts so any warning fails the checks; do not proceed if pyright emits anything.
   - If a third‑party library emits unavoidable noise, explicitly filter it with a documented rationale (see pytest warnings policy).
 - Rationale: issues in un-touched files can be missed when running tools on a subset (e.g., a wrong return type annotation in `db/chroma_db.py` wasn’t flagged because only a few files were linted). Running repo‑wide prevents misses.
 
@@ -77,6 +78,7 @@ Recommended workflow
 - Pre-commit runs full-repo checks on every commit via `.githooks/pre-commit` -> `scripts/check_repo.sh`.
 - `.pre-commit-config.yaml` mirrors these commands (adds push hooks); run `pre-commit install` and `pre-commit install --hook-type pre-push` after cloning.
 - Enforced tools: `ruff format --check`, `ruff`, `pylint`, `mypy`, `pyright`, `lint-imports`, `bandit`, `pip-audit`, `deptry`, and `pytest` (warnings-as-errors + coverage gate).
+  - Pyright is executed with `--warnings` so any warning fails the hook.
 - Ruff format is currently scoped to `bt_servant_engine/` until legacy modules are migrated; expand the target once code moves under the package.
 - Bandit currently scans `bt_servant_engine/`; widen coverage as modules relocate from the legacy root.
 - Tests must pass locally: `pytest --maxfail=1 --disable-warnings -q -m "not openai" --cov=bt_servant_engine --cov-report=term-missing --cov-fail-under=70`.
@@ -98,7 +100,7 @@ Recommended workflow
 
 ## Commit & Pull Request Guidelines
 - Commits: subject must be succinct and prefixed as `(CODEX) <SUCINCT SUBJECT>`.
-  - Set both the author and committer identity to `Codex Assistant` (e.g., export `GIT_AUTHOR_NAME="Codex Assistant"` and `GIT_COMMITTER_NAME="Codex Assistant"`) before committing; never use a personal identity.
+  - Set both the author and committer identity to `Codex` (e.g., export `GIT_AUTHOR_NAME="Codex"` and `GIT_COMMITTER_NAME="Codex"`) before committing; never use a personal identity.
   - Also export `GIT_AUTHOR_EMAIL="codex@example.com"` and `GIT_COMMITTER_EMAIL="codex@example.com"` before every commit, and run `git log -1 --pretty=full` afterward to confirm the identity stuck. If it did not, amend immediately—do not leave stray commits.
   - Use a clear, imperative, and short subject (<= 72 chars when possible).
   - Always include a non-empty commit body that describes:
