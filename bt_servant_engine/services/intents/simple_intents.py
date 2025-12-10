@@ -98,7 +98,8 @@ def get_capabilities() -> List[Capability]:
             "examples": [
                 "Translate John 3:16 into Indonesian.",
             ],
-            "include_in_boilerplate": True,
+            "include_in_boilerplate": False,
+            "developer_only": True,
         },
         {
             "intent": IntentType.SET_AGENTIC_STRENGTH,

@@ -1,6 +1,6 @@
 """Core package placeholder for upcoming onion architecture refactor."""
 
-BT_SERVANT_VERSION = "1.4.4"
+BT_SERVANT_VERSION = "1.4.5"
 BT_SERVANT_RELEASES_URL = "https://github.com/unfoldingWord/bt-servant-engine/releases"
 
 __all__ = ["BT_SERVANT_VERSION", "BT_SERVANT_RELEASES_URL"]
