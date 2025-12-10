@@ -150,6 +150,21 @@ def _format_capability_label(label: str) -> str:
     return f"**{label}**"
 
 
+def _strip_version_lines(text: str) -> str:
+    """Remove version/release lines to avoid duplicating stale history content."""
+    cleaned_lines: list[str] = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        lowered = stripped.lower()
+        if not stripped:
+            cleaned_lines.append(line)
+            continue
+        if "version" in lowered or "release notes" in lowered:
+            continue
+        cleaned_lines.append(line)
+    return "\n".join(cleaned_lines)
+
+
 def build_boilerplate_message() -> str:
     """Build a concise 'what I can do' list with examples."""
     caps = [
@@ -349,21 +364,17 @@ def handle_system_information_request(
     usage = getattr(response, "usage", None)
     track_openai_usage(usage, "gpt-4o", extract_cached_input_tokens, add_tokens)
     help_response_text = _replace_numbered_lists_with_bullets(response.output_text.strip())
-    version_tag = f"v{BT_SERVANT_VERSION}"
-    if version_tag not in help_response_text:
-        version_line = "\n".join(
-            [
-                f"Current version: {version_tag}",
-                f"Release notes: {BT_SERVANT_RELEASES_URL}",
-            ]
-        )
-        marker = "The BT Servant system"
-        if marker in help_response_text:
-            help_response_text = help_response_text.replace(
-                marker, f"{version_line}\n\n{marker}", 1
-            )
-        else:
-            help_response_text = f"{version_line}\n\n{help_response_text}"
+    help_response_text = _strip_version_lines(help_response_text)
+    version_block = "\n".join(
+        [
+            f"Current version: v{BT_SERVANT_VERSION}",
+            f"Release notes: {BT_SERVANT_RELEASES_URL}",
+        ]
+    )
+    if help_response_text:
+        help_response_text = f"{version_block}\n\n{help_response_text}"
+    else:
+        help_response_text = version_block
     help_response_text = _replace_numbered_lists_with_bullets(help_response_text)
     logger.info("help response from openai: %s", help_response_text)
     return {
