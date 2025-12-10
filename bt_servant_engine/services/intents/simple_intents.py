@@ -146,8 +146,8 @@ def _replace_numbered_lists_with_bullets(text: str) -> str:
 
 
 def _format_capability_label(label: str) -> str:
-    """Format capability labels for user-facing help text."""
-    return f"**{label}**"
+    """Format capability labels for user-facing help text (WhatsApp-friendly bold)."""
+    return f"*{label}*"
 
 
 def _strip_version_lines(text: str) -> str:
