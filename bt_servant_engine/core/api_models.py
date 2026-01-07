@@ -10,7 +10,9 @@ from pydantic import BaseModel, Field
 class ChatRequest(BaseModel):
     """Request model for POST /api/v1/chat."""
 
-    client_id: str = Field(..., description="Client identifier (e.g., 'whatsapp', 'web', 'telegram')")
+    client_id: str = Field(
+        ..., description="Client identifier (e.g., 'whatsapp', 'web', 'telegram')"
+    )
     user_id: str = Field(..., description="User identifier from the client platform")
     message: str = Field(default="", description="Text message (empty if audio)")
     message_type: Literal["text", "audio"] = Field(
@@ -30,7 +32,8 @@ class ChatResponse(BaseModel):
     )
     response_language: str = Field(..., description="Language of the response")
     voice_audio_base64: str | None = Field(
-        default=None, description="TTS audio as base64 MP3 (if generated) - client decides how to use"
+        default=None,
+        description="TTS audio as base64 MP3 (if generated) - client decides how to use",
     )
     intent_processed: str = Field(..., description="Which intent was handled")
     has_queued_intents: bool = Field(

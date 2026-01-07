@@ -89,14 +89,10 @@ async def update_user_preferences(
 
     # Update only provided fields
     if preferences.response_language is not None:
-        user_state.set_response_language(
-            user_id=user_id, language=preferences.response_language
-        )
+        user_state.set_response_language(user_id=user_id, language=preferences.response_language)
 
     if preferences.agentic_strength is not None:
-        user_state.set_agentic_strength(
-            user_id=user_id, strength=preferences.agentic_strength
-        )
+        user_state.set_agentic_strength(user_id=user_id, strength=preferences.agentic_strength)
 
     if preferences.dev_agentic_mcp is not None:
         user_state.set_dev_agentic_mcp(user_id=user_id, enabled=preferences.dev_agentic_mcp)

@@ -151,9 +151,7 @@ async def _generate_tts(text: str) -> str:
             os.remove(temp_path)
 
 
-def _compute_agentic_strengths(
-    user_id: str, user_state: UserStatePort
-) -> tuple[str, str | None]:
+def _compute_agentic_strengths(user_id: str, user_state: UserStatePort) -> tuple[str, str | None]:
     """Return effective agentic strength and stored user preference (if any)."""
     user_strength = user_state.get_agentic_strength(user_id=user_id)
     system_strength = str(config.AGENTIC_STRENGTH).lower()
@@ -163,9 +161,7 @@ def _compute_agentic_strengths(
     return effective, user_strength
 
 
-def _compute_dev_agentic_mcp(
-    user_id: str, user_state: UserStatePort
-) -> tuple[bool, bool | None]:
+def _compute_dev_agentic_mcp(user_id: str, user_state: UserStatePort) -> tuple[bool, bool | None]:
     """Return effective dev MCP flag and stored user preference (if any)."""
     user_pref = user_state.get_dev_agentic_mcp(user_id=user_id)
     effective = user_pref if user_pref is not None else config.BT_DEV_AGENTIC_MCP
@@ -206,9 +202,7 @@ async def chat(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="audio_base64 is required when message_type is 'audio'",
             )
-        user_query = await _transcribe_audio(
-            chat_request.audio_base64, chat_request.audio_format
-        )
+        user_query = await _transcribe_audio(chat_request.audio_base64, chat_request.audio_format)
     else:
         user_query = chat_request.message
 
@@ -232,9 +226,7 @@ async def chat(
         "user_id": chat_request.user_id,
         "user_query": user_query,
         "user_chat_history": user_state.get_chat_history(user_id=chat_request.user_id),
-        "user_response_language": user_state.get_response_language(
-            user_id=chat_request.user_id
-        ),
+        "user_response_language": user_state.get_response_language(user_id=chat_request.user_id),
         "agentic_strength": effective_agentic_strength,
         "dev_agentic_mcp": effective_dev_agentic_mcp,
         "perf_trace_id": f"chat-{chat_request.user_id}-{time.time()}",
@@ -271,9 +263,7 @@ async def chat(
     )
 
     # Determine if voice output is needed
-    send_voice = bool(result.get("send_voice_message")) or (
-        chat_request.message_type == "audio"
-    )
+    send_voice = bool(result.get("send_voice_message")) or (chat_request.message_type == "audio")
     voice_text = result.get("voice_message_text")
     voice_payload = voice_text or full_response_text
 
