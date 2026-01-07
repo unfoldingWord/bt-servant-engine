@@ -2,6 +2,7 @@
 # pylint: disable=missing-function-docstring,redefined-outer-name,too-few-public-methods
 
 from http import HTTPStatus
+from collections.abc import Iterator
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -19,7 +20,7 @@ def client() -> TestClient:
 
 
 @pytest.fixture
-def mock_brain() -> MagicMock:
+def mock_brain() -> Iterator[MagicMock]:
     """Create a mock brain that returns a simple response."""
     brain = MagicMock()
     brain.invoke.return_value = {

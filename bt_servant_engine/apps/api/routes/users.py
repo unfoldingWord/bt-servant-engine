@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import Literal, cast
+
 from fastapi import APIRouter, Depends, Header, HTTPException, Request, status
 
 from bt_servant_engine.core.api_models import UserPreferences
@@ -12,6 +14,9 @@ from bt_servant_engine.services import ServiceContainer
 
 router = APIRouter(prefix="/api/v1/users", tags=["users"])
 logger = get_logger(__name__)
+
+# Type alias matching UserPreferences.agentic_strength
+AgenticStrength = Literal["normal", "low", "very_low"] | None
 
 # Expected number of parts in "Bearer <token>" authorization header
 _BEARER_AUTH_PARTS = 2
@@ -71,7 +76,7 @@ async def get_user_preferences(
 
     return UserPreferences(
         response_language=user_state.get_response_language(user_id=user_id),
-        agentic_strength=user_state.get_agentic_strength(user_id=user_id),
+        agentic_strength=cast(AgenticStrength, user_state.get_agentic_strength(user_id=user_id)),
         dev_agentic_mcp=user_state.get_dev_agentic_mcp(user_id=user_id),
     )
 
@@ -100,6 +105,6 @@ async def update_user_preferences(
     # Return current state
     return UserPreferences(
         response_language=user_state.get_response_language(user_id=user_id),
-        agentic_strength=user_state.get_agentic_strength(user_id=user_id),
+        agentic_strength=cast(AgenticStrength, user_state.get_agentic_strength(user_id=user_id)),
         dev_agentic_mcp=user_state.get_dev_agentic_mcp(user_id=user_id),
     )
