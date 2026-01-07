@@ -2,7 +2,7 @@ pytest
 aenum==3.1.16
 aiofiles==24.1.0
 aiohappyeyeballs==2.6.1
-aiohttp==3.12.14
+aiohttp==3.13.3
 aiohttp-retry==2.9.1
 aiosignal==1.4.0
 annotated-doc==0.0.4
@@ -31,7 +31,7 @@ durationpy==0.9
 email_validator==2.2.0
 fastapi==0.121.1
 fastapi-cli==0.0.7
-filelock==3.18.0
+filelock==3.20.1
 flatbuffers==25.2.10
 frozenlist==1.6.0
 fsspec==2025.3.2
@@ -57,7 +57,7 @@ jsonpointer==3.0.0
 jsonschema==4.23.0
 jsonschema-specifications==2025.4.1
 kubernetes==32.0.1
-langchain-core==0.3.80
+langchain-core==0.3.81
 langdetect==1.0.9
 langgraph==0.6.11
 langgraph-checkpoint==3.0.0
@@ -67,7 +67,7 @@ langid==1.1.6
 langsmith==0.4.5
 markdown-it-py==3.0.0
 MarkupSafe==3.0.2
-marshmallow==3.26.1
+marshmallow==3.26.2
 mdurl==0.1.2
 mmh3==5.1.0
 monotonic==1.6
