@@ -13,7 +13,9 @@ from bt_servant_engine.apps.api.routes import (
     admin_datastore,
     admin_logs,
     admin_status_messages,
+    chat,
     health,
+    users,
     webhooks,
 )
 from bt_servant_engine.core.logging import get_logger
@@ -60,6 +62,8 @@ def create_app(services: ServiceContainer | None = None) -> FastAPI:
     app.include_router(admin_status_messages.router)
     app.include_router(admin_datastore.router)
     app.include_router(webhooks.router)
+    app.include_router(chat.router)
+    app.include_router(users.router)
     return app
 
 
