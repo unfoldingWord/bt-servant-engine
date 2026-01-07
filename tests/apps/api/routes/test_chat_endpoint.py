@@ -96,11 +96,22 @@ class TestChatEndpointAuth:
             assert resp.status_code == HTTPStatus.UNAUTHORIZED
 
 
+@pytest.fixture
+def no_auth() -> Iterator[None]:
+    """Disable auth for tests that don't test authentication."""
+    with patch("bt_servant_engine.apps.api.routes.chat.config") as mock_config:
+        mock_config.ADMIN_API_TOKEN = ""
+        mock_config.OPENAI_API_KEY = "test-key"
+        mock_config.AGENTIC_STRENGTH = "normal"
+        mock_config.BT_DEV_AGENTIC_MCP = False
+        yield
+
+
 class TestChatEndpointValidation:
     """Tests for /api/v1/chat request validation."""
 
     def test_empty_message_rejected(
-        self, client: TestClient, mock_brain: MagicMock
+        self, client: TestClient, mock_brain: MagicMock, no_auth: None
     ) -> None:
         """Should reject requests with empty message."""
         resp = client.post(
@@ -115,7 +126,7 @@ class TestChatEndpointValidation:
         assert "empty" in resp.json()["detail"].lower()
 
     def test_audio_without_audio_data_rejected(
-        self, client: TestClient, mock_brain: MagicMock
+        self, client: TestClient, mock_brain: MagicMock, no_auth: None
     ) -> None:
         """Should reject audio message_type without audio_base64."""
         resp = client.post(
@@ -135,7 +146,7 @@ class TestChatEndpointSuccess:
     """Tests for successful /api/v1/chat requests."""
 
     def test_text_message_success(
-        self, client: TestClient, mock_brain: MagicMock
+        self, client: TestClient, mock_brain: MagicMock, no_auth: None
     ) -> None:
         """Should process text message and return response."""
         resp = client.post(
@@ -155,7 +166,7 @@ class TestChatEndpointSuccess:
         assert data["has_queued_intents"] is False
 
     def test_brain_invoked_with_correct_payload(
-        self, client: TestClient, mock_brain: MagicMock
+        self, client: TestClient, mock_brain: MagicMock, no_auth: None
     ) -> None:
         """Should invoke brain with correct payload structure."""
         client.post(
@@ -179,7 +190,7 @@ class TestChatEndpointVoice:
     """Tests for voice-related functionality."""
 
     def test_voice_response_when_brain_requests_it(
-        self, client: TestClient
+        self, client: TestClient, no_auth: None
     ) -> None:
         """Should include voice audio when brain requests voice output."""
         brain = MagicMock()
