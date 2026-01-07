@@ -1,5 +1,5 @@
 """Tests for the /api/v1/users endpoints."""
-# pylint: disable=missing-function-docstring
+# pylint: disable=missing-function-docstring,redefined-outer-name
 
 from http import HTTPStatus
 from unittest.mock import patch

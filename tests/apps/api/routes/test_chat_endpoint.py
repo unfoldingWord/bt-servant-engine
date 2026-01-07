@@ -1,5 +1,5 @@
 """Tests for the /api/v1/chat endpoint."""
-# pylint: disable=missing-function-docstring
+# pylint: disable=missing-function-docstring,redefined-outer-name,too-few-public-methods
 
 from http import HTTPStatus
 from unittest.mock import MagicMock, patch
@@ -99,7 +99,7 @@ class TestChatEndpointValidation:
     """Tests for /api/v1/chat request validation."""
 
     def test_empty_message_rejected(
-        self, client: TestClient, mock_brain: MagicMock
+        self, client: TestClient, _mock_brain: MagicMock
     ) -> None:
         """Should reject requests with empty message."""
         resp = client.post(
@@ -114,7 +114,7 @@ class TestChatEndpointValidation:
         assert "empty" in resp.json()["detail"].lower()
 
     def test_audio_without_audio_data_rejected(
-        self, client: TestClient, mock_brain: MagicMock
+        self, client: TestClient, _mock_brain: MagicMock
     ) -> None:
         """Should reject audio message_type without audio_base64."""
         resp = client.post(
@@ -134,7 +134,7 @@ class TestChatEndpointSuccess:
     """Tests for successful /api/v1/chat requests."""
 
     def test_text_message_success(
-        self, client: TestClient, mock_brain: MagicMock
+        self, client: TestClient, _mock_brain: MagicMock
     ) -> None:
         """Should process text message and return response."""
         resp = client.post(

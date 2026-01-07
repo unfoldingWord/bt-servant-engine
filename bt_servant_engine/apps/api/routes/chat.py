@@ -11,7 +11,7 @@ from contextvars import copy_context
 from typing import Any, cast
 
 from fastapi import APIRouter, Depends, Header, HTTPException, Request, status
-from openai import OpenAI
+from openai import OpenAI, OpenAIError
 
 from bt_servant_engine.apps.api.state import get_brain, set_brain
 from bt_servant_engine.core.api_models import ChatRequest, ChatResponse
@@ -168,6 +168,87 @@ def _compute_dev_agentic_mcp(user_id: str, user_state: UserStatePort) -> tuple[b
     return effective, user_pref
 
 
+def _build_brain_payload(
+    chat_request: ChatRequest,
+    user_query: str,
+    user_state: UserStatePort,
+) -> dict[str, Any]:
+    """Build the payload dict for brain invocation."""
+    effective_agentic, user_agentic = _compute_agentic_strengths(chat_request.user_id, user_state)
+    effective_mcp, user_mcp = _compute_dev_agentic_mcp(chat_request.user_id, user_state)
+
+    payload: dict[str, Any] = {
+        "user_id": chat_request.user_id,
+        "user_query": user_query,
+        "user_chat_history": user_state.get_chat_history(user_id=chat_request.user_id),
+        "user_response_language": user_state.get_response_language(user_id=chat_request.user_id),
+        "agentic_strength": effective_agentic,
+        "dev_agentic_mcp": effective_mcp,
+        "perf_trace_id": f"chat-{chat_request.user_id}-{time.time()}",
+        "progress_enabled": False,
+        "progress_messenger": None,
+        "progress_throttle_seconds": 0,
+        "last_progress_time": 0,
+    }
+    if user_agentic is not None:
+        payload["user_agentic_strength"] = user_agentic
+    if user_mcp is not None:
+        payload["user_dev_agentic_mcp"] = user_mcp
+    return payload
+
+
+def _extract_response_language(
+    result: dict[str, Any], user_id: str, user_state: UserStatePort
+) -> str:
+    """Extract the response language from brain result."""
+    return (
+        result.get("final_response_language")
+        or result.get("user_response_language")
+        or user_state.get_response_language(user_id=user_id)
+        or result.get("query_language")
+        or "en"
+    )
+
+
+def _get_or_create_brain() -> Any:
+    """Get or create the brain instance."""
+    brain = get_brain()
+    if brain is None:
+        logger.warning("Brain not initialized; initializing lazily.")
+        brain = create_brain()
+        set_brain(brain)
+    return brain
+
+
+async def _resolve_user_query(chat_request: ChatRequest) -> str:
+    """Resolve the user query from the request, transcribing audio if needed."""
+    if chat_request.message_type == "audio":
+        if not chat_request.audio_base64:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="audio_base64 is required when message_type is 'audio'",
+            )
+        return await _transcribe_audio(chat_request.audio_base64, chat_request.audio_format)
+    return chat_request.message
+
+
+async def _maybe_generate_voice(
+    result: dict[str, Any], chat_request: ChatRequest, full_response_text: str
+) -> str | None:
+    """Generate TTS audio if needed, returning base64 or None."""
+    send_voice = bool(result.get("send_voice_message")) or chat_request.message_type == "audio"
+    if not send_voice:
+        return None
+    voice_payload = result.get("voice_message_text") or full_response_text
+    if not voice_payload:
+        return None
+    try:
+        return await _generate_tts(voice_payload)
+    except OpenAIError as exc:
+        logger.error("TTS generation failed: %s", exc)
+        return None
+
+
 @router.post("/chat", response_model=ChatResponse)
 async def chat(
     request: Request,
@@ -180,119 +261,42 @@ async def chat(
     Handles both text and audio input. For audio input, transcribes first.
     If the brain decides to respond with voice, generates TTS audio.
     """
-    services = _get_services(request)
-    user_state = _require_user_state(services)
-
-    # Get or create brain
-    brain = get_brain()
-    if brain is None:
-        logger.warning("Brain not initialized; initializing lazily.")
-        brain = create_brain()
-        set_brain(brain)
+    user_state = _require_user_state(_get_services(request))
+    brain = _get_or_create_brain()
     if brain is None:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Brain initialization failed",
         )
 
-    # Resolve user query (transcribe if audio)
-    if chat_request.message_type == "audio":
-        if not chat_request.audio_base64:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="audio_base64 is required when message_type is 'audio'",
-            )
-        user_query = await _transcribe_audio(chat_request.audio_base64, chat_request.audio_format)
-    else:
-        user_query = chat_request.message
-
+    user_query = await _resolve_user_query(chat_request)
     if not user_query.strip():
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Message is empty",
         )
 
-    # Compute agentic settings
-    effective_agentic_strength, user_agentic_strength = _compute_agentic_strengths(
-        chat_request.user_id, user_state
-    )
-    effective_dev_agentic_mcp, user_dev_agentic_mcp = _compute_dev_agentic_mcp(
-        chat_request.user_id, user_state
-    )
-
-    # Build brain payload
-    # Note: progress_messenger is None for REST API (no real-time messaging)
-    brain_payload: dict[str, Any] = {
-        "user_id": chat_request.user_id,
-        "user_query": user_query,
-        "user_chat_history": user_state.get_chat_history(user_id=chat_request.user_id),
-        "user_response_language": user_state.get_response_language(user_id=chat_request.user_id),
-        "agentic_strength": effective_agentic_strength,
-        "dev_agentic_mcp": effective_dev_agentic_mcp,
-        "perf_trace_id": f"chat-{chat_request.user_id}-{time.time()}",
-        "progress_enabled": False,  # No progress messages for REST API
-        "progress_messenger": None,
-        "progress_throttle_seconds": 0,
-        "last_progress_time": 0,
-    }
-    if user_agentic_strength is not None:
-        brain_payload["user_agentic_strength"] = user_agentic_strength
-    if user_dev_agentic_mcp is not None:
-        brain_payload["user_dev_agentic_mcp"] = user_dev_agentic_mcp
-
-    # Invoke brain in executor (it's synchronous)
-    loop = asyncio.get_running_loop()
+    # Build brain payload and invoke
+    brain_payload = _build_brain_payload(chat_request, user_query, user_state)
     ctx = copy_context()
 
     def _invoke_sync() -> dict[str, Any]:
         return cast(dict[str, Any], ctx.run(brain.invoke, cast(Any, brain_payload)))
 
-    result = await loop.run_in_executor(None, _invoke_sync)
+    result = await asyncio.get_running_loop().run_in_executor(None, _invoke_sync)
 
     # Extract responses
     responses = list(result.get("translated_responses", []))
     full_response_text = "\n\n".join(responses).rstrip()
 
-    # Determine response language
-    response_language = (
-        result.get("final_response_language")
-        or result.get("user_response_language")
-        or user_state.get_response_language(user_id=chat_request.user_id)
-        or result.get("query_language")
-        or "en"
-    )
-
-    # Determine if voice output is needed
-    send_voice = bool(result.get("send_voice_message")) or (chat_request.message_type == "audio")
-    voice_text = result.get("voice_message_text")
-    voice_payload = voice_text or full_response_text
-
-    # Generate TTS if needed
-    voice_audio_base64: str | None = None
-    if send_voice and voice_payload:
-        try:
-            voice_audio_base64 = await _generate_tts(voice_payload)
-        except Exception as exc:
-            logger.error("TTS generation failed: %s", exc)
-            # Don't fail the whole request, just skip voice
-
-    # Get intent processed
-    intent_processed = str(result.get("triggered_intent", "unknown"))
-
-    # Check for queued intents
-    queued = has_queued_intents(chat_request.user_id)
-
     # Update chat history
-    user_state.append_chat_history(
-        chat_request.user_id,
-        chat_request.message if chat_request.message_type == "text" else user_query,
-        full_response_text,
-    )
+    original_message = chat_request.message if chat_request.message_type == "text" else user_query
+    user_state.append_chat_history(chat_request.user_id, original_message, full_response_text)
 
     return ChatResponse(
         responses=responses,
-        response_language=response_language,
-        voice_audio_base64=voice_audio_base64,
-        intent_processed=intent_processed,
-        has_queued_intents=queued,
+        response_language=_extract_response_language(result, chat_request.user_id, user_state),
+        voice_audio_base64=await _maybe_generate_voice(result, chat_request, full_response_text),
+        intent_processed=str(result.get("triggered_intent", "unknown")),
+        has_queued_intents=has_queued_intents(chat_request.user_id),
     )
