@@ -1,6 +1,7 @@
 """Tests for the /api/v1/users endpoints."""
-# pylint: disable=missing-function-docstring,redefined-outer-name
+# pylint: disable=missing-function-docstring,redefined-outer-name,unused-argument
 
+from collections.abc import Iterator
 from http import HTTPStatus
 from unittest.mock import patch
 
@@ -16,6 +17,14 @@ def client() -> TestClient:
     """Create a test client with the app."""
     app = create_app(runtime.get_services())
     return TestClient(app)
+
+
+@pytest.fixture
+def no_auth() -> Iterator[None]:
+    """Disable auth for tests that don't test authentication."""
+    with patch("bt_servant_engine.apps.api.routes.users.config") as mock_config:
+        mock_config.ADMIN_API_TOKEN = ""
+        yield
 
 
 class TestUserPreferencesAuth:
@@ -50,7 +59,7 @@ class TestUserPreferencesAuth:
 class TestGetUserPreferences:
     """Tests for GET /api/v1/users/{user_id}/preferences."""
 
-    def test_get_preferences_for_new_user(self, client: TestClient) -> None:
+    def test_get_preferences_for_new_user(self, client: TestClient, no_auth: None) -> None:
         """Should return null/default preferences for new user."""
         resp = client.get("/api/v1/users/new-user-123/preferences")
         assert resp.status_code == HTTPStatus.OK
@@ -60,7 +69,7 @@ class TestGetUserPreferences:
         assert data["dev_agentic_mcp"] is None
 
     def test_get_preferences_for_existing_user(
-        self, client: TestClient, service_container  # noqa: ANN001
+        self, client: TestClient, service_container, no_auth: None  # noqa: ANN001
     ) -> None:
         """Should return stored preferences for existing user."""
         # Set up user state
@@ -80,7 +89,7 @@ class TestGetUserPreferences:
 class TestUpdateUserPreferences:
     """Tests for PUT /api/v1/users/{user_id}/preferences."""
 
-    def test_update_response_language(self, client: TestClient) -> None:
+    def test_update_response_language(self, client: TestClient, no_auth: None) -> None:
         """Should update response language preference."""
         resp = client.put(
             "/api/v1/users/user789/preferences",
@@ -94,7 +103,7 @@ class TestUpdateUserPreferences:
         resp2 = client.get("/api/v1/users/user789/preferences")
         assert resp2.json()["response_language"] == "fr"
 
-    def test_update_agentic_strength(self, client: TestClient) -> None:
+    def test_update_agentic_strength(self, client: TestClient, no_auth: None) -> None:
         """Should update agentic strength preference."""
         resp = client.put(
             "/api/v1/users/user-agentic/preferences",
@@ -104,7 +113,7 @@ class TestUpdateUserPreferences:
         data = resp.json()
         assert data["agentic_strength"] == "very_low"
 
-    def test_update_dev_agentic_mcp(self, client: TestClient) -> None:
+    def test_update_dev_agentic_mcp(self, client: TestClient, no_auth: None) -> None:
         """Should update dev MCP flag."""
         resp = client.put(
             "/api/v1/users/user-mcp/preferences",
@@ -114,7 +123,7 @@ class TestUpdateUserPreferences:
         data = resp.json()
         assert data["dev_agentic_mcp"] is True
 
-    def test_update_multiple_preferences(self, client: TestClient) -> None:
+    def test_update_multiple_preferences(self, client: TestClient, no_auth: None) -> None:
         """Should update multiple preferences at once."""
         resp = client.put(
             "/api/v1/users/user-multi/preferences",
@@ -131,7 +140,7 @@ class TestUpdateUserPreferences:
         assert data["dev_agentic_mcp"] is False
 
     def test_partial_update_preserves_other_fields(
-        self, client: TestClient
+        self, client: TestClient, no_auth: None
     ) -> None:
         """Should only update provided fields, preserving others."""
         # First set all preferences
