@@ -4,8 +4,10 @@ from __future__ import annotations
 
 from typing import Literal, cast
 
-from fastapi import APIRouter, Depends, Header, HTTPException, Request, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 
+from bt_servant_engine.apps.api.dependencies import require_client_api_key
+from bt_servant_engine.core.api_key_models import APIKey
 from bt_servant_engine.core.api_models import UserPreferences
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.logging import get_logger
@@ -17,9 +19,6 @@ logger = get_logger(__name__)
 
 # Type alias matching UserPreferences.agentic_strength
 AgenticStrength = Literal["normal", "low", "very_low"] | None
-
-# Expected number of parts in "Bearer <token>" authorization header
-_BEARER_AUTH_PARTS = 2
 
 
 def _get_services(request: Request) -> ServiceContainer:
@@ -38,37 +37,11 @@ def _require_user_state(services: ServiceContainer) -> UserStatePort:
     return user_state
 
 
-async def _verify_api_key(authorization: str | None = Header(default=None)) -> None:
-    """Verify the API key from the Authorization header."""
-    if not config.ADMIN_API_TOKEN:
-        # If no token is configured, allow all requests (dev mode)
-        return
-
-    if not authorization:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Missing Authorization header",
-        )
-
-    parts = authorization.split()
-    if len(parts) != _BEARER_AUTH_PARTS or parts[0].lower() != "bearer":
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid Authorization header format. Expected 'Bearer <token>'",
-        )
-
-    if parts[1] != config.ADMIN_API_TOKEN:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid API key",
-        )
-
-
 @router.get("/{user_id}/preferences", response_model=UserPreferences)
 async def get_user_preferences(
     request: Request,
     user_id: str,
-    _: None = Depends(_verify_api_key),
+    api_key: APIKey = Depends(require_client_api_key),  # noqa: ARG001
 ) -> UserPreferences:
     """Get user preferences."""
     services = _get_services(request)
@@ -86,7 +59,7 @@ async def update_user_preferences(
     request: Request,
     user_id: str,
     preferences: UserPreferences,
-    _: None = Depends(_verify_api_key),
+    api_key: APIKey = Depends(require_client_api_key),  # noqa: ARG001
 ) -> UserPreferences:
     """Update user preferences. Only provided fields are updated."""
     services = _get_services(request)

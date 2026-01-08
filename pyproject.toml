@@ -23,7 +23,13 @@ dependencies = [
   "typing-extensions>=4.12",
   "python-json-logger>=2.0.7",
   "translation-helps-mcp-client>=1.2.0",
+  "bcrypt>=4.0",
+  "typer>=0.15",
+  "rich>=14.0",
 ]
+
+[project.scripts]
+bt-servant = "bt_servant_engine.cli:main"
 
 [project.optional-dependencies]
 dev = [

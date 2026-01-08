@@ -12,6 +12,7 @@ from __future__ import annotations
 import time
 from http import HTTPStatus
 from typing import Any, Dict, List, Optional
+from unittest.mock import patch
 
 import pytest
 from fastapi.testclient import TestClient
@@ -19,6 +20,14 @@ from fastapi.testclient import TestClient
 import bt_servant_engine.adapters.chroma as chroma_db
 from bt_servant_engine.apps.api.app import create_app
 from bt_servant_engine.bootstrap import build_default_service_container
+
+
+@pytest.fixture(autouse=True)
+def disable_auth():
+    """Disable authentication for all tests in this module."""
+    with patch("bt_servant_engine.apps.api.dependencies.config") as mock_config:
+        mock_config.ENABLE_ADMIN_AUTH = False
+        yield
 
 DUPLICATES_PREVIEW_LIMIT = 2
 BATCH_SIZE_LIMIT = 2

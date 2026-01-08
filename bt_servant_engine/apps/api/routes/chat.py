@@ -10,10 +10,12 @@ import time
 from contextvars import copy_context
 from typing import Any, cast
 
-from fastapi import APIRouter, Depends, Header, HTTPException, Request, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from openai import OpenAI, OpenAIError
 
+from bt_servant_engine.apps.api.dependencies import require_client_api_key
 from bt_servant_engine.apps.api.progress_callback import create_webhook_messenger
+from bt_servant_engine.core.api_key_models import APIKey
 from bt_servant_engine.apps.api.state import get_brain, set_brain
 from bt_servant_engine.apps.api.user_locks import get_user_lock
 from bt_servant_engine.core.api_models import ChatRequest, ChatResponse
@@ -26,9 +28,6 @@ from bt_servant_engine.services.intent_queue import has_queued_intents
 
 router = APIRouter(prefix="/api/v1", tags=["chat"])
 logger = get_logger(__name__)
-
-# Expected number of parts in "Bearer <token>" authorization header
-_BEARER_AUTH_PARTS = 2
 
 # Voice generation prompt (same as messaging adapter)
 VOICE_VIBE_PROMPT = """
@@ -60,33 +59,6 @@ def _require_user_state(services: ServiceContainer) -> UserStatePort:
     if user_state is None:
         raise RuntimeError("UserStatePort has not been configured.")
     return user_state
-
-
-async def _verify_api_key(authorization: str | None = Header(default=None)) -> None:
-    """Verify the API key from the Authorization header."""
-    if not config.ADMIN_API_TOKEN:
-        # If no token is configured, allow all requests (dev mode)
-        return
-
-    if not authorization:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Missing Authorization header",
-        )
-
-    # Expect "Bearer <token>"
-    parts = authorization.split()
-    if len(parts) != _BEARER_AUTH_PARTS or parts[0].lower() != "bearer":
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid Authorization header format. Expected 'Bearer <token>'",
-        )
-
-    if parts[1] != config.ADMIN_API_TOKEN:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid API key",
-        )
 
 
 async def _transcribe_audio(audio_base64: str, audio_format: str) -> str:
@@ -277,7 +249,7 @@ async def _maybe_generate_voice(
 async def chat(
     request: Request,
     chat_request: ChatRequest,
-    _: None = Depends(_verify_api_key),
+    api_key: APIKey = Depends(require_client_api_key),  # noqa: ARG001
 ) -> ChatResponse:
     """
     Process a chat message and return responses.

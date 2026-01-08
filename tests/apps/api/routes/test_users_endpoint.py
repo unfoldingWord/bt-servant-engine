@@ -22,9 +22,11 @@ def client() -> TestClient:
 @pytest.fixture
 def no_auth() -> Iterator[None]:
     """Disable auth for tests that don't test authentication."""
-    with patch("bt_servant_engine.apps.api.routes.users.config") as mock_config:
-        mock_config.ADMIN_API_TOKEN = ""
-        yield
+    with patch("bt_servant_engine.apps.api.dependencies.config") as mock_deps_config:
+        mock_deps_config.ENABLE_ADMIN_AUTH = False
+        with patch("bt_servant_engine.apps.api.routes.users.config") as mock_config:
+            mock_config.ADMIN_API_TOKEN = ""
+            yield
 
 
 class TestUserPreferencesAuth:

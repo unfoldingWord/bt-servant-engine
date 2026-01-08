@@ -35,6 +35,8 @@ class Settings(BaseSettings):
     ADMIN_API_TOKEN: str | None = Field(default=None)
     HEALTHCHECK_API_TOKEN: str | None = Field(default=None)
     ENABLE_ADMIN_AUTH: bool = Field(default=True)
+    # Set to False to disable client API key requirement on chat/users endpoints
+    ENABLE_CLIENT_API_KEY_AUTH: bool | None = Field(default=None)
     AGENTIC_STRENGTH: Literal["normal", "low", "very_low"] = Field(default="low")
 
     # Progress messaging configuration

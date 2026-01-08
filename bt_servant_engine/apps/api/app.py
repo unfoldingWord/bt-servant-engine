@@ -8,9 +8,11 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from bt_servant_engine.apps.api.dependencies import set_api_key_service
 from bt_servant_engine.apps.api.middleware import CorrelationIdMiddleware
 from bt_servant_engine.apps.api.routes import (
     admin_datastore,
+    admin_keys,
     admin_logs,
     admin_status_messages,
     chat,
@@ -19,9 +21,10 @@ from bt_servant_engine.apps.api.routes import (
 )
 from bt_servant_engine.apps.api.user_locks import lock_cleanup_task
 from bt_servant_engine.core.logging import get_logger
+from bt_servant_engine.services import ServiceContainer, runtime
+from bt_servant_engine.services.api_keys import APIKeyService
 from bt_servant_engine.services.brain_orchestrator import create_brain
-from bt_servant_engine.services import ServiceContainer
-from bt_servant_engine.services import runtime
+
 from .state import get_brain, set_brain
 
 logger = get_logger(__name__)
@@ -39,6 +42,13 @@ async def lifespan(app: FastAPI):
     services = getattr(app.state, "services", None)
     if isinstance(services, ServiceContainer):
         runtime.set_services(services)
+
+        # Initialize API key service if adapter is available
+        if services.api_key_port is not None:
+            api_key_service = APIKeyService(services.api_key_port)
+            set_api_key_service(api_key_service)
+            logger.info("API key service initialized.")
+
     set_brain(create_brain())
     logger.info("brain loaded.")
 
@@ -71,6 +81,7 @@ def create_app(services: ServiceContainer | None = None) -> FastAPI:
     app.include_router(admin_logs.router)
     app.include_router(admin_status_messages.router)
     app.include_router(admin_datastore.router)
+    app.include_router(admin_keys.router)
     app.include_router(chat.router)
     app.include_router(users.router)
     return app

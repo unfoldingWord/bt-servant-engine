@@ -2,14 +2,24 @@
 
 # pylint: disable=redefined-builtin
 from http import HTTPStatus
+from unittest.mock import patch
 
 import chromadb
+import pytest
 from fastapi.testclient import TestClient
 
 from bt_servant_engine.apps.api.app import create_app
 from bt_servant_engine.bootstrap import build_default_service_container
 import bt_servant_engine.adapters.chroma as cdb
 from bt_servant_engine.core.config import config as app_config
+
+
+@pytest.fixture
+def disable_auth():
+    """Disable authentication for tests that don't test authentication."""
+    with patch("bt_servant_engine.apps.api.dependencies.config") as mock_config:
+        mock_config.ENABLE_ADMIN_AUTH = False
+        yield
 
 EXPECTED_COLLECTION_DOCUMENT_COUNT = 3
 ADMIN_PREFIX = "/admin"
@@ -41,7 +51,7 @@ def make_tmp_client(tmp_path):
     return chromadb.PersistentClient(path=str(tmp_path))
 
 
-def test_create_and_delete_collection(monkeypatch, tmp_path):
+def test_create_and_delete_collection(monkeypatch, tmp_path, disable_auth):
     """Create collection, idempotency on duplicate, and delete semantics."""
     # Patch Chroma client and embedding function used by db helpers
 
@@ -78,7 +88,7 @@ def test_create_and_delete_collection(monkeypatch, tmp_path):
     assert ("Invalid" in err) or ("must be non-empty" in err)
 
 
-def test_list_collections_and_delete_document(monkeypatch, tmp_path):
+def test_list_collections_and_delete_document(monkeypatch, tmp_path, disable_auth):
     """List collections and delete a previously added document."""
     # Patch Chroma client and embedding function used by db helpers
 
@@ -166,7 +176,7 @@ def test_chroma_root_unauthorized_returns_401(monkeypatch):
     }
 
 
-def test_count_documents_in_collection(monkeypatch, tmp_path):
+def test_count_documents_in_collection(monkeypatch, tmp_path, disable_auth):
     """Count documents in a collection via endpoint."""
     # Patch Chroma client and embedding function used by db helpers
 
@@ -199,7 +209,7 @@ def test_count_documents_in_collection(monkeypatch, tmp_path):
     assert body["count"] == EXPECTED_COLLECTION_DOCUMENT_COUNT
 
 
-def test_list_document_ids_endpoint(monkeypatch, tmp_path):
+def test_list_document_ids_endpoint(monkeypatch, tmp_path, disable_auth):
     """List document IDs for a collection via endpoint."""
     # Patch Chroma client and embedding function used by db helpers
 

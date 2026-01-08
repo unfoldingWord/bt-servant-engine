@@ -4,7 +4,11 @@
 
 from __future__ import annotations
 
-from typing import Any, Iterable, Mapping, Protocol
+from datetime import datetime
+from typing import TYPE_CHECKING, Any, Iterable, Mapping, Protocol
+
+if TYPE_CHECKING:
+    from bt_servant_engine.core.api_key_models import APIKey
 
 
 class ChromaPort(Protocol):
@@ -127,4 +131,46 @@ class UserStatePort(Protocol):
         ...
 
 
-__all__ = ["ChromaPort", "UserStatePort"]
+class APIKeyPort(Protocol):
+    """Port for API key storage and validation operations."""
+
+    def create_key(
+        self,
+        name: str,
+        environment: str,
+        rate_limit_per_minute: int = 60,
+        expires_at: datetime | None = None,
+    ) -> tuple["APIKey", str]:
+        """Create a new API key. Returns (key_metadata, raw_key)."""
+        ...
+
+    def validate_key(self, raw_key: str) -> "APIKey | None":
+        """Validate a raw key and return metadata if valid, None otherwise."""
+        ...
+
+    def get_key_by_id(self, key_id: str) -> "APIKey | None":
+        """Get key metadata by ID."""
+        ...
+
+    def get_key_by_prefix(self, prefix: str) -> "APIKey | None":
+        """Get key metadata by prefix (for admin lookup)."""
+        ...
+
+    def list_keys(
+        self,
+        include_revoked: bool = False,
+        environment: str | None = None,
+    ) -> list["APIKey"]:
+        """List all keys matching criteria."""
+        ...
+
+    def revoke_key(self, key_id: str) -> bool:
+        """Revoke a key. Returns True if successful, False if not found."""
+        ...
+
+    def update_last_used(self, key_id: str) -> None:
+        """Update the last_used_at timestamp for a key."""
+        ...
+
+
+__all__ = ["ChromaPort", "UserStatePort", "APIKeyPort"]

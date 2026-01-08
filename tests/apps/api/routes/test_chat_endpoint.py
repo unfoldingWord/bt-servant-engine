@@ -91,12 +91,14 @@ class TestChatEndpointAuth:
 @pytest.fixture
 def no_auth() -> Iterator[None]:
     """Disable auth for tests that don't test authentication."""
-    with patch("bt_servant_engine.apps.api.routes.chat.config") as mock_config:
-        mock_config.ADMIN_API_TOKEN = ""
-        mock_config.OPENAI_API_KEY = "test-key"
-        mock_config.AGENTIC_STRENGTH = "normal"
-        mock_config.BT_DEV_AGENTIC_MCP = False
-        yield
+    with patch("bt_servant_engine.apps.api.dependencies.config") as mock_deps_config:
+        mock_deps_config.ENABLE_ADMIN_AUTH = False
+        with patch("bt_servant_engine.apps.api.routes.chat.config") as mock_config:
+            mock_config.ADMIN_API_TOKEN = ""
+            mock_config.OPENAI_API_KEY = "test-key"
+            mock_config.AGENTIC_STRENGTH = "normal"
+            mock_config.BT_DEV_AGENTIC_MCP = False
+            yield
 
 
 class TestChatEndpointValidation:
