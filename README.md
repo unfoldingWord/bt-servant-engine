@@ -1,11 +1,11 @@
 # bt-servant-engine
 
-An AI-powered WhatsApp assistant for Bible translators. The service runs on FastAPI, orchestrates intent handling with LangGraph, and integrates OpenAI models plus ChromaDB-backed resources to answer translation questions in multiple languages.
+A client-agnostic REST API for Bible translation assistance. The service runs on FastAPI, orchestrates intent handling with LangGraph, and integrates OpenAI models plus ChromaDB-backed resources to answer translation questions in multiple languages.
 
 ---
 
 ## Overview
-- **Messaging Surface:** Meta WhatsApp webhooks handled by `bt_servant_engine.apps.api`.
+- **API Surface:** RESTful endpoints at `/api/v1/` for chat, user preferences, and admin functions.
 - **Architecture:** Strict onion/hexagonal layers enforced by Import Linter (core → services → adapters → apps).
 - **Brain:** LangGraph pipeline defined in `bt_servant_engine.services.brain_orchestrator`.
 - **LLM & Retrieval:** OpenAI Responses API + ChromaDB adapters accessed through dependency-injected service container.
@@ -34,12 +34,12 @@ FastAPI (apps) → Services → Core
 ```
 - Applications only talk to services and ports.
 - Services depend on core models/ports and call adapters through injected dependencies.
-- Adapters implement the core ports and encapsulate all IO (Meta, Chroma, storage, OpenAI).
+- Adapters implement the core ports and encapsulate all IO (Chroma, user state storage, OpenAI).
 
 ---
 
 ## LangGraph Decision Flow
-The brain graph processes each inbound WhatsApp message through a series of deterministic steps. Mermaid rendering is supported natively by GitHub, so the flowchart below reflects the live graph assembled in `create_brain()`.
+The brain graph processes each inbound message through a series of deterministic steps. Mermaid rendering is supported natively by GitHub, so the flowchart below reflects the live graph assembled in `create_brain()`.
 
 ```mermaid
 flowchart TD
@@ -116,14 +116,13 @@ All intent handlers live in `bt_servant_engine.services.intents` and rely on sha
    source .venv/bin/activate  # Windows: .venv\Scripts\activate
    scripts/init_env.sh        # Installs runtime + dev tooling
    ```
-2. Copy `env.example` to `.env` and populate required keys (Meta WhatsApp tokens, `OPENAI_API_KEY`, storage paths, etc.).
+2. Copy `env.example` to `.env` and populate required keys (`OPENAI_API_KEY`, `ADMIN_API_TOKEN`, storage paths, etc.).
 3. Launch the FastAPI app (this factory injects the default service container):
    ```bash
    uvicorn bt_servant_engine.api_factory:create_app --factory --reload --host 127.0.0.1 --port 8080
    ```
 4. For PyCharm or VS Code launch configs, point to the same factory path (`bt_servant_engine.api_factory:create_app`).
-
-Use a tunneling tool (e.g., ngrok) to expose `/meta-whatsapp` when testing webhook flows from Meta.
+5. Visit `http://localhost:8080/docs` to explore the API interactively.
 
 ---
 
@@ -154,10 +153,24 @@ Pytest marks warnings as errors; update fixtures or add targeted `filterwarnings
 
 ---
 
-## WhatsApp & Admin Endpoints
-- **Webhook:** `POST /meta-whatsapp` (signature verification + LangGraph processing). Verification handshake uses `GET /meta-whatsapp`.
+## REST API Endpoints
+
+### OpenAPI Documentation
+FastAPI auto-generates interactive API docs. When running locally:
+- **Swagger UI:** `http://localhost:8080/docs` - Interactive API explorer
+- **ReDoc:** `http://localhost:8080/redoc` - Alternative documentation
+- **OpenAPI JSON:** `http://localhost:8080/openapi.json` - Raw spec for code generation
+
+### Core API (`/api/v1/`)
+- **Chat:** `POST /api/v1/chat` - Main conversation endpoint (text and audio input/output)
+  - Requires `Authorization: Bearer <ADMIN_API_TOKEN>` header
+  - Request body: `{ "client_id": "web", "user_id": "...", "message": "...", "message_type": "text" }`
+  - For audio: include `audio_base64` and set `message_type: "audio"`
+- **User Preferences:** `GET/PUT /api/v1/users/{user_id}/preferences` - Manage response language, agentic strength
+
+### Admin API
 - **Progress messaging:** Status texts sourced from `bt_servant_engine.services.status_messages`.
-- **Admin API:** See `bt_servant_engine.apps.api.routes.admin_datastore` for vector store maintenance (collection merges, document management) secured via bearer token headers when `ENABLE_ADMIN_AUTH=True`. Cache controls are exposed here as well:
+- **Vector store & cache:** See `bt_servant_engine.apps.api.routes.admin_datastore` for collection merges, document management. Secured via bearer token when `ENABLE_ADMIN_AUTH=True`. Cache controls:
   - `POST /cache/clear` wipes every cache namespace.
   - `POST /cache/{name}/clear` clears an individual cache (e.g., `passage_summary`).
   - `GET /cache/stats` reports global cache settings, hit/miss counters, and disk usage.
@@ -225,9 +238,29 @@ Pytest marks warnings as errors; update fixtures or add targeted `filterwarnings
 
 ---
 
+## API Roadmap & Future Considerations
+
+The following features are not yet implemented but may be added as the API matures:
+
+| Feature | Description | Priority |
+|---------|-------------|----------|
+| **Rate Limiting** | Prevent abuse via middleware or API gateway (e.g., slowapi, nginx) | Medium |
+| **CORS Configuration** | Required if browser clients call the API directly | Low (gateway handles) |
+| **Per-Client API Keys** | Database-backed keys with revocation, replacing shared `ADMIN_API_TOKEN` | Medium |
+| **Streaming Responses** | SSE endpoint (`/api/v1/chat/stream`) for real-time output | Low |
+| **Request Logging** | Structured logs with request/response bodies for debugging | Low |
+| **API Versioning Strategy** | Document upgrade path when `/api/v2/` is introduced | Future |
+
+Current authentication uses a single shared bearer token (`ADMIN_API_TOKEN`). For production multi-tenant use, consider implementing:
+- Key format: `bts_<env>_<random>` (e.g., `bts_prod_a1b2c3d4`)
+- CLI for key management: `bt-servant keys create --name "WhatsApp Gateway"`
+- Per-key rate limits and usage tracking
+
+---
+
 ## Getting Help
 - Review `docs/` for architecture decisions and refactor history (`docs/refactor_plan_revised.md`).
 - `AGENTS.md` tracks ongoing decisions for future collaborators.
-- Use the logging IDs (cid/user_id/trace) printed in the console to correlate webhook requests with OpenAI costs and continuation prompts.
+- Use the logging IDs (cid/user_id/trace) printed in the console to correlate API requests with OpenAI costs and continuation prompts.
 
 Happy translating!
