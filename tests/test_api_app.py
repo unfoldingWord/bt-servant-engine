@@ -1,5 +1,5 @@
 """Tests for FastAPI app factory."""
- # pylint: disable=missing-function-docstring
+# pylint: disable=missing-function-docstring
 
 import asyncio
 from http import HTTPStatus
@@ -23,7 +23,6 @@ def test_create_app_has_routes():
     assert app.state.services.intent_router is not None
     assert app.state.services.chroma is not None
     assert app.state.services.user_state is not None
-    assert app.state.services.messaging is not None
 
 
 def test_lifespan_initializes_brain():

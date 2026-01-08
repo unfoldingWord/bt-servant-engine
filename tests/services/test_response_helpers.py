@@ -53,6 +53,5 @@ def test_sample_for_language_detection_trims_and_snaps() -> None:
     assert rh.sample_for_language_detection(text, sample_chars=LANG_SAMPLE_LENGTH) == "word1"
     # When no whitespace in snippet, fall back to raw clipping
     assert (
-        rh.sample_for_language_detection("abcdefghijk", sample_chars=RAW_SAMPLE_LENGTH)
-        == "abcde"
+        rh.sample_for_language_detection("abcdefghijk", sample_chars=RAW_SAMPLE_LENGTH) == "abcde"
     )

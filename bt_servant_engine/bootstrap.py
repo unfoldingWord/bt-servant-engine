@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from bt_servant_engine.adapters.chroma import ChromaAdapter
-from bt_servant_engine.adapters.messaging import MessagingAdapter
 from bt_servant_engine.adapters.user_state import UserStateAdapter
 from bt_servant_engine.services import ServiceContainer, build_default_services
 
@@ -14,7 +13,6 @@ def build_default_service_container() -> ServiceContainer:
     return build_default_services(
         chroma_port=ChromaAdapter(),
         user_state_port=UserStateAdapter(),
-        messaging_port=MessagingAdapter(),
     )
 
 

@@ -145,9 +145,7 @@ def test_translation_progress_message_localizes_series_for_arabic() -> None:
 
     assert messages
     message_text = messages[0]["text"]
-    expected_resources = (
-        "tyndale dictionary\u060c uw translation words\u060c ust \u0648 ult"
-    )
+    expected_resources = "tyndale dictionary\u060c uw translation words\u060c ust \u0648 ult"
     assert expected_resources in message_text
     assert " and " not in message_text
     assert message_text.startswith("_") and message_text.endswith("_")

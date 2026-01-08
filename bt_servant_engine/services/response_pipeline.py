@@ -347,7 +347,7 @@ def needs_chunking(state: dict[str, Any]) -> str:
         logger.info("[chunk-check] no text responses to send; skipping chunking")
         return END
     first_response = responses[0]
-    if len(first_response) > config.MAX_META_TEXT_LENGTH:
+    if len(first_response) > config.MAX_RESPONSE_CHUNK_SIZE:
         logger.warning("message to big: %d chars. preparing to chunk.", len(first_response))
         return "chunk_message_node"
     return END

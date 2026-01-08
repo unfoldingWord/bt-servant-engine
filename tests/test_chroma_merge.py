@@ -130,8 +130,7 @@ def test_dry_run_duplicates_preview_limit(fake_chroma):
     client = TestClient(create_app(build_default_service_container()))
     resp = client.post(
         f"{ADMIN_CHROMA_PREFIX}/collections/dst/merge",
-        json=
-        {
+        json={
             "source": "src",
             "on_duplicate": "fail",
             "dry_run": True,
@@ -163,8 +162,7 @@ def test_merge_create_new_id_with_tags_and_copy(fake_chroma):
     # Start merge
     resp = client.post(
         f"{ADMIN_CHROMA_PREFIX}/collections/dst/merge",
-        json=
-        {
+        json={
             "source": "src",
             "mode": "copy",
             "create_new_id": True,
@@ -218,8 +216,7 @@ def test_cancel_merge(fake_chroma):
     client = TestClient(create_app(build_default_service_container()))
     resp = client.post(
         f"{ADMIN_CHROMA_PREFIX}/collections/dst/merge",
-        json=
-        {
+        json={
             "source": "src",
             "mode": "copy",
             "create_new_id": True,

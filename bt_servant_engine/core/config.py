@@ -17,16 +17,8 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env")
 
     OPENAI_API_KEY: str = Field(...)
-    META_VERIFY_TOKEN: str = Field(...)
-    META_WHATSAPP_TOKEN: str = Field(...)
-    META_PHONE_NUMBER_ID: str = Field(...)
-    META_APP_SECRET: str = Field(...)
-    LOG_PSEUDONYM_SECRET: str = Field(...)
-    FACEBOOK_USER_AGENT: str = Field(...)
-    IN_META_SANDBOX_MODE: bool = Field(default=False)
-    META_SANDBOX_PHONE_NUMBER: str = Field(default="11111111")
-    MESSAGE_AGE_CUTOFF_IN_SECONDS: int = Field(default=3600)
-    BASE_URL: str = Field(...)
+    LOG_PSEUDONYM_SECRET: str = Field(default="dev-secret")
+    BASE_URL: str = Field(default="http://localhost:8000")
     BT_SERVANT_LOG_LEVEL: str = Field(default="info")
     BT_SERVANT_LOG_DIR: Path | None = Field(default=None)
     BT_SERVANT_LOG_ROTATE_BEFORE: datetime | None = Field(
@@ -36,7 +28,7 @@ class Settings(BaseSettings):
     BT_SERVANT_LOG_API_MIN_MODIFIED_AT: datetime = Field(
         default=datetime(2025, 10, 21, 3, 30, tzinfo=timezone.utc)
     )
-    MAX_META_TEXT_LENGTH: int = Field(default=4096)
+    MAX_RESPONSE_CHUNK_SIZE: int = Field(default=4096)
     TRANSLATION_HELPS_VERSE_LIMIT: int = Field(default=5)
     RETRIEVE_SCRIPTURE_VERSE_LIMIT: int = Field(default=120)
     TRANSLATE_SCRIPTURE_VERSE_LIMIT: int = Field(default=120)

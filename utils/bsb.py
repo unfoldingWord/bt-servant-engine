@@ -276,11 +276,7 @@ def label_ranges(
     if len(ranges) == 1:
         sc, sv, ec, ev = ranges[0]
         full_book = (
-            sc == 1
-            and sv is None
-            and ev is None
-            and ec is not None
-            and ec >= FULL_BOOK_SENTINEL
+            sc == 1 and sv is None and ev is None and ec is not None and ec >= FULL_BOOK_SENTINEL
         )
         if full_book:
             return f"{canonical_book}"

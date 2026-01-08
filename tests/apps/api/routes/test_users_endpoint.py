@@ -30,13 +30,9 @@ def no_auth() -> Iterator[None]:
 class TestUserPreferencesAuth:
     """Tests for /api/v1/users/{user_id}/preferences authentication."""
 
-    def test_missing_auth_header_when_token_configured(
-        self, client: TestClient
-    ) -> None:
+    def test_missing_auth_header_when_token_configured(self, client: TestClient) -> None:
         """Should reject requests without auth header when ADMIN_API_TOKEN is set."""
-        with patch(
-            "bt_servant_engine.apps.api.routes.users.config"
-        ) as mock_config:
+        with patch("bt_servant_engine.apps.api.routes.users.config") as mock_config:
             mock_config.ADMIN_API_TOKEN = "test-token"
 
             resp = client.get("/api/v1/users/user123/preferences")
@@ -44,9 +40,7 @@ class TestUserPreferencesAuth:
 
     def test_wrong_api_key(self, client: TestClient) -> None:
         """Should reject requests with wrong API key."""
-        with patch(
-            "bt_servant_engine.apps.api.routes.users.config"
-        ) as mock_config:
+        with patch("bt_servant_engine.apps.api.routes.users.config") as mock_config:
             mock_config.ADMIN_API_TOKEN = "correct-token"
 
             resp = client.get(
@@ -69,7 +63,10 @@ class TestGetUserPreferences:
         assert data["dev_agentic_mcp"] is None
 
     def test_get_preferences_for_existing_user(
-        self, client: TestClient, service_container, no_auth: None  # noqa: ANN001
+        self,
+        client: TestClient,
+        service_container,
+        no_auth: None,  # noqa: ANN001
     ) -> None:
         """Should return stored preferences for existing user."""
         # Set up user state
@@ -139,9 +136,7 @@ class TestUpdateUserPreferences:
         assert data["agentic_strength"] == "normal"
         assert data["dev_agentic_mcp"] is False
 
-    def test_partial_update_preserves_other_fields(
-        self, client: TestClient, no_auth: None
-    ) -> None:
+    def test_partial_update_preserves_other_fields(self, client: TestClient, no_auth: None) -> None:
         """Should only update provided fields, preserving others."""
         # First set all preferences
         client.put(

@@ -85,14 +85,16 @@ INTENT_NODE_MAP = {
 class _OpenSpan:
     name: str
     start: float
-    tokens: Dict[str, int] = field(default_factory=lambda: {
-        "input": 0,
-        "output": 0,
-        "total": 0,
-        "cached_input": 0,
-        "audio_input": 0,
-        "audio_output": 0,
-    })
+    tokens: Dict[str, int] = field(
+        default_factory=lambda: {
+            "input": 0,
+            "output": 0,
+            "total": 0,
+            "cached_input": 0,
+            "audio_input": 0,
+            "audio_output": 0,
+        }
+    )
     model_token_breakdown: Dict[str, Dict[str, int]] | None = None
 
 
@@ -600,9 +602,7 @@ def summarize_report(trace_id: str) -> Dict[str, Any]:
 
     totals = AggregateTotals()
     grouped: Dict[str, AggregateTotals] = {}
-    items = [
-        _span_summary(span, timing, token_denominator, totals, grouped) for span in spans
-    ]
+    items = [_span_summary(span, timing, token_denominator, totals, grouped) for span in spans]
 
     context = SummaryAssemblyContext(
         trace_id=trace_id,

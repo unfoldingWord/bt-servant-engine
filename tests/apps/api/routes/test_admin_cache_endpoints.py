@@ -139,9 +139,7 @@ def test_prune_all_caches_endpoint(monkeypatch):
 def test_prune_named_cache_endpoint(monkeypatch):
     client, stub = _make_client(monkeypatch)
     days = 2
-    resp = client.post(
-        f"{ADMIN_PREFIX}/cache/selection/clear", params={"older_than_days": days}
-    )
+    resp = client.post(f"{ADMIN_PREFIX}/cache/selection/clear", params={"older_than_days": days})
     assert resp.status_code == HTTPStatus.OK
     payload = resp.json()
     assert payload["status"] == "pruned"
@@ -154,9 +152,7 @@ def test_prune_invalid_params(monkeypatch):
     client, _ = _make_client(monkeypatch)
     resp = client.post(f"{ADMIN_PREFIX}/cache/clear", params={"older_than_days": -1})
     assert resp.status_code == HTTPStatus.BAD_REQUEST
-    resp = client.post(
-        f"{ADMIN_PREFIX}/cache/selection/clear", params={"older_than_days": 0}
-    )
+    resp = client.post(f"{ADMIN_PREFIX}/cache/selection/clear", params={"older_than_days": 0})
     assert resp.status_code == HTTPStatus.BAD_REQUEST
 
 
@@ -172,9 +168,7 @@ def test_get_cache_stats_endpoint(monkeypatch):
 def test_inspect_cache_endpoint(monkeypatch):
     client, stub = _make_client(monkeypatch)
     sample_limit = 5
-    resp = client.get(
-        f"{ADMIN_PREFIX}/cache/selection", params={"sample_limit": sample_limit}
-    )
+    resp = client.get(f"{ADMIN_PREFIX}/cache/selection", params={"sample_limit": sample_limit})
     assert resp.status_code == HTTPStatus.OK
     data = resp.json()
     assert data["name"] == "selection"
@@ -182,9 +176,7 @@ def test_inspect_cache_endpoint(monkeypatch):
     assert stub.cache_obj.sample_limit == sample_limit
     assert data["samples"]
 
-    bad_resp = client.get(
-        f"{ADMIN_PREFIX}/cache/selection", params={"sample_limit": 0}
-    )
+    bad_resp = client.get(f"{ADMIN_PREFIX}/cache/selection", params={"sample_limit": 0})
     assert bad_resp.status_code == HTTPStatus.BAD_REQUEST
     assert (
         bad_resp.json()["detail"]["error"]

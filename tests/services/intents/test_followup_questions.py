@@ -1,6 +1,5 @@
 """Tests for intent follow-up questions functionality."""
 
-
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.services.intents.followup_questions import (
     INTENT_FOLLOWUP_QUESTIONS,
@@ -36,12 +35,8 @@ class TestGetFollowupForIntent:
     def test_all_defined_intents_have_english_translations(self):
         """All intents in INTENT_FOLLOWUP_QUESTIONS have English translations."""
         for intent_type, translations in INTENT_FOLLOWUP_QUESTIONS.items():
-            assert "en" in translations, (
-                f"Intent {intent_type} missing English translation"
-            )
-            assert translations["en"], (
-                f"Intent {intent_type} has empty English translation"
-            )
+            assert "en" in translations, f"Intent {intent_type} missing English translation"
+            assert translations["en"], f"Intent {intent_type} has empty English translation"
 
     def test_followup_questions_have_multiple_languages(self):
         """Follow-up questions support multiple languages."""

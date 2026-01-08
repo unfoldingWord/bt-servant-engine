@@ -81,7 +81,7 @@ def test_download_log_file_streams_content(logs_client):
     """Downloading a log streams raw text with headers."""
     client, logs_dir = logs_client
     log_path = logs_dir / "example.log"
-    log_path.write_text("line1\nline2\n")
+    log_path.write_bytes(b"line1\nline2\n")
 
     resp = client.get("/admin/logs/files/example.log", headers=_auth_headers())
     assert resp.status_code == HTTPStatus.OK

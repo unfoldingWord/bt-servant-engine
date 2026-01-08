@@ -37,13 +37,9 @@ def mock_brain() -> Iterator[MagicMock]:
 class TestChatEndpointAuth:
     """Tests for /api/v1/chat authentication."""
 
-    def test_missing_auth_header_when_token_configured(
-        self, client: TestClient
-    ) -> None:
+    def test_missing_auth_header_when_token_configured(self, client: TestClient) -> None:
         """Should reject requests without auth header when ADMIN_API_TOKEN is set."""
-        with patch(
-            "bt_servant_engine.apps.api.routes.chat.config"
-        ) as mock_config:
+        with patch("bt_servant_engine.apps.api.routes.chat.config") as mock_config:
             mock_config.ADMIN_API_TOKEN = "test-token"
             mock_config.OPENAI_API_KEY = "test-key"
             mock_config.AGENTIC_STRENGTH = "normal"
@@ -61,9 +57,7 @@ class TestChatEndpointAuth:
 
     def test_invalid_auth_header_format(self, client: TestClient) -> None:
         """Should reject requests with invalid auth header format."""
-        with patch(
-            "bt_servant_engine.apps.api.routes.chat.config"
-        ) as mock_config:
+        with patch("bt_servant_engine.apps.api.routes.chat.config") as mock_config:
             mock_config.ADMIN_API_TOKEN = "test-token"
 
             resp = client.post(
@@ -79,9 +73,7 @@ class TestChatEndpointAuth:
 
     def test_wrong_api_key(self, client: TestClient) -> None:
         """Should reject requests with wrong API key."""
-        with patch(
-            "bt_servant_engine.apps.api.routes.chat.config"
-        ) as mock_config:
+        with patch("bt_servant_engine.apps.api.routes.chat.config") as mock_config:
             mock_config.ADMIN_API_TOKEN = "correct-token"
 
             resp = client.post(
@@ -189,9 +181,7 @@ class TestChatEndpointSuccess:
 class TestChatEndpointVoice:
     """Tests for voice-related functionality."""
 
-    def test_voice_response_when_brain_requests_it(
-        self, client: TestClient, no_auth: None
-    ) -> None:
+    def test_voice_response_when_brain_requests_it(self, client: TestClient, no_auth: None) -> None:
         """Should include voice audio when brain requests voice output."""
         brain = MagicMock()
         brain.invoke.return_value = {
@@ -203,9 +193,7 @@ class TestChatEndpointVoice:
         }
         set_brain(brain)
 
-        with patch(
-            "bt_servant_engine.apps.api.routes.chat._generate_tts"
-        ) as mock_tts:
+        with patch("bt_servant_engine.apps.api.routes.chat._generate_tts") as mock_tts:
             mock_tts.return_value = "base64encodedaudio=="
 
             resp = client.post(

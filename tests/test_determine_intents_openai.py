@@ -105,6 +105,6 @@ def test_intents_detect_consult_fia_resources(
     state: dict[str, Any] = {"transformed_query": query}
     out = determine_intents(cast(Any, state))
     intents = set(out["user_intents"])  # list[IntentType]
-    assert any(
-        intent in intents for intent in acceptable_intents
-    ), f"Expected one of {acceptable_intents}, got {intents}"
+    assert any(intent in intents for intent in acceptable_intents), (
+        f"Expected one of {acceptable_intents}, got {intents}"
+    )

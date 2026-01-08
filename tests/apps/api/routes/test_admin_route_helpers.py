@@ -92,16 +92,19 @@ def test_apply_metadata_tags_includes_optional_fields(monkeypatch: pytest.Monkey
         }
     ]
 
-    assert admin_merge_helpers.apply_metadata_tags(
-        None,
-        admin_merge_helpers.MetadataTaggingConfig(
-            enabled=True,
-            tag_key="_merged_from",
-            source="x",
-            task_id="y",
-            tag_timestamp=False,
-        ),
-    ) is None
+    assert (
+        admin_merge_helpers.apply_metadata_tags(
+            None,
+            admin_merge_helpers.MetadataTaggingConfig(
+                enabled=True,
+                tag_key="_merged_from",
+                source="x",
+                task_id="y",
+                tag_timestamp=False,
+            ),
+        )
+        is None
+    )
     disabled = admin_merge_helpers.apply_metadata_tags(
         original,
         admin_merge_helpers.MetadataTaggingConfig(

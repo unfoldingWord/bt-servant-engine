@@ -107,7 +107,7 @@ def test_no_direct_chromadb_imports_in_services():
 
     violations = []
     for py_file in services_dir.rglob("*.py"):
-        content = py_file.read_text()
+        content = py_file.read_text(encoding="utf-8")
         if "import chromadb" in content or "from chromadb" in content:
             violations.append(py_file.relative_to(services_dir))
 
@@ -126,12 +126,12 @@ def test_no_fastapi_in_core():
 
     violations = []
     for py_file in core_dir.rglob("*.py"):
-        content = py_file.read_text()
+        content = py_file.read_text(encoding="utf-8")
         if "import fastapi" in content or "from fastapi" in content:
             violations.append(py_file.relative_to(core_dir))
 
     assert not violations, (
-        f"Core layer imports FastAPI: {violations}\n" "Core must remain framework-agnostic."
+        f"Core layer imports FastAPI: {violations}\nCore must remain framework-agnostic."
     )
 
 
@@ -144,7 +144,7 @@ def test_no_openai_in_core():
 
     violations = []
     for py_file in core_dir.rglob("*.py"):
-        content = py_file.read_text()
+        content = py_file.read_text(encoding="utf-8")
         if "import openai" in content or "from openai" in content:
             violations.append(py_file.relative_to(core_dir))
 

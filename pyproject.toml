@@ -45,7 +45,7 @@ dev = [
 license-files = []
 
 [tool.setuptools.packages.find]
-include = ["bt_servant_engine*"]
+include = ["bt_servant_engine*", "utils*"]
 exclude = [
   "tests*",
   "scripts*",

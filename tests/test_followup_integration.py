@@ -2,11 +2,22 @@
 
 from unittest.mock import patch
 
+import pytest
 
 from bt_servant_engine.core.intents import IntentType
 from bt_servant_engine.services.brain_nodes import translate_responses
 
 EXPECTED_TRANSLATED_RESPONSE_COUNT = 2
+
+
+@pytest.fixture(autouse=True)
+def mock_detect_language():
+    """Mock language detection to avoid OpenAI calls in all tests."""
+    with patch(
+        "bt_servant_engine.services.response_pipeline.detect_language_impl",
+        return_value="en",
+    ):
+        yield
 
 
 class TestFollowupIntegration:
@@ -89,23 +100,27 @@ class TestFollowupIntegration:
         }
         continuation_prompt = "\n\nWould you like me to set the agentic strength to high?"
 
-        with patch(
-            "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
-        ) as mock_continuation, patch(
-            "bt_servant_engine.services.brain_nodes.translate_text"
-        ) as mock_translate:
+        with (
+            patch(
+                "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
+            ) as mock_continuation,
+            patch(
+                "bt_servant_engine.services.response_pipeline.translate_text"
+            ) as mock_translate_pipeline,
+            patch("bt_servant_engine.services.brain_nodes.translate_text") as mock_translate_nodes,
+        ):
             mock_continuation.return_value = continuation_prompt
-            mock_translate.side_effect = (
-                lambda text, language, agentic_strength=None: f"{text} ({language})"
+            mock_translate_pipeline.side_effect = (
+                lambda request, dependencies: f"{request.text} ({request.target_language})"
             )
+            # Also mock brain_nodes.translate_text for continuation prompt translation
+            mock_translate_nodes.side_effect = lambda text, language, **_: f"{text} ({language})"
 
             result = translate_responses(state)
 
             response = result["translated_responses"][0]
             assert "Configurando el idioma de respuesta a: Español" in response
-            assert (
-                "Would you like me to set the agentic strength to high? (es)" in response
-            )
+            assert "Would you like me to set the agentic strength to high? (es)" in response
             assert result.get("followup_question_added") is True
 
     def test_no_followup_for_converse_intent(self):
@@ -177,10 +192,15 @@ class TestFollowupIntegration:
             "followup_question_added": False,
         }
 
-        with patch(
-            "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
-        ) as mock_continuation:
+        with (
+            patch(
+                "bt_servant_engine.services.brain_followups.generate_continuation_prompt"
+            ) as mock_continuation,
+            patch("bt_servant_engine.services.response_pipeline.translate_text") as mock_translate,
+        ):
             mock_continuation.return_value = None
+            # Return input text unchanged (simulates no translation needed)
+            mock_translate.side_effect = lambda request, dependencies: request.text
 
             result = translate_responses(state)
 

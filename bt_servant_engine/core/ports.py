@@ -127,24 +127,4 @@ class UserStatePort(Protocol):
         ...
 
 
-class MessagingPort(Protocol):
-    """Port exposing messaging-related side effects."""
-
-    async def send_text_message(self, user_id: str, text: str) -> None:
-        """Send a plain text message to ``user_id``."""
-        ...
-
-    async def send_voice_message(self, user_id: str, text: str) -> None:
-        """Send synthesized audio to ``user_id``."""
-        ...
-
-    async def send_typing_indicator(self, message_id: str) -> None:
-        """Emit a typing indicator for ``message_id``."""
-        ...
-
-    async def transcribe_voice_message(self, media_id: str) -> str:
-        """Return the transcribed text for a Meta media id."""
-        ...
-
-
-__all__ = ["ChromaPort", "UserStatePort", "MessagingPort"]
+__all__ = ["ChromaPort", "UserStatePort"]
