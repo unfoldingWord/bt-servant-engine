@@ -13,7 +13,9 @@ from typing import Any, cast
 from fastapi import APIRouter, Depends, Header, HTTPException, Request, status
 from openai import OpenAI, OpenAIError
 
+from bt_servant_engine.apps.api.progress_callback import create_webhook_messenger
 from bt_servant_engine.apps.api.state import get_brain, set_brain
+from bt_servant_engine.apps.api.user_locks import get_user_lock
 from bt_servant_engine.core.api_models import ChatRequest, ChatResponse
 from bt_servant_engine.core.config import config
 from bt_servant_engine.core.logging import get_logger
@@ -168,14 +170,36 @@ def _compute_dev_agentic_mcp(user_id: str, user_state: UserStatePort) -> tuple[b
     return effective, user_pref
 
 
-def _build_brain_payload(
+async def _build_brain_payload(
     chat_request: ChatRequest,
     user_query: str,
     user_state: UserStatePort,
 ) -> dict[str, Any]:
-    """Build the payload dict for brain invocation."""
+    """Build the payload dict for brain invocation.
+
+    If progress_callback_url is provided in the request, creates a webhook
+    messenger and enables progress messaging.
+    """
     effective_agentic, user_agentic = _compute_agentic_strengths(chat_request.user_id, user_state)
     effective_mcp, user_mcp = _compute_dev_agentic_mcp(chat_request.user_id, user_state)
+
+    # Configure progress messaging if callback URL is provided
+    progress_enabled = False
+    progress_messenger = None
+    progress_throttle_seconds = chat_request.progress_throttle_seconds
+
+    if chat_request.progress_callback_url:
+        progress_messenger = await create_webhook_messenger(
+            callback_url=chat_request.progress_callback_url,
+            user_id=chat_request.user_id,
+            auth_token=config.ADMIN_API_TOKEN or None,
+        )
+        progress_enabled = True
+        logger.info(
+            "Progress messaging enabled for user %s -> %s",
+            chat_request.user_id[:8] + "...",
+            chat_request.progress_callback_url,
+        )
 
     payload: dict[str, Any] = {
         "user_id": chat_request.user_id,
@@ -185,9 +209,9 @@ def _build_brain_payload(
         "agentic_strength": effective_agentic,
         "dev_agentic_mcp": effective_mcp,
         "perf_trace_id": f"chat-{chat_request.user_id}-{time.time()}",
-        "progress_enabled": False,
-        "progress_messenger": None,
-        "progress_throttle_seconds": 0,
+        "progress_enabled": progress_enabled,
+        "progress_messenger": progress_messenger,
+        "progress_throttle_seconds": progress_throttle_seconds,
         "last_progress_time": 0,
     }
     if user_agentic is not None:
@@ -260,43 +284,53 @@ async def chat(
 
     Handles both text and audio input. For audio input, transcribes first.
     If the brain decides to respond with voice, generates TTS audio.
+
+    Messages from the same user are serialized via per-user locking to prevent
+    race conditions when users send multiple messages in quick succession.
     """
-    user_state = _require_user_state(_get_services(request))
-    brain = _get_or_create_brain()
-    if brain is None:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Brain initialization failed",
+    # Acquire per-user lock to serialize concurrent requests from the same user
+    user_lock = await get_user_lock(chat_request.user_id)
+    async with user_lock:
+        user_state = _require_user_state(_get_services(request))
+        brain = _get_or_create_brain()
+        if brain is None:
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Brain initialization failed",
+            )
+
+        user_query = await _resolve_user_query(chat_request)
+        if not user_query.strip():
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Message is empty",
+            )
+
+        # Build brain payload and invoke
+        brain_payload = await _build_brain_payload(chat_request, user_query, user_state)
+        ctx = copy_context()
+
+        def _invoke_sync() -> dict[str, Any]:
+            return cast(dict[str, Any], ctx.run(brain.invoke, cast(Any, brain_payload)))
+
+        result = await asyncio.get_running_loop().run_in_executor(None, _invoke_sync)
+
+        # Extract responses
+        responses = list(result.get("translated_responses", []))
+        full_response_text = "\n\n".join(responses).rstrip()
+
+        # Update chat history
+        original_message = (
+            chat_request.message if chat_request.message_type == "text" else user_query
         )
+        user_state.append_chat_history(chat_request.user_id, original_message, full_response_text)
 
-    user_query = await _resolve_user_query(chat_request)
-    if not user_query.strip():
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Message is empty",
+        return ChatResponse(
+            responses=responses,
+            response_language=_extract_response_language(result, chat_request.user_id, user_state),
+            voice_audio_base64=await _maybe_generate_voice(
+                result, chat_request, full_response_text
+            ),
+            intent_processed=str(result.get("triggered_intent", "unknown")),
+            has_queued_intents=has_queued_intents(chat_request.user_id),
         )
-
-    # Build brain payload and invoke
-    brain_payload = _build_brain_payload(chat_request, user_query, user_state)
-    ctx = copy_context()
-
-    def _invoke_sync() -> dict[str, Any]:
-        return cast(dict[str, Any], ctx.run(brain.invoke, cast(Any, brain_payload)))
-
-    result = await asyncio.get_running_loop().run_in_executor(None, _invoke_sync)
-
-    # Extract responses
-    responses = list(result.get("translated_responses", []))
-    full_response_text = "\n\n".join(responses).rstrip()
-
-    # Update chat history
-    original_message = chat_request.message if chat_request.message_type == "text" else user_query
-    user_state.append_chat_history(chat_request.user_id, original_message, full_response_text)
-
-    return ChatResponse(
-        responses=responses,
-        response_language=_extract_response_language(result, chat_request.user_id, user_state),
-        voice_audio_base64=await _maybe_generate_voice(result, chat_request, full_response_text),
-        intent_processed=str(result.get("triggered_intent", "unknown")),
-        has_queued_intents=has_queued_intents(chat_request.user_id),
-    )

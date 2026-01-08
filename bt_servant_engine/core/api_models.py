@@ -23,6 +23,19 @@ class ChatRequest(BaseModel):
     )
     audio_format: str = Field(default="ogg", description="Audio format hint (e.g., 'ogg', 'mp3')")
 
+    # Progress messaging fields
+    progress_callback_url: str | None = Field(
+        default=None,
+        description="URL to POST progress messages during processing. "
+        "Engine will POST ProgressMessage payloads to this URL.",
+    )
+    progress_throttle_seconds: float = Field(
+        default=3.0,
+        ge=0.5,
+        le=30.0,
+        description="Minimum seconds between progress messages (default: 3.0)",
+    )
+
 
 class ChatResponse(BaseModel):
     """Response model for POST /api/v1/chat."""
@@ -51,4 +64,13 @@ class UserPreferences(BaseModel):
     dev_agentic_mcp: bool | None = Field(default=None, description="Developer MCP flag")
 
 
-__all__ = ["ChatRequest", "ChatResponse", "UserPreferences"]
+class ProgressMessage(BaseModel):
+    """Payload sent to progress_callback_url during processing."""
+
+    user_id: str = Field(..., description="User receiving this progress update")
+    message_key: str = Field(..., description="Status message key (e.g., 'REVIEWING_FIA_GUIDANCE')")
+    text: str = Field(..., description="Localized progress text to display")
+    timestamp: float = Field(..., description="Unix timestamp when progress was sent")
+
+
+__all__ = ["ChatRequest", "ChatResponse", "UserPreferences", "ProgressMessage"]

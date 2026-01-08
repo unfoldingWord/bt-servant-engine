@@ -17,6 +17,7 @@ from bt_servant_engine.apps.api.routes import (
     health,
     users,
 )
+from bt_servant_engine.apps.api.user_locks import lock_cleanup_task
 from bt_servant_engine.core.logging import get_logger
 from bt_servant_engine.services.brain_orchestrator import create_brain
 from bt_servant_engine.services import ServiceContainer
@@ -40,9 +41,19 @@ async def lifespan(app: FastAPI):
         runtime.set_services(services)
     set_brain(create_brain())
     logger.info("brain loaded.")
+
+    # Start background task to clean up stale user locks
+    cleanup_task = asyncio.create_task(lock_cleanup_task())
+    logger.info("User lock cleanup task started.")
+
     try:
         yield
     finally:
+        cleanup_task.cancel()
+        try:
+            await cleanup_task
+        except asyncio.CancelledError:
+            pass
         executor.shutdown(wait=False)
 
 
