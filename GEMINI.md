@@ -185,9 +185,6 @@ Recommended workflow
   - Some API-level tests also require opt-in: set `RUN_OPENAI_API_TESTS=1`.
   - Command: `RUN_OPENAI_API_TESTS=1 pytest -q -m openai`.
   - Treat failures as blockers for the related change; otherwise, they remain opt-in.
-  - For the Meta WhatsApp API test, the server processes the message synchronously when
-    `RUN_OPENAI_API_TESTS=1` is set (see `bt_servant.handle_meta_webhook`). This avoids
-    background-task flakiness in CI and ensures deterministic test completion.
 
 ## Non‑Negotiable Local Env
 - Do not proceed with any changes if repo checks or tests cannot run locally. If any of `ruff`, `pylint`, `mypy`, `pyright`, or `pytest` are missing (e.g., exit 127 "command not found") or fail to start, STOP and initialize the environment.
