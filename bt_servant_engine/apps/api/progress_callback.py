@@ -71,10 +71,12 @@ async def create_webhook_messenger(
                         response.text[:200] if response.text else "(no body)",
                     )
                 else:
-                    logger.debug(
-                        "Progress callback sent: %s -> %s",
+                    logger.info(
+                        "Progress callback sent successfully: key=%s url=%s status=%s user=%s",
                         message.get("key"),
                         callback_url,
+                        response.status_code,
+                        user_id[:8] + "..." if len(user_id) > 8 else user_id,
                     )
         except httpx.TimeoutException:
             logger.debug("Progress callback timed out (non-blocking): %s", callback_url)
