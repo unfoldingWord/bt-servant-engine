@@ -137,6 +137,7 @@ def test_query_open_ai_handles_no_docs() -> None:
 
 def test_query_open_ai_surfaces_openai_errors() -> None:
     """OpenAI query returns a friendly error for API failures."""
+
     def create_error(*args, **kwargs):
         del args, kwargs
         raise OpenAIError("boom")

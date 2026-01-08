@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Optional
 
-from bt_servant_engine.core.ports import ChromaPort, MessagingPort, UserStatePort
+from bt_servant_engine.core.ports import ChromaPort, UserStatePort
 from bt_servant_engine.services.intent_router import IntentRouter
 
 
@@ -15,7 +15,6 @@ class ServiceContainer:
 
     chroma: Optional[ChromaPort] = None
     user_state: Optional[UserStatePort] = None
-    messaging: Optional[MessagingPort] = None
     intent_router: Optional["IntentRouter"] = None
 
 
@@ -23,14 +22,12 @@ def build_default_services(
     *,
     chroma_port: Optional[ChromaPort] = None,
     user_state_port: Optional[UserStatePort] = None,
-    messaging_port: Optional[MessagingPort] = None,
 ) -> ServiceContainer:
     """Return a service container with the default intent router wiring."""
     intent_router = IntentRouter()
     return ServiceContainer(
         chroma=chroma_port,
         user_state=user_state_port,
-        messaging=messaging_port,
         intent_router=intent_router,
     )
 

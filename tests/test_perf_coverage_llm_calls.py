@@ -268,7 +268,7 @@ def test_chunk_message_span_has_tokens(monkeypatch: pytest.MonkeyPatch) -> None:
 
     monkeypatch.setattr(brain_nodes.open_ai_client.chat.completions, "create", _fake_chat_create)
 
-    long_text = "x" * (config.MAX_META_TEXT_LENGTH + CHUNK_OVERFLOW_PADDING)
+    long_text = "x" * (config.MAX_RESPONSE_CHUNK_SIZE + CHUNK_OVERFLOW_PADDING)
     state = {
         "translated_responses": [long_text],
     }

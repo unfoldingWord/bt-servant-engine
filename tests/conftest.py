@@ -12,7 +12,7 @@ from typing import Any, Dict, Iterable, Iterator, Mapping
 import pytest
 from dotenv import load_dotenv
 
-from bt_servant_engine.core.ports import ChromaPort, MessagingPort, UserStatePort
+from bt_servant_engine.core.ports import ChromaPort, UserStatePort
 from bt_servant_engine.services import ServiceContainer, runtime
 from bt_servant_engine.services.intent_router import IntentRouter
 
@@ -21,12 +21,6 @@ load_dotenv(override=False)
 
 # Ensure required env vars exist for config import in app (fallbacks only)
 os.environ.setdefault("OPENAI_API_KEY", "test")
-os.environ.setdefault("GROQ_API_KEY", "test")
-os.environ.setdefault("META_VERIFY_TOKEN", "test")
-os.environ.setdefault("META_WHATSAPP_TOKEN", "test")
-os.environ.setdefault("META_PHONE_NUMBER_ID", "test")
-os.environ.setdefault("META_APP_SECRET", "test")
-os.environ.setdefault("FACEBOOK_USER_AGENT", "test")
 os.environ.setdefault("BASE_URL", "http://example.com")
 os.environ.setdefault("LOG_PSEUDONYM_SECRET", "test-secret")
 os.environ.setdefault("ENABLE_ADMIN_AUTH", "false")
@@ -100,27 +94,6 @@ class InMemoryUserStatePort(UserStatePort):
         return bool(state.get("first_interaction", True))
 
 
-class RecordingMessagingPort(MessagingPort):
-    """Messaging stub that records interactions for assertions."""
-
-    def __init__(self) -> None:
-        self.sent_text: list[tuple[str, str]] = []
-        self.sent_voice: list[tuple[str, str]] = []
-        self.typing: list[str] = []
-
-    async def send_text_message(self, user_id: str, text: str) -> None:
-        self.sent_text.append((user_id, text))
-
-    async def send_voice_message(self, user_id: str, text: str) -> None:
-        self.sent_voice.append((user_id, text))
-
-    async def send_typing_indicator(self, message_id: str) -> None:
-        self.typing.append(message_id)
-
-    async def transcribe_voice_message(self, media_id: str) -> str:
-        return f"transcribed:{media_id}"
-
-
 class NullChromaPort(ChromaPort):
     """Minimal Chroma port stub for tests that don't touch vector search."""
 
@@ -178,7 +151,6 @@ def service_container() -> Iterator[ServiceContainer]:
     container = ServiceContainer(
         chroma=NullChromaPort(),
         user_state=InMemoryUserStatePort(),
-        messaging=RecordingMessagingPort(),
         intent_router=IntentRouter(),
     )
     runtime.set_services(container)

@@ -308,9 +308,7 @@ When migrating modules, update ALL imports:
 |------------|------------|
 | `from config import config` | `from bt_servant_engine.core.config import config` |
 | `from logger import get_logger` | `from bt_servant_engine.core.logging import get_logger` |
-| `from user_message import UserMessage` | `from bt_servant_engine.core.models import UserMessage` |
 | `from db import ...` | `from bt_servant_engine.adapters import ...` |
-| `from messaging import ...` | `from bt_servant_engine.adapters.messaging import ...` |
 
 ## Architecture Rules
 

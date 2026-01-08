@@ -16,9 +16,7 @@ def test_clear_response_language_resets_preference():
         calls.append(user_id)
 
     request = ClearResponseLanguageRequest(user_id="user-42")
-    dependencies = ClearResponseLanguageDependencies(
-        clear_user_response_language=fake_clear
-    )
+    dependencies = ClearResponseLanguageDependencies(clear_user_response_language=fake_clear)
 
     result = clear_response_language(request, dependencies)
 

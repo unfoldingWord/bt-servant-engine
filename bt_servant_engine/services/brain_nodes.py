@@ -711,7 +711,7 @@ def chunk_message(state: Any) -> dict:
     s = _brain_state(state)
     responses = s["translated_responses"]
     text_to_chunk = responses[0]
-    chunk_max = config.MAX_META_TEXT_LENGTH - 100
+    chunk_max = config.MAX_RESPONSE_CHUNK_SIZE - 100
     request = ChunkingRequest(
         client=open_ai_client,
         text_to_chunk=text_to_chunk,

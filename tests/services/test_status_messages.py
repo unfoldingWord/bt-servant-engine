@@ -61,17 +61,13 @@ class TestGetStatusMessage:
     def test_returns_english_message_for_english(self):
         """Returns English text when language is English."""
         state = {"user_response_language": "en"}
-        result = status_messages.get_status_message(
-            status_messages.REVIEWING_FIA_GUIDANCE, state
-        )
+        result = status_messages.get_status_message(status_messages.REVIEWING_FIA_GUIDANCE, state)
         assert result == "_I'm reviewing the FIA guidance to answer your question._"
 
     def test_returns_english_message_by_default(self):
         """Returns English text when no language specified."""
         state = {}
-        result = status_messages.get_status_message(
-            status_messages.TRANSCRIBING_VOICE, state
-        )
+        result = status_messages.get_status_message(status_messages.TRANSCRIBING_VOICE, state)
         assert result == "_I'm transcribing your voice message. Give me a moment._"
 
     def test_all_message_keys_have_english_text(self):
@@ -114,13 +110,9 @@ class TestGetStatusMessage:
         mock_translate.return_value = "Übersetzter Text"
         state = {"user_response_language": "de"}  # German not pre-loaded
 
-        result = status_messages.get_status_message(
-            status_messages.REVIEWING_FIA_GUIDANCE, state
-        )
+        result = status_messages.get_status_message(status_messages.REVIEWING_FIA_GUIDANCE, state)
 
-        mock_translate.assert_called_once_with(
-            status_messages.REVIEWING_FIA_GUIDANCE, "de"
-        )
+        mock_translate.assert_called_once_with(status_messages.REVIEWING_FIA_GUIDANCE, "de")
         assert result == "_Übersetzter Text_"
 
 
@@ -130,9 +122,7 @@ class TestProgressMessages:
     def test_progress_message_is_italicized_without_emoji(self):
         """Progress messages are italicized and omit emojis entirely."""
         state = {"user_response_language": "en"}
-        result = status_messages.get_progress_message(
-            status_messages.REVIEWING_FIA_GUIDANCE, state
-        )
+        result = status_messages.get_progress_message(status_messages.REVIEWING_FIA_GUIDANCE, state)
         assert result["text"].startswith("_") and result["text"].endswith("_")
         assert result["emoji"] == ""
 
@@ -151,9 +141,7 @@ class TestProgressMessages:
             {status_messages.REVIEWING_FIA_GUIDANCE: "✨"},
         )
         state = {"user_response_language": "en"}
-        result = status_messages.get_progress_message(
-            status_messages.REVIEWING_FIA_GUIDANCE, state
-        )
+        result = status_messages.get_progress_message(status_messages.REVIEWING_FIA_GUIDANCE, state)
         assert result["emoji"] == ""
 
 
@@ -267,9 +255,7 @@ class TestIntegration:
             "user_response_language": "en",
             "query_language": "en",
         }
-        result = status_messages.get_status_message(
-            status_messages.PROCESSING_ERROR, state
-        )
+        result = status_messages.get_status_message(status_messages.PROCESSING_ERROR, state)
         expected = (
             "It looks like I'm having trouble processing your message. "
             "Please report this issue to my creators."
@@ -282,9 +268,7 @@ class TestIntegration:
             "user_response_language": None,
             "query_language": "en",
         }
-        result = status_messages.get_status_message(
-            status_messages.FINALIZING_RESPONSE, state
-        )
+        result = status_messages.get_status_message(status_messages.FINALIZING_RESPONSE, state)
         expected = "I'm pulling everything together into a helpful response for you."
         assert result == f"_{expected}_"
 
@@ -296,10 +280,6 @@ class TestIntegration:
             "user_response_language": "it",  # Italian not pre-loaded
             "query_language": LANGUAGE_UNKNOWN,
         }
-        result = status_messages.get_status_message(
-            status_messages.PACKAGING_VOICE_RESPONSE, state
-        )
+        result = status_messages.get_status_message(status_messages.PACKAGING_VOICE_RESPONSE, state)
         assert result == "_Mensaje en italiano_"
-        mock_translate.assert_called_once_with(
-            status_messages.PACKAGING_VOICE_RESPONSE, "it"
-        )
+        mock_translate.assert_called_once_with(status_messages.PACKAGING_VOICE_RESPONSE, "it")
