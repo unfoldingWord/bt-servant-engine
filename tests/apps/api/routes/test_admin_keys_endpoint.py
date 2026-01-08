@@ -79,10 +79,38 @@ class TestAdminKeysAuth:
 
 @pytest.fixture
 def no_auth() -> Iterator[None]:
-    """Disable authentication for non-auth tests."""
-    with patch("bt_servant_engine.apps.api.dependencies.config") as mock_config:
-        mock_config.ENABLE_ADMIN_AUTH = False
-        yield
+    """Disable client auth but keep admin auth enabled for key management tests."""
+    with patch("bt_servant_engine.apps.api.dependencies.config") as mock_deps_config:
+        # Disable client auth check (in dependencies.py)
+        mock_deps_config.ENABLE_ADMIN_AUTH = False
+        mock_deps_config.ENABLE_CLIENT_API_KEY_AUTH = None
+        # Keep admin auth enabled in admin_keys.py so endpoints work
+        with patch("bt_servant_engine.apps.api.routes.admin_keys.config") as mock_keys_config:
+            mock_keys_config.ENABLE_ADMIN_AUTH = True
+            yield
+
+
+class TestAdminKeysDisabledWhenAuthDisabled:
+    """Tests that admin key endpoints are disabled when ENABLE_ADMIN_AUTH=false."""
+
+    def test_create_key_returns_503_when_auth_disabled(self, client, api_key_service) -> None:
+        """Should return 503 when admin auth is disabled."""
+        with patch("bt_servant_engine.apps.api.dependencies.config") as mock_deps:
+            mock_deps.ENABLE_ADMIN_AUTH = False
+            with patch("bt_servant_engine.apps.api.routes.admin_keys.config") as mock_keys:
+                mock_keys.ENABLE_ADMIN_AUTH = False
+                resp = client.post("/admin/keys", json={"name": "Test"})
+                assert resp.status_code == HTTPStatus.SERVICE_UNAVAILABLE
+                assert "disabled" in resp.json()["detail"].lower()
+
+    def test_list_keys_returns_503_when_auth_disabled(self, client, api_key_service) -> None:
+        """Should return 503 when admin auth is disabled."""
+        with patch("bt_servant_engine.apps.api.dependencies.config") as mock_deps:
+            mock_deps.ENABLE_ADMIN_AUTH = False
+            with patch("bt_servant_engine.apps.api.routes.admin_keys.config") as mock_keys:
+                mock_keys.ENABLE_ADMIN_AUTH = False
+                resp = client.get("/admin/keys")
+                assert resp.status_code == HTTPStatus.SERVICE_UNAVAILABLE
 
 
 class TestCreateAPIKey:

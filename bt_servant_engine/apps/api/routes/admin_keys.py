@@ -14,10 +14,22 @@ from bt_servant_engine.apps.api.dependencies import (
     require_admin_token,
 )
 from bt_servant_engine.core.api_key_models import APIKey
+from bt_servant_engine.core.config import config
 
 router = APIRouter(prefix="/admin/keys")
 
+
+async def _require_admin_auth_enabled() -> None:
+    """Ensure admin auth is enabled - key management requires authentication."""
+    if not config.ENABLE_ADMIN_AUTH:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="API key management is disabled when ENABLE_ADMIN_AUTH=false",
+        )
+
+
 AuthDependency = Annotated[None, Depends(require_admin_token)]
+AdminAuthEnabled = Annotated[None, Depends(_require_admin_auth_enabled)]
 
 
 class CreateAPIKeyRequest(BaseModel):
@@ -82,6 +94,7 @@ def _api_key_to_info(key: APIKey) -> APIKeyInfo:
 async def create_api_key(
     request: CreateAPIKeyRequest,
     _: AuthDependency,
+    _admin_auth: AdminAuthEnabled,
 ) -> CreateAPIKeyResponse:
     """Create a new API key.
 
@@ -121,6 +134,7 @@ async def create_api_key(
 @router.get("", response_model=ListAPIKeysResponse)
 async def list_api_keys(
     _: AuthDependency,
+    _admin_auth: AdminAuthEnabled,
     include_revoked: bool = False,
     environment: str | None = None,
 ) -> ListAPIKeysResponse:
@@ -146,6 +160,7 @@ async def list_api_keys(
 async def get_api_key(
     key_id: str,
     _: AuthDependency,
+    _admin_auth: AdminAuthEnabled,
 ) -> APIKeyInfo:
     """Get details for a specific API key by ID."""
     service = get_api_key_service()
@@ -169,6 +184,7 @@ async def get_api_key(
 async def revoke_api_key(
     key_id: str,
     _: AuthDependency,
+    _admin_auth: AdminAuthEnabled,
 ) -> JSONResponse:
     """Revoke an API key.
 
