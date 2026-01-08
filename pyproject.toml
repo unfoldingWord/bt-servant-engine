@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bt-servant-engine"
-version = "1.4.7"
+version = "1.5.0"
 description = "BT Servant Engine — strict onion/hexagonal refactor baseline"
 readme = "README.md"
 requires-python = ">=3.12"
