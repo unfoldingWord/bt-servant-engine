@@ -13,6 +13,32 @@ A client-agnostic REST API for Bible translation assistance. The service runs on
 
 ---
 
+## Client Integration
+
+The engine is **client-agnostic**—it provides a REST API that any messaging platform can integrate with. Client gateways (web apps, messaging platforms, CLI tools) are responsible for:
+
+1. **User authentication** – The engine trusts the `user_id` provided by authenticated clients
+2. **Message transport** – Receiving messages from users and delivering responses back
+3. **Media handling** – Converting platform-specific formats (e.g., voice messages) to the engine's expected format
+
+### Integration Flow
+```
+┌─────────────┐     POST /api/v1/chat      ┌─────────────┐
+│   Client    │ ─────────────────────────> │   Engine    │
+│   Gateway   │ <───────────────────────── │             │
+└─────────────┘     JSON response          └─────────────┘
+       │                                          │
+       │         POST /progress-callback          │
+       │ <─────────────────────────────────────── │
+       │         (optional, during processing)    │
+```
+
+### Authentication
+- Clients authenticate to the engine using `Authorization: Bearer <ADMIN_API_TOKEN>`
+- The same token is echoed back in progress callbacks via `X-Engine-Token` header for verification
+
+---
+
 ## Architecture
 
 ### Layered Layout
@@ -164,9 +190,24 @@ FastAPI auto-generates interactive API docs. When running locally:
 ### Core API (`/api/v1/`)
 - **Chat:** `POST /api/v1/chat` - Main conversation endpoint (text and audio input/output)
   - Requires `Authorization: Bearer <ADMIN_API_TOKEN>` header
-  - Request body: `{ "client_id": "web", "user_id": "...", "message": "...", "message_type": "text" }`
+  - Request body: `{ "client_id": "...", "user_id": "...", "message": "...", "message_type": "text" }`
   - For audio: include `audio_base64` and set `message_type: "audio"`
+  - Optional progress callbacks: include `progress_callback_url` to receive status updates during processing
 - **User Preferences:** `GET/PUT /api/v1/users/{user_id}/preferences` - Manage response language, agentic strength
+
+### Progress Callbacks
+When a client provides `progress_callback_url` in the chat request, the engine will POST progress updates during long-running operations:
+```json
+{
+  "user_id": "...",
+  "message_key": "SEARCHING_RESOURCES",
+  "text": "Searching translation resources...",
+  "timestamp": 1234567890.0
+}
+```
+- Callbacks include `X-Engine-Token` header with `ADMIN_API_TOKEN` for verification
+- Callbacks are fire-and-forget (2s timeout) and won't block processing if they fail
+- Control update frequency with `progress_throttle_seconds` (default: 3.0)
 
 ### Admin API
 - **Progress messaging:** Status texts sourced from `bt_servant_engine.services.status_messages`.
