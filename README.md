@@ -238,28 +238,8 @@ FastAPI auto-generates interactive API docs. When running locally:
 
 ---
 
-## API Roadmap & Future Considerations
-
-The following features are not yet implemented but may be added as the API matures:
-
-| Feature | Description | Priority |
-|---------|-------------|----------|
-| **Rate Limiting** | Prevent abuse via middleware or API gateway (e.g., slowapi, nginx) | Medium |
-| **CORS Configuration** | Required if browser clients call the API directly | Low (gateway handles) |
-| **Per-Client API Keys** | Database-backed keys with revocation, replacing shared `ADMIN_API_TOKEN` | Medium |
-| **Streaming Responses** | SSE endpoint (`/api/v1/chat/stream`) for real-time output | Low |
-| **Request Logging** | Structured logs with request/response bodies for debugging | Low |
-| **API Versioning Strategy** | Document upgrade path when `/api/v2/` is introduced | Future |
-
-Current authentication uses a single shared bearer token (`ADMIN_API_TOKEN`). For production multi-tenant use, consider implementing:
-- Key format: `bts_<env>_<random>` (e.g., `bts_prod_a1b2c3d4`)
-- CLI for key management: `bt-servant keys create --name "WhatsApp Gateway"`
-- Per-key rate limits and usage tracking
-
----
-
 ## Getting Help
-- Review `docs/` for architecture decisions and refactor history (`docs/refactor_plan_revised.md`).
+- Review `docs/` for architecture decisions, refactor history, and API roadmap.
 - `AGENTS.md` tracks ongoing decisions for future collaborators.
 - Use the logging IDs (cid/user_id/trace) printed in the console to correlate API requests with OpenAI costs and continuation prompts.
 
