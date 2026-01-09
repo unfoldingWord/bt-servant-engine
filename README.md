@@ -284,4 +284,10 @@ When a client provides `progress_callback_url` in the chat request, the engine w
 - `AGENTS.md` tracks ongoing decisions for future collaborators.
 - Use the logging IDs (cid/user_id/trace) printed in the console to correlate API requests with OpenAI costs and continuation prompts.
 
+---
+
+## Related Projects
+- [bt-servant-web-client](https://github.com/unfoldingWord/bt-servant-web-client) – Web-based chat interface for the BT Servant engine
+- [bt-servant-whatsapp-gateway](https://github.com/unfoldingWord/bt-servant-whatsapp-gateway) – WhatsApp integration gateway
+
 Happy translating!
