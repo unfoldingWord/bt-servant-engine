@@ -70,6 +70,11 @@ class Settings(BaseSettings):
     CACHE_RAG_FINAL_MAX_ENTRIES: int = Field(default=1500)
 
     DATA_DIR: Path = Field(default=Path("/data"))
+
+    # Chat history configuration
+    CHAT_HISTORY_STORAGE_MAX: int = Field(default=50)
+    CHAT_HISTORY_LLM_MAX: int = Field(default=5)
+
     BT_DEV_AGENTIC_MCP: bool = Field(default=False)
     OPENAI_PRICING_JSON: str = Field(
         default=(

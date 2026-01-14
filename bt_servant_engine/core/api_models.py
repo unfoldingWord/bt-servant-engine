@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from typing import Literal
 
 from pydantic import BaseModel, Field
@@ -73,4 +74,35 @@ class ProgressMessage(BaseModel):
     timestamp: float = Field(..., description="Unix timestamp when progress was sent")
 
 
-__all__ = ["ChatRequest", "ChatResponse", "UserPreferences", "ProgressMessage"]
+class ChatHistoryEntry(BaseModel):
+    """Single chat history entry with timestamp."""
+
+    user_message: str = Field(..., description="User's message")
+    assistant_response: str = Field(..., description="Assistant's response")
+    created_at: datetime | None = Field(
+        default=None,
+        description="When this exchange occurred (None for legacy entries without timestamps)",
+    )
+
+
+class ChatHistoryResponse(BaseModel):
+    """Response model for GET /api/v1/users/{user_id}/history."""
+
+    user_id: str = Field(..., description="User identifier")
+    entries: list[ChatHistoryEntry] = Field(
+        default_factory=list,
+        description="Chat history entries, newest first",
+    )
+    total_count: int = Field(..., description="Total number of entries stored")
+    limit: int = Field(..., description="Maximum entries returned in this response")
+    offset: int = Field(..., description="Number of entries skipped")
+
+
+__all__ = [
+    "ChatRequest",
+    "ChatResponse",
+    "UserPreferences",
+    "ProgressMessage",
+    "ChatHistoryEntry",
+    "ChatHistoryResponse",
+]

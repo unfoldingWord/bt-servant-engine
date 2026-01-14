@@ -78,12 +78,28 @@ class UserStatePort(Protocol):
         """Persist the provided state dictionary for ``user_id``."""
         ...
 
-    def get_chat_history(self, user_id: str) -> list[dict[str, str]]:
-        """Return the recent chat history for ``user_id``."""
+    def get_chat_history(self, user_id: str) -> list[dict[str, Any]]:
+        """Return the full stored chat history for ``user_id``.
+
+        Returns entries with keys: user_message, assistant_response, created_at (optional).
+        """
         ...
 
-    def append_chat_history(self, user_id: str, query: str, response: str) -> None:
-        """Append a turn to the stored chat history."""
+    def get_chat_history_for_llm(self, user_id: str) -> list[dict[str, str]]:
+        """Return truncated history for LLM context (respects CHAT_HISTORY_LLM_MAX).
+
+        Returns only user_message and assistant_response, no timestamps.
+        """
+        ...
+
+    def append_chat_history(
+        self,
+        user_id: str,
+        query: str,
+        response: str,
+        created_at: datetime | None = None,
+    ) -> None:
+        """Append a turn to the stored chat history with optional timestamp."""
         ...
 
     def get_response_language(self, user_id: str) -> str | None:

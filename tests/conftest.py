@@ -7,6 +7,7 @@ Also load .env before setting defaults so real keys are used when present.
 from __future__ import annotations
 
 import os
+from datetime import datetime, timezone
 from typing import Any, Dict, Iterable, Iterator, Mapping
 
 import pytest
@@ -40,14 +41,39 @@ class InMemoryUserStatePort(UserStatePort):
         current.update(dict(state))
         self._states[user_id] = current
 
-    def get_chat_history(self, user_id: str) -> list[dict[str, str]]:
+    def get_chat_history(self, user_id: str) -> list[dict[str, Any]]:
         state = self._states.get(user_id, {})
         return list(state.get("history", []))
 
-    def append_chat_history(self, user_id: str, query: str, response: str) -> None:
+    def get_chat_history_for_llm(self, user_id: str) -> list[dict[str, str]]:
         history = self.get_chat_history(user_id)
-        history.append({"user_message": query, "assistant_response": response})
-        self.save_user_state(user_id, {"history": history[-5:]})
+        # Return last 5 entries, stripped of timestamps
+        truncated = history[-5:]
+        return [
+            {
+                "user_message": entry.get("user_message", ""),
+                "assistant_response": entry.get("assistant_response", ""),
+            }
+            for entry in truncated
+        ]
+
+    def append_chat_history(
+        self,
+        user_id: str,
+        query: str,
+        response: str,
+        created_at: datetime | None = None,
+    ) -> None:
+        history = self.get_chat_history(user_id)
+        timestamp = created_at if created_at is not None else datetime.now(timezone.utc)
+        entry: dict[str, Any] = {
+            "user_message": query,
+            "assistant_response": response,
+            "created_at": timestamp.isoformat(),
+        }
+        history.append(entry)
+        # Use storage max of 50 for tests
+        self.save_user_state(user_id, {"history": history[-50:]})
 
     def get_response_language(self, user_id: str) -> str | None:
         state = self._states.get(user_id, {})

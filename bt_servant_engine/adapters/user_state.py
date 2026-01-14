@@ -5,6 +5,7 @@ Provides TinyDB database wiring and user data access helpers.
 
 from __future__ import annotations
 
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Dict, List, Mapping, Optional, cast
 
@@ -19,8 +20,6 @@ if TYPE_CHECKING:  # pragma: no cover - typing only
 else:
     QueryLike = Any  # type: ignore[misc,assignment]
 
-# NOTE: consider moving to configuration if needed.
-CHAT_HISTORY_MAX = 5
 VALID_AGENTIC_STRENGTH = {"normal", "low", "very_low"}
 
 # Resolve from settings dynamically to satisfy static analysis.
@@ -74,28 +73,63 @@ def set_user_state(user_id: str, state: Dict[str, Any]) -> None:
     db.upsert(state, cond)
 
 
-def get_user_chat_history(user_id: str) -> List[Dict[str, str]]:
-    """Retrieve chat history for the given user_id."""
+def get_user_chat_history(user_id: str) -> List[Dict[str, Any]]:
+    """Retrieve full chat history for the given user_id.
+
+    Returns entries with keys: user_message, assistant_response, created_at (optional).
+    """
     q = Query()
     cond = cast(QueryLike, q.user_id == user_id)
     raw = get_user_db().table("users").get(cond)
     result = cast(Optional[Dict[str, Any]], raw)
     history = result.get("history", []) if result else []
-    return cast(List[Dict[str, str]], history)
+    return cast(List[Dict[str, Any]], history)
 
 
-def update_user_chat_history(user_id: str, query: str, response: str) -> None:
-    """Append a user/bot exchange to chat history (bounded)."""
+def get_user_chat_history_for_llm(user_id: str) -> List[Dict[str, str]]:
+    """Retrieve truncated chat history for LLM context.
+
+    Returns only the last CHAT_HISTORY_LLM_MAX entries,
+    with only user_message and assistant_response (no timestamps).
+    """
+    full_history = get_user_chat_history(user_id)
+    llm_max = getattr(config, "CHAT_HISTORY_LLM_MAX", 5)
+    truncated = full_history[-llm_max:]
+    return [
+        {
+            "user_message": entry.get("user_message", ""),
+            "assistant_response": entry.get("assistant_response", ""),
+        }
+        for entry in truncated
+    ]
+
+
+def update_user_chat_history(
+    user_id: str,
+    query: str,
+    response: str,
+    created_at: Optional[datetime] = None,
+) -> None:
+    """Append a user/bot exchange to chat history (bounded by CHAT_HISTORY_STORAGE_MAX)."""
     q = Query()
     users_table = get_user_db().table("users")
     cond = cast(QueryLike, q.user_id == user_id)
     existing_raw = users_table.get(cond)
     existing = cast(Optional[Dict[str, Any]], existing_raw)
-    history = cast(List[Dict[str, str]], existing.get("history", []) if existing else [])
+    history = cast(List[Dict[str, Any]], existing.get("history", []) if existing else [])
 
-    history.append({"user_message": query, "assistant_response": response})
+    # Create entry with timestamp
+    timestamp = created_at if created_at is not None else datetime.now(timezone.utc)
+    entry: Dict[str, Any] = {
+        "user_message": query,
+        "assistant_response": response,
+        "created_at": timestamp.isoformat(),
+    }
+    history.append(entry)
 
-    history = history[-CHAT_HISTORY_MAX:]
+    # Truncate to storage max
+    storage_max = getattr(config, "CHAT_HISTORY_STORAGE_MAX", 50)
+    history = history[-storage_max:]
     users_table.upsert({"user_id": user_id, "history": history}, cond)
 
 
@@ -251,11 +285,20 @@ class UserStateAdapter(UserStatePort):
     def save_user_state(self, user_id: str, state: Mapping[str, Any]) -> None:
         set_user_state(user_id, dict(state))
 
-    def get_chat_history(self, user_id: str) -> list[dict[str, str]]:
+    def get_chat_history(self, user_id: str) -> list[dict[str, Any]]:
         return get_user_chat_history(user_id)
 
-    def append_chat_history(self, user_id: str, query: str, response: str) -> None:
-        update_user_chat_history(user_id, query, response)
+    def get_chat_history_for_llm(self, user_id: str) -> list[dict[str, str]]:
+        return get_user_chat_history_for_llm(user_id)
+
+    def append_chat_history(
+        self,
+        user_id: str,
+        query: str,
+        response: str,
+        created_at: datetime | None = None,
+    ) -> None:
+        update_user_chat_history(user_id, query, response, created_at)
 
     def get_response_language(self, user_id: str) -> str | None:
         return get_user_response_language(user_id)
@@ -297,6 +340,7 @@ __all__ = [
     "get_user_state",
     "set_user_state",
     "get_user_chat_history",
+    "get_user_chat_history_for_llm",
     "update_user_chat_history",
     "get_user_response_language",
     "set_user_response_language",

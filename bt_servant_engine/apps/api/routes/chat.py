@@ -176,7 +176,7 @@ async def _build_brain_payload(
     payload: dict[str, Any] = {
         "user_id": chat_request.user_id,
         "user_query": user_query,
-        "user_chat_history": user_state.get_chat_history(user_id=chat_request.user_id),
+        "user_chat_history": user_state.get_chat_history_for_llm(user_id=chat_request.user_id),
         "user_response_language": user_state.get_response_language(user_id=chat_request.user_id),
         "agentic_strength": effective_agentic,
         "dev_agentic_mcp": effective_mcp,

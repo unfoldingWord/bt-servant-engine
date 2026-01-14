@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from pathlib import Path
-from typing import cast
+from typing import Any, cast
 
 import pytest
 from tinydb import Query, TinyDB
@@ -22,15 +23,22 @@ def _temp_user_db(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     db.close()
 
 
-def test_chat_history_roundtrip_respects_max(temp_user_db: TinyDB) -> None:
+def test_chat_history_roundtrip_respects_max(
+    temp_user_db: TinyDB, monkeypatch: pytest.MonkeyPatch
+) -> None:
     """Chat history stays capped and preserves the latest response."""
     del temp_user_db
+    # Patch the config to use a small storage max for testing
+    from bt_servant_engine.core import config as config_module
+
+    monkeypatch.setattr(config_module.config, "CHAT_HISTORY_STORAGE_MAX", 5)
+
     user_id = "tester"
-    for i in range(user_state.CHAT_HISTORY_MAX + 1):
+    for i in range(6):  # Add one more than the max
         user_state.update_user_chat_history(user_id, f"q{i}", f"r{i}")
 
     history = user_state.get_user_chat_history(user_id)
-    assert len(history) == user_state.CHAT_HISTORY_MAX
+    assert len(history) == 5
     assert history[-1]["assistant_response"] == "r5"
 
 
@@ -119,11 +127,17 @@ def test_user_state_adapter_methods_delegate(  # noqa: PLR0915
     def record(name: str) -> None:
         calls.append(name)
 
-    def fake_get_history(uid: str) -> list[dict[str, str]]:
+    def fake_get_history(uid: str) -> list[dict[str, Any]]:
         record(f"get_history:{uid}")
         return []
 
-    def fake_update_history(uid: str, q: str, r: str) -> None:
+    def fake_get_history_for_llm(uid: str) -> list[dict[str, str]]:
+        record(f"get_history_for_llm:{uid}")
+        return []
+
+    def fake_update_history(
+        uid: str, q: str, r: str, created_at: datetime | None = None
+    ) -> None:
         record(f"append:{uid}:{q}:{r}")
 
     def fake_get_lang(uid: str) -> str | None:
@@ -165,6 +179,7 @@ def test_user_state_adapter_methods_delegate(  # noqa: PLR0915
         return True
 
     monkeypatch.setattr(user_state, "get_user_chat_history", fake_get_history)
+    monkeypatch.setattr(user_state, "get_user_chat_history_for_llm", fake_get_history_for_llm)
     monkeypatch.setattr(user_state, "update_user_chat_history", fake_update_history)
     monkeypatch.setattr(user_state, "get_user_response_language", fake_get_lang)
     monkeypatch.setattr(user_state, "set_user_response_language", fake_set_lang)
@@ -179,6 +194,7 @@ def test_user_state_adapter_methods_delegate(  # noqa: PLR0915
     monkeypatch.setattr(user_state, "is_first_interaction", fake_is_first)
 
     adapter.get_chat_history("u1")
+    adapter.get_chat_history_for_llm("u1")
     adapter.append_chat_history("u1", "hi", "hello")
     adapter.get_response_language("u1")
     adapter.set_response_language("u1", "fr")
@@ -194,6 +210,7 @@ def test_user_state_adapter_methods_delegate(  # noqa: PLR0915
 
     assert calls == [
         "get_history:u1",
+        "get_history_for_llm:u1",
         "append:u1:hi:hello",
         "get_lang:u1",
         "set_lang:u1:fr",

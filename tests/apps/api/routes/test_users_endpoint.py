@@ -1,5 +1,6 @@
 """Tests for the /api/v1/users endpoints."""
 # pylint: disable=missing-function-docstring,redefined-outer-name,unused-argument
+# ruff: noqa: PLR2004
 
 from collections.abc import Iterator
 from http import HTTPStatus
@@ -159,3 +160,106 @@ class TestUpdateUserPreferences:
         # response_language should still be "it"
         assert data["response_language"] == "it"
         assert data["agentic_strength"] == "normal"
+
+
+class TestGetUserHistory:
+    """Tests for GET /api/v1/users/{user_id}/history."""
+
+    def test_get_history_empty(self, client: TestClient, no_auth: None) -> None:
+        """Should return empty history for new user."""
+        resp = client.get("/api/v1/users/new-user-history/history")
+        assert resp.status_code == HTTPStatus.OK
+        data = resp.json()
+        assert data["user_id"] == "new-user-history"
+        assert data["entries"] == []
+        assert data["total_count"] == 0
+        assert data["limit"] == 50
+        assert data["offset"] == 0
+
+    def test_get_history_with_entries(
+        self,
+        client: TestClient,
+        service_container,  # noqa: ANN001
+        no_auth: None,
+    ) -> None:
+        """Should return stored history entries with timestamps."""
+        user_state = service_container.user_state
+
+        # Add some history
+        user_state.append_chat_history("user-hist", "Hello", "Hi there!")
+        user_state.append_chat_history("user-hist", "How are you?", "I'm fine!")
+
+        resp = client.get("/api/v1/users/user-hist/history")
+        assert resp.status_code == HTTPStatus.OK
+        data = resp.json()
+        assert data["total_count"] == 2
+        assert len(data["entries"]) == 2
+
+        # Newest first
+        assert data["entries"][0]["user_message"] == "How are you?"
+        assert data["entries"][0]["assistant_response"] == "I'm fine!"
+        assert data["entries"][1]["user_message"] == "Hello"
+        assert data["entries"][1]["assistant_response"] == "Hi there!"
+
+        # Check timestamps exist
+        assert data["entries"][0]["created_at"] is not None
+        assert data["entries"][1]["created_at"] is not None
+
+    def test_get_history_pagination(
+        self,
+        client: TestClient,
+        service_container,  # noqa: ANN001
+        no_auth: None,
+    ) -> None:
+        """Should support pagination parameters."""
+        user_state = service_container.user_state
+
+        # Add 10 entries
+        for i in range(10):
+            user_state.append_chat_history(
+                "user-paginate", f"Message {i}", f"Response {i}"
+            )
+
+        # Get with limit and offset
+        resp = client.get("/api/v1/users/user-paginate/history?limit=3&offset=2")
+        assert resp.status_code == HTTPStatus.OK
+        data = resp.json()
+        assert data["total_count"] == 10
+        assert data["limit"] == 3
+        assert data["offset"] == 2
+        assert len(data["entries"]) == 3
+        # Newest first: 9,8,7,6,5,4,3,2,1,0 -> skip 2 -> 7,6,5
+        assert data["entries"][0]["user_message"] == "Message 7"
+        assert data["entries"][1]["user_message"] == "Message 6"
+        assert data["entries"][2]["user_message"] == "Message 5"
+
+    def test_get_history_limit_clamped(
+        self,
+        client: TestClient,
+        no_auth: None,
+    ) -> None:
+        """Should clamp limit to 100 max."""
+        resp = client.get("/api/v1/users/user-clamp/history?limit=200")
+        assert resp.status_code == HTTPStatus.OK
+        data = resp.json()
+        assert data["limit"] == 100
+
+    def test_get_history_legacy_entries_null_timestamp(
+        self,
+        client: TestClient,
+        service_container,  # noqa: ANN001
+        no_auth: None,
+    ) -> None:
+        """Legacy entries without timestamps should show created_at as null."""
+        # Manually insert entry without timestamp
+        service_container.user_state.save_user_state(
+            "user-legacy",
+            {"history": [{"user_message": "old", "assistant_response": "reply"}]},
+        )
+
+        resp = client.get("/api/v1/users/user-legacy/history")
+        assert resp.status_code == HTTPStatus.OK
+        data = resp.json()
+        assert len(data["entries"]) == 1
+        assert data["entries"][0]["user_message"] == "old"
+        assert data["entries"][0]["created_at"] is None
