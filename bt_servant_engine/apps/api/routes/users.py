@@ -9,6 +9,7 @@ from fastapi import APIRouter, Depends, Request
 
 from bt_servant_engine.apps.api.dependencies import require_client_api_key
 from bt_servant_engine.core.api_key_models import APIKey
+from bt_servant_engine.adapters.user_state import get_all_user_ids
 from bt_servant_engine.core.api_models import (
     ChatHistoryEntry,
     ChatHistoryResponse,
@@ -86,6 +87,14 @@ async def update_user_preferences(
         agentic_strength=cast(AgenticStrength, user_state.get_agentic_strength(user_id=user_id)),
         dev_agentic_mcp=user_state.get_dev_agentic_mcp(user_id=user_id),
     )
+
+
+@router.get("/debug/all-ids", response_model=list[str])
+async def get_all_users(
+    api_key: APIKey = Depends(require_client_api_key),  # noqa: ARG001, B008
+) -> list[str]:
+    """Get all user IDs in the database (for debugging)."""
+    return get_all_user_ids()
 
 
 def _parse_created_at(value: str | None) -> datetime | None:

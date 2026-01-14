@@ -35,6 +35,13 @@ def get_user_db() -> TinyDB:
     return _db
 
 
+def get_all_user_ids() -> List[str]:
+    """Return a list of all user IDs in the database."""
+    users_table = get_user_db().table("users")
+    all_users = users_table.all()
+    return [user.get("user_id", "") for user in all_users if user.get("user_id")]
+
+
 def get_user_state(user_id: str) -> Dict[str, Any]:
     """Get the entire state dictionary for a user.
 
@@ -337,6 +344,7 @@ class UserStateAdapter(UserStatePort):
 __all__ = [
     "UserStateAdapter",
     "get_user_db",
+    "get_all_user_ids",
     "get_user_state",
     "set_user_state",
     "get_user_chat_history",
