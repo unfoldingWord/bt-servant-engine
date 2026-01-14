@@ -19,4 +19,4 @@ primary_region = 'iad'
 
 [[mounts]]
   source = 'data'
-  destination = '/app/data'
+  destination = '/data'
