@@ -905,6 +905,7 @@ def handle_get_translation_helps(state: Any) -> dict:
         query_lang=s["query_language"],
         book_map=BSB_BOOK_MAP,
         agentic_strength=agentic_strength,
+        user_response_language=s.get("user_response_language"),
     )
     dependencies = TranslationHelpsDependencies(
         detect_books_fn=_detect_mentioned_books,

@@ -1,0 +1,2489 @@
+[
+  {
+    "reference": "1Ti 1:1",
+    "bsb_verse_text": "Paul, an apostle of Christ Jesus by the command of God our Savior and of Christ Jesus our hope,",
+    "ult_verse_text": "पावल, हाम्रा मुक्तिदाता परमेश्‍वर र हाम्रो आशाका प्रभु येशू ख्रीष्टको आज्ञाद्वारा ख्रीष्ट येशूका प्रेरित,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-inclusive",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": ""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "Παῦλος, ἀπόστολος",
+        "note": "यो समयको चलनअुसार अनुसार, पत्र लेखकहरूले पहिला आफ्नो नाम उल्लेख गर्दथे। तपाईहरूको आफ्नो भाषामा पनि यो प्रकारको पत्रको लेखकलाई परिचय गराउने चलन छ होला। यसले श्रोताहरूलाई सहज बनाउँदछ। अन्य कुराहरू तपाई यहाँ उल्लेख गर्न सक्नुहुन्छ। लेखकको परिचय पछि लगत्तै तपाई कसलाई लेखिएको हो भनि उल्लेख गर्न सक्नुहुन्छ। वकैल्पिक अनुवादः \"म, पावल, जसले यो पत्र तिमोथीलाई लेख्दै छु।\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "κατ’ ἐπιταγὴν Θεοῦ",
+        "note": "वकैल्पिक अनुवादः “परमेश्‍वरको अधिकारद्वारा\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "Θεοῦ Σωτῆρος ἡμῶν",
+        "note": "वकैल्पिक अनुवादः “परमेश्‍वर, जसले हामीलाई बचाउनुहुन्छ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "Κυρίου Ἰησοῦ Χριστοῦ τῆς ἐλπίδος ἡμῶν",
+        "note": "यहाँ, **हाम्रो आशा**ले साङ्केति तवरले त्यस व्यक्तिलाई जनाउँछ जसमा हामीले आशा राखेका छौँ। वैकल्पिक अनुवादः “ख्रीष्ट येशू, जसमा हामी ढुक्क छौ\" वा \"ख्रीष्ट येशू, जसमा हामी भरोसा गर्छौं। (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:2",
+    "bsb_verse_text": "To Timothy, my true child in the faith: Grace, mercy, and peace from God the Father and Christ Jesus our Lord.",
+    "ult_verse_text": "विश्‍वासमा साँचो पुत्र तिमोथीलाई, हाम्रो परमेश्‍वर पिता र हाम्रा प्रभु येशू ख्रीष्‍टबाट अनुग्रह, कृपा र शान्ति।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "γνησίῳ τέκνῳ ἐν πίστει",
+        "note": "पावल तिमोथीसँगको एक नजिकको सम्बन्धको कुरा गर्छन मानौ कि तिनिहरु बाबु र छोरा थिए। यसले पावलको तिमोथीप्रतिको निष्कपट प्रेम र अनुमोदनलाई देखाउँछ। यो कुरा पनि हुन सक्ने देखिन्छ कि पावलले व्यक्त्तिगत रूपले तिमोथीलाई ख्रीष्टमा भरोसा गर्ने कुरामा डोर्याएका थिए। यो अर्को कारण हुन सक्छ कि पावल उनलाई आफ्नो बालकजस्तै ठान्दछन त्यो समयदेखि जब पावलको कारण तिमोथी येशूको अनुयायीभई नयाँ जीवनमा प्रवेश गर्छन। वैकल्पिक अनुवादः “जो मेरो लागि साँच्‍चै एक छोरा झैँ छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "χάρις, ἔλεος, εἰρήνη",
+        "note": "यो चलनअनुसार, पत्र लेखकहरू कुनैपनि पत्रको मुख्य विषय उठान गर्नुभन्दा पहिले श्रोतालाई राम्रो कामना प्रदान गर्ने गर्दथे। वैकल्पिक अनुवादः \"म आशा गर्दछु कि तिमीहरु परमेश्‍वरको दया, कृपा र शान्तिको अनुभव गर्दै छौ।\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/guidelines-sonofgodprinciples",
+        "orig_language_quote": "Θεοῦ Πατρὸς",
+        "note": "यहाँ, परमेश्‍वरको निम्ति **पिता** एक महत्वपुर्ण शिर्षक हो। वैकल्पिक अनुवादः \"परमेश्‍वर, जो हाम्रो पिता हुनुहुन्छ\" (हेर्नुहोस्ः [[rc://ne/ta/man/translate/guidelines-sonofgodprinciples]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "Χριστοῦ Ἰησοῦ τοῦ Κυρίου ἡμῶν",
+        "note": "वैकल्पिक अनुवादः “ख्रीष्‍ट येशू, जो हाम्रा प्रभु हुनुहुन्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:3",
+    "bsb_verse_text": "As I urged you on my departure to Macedonia, you should stay on at Ephesus to instruct certain men not to teach false doctrines",
+    "ult_verse_text": "म माकेडोनिया जाँदा मैले तिमीहरूलाई आग्रह गरेझैं, एफिससमा बस, ताकि तिमीहरूले कुनै-कुनै मानिसहरूलाई फरक तरिकाले सिकाउन नदिने आज्ञा दिन सक।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "यो पत्रमा, एक अपवाद बाहेक तिमी, **तिम्रो** र **आफेैलाई** भन्‍ने शब्दहरुले तिमोथीलाई जनाउँछ र तिनिहरू एकवचनमा उल्लेखित छन। एउटा टिप्पणीले ६ः२१ मा एक अपवादको बारेमा छलफल गर्नेछ। (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-you]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "वैकल्पिक अनुवादः \"जसै मैले तिमीलाई भने\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καθὼς παρεκάλεσά σε",
+        "note": ""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "προσμεῖναι ἐν Ἐφέσῳ",
+        "note": "एफिसस शहरमा त्यहाँ मलाई पर्ख।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "ἑτεροδιδασκαλεῖν",
+        "note": "निहितार्थ यो छ कि यि मानिसहरू पावल र तिमोथीले सिकाएका भन्दा बेग्लै किसिमले मानिसहरूलाई सिकाउँदै थिए। यदि यो तपाईहरूको पाठकहरूलाई मदत हुन्छ भने तपाईहरू यो स्पष्ट रुपले भन्‍न सक्नुहुन्छ।वैकल्पिक अनुवादः “हामीले सिकाएको भन्दा फरक सिद्धान्त” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:4",
+    "bsb_verse_text": "or devote themselves to myths and endless genealogies, which promote speculation rather than the stewardship of God’s work, which is by faith.",
+    "ult_verse_text": "र दन्त्य कथाहरू र नटुङ्गिने वंशावलीहरूमा ध्यान नदेऊ, जसले विश्‍वासद्वारा परमेश्‍वरको भण्डारेपनको सट्टा तर्कहरूलाई बढावा दिन्छ, जुन विश्‍वासद्वारा {हो}।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "μηδὲ προσέχειν",
+        "note": ""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μύθοις",
+        "note": "यि कुनै न कुनै प्रकारका काल्पनिक कथाहरू थिए, साहेद विभिन्‍न आध्यात्मिक प्राणीहरूको अनुमानित शोषणको बारेमा। तर हामीलाई यि कुथाहरू केको बारेमा हुन भन्‍ने कुरा ठ्याक्कै थाहा भएन, सायद तिनिहरूका निम्ति सामान्य शब्द प्रयोग गर्नु उत्तम हुनेछ। वैकल्पिक अनुवादः \"बनाइएका कथाहरू\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "γενεαλογίαις ἀπεράντοις",
+        "note": "यी धेरै लामो छन् भनी जोड दिन पावलले **अनन्त** शब्दलाई अतिरन्जनको रूपमा प्रयोग गर्छन्। वैकल्पिक अनुवाद: \"नामहरूको सूची जुन तिनीहरू कहिल्यै समाप्त हुनेछैनन् जस्तो देखिन्छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-hyperbole]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "γενεαλογίαις",
+        "note": "प्राय, यो शब्दले कुनै व्यक्तिको पुर्खाहरूको रेकर्डलाई जनाउँछ। यद्यपि, यस अवस्थामा यसको अर्थ आध्यात्मिक प्राणीहरूको कथित पुर्खाहरूको रेकर्ड पनि हुन सक्छ। वैकल्पिक अनुवाद: \"नामहरूको सूचीहरू\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "αἵτινες ἐκζητήσεις παρέχουσι",
+        "note": "मानिसहरू यी कथाहरू र नामहरूको सूचीको बारेमा बहस गरिरहेका थिए, तर तिनीहरू साँचो हुन् कि होइनन् भन्‍ने कुरा कसैलाई पनि थाहा थिएन। वैकल्पिक अनुवादः \"यसले मानिसहरूलाई रिसाएर असहमत बचाउँछ।\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μᾶλλον ἢ οἰκονομίαν Θεοῦ, τὴν ἐν πίστει",
+        "note": "यदि यो तपाईको भाषामा स्पष्ट छ भने, तपाई भाववाचक नाम भण्डारेपन पछाडी एउटा ठोस नाम जस्तै \"योजना\" वा \"काम\" व्यक्त गर्न सक्नुहुन्छ। वैकल्पिक अनुवादहरू: \"हामीलाई बचाउनको लागि परमेश्‍वरको योजना बुझ्‍न मद्दत गर्दै\" वा \"हामीलाई परमेश्‍वरको काम गर्न मद्दत गर्दै\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-abstractnouns]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:5",
+    "bsb_verse_text": "The goal of our instruction is the love that comes from a pure heart, a clear conscience, and a sincere faith.",
+    "ult_verse_text": "अब यस आज्ञाको लक्ष्य शुद्ध हृदयबाट प्रेम, असल विवेक र निष्कपट विश्‍वास हो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "δὲ",
+        "note": "पावल यो शब्द पृष्ठभूमि जानकारीको निम्ति प्रयोग गर्छन जसले तिमोथीलाई उहाँ के कुरा आज्ञा गर्दैछन भन्‍ने कुरा बुझ्‍न मदत गर्नेछ। तपाई यसलाई आफ्नो भाषामा एक शब्द वा वाक्यांशसँग अनुवाद गर्न सक्नुहुन्छ जसले पृष्ठभूमिको जानकारी परिचय गर्दछ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "παραγγελίας",
+        "note": "यसले पावलले तिमोथीलाई १ः३ र १ः४ मा दिएका निर्देशनहरुलाई जनाउँछ"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐστὶν ἀγάπη",
+        "note": "आज्ञाहरूको लक्षय भनेको परमेश्‍वरका जनहरूले **प्रेम** देखाउने भन्‍ने हो। यदि \"प्रेम\" को वस्तु समावेश गर्न आवश्यक छ भने, तपाईं \"एक अर्का\" वा \"अरूहरू\" भनि भन्‍न सक्नुहुन्छ। यसमा परमेश्‍वरप्रतिको प्रेम पनि समावेश हुन सक्छ। ​वैकल्पिक अनुवादः \"के यो परमेश्‍वरका मानिसहरूले अरूलाई गरिने प्रेम हो।\" (हेर्नुहोसः [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐκ καθαρᾶς καρδίας",
+        "note": "यहाँ “विशुद्ध” शब्दको अर्थ त्यस व्यक्तिसँग खराबी गर्नलाई लुकेको मनसाय छैन भन्‍ने हुन्छ । यहाँ “हृदय”ले व्‍यक्तिको मन र विचारहरूलाई जनाउँछ । वैकल्पिक अनुवादः “त्यो मनबाट जुन इमान्दार छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "συνειδήσεως ἀγαθῆς",
+        "note": "“गलतको साटोमा ठीक कुराहरू छान्‍ने विवेक”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πίστεως ἀνυποκρίτου",
+        "note": "“सच्‍चा विश्‍वास” वा “कपटरहितको विश्‍वास”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:6",
+    "bsb_verse_text": "Some have strayed from these ways and turned aside to empty talk.",
+    "ult_verse_text": "जसबाट कोही, बरालिएर, मूर्खतापूर्ण कुरामा फर्केका छन्,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τινες ἀστοχήσαντες",
+        "note": "पावलले ख्रीष्‍टमा गरिने विश्‍वासको विषयमा यसरी कुरा गर्छन् मानौँ त्यो कुनै लक्ष्य राख्‍नुपर्ने निशाना हो । पावलको अर्थ यो हो कि केही मानिसहरूले तिनीहरूको विश्‍वासको उद्देश्यलाई पूरा गरिरहेका छैनन्, जुन चाहिँ उनले १:५ मा व्याख्या गरेको जस्तै प्रेम गर्नु नै हो । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "ὧν & ἐξετράπησαν",
+        "note": "यहाँ “तर्केका छन्” भनेको एउटा वाक्पद्धति हो जसको अर्थ तिनीहरूले परमेश्‍वरले आज्ञा गर्नुभएको कुरा गर्न छाडेका छन् भन्‍ने हुन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:7",
+    "bsb_verse_text": "They want to be teachers of the law, but they do not understand what they are saying or that which they so confidently assert.",
+    "ult_verse_text": "कानूनका शिक्षक ब‍न्‍न चाहने, उनीहरूले के भनिरहेका छन् वा जसको बारेमा उनीहरूले विश्‍वासपुर्वक पुष्टि गर्छन् भन्‍ने बुझ्दैनन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "νομοδιδάσκαλοι",
+        "note": "यहाँ “व्यवस्था”ले मोशाको व्यवस्थालाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μὴ νοοῦντες",
+        "note": "“तिनीहरूले नबुझे तापनि” वा “र अझै पनि तिनीहरूले बुझ्दैनन्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "περὶ τίνων διαβεβαιοῦνται",
+        "note": "“जुन तिनीहरूले त्यस्तो दृढताका साथ सत्य हो भनी भन्छन्”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:8",
+    "bsb_verse_text": "Now we know that the law is good, if one uses it legitimately.",
+    "ult_verse_text": "तर हामी जान्दछौं कि कानून राम्रो (छ), यदि कसैले यसलाई कानुनी रूपमा प्रयोग गर्छ भने,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "οἴδαμεν δὲ ὅτι καλὸς ὁ νόμος",
+        "note": "“व्यवस्था उपयोगी छ भनी हामी बुझ्‍दछौँ” वा “व्यवस्था फाइदाजनक छ भनी हामी बुझ्‍दछौँ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐάν τις αὐτῷ νομίμως χρῆται",
+        "note": "“यदि कोही व्यक्तिले यसलाई ठीक ढङ्गले प्रयोग गर्छ भने” वा “यदी कोही व्यक्तिले यसलाई परमेश्‍वरले चाहनुभएको अनुसार प्रयोग गर्छ भने”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:9",
+    "bsb_verse_text": "We realize that law is not enacted for the righteous, but for the lawless and rebellious, for the ungodly and sinful, for the unholy and profane, for killers of father or mother, for murderers,",
+    "ult_verse_text": "यो जानेर, कि व्‍यवस्‍था धर्मीहरूका निम्‍ति होइन, तर अधर्मी र विद्रोहीहरू, अधर्मी र पापीहरू, अधर्मी र अपवित्रहरू, बुबा-हत्याराहरू र आमा-हत्याराहरू, मानव-हत्याराहरूका निम्‍ति बनाइएको हो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰδὼς τοῦτο",
+        "note": "“किनभने हामी यो चाल पाउँछौँ” वा “हामी यो पनि जान्दछौँ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ὅτι δικαίῳ νόμος οὐ κεῖται",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “कि परमेश्‍वरले धर्मी मानिसको लागि व्यवस्था बनाउनुभएन” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "δικαίῳ",
+        "note": "यहाँ “मानिस” शब्दले पुरुष र स्‍त्री दुवैलाई समावेश गर्छ । वैकल्पिक अनुवादः “एक धर्मी व्‍यक्ति” वा “एक असल व्‍यक्ति” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-gendernotations]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "κεῖται",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले व्यवस्था बनाउनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:10",
+    "bsb_verse_text": "for the sexually immoral, for homosexuals, for slave traders and liars and perjurers, and for anyone else who is averse to sound teaching",
+    "ult_verse_text": "अनैतिक, झुट बोल्‍ने पुरूषहरू, चोरि गर्ने मानिसहरू, झूटाहरू, झूठीहरू, र यदि अरू केहि स्वस्थ शिक्षाको विपरीत हो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "πόρνοις",
+        "note": "यसले त्यस्तो व्यक्तिलाई जनाउँछ जो आफूसँग विवाह नभएको कोही व्यक्तिसँग सुत्छ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀρσενοκοίταις",
+        "note": "अरू पुरुषहरूसँग सुत्‍ने पुरुषहरू"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀνδραποδισταῖς",
+        "note": "“तिनीहरू जसले मानिसहरूलाई दासहरूको रूपमा बेच्‍नको लागि अपहरण गर्छन्” वा “मानिसहरूलाई दासहरूको रूपमा बेच्‍नको लागि लिने मानिसहरू”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἴ τι ἕτερον τῇ ὑγιαινούσῃ διδασκαλίᾳ ἀντίκειται",
+        "note": "“साँचो ख्रीष्‍टिएन शिक्षाको विरुद्धमा भएको अन्य कुनै पनि काम गर्नेहरूको निम्ति”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:11",
+    "bsb_verse_text": "that agrees with the glorious gospel of the blessed God, with which I have been entrusted.",
+    "ult_verse_text": "धन्य परमे‍‍‍श्‍वरको महिमाको सुसमाचार अनुसार, जुन मलाई सुम्पिएको छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὸ εὐαγγέλιον τῆς δόξης τοῦ μακαρίου Θεοῦ",
+        "note": "“धन्यको परमेश्‍वरको महिमाको बारेमा भएको सुसमाचार” वा “महिमामय र धन्यको परमेश्‍वरको सुसमाचार”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ὃ ἐπιστεύθην ἐγώ",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “जुन परमेश्‍वरले मलाई दिनुभएको छ र त्यसको निम्ति मलाई जिम्मेवार बनाउनुभएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:12",
+    "bsb_verse_text": "I thank Christ Jesus our Lord, who has strengthened me, that He considered me faithful and appointed me to service.",
+    "ult_verse_text": "मलाई बलियो बनाउनुहुने, हाम्रा प्रभु ख्रीष्ट येशूप्रति म धन्‍यवादी छु, किनकि उहाँले मलाई विश्‍वासयोग्य ठान्‍नुभयो, मलाई सेवामा लगाउनुभयो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले विगतमा कसरी काम गरे भन्‍ने कुरा बताउँछन् र तिमोथीलाई परमेश्‍वरमा भर पर्न उत्साह दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πιστόν με ἡγήσατο",
+        "note": "“उहाँले मलाई भरोसायोग्य ठान्‍नुभयो” वा “उहाँले मलाई भरपर्दो ठान्‍नुभयो”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "θέμενος εἰς διακονίαν",
+        "note": "पावलले परमेश्‍वरको सेवा गर्ने काम चाहिँ कसैलाई राख्‍न सकिने स्थान भएजसरी कुरा गर्छन् । वैकल्पिक अनुवादः “उहाँले मलाई उहाँको सेवा गर्नलाई नियुक्त गर्नुभयो” वा “उहाँले मलाई उहाँको सेवकको रूपमा नियुक्त गर्नुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:13",
+    "bsb_verse_text": "I was formerly a blasphemer, a persecutor, and a violent man; yet because I had acted in ignorance and unbelief, I was shown mercy.",
+    "ult_verse_text": "पहिले निन्दा गर्ने र सताउने र आक्रमण गर्ने भएकोले, तर मलाई दया देखाइएको थियो किनभने थाहा नभएकोले, मैले अविश्‍वासको काम गरें।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὄντα βλάσφημον",
+        "note": "“म ख्रीष्‍टको विरुद्धमा दुष्‍ट कुराहरू बोल्‍ने व्यक्ति थिएँ ।” पावलले उनी ख्रीष्‍टिएन हुनुभन्दा अगाडिको समयमा भएको उनको चरित्रलाई जनाइरहेका छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "διώκτην",
+        "note": "“एक व्यक्ति जसले ख्रीष्‍टमा विश्‍वास गर्नेहरूलाई सतावट दिन्थ्यो”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὑβριστήν",
+        "note": "“एक व्यक्ति जो अरू मानिसहरूप्रति निर्दयी थियो ।” यो एउटा यस्तो व्यक्ति हो जसले विश्‍वास गर्छ कि उससँग अरूहरूलाई चोट लाउने अधिकार छ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὅτι ἀγνοῶν, ἐποίησα ἐν ἀπιστίᾳ",
+        "note": "“तर किनभने म येशूमा विश्‍वास गर्दैनथै, र मैले के गरिरहेको थिएँ भनेर मलाई थाहा थिएन, मैले येशूबाट कृपा प्राप्‍त गरेँ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἠλεήθην",
+        "note": "“येशूले मलाई कृपा देखाउनुभयो” वा “येशूले ममाथि कृपा गर्नुभयो”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:14",
+    "bsb_verse_text": "And the grace of our Lord overflowed to me, along with the faith and love that are in Christ Jesus.",
+    "ult_verse_text": "साँच्चै, हाम्रा प्रभुको अनुग्रह ख्रीष्ट येशूमा भएको विश्‍वास र प्रेमले भरिएको {छ}।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "δὲ ἡ χάρις",
+        "note": "“र अनुग्रह”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὑπερεπλεόνασεν & ἡ χάρις τοῦ Κυρίου ἡμῶν",
+        "note": "पावलले परमेश्‍वरको अनुग्रहको विषयमा यसरी बताउँछन् मानौँ त्यो कुनै तरल पदार्थ हो जसले कुनै भाँडोलाई भर्न सक्थ्यो र भाँडो भरिएपछि भाँडोको मुखबाट पोखिन सक्थ्यो । वैकल्पिक अनुवादः “परमेश्‍वरले मलाई धेरै अनुग्रह देखाउनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μετὰ πίστεως καὶ ἀγάπης",
+        "note": "यो परमेश्‍वरले पावललाई धेरै अनुग्रह देखाउनुभएको प्रतिफल हो । वैकल्पिक अनुवादः “जसले मलाई येशूमा भरोसा गर्ने र उहाँलाई प्रेम गर्ने तुल्यायो”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τῆς ἐν Χριστῷ Ἰησοῦ",
+        "note": "यसले येशूको विषयमा यसरी बताउँछ कि मानौँ उहाँ तरल पदार्थ राख्‍ने कुनै भाँडो हुनुहुन्छ । यहाँ “येशू ख्रीष्‍टमा” भन्‍ने कुराले येशूसँग सम्बन्ध भएको कुरालाई जनाउँछ । वैकल्पिक अनुवादः “जुन ख्रीष्‍ट येशूले परमेश्‍वरलाई दिनको लागि मलाई सक्षम बनाउनुहुन्छ किनकि म उहाँसँग एक भएको छु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:15",
+    "bsb_verse_text": "This is a trustworthy saying, worthy of full acceptance: Christ Jesus came into the world to save sinners, of whom I am the worst.",
+    "ult_verse_text": "यो सन्‍देश विश्‍वासयोग्य र सर्वस्वीकारयोग्य छ, कि ख्रीष्‍ट येशू पापीहरूलाई बचाउनलाई यस संसारमा आउनुभयो । म यी सबै भन्दा तुच्‍छ हुँ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "πιστὸς ὁ λόγος",
+        "note": "“यो भनाइ सत्य छ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πάσης ἀποδοχῆς ἄξιος",
+        "note": "“हामीले यसलाई बिना कुनै शंका ग्रहण गर्नुपर्छ” वा “हामीले यसलाई पूर्ण निश्‍चयताका साथ ग्रहण गरेको सुहाउँछ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:16",
+    "bsb_verse_text": "But for this very reason I was shown mercy, so that in me, the worst of sinners, Christ Jesus might display His perfect patience as an example to those who would believe in Him for eternal life.",
+    "ult_verse_text": "तर यस कारणले गर्दा मलाई कृपा देखाइएको थियो, ताकि ममा, पहिले, येशू ख्रीष्टले अनन्त जीवनको लागि उहाँमा भरोसा गर्नेहरूका लागि उदाहरणको रूपमा सबै धैर्यता देखाउन सकून्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἠλεήθην",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले मलाई दया देखाउनुभयो” वा “मैले परमेश्‍वरबाट दया प्राप्‍त गरेँ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἵνα ἐν ἐμοὶ πρώτῳ",
+        "note": "“ताकि मद्वारा, ... सबैभन्दा खराब पापी”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:17",
+    "bsb_verse_text": "Now to the King eternal, immortal, and invisible, the only God, be honor and glory forever and ever. Amen.",
+    "ult_verse_text": "अब युगहरूका राजा, अमर, अदृश्य, एकमात्र परमेश्‍वरलाई, अनन्तसम्म सम्मान र महिमा होस्। आमेन।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "δὲ & ἀμήν",
+        "note": "यहाँ “अब” शब्दलाई मुख्य शिक्षामा आएको छोटो रोकावटलाई अङ्कित गर्नको लागि प्रयोग गरिएको छ । यहाँ पावलले परमेश्‍वरलाई प्रशंसा गर्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τῷ & Βασιλεῖ τῶν αἰώνων",
+        "note": "“अनन्तका राजा” वा “सदाको लागि मुख्य शासक”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "τῷ δὲ Βασιλεῖ τῶν αἰώνων, ἀφθάρτῳ, ἀοράτῳ, μόνῳ Θεῷ, τιμὴ καὶ δόξα, εἰς τοὺς αἰῶνας τῶν αἰώνων",
+        "note": "“आदर” र “महिमा” जस्ता भाववाचक नामपद शब्दहरूलाई क्रियापदहरूको रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “अब मानिसहरूले युग-युगका राजालाई सदा आदर र महिमा गरून् जो अविनाशी, अदृश्‍य, र एकमात्र परमेश्‍वर हुनुहुन्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-abstractnouns]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:18",
+    "bsb_verse_text": "Timothy, my child, I entrust you with this command in keeping with the previous prophecies about you, so that by them you may fight the good fight,",
+    "ult_verse_text": "मेरो छोरा तिमोथी, म तिम्रो सामु यो आज्ञा राख्दैछु, तिम्रो बारेमा पहिलेका अगमवाणीहरू अनुसार, ताकि तिनीहरूद्वारा तिमीले राम्रो लडाइँ लड्न सक।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ταύτην τὴν παραγγελίαν παρατίθεμαί σοι",
+        "note": "पावलले उनका निर्देशनहरूको विषयमा यसरी बताउँछन् कि मानौँ उनले तिनलाई कुनै भौतिक वस्तु जसरी नै तिमोथीको अगाडि राख्‍न सक्‍थे । वैकल्पिक अनुवादः “म तिमीलाई यो आज्ञा भरोसाका साथ सुम्पदैछु” वा “म तिमीलाई यो आज्ञा दिइरहेको छु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τέκνον",
+        "note": "पावलले तिमोथीसँगको उनको नजिकको सम्बन्धको विषयमा यसरी बताउँछन् कि मानौँ पावल चाहिँ बाबु हुन् र तिमोथी बालक हुन् । यो पनि सम्भाव्य छ कि तिमोथीलाई पावलद्वारा नै ख्रीष्‍टमा ल्याइएको थियो, र त्यसैले गर्दा हो कि पावलले उनलाई आफ्‍नै सन्तान जस्तै ठाने । वैकल्पिक अनुवादः “जो साँच्‍चै मेरो सन्तान झैँ छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "κατὰ τὰς προαγούσας ἐπὶ σὲ προφητείας",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “अरू विश्‍वासीहरूले तिम्रो बारेमा अगमवाणी गरेको कुरा अनुसार” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "στρατεύῃ & τὴν καλὴν στρατείαν",
+        "note": "तिमोथीले प्रभुको लागि काम गर्दै रहेको कुराको विषयमा पावलले यसरी बताउँछन् कि मानौँ तिनी कुनै युद्ध लडिरहेको सिपाही हुन् । वैकल्पिक अनुवादः “प्रभुको लागि कडा मिहिनतका साथ काम गरिरहन सक” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:19",
+    "bsb_verse_text": "holding on to faith and a good conscience, which some have rejected and thereby shipwrecked their faith.",
+    "ult_verse_text": "विश्‍वास र असल विवेक राख्दै, जसलाई कोही-कोहीले अस्वीकार गरेर विश्‍वासको सम्बन्धमा जहाज डुबाएका छन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀγαθὴν συνείδησιν",
+        "note": "“गलतको साटोमा असल कुरालाई छान्‍ने विवेक ।” तपाईंले यसलाई [१ तिमोथी १:५](./05.md) मा कसरी अनुवाद गर्नुभएको छ, सो हेर्नुहोस् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τινες & τὴν πίστιν ἐναυάγησαν",
+        "note": "पावलले यी मानिसहरूको विश्‍वासको विषयमा यसरी बताउँछन् कि मानौँ त्यो कुनै जहाज हो जसलाई समुद्रमा तहसनहस गर्न सकिन्थ्यो । उनको अर्थ हो कि तिनीहरूले तिनीहरूका विश्‍वासलाई नाश पारेका छन् र अब येशूमा विश्‍वास गर्दैनन् । यदि यो लक्षित भाषामा बुझिनेछ भने तपाईंले यसलाई वा यस्तै समान अलङ्कारलाई प्रयोग गर्नुपर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 1:20",
+    "bsb_verse_text": "Among them are Hymenaeus and Alexander, whom I have handed over to Satan to be taught not to blaspheme.",
+    "ult_verse_text": "जसमध्ये हुमेनियस र अलेक्‍जेन्‍डर हुन्, जसलाई मैले शैतानको हातमा सुम्पेको छु ताकि उनीहरूलाई ईश्‍वरनिन्‍दा नगर्न सिकाउन।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Ὑμέναιος & Ἀλέξανδρος",
+        "note": "यी पुरुषहरूका नाउँहरू हुन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/translate-names]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "οὓς παρέδωκα τῷ Σατανᾷ",
+        "note": "पावलले यी मानिसहरूलाई भौतिक रूपमा नै शैतानकहाँ जिम्‍मा लगाएको जसरी कुरा गर्छन् । यसको अर्थ सम्भवतः यो हो कि पावलले तिनीहरूलाई विश्‍वासीहरूको समुदायबाट इन्कार गरे । किनकि तिनीहरू अब समुदायको हिस्‍सा होइनन्, शैतानले तिनीहरूमाथि शक्ति चलाउन सक्छ र तिनीहरूलाई हानी गर्न सक्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "παιδευθῶσι",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “कि परमेश्‍वरले तिनीहरूलाई सिकाउनुभएको होस्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:1",
+    "bsb_verse_text": "First of all, then, I urge that petitions, prayers, intercessions, and thanksgiving be offered for everyone—",
+    "ult_verse_text": "त्यसकारण, म आग्रह गर्दछु, कि सबै भन्दा पहिले, सबै मानिसहरूका लागि अनुरोध, प्रार्थना, मध्यस्थता, धन्यवाद चढाईऊन्,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "सबै मानिसहरूको लागि प्रार्थना गर्नको लागि पावलले तिमोथीलाई उत्साह दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πρῶτον πάντων",
+        "note": "“सबैभन्दा बढी महत्वपूर्ण” वा “सबैकुरा भन्दा अगि”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "παρακαλῶ & ποιεῖσθαι δεήσεις, προσευχάς, ἐντεύξεις, εὐχαριστίας",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “म सबै विश्‍वासीहरूलाई परमेश्‍वरलाई अनुरोधहरू, प्रार्थनाहरू, अन्तरबिन्तीहरू, र धन्यवादज्ञापनहरू चढाउनको लागि आग्रह गर्दछु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "παρακαλῶ",
+        "note": "“म बिन्ती गर्छु” वा “म अनुरोध गर्छु”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:2",
+    "bsb_verse_text": "for kings and all those in authority—so that we may lead tranquil and quiet lives in all godliness and dignity.",
+    "ult_verse_text": "राजाहरू र सबै अख्तियारवालाहरूका लागि, ताकि हामी सबै भक्ति र मर्यादामा शान्तिपूर्ण र शान्त जीवन बिताउन सकौं।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "ἤρεμον καὶ ἡσύχιον βίον",
+        "note": "यहाँ “शान्तिपूर्ण” र “शान्त”को अर्थ एउटै हुन्छ । सबै विश्‍वासीहरूले अधिकारीहरूबाट कुनै समस्या ननिम्त्याइकन शान्त जीवन जिउन सक्षम भएका पावल चाहन्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν πάσῃ εὐσεβείᾳ καὶ σεμνότητι",
+        "note": "“जसले परमेश्‍वरको महिमा गर्छ र जसलाई अरू मानिसहरूले सम्मान गर्नेछन्”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:4",
+    "bsb_verse_text": "who wants everyone to be saved and to come to the knowledge of the truth.",
+    "ult_verse_text": "जसले सबै मानिसहरूले मुक्ति पाएको र सत्यको ज्ञानमा आएको चाहनुहुन्‍छ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ὃς πάντας ἀνθρώπους θέλει σωθῆναι, καὶ εἰς ἐπίγνωσιν ἀληθείας ἐλθεῖν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले सबै मानिसहरूलाई बचाउन र तिनीहरू सत्यताको ज्ञानमा आएका चाहनुहुन्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "εἰς ἐπίγνωσιν ἀληθείας ἐλθεῖν",
+        "note": "पावलले परमेश्‍वरको बारेमा सत्यतालाई जान्‍ने विषयमा यसरी बताउँछन् मानौँ त्यो कुनै स्थान हो जहाँ मानिसहरूलाई ल्याउन सकिन्छ । वैकल्पिक अनुवादः “सत्य के हो भनेर जान्‍न र स्वीकार गर्न” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:5",
+    "bsb_verse_text": "For there is one God, and there is one mediator between God and men, the man Christ Jesus,",
+    "ult_verse_text": "किनकि त्यहाँ परमेश्‍वर एउटै हुनुहुन्छ, र परमेश्‍वर र मानिसहरूको एक मध्यस्थकर्ता हुनुहुन्छ—मानिस ख्रीष्ट येशू,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἷς & μεσίτης Θεοῦ καὶ ἀνθρώπων",
+        "note": "मध्यस्तकर्ता भनेको त्यस्तो व्यक्ति हो जसले विवादमा रहेका दुई पक्षहरूका बीचमा शान्तिपूर्ण निष्‍कर्ष ल्याउनका निमित्त बहस गर्नलाई सहयोग गर्छन् । यहाँ येशूले पापीहरूलाई परमेश्‍वरसँगको शान्तिपूर्ण सम्बन्धमा प्रवेश गर्नलाई सहायता गर्नुहुन्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:6",
+    "bsb_verse_text": "who gave Himself as a ransom for all—the testimony that was given at just the right time.",
+    "ult_verse_text": "जसले आफ्नै समयमा गवाही भएर आफैलाई सबैको लागि मोलको {रूपमा} दिनुभयो",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "δοὺς ἑαυτὸν",
+        "note": "“स्वेच्छाले मर्नुभयो”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀντίλυτρον",
+        "note": "“स्वतन्‍त्रताको निम्ति चुकाएको मूल्यस्वरूप” वा “स्वतन्‍त्रता पाउनलाई तिरेको भुक्तानीस्वरूप”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "τὸ μαρτύριον καιροῖς ἰδίοις",
+        "note": "यो परमेश्‍वरले सबै मानिसहरूलाई बचाउन चाहनुहुन्छ भन्‍ने कुराको विषयमा भएको गवाही थियो भनेर स्पष्‍ट पार्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले सबै मानिसहरूलाई बचाउन चाहनुहुन्छ भनी ठीक समयमा दिइएको प्रमाणस्वरूप” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καιροῖς ἰδίοις",
+        "note": "यसको अर्थ हो कि यो परमेश्‍वरले चुन्‍नुभएको समय थियो ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:7",
+    "bsb_verse_text": "For this reason I was appointed as a preacher, an apostle, and a faithful and true teacher of the Gentiles. I am telling the truth; I am not lying about anything.",
+    "ult_verse_text": "जसको लागि मलाई प्रचारक र प्रेरित बनाइएको थियो — म ख्रीष्टमा सत्य बोल्दै छु, म झूट बोल्दिन — विश्‍वास र सत्यमा राष्ट्रहरूको शिक्षक।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰς ὃ",
+        "note": "“यसैको लागि” वा “यही कारणले”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐτέθην ἐγὼ κῆρυξ καὶ ἀπόστολος",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “ख्रीष्‍टले म, पावललाई, एक शिक्षक र प्रेरित बनाउनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hendiadys",
+        "orig_language_quote": "διδάσκαλος ἐθνῶν ἐν πίστει καὶ ἀληθείᾳ",
+        "note": "“म अन्यजातिहरूलाई विश्‍वास र सत्यताको सन्देश सिकाउँछु ।” यहाँ पावलले एउटै विचारलाई व्यक्त गर्नको लागि “विश्‍वास” र “सत्यता” जस्ता शब्दहरूको प्रयोग गरिरहेका हुन सक्छन् । वैकल्पिक अनुवादः “म अन्याजातिहरूलाई सत्य विश्‍वासको बारेमा सिकाउँछु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-hendiadys]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:8",
+    "bsb_verse_text": "Therefore I want the men everywhere to pray, lifting up holy hands, without anger or dissension.",
+    "ult_verse_text": "तसर्थ, म चाहन्छु कि हरेक ठाउँका मानिसहरूले बिना क्रोध र तर्कविना पवित्र हात उठाएर प्रार्थना गरून्,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले प्रार्थनाको बारेमा भएका उनका निर्देशनहरू दिन सकाउँछन् र त्यसपछि स्‍त्रीहरूको लागि केही खास निर्देशनहरू दिन्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "βούλομαι & προσεύχεσθαι τοὺς ἄνδρας ἐν παντὶ τόπῳ, ἐπαίροντας ὁσίους χεῖρας",
+        "note": "यहाँ “पवित्र हात”ले सम्पूर्ण व्‍यक्ति नै पवित्र छ भन्‍ने अर्थ दिन्छ । वैकल्पिक अनुवादः “सबै ठाउँमा भएका पवित्र पुरुषहरूले तिनीहरूका हातहरू उचालेका र प्रार्थना गरेका म चाहन्छु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τοὺς ἄνδρας ἐν παντὶ τόπῳ",
+        "note": "“सबै ठाउँमा भएका पुरुषहरू” वा “सबैतिरका पुरुषहरू ।” यहाँ “मानिसहरू” शब्दले खासगरी पुरुषहरूलाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐπαίροντας ὁσίους χεῖρας",
+        "note": "प्रार्थना गर्दा मानिसहरूले तिनीहरूका हातहरू उचाल्‍नु भनेको सामान्य शारीरिक हाउभाउ थियो ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:9",
+    "bsb_verse_text": "Likewise, I want the women to adorn themselves with respectable apparel, with modesty, and with self-control, not with braided hair or gold or pearls or expensive clothes,",
+    "ult_verse_text": "त्यसैगरी नारीहरूले आफूलाई उचित पोशाकमा सजाउन, नम्रता र नम्रताकासाथ, चुल्ठो र सुन, वा मोती वा महँगो लुगाहरूमा होइन,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "μετὰ αἰδοῦς καὶ σωφροσύνης",
+        "note": "यी दुवै शब्दहरूले सामान्य रूपमा एउटै अर्थ दिन्छन् । स्‍त्रीहरूले सुहाउँदो वस्‍त्रहरू पहिरनुपर्छ र पुरुषहरूबाट अनुचित ध्यानाकर्षण हुने ठाउँ दिनुहुँदैन भनेर पावलले जोड दिइरहेका छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "μὴ ἐν πλέγμασιν",
+        "note": "पावलको समयमा, थुप्रै रोमी स्‍त्रीहरूले आफूलाई आकर्षक बनाउनको लागि तिनीहरूका कपालमा चुल्‍ठो बाट्ने गर्दथे । चुल्‍ठो बाट्नु भनेको कुनै स्‍त्रीले तिनको कपालमा अनावश्‍यक आकर्षण तान्‍ने एउटा तरिका हो । यदि कपालमा चुल्‍ठो बाट्ने भनेको नजानिएको कुरा हो भने, यसलाई अझ बढी सामान्य तरिकामा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “तिनीहरूले नक्‍कल-झक्‍कल शैलीको कपाल बनाउनुहुँदैन” वा “तिनीहरूले शानदार किसिमले कपाल सिङ्गार्नु हुँदैन जसले ध्यानाकर्षण गर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "μαργαρίταις",
+        "note": "यी सुन्दर र मूल्यवान् सेता गुच्‍चाहरू हुन् जसलाई मानिसहरूले गहनाको रूपमा प्रयोग गर्छन् । ती समुद्रमा बस्‍ने कुनै खास किसिमको साना जीवहरूको खोलभित्र बन्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/translate-unknown]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:10",
+    "bsb_verse_text": "but with good deeds, as is proper for women who profess to worship God.",
+    "ult_verse_text": "तर असल कामहरूद्वारा ईश्‍वरभक्ति स्वीकार गर्ने स्त्रीहरूलाई के फाइदा हुन्छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐπαγγελλομέναις θεοσέβειαν, δι’ ἔργων ἀγαθῶν",
+        "note": "“जसले आफूहरूले गर्ने असल कुराहरूद्वारा परमेश्‍वरलाई सम्‍मान गर्न चाहन्छन्”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:11",
+    "bsb_verse_text": "A woman must learn in quietness and full submissiveness.",
+    "ult_verse_text": "स्त्रीले पूर्ण रूपमा अधिनमा बसि चूपचाप रहेर सिकून्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν ἡσυχίᾳ",
+        "note": "“चुपचाप भएर”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν πάσῃ ὑποταγῇ",
+        "note": "“र सिकाइएका कुराहरूमा समर्पण गर्नु”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:12",
+    "bsb_verse_text": "I do not permit a woman to teach or to exercise authority over a man; she is to remain quiet.",
+    "ult_verse_text": "तर म स्त्रीलाई सिकाउन वा पुरुषमाथि अधिकार गर्न अनुमति दिँदिन, तर चुपचाप रहून्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "γυναικὶ οὐκ ἐπιτρέπω",
+        "note": "“म स्‍त्रीलाई स्वीकृति दिन्‍न”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:13",
+    "bsb_verse_text": "For Adam was formed first, and then Eve.",
+    "ult_verse_text": "किनकि पहिले आदम बनाइयो, त्यसपछि हव्वा,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "Ἀδὰμ & πρῶτος ἐπλάσθη",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “आदम नै हुन् जसलाई परमेश्‍वरले पहिला बनाउनुभयो” वा “परमेश्‍वरले आदमलाई पहिला बनाउनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "εἶτα Εὕα",
+        "note": "बुझिएको जानकारीलाई स्पष्‍ट रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “र त्यसपछि परमेश्‍वरले हव्‍वालाई बनाउनुभयो” वा “त्यसपछि परमेश्‍वरले हव्‍वाको सृष्‍टि गर्नुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-ellipsis]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:14",
+    "bsb_verse_text": "And it was not Adam who was deceived, but the woman who was deceived and fell into transgression.",
+    "ult_verse_text": "र आदमलाई धोका दिइएन, तर स्त्री, धोका पाएर, अपराधमा फसेकी हुन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "Ἀδὰμ οὐκ ἠπατήθη",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “र ती आदम थिएनन् जसलाई सर्पले छल्यो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἡ δὲ γυνὴ ἐξαπατηθεῖσα, ἐν παραβάσει γέγονεν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “तर त्यो एक स्‍त्री थिइन् जसले परमेश्‍वरको अनाज्ञापालन गरिन् जब सर्पले तिनलाई छल्यो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 2:15",
+    "bsb_verse_text": "Women, however, will be saved through childbearing, if they continue in faith, love, and holiness, with self-control.",
+    "ult_verse_text": "तर यदि तिनीहरू आत्मसंयमद्वारा विश्‍वास, प्रेम र पवित्रतामा रहे भने, बालक जन्माउने कार्यद्वारा तिनी बचाइनेछिन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "σωθήσεται & διὰ τῆς τεκνογονίας",
+        "note": "यहाँ “तिनी”ले सामान्य अर्थमा स्‍त्रीहरूलाई जनाउँछ । सम्भावित अर्थहरू हुन् १) परमेश्‍वरले स्‍त्रीहरूलाई शारीरिक रूपमा सुरक्षित राख्‍नुहुनेछ जब तिनीहरूले सन्तानलाई जन्म दिन्छन्, वा २) परमेश्‍वरले स्‍त्रीहरूलाई तिनीहरूका पापहरूबाट तिनीहरूको सन्तान जन्माउने भूमिकाद्वारा बचाउनुहुनेछ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "σωθήσεται",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले तिनलाई बचाउनुहुनेछ” वा “परमेश्‍वरले स्‍त्रीहरूलाई बचाउनुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐὰν μείνωσιν",
+        "note": "“यदी तिनीहरू ... मा रहे भने” वा “यदी तिनीहरू ... जिइरहे भने ।” यहाँ “तिनीहरू”ले स्‍त्रीहरूलाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἐν πίστει, καὶ ἀγάπῃ, καὶ ἁγιασμῷ",
+        "note": "यहाँ भएका भाववाचक नामपदहरूलाई मौखिक वाक्यांशहरूसँग अनुवाद गर्न सकिन्छ । वैकल्पिक अनुवादः “येशूलाई भरोसा गर्न र अरूहरूलाई प्रेम गर्न र एक पवित्र जीवन जिउनमा” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-abstractnouns]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "μετὰ σωφροσύνης",
+        "note": "यस वाक्पद्धतिको लागि सम्भावित अर्थहरू हुन् १) “असल निर्णयका साथ”, २) “भद्रताका साथ”, ३) “आत्मसंयमका साथ ।” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "σωφροσύνης",
+        "note": "यदि अनुवादमा यो वाक्पद्धति रहन्छ भने, भाववाचक नामपद “सुशीलता”लाई विशेषणको साथमा अनुवाद गर्न सकिन्छ । वैकल्पिक अनुवादः “एक सुशील दिमाग”\" (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-abstractnouns]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:1",
+    "bsb_verse_text": "This is a trustworthy saying: If anyone aspires to be an overseer, he desires a noble task.",
+    "ult_verse_text": "यो भनाइ विश्‍वासयोग्य {छ}: \"यदि कोही निरीक्षक बन्‍न चाहन्छ भने, उसले असल कामको इच्‍छआ गर्छ।\"",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "मण्डलीका बिशपहरूले कसरी व्यवहार गर्नुपर्छ र तिनीहरू कस्ता हुनुपर्छ भन्‍ने विषयमा पावलले केही विशेष निर्देशनहरू दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καλοῦ ἔργου",
+        "note": "“एउटा सम्मानित कार्य”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:2",
+    "bsb_verse_text": "An overseer, then, must be above reproach, the husband of but one wife, temperate, self-controlled, respectable, hospitable, able to teach,",
+    "ult_verse_text": "त्यसकारण, निरीक्षक अपमानजनक, एउटै पत्नीको पति, शान्त, आत्म-नियन्त्रित, व्यवस्थित, अतिथि सत्कार गर्ने, सिकाउन सक्षम हुनुपर्छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μιᾶς γυναικὸς ἄνδρα",
+        "note": "बिशपको एउटा मात्रै श्रीमती हुनुपर्दछ । यसले विगतमा पत्‍नी मरेका वा पत्‍नीसँग सम्बन्धविच्‍छेद भएका, वा कहिल्यै विवाह नगरेका पुरुषहरूलाई हटाउँछ वा हटाउँदैन भनेर प्रस्‍ट छैन ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δεῖ & εἶναι & νηφάλιον, σώφρονα, κόσμιον, φιλόξενον",
+        "note": "“उसले कुनै पनि अत्याधिक हुने गरी गर्नुहुँदैन, विवेकशील भएर सोच्‍नुपर्छ र असल व्यवहार देखाउनुपर्छ, र आगन्तुकहरूप्रति मैत्रीपूर्ण हुनुपर्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:3",
+    "bsb_verse_text": "not dependent on wine, not violent but gentle, peaceable, and free of the love of money.",
+    "ult_verse_text": "मतवाला होइन, झगडा गर्ने होइन, तर कोमल, शान्त, पैसाको माया गर्ने होइन,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μὴ πάροινον, μὴ πλήκτην, ἀλλὰ ἐπιεικῆ, ἄμαχον",
+        "note": "“तिनले कहिल्यै पनि असाध्यै मद्यपान गर्नुहुँदैन नता झगडा वा विवाद गर्न मन पराउने हुन हुन्छ, तर त्यसको साटोमा ऊ भलाद्‌मी र शान्तिपूर्ण हुनुपर्छ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀφιλάργυρον",
+        "note": "“पैसाको लागि लोभी”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:4",
+    "bsb_verse_text": "An overseer must manage his own household well and keep his children under control, with complete dignity.",
+    "ult_verse_text": "आफ्नो घरपरिवारलाई राम्ररी व्यवस्थापन गर्ने, सन्तानलाई पूर्ण सम्मानका साथ आज्ञाकारितामा राख्‍ने",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "προϊστάμενον",
+        "note": "“तिनले ... अगुवाइ गर्नुपर्छ” वा “तिनले ... को वास्ता गर्नुपर्छ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μετὰ πάσης σεμνότητος",
+        "note": "सम्भावित अर्थहरू हुन् १) बिशपका छोराछोरीहरूले तिनीहरूका बाबुको आज्ञापालन गर्नुपर्छ र तिनलाई सम्मान देखाउनुपर्छ वा २) बिशपका छोराछोरीहरूले सबैलाई सम्‍मान देखाउनुपर्छ वा ३) बिशपले तिनको घरानामा भएकाहरूलाई सम्‍मान देखाउनुपर्छ जसै तिनले उनीहरूलाई अगुवाइ गर्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πάσης σεμνότητος",
+        "note": "“पूर्ण सम्मान” वा “सबै समयहरूमा आदरपूर्वक”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:5",
+    "bsb_verse_text": "For if someone does not know how to manage his own household, how can he care for the church of God?",
+    "ult_verse_text": "(किनकि यदि कसैले आफ्नो घरपरिवारको व्यवस्थापन गर्न जान्दैन भने, उसले कसरी परमेश्‍वरको मण्डलीको हेरचाह गर्नेछ?)",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰ δέ τις τοῦ ἰδίου οἴκου προστῆναι οὐκ οἶδεν",
+        "note": "“किनकि जब कुनै मानिसले ... व्यवस्थापन गर्न सक्दैन”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "πῶς ἐκκλησίας Θεοῦ ἐπιμελήσεται?",
+        "note": "पावलले तिमोथीलाई सिकाउनको लागि एउटा प्रश्‍नको प्रयोग गर्छन् । वैकल्पिक अनुवादः “उसले परमेश्‍वरको मण्डलीको हेरविचार गर्न सक्दैन” वा “ऊ परमेश्‍वरको मण्डलीलाई अगुवाइ गर्न सक्षम हुने छैन ।” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐκκλησίας Θεοῦ",
+        "note": "यहाँ “मण्डली”ले परमेश्‍वरका मानिसहरूको स्थानीय समूहलाई जनाउँछ । वैकल्पिक अनुवादः “परमेश्‍वरका मानिसहरूको समूह” वा “तिनले रेखदेख गरिरहेका विश्‍वासीहरू” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:6",
+    "bsb_verse_text": "He must not be a recent convert, or he may become conceited and fall under the same condemnation as the devil.",
+    "ult_verse_text": "नयाँ परिवर्तित होइन, ताकि ऊ शैतानको न्यायमा फसेर नलडोस्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μὴ νεόφυτον",
+        "note": "“ऊ नयाँ विश्‍वासी हुनुहुँदैन” वा “ऊ एक परिपक्व विश्‍वासी हुनैपर्छ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "εἰς κρίμα ἐμπέσῃ τοῦ διαβόλου",
+        "note": "गल्‍ती गरेकोमा दण्‍डको भागीदार हुने कुरालाई पावलले यसरी बताउँछन् कि मानौँ त्यो भनेको कुनै खाल्‍डो हो जसमा कोही व्यक्ति खस्‍न सक्छ । वैकल्पिक अनुवादः “परमेश्‍वरले शैतानलाई दण्डित गर्नुभए झैँ गरी उहाँले उसलाई पनि दण्डित गर्नु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:7",
+    "bsb_verse_text": "Furthermore, he must have a good reputation with outsiders, so that he will not fall into disgrace and into the snare of the devil.",
+    "ult_verse_text": "तर उहाँलाई बाहिरका मानिसहरूसँग पनि राम्रो प्रतिष्ठा हुनुपर्छ, ताकि ऊ बदनाम र शैतानको पासोमा नपरोस्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τῶν ἔξωθεν",
+        "note": "“मण्डली बाहिर भएकाहरू ।” पावलले मण्डलीलाई कुनै स्थानको रूपमा वर्णन गर्छन्, र अविश्‍वासीहरू चाहिँ त्यसभन्दा बाहिर भएका मानिसहरूको रूपमा वर्णन गर्छन् । वैकल्पिक अनुवादः “तिनीहरू जो ख्रीष्‍टिएनहरू होइनन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "μὴ εἰς ὀνειδισμὸν ἐμπέσῃ, καὶ παγίδα τοῦ διαβόλου",
+        "note": "पावलले निन्दाको विषयमा र शैतानले कसैलाई पाप गर्न लगाउने कुराको विषयमा यसरी बताउँछन् कि मानौँ त्यो भनेको कुनै खाल्‍डो वा पासो हो जसमा कोही व्यक्ति खस्छ । यहाँ “ ... मा खस्‍नु” भनेको अनुभव गर्नु भनेको हो । वैकल्पिक अनुवादः “कुनै कुराले उसलाई अविश्‍वासीहरूको सामु लज्‍जामा पार्दैन ताकि शैतानले उसलाई पाप गर्न नलगाओस्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:8",
+    "bsb_verse_text": "Deacons likewise must be dignified, not double-tongued or given to much wine or greedy for money.",
+    "ult_verse_text": "त्यसै गरी डिकनहरू सम्मानित {हुनुपर्छ}, दोहोरो बोल्ने होइन, बढी मद्य पिउने होइन, लोभी होइन,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "मण्डलीका डिकनहरू र तिनीहरूका पत्‍नीहरूले कसरी व्यवहार गर्नुपर्छ र तिनीहरू कस्ता हुनुपर्छ भन्‍ने विषयमा पावलले केही विशेष निर्देशनहरू दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "διακόνους ὡσαύτως",
+        "note": "“बिशपहरू जस्तै, डिकनहरू”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "σεμνούς, μὴ διλόγους",
+        "note": "पावलले यी मानिसहरूको विषयमा यसरी बताउँछन् कि मानौँ तिनीहरू “दुई जिब्रेहरू” थिए वा एकैपटकमा दुईवटा कुरा सक्‍थे । उनले भन्‍न खोजेको के हो भने तिनीहरूले एउटा कुरा भन्छन् तर अर्कै अर्थ दिएका हुन्छन् । वैकल्पिक अनुवादः “उचित तरिकाले व्यवहार गर्नुपर्छ र तिनीहरूले जे भन्छन् त्यसको अर्थ त्यही लाग्‍नुपर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:9",
+    "bsb_verse_text": "They must hold to the mystery of the faith with a clear conscience.",
+    "ult_verse_text": "विश्‍वासको रहस्यलाई शुद्ध विवेकले धारण गर्दै।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἔχοντας τὸ μυστήριον τῆς πίστεως",
+        "note": "“तिनीहरूले परमेश्‍वरको साँचो सन्देशलाई विश्‍वास गरिरहनुपर्छ जुन सन्देश परमेश्‍वरले हामीलाई प्रकट गर्नुभयो र जुन हामी विश्‍वास गर्छौँ ।” यसले त्यो सत्यतालाई जनाउँछ जुन केही समयदेखि त्यहाँ थियो तर अब परमेश्‍वरले त्यस क्षणमा तिनीहरूलाई देखाइरहनुभएको थियो । पावलले परमेश्‍वरको बारेमा भएको साँचो सन्देशको विषयमा यसरी बताउँछन् कि मानौँ त्यो कुनै वस्तु हो जो कुनै व्यक्तिले आफैँसँग राख्‍न सक्थ्यो । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "τὸ μυστήριον",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “सत्यता जुन परमेश्‍वरले प्रकट गर्नुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "πίστεως ἐν καθαρᾷ συνειδήσει",
+        "note": "आफूले कुनै गल्‍ती गरेको छैन भनी कुनै व्यक्तिले थाहा गर्ने कुरालाई पावलले यसरी बताउँछन् कि मानौँ त्यो ज्ञान वा विवेक शुद्ध थियो । वैकल्पिक अनुवादः “विश्‍वास, ठीक कुरा गर्नलाई तिनीहरूले भरमग्‍दुर कोसिस गरेका छन् भनी जानेर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:10",
+    "bsb_verse_text": "Additionally, they must first be tested. Then, if they are above reproach, let them serve as deacons.",
+    "ult_verse_text": "अनि तिनीहरूलाई पनि पहिले जाँच गरून्। तब तिनीहरू निर्दोष भएर सेवा गरून।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "οὗτοι & δοκιμαζέσθωσαν πρῶτον",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “अरू विश्‍वासीहरूले पहिले तिनीहरूको जाँच गर्नुपर्छ” वा “तिनीहरूले पहिले आफैँलाई प्रमाणित गर्नुपर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δοκιμαζέσθωσαν",
+        "note": "यसको अर्थ हो कि अरू विश्‍वासीहरूले तिनीहरूको मूल्याङ्कन गर्नुपर्छ जो डिकन हुन चाहन्छन् र तिनीहरू मण्‍डलीमा सेवा गर्नका लागि योग्‍यका छन् वा छैनन् भनेर निधो गर्नुपर्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:11",
+    "bsb_verse_text": "In the same way, the women must be dignified, not slanderers, but temperate and faithful in all things.",
+    "ult_verse_text": "त्यसैगरी नारीहरू पनि सम्मानित {हुनुपर्छ}, निन्दा गर्नेहरू होइनन्, संयमित, सबै कुरामा भरोसायोग्य हुनुपर्छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "γυναῖκας ὡσαύτως",
+        "note": "सम्भावित अर्थहरू हुन् १) “स्‍त्रीहरू”ले डिकनहरूका पत्‍नीहरूलाई जनाउँछ वा २) “स्‍त्रीहरू”ले स्‍त्री डिकनहरूलाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "σεμνάς",
+        "note": "“उचित व्यवहार गरून्” वा “सम्मानका योग्य होऊन्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μὴ διαβόλους",
+        "note": "“तिनीहरूले अरू मानिसहरूको विरुद्धमा दुष्‍ट कुरा बोल्‍नु हुँदैन”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "νηφαλίους",
+        "note": "“कुनै पनि कुरा चाहिने भन्दा बढी नगर्ने ।” तपाईंले यसलाई [१ तिमोथी ३:२](./01.md) मा कसरी अनुवाद गर्नुभयो, सो हेर्नुहोस् ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:12",
+    "bsb_verse_text": "A deacon must be the husband of but one wife, a good manager of his children and of his own household.",
+    "ult_verse_text": "डिकनहरू एउटै पत्नीको पति हुनुपर्दछ, तिनीहरूका आफ्नै छोराछोरी र घरपरिवारलाई राम्ररी व्यवस्थापन गर्ने होऊन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μιᾶς γυναικὸς ἄνδρες",
+        "note": "एउटा मानिसको एउटा मात्रै पत्‍नी हुनुपर्दछ । यसले विगतमा पत्‍नी मरेका वा पत्‍नीसँग सम्बन्धविच्‍छेद भएका, वा कहिल्यै विवाह नगरेका पुरुषहरूलाई हटाउँछ वा हटाउँदैन भनेर प्रस्‍ट छैन । तपाईंले यसलाई [१ तिमोथी ३:२](./01.md) मा कसरी अनुवाद गर्नुभयो, सो हेर्नुहोस् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τέκνων καλῶς προϊστάμενοι καὶ τῶν ἰδίων οἴκων",
+        "note": "“तिनीहरूका छोराछोरीहरू र तिनीहरूका घरहरूमा बस्‍नेहरूका राम्रोसँग हेरविचार गर्ने र तिनीहरूलाई डोहोर्‍याउने”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:13",
+    "bsb_verse_text": "For those who have served well as deacons acquire for themselves a high standing and great confidence in the faith that is in Christ Jesus.",
+    "ult_verse_text": "किनकि राम्रोसँग सेवा गर्नेहरूले आफ्नो लागि असल स्थान र ख्रीष्ट येशूमा {भएको} विश्‍वासमा धेरै भरोसा प्राप्त गर्छन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "οἱ γὰρ",
+        "note": "“ती डिकनहरूका लागि” वा “ती मण्डलीका अगुवाहरूको लागि”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἑαυτοῖς & περιποιοῦνται",
+        "note": "“तिनीहरूले आफूहरूका लागि प्राप्‍त गर्नु” वा “तिनीहरूले आफ्‍नै लागि पनि फाइदा गर्नु”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "βαθμὸν & καλὸν",
+        "note": "यसले भन्‍न खोजेको अर्थलाई स्‍पष्‍टसँग व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “अरू विश्‍वासीहरूको माझमा राम्रो इज्‍जत” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πολλὴν παρρησίαν ἐν πίστει τῇ ἐν Χριστῷ Ἰησοῦ",
+        "note": "सम्भावित अर्थहरू हुन् १) तिनीहरूले अझ बढी निश्‍चयताका साथ येशूमा भरोसा गर्नेछन् वा २) तिनीहरूले येशूमा भएको आफ्नो विश्‍वासको बारेमा आत्मविश्‍वासका साथ अरू मानिसहरूलाई बताउनेछन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:14",
+    "bsb_verse_text": "Although I hope to come to you soon, I am writing you these things",
+    "ult_verse_text": "चाँडै तिमीकहाँ आउने आशामा म तिमीलाई यी कुराहरू लेख्दै छु।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले तिमोथीलाई लेख्‍नुको कारण बताउँछन् र ख्रीष्‍टको ईश्‍वरत्वको बारेमा वर्णन गर्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:15",
+    "bsb_verse_text": "in case I am delayed, so that you will know how each one must conduct himself in God’s household, which is the church of the living God, the pillar and foundation of the truth.",
+    "ult_verse_text": "तर यदि म ढिला भए भने, ताकि परेमश्‍वरको घरानामा कसरी व्यवहार गर्ने भनी तिमीले जान्‍ने छौ, जो जीवित परमेश्‍वरको मण्डली हो, सत्यको स्तम्भ र समर्थन हो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐὰν δὲ βραδύνω",
+        "note": "“तर कुनै कारणवश म त्यहाँ छिट्टै जान सकिन भने” वा “तर यदि केही कुराले मलाई त्यहाँ चाँडो गरी जानलाई रोक्छ भने”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἵνα εἰδῇς πῶς δεῖ ἐν οἴκῳ Θεοῦ ἀναστρέφεσθαι",
+        "note": "पावलले विश्‍वासीहरूको समूह चाहिँ एक परिवार भए झैँ गरी कुरा गर्छन् । सम्भावित अर्थहरू हुन् १) पावलले मण्‍डलीमा तिमोथीको आचरणको विषयमा मात्र कुरा गरिरहेका छन् । वैकल्पिक अनुवादः “ताकि तिमीले परमेश्‍वरको परिवारको एक सदस्यको रूपमा आफैँलाई कसरी चलाउने भनेर जान्‍न सक” वा २) पावलले सामान्य अर्थमा विश्‍वासीहरूलाई जनाइरहेका छन् । वैकल्पिक अनुवादः “ताकि तिमीहरू सबैले परमेश्‍वरको परिवारका सदस्यहरूको रूपमा आफूहरूलाई कसरी चलाउने भनेर जान्‍न सक” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-distinguish",
+        "orig_language_quote": "οἴκῳ Θεοῦ & ἥτις ἐστὶν ἐκκλησία Θεοῦ ζῶντος",
+        "note": "परमेश्‍वरको घराना, मण्डली र मण्डली भन्‍न नमिल्‍ने कुराको बीचमा भेद छुट्‌ट्याउनुको साटोमा यस वाक्यांशले हामीलाई “परमेश्‍वरको घराना”को बारेमा जानकारी दिन्छ । यसलाई एउटा नयाँ वाक्यको रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरको घराना । परमेश्‍वरको परिवारकाहरू जीवित परमेश्‍वरमा विश्‍वास गर्नेहरूका समुदाय हुन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-distinguish]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἥτις ἐστὶν ἐκκλησία Θεοῦ ζῶντος, στῦλος καὶ ἑδραίωμα τῆς ἀληθείας",
+        "note": "विश्‍वासीहरूले ख्रीष्‍टको बारेमा भएको सत्यताको गवाही दिने कुरालाई पावलले यसरी कुरा गर्छन् कि मानौँ तिनीहरू कुनै भवनलाई आड दिइरहेका खम्‍बा र जग हुन् । यसलाई एउटा नयाँ वाक्यको रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “जुन जीवित परमेश्‍वरको मण्डली हो । साथै, परमेश्‍वरको सत्यतालाई कायम राखेर र त्यसको बारेमा सिकाएर, मण्‍डलीका यी सदस्यहरूले सत्यतालाई आड दिन्छन् जसरी खाँबो र जगले कुनै भवनलाई आड दिन्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "Θεοῦ ζῶντος",
+        "note": "यहाँ यस अभिव्यक्तिले, यूएसटीमा जस्तै, परमेश्‍वरको विषयमा कुरा गरिरहेको हुन सक्छ जसले सबैलाई जीवन दिनुहुन्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 3:16",
+    "bsb_verse_text": "By common confession, the mystery of godliness is great: He appeared in the flesh, was vindicated by the Spirit, was seen by angels, was proclaimed among the nations, was believed in throughout the world, was taken up in glory.",
+    "ult_verse_text": "वास्तवमा, ईश्‍वरभक्तिको रहस्य ठूलो छ:",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὁμολογουμένως",
+        "note": "“कसैले पनि इन्कार गर्न सक्दैन”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μέγα ἐστὶν τὸ τῆς εὐσεβείας μυστήριον",
+        "note": "“ ... कि परमेश्‍वरले प्रकट गर्नु भएको सत्यता महान् छ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-poetry",
+        "orig_language_quote": "ὃς ἐφανερώθη & ἀνελήμφθη ἐν δόξῃ",
+        "note": "पावलले कुनै गीत वा कवितालाई उद्धरण गरिरहेका हुन सक्‍ने प्रबल सम्भावना छ । यदि तपाईंको भाषामा यो कविता हो भनेर सङ्केत गर्ने कुनै तरिका छ भने तपाईंले त्यसलाई यहाँ प्रयोग गर्न सक्‍नुहुन्छ । यदि छैन भने, तपाईंले यसलाई कविताको शैलीको साटोमा साधारण गद्यको रूपमा अनुवाद गर्न सक्‍नुहुन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/writing-poetry]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὃς ἐφανερώθη",
+        "note": "यहाँ “उहाँ”ले कसलाई जनाएको भनेर अस्पष्‍ट छ । यसले “परमेश्‍वर” वा “ख्रीष्‍ट”लाई जनाउन सक्‍छ । यसलाई “उहाँ” नै भनेर अनुवाद गर्दा बेस हुन सक्छ । यदि तपाईंले अझ बढी निर्दिष्‍ट रूपमा जनाउनुपर्छ भने तपाईंले यसलाई “ख्रीष्‍ट जो परमेश्‍वर हुनुहुन्छ” वा “ख्रीष्‍ट” भनेर अनुवाद गर्न सक्‍नुहुन्छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐν σαρκί",
+        "note": "यहाँ पावलले “शरीर” शब्दको प्रयोग मानिसलाई जनाउनको लागि प्रयोग गर्छन् । वैकल्पिक अनुवादः “साँचो मानवको रूपमा” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐδικαιώθη ἐν Πνεύματι",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “पवित्र आत्माले पुष्‍टि गर्नुभयो कि उहाँले आफू जो हुनुहुन्थ्यो भनेर भन्‍नुभयो, उहाँ सो हुनुहुन्थ्यो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ὤφθη ἀγγέλοις",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “स्वर्गदूतहरूले उहाँलाई देखे” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐκηρύχθη ἐν ἔθνεσιν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “धेरै जातिका मानिसहरूले उहाँको बारेमा अरूहरूलाई बताए” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐπιστεύθη ἐν κόσμῳ",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “संसारका धेरै भागका मानिसहरूले उहाँमाथि विश्‍वास गरे” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἀνελήμφθη ἐν δόξῃ",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वर पिताले उहाँलाई महिमामा माथि स्वर्गमा लैजानुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν δόξῃ",
+        "note": "यसको अर्थ हो कि उहाँले परमेश्‍वर पिताबाट शक्ति प्राप्‍त गर्नुभयो र उहाँ आदरका योग्य हुनुहुन्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:1",
+    "bsb_verse_text": "Now the Spirit expressly states that in later times some will abandon the faith to follow deceitful spirits and the teachings of demons,",
+    "ult_verse_text": "अब आत्माले विशेष रूपमा भन्‍नुहुन्‍छ कि पछिल्ला समयहरूमा कोही-कोहीले विश्‍वास छोड्नेछन्, धोका दिने आत्माहरू र भूतहरूको शिक्षाहरूमा ध्यान दिनेछन्,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "आत्माले भन्‍नुभएको कुरा हुनेछ भनेर पावलले तिमोथीलाई बताउँछन् र उनले सिकाउनुपर्ने कुराको विषयमा उत्साह दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δὲ",
+        "note": "यहाँ यो शब्दलाई प्रमुख शिक्षामा आएको छोटो रोकावटलाई अङ्कित गर्नको लागि प्रयोग गरिएको छ । यहाँ पावलले शिक्षाको एउटा नयाँ पाटोको विषयमा बताउन थाल्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν ὑστέροις καιροῖς",
+        "note": "सम्भावित अर्थहरू हुन् १) यसले पावलको मृत्युपश्‍चातको समयलाई जनाउँछ वा २) यो पावलको आफ्‍नो जीवनमै भएको पछिको समय हो ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀποστήσονταί & τῆς πίστεως",
+        "note": "मानिसहरूले ख्रीष्‍टमा विश्‍वास गर्न छोड्ने कुराको विषयमा पावलले यसरी बताउँछन् कि मानौँ तिनीहरूले कुनै स्थान वा वस्तुलाई भौतिक रूपमा छोडिरहेका थिए । वैकल्‍पिक अनुवादः “येशूमा भरोसा गर्न छोड्नु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "προσέχοντες",
+        "note": "“र ... ध्यान दिनु” वा “किनभने तिनीहरूले ... ध्यान दिँदैछन्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πνεύμασι πλάνοις καὶ διδασκαλίαις δαιμονίων",
+        "note": "“मानिसहरूलाई छल गर्ने आत्माहरू र भूतहरूले सिकाउने कुराहरू”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:2",
+    "bsb_verse_text": "influenced by the hypocrisy of liars, whose consciences are seared with a hot iron.",
+    "ult_verse_text": "झूटाहरूको कपटको माध्यमबाट, तिनीहरूको आफ्नै अन्तस्करण चकित पारिएको छ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν ὑποκρίσει ψευδολόγων",
+        "note": "यसलाई एउटा नयाँ वाक्यको रूपमा व्यक्त गर्न सकिन्छ । वैकल्‍पिक अनुवादः “ ... भूतप्रेतहरू ... । यी मानिसहरू कपटीहरू हुनेछन् र झूटहरू बोल्नेछन्”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "κεκαυστηριασμένων τὴν ἰδίαν συνείδησιν",
+        "note": "सम्भावित अर्थहरू हुन् १) आफूहरूले गल्‍ती गरिरहेका छौँ भनेर अब उप्रान्त भन्‍न नसक्‍ने मानिसहरूको विषयमा पावलले यसरी बताउँछन् कि मानौँ कसैले तातो फलामले डामेको छाला जस्तै गरी तिनीहरूका दिमाग खराब भएका छन् वा २) पावलले यी मानिसहरूको विषयमा यसरी बताउँछन् कि मानौँ शैतानले यी मानिसहरू त्यसका हुन् भनेर सङ्केत दिनको लागि त्यसले तिनीहरूमा तातो फलामले चिन्ह बनाएको थियो । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:3",
+    "bsb_verse_text": "They will prohibit marriage and require abstinence from certain foods that God has created to be received with thanksgiving by those who believe and know the truth.",
+    "ult_verse_text": "विवाह गर्न निषेध गर्दै, धन्यवादसाथ ग्रहण गर्नुपर्ने परेमेश्‍वरले सृजनुभएका भोजनहरूबाट अलग्ग बस्‍ने आदेश दिन्‍छन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "κωλυόντων",
+        "note": "“यी मानिसहरूले”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "κωλυόντων γαμεῖν",
+        "note": "तिनीहरूले विश्‍वासीहरूलाई विवाह गर्नलाई मनाही गर्नेछन् भनेर आशय दिइएको छ । वैकल्पिक अनुवादः “विश्‍वासीहरूलाई विवाह गर्न मनाही गर्नु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "ἀπέχεσθαι βρωμάτων",
+        "note": "तिनीहरूले केही निश्‍चित खानेकुराहरूलाई मात्र मनाही गर्नेछन् भनेर आशय दिइएको छ । वैकल्पिक अनुवादः “तिनीहरूले विश्‍वासीहरूलाई केही निश्‍चित खानेकुराबाट टाढा बस्‍न लगाउनेछन्” वा “तिनीहरूले मानिसहरूलाई केही निश्‍चित खानेकुराहरू खान अनुमति दिनेछैनन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:4",
+    "bsb_verse_text": "For every creation of God is good, and nothing that is received with thanksgiving should be rejected,",
+    "ult_verse_text": "किनकि परमेश्‍वरको हरेक सृष्‍टि असल {छ}, र धन्‍यवादसहित ग्रहण गर्नु नराम्रो {होइन}।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "πᾶν κτίσμα Θεοῦ καλόν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले बनाउनुभएको सबै कुरा असल छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "οὐδὲν ἀπόβλητον μετὰ εὐχαριστίας λαμβανόμενον",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “हामीले कुनै पनि कुरालाई इन्कार गर्नुहुँदैन जसको लागि हामी परमेश्‍वरलाई धन्यवाद दिन्छौँ” वा “हामीले धन्यवाद दिएर खाएका सबैकुरा ग्रहणयोग्य हुन्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:5",
+    "bsb_verse_text": "because it is sanctified by the word of God and prayer.",
+    "ult_verse_text": "किनभने यो परमेश्‍वरको वचन र प्रार्थनाद्वारा पवित्र हुन्छ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hendiadys",
+        "orig_language_quote": "ἁγιάζεται & διὰ λόγου Θεοῦ καὶ ἐντεύξεως",
+        "note": "एउटै विचारधारालाई व्यक्त गर्नको लागि “परमेश्‍वरको वचन” र “प्रार्थना”लाई एकसाथ प्रयोग गरिएको छ । प्रार्थना चाहिँ परमेश्‍वरले प्रकट गर्नुभएको सत्यतासँग सहमतिमा छ । वैकल्पिक अनुवादः “उहाँको वचनसँगको सहमतिमा प्रार्थना गरेर यो परमेश्‍वरको प्रयोगको लागि समर्पित गरिएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-hendiadys]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἁγιάζεται",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “हामी यसलाई शुद्ध पार्छौँ” वा “हामीले यसलाई अलग राखेका छौँ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "λόγου Θεοῦ",
+        "note": "यहाँ “वचन”ले परमेश्‍वरको सन्‍देश वा उहाँले प्रकट गर्नुभएको कुरालाई जनाउँछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:6",
+    "bsb_verse_text": "By pointing out these things to the brothers, you will be a good servant of Christ Jesus, nourished by the words of faith and sound instruction that you have followed.",
+    "ult_verse_text": "यी कुराहरू दाजुभाइहरूका सामु राख्दै, तिमीले विश्‍वासका वचनहरू र तिमीले अनुसरण गरेका असल शिक्षाद्वारा ख्रीष्ट येशूको असल सेवक बन्‍नेछौ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ταῦτα ὑποτιθέμενος τοῖς ἀδελφοῖς",
+        "note": "पावलले उनका निर्देशनहरूको विषयमा यसरी बताउँछन् कि मानौँ तिनीहरू वस्तुहरू हुन् जसलाई विश्‍वासीहरूको सामु भौतिक रूपमा प्रस्तुत गर्न सकिन्छ । यहाँ, अगाडि राख्‍नु भनेको निर्देशन दिनु वा सम्झना गराउनु हो । वैकल्पिक अनुवादः “यदि तिमीले विश्‍वासीहरूलाई यी कुराहरू सम्झन सहायता गर्‍यौ भने” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ταῦτα",
+        "note": "यसले [१ तिमोथी ३:१६](../03/16.md) मा सुरु गरिएको शिक्षालाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "τοῖς ἀδελφοῖς",
+        "note": "यसले सारा विश्‍वासीहरूलाई जनाउँछ चाहे पुरुष होऊन् वा स्‍त्री होऊन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-gendernotations]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐντρεφόμενος τοῖς λόγοις τῆς πίστεως, καὶ τῆς καλῆς διδασκαλίας ᾗ παρηκολούθηκας",
+        "note": "पावलले परमेश्‍वरको वचन र त्यसको शिक्षाको विषयमा यसरी बताउँछन् कि मानौँ त्यसले तिमोथीलाई खुवाउन र तिनलाई बलियो बनाउन सक्थ्यो । यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “विश्‍वासका वचनहरू र तिमीले पछ्याएका असल शिक्षाले तिमीलाई ख्रीष्‍टमा अझ बलियो गरी विश्‍वास गर्ने बनाइरहेका छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "λόγοις τῆς πίστεως",
+        "note": "“मानिसहरूलाई विश्‍वास गर्ने बनाउने वचनहरू”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:7",
+    "bsb_verse_text": "But reject irreverent, silly myths. Instead, train yourself for godliness.",
+    "ult_verse_text": "तर अपवित्र र अर्थहीन कथाहरू त्याग। बरु आफैलाई भक्तिमा तालीम देऊ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "βεβήλους καὶ γραώδεις μύθους",
+        "note": "“अपवित्र कथाहरू र वृद्धा श्रीमतीहरूका कथाहरू ।” “कथाहरू”को लागि प्रयोग गरिएको शब्द र “किंवदन्तीहरू”को लागि [१ तिमोथी १:४](../01/03.md) मा प्रयोग गरिएको शब्द एउटै हुन्, त्यसैले तपाईंले यहाँ त्यसरी नै अनुवाद गर्नुपर्छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "καὶ γραώδεις",
+        "note": "यो सम्भवतः एउटा अभिव्‍यक्ति हो जसको अर्थ “मूर्ख” वा “अनौठो” हुन्छ । पावलले “वृद्धा स्‍त्रीहरू”लाई उल्‍लेख गरेर उनले तिनीहरूलाई अभिप्रायका साथै अपमान गरिरहेका छैनन् । बरु, उनलाई र उनका पाठकहरूलाई थाहा थियो कि पुरुषहरू स्‍त्रीहरूभन्दा कम उमेरमै मर्छन्, त्यसैले त्यहाँ पुरुषहरूभन्दा बढी स्‍त्रीहरू थिए जसका दिमागहरू वृद्ध उमेरका कारण कमजोर भएका छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "γύμναζε & σεαυτὸν πρὸς εὐσέβειαν",
+        "note": "“परमेश्‍वरलाई आदर गर्न आफैँलाई तालिम देऊ” वा “परमेश्‍वरलाई खुशी पार्न सकिने तरिकाहरूले काम गर्नमा आफैँलाई तालिम देऊ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:8",
+    "bsb_verse_text": "For physical exercise is of limited value, but godliness is valuable in every way, holding promise for the present life and for the one to come.",
+    "ult_verse_text": "किनकि \"शारीरिक तालिम थोरैको लागि मूल्यवान छ, तर ईश्‍वरभक्तिचाहिँ यस वर्तमान जीवन र आउने जीवनको प्रतिज्ञा भएको सबै कुराहरूको लागि मूल्यवान छ।\"",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "γὰρ σωματικὴ γυμνασία",
+        "note": "“शारीरिक अभ्यास”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐπαγγελίαν ἔχουσα ζωῆς",
+        "note": "“यस जीवनका लागि लाभदायक हुन्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:9",
+    "bsb_verse_text": "This is a trustworthy saying, worthy of full acceptance.",
+    "ult_verse_text": "त्यो वचन विश्‍वासयोग्य र सबै स्वीकार्य छ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "πάσης ἀποδοχῆς ἄξιος",
+        "note": "“तिम्रो पूर्ण विश्‍वासको लागि योग्य” वा “तिम्रो पूर्ण भरोसाको लागि योग्य”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:10",
+    "bsb_verse_text": "To this end we labor and strive, because we have set our hope on the living God, who is the Savior of everyone, and especially of those who believe.",
+    "ult_verse_text": "यसका लागि हामी परिश्रम र संघर्ष गर्छौं, किनकि हामीले जीवित परमेश्‍वरमा आशा राखेका छौं, जो सबै मानिसहरूका, विशेष गरी विश्‍वासीहरूका मुक्तिदाता हुनुहुन्छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰς τοῦτο γὰρ",
+        "note": "“यो नै कारण हो”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "κοπιῶμεν καὶ ἀγωνιζόμεθα",
+        "note": "“सङ्घर्ष गर्नु” र “धेरै कठिन परिश्रम गर्नु” जस्ता शब्दहरूले सामान्य रूपमा एउटै अर्थ दिन्छन् । तिनीहरूले परमेश्‍वरको सेवा गर्ने तीव्रतालाई जोड दिनका लागि पावलले तिनलाई एकसाथ प्रयोग गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]] अनि [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἠλπίκαμεν ἐπὶ Θεῷ ζῶντι",
+        "note": "यहाँ “जीवित परमेश्‍वर”को अर्थ सम्भवतः यसो हुन्छ, “परमेश्‍वर, जसले सबै मानिसहरूलाई जिउँदो बनाउनुहुन्छ ।”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "μάλιστα πιστῶν",
+        "note": "बुझिएको जानकारीलाई स्पष्‍ट रुपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “तर उहाँ विशेष गरेर उहाँमाथि विश्‍वास गर्ने मानिसहरूको मुक्तिदाता हुनुहुन्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-ellipsis]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:11",
+    "bsb_verse_text": "Command and teach these things.",
+    "ult_verse_text": "यी कुराहरू आज्ञा गर र सिकाऊ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "παράγγελλε ταῦτα καὶ δίδασκε",
+        "note": "“यी कुराहरूको आज्ञा देऊ र सिकाऊ” वा “मैले भर्खरै उल्लेख गरेका कुराहरूको आज्ञा देऊ र ती सिकाऊ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:12",
+    "bsb_verse_text": "Let no one despise your youth, but set an example for the believers in speech, in conduct, in love, in faith, in purity.",
+    "ult_verse_text": "तिम्रो जवानीलाई कसैले तुच्छ नठानोस्, तर वचनमा, आचरणमा, प्रेममा, विश्‍वासमा, शुद्धतामा विश्‍वासीहरूका अघी उदाहरण बन।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μηδείς σου τῆς νεότητος καταφρονείτω",
+        "note": "“कसैलाई पनि तिमी जवान भएकोले तिमीलाई कम महत्त्वपूर्ण छौ भनेर ठान्‍न नदेऊ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:13",
+    "bsb_verse_text": "Until I come, devote yourself to the public reading of Scripture, to exhortation, and to teaching.",
+    "ult_verse_text": "म नआउञ्‍जेलसम्म, पढाइमा, उपदेशमा, सिकाउनमा लाग।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "πρόσεχε τῇ ἀναγνώσει, τῇ παρακλήσει, τῇ διδασκαλίᾳ",
+        "note": "“पठन”, “अर्ती दिनु”, र “शिक्षा” जस्ता शब्दहरूलाई मौखिक वाक्यांशहरूसहित अनुवाद गर्न सकिन्छ । आशय दिन खोजिएको जानकारीलाई पनि अनुवादमा उल्‍लेख गर्न सकिन्छ । वैकल्पिक अनुवादः “मानिसहरूलाई धर्मशास्‍त्र पढेर सुनाउन, मानिसहरूलाई अर्ती दिन, र मानिसहरूलाई सिकाउन निरन्तरता देऊ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-abstractnouns]] अनि [[rc://ne/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:14",
+    "bsb_verse_text": "Do not neglect the gift that is in you, which was given you through the prophecy spoken over you at the laying on of the hands of the elders.",
+    "ult_verse_text": "तिमीमा भएको वरदानको अवहेलना नगर, जुन तिमीलाई अगमवाणी मार्फत, एल्डरहरूले तिमीमाथि हात राख्‍दा मिलेको थियो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "μὴ ἀμέλει τοῦ ἐν σοὶ χαρίσματος",
+        "note": "पावलले तिमोथी एक भाँडो भए जसरी कुरा गर्छन् जसमा परमेश्‍वरका वरदानहरू राख्‍न सकिन्थ्यो । यसलाई सकारात्मक रूपमा व्यक्त गर्न सक्‍नुहुन्छ । वैकल्पिक अनुवादः “तिम्रो आत्मिक वरदानलाई बेवास्ता नगर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "μὴ ἀμέλει",
+        "note": "यसलाई सकारात्मक रूपमा व्यक्त गर्न सक्‍नुहुन्छ । वैकल्पिक अनुवादः “प्रयोग गर्नलाई पक्‍का गर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ὃ ἐδόθη σοι διὰ προφητείας",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “जुन तिमीले मण्डलीका अगुवाहरूले परमेश्‍वरको वचन बोल्दा प्राप्‍त गर्‍यौ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐπιθέσεως τῶν χειρῶν τοῦ πρεσβυτερίου",
+        "note": "यो एउटा खास समारोह थियो जसमा मण्डलीका अगुवाहरूले तिनीहरूका हातहरू तिमोथीमाथि राखे र परमेश्‍वरले तिनलाई आज्ञा गर्नुभएका काम गर्न तिनलाई उहाँले समर्थ बनाउनुभएको होस् भनेर प्रार्थना गरे ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:15",
+    "bsb_verse_text": "Be diligent in these matters and absorbed in them, so that your progress will be evident to all.",
+    "ult_verse_text": "तिनीहरूमा रहेर यी कुराहरू अध्ययन गर, ताकि तिम्रो प्रगति सबैमा प्रकट होस्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ταῦτα μελέτα, ἐν τούτοις ἴσθι",
+        "note": "तिमोथीको लागि भएका परमेश्‍वरका वरदानहरूको विषयमा पावलले यसरी बताउँछन् कि मानौँ तिनी भौतिक रूपमा नै तीभित्र हुन सक्‍थे । वैकल्पिक अनुवादः “यी सबै कुराहरू गर र तिनको अनुसार जिऊ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἵνα σου ἡ προκοπὴ φανερὰ ᾖ πᾶσιν",
+        "note": "परमेश्‍वरको सेवा गर्ने तिमोथीको बढ्दो क्षमताको विषयमा पावलले यसरी बताउँछन् कि मानौँ त्यो कुनै भौतिक वस्तु हो जसलाई अरूहरूले देख्‍न सक्छन् । वैकल्पिक अनुवादः “ताकि अरू मानिसहरूले थाहा गर्नेछन् कि तिमीले परमेश्‍वरको सेवा झन् असल र झन् असल किसिमले गरिरहेका छौ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 4:16",
+    "bsb_verse_text": "Pay close attention to your life and to your teaching. Persevere in these things, for by so doing you will save both yourself and those who hear you.",
+    "ult_verse_text": "आफ्नो र शिक्षामा ध्यान देओ। यी कुराहरूमा निरन्तरता देऊ, किनकि, यसो गर्दा तिमीले आफू र आफ्ना श्रोताहरूलाई बचाउनेछौ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἔπεχε σεαυτῷ καὶ τῇ διδασκαλίᾳ",
+        "note": "“आफैँलाई सावधानीपूर्वक चलाऊ र शिक्षालाई ध्यान देऊ” वा “तिम्रो आफ्नै स्वभावहरूलाई नियन्‍त्रण गर र शिक्षालाई ध्यान देऊ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐπίμενε αὐτοῖς",
+        "note": "“यी कुराहरू गर्नलाई निरन्तरता देऊ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καὶ σεαυτὸν σώσεις καὶ τοὺς ἀκούοντάς σου",
+        "note": "सम्भावित अर्थहरू हुन् १) तिमोथीले आफैँलाई र तिनका कुरा सुन्‍नेहरूलाई परमेश्‍वरको इन्साफबाट बचाउनेछन् वा २) तिमीले आफैँलाई र तिनका कुरा सुन्‍नेहरूलाई झूटा शिक्षकहरूको प्रभावबाट बचाउनेछन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:1",
+    "bsb_verse_text": "Do not rebuke an older man, but appeal to him as to a father. Treat younger men as brothers,",
+    "ult_verse_text": "वृद्ध मानिसलाई नहप्काऊ, तर तिनलाई बाबुलाई जस्तै सम्झाऊ, सानाहरूसँग भाइसमान व्यवहार गर।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "पावलले यी आज्ञाहरू एक व्यक्ति, तिमोथीलाई दिइरहेका थिए । “तिमी”को विभिन्‍न रूपहरू वा आज्ञाहरूका विभिन्‍न रूपहरू भएका भाषाहरूले यहाँ एकवचनलाई प्रयोग गर्नुपर्ने हुन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-you]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "तिमोथीलाई पुरुषहरू, स्‍त्रीहरू, विधवाहरू र जवान स्‍त्रीहरूसँग मण्डलीमा कसरी व्यवहार गर्ने भनेर बताउनलाई पावलले निरन्तरता दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πρεσβυτέρῳ μὴ ἐπιπλήξῃς",
+        "note": "“वृद्ध मानिससँग रुखो तरिकाले नबोल”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀλλὰ παρακάλει",
+        "note": "“बरु, तिनलाई उत्साह देऊ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "ὡς πατέρα & ὡς ἀδελφούς",
+        "note": "तिमोथीले सङ्गी विश्‍वासीहरूलाई सच्‍चा प्रेम र आदरले व्यवहार गर्नुपर्छ भनेर उनलाई बताउनको लागि पावलले यी उपमाहरूको प्रयोग गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-simile]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:2",
+    "bsb_verse_text": "older women as mothers, and younger women as sisters, with absolute purity.",
+    "ult_verse_text": "वृद्ध स्त्रीहरूलाई आमाको रूपमा, जवान स्त्रीहरूलाई बहिनीको रूपमा, सबै शुद्धतामा।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "ὡς μητέρας & ὡς ἀδελφὰς",
+        "note": "तिमोथीले सङ्गी विश्‍वासीहरूलाई सच्‍चा प्रेम र आदरले व्यवहार गर्नुपर्छ भनेर उनलाई बताउनको लागि पावलले यी उपमाहरूको प्रयोग गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-simile]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "νεωτέρας",
+        "note": "तपाईंले बुझिएको जानकारीलाई स्‍पष्‍टसँग व्यक्त गर्न सक्‍नुहुन्छ । वैकल्पिक अनुवादः “जवान स्‍त्रीहरूलाई अर्ती देऊ” वा “जवान स्‍त्रीहरूलाई उत्साह देऊ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-ellipsis]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν πάσῃ ἁγνίᾳ",
+        "note": "“शुद्ध विचारहरू र कामहरूले” वा “पवित्र तरिकाले”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:3",
+    "bsb_verse_text": "Honor the widows who are truly widows.",
+    "ult_verse_text": "विधवाहरूलाई आदर गर—साँचो विधवाहरूलाई।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "χήρας τίμα",
+        "note": "“विधवाहरूलाई सम्मान गर र तिनीहरूको लागि जुटाऊ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὰς ὄντως χήρας",
+        "note": "“तिनीहरूको लागि जुटाउनलाई कोही पनि नभएका विधवाहरू”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:4",
+    "bsb_verse_text": "But if a widow has children or grandchildren, they must first learn to show godliness to their own family and repay their parents, for this is pleasing in the sight of God.",
+    "ult_verse_text": "तर यदि कुनै विधवाका छोराछोरी वा नातिनातिनाहरू छन् भने, पहिले तिनीहरूले आफ्नो घरपरिवारको आदर गर्न र आफ्ना पुर्खाहरूको ऋण चुकाउन सकून्, किनकि यो परमेश्‍वरलाई मनपर्ने कुरा हो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μανθανέτωσαν πρῶτον",
+        "note": "“सर्वप्रथम तिनीहरूले ... सिक्‍नुपर्छ” वा “ ... सिक्‍नलाई तिनीहरूले प्राथमिकता बनाऊन्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὸν ἴδιον οἶκον",
+        "note": "“तिनीहरूको आफ्नै परिवारलाई” वा “तिनीहरूका घरहरूमा बसिरहेकाहरूलाई”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀμοιβὰς ἀποδιδόναι τοῖς προγόνοις",
+        "note": "“तिनीहरूका बाबुआमाले तिनीहरूलाई दिएका असल थोकहरूको बदलीमा तिनीहरूले आफ्ना बाबुआमालाई असल गरून्”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:5",
+    "bsb_verse_text": "The widow who is truly in need and left all alone puts her hope in God and continues night and day in her petitions and prayers.",
+    "ult_verse_text": "तर साँचो र एकली विधवाले परमेश्‍वरमा आशा राख्छिन् र रातदिन अनुरोध र प्रार्थनामा लागिरहन्छिन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἡ δὲ ὄντως χήρα καὶ μεμονωμένη",
+        "note": "“तर एक साँचो विधवाको कुनै परिवार हुँदैन”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "προσμένει ταῖς δεήσεσιν καὶ ταῖς προσευχαῖς",
+        "note": "“तिनले बिन्ती र प्रार्थना गरिरहन्छिन्”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "ταῖς δεήσεσιν καὶ ταῖς προσευχαῖς",
+        "note": "यी दुई शब्दहरूको सामान्य रूपमा एउटै अर्थ हुन्छ । यी विधवाहरूले कति धेरै प्रार्थना गर्छन् भन्‍ने कुरालाई जोड दिनको लागि पावलले तिनलाई एकसाथ प्रयोग गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "νυκτὸς καὶ ἡμέρας",
+        "note": "“हरेक समय”को अर्थ दिनको लागि “रात” र “दिन”लाई एकसाथ प्रयोग गरिएको छ । वैकल्पिक अनुवादः “हरेक समय” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-merism]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:6",
+    "bsb_verse_text": "But she who lives for pleasure is dead even while she is still alive.",
+    "ult_verse_text": "तर, यदि तिनी सुख-विलासमा रहन्छिन् भने तिनी मरेकी छिन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τέθνηκεν",
+        "note": "परमेश्‍वरलाई प्रसन्‍न पार्न नखोज्‍ने मानिसहरू मरेसरह हुन् भनेर पावलले भन्छन् । वैकल्पिक अनुवादः “मरेको व्यक्ति झैँ छिन्, तिनले परमेश्‍वरलाई प्रतिक्रिया दिँदिनन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ζῶσα",
+        "note": "यसले शारीरिक जीवनलाई जनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:7",
+    "bsb_verse_text": "Give these instructions to the believers, so that they will be above reproach.",
+    "ult_verse_text": "यी कुराहरू पनि आज्ञा देऊ, ताकि तिनीहरू दोषरहित होऊन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ταῦτα παράγγελλε",
+        "note": "“यी कुराहरूको आज्ञा देऊ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἵνα ἀνεπίλημπτοι ὦσιν",
+        "note": "“ताकी कसैले पनि तिनीहरूमा गल्ती पत्ता लगाउन नसकोस् ।” “तिनीहरू”को सम्भावित अर्थहरू हुन् १) “ती विधवाहरू र तिनीहरूका परिवारहरू” वा २) “विश्‍वासीहरू ।” कर्तालाई “तिनीहरू” भनेर नै लेख्दा उत्तम हुन सक्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:8",
+    "bsb_verse_text": "If anyone does not provide for his own, and especially his own household, he has denied the faith and is worse than an unbeliever.",
+    "ult_verse_text": "तर यदि कसैले आफ्नो, र विशेष गरी घरका सदस्यहरूको लागि प्रबन्ध गर्दैन भने, उसले विश्‍वासलाई इन्कार गरेको छ र एक अविश्‍वासी भन्दा खराब छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τις τῶν ἰδίων καὶ μάλιστα οἰκείων οὐ προνοεῖ",
+        "note": "“उसका नातेदारहरूका खाँचोहरूमा सहायता गर्दैन, विशेषगरी परिवारका ती सदस्यहरूका लागि जो उसको घरमा बस्छन्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὴν πίστιν ἤρνηται",
+        "note": "“उसले हामीले विश्‍वास गरेको सत्यताको विरुद्धमा काम गरेको छ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἔστιν ἀπίστου χείρων",
+        "note": "“येशूलाई विश्‍वास नगर्नेहरू भन्दा पनि अझ खराब हुन्छ ।” पावलले यो व्‍यक्ति एक अविश्‍वासीभन्दा पनि खराब हुन्छ भन्‍न खोजेका हुन् किनभने अविश्‍वासीहरूले पनि तिनीहरूका नातेदारहरूका हेरविचार गर्छन् । त्यसैकारण, एक विश्‍वासीले उसका नातेदारहरूलाई पक्‍कै पनि हेरविचार गर्नैपर्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:9",
+    "bsb_verse_text": "A widow should be enrolled if she is at least sixty years old, faithful to her husband,",
+    "ult_verse_text": "साठी वर्षदेखि माथिकाहरूलाई मात्र विधवा-सूचीमा राख, एक श्रीमानकी श्रीमती,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "χήρα καταλεγέσθω",
+        "note": "त्यहाँ विधवाहरूको लागि एक सूची भएको जस्तो देखिन्छ, जुन लिखित हुन पनि सक्छ नहुन पनि सक्छ । मण्डलीका सदस्यहरूले यी स्‍त्रीहरूका वास, वस्‍त्रहरू, र खानेकुराको लागि भएका खाँचोहरू पूरा गरिदिन्थे, र यी स्‍त्रीहरूले तिनीहरूका जीवन ख्रीष्‍टिएन समुदायको सेवामा समर्पण गरेको अपेक्षा गरिन्थ्यो ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-numbers",
+        "orig_language_quote": "μὴ ἔλαττον ἐτῶν ἑξήκοντα",
+        "note": "पछि पावलले ५:११-१६ मा गरेको व्याख्या अनुसार, ६० वर्षभन्दा कम उमेरका विधवाहरूले पुनः विवाह गर्न सक्दथे । त्यसैले ख्रीष्‍टिएन समुदायले ६० वर्षभन्दा बढी उमेरका विधवाहरूलाई मात्र हेरविचार गर्नुपर्ने थियो । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/translate-numbers]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "γεγονυῖα, ἑνὸς ἀνδρὸς γυνή",
+        "note": "सम्भावित अर्थहरू हुन् १) तिनी आफ्नो पतिप्रति सधैँ विश्‍वासयोग्य थिइन् वा २) तिनले आफ्नो पतिसँग सम्बन्ध विच्छेद गरेर अर्को मानिससँग पछि विवाह गरेकी थिइनन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:10",
+    "bsb_verse_text": "and well known for good deeds such as bringing up children, entertaining strangers, washing the feet of the saints, imparting relief to the afflicted, and devoting herself to every good work.",
+    "ult_verse_text": "राम्रो काममा प्रमाणित हुनुपर्छ: यदि उनले बालकहरूलाई हुर्काएकी छिन्, यदि उनले परदेशीहरूलाई सत्कार गरेकी छिन् , यदि उनले सन्तहरूका खुट्टा धोएकी छिन भने, यदि उनले पीडितहरूलाई राहत दिएकी छिन भने, यदि उनले हरेक असल कामको पछि लागेकी छिन।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐν ἔργοις καλοῖς μαρτυρουμένη",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “मानिसहरूले तिनको असल कामको बारेमा प्रमाण दिनुपर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐξενοδόχησεν",
+        "note": "“परदेशीहरूलाई तिनको घरमा स्वागत गरेकी”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἁγίων πόδας ἔνιψεν",
+        "note": "अरू मानिसहरूका खाँचोहरू पूरा गर्न र तिनीहरूको जीवनलाई बढी सुखमय बनाउनलाई एउटा तरिका चाहिँ धूलो र हिलोमा हिँडेका व्‍यक्तिहरूका मैला लागेका पाउहरू धुनु हो । यसको अर्थ सम्भवतः यो हो कि तिनले सामान्य रूपमा नम्रताको काम गरिन् । वैकल्पिक अनुवादः “अरू विश्‍वासीहरूलाई सहायता गर्नको लागि साधारण कामहरू गरेकी छिन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἁγίων",
+        "note": "केही संस्करणहरूले यहाँ “विश्‍वासीहरू”लाई “सन्तहरू” वा “परमेश्‍वरका पवित्र मानिसहरू” भनेर अनुवाद गर्छन् । आवश्‍यक धारणा चाहिँ ख्रीष्‍टिएन विश्‍वासीहरूलाई जनाउनु हो ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-nominaladj",
+        "orig_language_quote": "θλιβομένοις ἐπήρκεσεν",
+        "note": "यहाँ “कष्‍टमा परेकाहरू” भनेको नामयोगी विशेषण हो जसलाई एउटा विशेषणको रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “दुःख भोगिरहेकाहरूलाई सहयोग गरेकी” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-nominaladj]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "παντὶ ἔργῳ ἀγαθῷ ἐπηκολούθησεν",
+        "note": "“सबै प्रकारका असल कामहरू गर्न आफैँलाई सुम्पेकी”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:11",
+    "bsb_verse_text": "But refuse to enroll younger widows. For when their passions draw them away from Christ, they will want to marry,",
+    "ult_verse_text": "तर कम उमेरका विधवाहरूलाई इन्कार गर, किनकि जब तिनीहरू ख्रीष्टको विरुद्धमा बेइमान हुन्छन्, तिनीहरू विवाह गर्न चाहन्छन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "νεωτέρας δὲ χήρας παραιτοῦ",
+        "note": "“तर जवान विधवाहरूलाई सूचीमा समावेश नगर” । यो सूची चाहिँ ६० वर्षभन्दा माथिका विधवाहरूका लागि थियो जसलाई ख्रीष्‍टिएन समुदायले सहायता गर्ने थियो ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὅταν γὰρ καταστρηνιάσωσιν τοῦ Χριστοῦ, γαμεῖν θέλουσιν",
+        "note": "“किनकि जब तिनीहरूले आफ्नो शारीरिक अभिलाषाहरू पूरा गर्ने इच्छा गर्छन् र विवाह गर्छन्, तिनीहरूले विधवाहरूको रूपमा ख्रीष्‍टको सेवा गर्ने तिनीहरूका प्रतिज्ञाको विरुद्धमा जान्छन्”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:12",
+    "bsb_verse_text": "and thus will incur judgment because they are setting aside their first faith.",
+    "ult_verse_text": "यसरी आफ्नो पहिलो करार भङ्ग गरेको कारण तिनीहरू दण्डमा पर्छन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὴν πρώτην πίστιν ἠθέτησαν",
+        "note": "“तिनीहरूका अगाडिका प्रतिबद्धतालाई कायम राख्‍दैनन्” वा “त्यो गर्दैनन् जुन गर्नलाई तिनीहरूले अगाडि प्रतिज्ञा गरेका थिए”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πίστιν",
+        "note": "प्रतिबद्धता चाहिँ समुदायले ती विधवाहरूका आवश्कताहरूलाई पूरा गरिदिएको खण्‍डमा तिनीहरूले ख्रीष्‍टिएन समुदायलाई तिनीहरूका बाँकी जीवनभर सेवा गर्ने सहमति थियो ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:13",
+    "bsb_verse_text": "At the same time they will also learn to be idle, going from house to house and being not only idle, but also gossips and busybodies, discussing things they should not mention.",
+    "ult_verse_text": "तर एकै समयमा, तिनीहरू अल्छी हुन सिक्छन्, घरहरू घुम्‍ने, र अल्छी मात्र होइन, तर कुरौटे, अर्काको काममा हात हाल्ने, बोल्नु नहुने कुराहरू बोल्ने हुन्छन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀργαὶ μανθάνουσιν",
+        "note": "“केही पनि नगरी बस्‍ने बानीमा पर्छन्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "φλύαροι καὶ περίεργοι, λαλοῦσαι τὰ μὴ δέοντα",
+        "note": "एउटै क्रियाकलापको विषयमा कुरा गर्नका लागि यी तीन वाक्यांशहरू सम्भवतः तीन तरिकाहरू हुन् । यी मानिसहरूले अरू मानिसहरूका निजी जीवनलाई ध्यान दिन हुँदैन र त्यसका बारेमा अरूहरूलाई बताउनुहुँदैन, जुन अरू मानिसहरूले ती कुराहरू सुनेर कुनै गतिला काम गर्दैनन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "φλύαροι",
+        "note": "ती वचनहरू जसले ती सुन्‍नेहरूलाई केही सहायता गर्दैनन्"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "περίεργοι",
+        "note": "ती मानिसहरू जसले अरू मानिसहरूका निजी जीवनमा तिनीहरूका आफ्‍नै भलाइको लागि चासो लिन्छन् र अरू मानिसहरूको भलाइको लागि होइन"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:14",
+    "bsb_verse_text": "So I advise the younger widows to marry, have children, and manage their households, denying the adversary occasion for slander.",
+    "ult_verse_text": "त्यसैले म चाहान्छु कि कम उमेरकाहरूले बिहे गरून्, सन्तान पाऊन्, घरपरिवार चलाऊन्, विरोध गर्नेलाई गाली गर्ने मौका नदेऊ ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "οἰκοδεσποτεῖν",
+        "note": "“तिनको घरमा भएका सबैको वास्ता गर्नु”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τῷ ἀντικειμένῳ",
+        "note": "सम्भावित अर्थहरू हुन् १) यसले शैतानलाई जनाउँछ वा २) यसले अविश्‍वासीहरूलाई जनाउँछ जो ख्रीष्‍टिएनहरूको विरुद्धमा छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-inclusive",
+        "orig_language_quote": "λοιδορίας χάριν",
+        "note": "यहाँ “हामीलाई” शब्दले तिमोथी समेत गरेर सम्पूर्ण ख्रीष्‍टिएन समुदायलाई जनाउँछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-inclusive]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:15",
+    "bsb_verse_text": "For some have already turned aside to follow Satan.",
+    "ult_verse_text": "किनकि पहिले नै कोही-कोही शैतानको पछि लागिसेका छन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐξετράπησαν ὀπίσω τοῦ Σατανᾶ",
+        "note": "पावलले ख्रीष्‍टप्रतिको विश्‍वासयोग्यतामा जिउने कुरा चाहिँ कुनै पछ्याउनुपर्ने मार्ग भए झैँ गरी बताउँछन् । यसको अर्थ हो कि त्यस स्‍त्रीले येशूको आज्ञापालन गर्न छोडिन् र शैतानको आज्ञापालन गर्न थालिन् । वैकल्पिक अनुवादः “शैतानलाई पछ्याउनका निमित्त ख्रीष्‍टको मार्गलाई छोडे” वा “ख्रीष्‍टको साटोमा शैतानको आज्ञापालन गर्नलाई निर्णय गरे” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:16",
+    "bsb_verse_text": "If any believing woman has dependent widows, she must assist them and not allow the church to be burdened, so that it can help the widows who are truly in need.",
+    "ult_verse_text": "यदि कुनै विश्‍वासी स्‍त्रीसँग विधवाहरू छन् भने, तिनले तिनीहरूलाई मदत गरून्, र मण्डलीमाथि कुनै बोझ नपरोस्, ताकि यसले साँचो विधवाहरूलाई सहायता दिन सकोस्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τις πιστὴ",
+        "note": "“कुनै पनि ख्रीष्‍टिएन स्‍त्री” वा “जो कोही पनि स्‍त्री जसले ख्रीष्‍टमा विश्‍वास गर्छिन्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἔχει χήρας",
+        "note": "“तिनका नातेदारहरूको माझमा विधवाहरू छन्”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "καὶ μὴ βαρείσθω ἡ ἐκκλησία",
+        "note": "समूदायले तिनीहरूले सक्‍नेभन्दा बढी मानिसहरूलाई सहयोग गर्नुपर्ने अवस्थाको विषयमा पावलले यसरी बताउँछन् कि मानौँ त्यो भनेको तिनीहरूले आफ्‍ना पिठिउँहरूमा असाध्यै धेरै वजनहरू बोकिरहेका थिए । यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “ताकि मण्‍डलीसँग तिनीहरूले सक्‍नेभन्दा बढी काम नहोस्” वा “ताकि ख्रीष्‍टिएन समुदायले ती विधवाहरूलाई सहायता गर्न नपरोस् जसका परिवारहरूले तिनीहरूका लागि जुटाउन सक्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὄντως χήραις",
+        "note": "“ती स्‍त्रीहरू जससँग तिनीहरूका लागि जुटाउनलाई कोही पनि छैन”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:17",
+    "bsb_verse_text": "Elders who lead effectively are worthy of double honor, especially those who work hard at preaching and teaching.",
+    "ult_verse_text": "एल्डरहरूले राम्ररी शासन गरेका छन्, उनीहरूलाई दोहोरो सम्मानको योग्य मानिनेछ, विशेष गरी शब्द र शिक्षामा परिश्रम गर्नेहरू।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले फेरि पनि एल्डरहरूलाई (बिशपहरूलाई) कसरी व्यवहार गरिनुपर्छ भन्‍ने विषयमा कुरा गर्छन् र त्यसपछि तिमोथीलाई केही व्यक्तिगत निर्देशनहरू दिन्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "οἱ καλῶς προεστῶτες πρεσβύτεροι & ἀξιούσθωσαν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “सबै विश्‍वासीहरूले असल अगुवाइ गर्ने एल्डरहरूलाई योग्यका ठान्‍नुपर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "διπλῆς τιμῆς",
+        "note": "सम्भावित अर्थहरू हुन् १) “सम्मान र ज्याला” वा २) “अरूहरूले पाउनेभन्दा बढी सम्मान”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "οἱ κοπιῶντες ἐν λόγῳ καὶ διδασκαλίᾳ",
+        "note": "पावलले वचनको विषयमा यसरी बताउँछन् कि मानौँ त्यो कुनै वस्तु हो जसलाई लिएर कोही व्यक्तिले काम गर्न सक्छ । वैकल्पिक अनुवादः “तिनीहरू जसले परमेश्‍वरको वचन प्रचार गर्छन् र सिकाउँछन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:18",
+    "bsb_verse_text": "For the Scripture says, “Do not muzzle an ox while it is treading out the grain,” and, “The worker is worthy of his wages.”",
+    "ult_verse_text": "किनकि धर्मशास्‍त्रले भन्‍छ, “दाइँ गर्ने गोरुको मुखमा मोहोलो लगाउनेछैनौ,” र, “कामदार आफ्नो ज्यालाको योग्य {छ}।”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "λέγει γὰρ ἡ Γραφή",
+        "note": "यो मानवीकरण गरिएको हो, जसको अर्थ हुन्छ कि कसैले धर्मशास्‍त्रमा लेखेको कुरा यही नै हो । वैकल्पिक अनुवादः “किनकि हामी धर्मशास्‍त्रमा पढ्छौँ कि” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-personification]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "βοῦν ἀλοῶντα οὐ φιμώσεις",
+        "note": "पावलले यस उद्धरणलाई एउटा अलङ्कारको रूपमा प्रयोग गरिरहेका छन् जसको अर्थ हुन्छ कि मण्डलीका अगुवाहरूले तिनीहरूका कामका लागि ख्रीष्‍टिएन समुदायबाट ज्याला पाउनुपर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-unknown",
+        "orig_language_quote": "φιμώσεις",
+        "note": "कुनै पशुले काम गरिरहेको बेलामा नखाओस् भनेर त्यसको थुतुनो वा मुखमा लगाइने एउटा जालो (हेर्नुहोस्ः [[rc://ne/ta/man/translate/translate-unknown]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀλοῶντα",
+        "note": "एउटा गोरुले तब “अन्‍न दाइँ गर्छ” जब अन्‍नलाई डाँठबाट छुट्टाउन काटेर राखिएको अन्‍नका बालामाथि त्यो हिँड्छ वा कुनै भारी वस्तुलाई त्यसमाथि तान्छ । गोरुलाई त्यसले काम गर्दै गर्दा केही अन्‍न खान दिइन्थ्यो ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἄξιος",
+        "note": "“लायकको हुन्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:19",
+    "bsb_verse_text": "Do not entertain an accusation against an elder, except on the testimony of two or three witnesses.",
+    "ult_verse_text": "दुई वा तीन साक्षीको गवाहीबाहेक एल्डरको विरुद्धमा लाएको आरोप कहिल्यै स्वीकार नगर",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "κατηγορίαν μὴ παραδέχου",
+        "note": "पावलले आरोपहरूको विषयमा यसरी कुरा गर्छन् कि मानौँ ती वस्तुहरू हुन् जसलाई मानिसहरूद्वारा भौतिक रूपमा स्वीकार गर्न सकिन्थ्यो । वैकल्‍पिक अनुवादः “कसैले लगाउने कुनै पनि आरोपलाई सत्य भनी स्वीकार गरी नहाल” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δύο ἢ τριῶν",
+        "note": "“कम्तीमा दुईजना” वा “दुई वा सोभन्दा बढी”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:20",
+    "bsb_verse_text": "But those who persist in sin should be rebuked in front of everyone, so that the others will stand in fear of sin.",
+    "ult_verse_text": "पाप गर्नेहरूलाई सबैको अगाडि हप्काओ, ताकि बाँकीलाई पनि डर होस्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τοὺς ἁμαρτάνοντας",
+        "note": "यसले परमेश्‍वरको अवाज्ञा गर्ने वा परमेश्‍वरलाई अप्रसन्‍न पार्ने कुनै पनि कुरा कुनै पनि व्यक्तिले गर्नुलाई जनाउँछ, जसमा ती कुराहरू पनि पर्छन् जसको बारेमा अरू मानिसहरूलाई जानकारी छैन ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐνώπιον, πάντων",
+        "note": "“जहाँ सबैले देख्‍न सक्‍छन्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἵνα καὶ οἱ λοιποὶ φόβον ἔχωσιν",
+        "note": "“ताकि अरूहरू पाप गर्नलाई डराऊन्”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:21",
+    "bsb_verse_text": "I solemnly charge you before God and Christ Jesus and the elect angels to maintain these principles without bias, and to do nothing out of partiality.",
+    "ult_verse_text": "म तिमीलाई, परमेश्‍वर र ख्रीष्ट येशू र चुनिएका स्वर्गदूतहरूको सामु आज्ञा गर्छु, कि तिमीले यी कुराहरूलाई पक्षपात नगरी राख, पक्षपातबाट केही नगर।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τῶν ἐκλεκτῶν ἀγγέλων",
+        "note": "यसको अर्थ ती स्‍वर्गदूतहरू हुन्छ जसलाई परमेश्‍वर र येशूले उहाँहरूको विशेष तरिकाले सेवा गर्नलाई छान्‍नुभएको छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "ταῦτα φυλάξῃς χωρὶς προκρίματος, μηδὲν ποιῶν κατὰ πρόσκλισιν",
+        "note": "“भेदभाव” र “पक्षपात”ले सामान्य रूपमा एउटै अर्थ दिन्छन् । पावलले जोड दिइरहेका छन् कि तिमोथीले इमान्दारीताका साथ न्याय गर्नुपर्छ र सबैसँग असल व्यवहार गर्नुपर्छ । वैकल्पिक अनुवादः “ ... कि भेदभाव नगरीकन वा कसैलाई खास कृपा नदेखाइकन यी नियमहरूको पालना गर्न” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ταῦτα",
+        "note": "सम्भावित अर्थहरू हुन् १) यसले पावलले भर्खरै तिमोथीलाई भनेका नियमहरूलाई जनाउँछ वा २) यसले पावलले तिमोथीलाई बताउन लागेका नियमहरूलाई जनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:22",
+    "bsb_verse_text": "Do not be too quick in the laying on of hands and thereby share in the sins of others. Keep yourself pure.",
+    "ult_verse_text": "कसैमाथि हात राख्‍ने काममा हतार नगर। कुनै मानिसको पापमा सहभागी नहोऊ। आफूलाई वपित्र राख।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "χεῖρας & ἐπιτίθει",
+        "note": "हात राख्‍नु भनेको एक खास चलन थियो जसमा एक वा बढी मण्डलीका अगुवाहरूले तिनीहरूका हातहरू मानिसहरूमाथि राख्‍छन् र प्रार्थना गर्छन् कि परमेश्‍वरले ती मानिसहरूलाई मण्‍डलीमा उहाँलाई मनपर्दो किसिमले सेवा गर्नलाई सक्षम बनाउनुभएको होस् । ख्रीष्‍टिएन समुदायलाई सेवा गर्नका निमित्त कुनै व्यक्तिलाई आधिकारिक रूपमा अलग गर्नभन्दा अगाडि त्यस व्यक्तिले लामो समयसम्म असल चरित्र नदेखाएसम्‍म तिमोथीले कुर्नुपर्थ्यो ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "μηδὲ κοινώνει ἁμαρτίαις ἀλλοτρίαις",
+        "note": "पावलले कोही व्यक्तिको पापको विषयमा यसरी कुरा गर्छन् कि मानौँ त्यो कुनै वस्तु हो जुन अरूहरूसँग बाँड्न सकिन्छ । वैकल्पिक अनुवादः “अर्को व्यक्तिको पापमा नजोडिऊ” वा “अर्को व्यक्तिले पाप गर्दा त्यसमा भाग नलिऊ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μηδὲ κοινώνει ἁμαρτίαις ἀλλοτρίαις",
+        "note": "सम्भावित अर्थहरू हुन् १) यदि तिमोथीले पापको दोषी भएको कुनै व्यक्तिलाई मण्‍डलीमा काम गर्नलाई छाने भने परमेश्‍वरले त्यस व्यक्तिको पापको लागि तिमोथीलाई जिम्‍मेवार ठहराउनुहुने थियो २) तिमोथीले ती पापहरू गर्नुहुँदैन जुन उनले अरूहरूले गर्दै गरेको देखे ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:23",
+    "bsb_verse_text": "Stop drinking only water and use a little wine instead, because of your stomach and your frequent ailments.",
+    "ult_verse_text": "अब पानी मात्र नपिऊ, तर पेट र बारम्बार हुने रोगहरूको कारण थोरै दाखमद्य प्रयोग गर।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "μηκέτι ὑδροπότει",
+        "note": "यो आशय दिइएको छ कि तिमोथीले केवल पानी मात्र पिउन हुँदैन भनेर पावलले भन्‍न खोजेका थिए । उनले दाखमद्यलाई औषधीको रूपमा प्रयोग गर्नको लागि तिमोथीलाई भनिरहेका छन् । धेरैपटक त्यस क्षेत्रमा भएको पानीले बिरामी ल्याउँथ्यो । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:24",
+    "bsb_verse_text": "The sins of some men are obvious, going ahead of them to judgment; but the sins of others do not surface until later.",
+    "ult_verse_text": "केही मानिसहरूका पापहरू स्पष्ट छन्, न्यायमा अगाडि बढ्दै छन्, तर अरू कतिका पापहरू पछि मात्र देखा पर्छन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "τινῶν ἀνθρώπων αἱ ἁμαρτίαι πρόδηλοί εἰσιν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “केही मानिसहरूका पापहरू निकै स्पष्‍ट हुन्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "προάγουσαι εἰς κρίσιν",
+        "note": "“तिनीहरूका पापहरू ती मानिसहरूको अगाडि इन्साफमा जान्छन् ।” पावलले पापहरूको विषयमा यसरी बताउँछन् कि मानौँ ती सरिरहेका थिए । सम्भावित अर्थहरू हुन् १) तिनीहरूका पापहरू यति स्पष्‍ट छन् कि तिनीहरूको विरुद्धमा कसैले साक्षी दिनभन्दा अगाडि नै तिनीहरू दोषी छन् भनेर सबैले जान्‍नेछन् वा २) तिनीहरूका पापहरू खुलस्त छन्, र परमेश्‍वरले तिनीहरूलाई अहिले नै न्याय गर्नुहुन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-personification]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τισὶν δὲ καὶ ἐπακολουθοῦσιν",
+        "note": "“तर केही पापहरूले मानिसहरूलाई पछि पछ्याउँछन् ।” पावलले पापहरूको विषयमा यसरी बताउँछन् कि मानौँ ती सरिरहेका थिए । सम्भावित अर्थहरू हुन् १) तिमोथी र ख्रीष्‍टिएन समुदायलाई केही समय नभएसम्‍म केही पापहरूको बारेमा थाहा हुनेछैन वा २) अन्तिम इन्साफको बेला नभएसम्‍म परमेश्‍वरले केही पापहरूको इन्साफ गर्नुहुनेछैन । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 5:25",
+    "bsb_verse_text": "In the same way, good deeds are obvious, and even the ones that are inconspicuous cannot remain hidden.",
+    "ult_verse_text": "त्यसै गरी, असल कामहरू पनि स्पष्ट छन्, र अन्यथा भएकाहरू गुप्तमा रहन सक्दैनन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὰ ἔργα τὰ καλὰ πρόδηλα",
+        "note": "“केही असल कामहरू स्पष्‍ट हुन्छन्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὰ ἔργα τὰ καλὰ",
+        "note": "यी कामहरूलाई “असल” मानिन्छ किनभने ती परमेश्‍वरको चरित्र, उद्देश्‍यहरू, र इच्‍छासँग मेल खान्छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "καὶ τὰ ἄλλως ἔχοντα, κρυβῆναι οὐ δύναταί",
+        "note": "पावलले पापहरूको विषयमा यसरी कुरा गर्छन् कि मानौँ ती वस्तुहरू थिए जसलाई कसैले लुकाउन सक्थ्यो । यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “तर प्रत्यक्ष नरहेका असल कामहरूको बारेमा पनि मानिसहरूले पछि पत्ता लगाउनेछन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:1",
+    "bsb_verse_text": "All who are under the yoke of slavery should regard their masters as fully worthy of honor, so that God’s name and our teaching will not be discredited.",
+    "ult_verse_text": "दासत्वका जुवामुनि हुने कमाराहरू, तिनीहरूले आफ्ना मालिकहरूलाई सबै सम्मानको योग्य ठान्‍नुपर्छ, ताकि परमेश्‍वरको नाउँ र शिक्षाको निन्दा नहोस्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले दासहरू र मालिकहरूलाई केही विशेष निर्देशनहरू दिन्छन् र त्यसपछि धर्मी जीवन जिउने विषयमा निर्देशनहरू दिनलाई निरन्तरता दिन्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὅσοι εἰσὶν ὑπὸ ζυγὸν δοῦλοι",
+        "note": "पावलले दासको रूपमा काम गर्ने मानिसहरूको विषयमा यसरी बताउँछन् कि मानौँ तिनीहरू जुवा बोक्‍ने गोरूहरू हुन् । वैकल्पिक अनुवादः “दासहरूको रूपमा काम गर्ने सबैले” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "ὅσοι εἰσὶν",
+        "note": "पावलले विश्‍वासीहरूको बारेमा कुरा गर्दैछन् भनेर बुझिएको छ । वैकल्पिक अनुवादः “विश्‍वासीहरू सबैले” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "μὴ τὸ ὄνομα τοῦ Θεοῦ καὶ ἡ διδασκαλία βλασφημῆται",
+        "note": "यसलाई कर्तृ वाच्यमा र सकारात्मक रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “अविश्‍वासीहरूले परमेश्‍वरको नाउँ र शिक्षाको बारेमा सधैँ सम्‍मानपूर्वक रीतिले कुरा गरून्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]] अनि [[rc://ne/ta/man/translate/figs-litotes]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "τὸ ὄνομα τοῦ Θεοῦ",
+        "note": "यहाँ “नाउँ”ले परमेश्‍वरको स्वभाव वा चरित्रलाई जनाउँछ । वैकल्पिक अनुवादः “परमेश्‍वरको चरित्र” वा “परमेश्‍वर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἡ διδασκαλία",
+        "note": "“विश्‍वास” वा “सुसमाचार”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:2",
+    "bsb_verse_text": "Those who have believing masters should not show disrespect because they are brothers, but should serve them all the more, since those receiving their good service are beloved believers. Teach and encourage these principles.",
+    "ult_verse_text": "तर विश्‍वासी मालिकहरू भएकाहरू, तिनीहरू दाजुभाइहरू भएकाले तिनीहरूलाई तुच्छ नठानून्, तर तिनीहरूले तिनीहरूको अझ बढी सेवा गरून्, किनकि तिनीहरू विश्‍वासी र प्रियहरू हुन्, सेवामा भाग लिनेहरू। यी कुराहरू सिकाऊ र प्रोत्साहन देओ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀδελφοί εἰσιν",
+        "note": "यहाँ “भाइहरू”को अर्थ “सङ्गी विश्‍वासीहरू” हुन्छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "οἱ τῆς εὐεργεσίας ἀντιλαμβανόμενοι",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “किनकि ती मालिकहरू जसलाई दासहरूले तिनीहरूका कामहरूमा सघाउँछन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "καὶ ἀγαπητοὶ",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । सम्भावित अर्थहरू हुन् १) “र दासहरूले तिनीहरूलाई प्रेम गर्नु पर्छ” वा २) “जसलाई परमेश्‍वरले प्रेम गर्नुहुन्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:4",
+    "bsb_verse_text": "he is conceited and understands nothing. Instead, he has an unhealthy interest in controversies and disputes about words, out of which come envy, strife, abusive talk, evil suspicions,",
+    "ult_verse_text": "ऊ फुलेको छ, केही बुझ्दैन, तर विवाद र शब्द-लडाईहरूको बारेमा बिरामी छ, जसबाट ईर्ष्या, कलह, निन्दा, दुष्ट शंकाहरू आउँछन्,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-genericnoun",
+        "orig_language_quote": "τετύφωται & νοσῶν",
+        "note": "यहाँ “ऊ” शब्दले सामान्य रूपमा बेठीक शिक्षा सिकाउने जो कोही पनि व्यक्तिलाई जनाउँछ । यसलाई प्रस्‍ट बनाउनको लागि, तपाईंले यूएसटीमा जस्तै “ऊ” शब्दलाई “तिनीहरू” भनेर अनुवाद गर्न सक्‍नुहुन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-genericnoun]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μηδὲν ἐπιστάμενος",
+        "note": "“परमेश्‍वरको सत्यताको बारेमा केही पनि बुझ्‍दैन”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "νοσῶν περὶ ζητήσεις καὶ λογομαχίας",
+        "note": "पावलले अर्थहीन वादविवादमा भाग लिन हुन करमा परेको अनुभव गर्ने मानिसहरूलाई तिनीहरू बिरामी भए झैँ गरी बताउँछन् । त्यस्ता मानिसहरू वादविवाद गर्न असाध्यै रुचाउँछन् र तिनीहरू सहमत हुनलाई कुनै पनि बाटो पत्ता लगाउन चाहँदैनन् । वैकल्पिक अनुवादः “उसले वादविवाद मात्रै गर्न चाहन्छ” वा “उसले वादविवादहरूको लालसा गर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ζητήσεις καὶ λογομαχίας, ἐξ ὧν γίνεται φθόνος",
+        "note": "“विवादास्पद विषयहरू र शब्दहरूको बारेमा भएका तर्क वितर्कहरू, र यी विवादास्पद विषयहरू र तर्क वितर्कहरूको प्रतिफल ईर्ष्या हुन्छ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "λογομαχίας",
+        "note": "“शब्दहरूको अर्थको बारेमा”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἔρις",
+        "note": "विवादहरू, लडाइँहरू"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "βλασφημίαι",
+        "note": "मानिसहरूले एक अर्काको बारेमा झूटो तरिकाले खराब कुराहरू भन्‍नु"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὑπόνοιαι πονηραί",
+        "note": "“अरूहरूले तिनीहरूलाई हानी गर्न चाहन्छन् भनेर मानिसहरूलाई लाग्‍नु”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:5",
+    "bsb_verse_text": "and constant friction between men of depraved mind who are devoid of the truth. These men regard godliness as a means of gain.",
+    "ult_verse_text": "भक्तिलाई लाभको माध्यम मानेर {जसै} विचार भ्रष्ट भएका र सत्यबाट वञ्‍चित भएका मानिसहरूबीचको घर्षण।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "διεφθαρμένων & τὸν νοῦν",
+        "note": "“दुष्‍ट दिमाग”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀπεστερημένων τῆς ἀληθείας",
+        "note": "यहाँ “तिनीहरू” शब्दले येशूको शिक्षासँग सहमत नहुने कुनै पनि कुरा सिकाउने जो कोही पनि व्यक्तिलाई जनाउँछ । “सत्यता गुमाएका छन्” भन्‍ने वाक्यांशले त्यसलाई बेवास्ता गर्नु वा त्यसलाई बिर्सनु भन्‍ने कुरालाई प्रतिनिधित्व गर्छ । वैकल्पिक अनुवादः “तिनीहरूले सत्यतालाई बेवास्ता गरेका छन्” वा “तिनीहरूले सत्यतालाई बिर्सेका छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:6",
+    "bsb_verse_text": "Of course, godliness with contentment is great gain.",
+    "ult_verse_text": "तर सन्तुष्टि सहितको भक्ति ठूलो लाभ हो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "δὲ",
+        "note": "यसले शिक्षामा आएको छोटो रोकावटलाई अङ्कित गर्छ । यहाँ पावलले ईश्‍वरीयताबाट अधर्मी मानिसहरूले खोज्‍ने किसिमको धन ([१ तिमोथी ६:५](./03.md)) र मानिसहरूले ईश्‍वरीयताबाट प्राप्‍त गर्ने साँचो किसिमको लाभको बीचमा भएको अन्तरलाई देखाउन सुरु गर्छन् । वैकल्पिक अनुवादः “अवश्‍य पनि”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἔστιν & πορισμὸς μέγας ἡ εὐσέβεια μετὰ αὐταρκείας",
+        "note": "“ईश्‍वरीयता” र “सन्तुष्‍टि” शब्दहरू भाववाचक नामपदहरू हुन् । वैकल्पिक अनुवादः “कुनै व्‍यक्तिले धर्मी कुरा गरेर आफूसँग भएको कुराहरूमा सन्तुष्‍ट हुनु भनेको उसको लागि ठूलो लाभ हो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-abstractnouns]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἔστιν & πορισμὸς μέγας",
+        "note": "“ठूलो लाभ पुर्‍याउँछ” वा “हाम्रो लागि धेरै असल कुराहरू गर्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:7",
+    "bsb_verse_text": "For we brought nothing into the world, so we cannot carry anything out of it.",
+    "ult_verse_text": "किनकि हामीले संसारमा केही ल्याएका छैनौं, न त हामीले केही बाहिर निकाल्न सक्छौं।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "οὐδὲν γὰρ εἰσηνέγκαμεν εἰς τὸν κόσμον",
+        "note": "“हामी जन्मँदा यस संसारमा केही पनि ल्याएनौँ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "οὐδὲ ἐξενεγκεῖν τι δυνάμεθα",
+        "note": "“र हामी मर्दा हामीले कुनै पनि कुरा संसारबाट लैजान सक्दैनौँ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:8",
+    "bsb_verse_text": "But if we have food and clothing, we will be content with these.",
+    "ult_verse_text": "तर खाना र लत्ताकपडा भए, यिनैले हामी सन्तुष्ट हुनेछौं।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀρκεσθησόμεθα",
+        "note": "“हामी ... हुनुपर्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:9",
+    "bsb_verse_text": "Those who want to be rich, however, fall into temptation and become ensnared by many foolish and harmful desires that plunge them into ruin and destruction.",
+    "ult_verse_text": "अब धनी हुन चाहनेहरू प्रलोभन र पासो र धेरै मूर्ख र हानिकारक इच्छाहरूमा फस्छन्, जुनसुकै कुराले मानिसहरूलाई विनाश र विनाशमा डुबाउँछ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "δὲ",
+        "note": "यो शब्दले शिक्षामा आएको छोटो रोकावटलाई सङ्केत गर्छ । धर्मी हुनाले तिनीहरूलाई धनी बनाउँछ भनेर विचार गर्नेहरूको बारेमा भएको विषयतर्फ पावल फर्कन्छन् ([१ तिमोथी ६:५](./03.md)) ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "πλουτεῖν, ἐμπίπτουσιν εἰς πειρασμὸν, καὶ παγίδα",
+        "note": "पैसाको परीक्षालाई आफूहरूलाई पाप गर्न लगाउन दिनेहरूको विषयमा पावलले यसरी बताउँछन् कि मानौँ तिनीहरू खाल्‍डोमा खसेका पशुहरू हुन् जुन खाल्डोलाई शिकारीले पासोको रूपमा प्रयोग गरेको थियो । वैकल्पिक अनुवादः “धनी हुन चाहनेहरू तिनीहरूले प्रतिरोध गर्न सक्‍नेभन्दा बढी परिक्षामा पर्नेछन्, र तिनीहरू पासोमा परेको जन्तु झैँ हुनेछन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "οἱ & ἐμπίπτουσιν & ἐπιθυμίας πολλὰς ἀνοήτους καὶ βλαβεράς",
+        "note": "यसले पासोको अलङ्कारलाई निरन्तरता दिन्छ । यसको अर्थ हो कि तिनीहरूका मूर्ख र हानीकारक वासनाहरूले तिनीहरूलाई हराउनेछ । वैकल्पिक अनुवादः “र जसरी एउटा पशु शिकारीको पासोमा पर्छ, तिनीहरू थुप्रै मूर्ख र हानीकारक वासनाहरूमा फस्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "αἵτινες βυθίζουσι τοὺς ἀνθρώπους εἰς ὄλεθρον καὶ ἀπώλειαν",
+        "note": "आफूहरूलाई नाश पार्न पापलाई अनुमति दिने मानिसहरूको विषयमा पावलले यसरी बताउँछन् कि मानौँ तिनीहरू डुङ्गा हुन जुन पानीमुनि डुब्छ । वैकल्पिक अनुवादः “अरू किसिमका दुष्‍टताहरूमा जसले मानिसहरूलाई बर्बाद पार्छ र नाश गर्छ मानौँ तिनीहरू पानीमुनि डुब्दै गरेको डुङ्गा हुन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:10",
+    "bsb_verse_text": "For the love of money is the root of all kinds of evil. By craving it, some have wandered away from the faith and pierced themselves with many sorrows.",
+    "ult_verse_text": "किनकि सबै खराबीको जरा पैसाको प्रेम हो, जसलाई केही चाहनेहरू विश्‍वासबाट टाढा लगिएका छन् र धेरै दुःखले आफैलाई छेडेका छन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ῥίζα γὰρ πάντων τῶν κακῶν ἐστιν ἡ φιλαργυρία",
+        "note": "पावलले खराबीको कारक तत्व चाहिँ कुनै बिरुवाको जरा भए झैँ गरी बताउँछन् । वैकलाई अनुवादः “यस्तो हुन्छ किनभने पैसालाई प्रेम गर्नु नै सबै किसिमको दुष्‍टताको कारण हो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὀρεγόμενοι",
+        "note": "“जसले पैसाको चाह गर्छन्”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀπεπλανήθησαν ἀπὸ τῆς πίστεως",
+        "note": "पावलले गलत इच्‍छाहरूको विषयमा यसरी बताउँछन् कि मानौँ तिनीहरू दुष्‍ट मार्गदर्शकहरू हुन् जसले जानाजान मानिसहरूलाई गलत मार्गमा डोहोर्‍याउँछन् । यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्‍पिक अनुवादः “आफूहरूलाई सत्यताबाट टाढा डोहोर्‍याउनलाई तिनीहरूका इच्‍छाहरूलाई अनुमति दिएका छन्” वा “सत्यतालाई विश्‍वास गर्न छोडेका छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἑαυτοὺς περιέπειραν ὀδύναις πολλαῖς",
+        "note": "पावलले पीडाको विषयमा यसरी बताउँछन् कि मानौँ त्यो कुनै तरवार हो जुन कुनै व्यक्तिले आफैँलाई प्रहार गर्नलाई प्रयोग गर्छ । वैकल्‍पिक अनुवादः “आफैँलाई धेरै दुःखित हुने बनाएका छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:11",
+    "bsb_verse_text": "But you, O man of God, flee from these things and pursue righteousness, godliness, faith, love, perseverance, and gentleness.",
+    "ult_verse_text": "तर हे परमेश्‍वरका जन हो, तिमीहरू यी कुराहरूबाट टाढा भएर धार्मिकता, भक्ति, विश्‍वास, प्रेम, सहनशीलता, नम्रताको पछि लाग।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "σὺ δέ",
+        "note": "यहाँ “तिमी” एकवचनमा छ र त्यसले तिमोथीलाई जनाउँछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-you]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὦ ἄνθρωπε Θεοῦ",
+        "note": "“परमेश्‍वरको सेवक” वा “ती व्यक्ति जो परमेश्‍वरका हुन्”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ταῦτα φεῦγε",
+        "note": "पावलले यी परीक्षाहरू र पापहरूको विषयमा यसरी बताउँछन् कि मानौँ ती त्यस्ता कुराहरू हुन् जसबाट कोही व्यक्ति टाढा भाग्‍न सक्थ्यो । वैकल्पिक अनुवादः “यी कुराहरूलाई पूर्णतया इन्कार गर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ταῦτα",
+        "note": "“यी कुराहरू”को सम्भावित अर्थहरू हुन् १) “रुपैँया-पैसाको मोह” वा २) विभिन्‍न शिक्षाहरू, घमण्ड, वादविवादहरू, र पैसाको प्रेम ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "δίωκε & δικαιοσύνην",
+        "note": "“ ... को पछि दौड” वा “खेद ।” पावलले धार्मिकता र अन्य असल गुणहरूको विषयमा यसरी बताउँछन् कि मानौँ ती त्यस्ता कुराहरू हुन् जसको पछि-पछि कोही व्यक्ति दौडन सक्थ्यो । यो अलङ्कार “ ... बाट भाग” भन्‍ने कुराको विपरीत हो । यसको अर्थ हो कि केही कुरा पाउनलाई तपाईंले आफ्‍नो भरमग्दुर कोसिस गर्नुपर्छ । वैकल्पिक अनुवादः “पाउन खोज” वा “ ... मा व्यवहार गर्न तिमीले आफ्‍नो भरमग्दुर कोसिस गर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:12",
+    "bsb_verse_text": "Fight the good fight of the faith. Take hold of the eternal life to which you were called when you made the good confession before many witnesses.",
+    "ult_verse_text": "विश्‍वासको उत्तम लडाइँ लड, अनन्त जीवनलाई पक्रिराख, जसको लागि तिमीलाई बोलाइएको थियो र धेरै साक्षीहरूका उपस्थितिमा तिम्रो विश्‍वासको असल साक्षी दिएका थियौ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀγωνίζου τὸν καλὸν ἀγῶνα τῆς πίστεως",
+        "note": "यहाँ पावलले विश्‍वासमा अगाडि बढिरहेको व्यक्तिको विषयमा यसरी बताउँछन् कि मानौँ तिनीहरू कुनै खेलाडि हुन् जसले कुनै प्रतिस्पर्धालाई जित्‍न लडिरहेको थियो वा कुनै युद्ध लडिरहेको योद्धा थियो । वैकल्पिक अनुवादः “कुनै प्रतिस्पर्धामा खेलाडिले आफ्‍नो बल प्रयोग गरेजत्तिकै ख्रीष्‍टका शिक्षाहरूको पालना गर्न तिम्रो आफ्‍नो सबैबन्दा कठोर प्रयत्‍न गर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐπιλαβοῦ τῆς αἰωνίου ζωῆς",
+        "note": "यसले अलङ्कारलाई निरन्तरता दिन्छ । कुनै व्यक्तिले अनन्त जीवन प्राप्‍त गर्ने कुराको विषयमा पावलले यसरी बताउँछन् कि मानौँ तिनीहरू आफ्‍ना उपहार लिइरहेका कुनै विजयी खेलाडि वा योद्धा हुन् । वैकल्पिक अनुवादः “विजयी खेलाडिले उसको उपहार लिएको झैँ गरी अनन्त जीवनलाई तिम्रो इनामको रूपमा लिऊ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "εἰς ἣν ἐκλήθης",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “जसमा परमेश्‍वरले तिमीलाई बोलाउनुभएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὡμολόγησας τὴν καλὴν ὁμολογίαν",
+        "note": "“तिमीले असल कुराको साक्षी दियौ” वा “तिमीले सत्यताको साक्षी दियौ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐνώπιον πολλῶν μαρτύρων",
+        "note": "तिमोथीले बताइरहेका मानिसहरूलाई सङ्केत गर्नको लागि पावलले कुनै स्थानको धारणालाई व्यक्त गर्छन् । वैकल्पिक अनुवादः “धेरै साक्षीहरूलाई” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:13",
+    "bsb_verse_text": "I charge you in the presence of God, who gives life to all things, and of Christ Jesus, who made the good confession in His testimony before Pontius Pilate:",
+    "ult_verse_text": "सबै थोकलाई जीवन दिनुहुने परेमश्‍वर र पन्तियस पिलातसको अगाडि असल गवाही दिनुहुने ख्रीष्‍ट येशूको सामने,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले ख्रीष्‍टको आगमनको बारेमा कुरा गर्छन्, धनीहरूलाई खास निर्देशनहरू दिन्छन्, र आखिरमा तिमोथीलाई एउटा विशेष सन्‍देश दिएर अन्त गर्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "παραγγέλλω σοι",
+        "note": "“तिमीलाई म यही आज्ञा दिन्छु”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "τοῦ ζῳοποιοῦντος τὰ πάντα",
+        "note": "“परमेश्‍वरको उपस्थितिमा, जसले सबै थोकहरूलाई जिउने बनाउनुहुन्छ ।” यो आशय दिइएको छ कि पावलले परमेश्‍वरलाई उनको साक्षी हुनको निमित्त बिन्ती गरिरहेका थिए । वैकल्पिक अनुवादः “परमेश्‍वर मेरो साक्षीको रूपमा, जसले सबै थोकलाई जिउने तुल्याउनुहुन्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "καὶ Χριστοῦ Ἰησοῦ, τοῦ μαρτυρήσαντος ἐπὶ Ποντίου Πειλάτου",
+        "note": "“ख्रीष्‍ट येशूको उपस्थितिमा, जसले पिलातस ... गवाही दिनुभयो ।” यो आशय दिइएको छ कि पावलले येशूलाई उनको साक्षी हुनको लागि बिन्ती गरिरहेका थिए । वैकल्पिक अनुवादः “ख्रीष्‍ट येशूलाई साक्षीको रूपमा, जसले पिलातस ... गवाही दिनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:14",
+    "bsb_verse_text": "Keep this commandment without stain or reproach until the appearance of our Lord Jesus Christ,",
+    "ult_verse_text": "हाम्रा प्रभु येशू ख्रीष्ट नआउञ्‍जेलसम्म {कि} तिमीहरूले आज्ञालाई कलङ्क र अपवादबाट अलग राख।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἄσπιλον ἀνεπίλημπτον",
+        "note": "“दाग” शब्द नैतिक त्रुटिको लागि एउटा अलङ्कार हो । सम्भावित अर्थहरू हुन् १) येशूले तिमोथीमा कुनै भूल पाउनुहुनेछैन वा कुनै गल्ती गरेकोमा उसलाई दोष लगाउनु हुनेछैन वा २) अरू मानिसहरूले तिमोथीमा कुनै भूल पाउनेछैनन् वा कुनै गल्ती गरेकोमा उसलाई दोष लगाउने छैनन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μέχρι τῆς ἐπιφανείας τοῦ Κυρίου ἡμῶν, Ἰησοῦ Χριστοῦ",
+        "note": "“जबसम्‍म हाम्रा प्रभु येशू ख्रीष्‍ट फेरि आउनुहुन्‍न”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:15",
+    "bsb_verse_text": "which the blessed and only Sovereign One—the King of kings and Lord of lords—will bring about in His own time.",
+    "ult_verse_text": "जसलाई आफ्नै समयमा धन्य र एकमात्र सार्वभौम, राजाहरूका राजा र प्रभुहरूका प्रभुले प्रकट गर्नुहुनेछ,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "δείξει",
+        "note": "परमेश्‍वरले येशूलाई प्रकट गर्नुहुनेछ भनेर आशय दिइएको छ । वैकल्पिक अनुवादः “परमेश्‍वरले येशूलाई प्रकट गर्नुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὁ μακάριος καὶ μόνος Δυνάστης",
+        "note": "“प्रशंसाको योग्यका व्यक्ति जसले संसारमाथि शासन गर्नुहुन्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:16",
+    "bsb_verse_text": "He alone is immortal and dwells in unapproachable light. No one has ever seen Him, nor can anyone see Him. To Him be honor and eternal dominion! Amen.",
+    "ult_verse_text": "एक मात्र अमरत्व भएको, त्यस ज्योति जसको नजिक कही पुग्‍न नसक्ने, जसलाई कुनै मानिसले देखेको छैन, न देख्‍न सक्छ, उहाँलाई नै आदर र पराक्रम सदासर्वदा {होस्}। आमेन।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὁ μόνος ἔχων ἀθανασίαν",
+        "note": "“उहाँसँग मात्र सदाकाल जिउने शक्ति छ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "φῶς οἰκῶν ἀπρόσιτον",
+        "note": "“यति चम्किलो ज्योतिमा वास गर्नुहुन्छ कि कोही उहाँको नजिक जान सक्दैन”"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:17",
+    "bsb_verse_text": "Instruct those who are rich in the present age not to be conceited and not to put their hope in the uncertainty of wealth, but in God, who richly provides all things for us to enjoy.",
+    "ult_verse_text": "यस युगका धनीहरूलाई घमण्डी नहुने आज्ञा देऊ, अनिश्‍चित सम्पत्तिमा होइन तर हामीलाई हरेक थोक प्रशस्तसँग उपभोग गर्न दिनुहुने परमेश्‍वरमाथि तिनिहरूले आशा राखून्,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-nominaladj",
+        "orig_language_quote": "τοῖς πλουσίοις & παράγγελλε",
+        "note": "यहाँ “धनी” नामबोधक विशेषण हो । यसलाई विशेषणको रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “जो धनीहरू छन् तिनीहरूलाई भन” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-nominaladj]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐπὶ πλούτου ἀδηλότητι",
+        "note": "“आफूहरूसँग भएका धेरै कुराहरूमा जुन तिनीहरूले गुमाउन सक्‍छन् ।” यहाँ भौतिक वस्तुहरूलाई जनाउन खोजिएको छ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πάντα πλουσίως",
+        "note": "“त्यस्ता सबै कुराहरू जसले हामीलाई साँच्‍चै खुशी बनाउनेछन् ।” यहाँ जनाउन खोजिएको कुराहरूमा भौतिक वस्तुहरू पर्न सक्छ, तर यो बढी सम्भाव्य छ कि यसले प्रेम, आनन्द, र शान्तिको अवस्थाहरूलाई जनाउँछ जसलाई मानिसहरूले भौतिक वस्तुहरूको माध्यमद्वारा प्राप्‍त गर्न कोसिस गर्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:18",
+    "bsb_verse_text": "Instruct them to do good, to be rich in good works, and to be generous and ready to share,",
+    "ult_verse_text": "राम्रो गर्न, राम्रो काममा धनी हुन, उदार हुन, बाडचुड गर्न इच्छुक,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "πλουτεῖν ἐν ἔργοις καλοῖς",
+        "note": "पावलले आत्मिक आशिषहरूको विषयमा यसरी बताउँछन् कि मानौँ तिनीहरू पार्थिव धन थिए । वैकल्पिक अनुवादः “अरूहरूलाई थुप्रै तरिकाहरूमा सेवा र सहयोग गर्न” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:19",
+    "bsb_verse_text": "treasuring up for themselves a firm foundation for the future, so that they may take hold of that which is truly life.",
+    "ult_verse_text": "तिनीहरूले साँचो जीवन बुझ्‍न सकून् भनी आउँदै गरेको कुराको लागि असल जग जम्मा गर्ने।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀποθησαυρίζοντας ἑαυτοῖς θεμέλιον καλὸν εἰς τὸ μέλλον",
+        "note": "परमेश्‍वरले स्वर्गमा दिनुहुने आशिष्‌हरूको विषयमा यहाँ पावलले यसरी बताउँछन् कि मानौँ ती त्यस्ता धनहरू हुन् जुन कोही व्यक्तिले पछिको प्रयोगको लागि थुपारिरहेको छ । साथै, मानिसहरूले यी आशिष्‌हरू कहिल्यै गुमाउनेछैनन् भन्‍ने कुराको निश्‍चयताको विषयमा यसरी बताइएको छ कि मानौँ ती कुनै भवनका जग हुन् । वैकल्पिक अनुवादः “यो चाहिँ मानौँ तिनीहरूले आफूहरूका लागि धेरै कुराहरू थुपारिरहेका झैँ हुनेछ जुन परमेश्‍वरले तिनीहरूलाई दिनुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐπιλάβωνται τῆς ὄντως ζωῆς",
+        "note": "यसले [१ तिमोथी ६:१२](./11.md) को खेलकुदको अलङ्कारलाई स्मरण गराउँछ, जहाँ उपहार भनेको केही त्यस्तो कुरा हो जुन विजेताले वास्तवमै आफ्‍नो हातमा लिन सक्छ । यहाँ “उपहार” चाहिँ “साँचो” जीवन हो । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:20",
+    "bsb_verse_text": "O Timothy, guard what has been entrusted to you. Avoid irreverent, empty chatter and the opposing arguments of so-called “knowledge,”",
+    "ult_verse_text": "हे तिमोथी, जे तिमीलाई सुम्पिएको छ त्यो सुरक्षित राख। भक्तिहीन गनथन र खण्डनहरू, जो झूटो ज्ञान हो, तिनलाई परित्याग गर।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "τὴν παραθήκην φύλαξον",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “येशूले तिमीलाई दिनुभएको सत्य सन्‍देशलाई विश्‍वासयोग्यताको साथ घोषणा गर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐκτρεπόμενος τὰς βεβήλους κενοφωνίας",
+        "note": "“मूर्खतापूर्ण कुराहरूमा ध्यान नदेऊ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "τῆς ψευδωνύμου γνώσεως",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “जसलाई केही मानिसहरूले झूटो रूपमा ज्ञान भन्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "1Ti 6:21",
+    "bsb_verse_text": "which some have professed and thus swerved away from the faith. Grace be with you all.",
+    "ult_verse_text": "जसलाई कोही-कोहीले विश्‍वासको सन्दर्भमा छाप छोडेका छन्। तिमीसँग अनुग्रह {रहोस्}।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὴν πίστιν ἠστόχησαν",
+        "note": "पावलले ख्रीष्‍टमा गरिने विश्‍वासको विषयमा यसरी बताउँछन् कि मानौँ त्यो ताक्‍नुपर्ने कुनै निसाना हो । वैकल्पिक अनुवादः “तिनीहरूले साँचो विश्‍वासलाई बुझेका वा विश्‍वास गरेका छैनन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "ἡ χάρις μεθ’ ὑμῶν",
+        "note": "“परमेश्‍वरले तिमीहरू सबैलाई अनुग्रह दिनुभएको होस् ।” “तिमीहरू” बहुवचन हो र यसले सम्‍पूर्ण ख्रीष्‍टिएन समुदायलाई जनाउँछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-you]])"
+      }
+    ]
+  }
+]

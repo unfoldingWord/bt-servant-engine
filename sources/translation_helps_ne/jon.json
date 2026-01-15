@@ -1,0 +1,1198 @@
+[
+  {
+    "reference": "Jon 1:1",
+    "bsb_verse_text": "Now the word of the LORD came to Jonah son of Amittai, saying,",
+    "ult_verse_text": "अब परमप्रभुको वचन अमितैको छोरो योनाकहाँ आयो, यो भन्दै",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-newevent",
+        "orig_language_quote": "וַֽ⁠יְהִי֙ דְּבַר־יְהוָ֔ה",
+        "note": "यो वाक्यांशले योनाको कथाको पहिलो आधा परिचय दिन्छ। एउटै वाक्यांशले कथाको दोस्रो भागको परिचय दिन्छ (३:१)। यो एक अगमवक्ताको बारेमा ऐतिहासिक कथा सुरु गर्ने एक सामान्य तरिका हो। (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-newevent]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַֽ⁠יְהִי֙ דְּבַר־יְהוָ֔ה",
+        "note": "यो एक मुहावरा हो जसको अर्थ यहोवाले आफ्नो सन्देश कुनै न कुनै तरिकाले बोल्नुभयो वा सञ्चार गर्नुभयो। वैकल्पिक अनुवाद: \"यहोवेले आफ्नो सन्देश बोले\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "דְּבַר־יְהוָ֔ה",
+        "note": "वैकल्पिक अनुवाद: \"यहोवाको सन्देश\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "יְהוָ֔ה",
+        "note": "यो परमेश्वरको नाम हो जुन उहाँले आफ्ना मानिसहरूलाई पुरानो नियममा प्रकट गर्नुभयो।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "אֲמִתַּ֖י",
+        "note": "This is the name of Jonah’s father. (See: [[rc://*/ta/man/translate/translate-names]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:2",
+    "bsb_verse_text": "“Get up! Go to the great city of Nineveh and preach against it, because its wickedness has come up before Me.”",
+    "ult_verse_text": "“उठ, निनवेमा जाऊ, त्यो ठूलो सहर , र त्‍यसको विरुद्धमा पुकार, किनभने तिनीहरूको दुष्‍टता मेरो सामु आएको छ।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ק֠וּם לֵ֧ךְ אֶל־נִֽינְוֵ֛ה הָ⁠עִ֥יר הַ⁠גְּדוֹלָ֖ה",
+        "note": "वैकल्पिक अनुवाद: \"निनवेको ठूलो र महत्त्वपूर्ण शहरमा जानुहोस्\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "ק֠וּם",
+        "note": "यो एक मुहावरा हो जसको अर्थ योनाले कदम चाल्नु पर्छ र जानु पर्छ। यसको मतलब यो होइन कि परमेश्वरले उहाँसँग बोल्नुहुँदा उहाँ बसिरहनुभएको थियो वा सुतेको थियो। धेरै भाषाहरूले एउटा मात्र क्रिया प्रयोग गर्नेछन्, जस्तै \"जानुहोस्।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "וּ⁠קְרָ֣א עָלֶ֑י⁠הָ",
+        "note": "यहाँ **it** शब्द, निनवे सहरको अर्थ हो, सहर र वरपर बस्ने मानिसहरूलाई जनाउने मेटोनिम हो। वैकल्पिक अनुवाद: \"मानिसहरूलाई चेतावनी दिनुहोस्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "עָלְתָ֥ה רָעָתָ֖⁠ם לְ⁠פָנָֽ⁠י",
+        "note": "वैकल्पिक अनुवाद: \"मलाई थाहा छ तिनीहरूले लगातार पाप गरिरहेछन्\" वा \"मलाई थाहा छ कि तिनीहरूको पाप झन् झन् खराब हुँदै गइरहेको छ\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "לְ⁠פָנָֽ⁠י",
+        "note": "यो एउटा अभिव्यक्ति हो जसले यहोवाको अनुहारलाई उहाँको उपस्थितिलाई जनाउँछ। यहोवाको उपस्थितिको विचारमा उहाँको ज्ञान, सूचना, ध्यान वा निर्णय पनि समावेश छ। निनवेका मानिसहरू कत्ति दुष्ट भएका छन्‌ भनेर यहोवाले देख्नुभएको छ। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:3",
+    "bsb_verse_text": "Jonah, however, got up to flee to Tarshish, away from the presence of the LORD. He went down to Joppa and found a ship bound for Tarshish. So he paid the fare and went aboard to sail for Tarshish, away from the presence of the LORD.",
+    "ult_verse_text": "तर योना परमप्रभुको सामुन्‍नेबाट तर्शीशमा भाग्‍न उठे। अनि तिनी योप्पामा गए र तर्शीश जाने जहाज भेट्टाए। यसकारण तिनले भाडा तिरे र तिनीहरूसँगै तर्शीशमा जान त्‍यसमा गए, परमप्रभुको मुहारबाट टाढा।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַ⁠יָּ֤קָם יוֹנָה֙ לִ⁠בְרֹ֣חַ",
+        "note": "यहाँ **उठ्नुभयो** शब्दको अर्थ योनाले परमेश्वरको आज्ञाको जवाफमा कदम चालेको हो, तर उनको कार्य आज्ञा पालन गर्नुको सट्टा अनाज्ञाकारी हुनु थियो। हेर्नुहोस् कसरी तपाईंले यो मुहावरेलाई [1:2] (../01/02.md) मा अनुवाद गर्नुभयो। वैकल्पिक अनुवाद: \"तर योना भागे\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מִ⁠לִּ⁠פְנֵ֖י יְהוָ֑ה",
+        "note": "यो एउटा अभिव्यक्ति हो जसले यहोवाको अनुहारलाई उहाँको उपस्थितिलाई जनाउँछ। यहोवाको उपस्थितिको विचारमा उहाँको ज्ञान, सूचना, ध्यान वा निर्णय पनि समावेश छ। भागेर, योनाले आफूले अनाज्ञाकारी भएको कुरा यहोवाले याद गर्नुहुनेछैन भनी आशा राख्छन्। वैकल्पिक अनुवाद: \"यहोवाको उपस्थितिबाट\" वा \"यहोवाबाट\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "לִ⁠בְרֹ֣חַ תַּרְשִׁ֔ישָׁ⁠ה",
+        "note": "“तर्शीशमा भाग्न” तर्शीश नामको यो सहर निनवेको विपरीत दिशामा थियो। यो स्पष्ट गर्न सकिन्छ। वैकल्पिक अनुवाद: \"र विपरीत दिशामा गए, तर्सिश तिर, टाढा\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יֵּ֨רֶד יָפ֜וֹ",
+        "note": "वैकल्पिक अनुवाद: \"योना जोप्पा गए\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אָנִיָּ֣ה",
+        "note": "**जहाज** एक धेरै ठूलो प्रकारको डुङ्गा हो जसले समुद्रमा यात्रा गर्न सक्छ र धेरै यात्रुहरू वा भारी कार्गो बोक्न सक्छ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּתֵּ֨ן שְׂכָרָ֜⁠הּ",
+        "note": "वैकल्पिक अनुवाद: \"त्यहाँ योनाले यात्राको लागि भुक्तान गरे\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יֵּ֤רֶד בָּ⁠הּ֙",
+        "note": "वैकल्पिक अनुवाद: \"जहाजमा पुग्यो\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "עִמָּ⁠הֶם֙",
+        "note": "**तिनीहरू** शब्दले जहाजमा जाँदै गरेका अरूलाई जनाउँछ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מִ⁠לִּ⁠פְנֵ֖י יְהוָֽה",
+        "note": "यो एउटा अभिव्यक्ति हो जसले यहोवाको अनुहारलाई उहाँको उपस्थितिलाई जनाउँछ। यहोवाको उपस्थितिको विचारमा उहाँको ज्ञान, सूचना, ध्यान वा निर्णय पनि समावेश छ। भागेर, योनाले आफूले अनाज्ञाकारी भएको कुरा यहोवाले याद गर्नुहुनेछैन भनी आशा राख्छन्। वैकल्पिक अनुवाद: \"यहोवाको उपस्थितिबाट\" वा \"यहोवाबाट\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:4",
+    "bsb_verse_text": "Then the LORD hurled a great wind upon the sea, and such a violent storm arose that the ship was in danger of breaking apart.",
+    "ult_verse_text": "तर परमप्रभुले समुद्रमा ठुलो बतास पठाउनुभयो र समुद्रमा ठूलो आँधी आयो, जसले गर्दा जहाज भाँचिने सम्भावना थियो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-newevent",
+        "orig_language_quote": "וַֽ⁠יהוָ֗ה הֵטִ֤יל רֽוּחַ־גְּדוֹלָה֙ אֶל־הַ⁠יָּ֔ם",
+        "note": "यो खण्डले योनालाई भागेकोमा यहोवाको प्रतिक्रियाको नयाँ घटनाको परिचय दिन्छ। यसलाई अनुवाद गर्नुहोस् ताकि तपाईंका पाठकहरूलाई यो घटनाले कथामा परिवर्तन ल्याउँछ भनी थाहा पाउनुहोस्। (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-newevent]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-personification",
+        "orig_language_quote": "וְ⁠הָ֣⁠אֳנִיָּ֔ה חִשְּׁבָ֖ה לְ⁠הִשָּׁבֵֽר",
+        "note": "यहाँ **सोच्ने** शब्दले जहाजलाई व्यक्तिको रूपमा वर्णन गर्दछ। यसको मतलब यो हो कि तूफान यति तीव्र थियो कि जहाज फुट्न नजिक थियो। वैकल्पिक अनुवाद: \"जहाज लगभग टुक्रिएको थियो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-personification]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "לְ⁠הִשָּׁבֵֽר",
+        "note": "यदि तपाईंको भाषाले यस तरिकाले निष्क्रिय फारम प्रयोग गर्दैन भने, तपाईंले यसलाई सक्रिय रूपमा वा तपाईंको भाषामा स्वाभाविक रूपमा अर्को तरिकामा बताउन सक्नुहुन्छ। वैकल्पिक अनुवाद: \"टू ब्रेक अपार्ट\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:5",
+    "bsb_verse_text": "The sailors were afraid, and each cried out to his own god. And they threw the ship’s cargo into the sea to lighten the load. But Jonah had gone down to the lowest part of the vessel, where he lay down and fell into a deep sleep.",
+    "ult_verse_text": "तब नाविकहरू डराए र प्रत्येक मानिसले आ-आफ्नो देवतालाई पुकारा गरे। अनि तिनीहरूले जहाज हलुङ्गो बनाउनलाई डुङ्गामा भएका चीजहरू समुद्रमा फ्याँकिदिए। तर योना जहाजको भित्री भागहरूमा गएका थिए, र सुतेका थिए, र गहिरो निद्रामा थिए।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַ⁠מַּלָּחִ֗ים",
+        "note": "वैकल्पिक अनुवाद: \"जहाजमा काम गर्ने मानिसहरू\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֱלֹהָי⁠ו֒",
+        "note": "यहाँ, **भगवान** ले मानिसहरूले पूजा गर्ने झूटा देवता र मूर्तिहरूलाई जनाउँछ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יָּטִ֨לוּ אֶת־הַ⁠כֵּלִ֜ים אֲשֶׁ֤ר בָּֽ⁠אֳנִיָּה֙",
+        "note": "मानिसहरूले जहाजबाट गह्रौं चीजहरू फ्याँके यसो गरेर, तिनीहरूले जहाजलाई डुब्नबाट जोगाउने आशा गरे।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְ⁠הָקֵ֖ל מֵֽ⁠עֲלֵי⁠הֶ֑ם",
+        "note": "यसको अर्थ हुन सक्छ: (१) जहाजलाई हल्का बनाउन ताकि यो राम्रोसँग तैरन सकोस्, वैकल्पिक अनुवाद: \"जहाजलाई राम्रोसँग तैरन मद्दत गर्न\" वा (२) खतरनाक अवस्थालाई हल्का वा राहत दिन, वैकल्पिक अनुवाद: \"खतरा कम गर्न तिनीहरू भित्र थिए\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-background",
+        "orig_language_quote": "וְ⁠יוֹנָ֗ה יָרַד֙ אֶל־יַרְכְּתֵ֣י הַ⁠סְּפִינָ֔ה",
+        "note": "यो पृष्ठभूमि जानकारी हो। यसलाई यसरी अनुवाद गर्नुहोस् कि योनाले आँधी सुरु हुनु अघि नै यो काम गरिसकेका थिए भन्ने स्पष्ट छ। (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-background]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "יַרְכְּתֵ֣י הַ⁠סְּפִינָ֔ה",
+        "note": "वैकल्पिक अनुवाद: \"जहाज भित्र\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּשְׁכַּ֖ב וַ⁠יֵּרָדַֽם",
+        "note": "र त्यहाँ छिट्टै सुतिरहेको थियो वा \"र त्यहाँ सुतिरहेको थियो र गहिरो सुतिरहेको थियो\" यस कारणले गर्दा, आँधीले उहाँलाई उठाउन सकेन।"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:6",
+    "bsb_verse_text": "The captain approached him and said, “How can you sleep? Get up and call upon your God. Perhaps this God will consider us, so that we may not perish.”",
+    "ult_verse_text": "तब नाविक दलका कप्तान तिनीकहाँ आएर तिनलाई भने, “तिमी सुतेर के गर्दैछौ? उठ! आफ्नो ईश्‍वरलाई पुकार! सायद त्यो ईश्‍वरले हामीलाई याद गर्नुहुनेछ र हामी नाश हुनेछैनौँ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּקְרַ֤ב אֵלָי⁠ו֙ רַ֣ב הַ⁠חֹבֵ֔ל וַ⁠יֹּ֥אמֶר ל֖⁠וֹ",
+        "note": "वैकल्पिक अनुवाद: \"जहाजमा काम गर्ने मानिसहरूको प्रभारी मानिस योनाकहाँ गएर भने\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "מַה־לְּ⁠ךָ֣ נִרְדָּ֑ם",
+        "note": "**तिमी किन सुतिरहेका छौ?** यहाँ कप्तानले जोनाहलाई हप्काउनको लागि बयानबाजी प्रश्न प्रयोग गर्दछ। वैकल्पिक अनुवाद: \"निद्रा रोक्नुहोस्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "ק֚וּם",
+        "note": "यो केहि गतिविधि सुरु गर्न को लागी एक आदेश हो जुन यो शब्द पछि नाम दिइएको छ। हेर्नुहोस् कसरी तपाईंले यो मुहावरेलाई [1:2](../01/02.md) र [1:3](../01/03.md) मा अनुवाद गर्नुभयो। यस पदमा कप्तानले योनालाई आफ्नो देवतालाई प्रार्थना गर्न भनिरहेको छ। योना सुतेको हुनाले कप्तानले योनालाई शाब्दिक रूपमा खडा हुन भनेका हुन सक्छन्। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "קְרָ֣א אֶל־אֱלֹהֶ֔י⁠ךָ",
+        "note": "आफ्नो देवतालाई प्रार्थना गर्नुहोस् कसैलाई **कराउनु** भनेको ठूलो स्वरमा उहाँलाई मद्दतको लागि सोध्नु हो। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "אוּלַ֞י יִתְעַשֵּׁ֧ת הָ⁠אֱלֹהִ֛ים לָ֖⁠נוּ וְ⁠לֹ֥א נֹאבֵֽד",
+        "note": "योनाका देवताले तिनीहरूलाई बचाउन सक्ने अस्पष्ट जानकारी स्पष्ट गर्न सकिन्छ। वैकल्पिक अनुवाद: \"हुनसक्छ तपाईंको भगवानले सुन्नुहुन्छ र हामीलाई बचाउनुहुनेछ ताकि हामी मर्ने छैनौं\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublenegatives",
+        "orig_language_quote": "וְ⁠לֹ֥א נֹאבֵֽד",
+        "note": "यसलाई सकारात्मक रुपमा भन्न सकिन्छ । वैकल्पिक अनुवाद: \"र उहाँले हामीलाई बचाउनुहुनेछ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-doublenegatives]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:7",
+    "bsb_verse_text": "“Come!” said the sailors to one another. “Let us cast lots to find out who is responsible for this calamity that is upon us.” So they cast lots, and the lot fell on Jonah.",
+    "ult_verse_text": "तब हरेक मानिसले आ-आफ्ना साथीलाई भने, “आऊ र चिट्ठा हालौँ, ताकि हामीमा यो दुष्‍टता कसको कारणले भइरहेको छ भनी जान्‍न सकौँ।” यसकारण तिनीहरूले चिट्ठा हाले, र योनालाई चिट्ठा पर्यो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יֹּאמְר֞וּ אִ֣ישׁ אֶל־רֵעֵ֗⁠הוּ",
+        "note": "वाक्यांश **प्रत्येक मानिस ... उसको साथीलाई** पारस्परिक कार्य व्यक्त गर्ने मुहावरा हो। यसको मतलब यो हो कि समूहका सबै पुरुषहरूले एकअर्कालाई यसो भन्दै थिए। वैकल्पिक अनुवाद: \"नाविकहरू सबैले एकअर्कालाई भने\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְכוּ֙ וְ⁠נַפִּ֣ילָה גֽוֹרָל֔וֹת וְ⁠נֵ֣דְעָ֔ה בְּ⁠שֶׁ⁠לְּ⁠מִ֛י הָ⁠רָעָ֥ה הַ⁠זֹּ֖את לָ֑⁠נוּ",
+        "note": "यो समस्या कसले निम्त्यायो भनेर जान्न हामीले चिट्ठा हाल्नु पर्छ मानिसहरूले विश्वास गर्थे कि देवताहरूले उनीहरूलाई के जान्न चाहन्छन् भनेर बताउन कसरी चिट्ठाहरू खस्यो भनेर नियन्त्रण गर्नेछन्। यो एक प्रकारको भविष्यवाणी थियो।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הָ⁠רָעָ֥ה הַ⁠זֹּ֖את",
+        "note": "यसले भयानक आँधीलाई जनाउँछ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּפֹּ֥ל הַ⁠גּוֹרָ֖ל עַל־יוֹנָֽה",
+        "note": "**योनामा चिट्ठा पर्यो** भनाइ एक मुहावरा हो जसको अर्थ हो, जब पुरुषहरूले चिट्ठा हाले, परिणामले जोनाहलाई सङ्केत गर्‍यो। यसको मतलब यो होइन कि चिट्ठा शाब्दिक रूपमा योनाको माथि खस्यो। वैकल्पिक अनुवाद: \"चिट्ठाले देखायो कि योना दोषी व्यक्ति थिए\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:8",
+    "bsb_verse_text": "“Tell us now,” they demanded, “who is to blame for this calamity that is upon us? What is your occupation, and where have you come from? What is your country, and who are your people?”",
+    "ult_verse_text": "तब तिनीहरूले तिनलाई भने, “कृपया हामीलाई भन्‍नुहोस् कि कसको कारणले यो खराबी हामीमाथि भइरहेको छ। तिम्रो पेशा के हो र तिमी कहाँबाट आयौ? तिम्रो देश कुन हो र तिमी कुन जातिका हौ?\"",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יֹּאמְר֣וּ אֵלָ֔י⁠ו",
+        "note": "वैकल्पिक अनुवाद: \"तब जहाजमा काम गरिरहेका मानिसहरूले योनालाई भने\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַגִּידָ⁠ה־נָּ֣א לָ֔⁠נוּ בַּ⁠אֲשֶׁ֛ר לְ⁠מִי־הָ⁠רָעָ֥ה הַ⁠זֹּ֖את לָ֑⁠נוּ",
+        "note": "वैकल्पिक अनुवाद: \"हामीमा भइरहेको यो नराम्रो कुरा कसले गर्यो\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:9",
+    "bsb_verse_text": "“I am a Hebrew,” replied Jonah. “I worship the LORD, the God of the heavens, who made the sea and the dry land.”",
+    "ult_verse_text": "त्यसैले तिनले तिनीहरूलाई भने, “म हिब्रू हुँ; र म यहवेको डर मान्‍दछु, स्वर्गका परमेश्‍वर, जसले समुद्र र सुख्खा जमिन बनाउनु भएको छ।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "יְהוָ֞ה אֱלֹהֵ֤י הַ⁠שָּׁמַ֨יִם֙ אֲנִ֣י יָרֵ֔א",
+        "note": "यहाँ **डर** शब्दको अर्थ योनाले अरू कुनै देवतालाई होइन, यहोवाको उपासना गरेको हो।"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:10",
+    "bsb_verse_text": "Then the men were even more afraid and said to him, “What have you done?” The men knew that he was fleeing from the presence of the LORD, because he had told them.",
+    "ult_verse_text": "तब ती मानिसहरू अति नै डराए र तिनलाई भने, “तिमीले यो के गर्यौ?” किनभने मानिसहरूलाई थाहा थियो कि तिनी परमप्रभुको सामुन्‍नेबाट भाग्दै थिए, किनभने तिनले तिनीहरूलाई भनेका थिए।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּֽירְא֤וּ הָֽ⁠אֲנָשִׁים֙ יִרְאָ֣ה גְדוֹלָ֔ה",
+        "note": "वैकल्पिक अनुवाद: \"तब पुरुषहरू धेरै डराए\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "מַה־זֹּ֣את עָשִׂ֑יתָ",
+        "note": "जहाजमा भएका मानिसहरूले ती सबैलाई धेरै समस्या ल्याएकोमा योनासँग कत्ति डराएको र क्रोधित थिए भनेर देखाउनको लागि बयानबाजी प्रश्न प्रयोग गर्छन्। वैकल्पिक अनुवाद: \"तपाईंले एक भयानक काम गर्नुभयो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מִ⁠לִּ⁠פְנֵ֤י יְהוָה֙",
+        "note": "यो एउटा अभिव्यक्ति हो जसले यहोवाको अनुहारलाई उहाँको उपस्थितिलाई जनाउँछ। यहोवाको उपस्थितिको विचारमा उहाँको ज्ञान, सूचना, ध्यान वा निर्णय पनि समावेश छ। भागेर, योनाले आफूले अनाज्ञाकारी भएको कुरा यहोवाले याद गर्नुहुनेछैन भनी आशा राख्छन्। वैकल्पिक अनुवाद: \"यहोवाको उपस्थितिबाट\" वा \"यहोवाबाट\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-time-background",
+        "orig_language_quote": "כִּ֥י הִגִּ֖יד לָ⁠הֶֽם",
+        "note": "नाविकहरूले चिट्ठा हाल्नु अघि, योनाले उनीहरूलाई आफूले आराधना गर्नुहुने परमेश्‍वर यहोवाबाट भागिरहेको भनी बताइसकेका थिए। (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-time-background]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "כִּ֥י הִגִּ֖יד לָ⁠הֶֽם",
+        "note": "उहाँले तिनीहरूलाई के भन्नुभयो स्पष्ट रूपमा भन्न सकिन्छ। वैकल्पिक अनुवाद: \"किनभने उहाँले तिनीहरूलाई भन्नुभएको थियो, 'म यहोवाबाट टाढा जान खोज्दै छु'\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:11",
+    "bsb_verse_text": "Now the sea was growing worse and worse, so they said to Jonah, “What must we do to you to calm this sea for us?”",
+    "ult_verse_text": "तब तिनीहरूले तिनलाई भने, \"हामीले तपाईंलाई के गर्नुपर्छ ताकि समुद्र हामीबाट शान्त होस्?\" किनकि समुन्द्र अगाडि बढिरहेको थियो र आँधीबेहरी थियो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יֹּאמְר֤וּ אֵלָי⁠ו֙",
+        "note": "वैकल्पिक अनुवाद: \"तब जहाजमा भएका मानिसहरूले योनालाई भने\" वा \"तब नाविकहरूले योनालाई भने\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מַה־נַּ֣עֲשֶׂה לָּ֔⁠ךְ וְ⁠יִשְׁתֹּ֥ק הַ⁠יָּ֖ם מֵֽ⁠עָלֵ֑י⁠נוּ",
+        "note": "वैकल्पिक अनुवाद: \"समुद्र शान्त बनाउनको लागि हामीले तपाईलाई के गर्नुपर्छ?\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הַ⁠יָּ֖ם הוֹלֵ֥ךְ וְ⁠סֹעֵֽר",
+        "note": "यो एउटा मुहावरा हो जसको अर्थ हो कि समुद्र झन्झन् तुफानी हुँदै गइरहेको छ। वैकल्पिक अनुवाद: \"तूफानको बल बढ्दै थियो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-result",
+        "orig_language_quote": "הַ⁠יָּ֖ם הוֹלֵ֥ךְ וְ⁠סֹעֵֽר",
+        "note": "यही कारण थियो कि मानिसहरूले योनालाई के गर्नुपर्छ भनेर सोधे। यदि तपाईंको भाषामा कारणलाई पहिले राख्नको लागि अझ स्पष्ट छ भने, यसलाई \"त्यसो\" वा \"त्यसैले\" जस्ता शब्दसँग नतिजासँग जोड्दै पद ११ को सुरुमा भन्न सकिन्छ। (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-logic-result]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:12",
+    "bsb_verse_text": "“Pick me up,” he answered, “and cast me into the sea, so it may quiet down for you. For I know that I am to blame for this violent storm that has come upon you.”",
+    "ult_verse_text": "अनि तिनले तिनीहरूलाई भने, “मलाई उठाएर समुद्रमा फालिदेऊ। तब समुद्र तिमीहरूबाट शान्त हुनेछ, किनकि म जान्दछु कि यो ठूलो आँधी मेरो कारणले तिमीहरूमाथि आएको छ।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "כִּ֚י יוֹדֵ֣עַ אָ֔נִי כִּ֣י בְ⁠שֶׁ⁠לִּ֔⁠י הַ⁠סַּ֧עַר הַ⁠גָּד֛וֹל הַ⁠זֶּ֖ה עֲלֵי⁠כֶֽם",
+        "note": "वैकल्पिक अनुवाद: \"किनकि मलाई थाहा छ कि यो ठूलो आँधी मेरो गल्ती हो\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:13",
+    "bsb_verse_text": "Nevertheless, the men rowed hard to get back to dry land, but they could not, for the sea was raging against them more and more.",
+    "ult_verse_text": "तर ती मानिसहरूले आफैंलाई भूमिमा फर्कन कडा परिश्रम गरे, तर तिनीहरूले सकेनन्, किनकि समुद्र अगाडि बढ्दै थियो र तिनीहरूमाथि आँधी चलिरहेको थियो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וַ⁠יַּחְתְּר֣וּ הָ⁠אֲנָשִׁ֗ים לְ⁠הָשִׁ֛יב אֶל־הַ⁠יַּבָּשָׁ֖ה",
+        "note": "ती मानिसहरूले योनालाई समुद्रमा फाल्न चाहँदैनथे, त्यसैले तिनीहरूले योनाले भनेजस्तो गरेनन्। यो जानकारी स्पष्ट गर्न सकिन्छ। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַ⁠יָּ֔ם הוֹלֵ֥ךְ וְ⁠סֹעֵ֖ר",
+        "note": "तूफान झन् झन् झन् बढ्यो, र छालहरू ठूला भए हेर्नुहोस् तपाईंले यो मुहावरेलाई [पद ११] (../01/11.md) मा कसरी अनुवाद गर्नुहुन्छ।"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:14",
+    "bsb_verse_text": "So they cried out to the LORD: “Please, O LORD, do not let us perish on account of this man’s life! Do not charge us with innocent blood! For You, O LORD, have done as You pleased.”",
+    "ult_verse_text": "यसकारण तिनीहरूले परमप्रभुलाई पुकारे र भने, “ए! हे परमप्रभु, कृपया यस मानिसको जीवनको कारणले हामीलाई नष्‍ट नगराउनुहोस्, र निर्दोषको रगत हामीमाथि नलगाउनुहोस्, किनभने हे परमप्रभु, तपाईंले चाहनुभएअनुसार गर्नुभएको छ।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּקְרְא֨וּ",
+        "note": "वैकल्पिक अनुवाद: \"किनकि तिनीहरूले बोलाए\" वा \"किनकि समुद्र झन् हिंसक भयो तिनीहरूले ठूलो स्वरले बोलाए\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּקְרְא֨וּ אֶל־יְהוָ֜ה",
+        "note": "वैकल्पिक अनुवाद: \"यसकारण मानिसहरूले यहोवालाई ठूलो स्वरमा प्रार्थना गरे\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclamations",
+        "orig_language_quote": "אָנָּ֤ה",
+        "note": "यस सन्दर्भमा, **आह!** शब्दले तीव्र निराशा देखाउँछ। तपाईंको भाषाको लागि सबैभन्दा प्राकृतिक तरिकामा यो भावनालाई प्रतिनिधित्व गर्नुहोस्। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-exclamations]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אָנָּ֤ה יְהוָה֙ אַל־נָ֣א נֹאבְדָ֗ה בְּ⁠נֶ֨פֶשׁ֙ הָ⁠אִ֣ישׁ הַ⁠זֶּ֔ה",
+        "note": "वैकल्पिक अनुवाद: \"हे यहोवा, कृपया हामीलाई नमार्नुहोस् किनभने हामीले यस मानिसलाई मर्न दियौं\" वा \"हे यहोवा, हामी यस मानिसलाई मर्न लागे पनि, कृपया हामीलाई नमार्नुहोस्\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וְ⁠אַל־תִּתֵּ֥ן עָלֵ֖י⁠נוּ דָּ֣ם נָקִ֑יא",
+        "note": "यो एक मुहावरा हो जसको अर्थ \"निर्दोष व्यक्तिको हत्या गरेकोमा हामीलाई दोषी नठान्नुहोस्।\" वैकल्पिक अनुवाद: \"र कृपया उहाँको मृत्युको लागि हामीलाई दोष नदिनुहोस्\" वा \"र मर्न योग्य नभएको व्यक्तिलाई मारेकोमा हामीलाई जवाफदेही नबनाउनुहोस्\" (हेर्नुहोस्:[[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אַתָּ֣ה יְהוָ֔ה כַּ⁠אֲשֶׁ֥ר חָפַ֖צְתָּ עָשִֽׂיתָ",
+        "note": "वैकल्पिक अनुवाद: \"तपाईं, यहोवा, यस तरिकाले चीजहरू गर्न रोज्नुभएको छ\" वा \"तपाईं, यहोवा, यो सबै हुन दिनुभएको छ\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:15",
+    "bsb_verse_text": "Then they picked up Jonah and cast him into the sea, and the raging sea grew calm.",
+    "ult_verse_text": "त्यसैले तिनीहरूले योनालाई उठाए र समुद्रमा फालिदिए, र समुद्र शान्त भयो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יַּעֲמֹ֥ד הַ⁠יָּ֖ם מִ⁠זַּעְפּֽ⁠וֹ",
+        "note": "समुद्र हिंसात्मक रूपमा चल्न रोकियो:\n1:15\tab89\t\t\tוַ⁠יַּעֲמֹ֥ד הַ⁠יָּ֖ם מִ⁠זַּעְפּֽ⁠וֹ\t1\tयसलाई सकारात्मक रुपमा भन्न सकिन्छ । वैकल्पिक अनुवाद: समुद्र शान्त भयो\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:16",
+    "bsb_verse_text": "Then the men feared the LORD greatly, and they offered a sacrifice to the LORD and made vows to Him.",
+    "ult_verse_text": "तब मानिसहरूमा परमप्रभुप्रति ठुलो भय छायो, र तिनीहरूले परमप्रभुलाई बलिदान चढाए र भाकल गरे।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּֽירְא֧וּ הָ⁠אֲנָשִׁ֛ים יִרְאָ֥ה גְדוֹלָ֖ה אֶת־יְהוָ֑ה",
+        "note": "वैकल्पिक अनुवाद: \"त्यसपछि मानिसहरू यहोवाको शक्तिमा धेरै डराए\" वा \"त्यसपछि मानिसहरूले ठूलो विस्मयका साथ यहोवाको आराधना गरे\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 1:17",
+    "bsb_verse_text": "Now the LORD had appointed a great fish to swallow Jonah, and Jonah spent three days and three nights in the belly of the fish.",
+    "ult_verse_text": "अब परमप्रभुले योनालाई निल्न एउटा ठूलो माछा नियुक्त गर्नुभयो, र योना तीन दिन र तीन रात माछाको पेटमा रहे।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "General Information:",
+        "note": "# General Information:\\n\\nकेही संस्करणहरूले यस पदलाई अध्याय 2 को पहिलो पदको रूपमा अंकित गर्दछ। तपाईंले आफ्नो भाषा समूहले प्रयोग गर्ने मुख्य संस्करण अनुसार पदहरूलाई संख्या दिन चाहनुहुन्छ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-newevent",
+        "orig_language_quote": "וַ⁠יְמַ֤ן יְהוָה֙ דָּ֣ג גָּד֔וֹל לִ⁠בְלֹ֖עַ אֶת־יוֹנָ֑ה",
+        "note": "यो खण्डले कथाको अर्को भागको परिचय दिन्छ, जहाँ यहोवाले योनालाई समुद्रबाट बचाउनुहुन्छ, र योना प्रार्थना गर्छन्। यस सन्दर्भमा, कथाको नयाँ भाग प्रस्तुत गर्न अंग्रेजीमा **Now** शब्द प्रयोग गरिन्छ। (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-newevent]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "שְׁלֹשָׁ֥ה יָמִ֖ים וּ⁠שְׁלֹשָׁ֥ה לֵילֽוֹת",
+        "note": "सायद यो अभिव्यक्ति हिब्रूमा एक मुहावरा हो जसको अर्थ \"केही दिन\" वा \"केही दिन\" वा यस्तै केहि हो, तर यो अनिश्चित छ। वैकल्पिक अनुवाद: \"तीन दिन र रातहरू\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 2:1",
+    "bsb_verse_text": "From inside the fish, Jonah prayed to the LORD his God,",
+    "ult_verse_text": "अनि योनाले माछाको पेटबाट परमप्रभु आफ्ना परमेश्‍वरलाई प्रार्थना गरे।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "יְהוָ֖ה אֱלֹהָ֑י⁠ו",
+        "note": "यसको अर्थ \"यहोवा, उहाँले आराधना गर्नुहुने परमेश्वर।\" **उनको** शब्दको अर्थ योनासँग परमेश्वरको स्वामित्व थियो भन्ने होइन।"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 2:2",
+    "bsb_verse_text": "saying: “In my distress I called to the LORD, and He answered me. From the belly of Sheol I called for help, and You heard my voice.",
+    "ult_verse_text": "अनि तिनले भने, “मैले मेरो दुःखबाट परमप्रभुलाई पुकारेँ, र उहाँले मलाई जवाफ दिनुभयो। चिहानको गहिराइबाट मैले पुकारें, तपाईंले मेरो आवाज सुन्‍नुभयो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יֹּ֗אמֶר",
+        "note": "वैकल्पिक अनुवाद: \"जोनाहले भने\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-poetry",
+        "orig_language_quote": "קָ֠רָאתִי מִ⁠צָּ֥רָה לִ֛⁠י אֶל־יְהוָ֖ה וַֽ⁠יַּעֲנֵ֑⁠נִי",
+        "note": "यो पङ्क्तिले योनाको अनुभव र माछाको पेटमा भएको प्रार्थनाको वर्णन गर्ने कविता सुरु गर्छ। योनाले त्यस समयमा प्रार्थना गरेका शब्दहरू कविताले ठ्याक्कै दिँदैन किनभने कविता पछि लेखिएको थियो, माछामा योनाको अनुभव, उसको प्रार्थना र परमेश्वरको जवाफलाई वर्णन गरिएको थियो जस्तो कि तिनीहरू विगतमा भइसकेका थिए। कविताको यो पहिलो पङ्क्ति दुई मध्ये एक तरिकामा बुझ्न सकिन्छ: या त प्रार्थनाको वर्णनको भागको रूपमा यहोवालाई सम्बोधन गरिएको रूपमा, वा प्रार्थनाको वर्णनको परिचयको रूपमा अर्को व्यक्तिलाई सम्बोधन गरिएको रूपमा। \"मुक्ति यहोवाको हो!\" भन्ने वाक्यांशको बारेमा नोट पनि हेर्नुहोस्। मा [2:9](../02/09/jdrh)। (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-poetry]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "קָ֠רָאתִי מִ⁠צָּ֥רָה לִ֛⁠י אֶל־יְהוָ֖ה",
+        "note": "वैकल्पिक अनुवाद: \"मैले मेरो ठूलो सङ्कटको बेला परमप्रभुलाई प्रार्थना गरें\" वा \"यहोवा, मेरो सङ्कटको बेला मैले तपाईंलाई पुकारेँ\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַֽ⁠יַּעֲנֵ֑⁠נִי",
+        "note": "वैकल्पिक अनुवाद: \"यहोवाले मलाई जवाफ दिनुभयो वा उहाँले मलाई मद्दत गर्नुभयो वा तपाईंले मलाई जवाफ दिनुभयो\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מִ⁠בֶּ֧טֶן שְׁא֛וֹל",
+        "note": "शिओलको केन्द्रबाट वा \"शिओलको गहिरो भागबाट\" सम्भावित अर्थहरू समावेश छन्: (१) जोनाह माछाको पेटमा शिओलमा भएको कुरा गर्दै थिए; वा (२) जोनाहले आफू मर्ने र शीओलमा जान लागेका थिए भन्ने विश्वास गरे। वा (३) ऊ पहिले नै मरेर शिओलमा गएको जस्तो बोलिरहेको थियो। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "שְׁא֛וֹל",
+        "note": "**शिओल** त्यो ठाउँको नाम थियो जहाँ मानिसहरू मरे पछि गए। यो जमिन मुनि कतै अवस्थित छायामय संसार हो भनेर सोचिएको थियो। नयाँ नियमको समतुल्य \"हेडिस\" जस्तो देखिन्छ, जहाँ मृतकहरू न्यायको लागि पर्खिरहेका हुन्छन् (रेभ. २०:१३ हेर्नुहोस्)। यदि तपाईंको भाषामा यो ठाउँको लागि कुनै शब्द छ भने, तपाईंले यसलाई यहाँ प्रयोग गर्न सक्नुहुन्छ, वा \"शिओल\" शब्द उधारो लिन सक्नुहुन्छ। (हेर्नुहोस्: [[rc://*/ta/man/translate/translate-names]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "שָׁמַ֥עְתָּ קוֹלִֽ⁠י",
+        "note": "यो वाक्यांश शायद शाब्दिक र एक लाक्षणिक अर्थ दुवै छ। यो वाक्यांशको शाब्दिक अर्थ हो कि यहोवाले योनाको आवाज सुन्नुभयो जब उहाँ माछाको पेट भित्र प्रार्थना गरिरहनुभएको थियो। यद्यपि, पुरानो नियममा \"कसैको आवाज सुन्न\" भन्ने वाक्यांशको अर्थ प्रायः \"सुन्न र पालना (पालन)\" हो। यस सन्दर्भमा, योनाले व्यक्त गर्दैछन् कि यहोवाले उहाँको कुरा सुन्नुभयो र उहाँलाई बचाउनको लागि कार्य गर्नुभयो। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 2:3",
+    "bsb_verse_text": "For You cast me into the deep, into the heart of the seas, and the current swirled about me; all Your breakers and waves swept over me.",
+    "ult_verse_text": "अब तपाईंले मलाई समुद्रको गहिराइमा फ्याँक्नुभएको थियो, र प्रवाहहरूले मलाई घेर्यो। तपाईंका सबै छालहरू र लहरहरू ममाथि भएर गए।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "בִּ⁠לְבַ֣ב יַמִּ֔ים",
+        "note": "यहाँ ** हृदय ** शब्द \"भित्र हुनु\" को लागी एक रूपक हो। वाक्यांश \"को मुटुमा\" को अर्थ \"बिचमा\" वा \"पूरै समुद्रको पानीले घेरिएको\" हुनु हो। वैकल्पिक अनुवाद: \"समुद्रको बीचमा\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠נָהָ֖ר יְסֹבְבֵ֑⁠נִי",
+        "note": "वैकल्पिक अनुवाद: \"मेरो वरिपरि समुद्रको पानी बन्द भयो\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "מִשְׁבָּרֶ֥י⁠ךָ וְ⁠גַלֶּ֖י⁠ךָ",
+        "note": "यी दुवै महासागरको सतहमा हुने गडबडी हुन्। तिनीहरूलाई एक शब्दमा जोड्न सकिन्छ, जस्तै \"तरङ्गहरू\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-doublet]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 2:4",
+    "bsb_verse_text": "At this, I said, ‘I have been banished from Your sight; yet I will look once more toward Your holy temple.’",
+    "ult_verse_text": "तर मेरो हकमा, मैले भनें, ‘म तपाईका आँखाको सामुबाट बाहिर निकालिएको छु। तैपनि म फेरि तपाईंको पवित्र मन्दिरतिर हेर्न सक्छु।'",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
+        "orig_language_quote": "וַ⁠אֲנִ֣י",
+        "note": "योनाले भर्खरै बोलेका यहोवाका कार्यहरू र उहाँको आफ्नै प्रतिक्रियाबीच भिन्नता छ भनी यो अभिव्यक्तिले देखाउँछ। वैकल्पिक अनुवाद: \"तब म\" (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-logic-contrast]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "נִגְרַ֖שְׁתִּי",
+        "note": "यदि तपाईंको भाषाले यस तरिकाले निष्क्रिय फारम प्रयोग गर्दैन भने, तपाईंले यसलाई सक्रिय रूपमा वा तपाईंको भाषामा स्वाभाविक रूपमा अर्को तरिकामा बताउन सक्नुहुन्छ। वैकल्पिक अनुवाद: \"तपाईंले मलाई बाहिर निकाल्नुभयो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "מִ⁠נֶּ֣גֶד עֵינֶ֑י⁠ךָ",
+        "note": "यहाँ, **आँखा** एक मेटोनिम हो जसको अर्थ हेर्ने हो, र हेर्नु भनेको भगवानको ज्ञान, सूचना र ध्यानको लागि एक उपनाम हो। वैकल्पिक अनुवाद: \"तपाईंको अगाडिबाट\" वा \"तपाईंको उपस्थितिबाट\" वा \"जहाँ तपाईंले मलाई याद गर्नुहुन्न\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אַ֚ךְ אוֹסִ֣יף לְ⁠הַבִּ֔יט אֶל־הֵיכַ֖ל קָדְשֶֽׁ⁠ךָ",
+        "note": "योनालाई अझै पनि आशा छ कि, आफूले भोग्नुपरेको सबै कुराको बावजुद, परमेश्वरले उसलाई यरूशलेमको मन्दिर फेरि हेर्न दिनुहुनेछ।"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 2:5",
+    "bsb_verse_text": "The waters engulfed me to take my life; the watery depths closed around me; the seaweed wrapped around my head.",
+    "ult_verse_text": "पानी मेरो वरिपरि थियो, जीवन जति टाढा थियो, गहिरोले मलाई घेरेको थियो; समुद्री झ्‍याउहरू मेरो टाउको वरिपरि बेरिएको थियो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-parallelism",
+        "orig_language_quote": "אֲפָפ֤וּ⁠נִי מַ֨יִם֙ עַד־נֶ֔פֶשׁ תְּה֖וֹם יְסֹבְבֵ֑⁠נִי",
+        "note": "योनाले आफ्नो अवस्थाको गम्भीरता र निराशा व्यक्त गर्न दुईवटा समान वाक्यांशहरू प्रयोग गर्छन्। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-parallelism]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מַ֨יִם֙",
+        "note": "यहाँ, **पानी** ले समुद्रलाई बुझाउँछ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "עַד־נֶ֔פֶשׁ",
+        "note": "यहाँ हिब्रू शब्द **जीवन** को अर्थ \"मेरो जीवन\" वा \"मेरो घाँटी\" वा \"मेरो आत्मा\" हुनसक्छ। जे भए पनि, पानीले उनको जीवन समाप्त गर्ने खतरा थियो। वैकल्पिक अनुवाद: \"मेरो गर्दन सम्म\" वा \"मेरो आत्मा सम्म\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "תְּה֖וֹם יְסֹבְבֵ֑⁠נִי",
+        "note": "वैकल्पिक अनुवाद: \"गहिरो पानी मेरो वरिपरि थियो\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ס֖וּף",
+        "note": "**समुद्री शैवाल** समुद्रमा उम्रने घाँस हो।"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 2:6",
+    "bsb_verse_text": "To the roots of the mountains I descended; the earth beneath me barred me in forever! But You raised my life from the pit, O LORD my God!",
+    "ult_verse_text": "म पहाडहरूको आधारहरूमा तल गएको थिएँ, यसको डन्डाहरू सहितको पृथ्वी सधैँभरि मेरो वरिपरि थियो; तर हे परमप्रभु, मेरा परमेश्‍वर, तपाईंले मेरो प्राण खाडलबाट माथि ल्‍याउनुभयो!",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "הָ⁠אָ֛רֶץ בְּרִחֶ֥י⁠הָ בַעֲדִ֖⁠י לְ⁠עוֹלָ֑ם",
+        "note": "यहाँ योनाले पृथ्वीलाई जेलसँग तुलना गर्न एउटा रूपक प्रयोग गर्छन्। वैकल्पिक अनुवाद: \"पृथ्वी एउटा कारागार जस्तै थियो जसले मलाई सदाको लागि बन्द गर्न लागेको थियो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וַ⁠תַּ֧עַל מִ⁠שַּׁ֛חַת חַיַּ֖⁠י",
+        "note": "यहाँ **पिट** शब्दको दुईवटा छन् यसको अर्थ हुन सक्छ: (१) यो धेरै गहिरो ठाउँमा भूमिगत वा पानीमुनि रहेको वर्णन गर्ने तरिका हुन सक्छ वा (२) यो एउटा रूपक हुन सक्छ जसको अर्थ मृतकको स्थान (हेर्नुहोस्) : [[rc://*/ta/man/translate/figs-metaphor]])। जुनसुकै अवस्थामा, योनाले आफू मर्ने कुरामा योनालाई पक्का महसुस गरेको कुरालाई जनाउँछ। वैकल्पिक अनुवाद: \"तर तपाईंले मलाई गहिरो ठाउँमा मर्नबाट बचाउनुभयो\" वा \"तर तपाईंले मेरो जीवन मृतकको ठाउँबाट बचाउनुभयो\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "יְהוָ֥ה אֱלֹהָֽ⁠י",
+        "note": "केही भाषाहरूमा, यसलाई वाक्यको सुरुमा वा \"तपाईं\" शब्दको छेउमा राख्नु स्वाभाविक हुन सक्छ।"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 2:7",
+    "bsb_verse_text": "As my life was fading away, I remembered the LORD. My prayer went up to You, to Your holy temple.",
+    "ult_verse_text": "जब मेरो आत्मा ममाथि बेहोस भयो, मैले परमप्रभुलाई सम्झेँ र मेरो प्रार्थना तपाईंकहाँ, तपाईंको पवित्र मन्दिरमा आयो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-time-simultaneous",
+        "orig_language_quote": "בְּ⁠הִתְעַטֵּ֤ף עָלַ⁠י֙ נַפְשִׁ֔⁠י",
+        "note": "यस वाक्यांशको अर्थ या त हुन सक्छ: (१) जोनाह मर्ने प्रक्रियामा थिए जब उनले यहोवालाई सम्झे; वा (२) जोनाहले छुटकारा पाउने आशा त्यागेका थिए र आफू मर्नेछन् भनी आफूले राजीनामा दिएका थिए। वैकल्पिक अनुवाद: \"जब मेरो जीवन मबाट बेहोश भएको थियो\" वा \"जब मेरो भित्रको आत्मा बेहोस भएको थियो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-time-simultaneous]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֶת־יְהוָ֖ה זָכָ֑רְתִּי",
+        "note": "योनाले यहोवालाई प्रार्थना गरिरहनुभएको हुनाले, केही भाषाहरूमा \"मैले तपाईंको बारेमा सोचें, यहोवा\" वा \"यहोवा, मैले तपाईंको बारेमा सोचें।\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וַ⁠תָּב֤וֹא אֵלֶ֨י⁠ךָ֙ תְּפִלָּתִ֔⁠י אֶל־הֵיכַ֖ל קָדְשֶֽׁ⁠ךָ",
+        "note": "योनाले आफ्नो प्रार्थनाले परमेश्वर र उहाँको मन्दिरसम्म पुग्न सक्ने गरी बोल्छन्। यसको अर्थ परमेश्वरले उहाँको प्रार्थना सुन्नुभयो र त्यसलाई जवाफ दिनुभयो। वैकल्पिक अनुवाद: \"त्यसोभए तपाईंले आफ्नो पवित्र मन्दिरमा मेरो प्रार्थना सुन्नुभयो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "הֵיכַ֖ל קָדְשֶֽׁ⁠ךָ",
+        "note": "यहाँ **पवित्र मन्दिर** शब्दको शाब्दिक वा लाक्षणिक अर्थ, वा सायद दुवै हुन सक्छ। योनाले यरूशलेमको शाब्दिक मन्दिरको बारेमा कुरा गरिरहेको हुन सक्छ, वा उसले स्वर्गमा परमेश्वरको बासस्थानको बारेमा कुरा गरिरहेको हुन सक्छ। UST हेर्नुहोस्। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "נַפְשִׁ֔⁠י",
+        "note": "यहाँ हिब्रू शब्द ** मेरो आत्मा** को अर्थ ** मेरो जीवन** पनि हुन सक्छ।"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 2:8",
+    "bsb_verse_text": "Those who cling to worthless idols forsake His loving devotion.",
+    "ult_verse_text": "खाली व्यर्थ कुराहरूमा ध्यान दिनेहरूले आफ्नो करारको विश्‍वासयोग्यता त्याग्छन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "מְשַׁמְּרִ֖ים הַבְלֵי־שָׁ֑וְא",
+        "note": "यहाँ **खाली भ्यानिटीहरू** शब्दले झूटा देवताका मूर्तिहरूलाई जनाउने मुहावरा हो। वैकल्पिक अनुवाद: \"जो बेकार मूर्तिहरूमा ध्यान दिन्छन्\" वा \"उनीहरू जसले बेकारका देवताहरूलाई ध्यान दिन्छन्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "חַסְדָּ֖⁠ם יַעֲזֹֽבוּ",
+        "note": "यहाँ, ** करारको विश्वासयोग्यता** को अर्थ हुन सक्छ: (१) परमेश्वरको विश्वासयोग्यता वा (२) मानिसहरूको विश्वासयोग्यता। तसर्थ, यसको अर्थ हुन सक्छ (१) \"तपाईलाई अस्वीकार गर्दै हुनुहुन्छ, जो तिनीहरूप्रति वफादार हुनेछन्\" वा (२) \"तपाईप्रतिको आफ्नो प्रतिबद्धता त्याग्दै हुनुहुन्छ\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 2:9",
+    "bsb_verse_text": "But I, with the voice of thanksgiving, will sacrifice to You. I will fulfill what I have vowed. Salvation is from the LORD!”",
+    "ult_verse_text": "तर मेरो लागि, म तपाईंलाई धन्यवादको स्वरमा बलिदान दिनेछु। मैले भाकल गरेको कुरा म पूरा गर्नेछु। मुक्ति छ परमप्रभुमा!”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-logic-contrast",
+        "orig_language_quote": "וַ⁠אֲנִ֗י",
+        "note": "योनाले भर्खरै बोलेका मानिसहरू र उहाँको बीचमा भिन्नता छ भनी यो अभिव्यक्तिले देखाउँछ। तिनीहरूले व्यर्थका देवताहरूलाई ध्यान दिए, तर तिनले परमप्रभुको आराधना गर्थे। वैकल्पिक अनुवाद: \"तर म\" (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-logic-contrast]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "בְּ⁠ק֤וֹל תּוֹדָה֙ אֶזְבְּחָה־לָּ֔⁠ךְ",
+        "note": "यो वाक्यांशको अर्थ सायद योनाले उहाँलाई बलिदान चढाउँदा परमेश्वरलाई धन्यवाद दिने हो। योनाले गीत गाएर वा कराएर परमेश्वरलाई धन्यवाद दिने योजना बनाएका थिए भन्ने स्पष्ट छैन।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "יְשׁוּעָ֖תָ⁠ה לַ⁠יהוָֽה",
+        "note": "कविताको यो अन्तिम पङ्क्तिलाई दुईमध्ये एउटा तरिकाले बुझ्न सकिन्छ: या त (१) प्रार्थनाको वर्णनको भागको रूपमा यहोवालाई सम्बोधन गरिएको; वा (२) प्रार्थनाको वर्णनको निष्कर्षको रूपमा अर्को व्यक्तिलाई सम्बोधन गरिएको रूपमा। [2:2](../02/02/jdrc) मा \"मैले मेरो दुःखबाट यहोवालाई पुकारेँ...\" वाक्यांशको बारेमा नोट पनि हेर्नुहोस्।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "יְשׁוּעָ֖תָ⁠ה לַ⁠יהוָֽה",
+        "note": "यदि तपाईंको भाषाले **मुक्ति** शब्दको पछाडिको विचारको लागि एउटा अमूर्त संज्ञा प्रयोग गर्दैन भने, तपाईंले उही विचारलाई \"बचत गर्नुहोस्\" जस्ता मौखिक रूपमा व्यक्त गर्न सक्नुहुन्छ। वैकल्पिक अनुवाद: \"यहोवाले मानिसहरूलाई बचाउने हुनुहुन्छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-abstractnouns]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 2:10",
+    "bsb_verse_text": "And the LORD commanded the fish, and it vomited Jonah onto dry land.",
+    "ult_verse_text": "तब परमप्रभुले माछालाई आज्ञा गर्नुभयो, र यसले योनालाई सुख्खा जमिनमा उकेलिदियो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֶל־הַ⁠יַּבָּשָֽׁה",
+        "note": "वैकल्पिक अनुवाद: \"जमिनमा\" वा \"किनारमा\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 3:1",
+    "bsb_verse_text": "Then the word of the LORD came to Jonah a second time:",
+    "ult_verse_text": "तब योनाकहाँ दोस्रो पल्ट परमप्रभुको वचन आयो,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-newevent",
+        "orig_language_quote": "וַ⁠יְהִ֧י דְבַר־יְהוָ֛ה",
+        "note": "यो वाक्यांशले योनाको कथाको दोस्रो भागको परिचय दिन्छ। एउटै वाक्यांशले कथाको पहिलो आधा परिचय दिन्छ [1:1](../01/01.md)। (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-newevent]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַ⁠יְהִ֧י דְבַר־יְהוָ֛ה",
+        "note": "यो एक मुहावरा हो जसको अर्थ यहोवाले कुनै तरिकामा बोल्नुभयो। हेर्नुहोस् कसरी तपाईंले यसलाई [1:1] (../01/01.md) मा अनुवाद गर्नुभयो। वैकल्पिक अनुवाद: \"यहोवेले आफ्नो सन्देश बोले\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 3:2",
+    "bsb_verse_text": "“Get up! Go to the great city of Nineveh and proclaim to it the message that I give you.”",
+    "ult_verse_text": "“उठ, ठूलो सहर निनवेमा जाऊ, र मैले तिमीलाई भनेको घोषणालाई घोषणा गर।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ק֛וּם לֵ֥ךְ אֶל־נִֽינְוֵ֖ה הָ⁠עִ֣יר הַ⁠גְּדוֹלָ֑ה",
+        "note": "वैकल्पिक अनुवाद: \"निनवेको ठूलो र महत्त्वपूर्ण शहरमा जानुहोस्\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "ק֛וּם",
+        "note": "**उठ** यहाँ योनालाई अर्को आदेश पालन गर्न उत्प्रेरित गर्ने मुहावरा छ, जुन \"जानुहोस्\" हो। हेर्नुहोस् तपाईंले यसलाई [1:2](../01/02.md) र [1:3](../01/03.md) मा कसरी अनुवाद गर्नुभयो। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וִּ⁠קְרָ֤א אֵלֶ֨י⁠הָ֙ אֶת־הַ⁠קְּרִיאָ֔ה אֲשֶׁ֥ר אָנֹכִ֖י דֹּבֵ֥ר אֵלֶֽי⁠ךָ",
+        "note": "वैकल्पिक अनुवाद: \"त्यहाँ मानिसहरूलाई बताउनुहोस् कि म के भन्छु तिनीहरूलाई भन्न\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 3:3",
+    "bsb_verse_text": "This time Jonah got up and went to Nineveh, in accordance with the word of the LORD. Now Nineveh was an exceedingly great city, requiring a three-day journey.",
+    "ult_verse_text": "यसकारण परमप्रभुको वचनअनुसार योना उठे र निनवे गए।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַ⁠יָּ֣קָם יוֹנָ֗ה וַ⁠יֵּ֛לֶךְ אֶל־נִֽינְוֶ֖ה כִּ⁠דְבַ֣ר יְהוָ֑ה",
+        "note": "यहाँ ** उठेको ** शब्दको अर्थ योनाले परमेश्वरको आज्ञाको जवाफमा कदम चालेका थिए र यस पटक उनले अनाज्ञाकारी हुनुको सट्टा आज्ञापालन गरे। वैकल्पिक अनुवाद: \"उनको समय जोनाहले यहोवाको आज्ञा पालन गरे र निनवे गए\" वा \"यसकारण योना समुद्र तट छोडेर निनवे गए, जस्तै यहोवाले उहाँलाई आज्ञा गर्नुभएको थियो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs] - मुहावरा]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "כִּ⁠דְבַ֣ר יְהוָ֑ה",
+        "note": "वैकल्पिक अनुवाद: \"यहोवाको सन्देश\" वा \"यहोवाको आज्ञा\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-background",
+        "orig_language_quote": "וְ⁠נִֽינְוֵ֗ה הָיְתָ֤ה עִיר־גְּדוֹלָה֙ לֵֽ⁠אלֹהִ֔ים מַהֲלַ֖ךְ שְׁלֹ֥שֶׁת יָמִֽים",
+        "note": "यस वाक्यले निनवे सहरको पृष्ठभूमि जानकारी दिन्छ। (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-background]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "עִיר־גְּדוֹלָה֙ לֵֽ⁠אלֹהִ֔ים",
+        "note": "यो एक मुहावरा हो जसको अर्थ यो शहर एकदमै ठूलो र विश्वको सबैभन्दा ठूला सहर मध्ये एक हो। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "מַהֲלַ֖ךְ שְׁלֹ֥שֶׁת יָמִֽים",
+        "note": "यसको मतलब यो देखिन्छ कि एक व्यक्तिले शहरको एक छेउबाट विपरित छेउमा पुग्न तीन दिनसम्म हिँड्नुपर्थ्यो। यसको मतलब यो पनि हुन सक्छ कि पूरै शहर हेर्न तीन दिन लाग्यो। वैकल्पिक अनुवाद: \"एउटा सहर यति ठूलो कि त्यहाँबाट हिँड्न एक व्यक्तिलाई तीन दिन लाग्छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 3:4",
+    "bsb_verse_text": "On the first day of his journey, Jonah set out into the city and proclaimed, “Forty more days and Nineveh will be overturned!”",
+    "ult_verse_text": "यसकारण योना एक दिनको यात्रामा सहरमा जान थाले, र तिनले बोलाए र भने, “चालीस दिनसम्‍म, त्यसपछि निनवेलाई परास्त गरिनेछ।\"",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יָּ֤חֶל יוֹנָה֙ לָ⁠ב֣וֹא בָ⁠עִ֔יר מַהֲלַ֖ךְ י֣וֹם אֶחָ֑ד וַ⁠יִּקְרָא֙",
+        "note": "यस वाक्यांशको दुईवटा छन् यसको अर्थ हुन सक्छ: (१) योना एक दिनको यात्रा सहरमा गए, त्यसपछि उसले बोलाउन थाल्यो; वा (२) योना पहिलो दिन सहरमा हिंड्दै गर्दा, उसले बोलाउन थाल्यो।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּקְרָא֙ וַ⁠יֹּאמַ֔ר",
+        "note": "वैकल्पिक अनुवाद: \"र उसले घोषणा गर्यो\" वा \"र उसले चिच्यायो\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ע֚וֹד אַרְבָּעִ֣ים י֔וֹם",
+        "note": "वैकल्पिक अनुवाद: \"40 दिन पछि\" वा \"40 दिनमा\" वा \"त्यहाँ 40 दिन बाँकी छ, र\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-numbers",
+        "orig_language_quote": "אַרְבָּעִ֣ים י֔וֹם",
+        "note": "**चालीस दिन** (हेर्नुहोस्: [[rc://in/a/man/translate/translates-numbers]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 3:5",
+    "bsb_verse_text": "And the Ninevites believed God. They proclaimed a fast and dressed in sackcloth, from the greatest of them to the least.",
+    "ult_verse_text": "अनि निनवेका मानिसहरूले परमेश्‍वरमा विश्‍वास गरे। अनि तिनीहरूले उपवासको घोषणा गरे र तिनीहरूमध्ये ठूलादेखि सानासम्म सबैले भाङ्‌ग्रा लगाए।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "וַ⁠יִּקְרְאוּ־צוֹם֙",
+        "note": "मानिसहरूले उदासी वा ईश्वर वा दुवैप्रति भक्ति देखाउन उपवास बसे। (हेर्नुहोस्: [[rc://*/ta/man/translate/translate-symaction]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וַ⁠יִּלְבְּשׁ֣וּ שַׂקִּ֔ים",
+        "note": "मानिसहरूले **भाङ्रा लगाउनुको कारणलाई अझ स्पष्ट रूपमा बताउन सकिन्छ। वैकल्पिक अनुवाद: \"तिनीहरूले पाप गरेकोमा पछुताएको देखाउनको लागि मोटो कपडा पनि लगाउँछन्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מִ⁠גְּדוֹלָ֖⁠ם וְ⁠עַד־קְטַנָּֽ⁠ם",
+        "note": "वैकल्पिक अनुवाद: \"सबै भन्दा महत्त्वपूर्ण देखि कम से कम महत्वपूर्ण व्यक्तिहरु सम्म\" वा \"सबै महत्वपूर्ण व्यक्तिहरु र सबै महत्वहीन व्यक्तिहरु सहित\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 3:6",
+    "bsb_verse_text": "When word reached the king of Nineveh, he got up from his throne, took off his royal robe, covered himself with sackcloth, and sat in ashes.",
+    "ult_verse_text": "तब निनवेका राजाकहाँ यो वचन आयो, र उनी आफ्नो सिंहासनबाट उठे, र तिनले आफ्‍नो राजपोशाक फुकाले र भाङ्ग्राको लुगा लगाए, र खरानीको थुप्रोमा बसे।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַ⁠דָּבָר֙",
+        "note": "वैकल्पिक अनुवाद: \"योनाको सन्देश\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "וַ⁠יָּ֨קָם֙ מִ⁠כִּסְא֔⁠וֹ",
+        "note": "उहाँ आफ्नो सिंहासनबाट उठ्नुभयो वा \"उहाँ आफ्नो सिंहासनबाट उठ्नुभयो\" राजाले आफ्नो सिंहासन छाडेर आफू नम्र भएर काम गरिरहेको देखाउनुभयो। (हेर्नुहोस्: [[rc://*/ta/man/translate/translate-symaction]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מִ⁠כִּסְא֔⁠וֹ",
+        "note": "**सिंहासन** एउटा विशेष कुर्सी हो जसमा राजाले आफ्नो आधिकारिक कर्तव्यहरू पूरा गर्दा राजा बस्छन्। यो केवल राजा को लागी आरक्षित छ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "וַ⁠יֵּ֖שֶׁב עַל־הָ⁠אֵֽפֶר",
+        "note": "**खरामा बसेर** ठूलो नम्रता र दुःख देखाउने तरिका थियो। यस अवस्थामा, यो देखाउने थियो कि उहाँ आफ्नो पापको लागि कत्ति पछुताउनु भयो। (हेर्नुहोस्: [[rc://*/ta/man/translate/translate-symaction]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 3:7",
+    "bsb_verse_text": "Then he issued a proclamation in Nineveh: “By the decree of the king and his nobles: Let no man or beast, herd or flock, taste anything at all. They must not eat or drink.",
+    "ult_verse_text": "अनि तिनले निनवेमा राजा र तिनका भारदारहरूको आदेशबाट घोषणा गरे र यसो भने: “कुनै पनि मानिस वा जनावर, बगाल वा बथानले कुनै पनि खानेकुरा चाख्‍नु हुँदैन; तिनीहरू चर्नु हुँदैन र पानी पिउनु हुँदैन।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יַּזְעֵ֗ק וַ⁠יֹּ֨אמֶר֙ & לֵ⁠אמֹ֑ר",
+        "note": "वैकल्पिक अनुवाद: \"उहाँले आधिकारिक घोषणा पठाउनुभयो\" वा \"उहाँले आफ्ना सन्देशवाहकहरूलाई घोषणा गर्न पठाउनुभयो\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מִ⁠טַּ֧עַם הַ⁠מֶּ֛לֶךְ וּ⁠גְדֹלָ֖י⁠ו",
+        "note": "वैकल्पिक अनुवाद: \"राजा र तिनका अधिकारीहरूको पूर्ण अधिकारको साथ आदेश\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וּ⁠גְדֹלָ֖י⁠ו",
+        "note": "**कुलीनहरू** शब्दले राजालाई सहरमा शासन गर्न मद्दत गर्ने महत्त्वपूर्ण व्यक्तिहरूलाई जनाउँछ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַ⁠בָּקָ֣ר וְ⁠הַ⁠צֹּ֗אן",
+        "note": "यसले मानिसहरूलाई हेरचाह गर्ने दुई प्रकारका जनावरहरूलाई जनाउँछ। एउटा **बथान** ठूला पशुधन (जस्तै गोरु वा गाईवस्तु) मिलेर बनेको हुन्छ र **बथान** साना पशुधन (जस्तै भेडा वा बाख्रा) मिलेर बनेको हुन्छ। वैकल्पिक अनुवाद: \"गाई वा भेडा\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "אַ֨ל־יִרְע֔וּ וּ⁠מַ֖יִם אַל־יִשְׁתּֽוּ",
+        "note": "तिनीहरूले केही पनि खान वा पिउनु हुँदैन तिनीहरूले केही पनि खान वा पिउन नदिने कारणलाई \"तिनीहरू आफ्ना पापहरूका लागि पछुताउने देखाउन\" थपेर स्पष्ट गर्न सकिन्छ। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 3:8",
+    "bsb_verse_text": "Furthermore, let both man and beast be covered with sackcloth, and have everyone call out earnestly to God. Let each one turn from his evil ways and from the violence in his hands.",
+    "ult_verse_text": "तर हरेक मानिस र हरेक जनावरले भाङ्ग्रा लगाउनुपर्नेछ, र तिनीहरूले शक्तिका साथ परमेश्‍वरलाई पुकारा गर्नुपर्नेछ। अनि प्रत्येक मानिस आफ्नो दुष्‍ट मार्ग र आफ्नो हातमा भएको हिंसाबाट फर्कनुपर्छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠הַ⁠בְּהֵמָ֔ה",
+        "note": "यहाँ **जनावर** शब्दले मानिसको स्वामित्वमा रहेका जनावरहरूलाई जनाउँछ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠יִקְרְא֥וּ אֶל־אֱלֹהִ֖ים בְּ⁠חָזְקָ֑ה",
+        "note": "अनि तिनीहरूले परमेश्वरलाई दृढतापूर्वक प्रार्थना गर्नुपर्छ मानिसहरूले केको लागि प्रार्थना गर्नुपरेको थियो भनेर स्पष्ट गर्न सकिन्छ। वैकल्पिक अनुवाद: \"र तिनीहरूले परमेश्वरलाई ठूलो स्वरमा पुकार्नु पर्छ र दयाको लागि सोध्नु पर्छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הֶ⁠חָמָ֖ס אֲשֶׁ֥ר בְּ⁠כַפֵּי⁠הֶֽם",
+        "note": "यहाँ, **हात** एक मेटोनिम हो जसको अर्थ हुन्छ। यसले निनवेका मानिसहरूले गरिरहेको हिंसालाई जनाउँछ। वैकल्पिक अनुवाद: \"उनले गरेका हिंसात्मक कामहरू\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 3:9",
+    "bsb_verse_text": "Who knows? God may turn and relent; He may turn from His fierce anger, so that we will not perish.”",
+    "ult_verse_text": "कसले जान्दछ? उहाँ परमेश्‍वर फर्केर आफ्नो जलनबाट दया र शान्त हुन सक्नुहुन्‍छ ताकि हामी नाश नहोऔँ।”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "מִֽי־יוֹדֵ֣עַ",
+        "note": "राजाले यो व्याख्यात्मक प्रश्नलाई मानिसहरूलाई सम्भव छ तर अनिश्चित कुराको बारेमा सोच्न लगाउन प्रयोग गरे: यदि तिनीहरूले पाप गर्न छोड्छन् भने, परमेश्वरले तिनीहरूलाई मार्नुहुन्न। यसलाई कथनको रूपमा अनुवाद गर्न सकिन्छ: \"हामीलाई थाहा छैन।\" वा यसलाई शब्दको रूपमा भन्न सकिन्छ र अर्को वाक्यको अंश हुन सक्छ: \"सायद।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "יָשׁ֔וּב וְ⁠נִחַ֖ם הָ⁠אֱלֹהִ֑ים",
+        "note": "यहाँ लेखकले न्याय ल्याउने बारेमा आफ्नो मन परिवर्तन गर्ने भगवानको कुरा गर्छन मानौं भगवान घुम्दै हुनुहुन्छ र उल्टो दिशामा हिंड्दै हुनुहुन्छ। वैकल्पिक अनुवाद: \"परमेश्वरले अनुकम्पा राख्नुको सट्टा निर्णय गर्न सक्नुहुन्छ\" वा \"परमेश्वरले जे भन्नुभयो त्यसको विपरीत गर्न सक्नुहुन्छ र दयालु हुन सक्नुहुन्छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "מֵ⁠חֲר֥וֹן אַפּ֖⁠וֹ",
+        "note": "यहाँ ** नाक जलाउनु ** एक मुहावरा हो जसको अर्थ व्यक्ति क्रोधित छ। वैकल्पिक अनुवाद: \"उसको क्रोधबाट\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠לֹ֥א נֹאבֵֽד",
+        "note": "वैकल्पिक अनुवाद: \"र हामी मर्नेछैनौं\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 3:10",
+    "bsb_verse_text": "When God saw their actions—that they had turned from their evil ways—He relented from the disaster He had threatened to bring upon them.",
+    "ult_verse_text": "अनि परमेश्‍वरले तिनीहरूका कामहरू देख्नुभयो, कि तिनीहरू आफ्ना दुष्‍ट मार्गहरूबाट टाढा भए। अनि परमेश्‍वरले तिनीहरूलाई गर्नुहुनेछ भनी भन्‍नु भएको दुष्‍टको सम्बन्धमा नरम बन्‍नुभयो। तर उहाँले त्यो गर्नुभएन।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יַּ֤רְא הָֽ⁠אֱלֹהִים֙ אֶֽת־מַ֣עֲשֵׂי⁠הֶ֔ם כִּי־שָׁ֖בוּ מִ⁠דַּרְכָּ֣⁠ם הָ⁠רָעָ֑ה",
+        "note": "वैकल्पिक अनुवाद: \"परमेश्वरले देख्नुभयो कि तिनीहरूले खराब कार्यहरू गर्न छोडे\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "שָׁ֖בוּ מִ⁠דַּרְכָּ֣⁠ם הָ⁠רָעָ֑ה",
+        "note": "यहाँ लेखकले मानिसहरूलाई आफ्नो पाप गर्न छोडेको कुरा भन्छन्, मानौं तिनीहरू दुष्टतर्फको बाटोमा हिंड्नबाट फर्केर उल्टो दिशामा हिँड्न थाले। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּנָּ֣חֶם הָ⁠אֱלֹהִ֗ים עַל־הָ⁠רָעָ֛ה",
+        "note": "यहाँ \"दुष्ट\" भनी अनुवाद गरिएको शब्द धेरै फराकिलो छ, जसमा नैतिक दुष्ट, शारीरिक खराबी र सबै खराब छन्। यो अघिल्लो वाक्य (र पद 8) मा निनवेका कार्यहरू वर्णन गर्न प्रयोग गरिएको उही शब्द हो। लेखकले देखाउँदैछन् कि जब मानिसहरूले नैतिक दुष्टताको पश्चात्ताप गर्छन्, ईश्वर शारीरिक खराबी (सजाय) गर्नबाट पछुताउँछन्। परमेश्वरले कहिल्यै नैतिक खराबी गर्नुहुँदैन। यदि यो तपाइँको भाषामा स्पष्ट छ भने, तपाइँ दुबै वाक्यहरूमा एउटै शब्द प्रयोग गर्न सक्नुहुन्छ। यदि त्यो स्पष्ट छैन भने, तपाइँ फरक शब्दहरू प्रयोग गर्न सक्नुहुन्छ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠לֹ֥א עָשָֽׂה",
+        "note": "परमेश्‍वरले के गर्नुभएन भनेर प्रस्ट पार्न सकिन्छ। वैकल्पिक अनुवाद: \"र उहाँले तिनीहरूलाई दण्ड दिनुभयो\" वा \"र उहाँले तिनीहरूलाई नष्ट गरेन\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:1",
+    "bsb_verse_text": "Jonah, however, was greatly displeased, and he became angry.",
+    "ult_verse_text": "तर योनाको लागि यो नराम्रो थियो, एक ठूलो दुष्ट, र यसले उनलाई रीस उठायो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-newevent",
+        "orig_language_quote": "וַ⁠יֵּ֥רַע אֶל־יוֹנָ֖ה רָעָ֣ה גְדוֹלָ֑ה וַ⁠יִּ֖חַר לֽ⁠וֹ׃",
+        "note": "यो वाक्यले कथाको अर्को भागलाई परिचय गराउँछ जहाँ योनाले निनवे सहरलाई बचाउने परमेश्वरलाई जवाफ दिन्छन्। (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-newevent]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַ⁠יִּ֖חַר לֽ⁠וֹ",
+        "note": "यो एक मुहावरा हो जसले योनाको क्रोधको बारेमा बोल्छ मानौं यो उसको भित्र जलिरहेको आगो हो। वैकल्पिक अनुवाद: \"र ऊ धेरै क्रोधित थियो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:2",
+    "bsb_verse_text": "So he prayed to the LORD, saying, “O LORD, is this not what I said while I was still in my own country? This is why I was so quick to flee toward Tarshish. I knew that You are a gracious and compassionate God, slow to anger, abounding in loving devotion—One who relents from sending disaster.",
+    "ult_verse_text": "त्यसैले तिनले परमप्रभुलाई प्रार्थना गरे र भने, “ए! हे परमप्रभु, के यो मेरो देशमा हुँदा मेरो वचन थिएन र? यस कारणले गर्दा मैले तर्शीशमा भाग्‍नको लागि अग्रसरतापूर्वक काम गरें, किनकि मलाई थाहा थियो कि तपाईं एक अनुग्रही र दयालु परमेश्‍वर हुनुहुन्छ, नाकको लामो र वाचाको विश्‍वासमा प्रशस्त, र दुष्‍टताबाट शान्त हुनुहुन्छ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclamations",
+        "orig_language_quote": "אָנָּ֤ה",
+        "note": "यस सन्दर्भमा, **आह!** शब्दले तीव्र निराशा देखाउँछ। तपाईंको भाषाको लागि सबैभन्दा प्राकृतिक तरिकामा यो भावनालाई प्रतिनिधित्व गर्नुहोस्। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-exclamations]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "יְהוָה֙ הֲ⁠לוֹא־זֶ֣ה דְבָרִ֗⁠י עַד־הֱיוֹתִ⁠י֙ עַל־אַדְמָתִ֔⁠י",
+        "note": "योनाले परमेश्वरलाई कत्ति क्रोधित हुनुहुन्छ भनी बताउन यो शब्दावली प्रश्न प्रयोग गरे। यदि यो अधिक स्पष्ट छ भने, यो एक बयान मा बनाउन सकिन्छ। वैकल्पिक अनुवाद: \"हे, हे यहोवा, म आफ्नै देशमा हुँदा मैले भनेको यही हो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "יְהוָה֙ הֲ⁠לוֹא־זֶ֣ה דְבָרִ֗⁠י עַד־הֱיוֹתִ⁠י֙ עַל־אַדְמָתִ֔⁠י",
+        "note": "योनाले आफ्नै देशमा फर्किँदा के भनेका थिए भनेर स्पष्ट रूपमा भन्न सकिन्छ। वैकल्पिक अनुवाद: \"अब हे यहोवा, जब म आफ्नै देशमा थिएँ, मलाई थाहा थियो कि यदि मैले निनवेका मानिसहरूलाई चेतावनी दिएँ भने, तिनीहरूले पश्चात्ताप गर्नेछन्, र तपाईंले तिनीहरूलाई नष्ट गर्नुहुने छैन\" (हेर्नुहोस्: [[rc://*/ta/] man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "אֶ֤רֶךְ אַפַּ֨יִם֙",
+        "note": "यो एक मुहावरा हो जसको अर्थ यहोवा छिट्टै रिसाउनु हुन्न। वैकल्पिक अनुवाद: \"रिसाउन ढिलो\" वा \"धेरै धैर्य\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠רַב־חֶ֔סֶד",
+        "note": "वैकल्पिक अनुवाद: \"र धेरै विश्वासयोग्य\" वा \"र तपाइँ मानिसहरूलाई धेरै माया गर्नुहुन्छ\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠נִחָ֖ם עַל־הָ⁠רָעָֽה",
+        "note": "यहाँ, **दुष्ट** ले निनवे सहर र यसका मानिसहरूको भौतिक विनाशलाई जनाउँछ। यसले नैतिक दुष्टतालाई जनाउँदैन। यस सन्दर्भमा, यस वाक्यांशको अर्थ हो कि पाप गर्ने मानिसहरूलाई नराम्रो कुराहरू गराउँदा परमेश्वरले दुःख महसुस गर्नुहुन्छ र पापीहरूले आफ्नो पापको पश्चात्ताप गर्दा उहाँले आफ्नो मन परिवर्तन गर्नुहुन्छ। यो निहित जानकारी स्पष्ट गर्न सकिन्छ। वैकल्पिक अनुवाद: \"र तपाईं पापीहरूको लागि विपत्ति निम्त्याउँदा दुःखी हुनुहुन्छ\" वा \"र तपाईंले पश्चात्ताप गर्ने पापीहरूलाई सजाय नगर्ने निर्णय गर्नुहुन्छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:3",
+    "bsb_verse_text": "And now, O LORD, please take my life from me, for it is better for me to die than to live.”",
+    "ult_verse_text": "त्यसैले अब, हे परमप्रभु, म तपाईंलाई बिन्ती गर्छु, मेरो जीवन मबाट लिनुहोस्, किनकि मेरो मृत्यु मेरो जीवनभन्दा उत्तम छ।”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "קַח־נָ֥א אֶת־נַפְשִׁ֖⁠י מִמֶּ֑⁠נִּי",
+        "note": "योनाले मर्न चाहनुको कारण स्पष्ट रूपमा बताउन सकिन्छ। वैकल्पिक अनुवाद: \"तपाईंले भनेजस्तै निनवेलाई नष्ट गर्नुहुन्न, कृपया मलाई मर्न अनुमति दिनुहोस्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "כִּ֛י ט֥וֹב מוֹתִ֖⁠י מֵ⁠חַיָּֽ⁠י",
+        "note": "वैकल्पिक अनुवाद: \"म बाँच्नु भन्दा मर्न रुचाउँछु\" वा \"किनभने म मर्न चाहन्छु। मलाई बाँच्न मन छैन\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:4",
+    "bsb_verse_text": "But the LORD replied, “Have you any right to be angry?”",
+    "ult_verse_text": "अनि परमप्रभुले भन्‍नुभयो, \"के रीस गर्न तिम्रो निम्ति हक छ र?\"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "הַ⁠הֵיטֵ֖ב חָ֥רָה לָֽ⁠ךְ",
+        "note": "यो एक मुहावरा हो जसले योनाको क्रोधको बारेमा बोल्छ मानौं यो उसको भित्र जलिरहेको आगो हो। हेर्नुहोस् कसरी तपाईंले यसलाई [4:1] (../04/01.md) मा अनुवाद गर्नुभयो। वैकल्पिक अनुवाद: \"यसको बारेमा तपाईलाई रिसाउनु उचित छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "הַ⁠הֵיטֵ֖ב חָ֥רָה לָֽ⁠ךְ",
+        "note": "योनाको रिसको कारण स्पष्ट गर्न सकिन्छ। वैकल्पिक अनुवाद: \"मैले निनवेलाई नष्ट गरिनँ भनेर के तपाईं रिसाउनु ठीक हो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:5",
+    "bsb_verse_text": "Then Jonah left the city and sat down east of it, where he made himself a shelter and sat in its shade to see what would happen to the city.",
+    "ult_verse_text": "तब योना सहरबाट निस्केर पूर्वबाट सहरतिर फर्केर बसे। अनि त्यहाँ तिनले आफ्नो लागि आश्रय बनाए, र शहर भित्र के भइरहेको छ भनेर देख्‍न नसकेसम्म उनी छायाँमा बसें।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יֵּצֵ֤א יוֹנָה֙ מִן־הָ⁠עִ֔יר",
+        "note": "वैकल्पिक अनुवाद: \"तब योनाले निनवे सहर छोडे\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מַה־יִּהְיֶ֖ה בָּ⁠עִֽיר",
+        "note": "योना परमेश्वरले सहरलाई नाश गर्नुहुन्छ कि गर्दैनन् भनी हेर्न चाहन्थे। वैकल्पिक अनुवाद: \"शहरको के हुनेछ\" वा \"परमेश्वरले शहरलाई के गर्नुहुन्छ\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:6",
+    "bsb_verse_text": "So the LORD God appointed a vine, and it grew up to provide shade over Jonah’s head to ease his discomfort, and Jonah was greatly pleased with the plant.",
+    "ult_verse_text": "तब यहवे परमेश्‍वरले एउटा बिरुवा नियुक्त गर्नुभयो र योनालाई तिनको दुष्‍टताबाट छुटकारा दिनको लागि तिनको शिरमा छायाको रूपमा यसलाई हुर्काउनुभयो। अनि योना बिरुवाको कारण ठूलो रमाहट सँग रमाए।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "מֵ⁠עַ֣ל לְ⁠יוֹנָ֗ה לִֽ⁠הְי֥וֹת צֵל֙ עַל־רֹאשׁ֔⁠וֹ",
+        "note": "वैकल्पिक अनुवाद: \"छायाको लागि योनाको टाउकोमाथि\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְ⁠הַצִּ֥יל ל֖⁠וֹ מֵ⁠רָֽעָת֑⁠וֹ",
+        "note": "यहाँ **दुष्ट** शब्दको अर्थ दुईवटा कुरा (वा दुवै एकै समयमा) हुनसक्छ: (१) “असुविधा” वा “कष्ट”, जसको अर्थ योनाको टाउकोमा चम्किरहेको सूर्यको तीव्र ताप; वा (२) “गलत” अर्थात् निनवेलाई नाश नगर्ने परमेश्‍वरको निर्णयबारे योनाको गलत मनोवृत्ति। यदि दुबै अर्थहरू सुरक्षित गर्न सकिन्छ भने, त्यो उपयुक्त छ। यदि होइन भने, तपाईं वैकल्पिक अनुवाद रोज्न सक्नुहुन्छ: \"जोनाहलाई सूर्यको तापबाट जोगाउन\" वा \"जोनाहलाई उसको गलत मनोवृत्तिबाट बचाउन\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:7",
+    "bsb_verse_text": "When dawn came the next day, God appointed a worm that attacked the plant so that it withered.",
+    "ult_verse_text": "त्यसपछि परमेश्‍वरले भोलिपल्ट बिहानको उदयमा एउटा किरा नियुक्त गर्नुभयो; अनि त्यसले बिरुवालाई आक्रमण गर्यो र त्यो बोट सुक्यो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יְמַ֤ן הָֽ⁠אֱלֹהִים֙ תּוֹלַ֔עַת",
+        "note": "वैकल्पिक अनुवाद: \"त्यसोभए भगवानले एउटा कीरा पठाउनुभयो\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תַּ֥ךְ אֶת־הַ⁠קִּֽיקָי֖וֹן",
+        "note": "वैकल्पिक अनुवाद: \"र किराले बिरुवा चबायो\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּיבָֽשׁ",
+        "note": "बिरुवा सुक्यो र मरे। वैकल्पिक अनुवाद: \"ताकि बिरुवा मरे\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:8",
+    "bsb_verse_text": "As the sun was rising, God appointed a scorching east wind, and the sun beat down on Jonah’s head so that he grew faint and wished to die, saying, “It is better for me to die than to live.”",
+    "ult_verse_text": "अनि सूर्य उदय हुनेबित्तिक्कै परमेश्‍वरले तातो पूर्वि बतास नियुक्त गर्नुभयो। योनाको शिरमा घाम लाग्‍न थाल्यो र ऊ बेहोस भयो। त्यसपछि तिनले आफ्नो आत्मालाई मर्नलाई आग्रह गरे र भने, \"मेरो मृत्यु मेरो जीवनभन्दा असल छ।\"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-time-background",
+        "orig_language_quote": "וַ⁠יְהִ֣י׀ כִּ⁠זְרֹ֣חַ הַ⁠שֶּׁ֗מֶשׁ",
+        "note": "**सूर्यको उदय** पृष्ठभूमि जानकारी हो जसले पूर्वबाट तातो हावा चल्न थालेको समय दिन्छ। यस सम्बन्धलाई आफ्नो भाषामा प्राकृतिक रूपमा व्यक्त गर्नुहोस्। (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-time-background]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וַ⁠יְמַ֨ן אֱלֹהִ֜ים ר֤וּחַ קָדִים֙ חֲרִישִׁ֔ית",
+        "note": "परमेश्वरले योनामाथि पूर्वबाट तातो बतास चलाउनु भयो। यदि तपाईंको भाषामा \"हावा\" भनेको चिसो वा चिसो हावा मात्र हो भने, तपाईंले यो वैकल्पिक अनुवाद प्रयास गर्न सक्नुहुन्छ: \"परमेश्वरले योनालाई पूर्वबाट धेरै तातो तातो पठाउनुभयो।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תַּ֥ךְ הַ⁠שֶּׁ֛מֶשׁ",
+        "note": "वैकल्पिक अनुवाद: \"सूर्य धेरै तातो थियो\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "עַל־רֹ֥אשׁ יוֹנָ֖ה",
+        "note": "यस वाक्यांशको शाब्दिक अर्थ वा लाक्षणिक अर्थ हुन सक्छ। सायद जोनाहले आफ्नो टाउकोमा सबैभन्दा बढी गर्मी महसुस गरेको हुन सक्छ, वा सायद **जोनाको टाउको** वाक्यांश भनेको योनाको सम्पूर्ण शरीरको अर्थ हो। वैकल्पिक अनुवाद: \"जोनामा\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-synecdoche]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּתְעַלָּ֑ף",
+        "note": "वैकल्पिक अनुवाद: \"र ऊ धेरै कमजोर भयो\" वा \"र उसले आफ्नो शक्ति गुमाए\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּשְׁאַ֤ל אֶת־נַפְשׁ⁠וֹ֙ לָ⁠מ֔וּת",
+        "note": "योना आफैसँग कुरा गर्दैछ। वैकल्पिक अनुवाद: \"उनी मर्न चाहन्थे\" वा \"उनी मर्न चाहन्थे\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ט֥וֹב מוֹתִ֖⁠י מֵ⁠חַיָּֽ⁠י",
+        "note": "म बाँच्नु भन्दा मर्न चाहन्छु वा \"म मर्न चाहन्छु; म बाँच्न चाहन्न\" हेर्नुहोस् तपाईंले यसलाई [4:3] (../04/03/yk5v) मा कसरी अनुवाद गर्नुभयो।"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:9",
+    "bsb_verse_text": "Then God asked Jonah, “Have you any right to be angry about the plant?” “I do,” he replied. “I am angry enough to die!”",
+    "ult_verse_text": "तब परमेश्‍वरले योनालाई भन्‍नुभयो, “के विरुवाको कारण रिसाउनु तिम्रो निम्ति हक छ?” र उनले भने, \"यो सहि हो कि यसले मलाई रिसाउने बनाउछ, मृत्युसम्म पनि।\"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "הַ⁠הֵיטֵ֥ב חָרָֽה־לְ⁠ךָ֖ עַל־הַ⁠קִּֽיקָי֑וֹן",
+        "note": "यस सन्दर्भमा, परमेश्‍वरको प्रश्नले योनालाई आफ्नो स्वार्थी मनोवृत्तिको बारेमा निष्कर्ष निकाल्न अगुवाइ गर्ने उद्देश्य राखेको छ। यो निहित जानकारी स्पष्ट गर्न सकिन्छ। वैकल्पिक अनुवाद: \"के यो ठीक छ कि तपाईलाई छाया दिने बिरुवाको बारेमा यति रिसाउनु पर्छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הֵיטֵ֥ב חָֽרָה־לִ֖⁠י עַד־מָֽוֶת",
+        "note": "वैकल्पिक अनुवाद: \"म रिसाउन सही छु। म मर्न रिसाएकी छु\""
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:10",
+    "bsb_verse_text": "But the LORD said, “You cared about the plant, which you neither tended nor made grow. It sprang up in a night and perished in a night.",
+    "ult_verse_text": "तब परमप्रभुले भन्‍नुभयो, “तिम्रो निम्ति, तिमी त्यस बिरुवाको बारेमा चिन्तित महसुस गर्छौ, जसको लागि तिमीले कुनै काम गरेनौ, न त तिमिले यसलाई बढायौ; यो एक रातको छोराको रूपमा आयो, र यो एक रातको छोराको रूपमा नष्‍ट भयो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וַ⁠יֹּ֣אמֶר יְהוָ֔ה",
+        "note": "यहाँ यहोवा योनासँग बोल्दै हुनुहुन्छ। यो निहित जानकारी स्पष्ट गर्न सकिन्छ। वैकल्पिक अनुवाद: \"यहोवाले योनालाई भन्नुभयो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "שֶׁ⁠בִּן־ לַ֥יְלָה הָיָ֖ה וּ⁠בִן־ לַ֥יְלָה אָבָֽד־ לַ֥יְלָה",
+        "note": "यो मुहावरे को अर्थ यो बिरुवा मात्र छोटकरीमा अवस्थित छ। वैकल्पिक अनुवाद: \"यो एक रातमा बढ्यो र अर्को मरे\" वा \"यो छिट्टै बढ्यो र छिटो मर्यो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Jon 4:11",
+    "bsb_verse_text": "So should I not care about the great city of Nineveh, which has more than 120,000 people who cannot tell their right hand from their left, and many cattle as well?”",
+    "ult_verse_text": "त्यसोभए मेरो हकमा, के मलाई निनवे, त्यो ठूलो सहरको बारेमा चिन्ता गर्नुपर्दैन, जहाँ १२०, ००० भन्दा बढी मानिसहरू छन् जसले आफ्नो दाहिने हात र देब्रे हात र धेरै जनावरहरू बीचको भिन्‍नता छुट्याउन सक्दैनन्?",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-words-phrases",
+        "orig_language_quote": "וַֽ⁠אֲנִי֙",
+        "note": "पद १० मा **तपाईंको लागि** सँग जोडिएको यो अभिव्यक्तिले बोटप्रति योनाको मनोवृत्ति र निनवेका मानिसहरूप्रति यहोवाको मनोवृत्ति बीचको तुलना देखाउँछ। यो तुलनालाई तपाईंको भाषामा प्राकृतिक रूपमा व्यक्त गर्नुहोस्। (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-words-phrases]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "וַֽ⁠אֲנִי֙ לֹ֣א אָח֔וּס עַל־נִינְוֵ֖ה הָ⁠עִ֣יר הַ⁠גְּדוֹלָ֑ה אֲשֶׁ֣ר יֶשׁ־בָּ֡⁠הּ הַרְבֵּה֩ מִֽ⁠שְׁתֵּים־עֶשְׂרֵ֨ה רִבּ֜וֹ אָדָ֗ם אֲשֶׁ֤ר לֹֽא־יָדַע֙ בֵּין־יְמִינ֣⁠וֹ לִ⁠שְׂמֹאל֔⁠וֹ וּ⁠בְהֵמָ֖ה רַבָּֽה",
+        "note": "परमेश्‍वरले निनवेमा दया देखाउनुपर्छ भनी आफ्नो दावीलाई जोड दिन यो बयानबाजी प्रश्न प्रयोग गर्नुभयो। वैकल्पिक अनुवाद: \"मलाई निनवेको लागि दया हुनुपर्छ, त्यो ठूलो सहर, जहाँ 120,000 भन्दा बढी मानिसहरू छन् जसले आफ्नो दाहिने हात र देब्रे हात र धेरै गाईवस्तुहरू बीचको भिन्नता छुट्याउन सक्दैनन्\" (हेर्नुहोस्: [[rc:// en/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֲשֶׁ֣ר יֶשׁ־בָּ֡⁠הּ הַרְבֵּה֩",
+        "note": "यसलाई नयाँ वाक्यको सुरुवातको रूपमा पनि अनुवाद गर्न सकिन्छ। वैकल्पिक अनुवाद: \"त्यहाँ धेरै छन्\" वा \"यससँग धेरै छ\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-numbers",
+        "orig_language_quote": "מִֽ⁠שְׁתֵּים־עֶשְׂרֵ֨ה רִבּ֜וֹ אָדָ֗ם",
+        "note": "**एक लाख बीस हजार मानिस** (हेर्नुहोस्: [[rc://*/ta/man/translate/translate-numbers]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "אֲשֶׁ֤ר לֹֽא־יָדַע֙ בֵּין־יְמִינ֣⁠וֹ לִ⁠שְׂמֹאל֔⁠וֹ",
+        "note": "यो मुहावराको अर्थ हो \"जसले सहि र गलत बीचको भिन्नता थाहा छैन।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  }
+]

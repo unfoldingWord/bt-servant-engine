@@ -1,0 +1,865 @@
+[
+  {
+    "reference": "2Th 1:1",
+    "bsb_verse_text": "Paul, Silvanus, and Timothy, To the church of the Thessalonians in God our Father and the Lord Jesus Christ:",
+    "ult_verse_text": "पावल, सिल्भानस र तिमोथीबाट हाम्रो पिता परमेश्‍वर र प्रभु येशू ख्रीष्टमा थेसलोनिकीहरूका मण्डलीलाई ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "यो पत्रका लेखक पावल आफैँ हुन्, तर उनले सिलास र तिमोथीलाई यो पत्र पठाउने व्यक्तिहरूको रूपमा समावेश गर्छन् । उनले थेसलोनिकेको मण्डलीलाई अभिवादन गरेर सुरु गर्छन् । अर्को किसिमले नबताइएसम्म, “हामी” र “हाम्रो” शब्दहरूले पावल, सिलास र तिमोथीलाई जनाउँछन् । साथै, “तिमीहरू” शब्द बहुवचनमा छ र थेसलोनिकेको मण्डलीमा भएका विश्‍वासीहरूलाई जनाउँछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-exclusive]] अनि [[rc://ne/ta/man/translate/figs-you]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "Σιλουανὸς",
+        "note": "यो “सिलास”को ल्याटिन रूप हो । यिनी प्रेरितको पुस्तकमा पावलका सङ्गी यात्रुको रूपमा उल्‍लेखित गरिएका व्यक्ति नै हुन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:2",
+    "bsb_verse_text": "Grace and peace to you from God our Father and the Lord Jesus Christ.",
+    "ult_verse_text": "पिता परमेश्‍वर र प्रभु येशू ख्रीष्टबाट तिमीहरूलाई अनुग्रह र शान्‍ति ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "χάρις ὑμῖν",
+        "note": "पावलले साधारणतया उनका पत्रहरूमा यो अभिवादन प्रयोग गर्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:3",
+    "bsb_verse_text": "We are obligated to thank God for you all the time, brothers, as is fitting, because your faith is growing more and more, and your love for one another is increasing.",
+    "ult_verse_text": "भाइ हो, तिमीहरूका निम्ति हामीले परमेश्‍वरलाई सधैँ धन्यवाद दिनुपर्छ, जस्‍तो यो यसको योग्य छ, किनभने तिमीहरूको विश्‍वास अत्यन्त वृद्धि भइरहेको छ, र तिमीहरू सबैको एकअर्काप्रतिको प्रेम वृद्धि भइरहेको छ;",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "पावल थेसलोनिकेमा भएका विश्‍वासीहरूको लागि धन्यवाद दिन्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "εὐχαριστεῖν ὀφείλομεν τῷ Θεῷ πάντοτε",
+        "note": "“धेरैपटक” वा “नियमित रूपमा”को अर्थ दिँदै पावलले “सधैँ” शब्दलाई सामान्यकरणको रूपमा प्रयोग गर्छन् । परमेश्‍वरले थेसलोनिकी विश्‍वासीहरूको जीवनमा गरिरहनुभएका कुराको महानतालाई यस वाक्यले जोड दिन्छ । वैकल्पिक अनुवादः “हामीले परमेश्‍वरलाई धेरैपटक धन्यवाद दिनुपर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-hyperbole]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "ἀδελφοί",
+        "note": "यहाँ “भाइहरू”ले पुरुष र स्‍त्री दुवै गरेर सङ्गी ख्रीष्‍टिएनहरूलाई जनाउँछ । वैकल्पिक अनुवादः “दाजुभाइ तथा दिदीबहिनीहरू” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-gendernotations]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καθὼς ἄξιόν ἐστιν",
+        "note": "“यो गर्न सही कुरा हो” वा “यो असल छ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πλεονάζει ἡ ἀγάπη ἑνὸς ἑκάστου, πάντων ὑμῶν, εἰς ἀλλήλους",
+        "note": "“तिमीहरूले एक अर्कालाई सच्‍चा रूपमा प्रेम गर्छौ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀλλήλους",
+        "note": "यहाँ “एक अर्का”ले सङ्गी ख्रीष्‍टिएनहरूलाई जनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:4",
+    "bsb_verse_text": "That is why we boast among God’s churches about your perseverance and faith in the face of all the persecution and affliction you are enduring.",
+    "ult_verse_text": "त्यसैले तिमीहरूले सहेका कष्टहरू र तिमीहरूका सबै सतावटहरूमा तिमीहरूको स्थिरता र विश्‍वासको बारे परमेश्‍वरका मण्डलीहरू माझ हामी आफैले तिमीहरूको सम्‍बन्धमा गर्व गर्छौं,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rpronouns",
+        "orig_language_quote": "αὐτοὺς ἡμᾶς",
+        "note": "यहाँ “हामी आफैँ” शब्दहरू पावलको गर्वलाई जोड दिनको लागि प्रयोग गरिएको छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-rpronouns]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:5",
+    "bsb_verse_text": "All this is clear evidence of God’s righteous judgment. And so you will be counted worthy of the kingdom of God, for which you are suffering.",
+    "ult_verse_text": "तिमीहरूलाई परमेश्‍वरको राज्यको योग्यको ठानिन परमेश्‍वरको धार्मिक न्यायको प्रमाण, जसको निम्ति तिमीहरूले पनि कष्ट सह्यो;",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "καταξιωθῆναι ὑμᾶς τῆς Βασιλείας τοῦ Θεοῦ",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “कि परमेश्‍वरले तिमीहरूलाई उहाँको राज्यको हिस्सा हुन योग्यको ठान्‍नुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:6",
+    "bsb_verse_text": "After all, it is only right for God to repay with affliction those who afflict you,",
+    "ult_verse_text": "वस्तवमा तिमीहरूलाई दुःख दिइरहनेहरूप्रति कष्ट नै फर्काउनु परमेश्‍वरको निम्ति {यो} धार्मिकता हो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "जसै पावलले भनिरहन्छन्, उनले परमेश्‍वर धर्मी हुनुहुन्छ भन्‍ने बारेमा बताउँछन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἴπερ δίκαιον παρὰ Θεῷ",
+        "note": "“परमेश्‍वर धर्मी हुनुहुन्छ” वा “परमेश्‍वर न्यायी हुनुहुन्छ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "παρὰ Θεῷ, ἀνταποδοῦναι τοῖς θλίβουσιν ὑμᾶς θλῖψιν",
+        "note": "यहाँ “फिर्ता गर्नु” भनेको एउटा अलङ्कार हो जसको अर्थ कसैलाई त्यही कुरा अनुभव गर्न लगाउनु हो जुन तिनीहरूले कोही अरूलाई गरे । वैकल्पिक अनुवादः “तिमीहरूलाई कष्‍ट दिनेहरूलाई परमेश्‍वरले कष्‍ट दिनहुन” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:7",
+    "bsb_verse_text": "and to grant relief to you who are oppressed and to us as well. This will take place when the Lord Jesus is revealed from heaven with His mighty angels",
+    "ult_verse_text": "र उहाँका शक्तिशाली स्वर्गदूतहरूसँगै स्‍वर्गबाट आउनुहुने प्रभु येशू प्रकटहुँदा हामीसँगै दुःख भोगिररहेका तिमीहरूलाई आराम,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "καὶ ὑμῖν & ἄνεσιν",
+        "note": "यी शब्दहरूले परमेश्‍वरले मानिसहरूलाई के “फिर्ता गर्नुभएकोमा” उहाँ धर्मी हुनुहुन्छ भन्‍ने कुराको विवरणलाई निरन्तरता दिन्छन् (पद ६) । यो एउटा अलङ्कार हो जसको अर्थ कसैलाई त्यही कुरा अनुभव गर्न लगाउनु भन्‍ने हुन्छ जुन तिनीहरूले कोही अरूलाई गरे । वैकल्पिक अनुवादः “र तिमीहरूलाई आराम दिन” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-ellipsis",
+        "orig_language_quote": "ὑμῖν & ἄνεσιν",
+        "note": "आराम प्रदान गर्नुहुने व्यक्ति चाहिँ परमेश्‍वर नै हुनुहुन्छ भनेर तपाईंले स्‍पष्‍ट बनाउन सक्‍नुहुन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले तिमीहरूलाई आराम प्रदान गरिदिनहुन” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-ellipsis]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀγγέλων δυνάμεως αὐτοῦ",
+        "note": "“उहाँका शक्तिशाली स्वर्गदूतहरू”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:8",
+    "bsb_verse_text": "in blazing fire, inflicting vengeance on those who do not know God and do not obey the gospel of our Lord Jesus.",
+    "ult_verse_text": "ती परमेश्‍वरलाई नचिन्‍नेहरू र हाम्रा प्रभु येशूको सुसमाचार नमान्‍नेहरूसँग बदला लिँदै दन्किरहेको आगोमा,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν πυρὶ φλογός διδόντος ἐκδίκησιν τοῖς μὴ εἰδόσι Θεὸν, καὶ τοῖς",
+        "note": "“परमेश्‍वरलाई नचिन्नेहरूलाई र ... लाई उहाँले बल्‍दो आगोमा दण्‍ड दिनुहुनेछ” वा “त्यसपछि उहाँले परमेश्‍वरलाई नचिन्नेहरूलाई र ... लाई बल्दो आगोमा दण्ड दिनुहुनेछ”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:9",
+    "bsb_verse_text": "They will suffer the penalty of eternal destruction, separated from the presence of the Lord and the glory of His might,",
+    "ult_verse_text": "जसले दण्‍ड भोग्‍नेछ- प्रभुको नजरदेखि र उहाँको शक्तिको महिमादेखि टाढा अनन्त विनाश,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "οἵτινες δίκην τίσουσιν",
+        "note": "यहाँ “तिनीहरू”ले ती मानिसहरूलाई जनाउँछ जसले सुसमाचारको आज्ञापालन गर्दैनन् । यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “प्रभुले तिनीहरूलाई सजाय दिनुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:10",
+    "bsb_verse_text": "on the day He comes to be glorified in His saints and regarded with wonder by all who have believed, including you who have believed our testimony.",
+    "ult_verse_text": "उहाँका सन्तहरूद्वारा महिमित हुन र ती विश्‍वास गरेका सबैलाई चकित पार्न उहाँ आउनुहुने त्यो दिन, किनभने तिमीहरूलाई दिइएको हाम्रो गवाही विश्‍वास गरिइएको छ ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὅταν ἔλθῃ & ἐν τῇ ἡμέρᾳ ἐκείνῃ",
+        "note": "यहाँ “त्यो दिन” भनेको त्यस दिन हो जब येशू संसारमा फर्केर आउनुहुनेछ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐνδοξασθῆναι ἐν τοῖς ἁγίοις αὐτοῦ, καὶ θαυμασθῆναι ἐν πᾶσιν τοῖς πιστεύσασιν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “जब उहाँका मानिसहरूले उहाँलाई महिमा गर्नेछन् र उहाँमाथि विश्‍वास गर्नेहरू उहाँसँग अचम्मित हुनेछन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:11",
+    "bsb_verse_text": "To this end, we always pray for you, that our God will count you worthy of His calling, and that He will powerfully fulfill your every good desire and work of faith,",
+    "ult_verse_text": "त्यसैले, हामीले पनि तिमीहरूका निम्ति सधैँ प्रार्थना गर्छौं, ताकि हाम्रा परमेश्‍वरले तिमीहरूलाई बोलावटको योग्‍यको ठान्‍न सकून् र उहाँले भलाइको हरेक इच्छा र शक्तिमा विश्‍वासको काम पूर्ण गरिदेऊन्,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "καὶ προσευχόμεθα πάντοτε περὶ ὑμῶν",
+        "note": "पावलले तिनीहरूका लागि कति धेरै पटक प्रार्थना गर्छन् भन्‍ने कुरालाई जोड दिइरहेका छन् । वैकल्पिक अनुवादः “हामी तिमीहरूको लागि नियमित रूपमा प्रार्थना पनि गर्दछौँ” वा “हामी तिमीहरूको लागि निरन्तर प्रार्थना गरिरहन्छौँ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τῆς κλήσεως",
+        "note": "यहाँ “बोलावट” शब्दले परमेश्‍वरले मानिसहरूलाई उहाँका छोराछोरी र सेवकहरू हुन र येशूद्वाराको मुक्तिको विषयमा भएको उहाँको सन्देशलाई घोषणा गर्न छान्‍नुभएको कुरालाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πληρώσῃ πᾶσαν εὐδοκίαν ἀγαθωσύνης",
+        "note": "“तिमीहरूले चाहना गर्ने हरतरहले असल गर्न तिमीहरू सक्षम हुन सक”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 1:12",
+    "bsb_verse_text": "so that the name of our Lord Jesus will be glorified in you, and you in Him, according to the grace of our God and of the Lord Jesus Christ.",
+    "ult_verse_text": "ताकि हाम्रो परमेश्‍वर र प्रभु येशू ख्रीष्टको अनुग्रहअनुसार हाम्रो प्रभु येशूको नाउँ तिमीहरूमा महिमित होस् र उहाँमा तिमीहरूमा ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ὅπως ἐνδοξασθῇ τὸ ὄνομα τοῦ Κυρίου ἡμῶν, Ἰησοῦ, ἐν ὑμῖν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्‍छ । वैकल्पिक अनुवादः “कि तिमीहरूले हाम्रा प्रभु येशूको नाम महिमित पार्न सक” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "καὶ ὑμεῖς ἐν αὐτῷ",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्‍छ । वैकल्पिक अनुवादः “येशूले तिमीहरूलाई महिमित पार्नुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "κατὰ τὴν χάριν τοῦ Θεοῦ ἡμῶν",
+        "note": "“परमेश्‍वरको अनुग्रहको कारण”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:1",
+    "bsb_verse_text": "Now concerning the coming of our Lord Jesus Christ and our being gathered together to Him, we ask you, brothers,",
+    "ult_verse_text": "अब हाम्रो प्रभु येशू ख्रीष्टको आगमन र उहाँसँग हामी भेला हुनेबारे, भाइ हो, हामी तिमीहरूलाई आग्रह गर्छौं,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "पावलले विश्‍वासीहरूलाई येशू फर्कनुहुने दिनको बारेमा धोकामा नपर्न सल्लाह दिए ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δὲ",
+        "note": "“अब” शब्दले पावलको निर्देशनहरूको विषय परिवर्तनलाई अङ्कित गर्छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "ἀδελφοί",
+        "note": "यहाँ “भाइहरू”ले पुरुष र स्‍त्री दुवै गरेर सङ्गी ख्रीष्‍टिएनहरूलाई जनाउँछ । वैकल्‍पिक अनुवादः “दाजुभाइ तथा दिदीबहिनीहरू” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-gendernotations]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:2",
+    "bsb_verse_text": "not to be easily disconcerted or alarmed by any spirit or message or letter seeming to be from us, alleging that the Day of the Lord has already come.",
+    "ult_verse_text": "आत्माद्वारा वा वचनद्वारा वा हामीबाट पत्र आएजस्तै गरी, प्रभुको दिन अघि नै आइसकेझैँ गरी {तिमीहरूको} मन हलचल नहोस् र विचलित नहोस् ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰς τὸ μὴ ταχέως σαλευθῆναι ὑμᾶς & μηδὲ θροεῖσθαι",
+        "note": "“कि तिमीहरूले आफैँलाई सजिलै विचलित हुन नदेओ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "διὰ πνεύματος, μήτε διὰ λόγου, μήτε δι’ ἐπιστολῆς, ὡς δι’ ἡμῶν",
+        "note": "“बोलिएको शब्द वा लिखित अक्षरद्वारा, जसले हामीबाट आएको भान पार्छ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὡς ὅτι",
+        "note": "“भन्दै कि”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἡ ἡμέρα τοῦ Κυρίου",
+        "note": "यसले त्यो समयलाई जनाउँछ जब येशू पृथ्वीमा सबै विश्‍वासीहरूका लागि फर्केर आउनुहुनेछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:3",
+    "bsb_verse_text": "Let no one deceive you in any way, for it will not come until the rebellion occurs and the man of lawlessness—the son of destruction—is revealed.",
+    "ult_verse_text": "तिमीहरूलाई कुनै पनि हालतमा कसैले छलमा नपारोस्, किनकि पहिले धर्मत्याग नआएसम्म र अवैधताको मानिस प्रकट नभएसम्म , विनाशको पुत्र,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "पावलले पापको मानिसको बारेमा सिकाउँछन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μὴ ἔλθῃ",
+        "note": "“प्रभुको दिन आउनेछैन”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἡ ἀποστασία",
+        "note": "यसले भविष्यको त्यो समयलाई जनाउँछ जब धेरै मानिसहरू परमेश्‍वरबाट तर्केर जानेछन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἀποκαλυφθῇ ὁ ἄνθρωπος τῆς ἀνομίας",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्‍छ । वैकल्पिक अनुवादः “परमेश्‍वरले पापको मानिसलाई प्रकट गर्नुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὁ υἱὸς τῆς ἀπωλείας",
+        "note": "पावलले विनाश चाहिँ कुनै एक व्यक्ति भए जसरी कुरा गर्छन् जसले एउटा छोरा जन्मायो जुन छोराको लक्ष्य चाहिँ सबैथोकलाई पूर्णतया नाश पार्नु हो । वैकल्पिक अनुवादः “त्यो जसले आफूले सकेको सबैथोकलाई नाश पार्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:4",
+    "bsb_verse_text": "He will oppose and exalt himself above every so-called god or object of worship. So he will seat himself in the temple of God, proclaiming himself to be God.",
+    "ult_verse_text": "जसले देवता भनिने वा आराधनाका वस्तु हरेक थोकको विरुद्ध आफूलाई उच्‍च पार्छ र विरोध गर्छ । परिणामस्वरूप, ऊ आफै परमेश्‍वर हो भनी देखाउन ऊ परमेश्‍वरको मन्दिरमा बस्‍छ ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "πάντα λεγόμενον θεὸν ἢ σέβασμα",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “सबैथोक जसलाई मानिसहरूले परमेश्‍वर ठान्छन् वा ती सबैथोक जसलाई मानिसहरूले आराधना गर्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀποδεικνύντα ἑαυτὸν ὅτι ἔστιν Θεός",
+        "note": "“आफैँलाई परमेश्‍वरको रूपमा देखाउँछ”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:5",
+    "bsb_verse_text": "Do you not remember that I told you these things while I was still with you?",
+    "ult_verse_text": "तिमीसँगै हुँदा नै मैले यी कुराहरू तिमीहरूलाई भनिरहेको थिएँ सो के तिमीहरूलाई याद छैन?",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "οὐ μνημονεύετε & ταῦτα",
+        "note": "पावलले आफू तिनीहरूसँग हुँदा उनले तिनीहरूलाई सिकाएका कुराहरूको स्मरण गराउन एउटा आलङ्कारिक प्रश्‍नको प्रयोग गर्छन् । यसलाई एउटा अभिव्यक्तिको रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “तिमीहरूले ... यी कुराहरू ... सम्झन्छौ भनेर म निश्‍चित छु ।” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ταῦτα",
+        "note": "यसले येशूको पुनरागमन, प्रभुको दिन र पापको मानिसलाई जनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:6",
+    "bsb_verse_text": "And you know what is now restraining him, so that he may be revealed at the proper time.",
+    "ult_verse_text": "र अब त्यसको समयमा त्यो प्रकट नभएसम्‍म {त्यसलाई} केले रोकिरहेको छ भन्‍ने तिमीहरू जान्दछौ ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "τὸ ἀποκαλυφθῆναι αὐτὸν ἐν τῷ αὐτοῦ καιρῷ",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्‍छ । वैकल्पिक अनुवादः “परमेश्‍वरले पापको मानिसलाई ठीक समयमा प्रकट गर्नुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:7",
+    "bsb_verse_text": "For the mystery of lawlessness is already at work, but the one who now restrains it will continue until he is taken out of the way.",
+    "ult_verse_text": "किनकि अधर्मको रहस्यले अघिदेखि नै काम गरिरहेको छ, अहिले त्यसलाई त्यसलाई रोक्‍नुहुनेले नै उहाँ बाटोबाट बाहिर नआउनुभएसम्म त्यसै गर्नुहुने छ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μυστήριον & τῆς ἀνομίας",
+        "note": "यसले परमेश्‍वरले मात्र जान्‍नुहुने पवित्र रहस्यलाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὁ κατέχων",
+        "note": "कसैलाई रोक्‍नु भनेको तिनीहरूलाई पछाडि नै थामेर राख्‍नु वा तिनीहरूले गर्न चाहेका कुरा गर्नदेखि रोक्‍नु भनेको हो ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:8",
+    "bsb_verse_text": "And then the lawless one will be revealed, whom the Lord Jesus will slay with the breath of His mouth and annihilate by the majesty of His arrival.",
+    "ult_verse_text": "र त्यसपछि पापको मानिसलाई प्रकट गरिने छ, जसलाई प्रभु येशूले आफ्‍नो मुखको सासले मार्नुहुने छ र उहाँको आगमनको प्रकटीकरणले केही न केहीको पार्नुहुने छ,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "καὶ τότε ἀποκαλυφθήσεται ὁ ἄνομος",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “त्यसपछि परमेश्‍वरले पापको मानिसलाई आफैँलाई प्रकट गर्न दिनुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "τῷ πνεύματι τοῦ στόματος αὐτοῦ",
+        "note": "यहाँ “सास”ले परमेश्‍वरको शक्तिलाई प्रतिनिधित्व गर्छ । वैकल्पिक अनुवादः “उहाँको बोलिएको वचनको शक्तिले” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καὶ καταργήσει τῇ ἐπιφανείᾳ τῆς παρουσίας αὐτοῦ",
+        "note": "जब येशू पृथ्वीमा फर्कनुहुन्छ र आफैँलाई प्रकट गर्नुहुन्छ, उहाँले पापको मानिसलाई हराउनुहुनेछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:9",
+    "bsb_verse_text": "The coming of the lawless one will be accompanied by the working of Satan, with every kind of power, sign, and false wonder,",
+    "ult_verse_text": "जसको आगमन शैतानको कामअनुसार सारा शक्ति, चिन्‍हहरू र झुटा आश्‍चर्यकर्महरूमा,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν πάσῃ δυνάμει, καὶ σημείοις, καὶ τέρασιν ψεύδους",
+        "note": "“सबै किसिमका शक्ति, चिन्हहरू र झूटा आश्‍चर्यकर्महरूले”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:10",
+    "bsb_verse_text": "and with every wicked deception directed against those who are perishing, because they refused the love of the truth that would have saved them.",
+    "ult_verse_text": "र नष्ट भइरहेकाहरूका निम्ति अधर्मको सारा छलमा जसले गर्दा, उनीहरूले उद्धार पाउन उनीहरूका निम्ति सत्यको प्रेम पाएनन् ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν πάσῃ ἀπάτῃ ἀδικίας",
+        "note": "यस व्यक्तिले मानिसहरूलाई परमेश्‍वरको साटोमा आफूमाथि विश्‍वास गर्न लगाउनका निमित्त हर किसिमको छलको प्रयोग गर्नेछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τοῖς ἀπολλυμένοις",
+        "note": "शैतानद्वारा शक्ति दिइएको यस मानिसले ती सबैलाई छल्नेछ जसले येशूमा विश्‍वास गरेनन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀπολλυμένοις",
+        "note": "यहाँ “नाश भइरहेका” भन्‍ने कुरामा सदाकालको वा अनन्त विनाशको अवधारणा रहेको छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:11",
+    "bsb_verse_text": "For this reason God will send them a powerful delusion so that they believe the lie,",
+    "ult_verse_text": "र यसले गर्दा, उनीहरूले झुटलाई विश्‍वास गरून् भनी परमेश्‍वरले उनीहरूका निम्ति त्रुटिका कामहरू उनीहरूलाई पठाइरहनुभएको छ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "διὰ τοῦτο",
+        "note": "“किनभने मानिसहरूले सत्यलाई प्रेम गर्दैनन्”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "πέμπει αὐτοῖς ὁ Θεὸς ἐνέργειαν πλάνης, εἰς τὸ πιστεῦσαι αὐτοὺς τῷ ψεύδει",
+        "note": "परमेश्‍वरले तिनीहरूमाथि केही हुनलाई अनुमति दिइरहनुभएको कुराको विषयमा पावलले यसरी बताउँछन् कि मानौँ त्यो भनेको उहाँले तिनीहरूकहाँ केही कुरा पठाइरहनुभएको जस्तो हो । वैकल्पिक अनुवादः “परमेश्‍वरले तिनीहरूलाई छल्‍नको लागि पापको मानिसलाई अनुमति दिइरहनुभएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:12",
+    "bsb_verse_text": "in order that judgment may come upon all who have disbelieved the truth and delighted in wickedness.",
+    "ult_verse_text": "ताकि ती सत्यतालाई विश्‍वास नगर्नेहरू तर अधार्मिकतामा भोगविलास गर्नेहरू तिनीहरू सबैको न्याय गरिओस् ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "κριθῶσιν πάντες",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले तिनीहरू सबैको न्याय गर्नुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "οἱ μὴ πιστεύσαντες τῇ ἀληθείᾳ, ἀλλὰ εὐδοκήσαντες τῇ ἀδικίᾳ",
+        "note": "“अधार्मिकतामा आनन्द लिनेहरू किनभने तिनीहरूले सत्यतालाई विश्‍वास गरेनन्”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:13",
+    "bsb_verse_text": "But we should always thank God for you, brothers who are loved by the Lord, because God chose you from the beginning to be saved by the sanctification of the Spirit and by faith in the truth.",
+    "ult_verse_text": "अब हामीले तिमीहरू, प्रभुद्वारा प्रेम गरिएका भाइहरूका निम्ति परमेश्‍वरलाई सधैँ धन्यवाद दिनुपर्छ । किनकि परमेश्‍वरले तिमीहरूलाई सत्यतामा विश्‍वास र आत्माको पवित्रीकरणमा मुक्तिको निम्ति पहिलो फलको रूपमा चुन्‍नुभयो ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "पावलले सारा विश्‍वासीहरूको निम्ति परमेश्‍वरलाई धन्यवाद दिन्छन् र तिनीहरूलाई उत्साह दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले अब विषयलाई बदल्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δὲ",
+        "note": "पावलले यहाँ यो शब्दलाई विषयमा आएको परिवर्तनलाई अङ्कित गर्नको लागि प्रयोग गर्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "ἡμεῖς & ὀφείλομεν εὐχαριστεῖν & πάντοτε",
+        "note": "“सधैँ” शब्द सामान्यकरण गरिएको हो । वैकल्पिक अनुवादः “हामीले निरन्तर धन्यवाद दिनुपर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-hyperbole]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἡμεῖς & ὀφείλομεν",
+        "note": "यहाँ “हामी”ले पावल, सिलास र तिमोथीलाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἀδελφοὶ ἠγαπημένοι ὑπὸ Κυρίου",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “किनभने प्रभुले तिमीहरूलाई प्रेम गर्नुहुन्छ, भाइहरू हो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "ἀδελφοὶ",
+        "note": "यहाँ “भाइहरू”को अर्थ पुरुष र स्‍त्री दुवै गरेर सङ्गी ख्रीष्‍टिएनहरू भन्‍ने हुन्छ । वैकल्‍पिक अनुवादः “दाजुभाइ तथा दिदीबहिनीहरू” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-gendernotations]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀπαρχὴν εἰς σωτηρίαν ἐν ἁγιασμῷ Πνεύματος καὶ πίστει ἀληθείας",
+        "note": "मुक्ति पाउनेमा पहिला मानिसहरू हुने कुराको विषयमा यसरी बताइएको छ कि मानौँ थेसलोनिकी विश्‍वासीहरू चाहिँ “प्रथम फलहरू” हुन् । यसलाई “मुक्ति”, “शुद्धिकरण”, “विश्‍वास”, र “सत्यता” जस्ता भाववाचक नामपद शब्दहरूलाई हटाउने गरेर पनि व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “ती मानिसहरूमध्येमा पहिलो हुनु जसले सत्य कुरालाई विश्‍वास गर्छन्, र जसलाई परमेश्‍वरले उहाँको आत्माद्वारा बचाउनुभएको छ र आफ्‍नै लागि अलग गर्नुभएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-abstractnouns]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:15",
+    "bsb_verse_text": "Therefore, brothers, stand firm and cling to the traditions we taught you, whether by speech or by letter.",
+    "ult_verse_text": "त्यसैले, भाइ हो, वचनद्वारा होस् वा हाम्रो पत्रद्वारा तिमीहरूलाई सिकाइएका शिक्षाहरूमा दृढ भएर खडा होओ र थामी राख ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἄρα οὖν, ἀδελφοί, στήκετε",
+        "note": "पावलले विश्‍वासीहरूलाई येशूमा भएको तिनीहरूको विश्‍वासमा स्थिर रहनलाई अर्ती दिन्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "κρατεῖτε τὰς παραδόσεις",
+        "note": "यहाँ “परम्पराहरू”ले पावल र अन्य प्रेरितहरूले सिकाएका ख्रीष्‍टको सत्यताहरूलाई जनाउँछ । पावलले ती कुराहरूको विषयमा यसरी बताउँछन् कि मानौँ उनका पाठकहरूले ती कुराहरूलाई तिनीहरूका हातले पक्रन सक्थे । वैकल्‍पिक अनुवादः “परम्‍पराहरूलाई सम्झ” वा “सत्यताहरूलाई विश्‍वास गर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐδιδάχθητε",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “हामीले तिमीहरूलाई सिकाएका छौँ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "εἴτε διὰ λόγου, εἴτε δι’ ἐπιστολῆς ἡμῶν",
+        "note": "यहाँ “वचनद्वारा” भनेको “निर्देशनहरूद्वारा” वा “शिक्षाहरूद्वारा”को लागि प्रतिस्थापकीय शब्द हो । तपाईंले अन्तर्निहित जानकारीलाई स्पष्‍ट बनाउन सक्नुहुन्छ । वैकल्पिक अनुवादः “हामीले व्यक्तिगत रूपमा भेटेर तिमीहरूलाई सिकाएका कुराहरूद्वारा वा हाम्रा पत्रमा हामीले तिमीहरूलाई लेखेका कुराहरूद्वारा” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]] अनि [[rc://ne/ta/man/translate/figs-synecdoche]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:16",
+    "bsb_verse_text": "Now may our Lord Jesus Christ Himself and God our Father, who by grace has loved us and given us eternal comfort and good hope,",
+    "ult_verse_text": "अब हाम्रो प्रभु येशू ख्रीष्ट आफै र हाम्रो परमेश्‍वर पिता, जसले हामीलाई प्रेम गर्नुभयो र {हामीलाई} अनुग्रहद्वारा अनन्‍त सान्‍त्वना र असल आशा दिनुभयो ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले परमेश्‍वरबाटको आशिष्‌को साथ अन्‍त्‍य गर्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δὲ",
+        "note": "यहाँ पावलले यो शब्दलाई विषयमा आएको परिवर्तनलाई अङ्कित गर्नको निम्ति प्रयोग गर्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-inclusive",
+        "orig_language_quote": "δὲ ὁ Κύριος ἡμῶν & ὁ ἀγαπήσας ἡμᾶς καὶ δοὺς",
+        "note": "“हाम्रा” र “हामीलाई” शब्दहरूले सारा विश्‍वासीहरूलाई जनाउँछन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-inclusive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rpronouns",
+        "orig_language_quote": "αὐτὸς & ὁ Κύριος & Ἰησοῦς Χριστὸς",
+        "note": "यहाँ “आफैँ” भन्‍ने वाक्यांशले “प्रभु येशू ख्रीष्‍ट” भन्‍ने वाक्यांशमा थप जोड दिन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-rpronouns]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 2:17",
+    "bsb_verse_text": "encourage your hearts and strengthen you in every good word and deed.",
+    "ult_verse_text": "उहाँले सान्‍वना देऊन् र हरेक असल काम र वचनमा तिमीहरूका हृदयलाई सबल बनाऊन् ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "παρακαλέσαι ὑμῶν τὰς καρδίας, καὶ στηρίξαι ἐν",
+        "note": "“हृदयहरू”ले भावनाहरूको आसनलाई प्रतिनिधित्व गर्छ । वैकल्पिक अनुवादः “ ... को लागि तिमीहरूलाई सान्त्वना दिनुभएको होस् र बलिया बनाउनुभएको होस्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "παντὶ ἔργῳ καὶ λόγῳ ἀγαθῷ",
+        "note": "“तिमीहरूले गर्ने र भन्‍ने हरेक असल कुरा”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:1",
+    "bsb_verse_text": "Finally, brothers, pray for us, that the word of the Lord may spread quickly and be held in honor, just as it was with you.",
+    "ult_verse_text": "अन्‍तमा, भाइ हो, हाम्रो निम्ति प्रार्थना गर ताकि प्रभुको वचन तिमीहरूसँग जस्तै फैलिन सकोस् र महिमित हुन सकोस्,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "पावलले विश्‍वासीहरूलाई उनी र उनका सहकर्मीहरूको निम्ति प्रार्थना गर्नलाई अनुरोध गर्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὸ λοιπὸν",
+        "note": "पावलले “अब” शब्दलाई विषयमा आएको परिवर्तनलाई अङ्कित गर्नको लागि प्रयोग गर्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "ἀδελφοί",
+        "note": "यहाँ “भाइहरू”ले पुरुष र स्‍त्री दुवै गरेर सङ्गी ख्रीष्‍टिएनहरूलाई जनाउँछ । वैकल्‍पिक अनुवादः “दाजुभाइ तथा दिदीबहिनीहरू” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-gendernotations]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἵνα ὁ λόγος τοῦ Κυρίου τρέχῃ καὶ δοξάζηται, καθὼς καὶ πρὸς ὑμᾶς",
+        "note": "पावलले परमेश्‍वरको वचन फैलने कुरालाई त्यो कुनै एक ठाउँदेखि अर्को ठाउँसम्‍म दौडिरहेको झैँ गरी व्यक्त गर्छन् । यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “ताकि धेरैभन्दा धेरै मानिसहरूले हाम्रा प्रभु येशूको बारेमा भएको सन्देश चाँडै सुन्‍नेछन् र त्यसलाई सम्‍मान गर्नेछन्, जसरी त्यो तिमीहरूलाई पनि भयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:2",
+    "bsb_verse_text": "And pray that we may be delivered from wicked and evil men; for not everyone holds to the faith.",
+    "ult_verse_text": "र ताकि हामीलाई भ्रष्ट र दुष्‍ट मानिसहरूबाट छुटकारा मिलोस् किनकि हरेकसित विश्‍वास हुँदैन ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ῥυσθῶμεν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “ताकि परमेश्‍वरले हामीलाई बचाउनुभएको होस्” वा “ताकि परमेश्‍वरले हामीलाई उद्धार गर्नुभएको होस्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "οὐ γὰρ πάντων ἡ πίστις",
+        "note": "“किनकि धेरै मानिसहरूले येशूमा विश्‍वास गर्दैनन्”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:3",
+    "bsb_verse_text": "But the Lord is faithful, and He will strengthen you and guard you from the evil one.",
+    "ult_verse_text": "तर प्रभु विश्‍वासयोग्य हुनुहुन्छ, जसले तिमीहरूलाई सबल तुल्याउनुहुने छ र दुष्टबाट बचाउनुहुने छ ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὃς στηρίξει ὑμᾶς",
+        "note": "“जसले तिमीहरूलाई बलियो बनाउनुहुनेछ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τοῦ πονηροῦ",
+        "note": "“शैतान”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:4",
+    "bsb_verse_text": "And we have confidence in the Lord that you are doing and will continue to do what we command.",
+    "ult_verse_text": "तिमीहरूको बारे हामी पनि प्रभुमा दृढ छौँ कि हामी आज्ञा गरेका कुराहरू तिमीहरूले गरिरहेका छौ र गर्ने छौ ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "πεποίθαμεν",
+        "note": "“हामीसँग विश्‍वास छ” वा “हामी भरोसा गर्छौँ”"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:5",
+    "bsb_verse_text": "May the Lord direct your hearts into God’s love and Christ’s perseverance.",
+    "ult_verse_text": "अब, प्रभुले तिमीहरूका हृदयलाई परमेश्‍वरको प्रेमतिर र ख्रीष्टको स्थिरतातिर निर्देशित गरून् ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "κατευθύναι ὑμῶν τὰς καρδίας",
+        "note": "यहाँ “हृदय” भनेको व्यक्तिका विचारहरू वा दिमागको लागि प्रतिस्थापन शब्द हो । वैकल्पिक अनुवादः “तिमीहरूलाई बुझ्‍ने तुल्याउनु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "εἰς τὴν ἀγάπην τοῦ Θεοῦ, καὶ εἰς τὴν ὑπομονὴν τοῦ Χριστοῦ",
+        "note": "पावलले परमेश्‍वरको प्रेम र ख्रीष्‍टको सहनशीलताको विषयमा यसरी बताउँछन् कि मानौँ ती कुनै मार्गको गन्तव्य हुन् । वैकल्‍पिक अनुवादः “परमेश्‍वरले तिमीहरूलाई कति धेरै प्रेम गर्नुहुन्छ र ख्रीष्‍टले तिमीहरूका लागि कति धेरै सहन गर्नुभएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:6",
+    "bsb_verse_text": "Now we command you, brothers, in the name of our Lord Jesus Christ, to keep away from any brother who leads an undisciplined life that is not in keeping with the tradition you received from us.",
+    "ult_verse_text": "अब भाइ हो, गोलमाल भइ हिँड्ने र तिमीहरूले हामीबाट प्राप्‍त गरेका शिक्षाअनुसार नचल्‍ने हरेक भाइदेखि दूर रहो भनी हाम्रो प्रभु येशू ख्रीष्टको नाउँमा हामीले तिमीहरूलाई आज्ञा दिन्छौँ ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "पावलले विश्‍वासीहरूलाई काम गर्न र अल्छे नबन्‍नको लागि केही अन्तिम निर्देशनहरू दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δὲ",
+        "note": "पावलले विषयमा आएको परिवर्तनलाई अङ्कित गर्नको लागि यो शब्दलाई प्रयोग गर्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "ἀδελφοί",
+        "note": "यहाँ “भाइहरू”को अर्थ पुरुष र स्‍त्री दुवै गरेर सङ्गी ख्रीष्‍टिएनहरू भन्‍ने हुन्छ । वैकल्‍पिक अनुवादः “दाजुभाइ तथा दिदीबहिनीहरू” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-gendernotations]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐν ὀνόματι τοῦ Κυρίου ἡμῶν, Ἰησοῦ Χριστοῦ",
+        "note": "यहाँ “नाम” भनेको येशू ख्रीष्‍टको व्यक्तित्वको लागि प्रतिस्थापन शब्द हो । वैकल्पिक अनुवादः “मानौँ हाम्रा प्रभु येशू ख्रीष्‍ट आफैँले नै बोलिरहनुभएको थियो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-inclusive",
+        "orig_language_quote": "τοῦ Κυρίου ἡμῶν",
+        "note": "यहाँ “हाम्रा”ले सारा विश्‍वासीहरूलाई जनाउँछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-inclusive]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:7",
+    "bsb_verse_text": "For you yourselves know how you ought to imitate us, because we were not undisciplined among you,",
+    "ult_verse_text": "किनकि कस्तो तरिका हो भनी तिमीहरू आफै जान्दछौ हाम्रो अनुशरण गर्नु आवश्यक छ, किनभने हामीले तिमीहरू माझ अस्‍त-व्यस्‍तपूर्ण व्यवहार गरेनौँ ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μιμεῖσθαι ἡμᾶς",
+        "note": "“मेरा सङ्गी सहकर्मीहरू र मैले व्यवहार गर्ने तरिका अनुसार व्यवहार गर्न”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublenegatives",
+        "orig_language_quote": "οὐκ ἠτακτήσαμεν ἐν ὑμῖν",
+        "note": "पावलले सकारात्मक भनाइलाई जोड दिनको लागि युगल अकरणको प्रयोग गर्छन् । यसलाई सकारात्मक रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “हामी तिमीहरूको माझमा निकै अनुशासन भएकाहरू जसरी जियौँ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublenegatives]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:8",
+    "bsb_verse_text": "nor did we eat anyone’s food without paying for it. Instead, in labor and toil, we worked night and day so that we would not be a burden to any of you.",
+    "ult_verse_text": "न त हामीले कसैबाट सित्‍तैमा रोटी नै खायौँ तर तिमीहरू कसैलाई भारमा नपार्न दिन र रातमा परिश्रम र मेहनत गरेर काम गर्‍यौँ,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "νυκτὸς καὶ ἡμέρας ἐργαζόμενοι",
+        "note": "“हामीले रातको अवधिमा र दिनको अवधिमा काम गर्‍यौँ ।” यहाँ “रात” र “दिन” भनेको कुनै चीजको सम्पूर्णतालाई जनाउने भाषाको एउटा अलङ्कार हो र तिनको अर्थ “हर समय” भन्‍ने हुन्छ । वैकल्पिक अनुवादः “हामीले हर समय काम गर्‍यौँ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-merism]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "ἐν κόπῳ καὶ μόχθῳ",
+        "note": "उनका परिस्थितिहरू कति कठिन थिए भनेर पावलले जोड दिन्छन् । कठिन परिश्रमले अत्यन्तै ज्यादा प्रयत्‍नको आवश्यक पर्ने कामको आशय दिन्छ । कठोर परिश्रमले आशय दिन्छ कि तिनीहरूले पीडा र कष्‍ट खपे । वैकल्पिक अनुवादः “धेरै अप्‍ठ्यारा परिस्थितिहरूमा” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:9",
+    "bsb_verse_text": "Not that we lack this right, but we wanted to offer ourselves as an example for you to imitate.",
+    "ult_verse_text": "हामीसित अधिकार नभए होइन, तर ताकि हाम्रो अनुशरण गर्न हामीले तिमीहरूलाई उदाहरणको रूपमा आफैलाई प्रस्‍तुत गर्न सकौँ ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublenegatives",
+        "orig_language_quote": "οὐχ ὅτι οὐκ ἔχομεν ἐξουσίαν, ἀλλ’",
+        "note": "पावलले सकारात्मक भनाइलाई जोड दिनको लागि युगल अकरणको प्रयोग गर्छन् । यसलाई सकारात्मक रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “हामीसँग तिमीहरूबाट खाना पाउने अवश्य नै अधिकार छ, तर त्यसको साटोमा हामीले हाम्रो खानाको लागि काम गर्‍यौँ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublenegatives]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:10",
+    "bsb_verse_text": "For even while we were with you, we gave you this command: “If anyone is unwilling to work, he shall not eat.”",
+    "ult_verse_text": "किनकि हामी तिमीहरूसँग हुँदा, हामीले तिमीहरूलाई यो आज्ञा दिइरहेका थियौँ, \"यदि कोही काम गर्न तत्पर छैन भने, उसले खाना नखाओस् ।\"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublenegatives",
+        "orig_language_quote": "τις οὐ θέλει ἐργάζεσθαι, μηδὲ ἐσθιέτω",
+        "note": "यसलाई सकारात्मक रूपमा व्यक्त गर्न सकिन्छ । वैकल्‍पिक अनुवादः “यदि कोही व्यक्ति खान चाहन्छ भने, उसले काम गर्नु पर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublenegatives]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:11",
+    "bsb_verse_text": "For we hear that some of you are leading undisciplined lives, accomplishing nothing, but being busybodies.",
+    "ult_verse_text": "किनकि काम नगरी अर्काको काममा बाधा दिँदै अल्छे भएर तिमीहरू माझ हिँडिरहेका कोहीको बारे हामीले सुनेका छौँ ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τινας περιπατοῦντας & ἀτάκτως",
+        "note": "यहाँ “हिँड्नु”को अर्थ जीवन जिउने आचरण हुन्छ । वैकल्‍पिक अनुवादः “केही अल्छे जीवन जिउँछन्” वा “केही अल्छे छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀλλὰ περιεργαζομένους",
+        "note": "अर्काको काममा हात हाल्‍नेहरू भनेको ती मानिसहरू हुन् जसले सहयोगको लागि अनुरोध नपाइकनै अरूहरूको मामिलाहरूमा हस्तक्षेप गर्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:12",
+    "bsb_verse_text": "We command and urge such people by our Lord Jesus Christ to begin working quietly to earn their own living.",
+    "ult_verse_text": "तर यस्ताहरूलाई प्रभु येशू ख्रीष्टको नाउँमा आज्ञा दिन्छौँ र अर्ती दिन्छौँ, कि चूपचाप काम गरून् र उनीहरूले आफ्नै रोटी खान सकून् ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μετὰ ἡσυχίας",
+        "note": "“चूपचाप, शान्तिपूर्वक र हल्का तवरले ।” पावलले अर्काको काममा हात हाल्नेहरूलाई अरू मानिसहरूको मामिलामा सहभागी हुन छाड्नको लागि सल्‍लाह दिन्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:13",
+    "bsb_verse_text": "But as for you, brothers, do not grow weary in well-doing.",
+    "ult_verse_text": "तर भाइ हो, जे सही छ सो गर्नमा तिमीहरू थकित नहो ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "δέ",
+        "note": "पावलले अल्छे विश्‍वासीहरू र कठोर परिश्रमी विश्‍वासीहरूको बीचमा भएको भिन्‍नतालाई देखाउनको निम्ति यो शब्दको प्रयोग गर्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "ὑμεῖς & ἀδελφοί",
+        "note": "“तिमी” शब्दले सारा थेसलोनिकेकी विश्‍वासीहरूलाई जनाउँछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-you]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-gendernotations",
+        "orig_language_quote": "ἀδελφοί",
+        "note": "यहाँ “भाइहरू”ले पुरुष र स्‍त्री दुवै गरेर सङ्गी ख्रीष्‍टिएनहरूलाई जनाउँछ । वैकल्‍पिक अनुवादः “दाजुभाइ तथा दिदीबहिनीहरू” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-gendernotations]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:14",
+    "bsb_verse_text": "Take note of anyone who does not obey the instructions we have given in this letter. Do not associate with him, so that he may be ashamed.",
+    "ult_verse_text": "अब यदि कसैले पत्रद्वारा आएको हाम्रो वचन कसैले पालन गर्दैन भने, यसलाई ख्याल गर- त्यससँग संगत नगर्नू, ताकि ऊ लज्‍जित होस् ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰ & τις οὐχ ὑπακούει τῷ λόγῳ ἡμῶν",
+        "note": "“यदि कसैले हाम्रा निर्देशनहरूको पालना गर्दैन भने”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "τοῦτον σημειοῦσθε",
+        "note": "ऊ को हो भनी याद गर । वैकल्पिक अनुवादः “त्यस्तो व्यक्तिलाई सार्वजनिक रूपमा पहिचान गर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἵνα ἐντραπῇ",
+        "note": "पावलले अल्छे विश्‍वासीहरूलाई अनुशासनको कार्यको रूपमा टाढा राख्नका निमित्त विश्‍वासीहरूलाई निर्देशन दिन्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:16",
+    "bsb_verse_text": "Now may the Lord of peace Himself give you peace at all times and in every way. The Lord be with all of you.",
+    "ult_verse_text": "अब, शान्तिका प्रभु आफैले तिमीहरूलाई हरेक किसिमले शान्‍ति देऊन् । प्रभु तिमीहरूसँग रहून् ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "पावलले थेसलोनिकेमा भएका विश्‍वासीहरूको सामु अन्तिम भनाइहरू राख्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "αὐτὸς & ὁ Κύριος τῆς εἰρήνης, δῴη ὑμῖν",
+        "note": "यो थेसलोनिकीहरूको लागि पावलको प्रार्थना हो भनेर तपाईले स्‍पष्‍ट बनाउन सक्नुहुन्छ । वैकल्‍पिक अनुवादः “म प्रार्थना गर्छु कि शान्तिका प्रभु आफैँले तिमीहरूलाई ... दिनुभएको होस्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rpronouns",
+        "orig_language_quote": "αὐτὸς & ὁ Κύριος τῆς εἰρήνης",
+        "note": "यहाँ “आफैँ” शब्दले जोड दिन्छ कि प्रभुले विश्‍वासीहरूलाई व्यक्तिगत रूपमा शान्ति दिनुहुनेछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-rpronouns]])"
+      }
+    ]
+  },
+  {
+    "reference": "2Th 3:17",
+    "bsb_verse_text": "This greeting is in my own hand—Paul. This is my mark in every letter; it is the way I write.",
+    "ult_verse_text": "यो अभिवादन मेरो आफ्‍नै हात - पावलले लेख्‍दैछु, जुनचाहिँ मेरो हरेक पत्रको चिन्‍ह हो । मैले यसरी लेख्‍छु ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὁ ἀσπασμὸς τῇ ἐμῇ χειρὶ, Παύλου, ὅ ἐστιν σημεῖον ἐν πάσῃ ἐπιστολῇ, οὕτως γράφω",
+        "note": "“म, पावल, मेरो आफ्‍नै हातले यो अभिवादन लेख्दछु, जुन अभिवादन चाहिँ कुनै पत्र त्यो साँच्‍चै मबाट आएको हो भनेर देखाउने चिन्हस्वरूप, म लेख्छु”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "οὕτως γράφω",
+        "note": "पावलले स्पष्‍ट पार्दछन् कि यो पत्र उनीबाट आएको हो र कुनै जालसाजी होइन ।"
+      }
+    ]
+  }
+]

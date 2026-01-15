@@ -4,17 +4,22 @@ Builds Dataset 1 for the get-translation-helps intent.
 
 Inputs:
 - BSB verse JSONs in `sources/bible_data/en/bsb/<stem>.json` (in this repo).
-- TN TSVs in `<data_root>/uw_translation_notes/tn_*.tsv`.
-- ULT USFM files in `<data_root>/ult/<nn-CODE>.usfm`.
+- TN TSVs in `<data_root>/<tn_subdir>/tn_*.tsv`.
+- ULT/GLT USFM files in `<data_root>/<usfm_subdir>/<nn-CODE>.usfm`.
 
 Output:
-- Per-book JSON at `sources/translation_helps/<stem>.json`.
+- Per-book JSON at `sources/translation_helps<suffix>/<stem>.json`.
   Each file is an array of objects like:
   { "reference", "bsb_verse_text", "ult_verse_text", "notes": [ ... ] }
 
 Usage:
   python scripts/build_translation_helps_dataset1.py \
     --data-root /path/to/bt-servant-engine-data-loaders/datasets
+
+  # For Nepali:
+  python scripts/build_translation_helps_dataset1.py \
+    --data-root /path/to/bt-servant-engine-data-loaders/datasets \
+    --language ne
 
 Notes:
 - Only verses with at least one TN note are included.
@@ -101,6 +106,20 @@ TN_TO_BSB_STEM: Dict[str, str] = {
     "3JN": "3jo",
     "JUD": "jud",
     "REV": "rev",
+}
+
+# Language-specific configuration for data directories and output paths
+LANGUAGE_CONFIG: Dict[str, Dict[str, str]] = {
+    "en": {
+        "tn_subdir": "uw_translation_notes",
+        "usfm_subdir": "ult",
+        "out_suffix": "",
+    },
+    "ne": {
+        "tn_subdir": "ne_tn",
+        "usfm_subdir": "ne_glt",
+        "out_suffix": "_ne",
+    },
 }
 
 
@@ -247,16 +266,25 @@ def _build_book(tsv_path: Path, ctx: BookCtx) -> tuple[Path, int, int, int]:
     return out_path, len(out_items), missing_bsb_count, missing_ult_count
 
 
-def build_translation_helps(data_root: Path, repo_root: Path) -> None:
+def build_translation_helps(data_root: Path, repo_root: Path, language: str) -> None:
     """Build translation helps dataset files for all available TN TSVs."""
-    tn_dir = data_root / "uw_translation_notes"
-    ult_dir = data_root / "ult"
-    out_dir = repo_root / "sources" / "translation_helps"
+    lang_cfg = LANGUAGE_CONFIG.get(language)
+    if not lang_cfg:
+        raise ValueError(f"Unsupported language: {language}. Supported: {list(LANGUAGE_CONFIG.keys())}")
+
+    tn_dir = data_root / lang_cfg["tn_subdir"]
+    ult_dir = data_root / lang_cfg["usfm_subdir"]
+    out_dir = repo_root / "sources" / f"translation_helps{lang_cfg['out_suffix']}"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     tsv_paths = sorted(tn_dir.glob("tn_*.tsv"))
     if not tsv_paths:
         raise FileNotFoundError(f"No TN TSVs found in {tn_dir}")
+
+    print(f"[info] Building translation helps for language: {language}")
+    print(f"[info] TN source: {tn_dir}")
+    print(f"[info] USFM source: {ult_dir}")
+    print(f"[info] Output: {out_dir}")
 
     for tsv_path in tsv_paths:
         code = tsv_path.stem.split("_", 1)[1]  # e.g., 1CO
@@ -296,10 +324,16 @@ def main(argv: Iterable[str] | None = None) -> None:
         type=Path,
         help="Path to cloned bt-servant-engine-data-loaders/datasets directory",
     )
+    parser.add_argument(
+        "--language",
+        default="en",
+        choices=list(LANGUAGE_CONFIG.keys()),
+        help="Language code for translation helps (default: en)",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
 
     repo_root = Path(__file__).resolve().parents[1]
-    build_translation_helps(args.data_root, repo_root)
+    build_translation_helps(args.data_root, repo_root, args.language)
 
 
 if __name__ == "__main__":

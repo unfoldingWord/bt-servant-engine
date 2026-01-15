@@ -1,0 +1,1889 @@
+[
+  {
+    "reference": "Rut 1:1",
+    "bsb_verse_text": "In the days when the judges ruled, there was a famine in the land. And a certain man from Bethlehem in Judah, with his wife and two sons, went to reside in the land of Moab.",
+    "ult_verse_text": "न्यायकर्ताहरूकाे शासनकालमा देशमा अनिकाल परेकाे थियाे । अनि यहुदाकाे बेथहेलमबाट एकजना मानिस अाफ्ना पत्नी र दुर्इ छाेराहरूकाे साथमा माेआबकाे भुमिमा बस्न गए ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-newevent",
+        "orig_language_quote": "וַ⁠יְהִ֗י",
+        "note": "**It was** or **This is what happened**. This is a common way of beginning a historical story. (See: [[rc://*/ta/man/translate/writing-newevent]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/grammar-connect-time-simultaneous",
+        "orig_language_quote": "בִּ⁠ימֵי֙ שְׁפֹ֣ט הַ⁠שֹּׁפְטִ֔ים",
+        "note": "**during the time when judges led and governed Israel** (See: [[rc://*/ta/man/translate/grammar-connect-time-simultaneous]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "בָּ⁠אָ֑רֶץ",
+        "note": "This refers to the land of Israel. Alternate translation: “in the land of Israel” (See: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-participants",
+        "orig_language_quote": "אִ֜ישׁ",
+        "note": "**a man**. This is a common way of introducing a character into a story. (See: [[rc://*/ta/man/translate/writing-participants]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:2",
+    "bsb_verse_text": "The man’s name was Elimelech, his wife’s name was Naomi, and the names of his two sons were Mahlon and Chilion. They were Ephrathites from Bethlehem in Judah, and they entered the land of Moab and settled there.",
+    "ult_verse_text": "र ती मानिसकाे नाँउ एलीमेलेक थियाे, तिनका पत्नीकाे नाँउ नाओमी थियाे र तिनका दुई भाइ छोराहरुको नाँउ महलाेन र किल्याेन थियाे । तिनीहरू सबै यहूदाको बेथलेहेमका एफ्रातीहरू थिए। त्यसैले तिनीहरू मोआबका भुमीमा गए र त्यहाँ बसाेबास गर्न थाले ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֶפְרָתִ֔ים מִ⁠בֵּ֥ית לֶ֖חֶם יְהוּדָ֑ה",
+        "note": "The name **Ephrathites** refers to the people from the clan of Ephrathah, who lived in the area around Bethlehem. Alternate translation: “from the clan of Ephrathah, from Bethlehem, in Judah.”"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:3",
+    "bsb_verse_text": "Then Naomi’s husband Elimelech died, and she was left with her two sons,",
+    "ult_verse_text": "तब नाअाेमिका पति एलीमेलेककाे मृत्यु भयाे र उनी अाफ्ना दुर्इ छाेराहरूकासाथ छाेडिइन् ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "הִ֖יא וּ⁠שְׁנֵ֥י בָנֶֽי⁠הָ׃",
+        "note": "**नाओमीसँग उनका दुई जना छोराहरू मात्र थिए**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:4",
+    "bsb_verse_text": "who took Moabite women as their wives, one named Orpah and the other named Ruth. And after they had lived in Moab about ten years,",
+    "ult_verse_text": "र उनका छाेराहरूले माेआबीको स्त्रीहरूबाट आफ्ना निम्ती पत्नी ल्याए, पहिलाे स्त्रीकाे नाँउ ओर्पा र दाेस्राे स्त्रीकाे नाँउ रूथ थियाे । उनीहरू त्यहि दश बर्षसम्म बसे ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַ⁠יִּשְׂא֣וּ לָ⁠הֶ֗ם נָשִׁים֙",
+        "note": "**विवाहित स्‍त्रीहरू**। यो विवाह गर्ने स्‍त्रीहरूका निम्ति प्रयोग गरिने वाक्पद्धति हो । उनीहरूले पहिला नै विवाह गरिसकेका स्‍त्रीहरू लाँदैनथे । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מֹֽאֲבִיּ֔וֹת",
+        "note": "नाओमीका छोराहरूले मोआब कुलका स्‍त्रीहरू विवाह गरे । मोआबीहरूले अरू देवाताहरू पुज्थे ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "שֵׁ֤ם הָֽ⁠אַחַת֙ & וְ⁠שֵׁ֥ם הַ⁠שֵּׁנִ֖ית",
+        "note": "**एउटी स्‍त्रीको नाउँ … अर्की स्‍त्रीको नाउँ थियो**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "כְּ⁠עֶ֥שֶׂר שָׁנִֽים",
+        "note": "एलीमेलेक र नाओमी मोआब देशमा आएका दश वर्षपछि, उनीहरूका छोराहरू महलोन र किल्योनको मृत्यु भयो ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:5",
+    "bsb_verse_text": "both Mahlon and Chilion also died, and Naomi was left without her two sons and without her husband.",
+    "ult_verse_text": "र तिनीहरू दुवै, महलोन र किल्याेन पनि मरे, र ती स्त्री आफ्ना दुई छोराहरू र पतिविना नै छाेडिर्इन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תִּשָּׁאֵר֙ הָֽ⁠אִשָּׁ֔ה מִ⁠שְּׁנֵ֥י יְלָדֶ֖י⁠הָ וּ⁠מֵ⁠אִישָֽׁ⁠הּ",
+        "note": "नाओमी विधवा भइन् र तिनका दुईवाटै छोराहरू मरे ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:6",
+    "bsb_verse_text": "When Naomi heard in Moab that the LORD had attended to His people by providing them with food, she and her daughters-in-law prepared to leave the land of Moab.",
+    "ult_verse_text": "तब तिनी तिनी अाफ्ना दुर्इ बुहारीहरूका साथ मोआबको भूमीबाट फर्किनलार्इ उठीन्, किनभने तिनले मोआबको भुमीमा रहदानै परमप्रभुले आफ्ना मानिसहरूलाई भाेजन जुटाएर हेरचाह गर्नुभएकाे छ भनी उनले सुनेकी थिइन् ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠כַלֹּתֶ֔י⁠הָ",
+        "note": "नाओमीका छोराहरूसँग विवाह गर्ने स्‍त्रीहरू"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "שָֽׁמְעָה֙ בִּ⁠שְׂדֵ֣ה מוֹאָ֔ב",
+        "note": "**मोआब देशमा हुँदा नै तिनले सुनेकी थिइन्**। यसले इस्राएलबाट समाचार आएको आशय व्यक्त गर्छ । वैकल्पिक अनुवादः \"तिनी मोआबको क्षेत्रमा हुँदा नै तिनले इस्राएलबाट आएका कोहीबाट सुनेकी थिइन्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "יְהוָה֙",
+        "note": "यो पुरानो करारमा परमेश्‍वरले आफ्ना मानिसहरूलाई प्रकट गर्नुभएको उहाँको नाउँ हो ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "פָקַ֤ד & אֶת־עַמּ֔⁠וֹ",
+        "note": "परमेश्‍वरले उनीहरूका आवश्यकता देख्‍नुभयो र उनीहरूलाई असल फसल दिनुभयो । वैकल्पिक अनुवादः \"इस्राएलीहरूलाई सहायता गर्नुभएको थियो\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "לָ⁠תֵ֥ת לָ⁠הֶ֖ם לָֽחֶם׃",
+        "note": "**रोटी**ले यहाँ सामान्य (दैनिक भोजन) खानालाई जनाउँछ । वैकल्पिक अनुवादः \"उनीहरूलाई प्रशस्‍त फसलहरू दिएर, ताकि उनीहरूसँग प्रशस्त खाना होस् ।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-synecdoche]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:7",
+    "bsb_verse_text": "Accompanied by her two daughters-in-law, she left the place where she had been living and set out on the road leading back to the land of Judah.",
+    "ult_verse_text": "तब तिनले अाफ्ना दुर्इ बुहारीहरूका साथ अाफु बसेकाे ठाँउ छाेडिन । अनि तिनीहरू यहूदाकाे भुमिमा फर्कन हिडिन।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תֵּלַ֣כְנָה בַ⁠דֶּ֔רֶךְ",
+        "note": "**र उनीहरू बाटैबाटो हिँडे** । बाटैबटो हिँड्नुको अर्थ पैदल यात्रा गर्नु हो ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:8",
+    "bsb_verse_text": "Then Naomi said to her two daughters-in-law, “Go back, each of you to your mother’s home. May the LORD show you loving devotion, as you have shown to your dead and to me.",
+    "ult_verse_text": "तब नाओमीले आफ्ना दुई बुहारीलाई भनिन्, \" जाऊ, प्रत्येक स्त्री आफ्नी आमाको घरमा फर्क। परमप्रभुले विश्वासयोग्यताको करारमा तिमीसँग गरुन् जसरी तिमीले मरेकासँग र मसँग गर्‌यौ ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "לִ⁠שְׁתֵּ֣י כַלֹּתֶ֔י⁠הָ",
+        "note": "**तिनका दुई छोराहरूका पत्‍नीहरू** वा **तिनका दुई छोराहरूका विधवाहरू**"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "אִשָּׁ֖ה",
+        "note": "नाओमीले दुई जनासँग कुरा गरिरहेकी थिइन्, त्यसैले द्वित्व **तिमी(दीतीय पुरुष)** हुने भाषाहरूले तिनको संवादहरूभरि नै सो प्रयोग गर्नुपर्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-you]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְ⁠בֵ֣ית אִמָּ֑⁠הּ",
+        "note": "**तिमीहरूका आ-आफ्नै आमाको घरतिर**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "חֶ֔סֶד",
+        "note": "**करारीय विश्‍वासयोग्यता** भनेको कसैले अर्को व्यक्तिप्रतिको आफ्ना सबै कर्त्तव्यहरू र बफादारीताहरू पूरा गरिरहनु हो । यसको छलफल परिचयमा हेर्नु होला ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "עִם־הַ⁠מֵּתִ֖ים",
+        "note": "**तिमीहरूका मृत पतिप्रति**। नाओमीले मरिसकेका तिनका दुई छोराहरूलाई उल्लेख गर्दै थिइन् . (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-nominaladj",
+        "orig_language_quote": "הַ⁠מֵּתִ֖ים",
+        "note": "**तिमीहरूका मृत पतिप्रति** (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-nominaladj]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:9",
+    "bsb_verse_text": "May the LORD enable each of you to find rest in the home of your new husband.” And she kissed them as they wept aloud",
+    "ult_verse_text": "परमप्रभुले तिमीहरू दुवैजनालाई तिमीहरूका आआफ्ना पतिकाे घरमा विश्राम दिउन् । उनले तिनीहरूलाई चुम्बन गरिन् र उनीहरू डाँकाे छाेडेर राेए ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "יִתֵּ֤ן יְהוָה֙ לָ⁠כֶ֔ם וּ⁠מְצֶ֣אןָ",
+        "note": "**परमप्रभुले तिमीहरूलाई देऊन्** वा **परमप्रभुले तिमीहरूलाई पाउन देऊन्**"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "וּ⁠מְצֶ֣אןָ מְנוּחָ֔ה",
+        "note": "**विश्राम**ले यहाँ आराम गरेर बस्‍नु भन्‍ने बुझाउँदैन । यसको अर्थ ती स्‍त्रीहरूका निम्ति घर अर्थात् उनीहरूको स्वमित्व हुने ठाउँ हो, जसमा विवाहबाट आउने सुरक्षा पर्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "בֵּ֣ית אִישָׁ֑⁠הּ",
+        "note": "यसको अर्थ नयाँ पतिहरूसँग, पहिले नै मरिसकेका पतिहरूसँग होइन वा कसैको पतिसँग हुन्छ । **घर**ले पतिको स्वमित्मा रहेको भौतिक घर र पतिले प्रदान गर्ने शर्म र गरिबीप्रतिको सुरक्षालाई जनाउँछ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַ⁠תִּשֶּׂ֥אנָה קוֹלָ֖⁠ן וַ⁠תִּבְכֶּֽינָה",
+        "note": "सोर उचाल्नु (ठुलो पार्नु) भनेको ठुलो सोरमा बोल्‍नुको निम्ति प्रयोग गरिने वाक्पद्धति हो । छोरीहरू ठुलो सोरमा रोए वा तिक्ततापूर्वक रोए । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:10",
+    "bsb_verse_text": "and said, “Surely we will return with you to your people.”",
+    "ult_verse_text": "तर तिनीहरूले उनलाई भने \"बरू हामी पनि तपाईसगैँ तपाईका मानिसहरूकहाँ फर्कनेछाै \" ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "נָשׁ֖וּב",
+        "note": "जब ओर्पा र रूथले भने **हामी**, उनीहरूले नाओमीलाई होइन उनीहरूलाई मात्र उल्लेख गरिरहेका थिए । त्यसैले सम्मिलित र असम्मिलित **हामी** भएका भाषाहरूले असम्मिलित रूप प्रयोग गर्नुपर्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-exclusive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "אִתָּ֥⁠ךְ",
+        "note": "यहाँ **तिमी\" नाओमीलाई उल्लेख गर्ने एकवचन रूप हो । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-you]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:11",
+    "bsb_verse_text": "But Naomi replied, “Return home, my daughters. Why would you go with me? Are there still sons in my womb to become your husbands?",
+    "ult_verse_text": "तर नाओमीले भनिन्, “हे मेरा छोरीहरू हो, फर्क! तिमीहरू म संग किन जाने ? के तिमीहरूका निम्ती श्रीमान दिनलार्इ मेरो गर्भबाट अझै छोराहरू दिनसक्छु र?",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "לָ֥⁠מָּה תֵלַ֖כְנָה עִמִּ֑⁠י",
+        "note": "यो आलङ्‍कारिक प्रश्‍न हो । वैकल्पिक अनुवादः \"तिमी मसँग जानुको अर्थ छैन ।\" वा \"तिमी मसँग जानु हुँदैन ।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "הַֽ⁠עֽוֹד־לִ֤⁠י בָנִים֙ בְּֽ⁠מֵעַ֔⁠י וְ⁠הָי֥וּ לָ⁠כֶ֖ם לַ⁠אֲנָשִֽׁים",
+        "note": "यो आलङ्‍कारिक प्रश्‍न हो । उनीहरूले विवाह गर्नको निम्ति नाओमीले अरू छोराहरू जन्माउन सक्दिनन् भनी नाओमीले यो प्रश्‍न प्रयोग गर्छिन् । वैकल्पिक अनुवादः \"निश्‍चय नै तिमीहरूका पति हुनलाई मैले अरू कुनै छोराहरू जन्माउन सक्दिन ।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:12",
+    "bsb_verse_text": "Return home, my daughters. Go on, for I am too old to have another husband. Even if I thought there was hope for me to have a husband tonight and to bear sons,",
+    "ult_verse_text": "फर्क, मेरा छोरीहरू, जाउ ! किनकि म पतिको हुनको लागि धेरै बुढो हुन्छु। यदि मसँग आशा छ भनी मैले भने, र मैले आज रातीनै विवाह गरेर पतिको भए भनेपनि, र मैले छोराहरूलाई जन्म दिएता पनि,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "זָקַ֖נְתִּי מִ⁠הְי֣וֹת לְ⁠אִ֑ישׁ",
+        "note": "पति महत्त्वपूर्ण हुने कारण स्पष्ट रूपमा उल्लेख गर्न सकिन्छ । वैकल्पिक अनुवादः \"फेरि विवावह गर्न र अरू छोराछोरीहरू पाउन म अति वृद्ध भइसकेकी छु ।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "כִּ֤י אָמַ֨רְתִּי֙ יֶשׁ־לִ֣⁠י תִקְוָ֔ה גַּ֣ם הָיִ֤יתִי הַ⁠לַּ֨יְלָה֙ לְ⁠אִ֔ישׁ וְ⁠גַ֖ם יָלַ֥דְתִּי בָנִֽים",
+        "note": "यो आलङ्‍कारिक प्रश्‍न यहाँ सुरु हुन्छ र अर्को पदसम्म जान्छ । उनीहरूले विवाह गर्नको निम्ति नाओमीले अरू छोराहरू जन्माउन सक्दिनन् भनी तिनले यो प्रश्‍न प्रयोग गर्छिन् । वैकल्पिक अनुवादः \"अहिले नै विवाह गरिहाल्‍न र छोराहरू जन्माइहाल्न सम्भव थियो भने पनि ...\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "יָלַ֥דְתִּי בָנִֽים",
+        "note": "**छोराछोरीहरू जन्माउनु** वा **पुरुष शिशुहरू जन्माउनु**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:13",
+    "bsb_verse_text": "would you wait for them to grow up? Would you refrain from having husbands? No, my daughters, it is much more bitter for me than for you, because the hand of the LORD has gone out against me.”",
+    "ult_verse_text": "त्यसैले के तिमीहरू तिनीहरू हुर्किने समय सम्म पर्खन सक्छौ? के तिमीहरू यस कारणले कुनै मानिससँग विवाह नगरी रहनसक्छाै? होइन, मेरा छोरीहरू ! निश्चय नै परमप्रभुको हात मेरो विरुद्धमा भएकाले, यो मेरो निम्‍ति तिमीहरूको भन्दा निश्चय नै धेरै तितो छ।”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-rquestion",
+        "orig_language_quote": "אֲשֶׁ֣ר יִגְדָּ֔לוּ הֲ⁠לָהֵן֙ תֵּֽעָגֵ֔נָה לְ⁠בִלְתִּ֖י הֱי֣וֹת לְ⁠אִ֑ישׁ",
+        "note": "नाओमीले अघिल्‍लो पदमा सुरुवात गरेकी आलङ्‍कारिक प्रश्‍न पूरा गर्छिन् र उही अर्थलाई जोड दिने दोस्रो आलङ्‍‍कारिक प्रश्‍न सोध्‍छिन् । वैकल्पिक अनुवादः \"...तिमीहरूले उनीहरू बढेर विवाह गर्ने उमेर भएसम्म पर्खंदैनौ ताकि तिमीहरूले विवाह गर्न सक । तिमीहरूले त्यसअघि नै विवाह गर्नुपर्छ ।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֲשֶׁ֣ר יִגְדָּ֔לוּ הֲ⁠לָהֵן֙ תֵּֽעָגֵ֔נָה לְ⁠בִלְתִּ֖י הֱי֣וֹת לְ⁠אִ֑ישׁ",
+        "note": "यसले मृतकको विधवालाई विवाह गर्ने प्रचलनलाई जनाउँछ, जसमा कुनै विवाहित पुरुष मर्‍यो भने उसका भाइहरूमध्ये कसैले उसको विधवालाई विवाह गर्ने अपेक्षा गरिन्थ्यो । बढी व्याख्याको निम्ति परिचयमा हेर्नुहोस् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "מַר־לִ֤⁠י מְאֹד֙",
+        "note": "तितोपन शोकको निम्ति रूपक हो । वैकलपिक अनुवादः \"यसले मलाई साह्रै दुःखित तुल्याउँछ ।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "יָצְאָ֥ה בִ֖⁠י יַד־יְהוָֽה",
+        "note": "परमप्रभुले के गर्नुभएको छ त्यसलाई स्पष्ट रूपमा उल्लेख गर्न सकिन्छ । वैकल्पिक अनुवादः \"परमप्रभुेल हाम्रा पतिहरू लानुभएको छ\" (हेर्नहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "יָצְאָ֥ה בִ֖⁠י יַד־יְהוָֽה",
+        "note": "**हात** शब्दले परमप्रभुको शक्ति वा प्रभावलाई जनाउँछ । वैकल्पिक अनुवादः \"परमप्रभुले मेरो जीवनमा भयानक कुराहरू ल्याउनुभएको छ ।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:14",
+    "bsb_verse_text": "Again they wept aloud, and Orpah kissed her mother-in-law goodbye, but Ruth clung to her.",
+    "ult_verse_text": "त्यसपछि तिनीहरू डाँकाे छाेडे र फेरि रोए। त्यसपछि ओर्पाले आफ्नी सासूलाई चुम्बन गरिन् तर रूथ उनीसँग टाँसिइरहिन् ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "וַ⁠תִּשֶּׂ֣נָה קוֹלָ֔⁠ן וַ⁠תִּבְכֶּ֖ינָה",
+        "note": "यसको मतलब उनीहरू ठुलो सोरमा रोए वा धुरुधरु रोए । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "וְ⁠ר֖וּת דָּ֥בְקָה בָּֽ⁠הּ",
+        "note": "**रूथचाहिँ तिनीसँगै टाँसिए**। वैकल्पिक अनुवादः \"रूथले छोड्न इन्कार गरिन्\" वा \"रूथले तिनलाई छोडिनन्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:15",
+    "bsb_verse_text": "“Look,” said Naomi, “your sister-in-law has gone back to her people and her gods; follow her back home.”",
+    "ult_verse_text": "तब तिनले भनिन्, “हेर, तिम्री दिदी उनको मानिसहरू तिर र उनको देवताहरू तिर फर्किइन्। तिम्रो दिदीकाे पछि जाउ ।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "הִנֵּה֙",
+        "note": "**ध्यान दिनुहोस्, किनभने मैले भन्‍न लागेको कुरा सत्य र महत्त्वपूर्ण छ ।**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֱלֹהֶ֑י⁠הָ",
+        "note": "ओर्पा र रूथले नाओमीका छोराहरूसँग विवाह गर्नअघि, उनीहरूले मोआबका देवताहरू पुज्थे । उनीहरूको विवाहको अवधिमा, उनीहरूले परमप्रभुको आराधना गरे । अहिले, ओर्पा फेरि मोआबका देवताहरू नै पुज्‍न जाँदै थिइन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/writing-participants",
+        "orig_language_quote": "יְבִמְתֵּ֔⁠ךְ",
+        "note": "**तिम्री पतिकी पत्नी** वा **ओर्पा**। यो व्यक्तिलाई बुझाउन आफ्नो भाषामा स्वभाविक तरिकाको प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-participants]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:16",
+    "bsb_verse_text": "But Ruth replied: “Do not urge me to leave you or to turn from following you. For wherever you go, I will go, and wherever you live, I will live; your people will be my people, and your God will be my God.",
+    "ult_verse_text": "तर रूथले भनिन्, “मलाई तपार्इबाट फर्केर जान र तपार्इलार्इ छाेड्न कर नर्गनुहोस्। किनकि तपार्इ जहाँ जानुहुन्छ म त्यहीं जानेछु, र तपार्इ जहाँ बस्नु हुन्छ म त्यहि बस्नेछु । तपाईंका मानिसहरू मेरा मानिसहरू हुनेछन, र तपाईंका परमेश्वरनै मेरा परमेश्वर हुनुहुन्छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וּ⁠בַ⁠אֲשֶׁ֤ר תָּלִ֨ינִי֙",
+        "note": "**तपाईं जहाँ बस्‍नुहुन्छ**"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "עַמֵּ֣⁠ךְ עַמִּ֔⁠י",
+        "note": "रूथले नाओमीका मानिसहरू अर्थता् इस्राएलीहरूलाई उल्लेख गरिहेकिछिन् । वैकल्पिक अनुवादः \"तपाईंका देशका मानिसहरूलाई मैले मेरा आफ्नै मानिसहरू मान्‍ने छु\" वा \"तपाईंका नातेदारहरूलाई मैले आफ्नै नातेदारहरू मान्‍ने छु\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:17",
+    "bsb_verse_text": "Where you die, I will die, and there I will be buried. May the LORD punish me, and ever so severely, if anything but death separates you and me.”",
+    "ult_verse_text": "तपार्इ जहाँ मर्नुहुन्छ, म त्यहीँ मर्नेछु र त्यहीँ गाडिनेछु । मृत्युले बाहेक अरू कुनै कुराले तपार्इ र मलार्इ अलग गरेमा परमप्रभुले म सँग पनि यस्तै कठाेर व्यवहार गरून ।”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "בַּ⁠אֲשֶׁ֤ר תָּמ֨וּתִי֙ אָמ֔וּת",
+        "note": "यसले बाँकी जीवन नाओमी बस्‍ने ठाउँ र नगरमा नै बिताउने रूथको इच्छालाई जनाउँछ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "יַעֲשֶׂ֨ה יְהוָ֥ה לִ⁠י֙ וְ⁠כֹ֣ה יֹסִ֔יף כִּ֣י",
+        "note": "यो तिनले जे भन्छिन् सो गर्न तिनी अत्यन्त प्रतिबद्ध छिन्‌ भन्‍ने देखाउन रूथले प्रयोग गरेकी एउटा वाक्पद्धति हो । तिनले गरेकी कुरा गरिनन् भने परमेश्‍वरले तिनलाई दण्ड देऊन् भनी आफैमाथि सरापको घोषणा गरिरहेकी छिन् । तपाईंको भाषामा यसो गर्ने तरिका छ भने त्यो स्वरूपलाई प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "כִּ֣י הַ⁠מָּ֔וֶת יַפְרִ֖יד בֵּינִ֥⁠י וּ⁠בֵינֵֽ⁠ךְ",
+        "note": "**यदि हामीलाई एक अर्काबाट मृत्युबाहेक अरू कुनै कुराले अलग गर्छ भने** वा **यदि तपाईं र म जीवित हुँदा, मैले तपाईंलाई छोड्छु भने**"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "יַפְרִ֖יד בֵּינִ֥⁠י וּ⁠בֵינֵֽ⁠ךְ",
+        "note": "यो दुई जना मानिसहरू बिचको दुरि जनाउने वाक्पद्धति हो । वैकल्पिक अनुवादः \"हामी दुई जनालाई अलग गर्छ\" वा \"हाम्रो बिचमा आउँछ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:18",
+    "bsb_verse_text": "When Naomi saw that Ruth was determined to go with her, she stopped trying to persuade her.",
+    "ult_verse_text": "रूथले अाफुसँग जान दृढ संक्ल्प गरेकाे देखेर उनले केहि भनिनन्",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תֶּחְדַּ֖ל לְ⁠דַבֵּ֥ר אֵלֶֽי⁠הָ",
+        "note": "**नाओमीले रूथसँग बहस गर्न छोडिन्**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:19",
+    "bsb_verse_text": "So Naomi and Ruth traveled until they came to Bethlehem. When they entered Bethlehem, the whole town was stirred because of them, and the women of the town exclaimed, “Can this be Naomi?”",
+    "ult_verse_text": "त्यसैले उनीहरू दुवै बेथलेहेम पुग्दा सम्म हिडे । र यस्तो भयो कि, तिनीहरू बेथलेहेम पुग्ने वित्तिकै, पुरै शहर नै उत्तेजित भयो । र स्त्रीहरूले भने, \" के यो नाओमी हो ?\"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/नयाँ घटना लेखन",
+        "orig_language_quote": "וַ⁠יְהִ֗י",
+        "note": "यो वाक्यले कथामा नयाँ घटनको चिनारी दिन्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-newevent]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/पृष्ठभूमि र समयलाई जोड्ने व्याकरण",
+        "orig_language_quote": "כְּ⁠בֹאָ֨⁠נָה֙ בֵּ֣ית לֶ֔חֶם",
+        "note": "यो पृष्ठभूमि उपवाक्यले, नाओमी रूथसँगै बेथेलहेम फर्केपछि नयाँ घटना घटेको कुरा वर्णन गर्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-time-background]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/आलङ्‌कार- उपलक्षण",
+        "orig_language_quote": "כָּל־הָ⁠עִיר֙",
+        "note": "**सहर**ले त्यहाँ बस्‍ने मानिसहरूलाई बुझाउँछ । वैकल्पिक अनुवादः \"सहरका सबै मानिसहरू\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अङ्‍कार-अत्योक्ति",
+        "orig_language_quote": "כָּל־הָ⁠עִיר֙",
+        "note": "यहाँ **सारा** अत्योक्ति हो । सहरका धेरै बासिन्दाहरू उत्साहित थिए, तर यो खबरले केही बासिन्दाहरू उत्साहित नहुन सक्छन् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-hyperbole]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הֲ⁠זֹ֥את נָעֳמִֽי",
+        "note": "नाओमी बेथलेहेममा नबसेको धेरै वर्ष भइसकेको र अहिले तिनका पति र छोराहरू नभएका हुनाले, यी स्‍त्री नाओमी नै हुन त भनी महिलाहरूले शंक व्यक्ति गरिहेको हुन सक्छ । यसलाई आलङ्‍कारिक प्रश्‍नको रूपमा होइन् साँच्‍चो प्रश्‍नको रूपमा व्यवहार गर्नुहोस् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:20",
+    "bsb_verse_text": "“Do not call me Naomi,” she replied. “Call me Mara, because the Almighty has dealt quite bitterly with me.",
+    "ult_verse_text": "तिनले तिनीहरूलाई भनिन्, “मलाई नाओमी नभनुहाेस । मलाई मारा भन्नुहोस्, किनभने सर्वशक्तिमानले मसँग अत्यन्तै तीतो व्यवहार गर्नुभएको छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "אַל־תִּקְרֶ֥אנָה לִ֖⁠י נָעֳמִ֑י",
+        "note": "**नाओमी**को अर्थ **मेरो आनन्द** हुन्छ । नाओमीले तिनका पति र छोराहरू गुमाएकी हुनाले, तिनले तिनलाई आफ्नो नाउँ नसुहाएको महसुस गर्छिन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/नामहरू अनुवाद गर्नु",
+        "orig_language_quote": "מָרָ֔א",
+        "note": "यो हिब्रू नाउँको शाब्दिक अर्थ \"तितो\" हुन्छ । यो नाम भएको हुनाले, तपाईंले अंग्रेजीको स्वरूपलाई नै प्रयोग गर्न सक्नुहुन्छ, जुन \"तितो\" हो त यसले हिब्रु नाउँको अर्थ दिन्छ भनी वर्णन गर्न पादटिप्‍पणी प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/translate-names]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:21",
+    "bsb_verse_text": "I went away full, but the LORD has brought me back empty. Why call me Naomi? After all, the LORD has testified against me, and the Almighty has afflicted me.”",
+    "ult_verse_text": "म भरीपुर्ण भएर गएकि थिए, तर परमप्रभुले मलाई रित्तो बनाएर फर्काउनुभएकाे छ । मलाई किन नाओमी भनेर बोलाउनुहुन्छ? परमप्रभुले मेराे विरुद्धमा गवाही दिनुभएको छ, र सर्वशक्तिमान्‌ले ममाथि विपति ल्याउनुभएकाेछ।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֲנִי֙ מְלֵאָ֣ה הָלַ֔כְתִּי וְ⁠רֵיקָ֖ם הֱשִׁיבַ֣⁠נִי יְהוָ֑ה",
+        "note": "नाओमीले बेथलेहेम छोड्दा, तिनीसित तिनका पति र दुई छोराहरू थिए र तिनी खुसी थिइन् । परमप्रभुले नाओमीलाई आफ्ना पति त छोराहरूविना बेथलेहेम फर्कने तुल्याउनुभयो भनी तिनले परमप्रभुलाई दोष लगाउँछिन् र अहिले तिनी तितो र बेखुसी थिइन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "עָ֣נָה בִ֔⁠י",
+        "note": "**मलाई दोषी ठहराउनुभएको छ**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הֵ֥רַֽע לִֽ⁠י",
+        "note": "**ममाथि विपत्ति ल्याउनुभएको छ** वा **ममाथि दुःखद्‌ कुरा ल्याउनुभएको छ**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 1:22",
+    "bsb_verse_text": "So Naomi returned from the land of Moab with her daughter-in-law Ruth the Moabitess. And they arrived in Bethlehem at the beginning of the barley harvest.",
+    "ult_verse_text": "यसरी नाओमी अाफ्नी मोआबी बुहारी रूथसँग, मोआबको भुमिबाट बेथलेहेममा अार्इपुग्दा जौको फसलको सुरुकाे कटनी हुदैथियाे।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/कथाको अन्त लेखन",
+        "orig_language_quote": "וַ⁠תָּ֣שָׁב נָעֳמִ֗י וְ⁠ר֨וּת",
+        "note": "यसले सारंश कथन सुरुवात गर्छ । यसलाई **यसरी** शब्दले चिनाउँछ । आफ्नो भाषामा समापन वा सारंश कथनलाई कसरी उल्लेख गरिन्छ निधो गर्नुहोस् र त्यसैअनुसार गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-endofstory]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/पृष्ठभूमि लेखन",
+        "orig_language_quote": "וְ⁠הֵ֗מָּה בָּ֚אוּ בֵּ֣ית לֶ֔חֶם בִּ⁠תְחִלַּ֖ת קְצִ֥יר שְׂעֹרִֽים",
+        "note": "नाओमी र रूथ बेथलेहेम आइपुग्‍ने समयमा इस्राएलीहरूले जौको कटानी गरिरहेका थिए भनी यो वाक्यले पृष्ठभूमि जानकारी दिन्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-background]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ‍कार भाववाचक संज्ञाहरू",
+        "orig_language_quote": "בִּ⁠תְחִלַּ֖ת קְצִ֥יר שְׂעֹרִֽים",
+        "note": "**जौ कटनी**। **जौको कटनी** वाक्यांशलाई भनी अनुवाद गर्न सकिन्छ । वैकल्पिक अनुवादः \"किसानहरूले जौ काट्न थाल्दा\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-abstractnouns]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:1",
+    "bsb_verse_text": "Now Naomi had a relative on her husband’s side, a prominent man of noble character from the clan of Elimelech, whose name was Boaz.",
+    "ult_verse_text": "अब नाओमीको उनको पतिको एक नातेदार, एलीमेलेकको वंशबाटका शक्तिशाली धनी मानिस थिए। र तिनकाे नाउँ बोअज थियो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/पृष्ठभूमि लेखन",
+        "orig_language_quote": "וּֽ⁠לְ⁠נָעֳמִ֞י מוֹדַ֣ע לְ⁠אִישָׁ֗⁠הּ",
+        "note": "बोअज को हुन् भनी पाठकहरूले जानून् भनी पद १ले बाोअजको बारे पृष्ठभूमि जानकारी दिन्छ । तपाईंको भाषामा पनि पृष्ठभूमि जानकारी दिने विशेष तरिका हुन सक्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-background]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/सहाभागीहरू लेखन",
+        "orig_language_quote": "וּֽ⁠לְ⁠נָעֳמִ֞י מוֹדַ֣ע לְ⁠אִישָׁ֗⁠הּ",
+        "note": "यो वाक्यले कथाको अर्को भागको चिनारी दिन्छ जसमा रूथले बोअजलाई भेट्छिन् । बोअजलाई यहाँ कथामा नयाँ सहभागीको रूपमा चिनाइन्छ । तपाईंको भाषामा कथामा नयाँ घटनाहरू वा नयाँ अध्यायहरू चिनाउने विशेष तरिका हुन सक्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-participants]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אִ֚ישׁ גִּבּ֣וֹר חַ֔יִל",
+        "note": "**प्रतिष्ठित, धनी मानिस**। यसको अर्थ बोअज आफ्नो समुदायमा असल प्रतिष्ठाका साथै समृद्ध र प्रसिद्ध थिए ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מִ⁠מִּשְׁפַּ֖חַת אֱלִימֶ֑לֶךְ",
+        "note": "**घराना** शब्दको प्रयोगले बोअज एलीमेलेकसँग सम्बन्धित थिए, तर एउटै बुबाआमाका सन्तान थिएनन् भन्‍ने अर्थ लाग्छ । पाठ्यांशले एलीमेलेकबाट घरानाको नामाकरण गरिएको वा एलीमेलेक घरानाको पुर्खा थिए भन्‍दैन ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:2",
+    "bsb_verse_text": "And Ruth the Moabitess said to Naomi, “Please let me go into the fields and glean heads of grain after someone in whose sight I may find favor.” “Go ahead, my daughter,” Naomi replied.",
+    "ult_verse_text": "र माेआबी स्त्री रूथले, नाओमीको अघि भनिन्, \"जसको नजरमा मैले निगाह पाउँछु, उहाँको पछि उहाँको खेतमा म जान चाहन्छु र अन्नका शिलाबालाहरू बटुल्छु।\" र तिनले उनलाई भनिन्, \"जाउ, मेरी छोरी।\"",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ר֨וּת הַ⁠מּוֹאֲבִיָּ֜ה",
+        "note": "यहाँ कथा पुनः सुरु हुन्छ । पृष्ठभूमि जानकारी दिएपछि कथाका घटनाहरूलाई फेरि बताउने आफ्नो भाषामा भएका तिरकाहरूमा यसलाई उल्लेख गर्नुहोस् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַ⁠מּוֹאֲבִיָּ֜ה",
+        "note": "ती स्‍त्री मोआब देश वा कुलकी थिइन् भन्‍ने अर्को तरिका हो ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠אֲלַקֳטָּ֣ה בַ⁠שִׁבֳּלִ֔ים",
+        "note": "**र अन्‍न काट्नेहरूले छोडिराखेका अन्‍नका बालाहरू बटुल्नु** वा **र अन्‍न काट्नेहरूले छोडिराखेका अन्‍नका बालाहरू टिप्‍नु**"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "אֶמְצָא־חֵ֖ן בְּ⁠עֵינָ֑י⁠ו",
+        "note": "**मैले जसको नजरमा कृपा पाउने छु** वाक्यांश एउटा वाक्पद्धति हो जसको अर्थ \"जसले मलाई समर्थन गर्छ ।\" रूथले अनुमति वा स्वीकृति प्राप्‍तत गर्ने बारे बताउँछिन् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/रूपक",
+        "orig_language_quote": "בְּ⁠עֵינָ֑י⁠ו",
+        "note": "**आँखा** देख्‍नुलाई दर्शाउने एउटा अनुनाम हो र देख्‍नु ज्ञान, हेर्नु, ध्यान वा न्यायको निम्ति रूपक हो । वैकल्पिक अनुवादः \"जसले [मप्रति दयालु] हुने निधो गर्छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "בִתִּֽ⁠י",
+        "note": "रूथले नाओमीलाई आफ्नै आमालाई झैँ हेरचाह गरिरहेकी थिइन र नाओमीले रूथलाई आफ्नै छोरीलाई झैँ स्‍नेहपूर्वक सम्बोधन गरिन् । यदि तपाईंको भाषामा यो अन्योलपूर्ण हुन्छ भने, तपाईंको भाषामा दुई जना महिलाहरू बिच यस किसिमको घनिष्ठ सम्बन्ध जनाउने शब्द प्रयोग गर्नुहोस् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:3",
+    "bsb_verse_text": "So Ruth departed and went out into the field and gleaned after the harvesters. And she happened to come to the part of the field belonging to Boaz, who was from the clan of Elimelech.",
+    "ult_verse_text": "त्यसैले तिनी गइन् र कटनीगर्नहरूकाे पछि खेतमा सीलाबाला बटुल्न थालिन्। अनि संयोगवश यस्तो भयो, तिनी बोअजको खेतको भागमा आइन्, जो एलिमेलेकका कुलका थिए।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּ֣קֶר מִקְרֶ֔⁠הָ",
+        "note": "यसको मतलब रूथले शिला‍-बाला बटुल्नलाई छानेकी खेत नाओमीको नातेदार बोअजको थियो भन्‍ने कुराप्रति रूथ सजग थिइनन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מִ⁠מִּשְׁפַּ֥חַת אֱלִימֶֽלֶךְ",
+        "note": "**घराना** शब्दको अर्थ बोअज एलीमेलेकसँह सम्बन्धित थिए तर एउटै बुबाआमाका सन्तान थिएनन् भन्‍ने हुन्छ । पाठ्यांशले घरानाको नामकारण एलीमेलेकको नाममा गरिएको थियो वा एलीमेलेक घरानाका पुर्खा वा अगुवा थिए भन्‍ने देखाउँदैन ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:4",
+    "bsb_verse_text": "Just then Boaz arrived from Bethlehem and said to the harvesters, “The LORD be with you.” “The LORD bless you,” they replied.",
+    "ult_verse_text": "तब हेर, बोअज बेथलेहेमबाट आउनुभयो, अनि उहाँले कटनी गर्नेहरूलाई अभिवादन गर्नुहुदै भन्नुभयो, “परमप्रभु तपाईहरुसँग रहुन्।” अनि तिनीहरूले उहाँलाई भने, \"यहोवाले तपाईंलाई आशिष् दिऊन्।\"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/छुट्टाउनु",
+        "orig_language_quote": "וְ⁠הִנֵּה",
+        "note": "**हेर** शब्दले बोअज खेतमा आइपुगेका र रूथलाई पहिलो पटक देखेका महत्त्चपूर्ण घटनाप्रति हामीलाई सजग गराउँछ । कथामा अब के हुन्छ भनी कसैलाई ध्यान दिन सावधान गराउने कुनै विशेष तरिका तपाईंको भाषामा पनि हुन सक्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-distinguish]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "בָּ֚א מִ⁠בֵּ֣ית לֶ֔חֶם",
+        "note": "खेतहरू बेथलेहेमदेखि अनिश्‍चित दुरिमा थिए ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "יְבָרֶכְ⁠ךָ֥ יְהוָֽה",
+        "note": "**परमप्रभुले तपाईंहरूका निम्ति असल कुराहरू गरून्**। यो सामान्य आशिष्‌ हो ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:5",
+    "bsb_verse_text": "And Boaz asked the foreman of his harvesters, “Whose young woman is this?”",
+    "ult_verse_text": "तब बोअजले कटनी गर्नेहरू माथि खटाइएका सेवकलाई भने, “यो युवती कसको हो?”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְ⁠מִ֖י הַ⁠נַּעֲרָ֥ה הַ⁠זֹּֽאת",
+        "note": "त्यस संस्कारमा, स्‍त्रीहरू उनीहरूका पुरुष नातेदारहरूका अधिनमा हुन्थे । बोअजले रूथको पति वा बुबा को थिए भनी सोधिरहेका थिए । रूथ दास थिइन् भन्‍ने तिनले सोचेनन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְ⁠נַעֲר֔⁠וֹ",
+        "note": "यो **नोकर* बोअजको निम्ति काम गर्ने र बोअजका बाँकी खेतालाहरूले के गर्ने भनी बताउने जवान व्यक्ति थिए ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַ⁠נִּצָּ֖ב עַל",
+        "note": "**जो का जिम्मेवार थिए** वा **जसले व्यवस्थापन गरिरहेका थिए**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:7",
+    "bsb_verse_text": "She has said, ‘Please let me glean and gather among the sheaves after the harvesters.’ So she came out and has continued from morning until now, except that she rested a short time in the shelter.”",
+    "ult_verse_text": "र तिनले मलाई अनुराेध गरेर भनिन्, ‘मलाई कटनी गर्नेहरूको पछि बिटाहरूकाे बिचमा शिलाबाला बटुल्न र  जम्मा गर्न दिनुहोस्।’ र उनी आइन् र बिहानको त्यस समयदेखि अहिले सम्म बटुलिरहेकी छिन्। घरमा यो उनको विश्राम थोरै छ ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֲלַקֳטָה־נָּא֙",
+        "note": "**शिला-बाला** बटुल्नु भनेको खेतालाहरूले कटनी गर्दा छोडिराखेका वा खसाइराखेका अन्‍न वा अरू उत्पपादनहरू टिप्‍नु हो । खेतालाहरूले यसको निम्ति खेतहरूमा फेरि बटुल्न जानु हुँदैन भन्‍ने परमेश्‍वरले मोशालाई दिनुभएको व्यवस्थाको हिस्सा थियो, ताकि गरिब वा विदेशी यात्रुहरूलाई टिप्‍नको निम्ति बाँकी रहन सकोस् । लेवी १९ः१० र व्यवस्था २४ः२१ जस्ता पदहरू हेर्नु होला ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַ⁠בַּ֖יִת",
+        "note": "**छाप्रो** वा **आश्रय**। यो खेतालाहरूलाई घामबाट ओत लागेर विश्राम गर्ने अस्थायी आश्रय वा बगैचाको छाप्रो थियो ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:8",
+    "bsb_verse_text": "Then Boaz said to Ruth, “Listen, my daughter. Do not go and glean in another field, and do not go away from this place, but stay here close to my servant girls.",
+    "ult_verse_text": "तब बोअजले रूथलाई भने, “मेरी छोरी, के तिमी मेरो कुरा सुन्दैनौ ? यहाँबाट अरूको खेतमा बटुल्न नजानु, र यहाँ देखि टाढा पनि नजानु । तर मेरा ठिटीहरूसँग नजीकै रहनु।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/आलङ्‌कारिक प्रश्‍न",
+        "orig_language_quote": "הֲ⁠ל֧וֹא שָׁמַ֣עַתְּ בִּתִּ֗⁠י",
+        "note": "यसलाई आज्ञाको रूपमा उल्लेख गर्न सकिन्छ । वैकल्पिक अनुवादः \"छोरी, मेरो कुरा सुन!\" वा \"मेरी छोरी, मैले तिमीलाई भनिरहेको कुरामा ध्यान देऊ!\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "בִּתִּ֗⁠י",
+        "note": "यो जवान स्‍त्रीलाई सम्बोधन गर्ने एउटा शैली थियो । रूथ बोअजकी खास छोरी थिइनन्, तर तिनले रूथलाई दयापूर्वक र आदरपूर्वक व्यवहार गरिरहेकी थिइन् । तपाईंको भाषामा यसलाई दर्शाउने शब्दावली प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:9",
+    "bsb_verse_text": "Let your eyes be on the field they are harvesting, and follow along after these girls. Indeed, I have ordered the young men not to touch you. And when you are thirsty, go and drink from the jars the young men have filled.”",
+    "ult_verse_text": "तिनीहरूले खेतको कहाँ कटनी गरिरहेको छन् हेर र तिनीहरूको पछि लाग । तिमीलाई केहि नगर्नु भनी के मैले आफ्ना जवान युवकहरूलाई आज्ञा दिएको छैन र ? अनि जब तिमीलाई तिर्खा लाग्छ, पानीको भाँडो लिउ र जवान युवकहरूले जुन निकालेका बाट  पिउ ।”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार उपलक्षण",
+        "orig_language_quote": "עֵינַ֜יִ⁠ךְ בַּ⁠שָּׂדֶ֤ה",
+        "note": "**आँखा**देख्‍नुलाई दर्शाउने अनुनाम हो । वैकल्पिक अनुवादः \"खेतलाई मात्र हेर\" वा \"खेतमा मात्र ध्यान देऊ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‍कार आलङ्‌कारिक प्रश्‍न",
+        "orig_language_quote": "הֲ⁠ל֥וֹא צִוִּ֛יתִי אֶת־הַ⁠נְּעָרִ֖ים לְ⁠בִלְתִּ֣י נָגְעֵ֑⁠ךְ",
+        "note": "बोअजले उनक आतिथ्यलाई जोड दिन यो प्रश्‍न प्रयोग गरे, उनले रूथलाई सहायता गर्ने व्यवस्था पहिले नै गरेका थिए । वैकल्पिक अनुवादः \"तिमीलाई हानि नपुर्‍याउनु भनी मैले मानिसहरूलाई कडा निर्देशन दिएको छु\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֶת־הַ⁠נְּעָרִ֖ים",
+        "note": "**केटा खेतालाहरू** वा **नोकरहरू**। खेतमा काम गर्ने केटाहरूलाई जनाउन **केटाहरू** शब्दलाई तीन पटक प्रयोग गरिएको छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/आलङ्‌कारिक शिष्टोक्ति",
+        "orig_language_quote": "לְ⁠בִלְתִּ֣י נָגְעֵ֑⁠ךְ",
+        "note": "केटाहरूले रूथलाई शारीरिक रूपमा हानि नपुर्‍याऊन् वा यौनिक रूपमा दुःख नदेऊ अनि सम्भवतः उनको खेतमा शिला-बाला बटुल्न बाधा नदेऊन् भनी वनम्रतापूर्वक बताउने एउटा तरिका हो । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-euphemism]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מֵ⁠אֲשֶׁ֥ר יִשְׁאֲב֖וּ⁠ן הַ⁠נְּעָרִֽים",
+        "note": "पानी तान्‍नुको अर्थ इनाबाट वा भण्डारण गरेको भाँडोबाट पानी लिनु हो ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:10",
+    "bsb_verse_text": "At this, she fell on her face, bowing low to the ground, and said to him, “Why have I found such favor in your eyes that you should take notice of me, even though I am a foreigner?”",
+    "ult_verse_text": "तब तिनीले आफ्नो मुहार तलतिर झुकाइन र भुँईमा घोप्टो परिन् र उहाँलाई भनिन्, “ म परदेशी भएतापनि तपाईको नजरमा मैले किन निगाह पाएकी छु ताकि तपाईले मेरो ख्याल राख्नुहुन्छ ?”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/व्यववस्थित कार्य अनुवाद गर्नु",
+        "orig_language_quote": "וַ⁠תִּפֹּל֙ עַל־פָּנֶ֔י⁠הָ וַ⁠תִּשְׁתַּ֖חוּ אָ֑רְצָ⁠ה",
+        "note": "यिनीहरू आदर र सम्मानका कार्यहरू हुन् । बोअजले तिनको निम्ति गरेका काम निम्ति तिनले कृतज्ञता जाहेर गरिरहेकी छिन् । यो नम्रताको भाव पनि थियो । (हेर्नुहोस्: [[rc://*/ta/man/translate/translate-symaction]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‍कार द्वित्व",
+        "orig_language_quote": "וַ⁠תִּפֹּל֙ עַל־פָּנֶ֔י⁠הָ וַ⁠תִּשְׁתַּ֖חוּ אָ֑רְצָ⁠ה",
+        "note": "यिनीहरू एउटै कार्यमा दुई वटा वर्णनहरू हुन् । यदि तपाईंको भाषामा यो गोलमालपूर्ण हुन्छ भने, यूएसटीमा जस्तै एउटा मात्र वर्णन प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-doublet]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "וַ⁠תִּפֹּל֙ עַל־פָּנֶ֔י⁠הָ",
+        "note": "तिनले साष्टङ्‌गदण्डवत गरिन् भन्‍ने अर्थ दिने एउटा वाक्पद्धति हो । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מַדּוּעַ֩ מָצָ֨אתִי חֵ֤ן בְּ⁠עֵינֶ֨י⁠ךָ֙ לְ⁠הַכִּירֵ֔⁠נִי וְ⁠אָּנֹכִ֖י נָכְרִיָּֽה",
+        "note": "रूथले साँच्‍चै प्रश्‍न सोधिरहेकी छिन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "מָצָ֨אתִי חֵ֤ן בְּ⁠עֵינֶ֨י⁠ךָ֙",
+        "note": "**तपाईंको आँखामा बिगाह पाएँ** भनेको \"तपाईंले स्वीकृति दिनुभएको छ\" भन्‍ने अर्थ दिने वाक्पद्धति हो । कसैको कृपा पाउने कुरालाई रूथले दया वा स्वीकृति पाएको रूपमा बताउँछिन् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‍कार रूपक",
+        "orig_language_quote": "בְּ⁠עֵינֶ֨י⁠ךָ֙",
+        "note": "**आँखाहरू** देख्‍नुलाई दर्शाउने अनुनाम हुन् र देख्‍नु ज्ञान, हेर्नु, ध्यान वा न्यायको रूपक हो । वैकल्पिक अनुवादः \"तपाईंको विचारमा\" वा \"तपाईंले निधो गर्नुभयो\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "נָכְרִיָּֽה",
+        "note": "**विदेशी** कुनै अर्को देशबाट आएको कुनै व्यक्ति । रूथले व्यक्तिगत रूपमा इस्राएलको परमेश्‍वरप्रति बफादार रहने प्रतिज्ञा गरेकी भए पनि तिनी इस्राएलको थिइनन् तर मोआबी थिइन् भन्‍ने सबैलाई थाहा थियो । परमेश्‍वरले इस्राएलीहरू विदेशीप्रति दयालु भएका चाहनुभए तापनि प्रायः उनीहरू विदेशीप्रति दयालु थिएनन् । बोअज परमेश्‍वरलाई खुसी पार्न जिइरहेका थिए भन्‍ने यसले देखाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:11",
+    "bsb_verse_text": "Boaz replied, “I have been made fully aware of all you have done for your mother-in-law since the death of your husband, how you left your father and mother and the land of your birth, and how you came to a people you did not know before.",
+    "ult_verse_text": "तब बोअजले जवाफ दिनुभयाे र तिनलाई भनुभयाे, “तिमीले आफ्नो पतिको मृत्युपछि पनि सासूसँग गरेका जति कुराहरू मलाई सम्पूर्ण  बताइएको छ। तिम्रो बुबा र तिम्री आमालाई र आफ्नो जन्मभुनिलाई छोडेर तिमी अपरिचीत मानिसका बिचमा आयौ जसलाई तिमीले हिजो अस्तीसम्म चिन्दैन थियौ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‍कार द्वित्व",
+        "orig_language_quote": "וַ⁠יַּ֤עַן בֹּ֨עַז֙ וַ⁠יֹּ֣אמֶר",
+        "note": "**जवाफ दिए** र **भने** दुवैले उही कार्यको वर्णन गर्छन् । यदि तपाईंको भाषामा यो स्पष्ट छैन भने, यूएसटीमा जस्तै आफ्नो भाषामा यसको निम्ति एउटा मात्र क्रिया शब्द प्रयोग गर्न सक्‍नुहुन्छ । (हेर्नुहोस्ः [[rc://*/ta/man/translate/figs-doublet]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार कर्तृ-कर्म वाच्य",
+        "orig_language_quote": "הֻגֵּ֨ד הֻגַּ֜ד לִ֗⁠י",
+        "note": "यदि तपाईंको भाषामा यसरी कर्मवाच्य प्रयोग गरिँदेन भने, तपाईंले यसलाई कर्तृवाच्यमा वा तपाईंको भाषामा स्वभाविक देखिने किसिमले उल्लेख गर्न सक्‍नुहुन्छ । वैकल्पिक अनुवादः **मानिसहरूले मलाई भनेका छन्** वा **मानिसहरूले मलाई बताएका छन्** (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "הֻגֵּ֨ד הֻגַּ֜ד",
+        "note": "यहाँ कथनको निश्‍चयता वा हदलाई जोड दिन मौलिक हिब्रुमा **प्रतिवेदन**का दुई वटा रूपहरूलाई प्रयोग गरिएका छन् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार उपलक्षण",
+        "orig_language_quote": "וַ⁠תֵּ֣לְכִ֔י אֶל־עַ֕ם",
+        "note": "बोअजले रूथलाई थाहा नै नभएको नाओमीको गाउँ, समुदाय र धर्ममा बस्‍न आएकी कुरालाई उल्लेख गर्दैछन् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "תְּמ֥וֹל שִׁלְשֽׁוֹם׃",
+        "note": "यो \"हालसालै\" वा \"अगिल्लो\" अर्थ दिने एउटा वाक्पद्धति हो । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:12",
+    "bsb_verse_text": "May the LORD repay your work, and may you receive a rich reward from the LORD, the God of Israel, under whose wings you have taken refuge.”",
+    "ult_verse_text": "परमप्रभुले तिम्रो कामको इनाम दिऊन् र तिम्रो पूरा ज्याला परमप्रभु इस्राएलका परमेश्‍वर बाट आओस्, जसको छत्रछाया मुनि तिमी शरण लिन आएका छौ।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "יְשַׁלֵּ֥ם יְהוָ֖ה פָּעֳלֵ֑⁠ךְ",
+        "note": "**परमप्रभुले तिमीलाई प्रतिफल देऊन्** वा **परमप्रभुले तिमीलाई चुक्ता गरून्**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "פָּעֳלֵ֑⁠ךְ",
+        "note": "बोअजले पद ११ मा भर्खरै बताएका सबै थोकलाई यसले जनाउँछ । वैकल्पिक अनुवादः \"तिम्रा असल कार्यहरू ।\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार समरूपता",
+        "orig_language_quote": "וּ⁠תְהִ֨י מַשְׂכֻּרְתֵּ֜⁠ךְ שְׁלֵמָ֗ה מֵ⁠עִ֤ם יְהוָה֙",
+        "note": "यो पहिलो वाक्यसँग मिल्दोजुल्दो कवितात्मक अभिव्यक्ति हो । वैकल्पिक अनुवादः \"तिमीले पाउन योग्य सबै थोक परमप्रभुले तिमीलाई देऊन्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-parallelism]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार रूपक",
+        "orig_language_quote": "אֲשֶׁר־בָּ֖את לַ⁠חֲס֥וֹת תַּֽחַת־כְּנָפָֽי⁠ו",
+        "note": "यो परमेश्‍वरमा भरोसा गर्नेहरूलाई उहाँको सुरक्षा वर्णन गर्ने उपायको रूपमा माउ चरोले आफ्ना चल्लाहरूलाई आफ्नो पखेटामुनि भेला गर्ने तस्वीर प्रयोग गरिएको रूपक हो । वैकल्पिक अनुवादः \"तपाईंले आफूलाई कसो सुरक्षामा राख्‍नुभएको छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:13",
+    "bsb_verse_text": "“My lord,” she said, “may I continue to find favor in your eyes, for you have comforted and spoken kindly to your maidservant, though I am not like one of your servant girls.”",
+    "ult_verse_text": "तब तिनले भनिन्, “मेरा प्रभु, मैले तपाईको नजरमा निगाह पाउँ, किनकि तपाईले मलाई सान्तवना दिनुभएको छ र किनकि तपाईकी दासीकाे हृदयमा बोल्नुभएको छ । तर मेरो लागि, म तपाईको दासीहरू मध्य एक जस्तो पनि छैन ।”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "אֶמְצָא־חֵ֨ן",
+        "note": "यहाँ **कृपा पाउनु** भनेको समर्थन प्राप्‍त गर्नु वा तिनीसँग प्रशन्‍न भएको अर्थ दिने एउटा वाक्पद्धति हो । वैकल्पिक अनुवादः \"तपाईंले मलाई समर्थन गरिरहेको होस्\" वा \"तपाईं मसँग प्रशन्‍न भइरहनुहोस्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार रूपक",
+        "orig_language_quote": "בְּ⁠עֵינֶ֤י⁠ךָ",
+        "note": "*आखाहरू** देख्‍नुलाई दर्शाउने अनुनाम हुन् र देख्‍नुन, ज्ञान, हेर्नु, ध्यान वा न्यायको निम्ति रूपक हो । वैकल्पिक अनुवादः \"र मलाई स्वीकार गर्नुहोस्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֲדֹנִ⁠י֙",
+        "note": "बोअज रूथको मालिक होइन, तर रूथले शिला-बाला बटुलिरहेकाि खेतको उनी मालिक हुन् । उनी एउटा यहूदी र सहरको प्रतिष्ठित व्यक्ति पनि हुन् । यसकारण, रूथले उनलाई **मालिक** भनेर सम्‍मान गरिरहेकी छिन् र आफैलाईचाहिँ कमारी भनिरहेकी छिन् । वैकल्पिक अनुवादः \"महाशय\" वा \"अधिपति\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠אָנֹכִי֙ לֹ֣א אֶֽהְיֶ֔ה כְּ⁠אַחַ֖ת שִׁפְחֹתֶֽי⁠ךָ",
+        "note": "रूथ बोअजका खेताहरू नभए तापनि तिनी उनका खेतालाहरू हुन्‌ झैँ व्यवहार गरेको रूथले आश्‍चर्य र कृतज्ञता व्यक्त गरिरहेकी छिन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:14",
+    "bsb_verse_text": "At mealtime Boaz said to her, “Come over here; have some bread and dip it into the vinegar sauce.” So she sat down beside the harvesters, and he offered her roasted grain, and she ate and was satisfied and had some left over.",
+    "ult_verse_text": "तब भोजनको समयमा, बोअजले तिनलाई भने, \"यहाँ आउनुहोस्, र रोटीबाट खानुहोस्, र आफ्नो टुक्रा सिरकामा डुबाउनुहोस्।\" त्यसैले तिनी कटनी गर्नेहरूको छेउमा बसिन्, र तिनलाई केही भुटेको अन्न दिए। अनि उनले खाइन्, र तृप्त भइन्, केहि उबारेर पनि राखिन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְ⁠עֵ֣ת הָ⁠אֹ֗כֶל",
+        "note": "यसले मध्य दिनको खानालाई जानउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠טָבַ֥לְתְּ פִּתֵּ֖⁠ךְ בַּ⁠חֹ֑מֶץ",
+        "note": "यो खेतमा खाइने साधारण खाना थियो । मानिसहरू हातमा रोटीको टुक्रा र कचौरामा सिर्का लिएर एउटा कपडाको वरिपरि भुईंमा बस्थे । उनीहरूले खानअघि रोटीलाई स्वादिलो बनाउन सिर्कामा चोप्थे ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "בַּ⁠חֹ֑מֶץ",
+        "note": "**सिर्का** रोटी चोप्‍ने एग किसिमको सस(चटनी) थियो । इस्राएलीहरूले दाखमद्य बानउनलाई भन्दा बढी समय दाख राखेर दाखबाट सिर्का बनाउथे । सिर्काको चरणमा, रस अत्याधिक अमिलो र अम्लीय बन्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:15",
+    "bsb_verse_text": "When Ruth got up to glean, Boaz ordered his young men, “Even if she gathers among the sheaves, do not insult her.",
+    "ult_verse_text": "त्यसपछि उनी बटुल्न उठिन्, तब बोअजले आफ्ना मानिसहरूलाई यसो भन्दै आज्ञा दिए, “उनलाई बिटाहरूका बीचमा पनि बटुल्न दिन, र उनलाई लाजमा नपार्नुहाेस्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार सुस्पष्ट",
+        "orig_language_quote": "וַ⁠תָּ֖קָם לְ⁠לַקֵּ֑ט וַ⁠יְצַו֩ בֹּ֨עַז אֶת־נְעָרָ֜י⁠ו",
+        "note": "बोअज आफ्ना खेताहरूसँग बोल्दा, रूथ बोअजको निर्देशन सुन्‍न नसक्ने दुरिमा रहेको हुन सक्छ । वैकल्पिक अनुवादः \"र रूथ अन्‍न बटुल्‍न उठ्दा, बोअजले उनका जवान केटाहरूलाई गोप्य रूपमा भने\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תָּ֖קָם",
+        "note": "**पछि तिनी खडा भइन्**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "גַּ֣ם בֵּ֧ין הָֽ⁠עֳמָרִ֛ים",
+        "note": "यहाँ, **पनि** खेतालाहरूले गर्ने गरेको सामान्य कामभन्दा बढी र धेरै गर्नुपर्छ भन्‍ने जानकारी दिन्छ । काटीसकेको अन्‍नहरूबाट चोर्छन् भनेर शिला-बाला बटुल्‍नेहरूलाई सामन्यतयाः काम गरिरहेकाहरूको नजिक बटुल्न दिइँदैनथ्यो । तर बोअजले रूथलाई बिटाहरूका नजिक पनि बटुल्न दिन खेतालाहरूलाई निर्देशन दिन्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:16",
+    "bsb_verse_text": "Rather, pull out for her some stalks from the bundles and leave them for her to gather. Do not rebuke her.”",
+    "ult_verse_text": "अनि उनका निम्‍ति मुठाहरूबाट केही निकालेर बटुल्न छोडिदिनुहोस्, र उनलाई नहप्‍काउनु।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "שֹׁל־תָּשֹׁ֥לּוּ לָ֖⁠הּ מִן־הַ⁠צְּבָתִ֑ים",
+        "note": "**अन्‍नका बिटाबाट निकालेर केही उनको निम्ति छोडिराख** वा **उनलाई बटुल्नको निम्ति बिटाबाट केही छोडिराख**। यहाँ बोअज सामन्य चरणभन्दा अघि बढ्छन् र रूथलाई बटुल्न दिनको निम्ति काटी सकिएका अन्‍नबाट केही निकालेर छोडी राख्‍ने निर्देशन दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠לֹ֥א תִגְעֲרוּ־בָֽ⁠הּ",
+        "note": "**उनलाई शर्ममा नपार्नु** वा **उनीसित रूखो सोरमा नबोल्नु**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:17",
+    "bsb_verse_text": "So Ruth gathered grain in the field until evening. And when she beat out what she had gleaned, it was about an ephah of barley.",
+    "ult_verse_text": "त्यसैले उनी साँझसम्म खेतमा शिलाबाला बटुलिन्। अनि तिनले बटुलेका शिलाबाला माडिन्, र  ती पाँच पाथी जति जौ भयो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תַּחְבֹּט֙",
+        "note": "तिनले भुस र घाँसलाई फ्याँकेर खाने अन्‍नलाई छुट्टाइन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-bvolume",
+        "orig_language_quote": "כְּ⁠אֵיפָ֥ה שְׂעֹרִֽים",
+        "note": "**एफा** २२ लिटर बराबरको नापको एउटा एकाइ हो । वैकल्पिक अनुवादः \"२२ लिटर जौ\" । अन्‍नको निम्ति आफ्नो भाषामा स्वबाविक नाप प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/translate-bvolume]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:18",
+    "bsb_verse_text": "She picked up the grain and went into the town, where her mother-in-law saw what she had gleaned. And she brought out what she had saved from her meal and gave it to Naomi.",
+    "ult_verse_text": "र उनले त्याे उठाइन् र शहरमा गइन्, र उनकी सासुले देखिन्  उनले के बटुलेकाे थिइन्। तब उनी सन्तुष्ट भए पछि जति उबारेर ल्याएकाे खानेकुरा झिकिन् र  उसले त्यो उनलाई दिइन् ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार सुस्पष्ट",
+        "orig_language_quote": "וַ⁠תִּשָּׂא֙ וַ⁠תָּב֣וֹא הָ⁠עִ֔יר",
+        "note": "रूथ अन्‍न बोकेर घर लगिन् भन्‍ने आशय व्यक्त गरिन्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תֵּ֥רֶא חֲמוֹתָ֖⁠הּ",
+        "note": "**त्यसपछि नाओमीले देखिन्**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:19",
+    "bsb_verse_text": "Then her mother-in-law asked her, “Where did you glean today, and where did you work? Blessed be the man who noticed you.” So she told her mother-in-law where she had worked. “The name of the man I worked with today is Boaz,” she said.",
+    "ult_verse_text": "त्यसपछि उनकी सासूले उनलाई साेध्नुभयाे , “आज तिमीले कहाँ बटुल्याै, र कहाँ काम गर्यौ ? तिमीलाई देखेर सहायता गर्नेले आशिष पाओस्।\" तब उनले आफ्नी सासूलाई आफु को सगँ काम गरिन बताइन् । र तिनले भनिन्, \"आज मैले जोसगँ काम गरे त्यो मानिसको नाम बोअज हो।\"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार समरूपता",
+        "orig_language_quote": "אֵיפֹ֨ה לִקַּ֤טְתְּ הַ⁠יּוֹם֙ וְ⁠אָ֣נָה עָשִׂ֔ית",
+        "note": "नाओमीले त्यस दिन रूथलाई के भयो भनी जन्‍न तिनी निकै उत्सुक भएको देखाउन उही कुरालाई दुई तरिकाहरूले सोध्छिन् । उत्साह र रुचि देखाउने आफ्नो भाषामा भएको तरिका प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-parallelism]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार उपलक्षण",
+        "orig_language_quote": "מַכִּירֵ֖⁠ךְ",
+        "note": "यहाँ **देखे** कुराले रूथलाई देखेको कुरालाई मात्र होइन, तर उनको निम्ति केही गरेको कुरालाई पनि दर्शाउँछ । वैकल्पिक अनुवादः \"तिमीलाई सहायता गर्ने व्यक्ति\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:20",
+    "bsb_verse_text": "Then Naomi said to her daughter-in-law, “May he be blessed by the LORD, who has not withdrawn His kindness from the living or the dead.” Naomi continued, “The man is a close relative. He is one of our kinsman-redeemers.”",
+    "ult_verse_text": "तब नाओमीले आफ्नी बुहारीलाई भनिन्, \"उहाँलाई परमप्रभुले आशिस दिनुभएको होस्, जसले जीवित सित र मरेकाहरू सितको आफ्नो करारको विश्वासयोग्यतालाई त्याग्नुभएको छैन।\" नाओमीले उनलाई यसो पनि भनिन्, “त्यो मानिस हामीसँग नजिककाे, हाम्रो छुटाउने आफन्त मध्ये एक हुन। ”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "בָּר֥וּךְ הוּא֙ לַ⁠יהוָ֔ה",
+        "note": "रूथ र तिनलाई देखाएका दयाको निम्ति परमेश्‍वरले बोअजलाई इनाम देऊन् भनी नाओमीले बिन्ती चढाउँदैछिन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार दोब्बर नकारात्मक",
+        "orig_language_quote": "אֲשֶׁר֙ לֹא־עָזַ֣ב חַסְדּ֔⁠וֹ",
+        "note": "यसलाई सकारात्मक रूपमा उल्लेख गर्न सकिन्छः **जो बफादार भइरहनुभएको छ**। (हेर्नहोस्: [[rc://*/ta/man/translate/figs-doublenegatives]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֲשֶׁר֙ לֹא־עָזַ֣ב",
+        "note": "जो शब्दले यहाँ समम्भवतः परमप्रभुलाई बुझाउँछ, जो जीवित र मृतकदेखि बोअजसम्म बफादार भइरहनुभएको छ । यसले बोअजलाई बुझाउने सम्भावना अति न्युन छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार संज्ञात्मक-विशेषण",
+        "orig_language_quote": "אֶת־הַ⁠חַיִּ֖ים",
+        "note": "नाओमी रूथ **जीवित** छन् । संज्ञात्मक विशेषण **जीवित**लाई हटाउन यसलाई फरक किसिमले उल्लेख गर्न सकिन्छ । वैकल्पिक अनुवादः \"जीवित रहेका मानिसहरूलाई\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-nominaladj]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार संज्ञात्मक-विशेषण",
+        "orig_language_quote": "וְ⁠אֶת־הַ⁠מֵּתִ֑ים",
+        "note": "नाओमीका पति र छोराहरू **मृत** थिए । संज्ञात्मक विशेषण **मृत**लाई हटाउन यसलाई फरक किसिमले उल्लेख गर्न सकिन्छ । वैकल्पिक अनुवादः \"पहिले नै मरिसकेका मानिसहरू\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-nominaladj]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अङ्‌कार समरूपता",
+        "orig_language_quote": "קָר֥וֹב לָ֨⁠נוּ֙ הָ⁠אִ֔ישׁ מִֽ⁠גֹּאֲלֵ֖⁠נוּ הֽוּא",
+        "note": "दोस्रो वाक्यांश दोहोरिन्छ र पहिलोलाई विस्तार गर्छ । यो जोड दिने हिब्रू शेली हो । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-parallelism]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מִֽ⁠גֹּאֲלֵ֖⁠נוּ",
+        "note": "नजिकको कुटुम्ब परिवारको कुनै पनि विधवाको हेरचाह गर्ने दायित्व भएको नजिकको नातेदार तिए । यदि आफ्नो दाजुको सन्तान नभई मरे भने, यदि तिनी अझै आफ्नो दाजुको निम्ति बालक जन्‍माउन र बालबालिकाहरूको हुर्काउन सक्‍ने उमेरकी छिन् भने, विधवालाई विवाह गर्ने दायित्च तिनको हुन्थ्यो । उनले गरिबीको कारण आफ्ना नातेदारले गुमाएका जग्माजमिन र दासत्वमा बेचिएको परिवार सदस्यलाई पुनःफिर्ता ल्याउनुपर्थ्यो । अरू जानकारीको निम्ति परिचय हेर्नु होला ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:21",
+    "bsb_verse_text": "Then Ruth the Moabitess said, “He also told me, ‘Stay with my young men until they have finished gathering all my harvest.’”",
+    "ult_verse_text": "तब मोआबी स्त्री रूथले भनिन्, \"साथै, उहाँले मलाई भन्नुभयो, 'मेरा जति सबै फसल कटनी जब सम्म सकिदैन तिमी मेरा जति कामदारहरूको नजिकै सगँसगैँ रहनु ।'\"",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "גַּ֣ם ׀ כִּי־אָמַ֣ר אֵלַ֗⁠י",
+        "note": "**उनले मलाई भने**। जग्गाको मालिकले रूथलाई भन्‍ने अपेक्षा गरिएकोभन्दा बाहिरको कुरो थियो भन्‍ने कुरा यसले देखाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "עִם־הַ⁠נְּעָרִ֤ים אֲשֶׁר־לִ⁠י֙ תִּדְבָּקִ֔י⁠ן",
+        "note": "उनका खेतालाहरूले रूथलाई हानि पुर्‍याउने छैनन् भन्‍ने दृढता बोअजले व्यक्त गरिरहेका थिए ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:22",
+    "bsb_verse_text": "And Naomi said to her daughter-in-law Ruth, “My daughter, it is good for you to work with his young women, so that nothing will happen to you in another field.”",
+    "ult_verse_text": "तब नाओमीले आफ्नी बुहारी रूथलाई भनिन्, “यो राम्रो हो, मेरी छोरी, कि तिमी उनकै कामगर्ने ठिटीहरूसँग जानु, ताकि अरूकाे खेतमा जस्ताे खतरा नहाेला।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "תֵֽצְאִי֙ עִם",
+        "note": "**सँग तिमीले काम गर्छौ**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠לֹ֥א יִפְגְּעוּ־בָ֖⁠ךְ",
+        "note": "यसको अर्थ यस्तो हुन सक्थ्योः (१) खेतालाहरूले रूथलाई दुर्व्यवहार गर्न वा बलत्कार गर्न सक्छन् वा (२) अर्काको खेताम, उनीहरूले अन्‍न काटिरहँदा जग्‍गाको मालिकले तिनलाई अवरोध गर्न वा रोक्‍न सक्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/व्याकरण, तर्क परिणाम संयोजक",
+        "orig_language_quote": "וְ⁠לֹ֥א יִפְגְּעוּ־בָ֖⁠ךְ",
+        "note": "यसैले गर्दा रूथले बोअजका नोकरहरूसँगै काम गर्नुपर्छ । यदि तपाईंको भाषा परिणामअगि कारण उल्लेख गर्नु बढी स्पष्ट देखिन्छ भने, तपाईंले यूएसटीमा जस्तै वाक्यको यो भागलाई उल्लेख गर्न सक्‍नुहुन्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-logic-result]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 2:23",
+    "bsb_verse_text": "So Ruth stayed close to the servant girls of Boaz to glean grain until the barley and wheat harvests were finished. And she lived with her mother-in-law.",
+    "ult_verse_text": "त्यसैले जौको फसल र गहुँको फसल नसकुन्जेल तिनी बोअजका महिला कामदारहरूको नजिकै बटुल्दै रहिन्। अनि उनी सासुसँग बस्थिन् ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תִּדְבַּ֞ק",
+        "note": "रूथले दिनभरि बोअजका खेतमा उनका खेतालाहरूसँगै काम गरिन्छ ताकि तिनी सुरक्षित रहून् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תֵּ֖שֶׁב אֶת־חֲמוֹתָֽ⁠הּ",
+        "note": "रूथ सुत्‍न नाओमीको घर गईन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:1",
+    "bsb_verse_text": "One day Ruth’s mother-in-law Naomi said to her, “My daughter, should I not seek a resting place for you, that it may be well with you?",
+    "ult_verse_text": "तब नाओमी, उनकी सासूले तिनलाई भनिन्, “मेरी छोरी, के मैले तिम्रो लागि आराम गर्ने ठाउँ खोज्नु हुँदैन, त्यो तिम्रो लागि राम्रो हुनेछ?",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/नयाँ घटना लेखन",
+        "orig_language_quote": "וַ⁠תֹּ֥אמֶר לָ֖⁠הּ נָעֳמִ֣י",
+        "note": "यो वाक्यले कथाको अर्को भागको चिनारी दिन्छ जसमा बोअजले रूथ र नाओमीको निम्ति नजिकको कुटुम्बको भूमिका निर्वाह आग्रह गर्छिन् । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-newevent]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "חֲמוֹתָ֑⁠הּ",
+        "note": "नाओमी रूथको मृत पतिको आमा थिइन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "בִּתִּ֞⁠י",
+        "note": "नाओमीको छोरोसँग विवाह गरेर रूथ नाओमीको परिवारको हिस्सा भइन् र बेथलेहेममा फर्केपछि नाओमीको हेरचाह गर्ने काम गरेर तिनकी छोरी भइन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‍कार आलङ्‌कारिक प्रश्‍न",
+        "orig_language_quote": "הֲ⁠לֹ֧א אֲבַקֶּשׁ־לָ֛⁠ךְ מָנ֖וֹחַ אֲשֶׁ֥ר יִֽיטַב־לָֽ⁠ךְ",
+        "note": "नाओमीले के गर्ने योजना बनाएकी थिइन् भनी बताउन नाओमीले यो प्रश्‍न प्रयोग गर्छिन् । वैकल्पिक अनुवादः \"तिम्रो हेरचाह होस् भनेर मैले तिम्रो निम्ति विश्राम गर्ने ठाउँ खोज्‍नुपर्छ\" वा \"तिमी विनाचिन्‍ता बस्‍न सक भनेर मैले तिम्रो निम्ति एउटा पति खोज्‍नुपर्छ\" (हेर्नुहोस्ः [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार रूपक",
+        "orig_language_quote": "לָ֛⁠ךְ מָנ֖וֹחַ",
+        "note": "यसको अर्थ यो थकाइ लाग्दा अस्थायी रूपमा विश्राम गर्ने ठाउँ होइन । यसको अर्थ पतिसहितको असल घरको स्थायी सान्तवना र सुरक्षा हुने स्थान हो । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:2",
+    "bsb_verse_text": "Now is not Boaz, with whose servant girls you have been working, a relative of ours? In fact, tonight he is winnowing barley on the threshing floor.",
+    "ult_verse_text": "अब, के बोअज हाम्रो आफ्नै नातेदार होइनन्, जसको ठिटी कामदारहरूसँग तिमीले काम गरिरह्यौ? हेर, उनले आफै आज राती खलामा जौ बताउनेछन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/व्याकरण, तर्क परिणाम संयोजक",
+        "orig_language_quote": "וְ⁠עַתָּ֗ה",
+        "note": "# Connecting Statement:\\n\\nपद १ को नाओमीको आलङ्‌कारिक प्रश्‍नले रूथलाई पद २-४ मा दिने सल्लाहको निम्ति करण पेश गर्छ । यो शब्दले १ पदको परिनाणस्वरूप आउने कुराको चिन्ह दिन्छ । प्रकारान्तरमा, के गर्ने भनी नाओमीले रूथलाई सल्लाह दिन्छिन् (३ः२-४) किनभने तिनले रूथको निम्ति असल र सुरक्षिर गर खोज्‍न चाहन्छिन् (३ः१)। यदि तपाईंको भाषामा परिणामपछि कारण उल्लेख गर्न बढी स्पष्ट हुन्छ भने पद १-४ लाई सँगै उल्लेख गरेर पद २-४ पछि पद १ राख्‍न सक्‍नुहुन्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-logic-result]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‍कार आलङ्‌कारिक प्रश्‍न",
+        "orig_language_quote": "הֲ⁠לֹ֥א בֹ֨עַז֙ מֹֽדַעְתָּ֔⁠נוּ",
+        "note": "तिनले रूथलाई पहिले नै भनिसकेकी कुरालाई याद दिलाउन (२ः२०), तिनले भन्‍न लागेकी कुराको परिचय दिन नाओमीले यो प्रश्‍न प्रयोग गरिन् । वैकल्पिक अनुवादः \"तिमीलाई थाहा छ, बोअज हाम्रा नातेदार हुन्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-rquestion]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार सुस्पष्ट",
+        "orig_language_quote": "הָיִ֖ית אֶת־נַעֲרוֹתָ֑י⁠ו",
+        "note": "यदि यसले बुझ्‍न सहायता पुर्‍याउँछ भने, तिनले खेतमा यी केटी खेतालाहरूसँग काम गरिरहेकी थिइन् भनी अनुवादलाई सुस्पष्ट पार्न सक्छ । वैकल्पिक अनुवादः \"तिमीसँग खेतमा भएका केटी खेतालाहरू\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार फरक छुट्टाउनु",
+        "orig_language_quote": "הִנֵּה",
+        "note": "**हेर** शब्दले आउने कतन धेरै महत्त्वपूर्ण छ भन्‍ने देखाउँछ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-distinguish]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "זֹרֶ֛ה",
+        "note": "**उनी निफन्दै हुने छन्** निफन्‍नु भनेको अन्‍न र भुस दुवैलाई हावामा फ्याँकेर भुसलाईचाहिँ हावाले उडाउन लगाएर अनावश्यक भुसलाई अन्‍नबाट छुट्टाउनु हो ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:3",
+    "bsb_verse_text": "Therefore wash yourself, put on perfume, and wear your best clothes. Go down to the threshing floor, but do not let the man know you are there until he has finished eating and drinking.",
+    "ult_verse_text": "अब नुहाउ, र तेल लगाउ र राम्रो गरी लुगा लगाउ र तल खलामा जाउ। त्यो मानिसले खाना र पिउन नसके सम्म देखा नपर।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וָ⁠סַ֗כְתְּ",
+        "note": "यसले सम्भवतः कुनै किसिमको सुगन्धित तेललाई जिउमा लगाउने कुरालाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְיָרַ֣דְתְּ הַ⁠גֹּ֑רֶן",
+        "note": "यसले सहरलाई छोडेर खेताताहरूले अन्‍न छिट्न र निफन्‍न सक्‍ने खुल्‍ला र समतल स्थान जाने कुरालाई जनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:4",
+    "bsb_verse_text": "When he lies down, note the place where he lies. Then go in and uncover his feet, and lie down, and he will explain to you what you should do.”",
+    "ult_verse_text": "र हुन देऊ कि जब उहाँ सुत्नुहुन्छ, तिमीलाई त्यो ठाउँ कहाँ हो आफै थाहा होस् । तब सुतेकाे ठाँउमा गएर उहाँको खुट्टाकाे ओढ्ने खोल र सुत। त्यसपछि उनले आफैले तिमीलाई के गर्नुपर्छ भनी बताउनेछ।”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार आज्ञार्थक",
+        "orig_language_quote": "וִ⁠יהִ֣י",
+        "note": "**त्यसपछि यसो गर:** यो नाओमीले रूथलाई दिन लागेकी विशेष निर्देषनका श्रृङ्खलाहरूको चिनारी दिने सामान्य कथन हो । मानिसहरूले तपाईंको भाषामा भन्‍ने तरिकाले यसलाई अनुवाद गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-imperative]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/व्याकरण, तर्क परिणाम संयोजक",
+        "orig_language_quote": "בְ⁠שָׁכְב֗⁠וֹ",
+        "note": "यो बोअज कहाँ सुत्छन् भनी रूथले कहिले हेर्ने भनी बताउने पृष्ठभूमि उपवाक्य हो । (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-time-background]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/व्यववस्थित कार्य अनुवाद गर्नु",
+        "orig_language_quote": "וְ⁠גִלִּ֥ית מַרְגְּלֹתָ֖י⁠ו",
+        "note": "यसको अर्थ उनको खुट्टालाई ढाकेको खास्टो वा बर्कोलाई हटाउनु हुन्छ । सायद स्‍त्रीको यस कार्यलाई विवाहको प्रस्तावको रूपमा व्याख्या गर्न सकिन्थ्यो । (हेर्नुहोस्: [[rc://*/ta/man/translate/translate-symaction]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מַרְגְּלֹתָ֖י⁠ו",
+        "note": "यो शब्दले यहाँ उनको खुट्टा वा गोडालाई जनाउन सक्थ्यो ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְשָׁכָ֑בְתְּ",
+        "note": "**र त्यहाँ नै ढल्क**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠הוּא֙ יַגִּ֣יד לָ֔⁠ךְ אֵ֖ת אֲשֶׁ֥ר תַּעַשִֽׂי⁠ן",
+        "note": "त्यस समयको विशेष रीतिरिवाज स्पष्ट छैन, तर बोअजले रूथको कार्यलाई विवाहको प्रस्तावको रूपमा बुझ्‍ने छन् भन्‍ने विश्‍वास गरेकी देखिन्छ । बोअजले त्यसपछि तिनको प्रस्तावलाई स्वीकार वा अस्वीकार गर्ने छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠הוּא֙ יַגִּ֣יד",
+        "note": "**जब उनी ब्युउँछिन्चन्, उनले बताउने छन्**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:6",
+    "bsb_verse_text": "So she went down to the threshing floor and did everything her mother-in-law had instructed her to do.",
+    "ult_verse_text": "त्यसैले तिनी खलामा गइन् र तिनकी सासूले तिनलाई भनेका जति सबै कुरा गरिन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार घटनाहरू",
+        "orig_language_quote": "וַ⁠תַּ֕עַשׂ כְּ⁠כֹ֥ל אֲשֶׁר־צִוַּ֖תָּ⁠ה חֲמוֹתָֽ⁠הּ׃",
+        "note": "यो कथनले रूथले पद ७ मा गर्ने कामको सार खिँच्छ । यदि मानिसहरूले यसलाई रूथले यी कामहरू पद ६ मा गरिन् र त्यसपछि पद ७मा पनि गरिन् भन्‍ने बुझ्‍छन् भने, यो वाक्यलाई तपाईंले **र तिनले आफ्नी सासुको आज्ञा पालन गरिन्** भनी अनुवाद गर्न सक्‍नुहुन्छ । वा यदि यसले घटनाक्रमलाई अझे स्पष्ट बनाउँछ भने, तपाईंले यो वाक्यलाई पद ७को अन्ततिर सार्न सक्‍नुहुन्छ, त्यसपछि पद संख्यालाई पद संयोजकको (६-७) रूपमा जोड्‍नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-events]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:7",
+    "bsb_verse_text": "After Boaz had finished eating and drinking and was in good spirits, he went to lie down at the end of the heap of grain. Then Ruth went in secretly, uncovered his feet, and lay down.",
+    "ult_verse_text": "र बाेअजले खाए र पिए, र उनको मन खुशी भयाे , र उनी अन्नको थुप्रोको छेउमा सुत्न गए। त्यसपछि तिनी चुपचासित आइन्, र उहाँको खुट्टाकाे ओढ्ने उठाइन् र सुतिन् ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार उपलक्षण",
+        "orig_language_quote": "וַ⁠יִּיטַ֣ב לִבּ֔⁠וֹ",
+        "note": "यहाँ \"हृदय\"ले \"संवेग\" वा \"प्रवृत्ति\"लाई दर्शउँछ । बोअजका संवेगहरू वा भावनाहरू असल थिए । यसले बोअज मतेका थिए भन्‍ने आशय दिँदैन । वैकल्पिक अनुवादः \"र उनले असल महसुस गरे\" वा \"र उनी असल मनस्थितिमा थिए\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תָּבֹ֣א בַ⁠לָּ֔ט",
+        "note": "**त्यसपछि तिनी सुटुक्क पसिन्** वा **त्यसपछि तिनी बिस्तारै भित्र आइन् ताकि कसैले नसुनून्**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תְּגַ֥ל מַרְגְּלֹתָ֖י⁠ו",
+        "note": "**र उनको खुट्टालाई छोप्‍ने खास्टो हटाइन्**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תִּשְׁכָּֽב",
+        "note": "**र तिनी त्यहाँ नै ढल्किन्**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:8",
+    "bsb_verse_text": "At midnight, Boaz was startled, turned over, and there lying at his feet was a woman!",
+    "ult_verse_text": "त्यसपछि मध्यरातमा यस्तो भयो कि त्यो मानिस पल्टियो र आश्चर्यचकित भयो । र हेर, एउटी स्त्री उहाँको खुट्टामा सुतिरहेकी थिई!",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/नयाँ घटना लेखन",
+        "orig_language_quote": "וַ⁠יְהִי֙ בַּ⁠חֲצִ֣י הַ⁠לַּ֔יְלָה",
+        "note": "बोअज कहिले ब्युँझे भनी यो उपवाक्यले नयाँ घटनाको चिनारी दिन्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-newevent]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יֶּחֱרַ֥ד",
+        "note": "बोअजलाई केले चकित बनायो भन्‍ने कुरा स्पष्ट छैन । सायद उनले अचानक आफ्नो खुट्टामा चिसो महसुस गरे होलान् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार विस्मयाधी",
+        "orig_language_quote": "וְ⁠הִנֵּ֣ה",
+        "note": "त्यसपछि जे भयो सो बोअजको निम्ति अत्यन्त अचम्मको कुरो थियो भनी यो शब्दले देखाउँछ । अचम्मलाई अभिव्यक्ति गर्ने तपाईंको भाषा प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-exclamations]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אִשָּׁ֔ה שֹׁכֶ֖בֶת מַרְגְּלֹתָֽי⁠ו",
+        "note": "ती स्‍त्री रूथ थिइन्, तर अँध्यारोमा बोअजले तिनलाई चिन्‍न सकेनन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:9",
+    "bsb_verse_text": "“Who are you?” he asked. “I am your servant Ruth,” she replied. “Spread the corner of your garment over me, for you are a kinsman-redeemer.”",
+    "ult_verse_text": "अनि उनले साेधे, \"तिमी को हौ?\" तब तिनले भनिन्, “म रुथ हुँ, तपाईंको दासी। र तपाईका आफ्‍नो लुगाको छेउ आफ्‍नो दासी माथि ओढाइदिनुहोस्, किनकि तपाई नजिकका छुट्कारा दिने हुनुहुन्छ।”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/विनम्रता लेखन",
+        "orig_language_quote": "אֲמָתֶ֔⁠ךָ & אֲמָ֣תְ⁠ךָ֔",
+        "note": "रूथ बोअजको कमारी थिइनन्, तर बोअजप्रतिको आदर व्यक्त गर्न तिनले बोअजको कमारीको रूपमा आफूलाई उल्लेख गर्छिन् । आफ्‍नो भाषामा विनम्रता र आदर व्यक्त गर्ने तरिका प्रयोग गर्नुहोस् । (हेर्नुहोस्ः rc://*/ta/man/translate/writing-politeness)"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "וּ⁠פָרַשְׂתָּ֤ כְנָפֶ֨⁠ךָ֙ עַל־אֲמָ֣תְ⁠ךָ֔",
+        "note": "यो विवाहको निम्ति सांस्कृतिक वाक्पद्धति थियो । वैकल्पिक अनुवादः \"कृपया मलाई विवाह गर्नुहोस्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "גֹאֵ֖ל",
+        "note": "यो शब्दलाई (२ः२०) मा कसरी अनुवाद गर्नुभएको छ सो हेर्नुहोस् । (../02/20/zu5f)."
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:10",
+    "bsb_verse_text": "Then Boaz said, “May the LORD bless you, my daughter. You have shown more kindness now than before, because you have not run after the younger men, whether rich or poor.",
+    "ult_verse_text": "तब तिनले भने, “परमप्रभुले तिमीलाई आशिस दिनुभएको होस्, मेरी छोरी! तिम्राे याे विश्‍वासयोग्‍यतालाई सुरुमा भन्दा अझ अन्‍तमा प्रगाढ बनायाै, कुनै गरीब वा धनी जवान मानिसहरूको पछि लागेनाै।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "הֵיטַ֛בְתְּ חַסְדֵּ֥⁠ךְ הָ⁠אַחֲר֖וֹן מִן־הָ⁠רִאשׁ֑וֹן",
+        "note": "**तिमीले अहिले यसअघिको भन्दा अधिक बढी भलाइ देखाइरहेकी छ्यौ**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הֵיטַ֛בְתְּ חַסְדֵּ֥⁠ךְ הָ⁠אַחֲר֖וֹן",
+        "note": "रूथले बोअजलाई विवाह गर्न आग्रह गरेकी कुरालाई यसले बुझाउँछ । रूथले निस्वार्थ भलाइ र नाओमीप्रतिको पारिवारिक बफादारीता देखाइरहेको रूपमा बोअजले यसलाई हेर्छन् । नाओमीका नातेदारसँग विवाह गरेर रूथले नाओमीको निम्ति आवश्यक कुरा प्रदान गर्थिन् , नाओमीको छोरोको निम्ति आदर र नाओमीको परिवारको वंशलाई निरन्तरता दिन्थिन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הָ⁠רִאשׁ֑וֹן",
+        "note": "रूथले पहिले पनि नाओमीसँग रहेर र उनीहरूका निम्ति शिला-बाला बटुलेर आवश्यक कुराहरू जुटाएको तरिकाहरूलाई यसले जनाउँछ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "לְ⁠בִלְתִּי־לֶ֗כֶת אַחֲרֵי֙",
+        "note": "**किनकि तिमीले विवाह गर्न नखोजेकी छैनौँ**। रूथले नाओमीका आवश्यकताहरूलाई बेवास्ता गरेर नाओमीका नातेदारहरूबाहिर नै सुन्दर पतिसँग विवाह गर्न सक्थिन्, तर तिनले त्यसो गरिनन् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:11",
+    "bsb_verse_text": "And now do not be afraid, my daughter. I will do for you whatever you request, since all my fellow townspeople know that you are a woman of noble character.",
+    "ult_verse_text": "त्यसैले अब हे मेरी छोरी, नडराऊ ! तिमी जे भन्छौ, म तिम्रो लागि सबै गर्नेछु; किनकि तिमी एक चरित्रवान स्त्री हाै भन्ने कुरा सम्पुर्ण नगरका मेरा मानिसहरूलाई थाहा भइसकेको छ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/व्याकरण, तर्क परिणाम संयोजक",
+        "orig_language_quote": "וְ⁠עַתָּ֗ה",
+        "note": "# Connecting Statement:\\n\\nअघिल्लो १० पद आएको कुरा पछि ११ पदमा आएको कुराको कारण हो भनी यो वाक्यांशले देखाउँछ । यसलाई **यसकारण** जस्ता शब्दले देखाउन सकिन्छ । यदि तपाईंका पाठकहरूले कारणपछि कारण राख्‍ने कुरालाई गलत बुझ्छन् भने, क्रम यस्तो हुन सक्छः बोअज नजिकको कुटुम्बको भूमिका निर्वाह गर्न अभिप्रेरित भए (पद ११) **किनभने** रूथ नाओमीप्रति कति दयालु भएकी थिइन् भन्‍ने कुरा उनले देखेका थिए (पद १०)। यदि तपाईंले यसो गर्नुभयो भने तपाईंले पदहरूलाई र पद संख्याहरूलाई जोड्नुपर्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-logic-result]])."
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "בִּתִּ⁠י֙",
+        "note": "जवान केटीको रूपमा रूथप्रति आदरको चिन्ह स्वरूप बोअजले यो अभिव्यक्ति प्रयोग गरे । तपाईंले भाषामा उपयुक्त हुने सम्बोधन गर्ने तरिका प्रयोग गर्नुहोस् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "כָּל־שַׁ֣עַר עַמִּ֔⁠י",
+        "note": "मूल ढोकामा मानिसहरू व्यपार गर्न भेला हुन्थे र अगुवाहरू निर्णय गर्न भेला हुन्थे । त्यसैले, यो \"सहरका महत्त्वपूर्ण मानिसहरूमध्ये सबै\" भन्‍ने अर्थ भएको वाक्पद्धति हो । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])."
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֵ֥שֶׁת חַ֖יִל",
+        "note": "**असल चरित्र भएकी स्‍त्री**, **एउटी असल नारी**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:12",
+    "bsb_verse_text": "Yes, it is true that I am a kinsman-redeemer, but there is a redeemer nearer than I.",
+    "ult_verse_text": "र अब, यो साँच्चै हो कि म छुटकारा दिने हुँ, तर म भन्दा पनि नजिकको छुटकारा दिने हुनुहुन्छ ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/व्याकरण, तर्क परिणाम संयोजक",
+        "orig_language_quote": "וְ⁠עַתָּה֙",
+        "note": "# Connecting Statement:\\n\\nआउनेवाला कुरा रूथले ध्यान दिनुपर्ने केही कुरा छ भनी यो वाक्यांसले दर्शाउँछ। वैकल्पिक अनुवादः \"तिमीले थाहा पाउनुपर्छ कि\" (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-words-phrases]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/व्याकरण, तर्क, तुलना संयोजक",
+        "orig_language_quote": "וְ⁠גַ֛ם יֵ֥שׁ",
+        "note": "यो वाक्यांसले रूथलाई विवाह गर्न बोअजको तत्परता र (पद ११) र अर्को मानिसले तिनलाई विवाह गर्ने सम्भावना (पद १२) बिच तुलना गर्छ । वैकल्पिक अनुवादः \"त्यसै भए पनि, त्यहाँ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-logic-contrast]])."
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "גֹּאֵ֖ל קָר֥וֹב מִמֶּֽ⁠נִּי",
+        "note": "मृतकको विधवालाई सहायता गर्ने काम उक्त मृतकको सबैभन्दा नजिकको पुरुष नातेदारको कर्त्तव्य थियो । **नजिको कुटुम्ब**लाई कसरी अनुवाद गर्ने भनी पद २ः२०मा हेर्नु होला (../02/20/zu5f) र यहाँ यो अर्थपूर्ण होस् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:13",
+    "bsb_verse_text": "Stay here tonight, and in the morning, if he wants to redeem you, good. Let him redeem you. But if he does not want to redeem you, as surely as the LORD lives, I will. Now lie here until morning.”",
+    "ult_verse_text": "आजकाे रात यहाँ बस। र जब बिहान हुन्छ, यदि उसले तिमीलाई छुटकारा दिन्छ भने, असल, उसले छुटकारा देओस् । तर यदि उसले तिमीलाई छुटकारा दिन चाहँदैन भने, म तिमीलाई छुटाउनेछु, जसरी परमप्रभु जीवित हुनुहुन्छ। बिहान सम्म ढल्कीराख।\"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार सुस्पष्ट",
+        "orig_language_quote": "אִם־יִגְאָלֵ֥⁠ךְ",
+        "note": "यहाँ **उद्धार गर्नु**को अर्थ \"विधवाबारेको हाम्रो चलनअनुासर विवाह गर्नु\" हो । बोअजले रूथको मृतक पतिको सबैभन्दा नजिकको पुरुष नातेदारले तिनलाई विवाह गर्ने र मृतकको परिवारको परिवारको नामलाई जारी राख्‍ने अपेक्षालाई उल्लेख गरिरहेका छन् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "חַי־יְהוָ֑ה",
+        "note": "**जस्तो परमप्रभु जीवित हुनुहुन्छ** वा **परमप्रभुको जीवनद्वारा**। बोल्ने व्यक्तिले जे बोल्छन् सो गर्न बाध्य पार्ने यो हिब्रूमा प्रचलित प्रतिज्ञा हो । तपाईंको भाषामा स्वभाविक हुने शब्दावली प्रयोग गर्नुहोस् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:14",
+    "bsb_verse_text": "So she lay down at his feet until morning, but she got up before anyone else could recognize her. Then Boaz said, “Do not let it be known that a woman came to the threshing floor.”",
+    "ult_verse_text": "त्यसैले उनी बिहान सम्म उहाँको खुट्टानेर ढल्कीरहिन्, तर मानिसले चिन्न नपाउँदै उनी उठिन्। अनि उहाँले भन्नुभयो, \" खलामा एउटी स्त्री आइन् भन्ने कसैलाई थाहा नहाेस्।\"",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תִּשְׁכַּ֤ב מַרְגְּלוֹתָיו֙",
+        "note": "रूथ बोअजको गोडा नजिक सुतिन् । उनीहरूले यौन सम्पर्क गरेनन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "בְּטֶ֛רֶם יַכִּ֥יר אִ֖ישׁ אֶת־רֵעֵ֑⁠הוּ",
+        "note": "यो अन्धकारलाई जनाउने एउटा वाक्पद्धति हो । वैकल्पिक अनुवादः \"अँध्यारो हुँदै\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])."
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:15",
+    "bsb_verse_text": "And he told her, “Bring the shawl you are wearing and hold it out.” When she did so, he poured in six measures of barley and placed it on her. Then he went into the city.",
+    "ult_verse_text": "तब बोअजले भने, “तिमीले ओढ़ेको खास्‍टो थाप।” तिनले थापिन्, र बोअजले छ पाथी जति जौ भरेर तिनलाई बोकाइदिए। अनि तिनी सहरमा फर्के।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַ⁠מִּטְפַּ֧חַת",
+        "note": "न्यानो होस् भनी काँधमाथि लगाइने कपडाको बाक्लो टुक्रा"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "שֵׁשׁ־שְׂעֹרִים֙",
+        "note": "वास्तविक मात्रा उल्लेख गरिएको छैन । रूथले मात्र बोकेर लान सक्‍ने भए पनि यसलाई पर्याप्‍त उदारपूर्ण ठानिन्थ्यो । धेरै विद्वानहरूका अनुसार यो २५-३०किलो थियो ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יָּ֣שֶׁת עָלֶ֔י⁠הָ",
+        "note": "यो गह्रौँ थियो त्यसैले बोअजले यसलाई बक्‍न सकोस् भनी रूथको पिठ्युँमाथि राखिदिए ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יָּבֹ֖א הָ⁠עִֽיר",
+        "note": "धेरै जसो प्राचीन पाण्डुलिपीहरूमा बोअजलाई उल्लेख गर्दै \"तिनी गए\" लेख्छन्, तर केहीले रूथलाई जनाउँदै \"तिनी गइन्\" लेख्छन् । अंग्रेजी संस्कारणहरूमा पनि केहीले \"पुरुष\" र केहीले \"स्त्रीलिङ्ग\" उल्लेख गर्छन् । \"उनी गए\" भन्‍ने नै मौलिक अर्थ भनी धेरै विद्वानहरूले विश्‍वास गर्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:16",
+    "bsb_verse_text": "When Ruth returned to her mother-in-law, Naomi asked her, “How did it go, my daughter?” Then Ruth told her all that Boaz had done for her.",
+    "ult_verse_text": "त्यसपछि उनी सासु कहाँ आइन्, र उनले साेधिन्, \"मेरी छोरी, तिमी को हौ ?\" तब उनले त्यो मानिसले जे उनको लागि गरेका थिए सबै कुरा बताइन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "מִי־אַ֣תְּ בִּתִּ֑⁠י",
+        "note": "सम्भवतः \"मेरी छोरी, तिम्रो प्रतिष्ठ के हो?\" भन्‍ने अर्थ दिन यो वाक्पद्धतिमा देखा पर्छ । अर्को शब्दमा, रूथ विवाहित महिला हुन् त भनी नाओमीले सोधिरहेकी छिन् । वैकल्पिक प्रश्‍नको रूपमा **मेरी छोरी, के तिमी नै हौ?** हुन्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "בִּתִּ֑⁠י",
+        "note": "रूथ वास्तवमा नाओमीकी बहुारी हुन्, तर नाओमीले प्रिय किसिमले **मेरी छोरी** भन्छिन् । तपाईंको संस्कारमा यो स्वीकार्य हुन्छ भन्‍ने यो अनुवादलाई कायम राख्‍नुहोस् । नत्र, \"बुहारी\" प्रयोग गर्नुहोस् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֵ֛ת כָּל־אֲשֶׁ֥ר עָֽשָׂה־לָ֖⁠הּ הָ⁠אִֽישׁ",
+        "note": "**तिनको निम्ति बोअजले गरेका सबै कुरा**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:17",
+    "bsb_verse_text": "And she said, “He gave me these six measures of barley, for he said, ‘Do not go back to your mother-in-law empty-handed.’”",
+    "ult_verse_text": "र तिनले भनिन्, “उहाँले मलाई यी छ पाथी जौ दिनुभयो, किनकि उहाँले भन्नुभयाे, ‘तिमी आफ्नी सासूकहाँ रित्ताे हात जानु हुँदैन।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "שֵׁשׁ־הַ⁠שְּׂעֹרִ֥ים",
+        "note": "३ः५ मा कसरी अनुवाद गर्नुभएको छ हेर्नु होला (../03/15/f5zg)।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "אַל־תָּב֥וֹאִי רֵיקָ֖ם",
+        "note": "रित्ति हात जानु एउटा वाक्पद्धति हो जसको अर्थ त्यो व्यक्तिलाई दिने केही पनि नलिई जानु हुन्छ । वैकल्पिक अनुवादः **रित्तो हात नजाऊ** वा **तिमीले केही कुरा लानुपर्छ** (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])."
+      }
+    ]
+  },
+  {
+    "reference": "Rut 3:18",
+    "bsb_verse_text": "“Wait, my daughter,” said Naomi, “until you find out how things go, for he will not rest unless he has resolved the matter today.”",
+    "ult_verse_text": "तब तिनले भनिन्, “बस, मेरी छोरी, त्यो समयसम्म जब तिमीलाई यो कुरा कसरी पूरा हुन्छ भनी थाहा हुन्छ। किनकि आज यो कुराकाे अन्त्य नभए सम्म यो मानिसले आराम गर्नेछैनन्।”",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "שְׁבִ֣י בִתִּ֔⁠י",
+        "note": "**बस्‍नु** एउटा वाक्पद्धति हो जसको अर्थ रूथले शान्तपूर्वक पर्खनुपर्छ भन्‍ने हुन्छ । वैकल्पिक अनुवादः \"यहाँ पर्ख\" वा \"धैर्यवान होऊ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "בִתִּ֔⁠י",
+        "note": "१ः११-१३; २ः२, ८, २२; ३ः१, १०, ११, १६ मा कसरी अनुवाद गर्नुभएको छ सो हेर्नुहोस् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "אֵ֖יךְ יִפֹּ֣ל דָּבָ֑ר",
+        "note": "यो \"परिस्थिति कस्तो हुने छ\" वा \"के हुने छ\" भन्‍ने अर्थ दिने एउटा वाक्पद्धति हो । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार दोब्बर नकारात्मक",
+        "orig_language_quote": "לֹ֤א יִשְׁקֹט֙ הָ⁠אִ֔ישׁ כִּֽי־אִם־כִּלָּ֥ה הַ⁠דָּבָ֖ר",
+        "note": "यसलाई सकारात्मक रूपमा उल्लेख गर्न सकिन्छः **त्यो मानिसले यसलाई निश्‍चय नै सुल्झाउन सक्छन्** वा **त्यो मानिसले यो मामलालाई पक्कै पनि पार लगाउने छन्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-doublenegatives]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אִם־כִּלָּ֥ה הַ⁠דָּבָ֖ר",
+        "note": "**यो विषय**ले नाओमीको सम्पत्ति र रूथलाई कसले किन्‍ने छ भन्‍ने निर्णयलाई जनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:1",
+    "bsb_verse_text": "Meanwhile, Boaz went to the gate and sat down there. Soon the kinsman-redeemer of whom he had spoken came along, and Boaz said, “Come over here, my friend, and sit down.” So he went over and sat down.",
+    "ult_verse_text": "अब बोअज शहरकाे मूलढोकामा गएका थिए र त्यहाँ बसेका थिए। अनि हेर, नजिकका छुट्कारा दिने त्यहाँबाट जाँदै थिए, उही मानिस जो बोअजले पहिले नै बताएका थिए। उनले भने, \" ए, निश्चित व्यक्ति, पछाडी फर्कनुहोस्,  यहाँ बस्नुहोस्।\" त्यसैले उनी फर्केरआए र बसे ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/नयाँ घटना लेखन",
+        "orig_language_quote": "וּ⁠בֹ֨עַז עָלָ֣ה הַ⁠שַּׁעַר֮",
+        "note": "यो उपवाक्यले कथाको अर्को भागको चिनारी दिन्छ, जसमा बोअजले नजिको कुटुम्बको अग्रणी भूमिका निर्वाह गर्छन् र रूथलाई विवाह गर्छन् । नयाँ घटनाको चिनारी दिने तपाईंको भाषाको शैली प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-newevent]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַ⁠שַּׁעַר֮",
+        "note": "**सहरको मूल ढोकामा** वा **बेथलेहेमको मूल ढोकामा**। यो पर्खालले घेरिएको बेथलेहेमको मुख्य प्रवेशद्वार थियो । मूल ढोकाको भित्रपट्टि सामुदायिक विषयमा छलफल गर्न बैठक बस्‍ने ठाउँको रूपमा खुल्ला क्षेत्र थियो ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार फरक छुट्टाउनु",
+        "orig_language_quote": "וְ⁠הִנֵּ֨ה",
+        "note": "**हेर** शब्दले हामीलाई बोअजले देख्‍ननुपर्ने जुन व्यक्ति थिए उही व्यक्ति देखेको महत्त्वपूर्ण घटनाप्रति सावधान गराउँछ । कथा पछि के हुने छ भनी मानिसहरूलाई सावधान गराउने विशेष शैली तपाईंको भाषामा हुन सक्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-distinguish]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "הַ⁠גֹּאֵ֤ל",
+        "note": "यिनी एलीमेलेकका सबैभन्दा नजिकका जीवित नातेदार थिए । **नजिकको कुटुम्ब** कसरी अनुवाद गर्ने भनी २ः२० मा हेर्नु होला (../02/20/zu5f)।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "פְּלֹנִ֣י אַלְמֹנִ֑י",
+        "note": "वास्तवमा बोअजले यी शब्दहरू भनेनन्, बरु तिनले नजिकको कुटुम्बको नाउँ काढेर बोलाए । यो त्यो व्यक्ति उही व्यक्ति भनी उल्लेख गर्ने वाक्पद्धति हो तर नाउँचाहिँ उल्लेख गर्दैन । बताउने व्यक्तिले त्यो व्यक्तिको नाउँको सट्टामा सामान्य शब्दावली प्रतिस्थापन गरिदिए किनभने त्यो कथाको निम्ति विशेष नाम महत्त्वपूर्ण थिएन वा त्यो मानिसको नाम बिर्सिसकेको थियो । यदि तपाईंको भाषामा कुनै व्यक्ति नाउँ उल्लेख नगरी प्रयोग गर्ने वाक्पद्धति छ भने यहाँ प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार कथन",
+        "orig_language_quote": "פְּלֹנִ֣י אַלְמֹנִ֑י",
+        "note": "धेरै भाषाहरूमा, कसैले अर्को व्यक्तिलाई सम्बोधन गर्नु भद्दा र अस्वभाविक हुन्छ । यसलाई अझ स्वभाविक बनाउने तरिका यूएसटीमा जस्तै यसलाई अप्रत्यक्ष कथनमा परिवर्तन गर्नु हुन सक्छ । अप्रत्यक्ष र प्रत्यक्ष कथनको मेल पनि सम्भव छः \"बोअजले तिनलाई नाउँ काढेर बोलाए र भने, \"यता आउनुहोस् र यहाँ बस्‍नुहोस् ।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-quotations]])."
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:2",
+    "bsb_verse_text": "Then Boaz took ten of the elders of the city and said, “Sit here,” and they did so.",
+    "ult_verse_text": "तब उनले शहरका प्रधानहरु बाट दशजना मानिसहरूलाई लिए र भने, “यहाँ बस्नुहाेस।” त्यसैले तिनीहरू बसे।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יִּקַּ֞ח עֲשָׂרָ֧ה אֲנָשִׁ֛ים",
+        "note": "**त्यसपछि उनले दश जना मानिसहरूलाई छाने**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מִ⁠זִּקְנֵ֥י הָ⁠עִ֖יר",
+        "note": "**सहरका अगुवाहरूबाट**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:3",
+    "bsb_verse_text": "And he said to the kinsman-redeemer, “Naomi, who has returned from the land of Moab, is selling the piece of land that belonged to our brother Elimelech.",
+    "ult_verse_text": "तब उनले नजीकका छुट्कारा दिनेलाई भने, “नाओमी, जो मोआबको भुमिबाट फर्केकी थिइन्,  हाम्रो भाइ एलीमेलेकको खेतको भाग बेचिरहेकी छिन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "חֶלְקַת֙ הַ⁠שָּׂדֶ֔ה & מָכְרָ֣ה נָעֳמִ֔י",
+        "note": "एलीमेलेकको स्वमित्वमा रहेको जग्गा फिर्ता गर्नु र एलीमेलेकको परिवारको हरेचाह गर्नु एलीमेलेकको सबैभन्दा नजिको कुटुम्बको दायित्व थियो ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:4",
+    "bsb_verse_text": "I thought I should inform you that you may buy it back in the presence of those seated here and in the presence of the elders of my people. If you want to redeem it, do so. But if you will not redeem it, tell me so I may know, because there is no one but you to redeem it, and I am next after you.” “I will redeem it,” he replied.",
+    "ult_verse_text": "अब, यहाँ बसेकाहरूको अगाडि र मेरा प्रधान मानिसहरूको अगाडि मैले भने कि मैले ‘यसलाई किनुहाेस’ भन्दै तपाईको कान खुल्लागर्नुपर्छ। यदि तपाईले यसलाई छुटकारा गर्नुहुन्छ भने, छुटकारा गर्नुहोस्। तर यदि तपाईंले यसलाई छुटकारा गर्नुहुन्न भने, अगाडि बाटै मलाई थाहा दिनुहोस्, किनकि त्यहाँ तपाईं बाहेक छुटकारा गर्ने कोही छैन, र म तपाईं पछि छु।\" तब तिनले भने \"म आफै यसलाई छुटाउने छु । \"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "אֶגְלֶ֧ה אָזְנְ⁠ךָ֣",
+        "note": "यो वाक्पद्धतिको अर्थ \"मैले तपाईंलाई भन्‍नुपर्छ\" वा \"मैले तपाईंलाई थाहा दिनुपर्छ\" हुन्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])."
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "נֶ֥גֶד",
+        "note": "**को उपस्थितिमा**। यी मानिसहरूलाई साक्षीको रूपमा राखेर उक्त लेनदेन कानुनी र बाध्यकारी हुन्छ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "גְּאָ֔ל",
+        "note": "**उद्धार गर्ननु** को अर्थ जग्माजमिनालाई परिवार भित्र नै कायम राख्‍नलाई किन्‍नु हुन्छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/व्याकरण अपवाद संयोजक",
+        "orig_language_quote": "אֵ֤ין זוּלָֽתְ⁠ךָ֙ לִ⁠גְא֔וֹל וְ⁠אָנֹכִ֖י אַחֲרֶ֑י⁠ךָ",
+        "note": "केही भाषाहरूमा, यी कुराहरूलाई सँगै बताउनु गोलमालपूर्ण हुन सक्छः (१) जग्गालाई उद्धार गर्ने कोही पनि छैन, (२) जग्गालाई तपाईंले मात्र उद्धार गर्न सक्नुहुन्छ, (३) त्यसपछि त्यसपछि मैले उद्धार गर्न सक्छु । यदि तपाईंको भाषामा पनि यस्तै हुन्छ भने, अझ स्पष्ट पार्नलाई यूएसटी हेर्नु होला । (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-exceptions]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠אָנֹכִ֖י אַחֲרֶ֑י⁠ךָ",
+        "note": "बोअज एलीमेलेकका दोस्रा सबैभन्दा नजिकका कुटुम्ब थिए, त्यसैल तिनीसित जग्गाजमिन उद्धार गर्ने दोस्रो बरियताको अधिकार थियो ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:5",
+    "bsb_verse_text": "Then Boaz said, “On the day you buy the land from Naomi and also from Ruth the Moabitess, you must also acquire the widow of the deceased in order to raise up the name of the deceased on his inheritance.”",
+    "ult_verse_text": "तब बोअजले भने, “तिमीले नाओमीको हातबाट त्यो खेत किन्‍ने दिनमा, मृतकको उसको उत्तराधिकार माथि नाउँलाई कायम राख्नका लागि, मरेको मानिसको पत्नी मोआबी स्त्री रूथलाई पनि प्राप्त गर्नुपर्छ।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "בְּ⁠יוֹם־קְנוֹתְ⁠ךָ֥ & וּ֠⁠מֵ⁠אֵת & קָנִ֔יתָה",
+        "note": "उनले जग्गा किनेमा हुन आउने अतिरिक्त दायित्वबारे जानकारी दिन बोअजले यो अभिव्यक्ति प्रयोग गर्छन् । वैकल्पिक अनुवादः \"जब तपाईंले जग्गा किन्‍नुहुन्छ, तपाईंले पनि प्राप्‍त गर्नुहुने छ\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार अंगागीवाचन",
+        "orig_language_quote": "מִ⁠יַּ֣ד נָעֳמִ֑י",
+        "note": "यहाँ **हात** शब्दले नाओमीलाई दर्शाउँछ, जसको स्वमित्वमा खेत थियो । वैकल्पिक अनुवादः\"नाओमीबाट\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-synecdoche]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "וּ֠⁠מֵ⁠אֵת ר֣וּת & קָנִ֔יתָה",
+        "note": "**तपाईंले रूथलाई विवाह गर्नुपर्छ** (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "אֵֽשֶׁת־הַ⁠מֵּת֙",
+        "note": "**एलीमेलेकको मरेको छोरोको विधवा**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְ⁠הָקִ֥ים שֵׁם־הַ⁠מֵּ֖ת עַל־נַחֲלָתֽ⁠וֹ׃",
+        "note": "**कि सम्पत्तिको उत्तराधिकार पाउन र मृतक पतिको परिवारको नाउँ जारी राख्‍न तिनले छोरा पाउन सकून्**"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार संज्ञात्मक-विशेषण",
+        "orig_language_quote": "הַ⁠מֵּ֖ת",
+        "note": "रूथको पति **मृत** थिए । संज्ञात्मक विशेष **मृतक**लाई प्रयोग नगर्न यसलाई फरक किसिमले उल्लेख गर्न सकिन्छ । वैकल्पिक अनुवादः \"मरेका मानिस\" वा \"मरेका तिनको पति\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-nominaladj]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:6",
+    "bsb_verse_text": "The kinsman-redeemer replied, “I cannot redeem it myself, or I would jeopardize my own inheritance. Take my right of redemption, because I cannot redeem it.”",
+    "ult_verse_text": "तब नजिकका छुट्कारा दिनेले भने, \" मेरो आफ्नो उत्तराधिकार नोक्सान नगरी म आफ्नो निम्ति याे छुटाउन सक्षम छैन। मेरो छुट्कारा दिने अधिकार तपाईले आफ्नो निम्ति छुटाउनु होस्, किनकि म छुटाउनलाई सक्षम छैन।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "אַשְׁחִ֖ית אֶת־נַחֲלָתִ֑⁠י",
+        "note": "त्यो मानिसले त्यसको बदलामा उनको केही सम्पत्ति दिनुपर्थ्यो । त्यसपछि, यदि तिनले रूथलाई विवाह गरे भने, त्यो सम्पत्ति उसको सन्तानको होइन रूथको छोराको हुन्थ्यो । त्यसरी, उनले आफ्ना सन्तानहरूले उसबाट पाउनुपर्ने सम्पत्ति रूथले जन्माउने सन्तानलाई दिनुपर्थ्यो । वैकल्पिक अनुवादः \"मेरा आफ्नै सन्तानहरूका उत्तराधिाकरबाट लिएर\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "גְּאַל־לְ⁠ךָ֤ אַתָּה֙ אֶת־גְּאֻלָּתִ֔⁠י",
+        "note": "**मेरो सट्टामा यो तपाईं आफैले उद्धार गर्नुहोस्**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:7",
+    "bsb_verse_text": "Now in former times in Israel, concerning the redemption or exchange of property, to make any matter legally binding a man would remove his sandal and give it to the other party, and this was a confirmation in Israel.",
+    "ult_verse_text": "अब, इस्राएलमा प्राचीन समयमा, उद्धारको सम्बन्धमा र आदानप्रदानको सम्बन्धमा: दिने व्यक्तिले आफ्नो जुत्ता खोलेर लिने व्यक्त्तिलाई दिन्थे, यसरी कुनै पनि कुरा पक्का गरिन्थ्यो। त्यसैले यो इस्राएलमा कानूनी सम्झौता को रूप थियो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/पृष्ठभूमि लेखन",
+        "orig_language_quote": "וְ⁠זֹאת֩",
+        "note": "**अब प्रचलन यो थियो**। पुस्तकको लेखकले रूथको समयमा रहेको लेनदेनको प्रचलनबारेको पृष्ठभूमि जानकारी दिनको निम्ति कथालाई भन्‍न छोड्छन् । तपाईंको भाषाको पृष्ठभूमि जानकारी दिने तरिका प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-background]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/पृष्ठभूमि लेखन",
+        "orig_language_quote": "לְ⁠פָנִ֨ים",
+        "note": "**प्राचीन समयमा** वा **लामो समयअघि**। रूथको पुस्तक लेख्दा ययो प्रचलन थिएन भन्‍ने यसले देखाउँछ । (हेर्नुहोस्: [[rc://*/ta/man/translate/writing-background]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְ⁠רֵעֵ֑⁠הוּ",
+        "note": "**उसको साथीलाई**। यसले जुन व्यक्तिसँग सम्झौता गरिरहेका थिए उक्त व्यक्तिलाई जनाउँछ । यस परिस्थितिमा नजिकका नातेदारले बोअजलाई उसको जुत्ता दिन्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:8",
+    "bsb_verse_text": "So the kinsman-redeemer removed his sandal and said to Boaz, “Buy it for yourself.”",
+    "ult_verse_text": "यसैले छुटाउने आफन्तले बोअजलाई भने, “त्यो आफ्नो लागि किन्नुहोस् ।” र तिनले आफ्नो जुत्ता फुकाले ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠יֹּ֧אמֶר הַ⁠גֹּאֵ֛ל",
+        "note": "पद ७को पृष्ठभूमि जानकारीपछि कथाको घटनाहरू फेरि यहाँ सुरु हुन्छ । कथाका घटनाहरूलाई फेरि भन्‍न सुरु गर्ने आफ्नि भाषामा भएका तरिका प्रयोग गर्नुहोस् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:9",
+    "bsb_verse_text": "At this, Boaz said to the elders and all the people, “You are witnesses today that I am buying from Naomi all that belonged to Elimelech, Chilion, and Mahlon.",
+    "ult_verse_text": "तब बोअजले प्रधानहरूलाई र सबै मानिसहरूलाई भने, “आजकाे दिन तपाईहरू साक्षी हुनुहुन्छ कि म नाओमीको हातबाट  जुन एलिमेलेकको आफ्ना सबै थोक र जुन किल्याेन र महलोनका उनका सबै थोक किन्दैछु।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार अतिशयोक्ति",
+        "orig_language_quote": "לַ⁠זְּקֵנִ֜ים וְ⁠כָל־הָ⁠עָ֗ם",
+        "note": "यसले सहरका हरेक मानिसलाई होइन बैठक स्थलमा भेला भएका सबै मानिसहरूलाई जनाउँछ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-hyperbole]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार अंगागीवाचन",
+        "orig_language_quote": "מִ⁠יַּ֖ד נָעֳמִֽי",
+        "note": "नाओमीको हातले नाओमीलाई दर्शाउँछ । तिनका पति र छोराहरू मरेका हुनाले, सम्पत्ति तिनको स्वमित्वमा थियो । वैकल्पिक अनुवादः \"नाओमीबाट\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-synecdoche]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "כָּל־אֲשֶׁ֣ר לֶֽ⁠אֱלִימֶ֔לֶךְ וְ⁠אֵ֛ת כָּל־אֲשֶׁ֥ר לְ⁠כִלְי֖וֹן וּ⁠מַחְל֑וֹן",
+        "note": "यसले नाओमीका मृत पति र छोराहरूका स्वमित्वमा रहेका सबै जमिनलाई जनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:10",
+    "bsb_verse_text": "Moreover, I have acquired Ruth the Moabitess, Mahlon’s widow, as my wife, to raise up the name of the deceased through his inheritance, so that his name will not disappear from among his brothers or from the gate of his home. You are witnesses today.”",
+    "ult_verse_text": "र रूथ, जो मोआबी स्‍त्री, महलोनकी विधवालाई, म मेरी पत्नीको रूपमा पनि प्राप्त गर्दैछु, ताकि मरेको मानिसको नाउँ उसको उत्तराधिकार कायम रहोस्, यसरी  म‍रेको मानिसको नाउँ उनको दाजुभाइ र शहरको मुलढोका बाट नमेटिओस्।आजकाे दिन तपाईहरु साक्षी हुनुहुन्छ ।\"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/व्यकारण संयोजक शब्द वाक्यांशहरू",
+        "orig_language_quote": "וְ⁠גַ֣ם",
+        "note": "# Connecting Statement:\\n\\nमूल ढोकामा भेला भएका मानिसहरू बोअजले नाओमीको निम्ति एलीमेलेकको परिवारको जग्गाजमिन फिर्ता गर्ने छन् (४ः९) र बोअजले रूथलाई पत्नीको रूपमा अप्‍नाउँदैछन् (४ः१०) भन्‍ने कुराको साक्षी छन् भन्‍ने कुरा यो संयोजक वाक्यांशले देखाउँछ । (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-words-phrases]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְ⁠הָקִ֤ים שֵׁם־הַ⁠מֵּת֙ עַל־נַ֣חֲלָת֔⁠וֹ",
+        "note": "४ः५ मा कसरी अनुवास गर्नभएको छ सो हेर्नुहोस् । वैकल्पिक अनुवासः \"ताकि मैले मृत मानिसको सम्पत्ति हासिल गर्न मैले तिनलाई छोरो दिन सकौँ\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार रूपक",
+        "orig_language_quote": "וְ⁠לֹא־יִכָּרֵ֧ת שֵׁם־הַ⁠מֵּ֛ת מֵ⁠עִ֥ם אֶחָ֖י⁠ו",
+        "note": "कसैको नाउँ पहिलेका मानिसहरूको सूचीबाट नहराओस्‌ भने झै गरी बिर्सनुलाई उल्लेख गरिन्छ । वैकल्पिक अनुवादः \"ताकि उसलाई उसका दाजुभाइका सन्तानहरू र यस सहरका मानिसहरू नबिर्सून्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार दोब्बर नकारात्मक",
+        "orig_language_quote": "וְ⁠לֹא־יִכָּרֵ֧ת שֵׁם־הַ⁠מֵּ֛ת",
+        "note": "यसलाई सकारात्मक रूपमा उल्लेख गर्न सकिन्छ । वैकल्पिक अनुवादः \"ताकि उसको नाम सुरक्षित रहोस्\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-doublenegatives]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार उपलक्षण",
+        "orig_language_quote": "וּ⁠מִ⁠שַּׁ֣עַר מְקוֹמ֑⁠וֹ",
+        "note": "सहर मूल ढोकामा अगुवाहरू भेला हुन्थे र कसैको स्वमित्वमा रहेको जमिन लगायतका महत्त्वपूर्ण कानुनी निर्णयहरू गर्थे । वैकल्पिक अनुवादः \"र उसका सहरका महत्त्वपूर्ण मानिसहरू माझ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "עֵדִ֥ים אַתֶּ֖ם הַ⁠יּֽוֹם",
+        "note": "**आज तपाईंहरूले यी कुराहरू देख्‍नुभएको र सुन्‍नुभएको छ र तिनीहरूको बारे भोलि पनि बोल्‍न सक्‍नुहुन्छ**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:11",
+    "bsb_verse_text": "“We are witnesses,” said the elders and all the people at the gate. “May the LORD make the woman entering your home like Rachel and Leah, who together built up the house of Israel. May you be prosperous in Ephrathah and famous in Bethlehem.",
+    "ult_verse_text": "अनि शहरकाे मुल ढोकामा भएका सबै मानिसहरू र प्रधानहरूले भने, “हामी साक्षी छाै। यी स्त्री जो तपाईको घरमा आउदैछिन् परमप्रभुले उनलाई राहेल र लेआजस्तै बनाउन्, ती दुई जसले इस्राएलको घरानाको निर्माण गरे। एफ्रातामा सम्मान प्राप्त गर्नुहोस्, र बेथलेहेममा प्रख्यात हुनुहोस् ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "הָ⁠עָ֧ם אֲשֶׁר־בַּ⁠שַּׁ֛עַר",
+        "note": "**मूल ढोकाको नजिकै भेला भएका मानिसहरू**"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार उपलक्षण",
+        "orig_language_quote": "הַ⁠בָּאָ֣ה אֶל־בֵּיתֶ֗⁠ךָ",
+        "note": "यसको शाब्दिक र आलङ्‌कारि दुवै अर्थ छ । रूथले बोअजसँग विवाह गरेपछि, तिनी बोअजको घरमा जान्छिन् । \"घर\" \"परिवार\"लाई दर्शाउने अनुनाम शब्द हो, त्यसैले यसले बोअजको पत्‍नी भएर उसको परिवारको हिस्सा भएको कुरालाई पनि जनाउँछ । वैकल्पिक अनुवादः \"जो तपाईंको परिवारको हिस्सा हुँदैछ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "כְּ⁠רָחֵ֤ל ׀ וּ⁠כְ⁠לֵאָה֙",
+        "note": "यी दुईवटा नाउँहरू इस्राएलमा नाम परिवर्तन भएका याकूबका पत्‍नीहरूका हुन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "בָּנ֤וּ & אֶת־בֵּ֣ית יִשְׂרָאֵ֔ל",
+        "note": "**धेरै सन्तानहरू जन्माए जो इस्राएल जाति बन्यो**"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार समरूपता",
+        "orig_language_quote": "וַ⁠עֲשֵׂה־חַ֣יִל בְּ⁠אֶפְרָ֔תָה וּ⁠קְרָא־שֵׁ֖ם בְּ⁠בֵ֥ית לָֽחֶם",
+        "note": "यी दुई वाक्यांशहरू अर्थमा मिल्दाजुल्दा छन् । दोस्रो वाक्यांश केही दोहोरिन्छ र पहिलोमा केही थप्‍छ । यो जोड दिने हिब्रू शैली हो । वैकल्पिक अनुवादः \"तिमीले बेथलेहेममा असल कुराहरू गर्नु र तिनीहरूका निम्ति प्रख्यात हुनु\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-parallelism]])."
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार आज्ञार्थक",
+        "orig_language_quote": "וַ⁠עֲשֵׂה־חַ֣יִל בְּ⁠אֶפְרָ֔תָה וּ⁠קְרָא־שֵׁ֖ם בְּ⁠בֵ֥ית לָֽחֶם",
+        "note": "यी शब्दावलीहरू आशिष्‌ एउटा स्वरूप हो । तपाईंको भाषामा आशिष्‌‌को निम्ति उपयुक्त हुने शैली प्रयोग गर्नुहोस् । वैकल्पिक अनुवादः \"तिमीले बेथलेहेम असल कुराहरू गर्नु र तिनीहरूका निम्ति ख्याति कमाउनु\"  (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-imperative]])."
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠עֲשֵׂה־חַ֣יִל בְּ⁠אֶפְרָ֔תָה",
+        "note": "बेथलेहेम वरिपरिका क्षेत्र एप्राताको रूपमा चिनिन्थ्यो र त्यो सहरको अर्को नाम बन्‍न गयो । सम्भवतः यो नाउँ बेथलेहेम सहर वरिपरि बस्‍ने र यसभित्र बस्‍ने इस्राएलीहरूबाट आएको हुन सक्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:12",
+    "bsb_verse_text": "And may your house become like the house of Perez, whom Tamar bore to Judah, because of the offspring the LORD will give you by this young woman.”",
+    "ult_verse_text": "अनि त्यस सन्तान द्वारा, जुन परमप्रभुले तपाईलाई यस स्त्री बाट दिनु भएको छ, जो तपाईको घराना तामारले यहूदामा जन्माएकी फारेसको घरनाजस्तै होस् ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार उपलक्षण",
+        "orig_language_quote": "וִ⁠יהִ֤י בֵֽיתְ⁠ךָ֙ כְּ⁠בֵ֣ית פֶּ֔רֶץ אֲשֶׁר־יָלְדָ֥ה תָמָ֖ר לִֽ⁠יהוּדָ֑ה",
+        "note": "**घर**ले \"परिवार\" वा \"घराना\"लाई जनाउँछ । फारेसका धैरै सन्तानहरू थिए जो एप्राता घराना लगायत इस्राएलको ठुलो घरानाहरू बने । साथै, उनका धेरै सन्तानहरू महत्त्वपूर्ण मानिसहरू बने । परमेश्‍वरले बोअजलाई रूथको सन्तानद्वारा त्यही किसिमले आशिष्‌ देऊन् भनिरहेका थिए । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "יָלְדָ֥ה תָמָ֖ר לִֽ⁠יהוּדָ֑ה",
+        "note": "तामार पनि रूथजस्तै विधवा थिइन् । तामारले यहूदाबाट एउटा छोरा जन्माए, जसले मृत पतिको परिवारको नाम राख्यो ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "מִן־הַ⁠זֶּ֗רַע אֲשֶׁ֨ר יִתֵּ֤ן יְהוָה֙ לְ⁠ךָ֔",
+        "note": "फरेसलाई गरेजस्तै असल कुराहरू गर्ने धेरै सन्तानहरू परमेश्‍वरले बोअजलाई देऊन् भनी मानिसहरूले परमप्रभुबाट आशिष्‌ मागिरहेका थिए । तपाईंको भाषामा उपयुक्त हुने आशिष्‌को स्वरूप प्रयोग गर्नुहोस् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:13",
+    "bsb_verse_text": "So Boaz took Ruth, and she became his wife. And when he had relations with her, the LORD enabled her to conceive, and she gave birth to a son.",
+    "ult_verse_text": "त्यसैले बोअजले रूथलाई आफुसँग लगे, र उनी तिनकी पत्नी भइन्, र तिनी उनीकहाँ गए। तब परमप्रभुले तिनको गर्भ भर्नुभयो र तिनले एउटा छोरो जन्‍माइन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार समरूपता",
+        "orig_language_quote": "וַ⁠יִּקַּ֨ח בֹּ֤עַז אֶת־רוּת֙ וַ⁠תְּהִי־ל֣⁠וֹ לְ⁠אִשָּׁ֔ה",
+        "note": "यी दुई वाक्यांशहरूको अर्थ दोस्रो वाक्यांश दोहिरिएको र पहिलो वाक्य विस्तारित भएको जत्तिकै मिल्दो छ । यो हिब्रू कविताको शैली हो । दुई वटा वाक्यांशहरूलाई यूएसटीमा जस्तै जोडेर राख्‍न सकिन्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-parallelism]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/व्याकरण, तर्क परिणाम संयोजक",
+        "orig_language_quote": "וַ⁠יִּקַּ֨ח בֹּ֤עַז אֶת־רוּת֙",
+        "note": "यो वाक्यांशले बोअजले पद १० मा जे गर्छु भनेका थिए सो गरेको कुरा देखाउँछ । यसले हिंसाको कुनै स्वरूपको आशय दिँदैन । पछि आउने वाक्यांशसँगै, यसको अर्थ, **त्यसैले बोअजले रूथलाई विवाह गरे** वा **त्यसैले बोअजले रूथलाई लगे** हुन्छ । यो काम बोअजले पद १० मा गरेका सम्झौताको परिणाम भन्‍ने देखाउन \"त्यसैले\" जस्ता संयोजक शब्द प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-logic-result]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार शिष्टिक्ति",
+        "orig_language_quote": "וַ⁠יָּבֹ֖א אֵלֶ֑י⁠הָ",
+        "note": "यो यौन सम्बन्धलाई जनाउने शिष्टोक्ति हो । वैकलपिक अनुवादः \"उनले तिनीसँग यौन सम्बन्ध राखे\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-euphemism]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:14",
+    "bsb_verse_text": "Then the women said to Naomi, “Blessed be the LORD, who has not left you this day without a kinsman-redeemer. May his name become famous in Israel.",
+    "ult_verse_text": "तब स्‍त्रीहरूले नाओमीलाई भने, “परमप्रभु धन्यका हुनुहुन्छ, जसले आज तपाईलाई आफन्त-उद्धारकर्ता बिना छोड्नुभएको छैन। उसकाे नाउँ इस्राएलमा प्रसिद होस्!",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार सुस्पष्ट",
+        "orig_language_quote": "הַ⁠נָּשִׁים֙",
+        "note": "यिनीहरू १ः१९ मा उल्लेख गरिएका स्‍त्रीहरू हुन् । आवश्यक परेमा यसलाई स्पष्ट पार्न सकिन्छ । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "בָּר֣וּךְ יְהוָ֔ה",
+        "note": "नाओमी र रूथको निम्ति परमेश्‍वरले जे गर्नुभयो त्यसको निम्ति मानिसहरूले उहाँको प्रशंसा गरिरहेका छन् । तपाईंको भाषामा परमेश्‍वरलाई आशिष्‌ दिनु भन्‍ने अर्थपूर्ण हुँदैन भने, \"प्रशंसा\" वा \"हामी धन्यवाद दिन्छौँ\" जस्ता शब्दहरू प्रयोग गर्नुहोस् । यूएसटी हेर्नुहोस् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार दोब्बर नकारात्मक",
+        "orig_language_quote": "לֹ֣א הִשְׁבִּ֥ית לָ֛⁠ךְ גֹּאֵ֖ל הַ⁠יּ֑וֹם",
+        "note": "यो वाक्यांशलाई सकारात्मक रूपमा उल्लेख गर्न सकिन्छ । वैकल्पिक अनुवादः \"जसले तपाईंलाई आज उद्धार गर्ने नजिको कुटुम्बु दिनुभएको छ\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-doublenegatives]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וְ⁠יִקָּרֵ֥א שְׁמ֖⁠וֹ",
+        "note": "यो नाओमीको नातीको प्रतिष्ठा र चरित्र असल होस् भन्‍ने स्‍त्रीहरूको इच्छा उल्लेख गर्ने एउटा आशिष्‌ हो । तपाईंको भाषामा भएको आशिष्‌ दिने शैली भए प्रयोग गर्नुहोस् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:15",
+    "bsb_verse_text": "He will renew your life and sustain you in your old age. For your daughter-in-law, who loves you and is better to you than seven sons, has given him birth.”",
+    "ult_verse_text": "अब तपाईको लागि जीवनको एक पुनर्स्थापक र तपाईको बुढेसकालमा पोषणकर्ता आएको छ। किनकि तिम्री बुहारीले, जसले तिमीलाई माया गर्छिन्, उसलाई जन्म दिएकी छिन्, जो तिम्रो लागि सात छोराहरूभन्दा असल छिन्।”",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "לְ⁠מֵשִׁ֣יב נֶ֔פֶשׁ",
+        "note": "यो नाती पाएकी कारण नाओमीले अब कति आनन्द र आशाको अनुभूति गर्नेछिन् भन्‍ने यो वाक्यांशले जनाउँछ । वैकल्पिक अनुवादः \"जसले तपाईंलाई फरि आनन्द ल्याउने छ\" वा \"जसले तपाईंलाई फेरि जवान/बलियो महसुस गराउने छ\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וּ⁠לְ⁠כַלְכֵּ֖ל אֶת־שֵׂיבָתֵ֑⁠ךְ",
+        "note": "**र तपाईं वृद्ध हुँदा उसले तपाईंको हेरचाह गर्ने छ**"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/व्याकरण, तर्क परिणाम संयोजक",
+        "orig_language_quote": "כִּ֣י",
+        "note": "**हामी यो जान्दछौँ किनभने** पछि आउने कुरा (रूथले तिनलाई जन्माएकी) स्‍त्रीहरूले यो पात्रको बारे गरेका दृढ अगमवाणीको परिणाम हो भन्‍ने देखाउन संयोजक शब्द वा वाक्यांश प्रयोग गर्नुहोस् । यदि तपाईंको भाषामा कारण पहिले राख्‍न अर्थपूर्ण हुन्छ भने, यूएसटीको क्रमलाई अनुशरण गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/grammar-connect-logic-result]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार वाक्पद्धति",
+        "orig_language_quote": "ט֣וֹבָה לָ֔⁠ךְ מִ⁠שִּׁבְעָ֖ה בָּנִֽים",
+        "note": "**सात**ले पूर्णता वा सिद्धताको अवधारण दर्शाउँछ । नाओमीका छोराहरू मरेका हुनाले छोराहरू उनीहरूले नाओमीलाई छोराहरू दिन नसक्दा, यो बोअजद्वारा नाओमीको निम्ति नाती जन्माइदिएकोमा रूथको तारिफ गर्ने तरिका थियो । वैकल्पिक अनुवादः \"तपाईंको निम्ति कुनै पनि छोराभन्दा उत्तम\" वा \"धेरै छोराहरूभन्दा पनि योग्य\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:16",
+    "bsb_verse_text": "And Naomi took the child, placed him on her lap, and became a nurse to him.",
+    "ult_verse_text": "र नाओमीले त्यस बालकलाई लिइन् र आफ्नो काखमा राखिन्, र उनी त्यसको धाई भइन् ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תִּקַּ֨ח נָעֳמִ֤י אֶת־הַ⁠יֶּ֨לֶד֙",
+        "note": "**नाओमीले बालकलाई टिपिन्** यसले नाओमीले बालकलाई समातेकी कुरालाई जनाउँछ । तिनले रूथबाट शत्रुतापूर्ण किसिमले लगेकोजस्तो नहोस् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תְּהִי־ל֖⁠וֹ לְ⁠אֹמֶֽנֶת׃",
+        "note": "**र तिनको हेरचाह गरिन्**"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:17",
+    "bsb_verse_text": "The neighbor women said, “A son has been born to Naomi,” and they named him Obed. He became the father of Jesse, the father of David.",
+    "ult_verse_text": "त्यसैले छिमेकी स्त्रीहरूले उसको निम्ति नाउँ दिदै भने, “नाओमीलाई एउटा छोरो जन्मिएको छ ।” अनि उसको नाउँ ओबेद राखे। उनी यिशैका बुवा थिए, जो दाऊदका बुवा थिए।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "וַ⁠תִּקְרֶאנָה֩ ל֨⁠וֹ הַ⁠שְּׁכֵנ֥וֹת שֵׁם֙ & וַ⁠תִּקְרֶ֤אנָֽה שְׁמ⁠וֹ֙ עוֹבֵ֔ד",
+        "note": "पहिलो वाक्यांशले नयाँ घटनाको चिनारी दिन्छ र दोस्रोले घटनाको प्रतिवेदन दिन यसलाई दोहोर्‍याउँछ । यदि यो गोलमालपूर्ण हुन्छ भने दुई वटा वाक्यांशहरूलाई जोड्न सकिन्छ । **त्यसैले छिमेकी स्‍त्रीहरूले ओबेद नाम राखे** वा **छिमेकका महिलाहरूले भने... र उनीहरू उनको नाम ओबेद राखे**"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "יֻלַּד־בֵּ֖ן לְ⁠נָעֳמִ֑י",
+        "note": "**यो नाओमीको नै छोरा भएझैँ** त्यो बालक नाओमी शारीरि छोरा होइन नाति थिए भन्‍ने बुझिएको थियो, तर उसले नाओमी र रूथ दुवैको परिवारको वंशलाई कायम राख्यो ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ה֥וּא אֲבִי־יִשַׁ֖י",
+        "note": "**पछि, उनी यिशैका बुबा भए** ओबेद, यिशै र दाऊदको जन्म बिच धेरै समय बितेको थियो भनी स्पष्ट पार्नु आवश्यक पर्न सक्छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार सुस्पष्ट",
+        "orig_language_quote": "אֲבִ֥י דָוִֽד",
+        "note": "**राजा दाऊदका बुा**। तथापि **राजा** उल्लेख गरिएको छैन, यो दाऊद नै राजा दाऊद हुन्‌ भन्‍ने कुरा स्रोताहरूलाई स्पष्ट थियो । (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:18",
+    "bsb_verse_text": "Now these are the generations of Perez: Perez was the father of Hezron,",
+    "ult_verse_text": "अब फारेसकाे वंशावली यही हाे : फारेस जसले हेस्राेनलाई जन्म  दिए ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "תּוֹלְד֣וֹת פָּ֔רֶץ",
+        "note": "**हाम्रो घरानाको क्रमिक सन्तानहरू, फारेससँगै सुरु हुन्छ**। फारेस यहूदाका छोरा हुन् भनी पहिले नै उल्लेख गरिएको हुनाले लेखकले फारेसबाट आउने पारिवारिक वंशको सूचीलाई निरन्तरता दिन्छन् । पद नाओमी रूथको कथाको अन्त्य थियो र ओबेद राजा दाऊदका हजुरबुबा हुनु कति महत्त्वपूर्ण थियो भन्‍ने देखाउँदै पद १८ ले एप्राताको घरानाको वंशवलीको सूची प्रस्तुत गर्दै अन्तिम खण्ड सुरु गर्छ । यो नयाँ खण्ड हो भन्‍ने देखाउने संयोजक शब्द प्रयोग गर्नुहोस् । यो पदले कथाको समयको भन्दा धेरै अघिको कुरो उल्लेख गर्छ भनी तपाईंले यसलाई अझ स्पष्ट पार्न सक्‍नुहुन्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:19",
+    "bsb_verse_text": "Hezron was the father of Ram, Ram was the father of Amminadab,",
+    "ult_verse_text": "र हेस्राेन जसले  आरामलाई जन्म  दिए । र आराम जसले अम्मीनादाबलाई जन्म थिए ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/नामहरू अनुवाद गर्नु",
+        "orig_language_quote": "וְ⁠חֶצְרוֹן֙ & עַמִּֽינָדָֽב׃",
+        "note": "तपाईंको भाषामा स्वभाविक हुने यी नामहरूको स्वरूप प्रयोग गर्नुहोस् । (हेर्नुहोस्: [[rc://*/ta/man/translate/translate-names]])"
+      }
+    ]
+  },
+  {
+    "reference": "Rut 4:22",
+    "bsb_verse_text": "Obed was the father of Jesse, and Jesse was the father of David.",
+    "ult_verse_text": "र ओबेद जसले यिशैलाई जन्म दिए। र यिशै जसले दाउदलाई जन्म दिए ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/अलङ्‌कार सुस्पष्ट",
+        "orig_language_quote": "דָּוִֽד",
+        "note": "**राजा दाऊद**। **दाऊद**को बारेको टिप्‍पणी ४ः१७ मा हेर्नु होला । (../04/17/f9ha). (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  }
+]

@@ -140,6 +140,7 @@ class TranslationHelpsRequestParams:
     query_lang: str
     book_map: dict[str, Any]
     agentic_strength: str
+    user_response_language: Optional[str] = None
 
 
 @dataclass(slots=True)
@@ -450,9 +451,28 @@ def _make_translation_helps_request(
     request: TranslationHelpsRequestParams,
     dependencies: TranslationHelpsDependencies,
 ) -> TranslationHelpsRequest:
-    th_root = Path("sources") / "translation_helps"
+    # Select language-specific translation helps directory
+    lang = request.user_response_language or "en"
+    th_root = Path("sources") / "translation_helps"  # default English
+
+    if lang != "en":
+        localized_root = Path("sources") / f"translation_helps_{lang}"
+        if localized_root.exists():
+            th_root = localized_root
+            logger.info(
+                "[translation-helps] using localized helps for %s from %s",
+                lang,
+                th_root,
+            )
+        else:
+            logger.warning(
+                "[translation-helps] no localized helps for %s; falling back to English",
+                lang,
+            )
+    else:
+        logger.info("[translation-helps] loading helps from %s", th_root)
+
     bsb_root = Path("sources") / "bible_data" / "en" / "bsb"
-    logger.info("[translation-helps] loading helps from %s", th_root)
 
     selection_dependencies = PassageSelectionDependencies(
         client=request.client,

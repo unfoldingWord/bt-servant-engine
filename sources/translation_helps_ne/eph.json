@@ -1,0 +1,2586 @@
+[
+  {
+    "reference": "Eph 1:1",
+    "bsb_verse_text": "Paul, an apostle of Christ Jesus by the will of God, To the saints in Ephesus, the faithful in Christ Jesus:",
+    "ult_verse_text": "पावल, परमेश्‍वरको इच्छाद्वारा ख्रीष्ट येशूका प्रेरित, [एफिससमा] र ख्रीष्ट येशूमा विश्‍वासयोग्य सन्तहरूलाई।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "एफिससको मण्डलीमा भएका विश्‍वासीहरूका निम्ति लेखिएको यस पत्रको लेखकको रूपमा पावलले आफैँलाई नाम दिन्छन्। छुट्टै गरी बताइएको ठाउँमा बाहेक, प्रयोग भएका सबै “तिमीहरू” र “तिमीहरूका” भन्‍ने शब्दहरूले एफिससका विश्‍वासीहरू र सबै विश्‍वासीहरूलाई जनाउँछन्, यसैकारण, यी बहुवचनको रूपमा प्रयोग भएका छन्। (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-you]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "Παῦλος, ἀπόστολος Χριστοῦ Ἰησοῦ & τοῖς ἁγίοις τοῖς οὖσιν ἐν Ἐφέσῳ",
+        "note": "तपाईको भाषामा कुनै पत्रका लेखक र त्यस पत्रका लक्षित पाठकहरूलाई परिचित गर्ने कुनै विशेष तरिका हुन सक्छ। वैकल्पिक अनुवादः म पावल, एक प्रेरित, … परमेश्‍वरका निम्ति अलग गरिएका एफिससमा भएकाहरूलाई यो पत्र लेख्दछु”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐν Χριστῷ Ἰησοῦ",
+        "note": "**ख्रीष्ट येशूमा** वाक्यांश र यस्तै अभिव्यक्तिहरू नयाँ नियमका अक्षरहरूमा बारम्बार देखा पर्ने रूपकहरू हुन्। तिनीहरूले ख्रीष्ट र उहाँमा विश्‍वास गर्नेहरू बीचको सम्भावित बलियो प्रकारको सम्बन्धलाई व्यक्त गर्दछ, विश्‍वासीहरूलाई ख्रीष्टले घेरेको रूपमा चित्रण गर्दछ। वैकल्पिक अनुवाद: \"ख्रीष्ट येशूको नजिकको सम्बन्धमा\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:2",
+    "bsb_verse_text": "Grace and peace to you from God our Father and the Lord Jesus Christ.",
+    "ult_verse_text": "परमेश्‍वर हाम्रा पिता र प्रभु येशू ख्रीष्टबाट तिमीहरूलाई अनुग्रह र शान्ति।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "χάρις ὑμῖν καὶ εἰρήνη",
+        "note": "यो एक साझा अभिवादन र आशीर्वाद हो जुन पावलले प्रायः आफ्नो पत्रको सुरुमा प्रयोग गर्दछ। तपाईको भाषामा एउटा फारम प्रयोग गर्नुहोस् जसले यो अभिवादन र आशीर्वाद हो भनेर स्पष्ट पार्छ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:3",
+    "bsb_verse_text": "Blessed be the God and Father of our Lord Jesus Christ, who has blessed us in Christ with every spiritual blessing in the heavenly realms.",
+    "ult_verse_text": "धन्य {होस्} हाम्रा प्रभु येशू ख्रीष्टका परमेश्‍वर र पिता, जसले हामीलाई ख्रीष्टमा स्वर्गीय स्थानहरूमा हरेक आत्मिक आशिष् दिनुभएको छ,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-inclusive",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "अन्य किसिमले व्यक्त नगरिएसम्म, यस पुस्तकमा शब्दहरू “हाम्रो” र “हामी” ले पावल, एफिससका विश्‍वासीहरू र सबै विश्‍वासीहरूलाई जनाउँछन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-inclusive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले उनको पत्रलाई परमेश्‍वरको सामु भएको विश्‍वासीहरूको स्थान र तिनीहरूको सुरक्षाको विषयमा कुरा गरेर थालनी गर्छन्।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "εὐλογητὸς ὁ Θεὸς καὶ Πατὴρ τοῦ Κυρίου ἡμῶν, Ἰησοῦ Χριστοῦ",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ। वैकल्पिक अनुवादः “हामी परमेश्‍वर र हाम्रा प्रभु येशू ख्रीष्‍टका पिताको प्रशंसा गरौँ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὁ εὐλογήσας ἡμᾶς",
+        "note": "वैकल्पिक अनुवाद:“किनकि परमेश्‍वरले हामीलाई आशिष् दिनुभएको छ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πάσῃ εὐλογίᾳ πνευματικῇ",
+        "note": "वैकल्पिक अनुवाद: “परमेश्‍वरका आत्माबाट आउने हर किसिमका आशिष्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν τοῖς ἐπουρανίοις",
+        "note": "“अलौकिक संसारमा।” **स्वर्गीय** भन्‍ने शब्दले परमेश्‍वर रहनुहुने स्थानलाई जनाउँछ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐν Χριστῷ",
+        "note": "यहाँ, **ख्रीष्‍टमा** भन्‍ने वाक्यांशको अर्थः (१) ख्रीष्टसँगको हाम्रो घनिष्ठ सम्बन्धलाई संकेत गर्ने रूपक।वैकल्पिक अनुवाद: \"हामीलाई ख्रीष्टसँग एकता गरेर\" वा \"किनकि हामी ख्रीष्टसँग एकताबद्ध छौं\" (२) ख्रीष्टले जे गर्नुभएको छ। वैकल्पिक अनुवाद: \"ख्रीष्टद्वारा\" वा \"त्योद्वारा जे ख्रीष्टले गर्नुभएको छ।\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:4",
+    "bsb_verse_text": "For He chose us in Him before the foundation of the world to be holy and blameless in His presence. In love",
+    "ult_verse_text": "जसरी उहाँले संसारको जगदेखि नै उहाँमा हामीलाई छान्‍नुभयो, कि हामी उहाँको सामु पवित्र र निर्दोष हुनेछौं।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "ἁγίους καὶ ἀμώμους",
+        "note": "नैतिक भलाइलाई जोड दिन पावलले यी दुई समान शब्दहरू प्रयोग गर्छन्। यदि तपाइँको भाषामा दुई समान शब्दहरू छैनन् भने, तपाइँ युएसटिमा जस्तै, दुवैको लागि एक शब्द प्रयोग गर्न सक्नुहुन्छ। (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-doublet]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:5",
+    "bsb_verse_text": "He predestined us for adoption as His sons through Jesus Christ, according to the good pleasure of His will,",
+    "ult_verse_text": "प्रेममा उहाँले हामीलाई उहाँको इच्छाको असल खुशी अनुसार, येशू ख्रीष्टद्वारा आफूलाई धर्मपुत्र बनाउनको लागि पूर्वनिर्धारित गर्नुभयो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "“उहाँको”, “उहाँ” र “उहाँ” भन्‍ने शब्दहरूले परमेश्‍वरलाई जनाउँछन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-inclusive",
+        "orig_language_quote": "προορίσας ἡμᾶς εἰς υἱοθεσίαν",
+        "note": "**हामी**लाई शब्दले पावल, एफिसी मण्डली र ख्रीष्‍टमा भएका सबै विश्‍वासीहरूलाई जनाउँछ। वैकल्पिक अनुवादः “परमेश्‍वरले धेरै अगाडि नै हामीलाई ग्रहण गर्ने योजना बनाउनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-inclusive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "προορίσας ἡμᾶς",
+        "note": "वैकल्पिक अनुवाद: \"परमेश्‍वरले हामीलाई समय भन्दा पहिले नै चुन्‍नुभयो\" वा \"परमेश्‍वरले हामीलाई धेरै पहिले नै चुन्‍नुभयो\""
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "εἰς υἱοθεσίαν",
+        "note": "यहाँ, **नियुक्त्त**ले परमेश्‍वरको परिवारको हिस्‍सा बन्‍ने कुरालाई जनाउँछ। वैकल्पिक अनुवाद: \"उहाँका छोराछोरीहरू बन्‍न\" (हेर्नुहोस्: [[rc://*/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "διὰ Ἰησοῦ Χριστοῦ",
+        "note": "परमेश्‍वरले येशू ख्रीष्‍टको कार्यद्वारा विश्‍वासीहरूलाई आफ्नो परिवारमा ल्याउनुभयो।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:6",
+    "bsb_verse_text": "to the praise of His glorious grace, which He has freely given us in the Beloved One.",
+    "ult_verse_text": "उहाँको अनुग्रहको महिमाको प्रशंसाको लागि जुन उहाँले हामीलाई प्रियमा सित्तैमा दिनुभएको छ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐχαρίτωσεν ἡμᾶς ἐν τῷ ἠγαπημένῳ",
+        "note": "वैकल्पिक अनुवाद: \"उहाँले माया गर्नुहुनेको माध्यमबाट हामीलाई दयालु रूपमा दिनुभएको छ\""
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τῷ ἠγαπημένῳ",
+        "note": "“उहाँ जसलाई उहाँले प्रेम गर्नुहुन्छ, येशू ख्रीष्‍ट” वा “उहाँको पुत्र, जसलाई उहाँले प्रेम गर्नुहुन्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:7",
+    "bsb_verse_text": "In Him we have redemption through His blood, the forgiveness of our trespasses, according to the riches of His grace",
+    "ult_verse_text": "जसमा हामीले उहाँको रगतद्वारा छुटकारा पाएका छौं, अपराधहरूको क्षमा, उहाँको अनुग्रहको धनअनुसार,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὸ πλοῦτος τῆς χάριτος αὐτοῦ",
+        "note": "पावलले परमेश्‍वरको अनुग्रहलाई भौतिक सम्पत्तिको रूपमा चित्रण गरेका छन्। वैकल्पिक अनुवादः “परमेश्‍वरको अनुग्रहको महानता” वा “परमेश्‍वरको अनुग्रहको प्रशस्तता” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:8",
+    "bsb_verse_text": "that He lavished on us with all wisdom and understanding.",
+    "ult_verse_text": "जुन उहाँले हामीलाई सबै बुद्धि र समझमा प्रशस्त पार्नुभयो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἧς ἐπερίσσευσεν εἰς ἡμᾶς",
+        "note": "“उहाँले हामीलाई यति ठूलो अनुग्रह दिनुभयो” वा “उहाँ हामीप्रति असाध्यै दयालु हुनुहुन्थ्यो”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν πάσῃ σοφίᾳ καὶ φρονήσει",
+        "note": "सम्भावित अर्थहरू हुन् (१) “किनभने उहाँसँग सारा बुद्धि र आन्तरिक समझ छ।” (२) “ताकि हामीसँग महान् बुद्धि र आन्तरिक समझ हुन सकेको होस्”।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:9",
+    "bsb_verse_text": "And He has made known to us the mystery of His will according to His good pleasure, which He purposed in Christ",
+    "ult_verse_text": "उहाँले उहाँमा योजना गर्नुभएको उहाँको असल इच्छा अनुसार उहाँको इच्छाको रहस्य हामीलाई जान्‍न दिनुभयो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "κατὰ τὴν εὐδοκίαν αὐτοῦ",
+        "note": "यसको अर्थ हुन सक्छ: (१) किनभने उहाँले हामीलाई यो कुरा बताउन चाहनुहुन्थ्यो। (२) जुन उहाँले चाहनुभएको थियो।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἣν προέθετο ἐν αὐτῷ",
+        "note": "“उहाँले यस उद्देश्यलाई ख्रीष्‍टमा प्रदर्शन गर्नुभयो”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν αὐτῷ",
+        "note": "“ख्रीष्‍टको माध्यमद्वारा”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:10",
+    "bsb_verse_text": "as a plan for the fullness of time, to bring all things in heaven and on earth together in Christ.",
+    "ult_verse_text": "समयको पूर्णताको प्रशासनको लागि, ख्रीष्टमा सबै चीजहरू, स्वर्ग र पृथ्वीमा भएका चीजहरू, उहाँमा सबै कुराहरू एकसाथ ल्याउनको लागि,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰς οἰκονομίαν",
+        "note": "यहाँ एउटा नयाँ वाक्य सुरू गर्न सकिन्छ । वैकल्‍पिक अनुवादः “उहाँले एउटा योजनालाई विचार गर्दै यसो गर्नुभयो” वा “उहाँले यसो गर्नुभयो, एउटा योजनाको बारेमा सोच्दै”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τοῦ πληρώματος τῶν καιρῶν",
+        "note": "“ठीक समय आउनको लागि” वा “उहाँले नियुक्त गर्नुभएको समयको लागि”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:11",
+    "bsb_verse_text": "In Him we were also chosen as God’s own, having been predestined according to the plan of Him who works out everything by the counsel of His will,",
+    "ult_verse_text": "जसमा हामीलाई पनि सम्पत्तिको रूपमा बाँडिएको थियो। आफ्नो इच्छाको सल्लाह अनुसार सबै काम गर्ने व्यक्तिको उद्देश्य अनुसार हामी पूर्वनिर्धारित थियौं,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐκληρώθημεν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले हामीलाई उत्तराधिकारहरू हुनलाई चुन्‍नुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "προορισθέντες",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्‍पिक अनुवादः “परमेश्‍वरले हामीलाई पहिल्यैबाट चुन्‍नुभयो” वा “परमेश्‍वरले हामीलाई लामो समय अगाडि चुन्‍नुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "ἐκληρώθημεν, προορισθέντες",
+        "note": "“हामी” सर्वनामको माध्यमद्वारा पावलले आफैँलाई र अन्य यहूदी ख्रीष्‍टिएनहरूलाई जनाउँछन्, तिनीहरू जसले एफिसी विश्‍वासीहरूले भन्दा अगाडि ख्रीष्‍टलाई विश्‍वास गरे । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-exclusive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:12",
+    "bsb_verse_text": "in order that we, who were the first to hope in Christ, would be for the praise of His glory.",
+    "ult_verse_text": "ताकि हामी जो ख्रीष्टमा आशा गर्ने पहिलो थियौं, उहाँको महिमाको प्रशंसाको लागि होऔं।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "ἡμᾶς & τοὺς προηλπικότας ἐν τῷ Χριστῷ",
+        "note": "फेरि पनि “हामी” शब्दले सुरुमा सुसन्देश सुनेका यहूदी विश्‍वासीहरूलाई जनाउँछ, एफिससमा भएका विश्‍वासीहरूलाई होइन । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-exclusive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰς τὸ εἶναι ἡμᾶς, εἰς ἔπαινον δόξης αὐτοῦ",
+        "note": "“ताकि हामी उहाँको महिमाको लागि उहाँलाई प्रशंसा गर्नलाई जिउन सकौँ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-exclusive",
+        "orig_language_quote": "ताकि हामी प्रथम हुन सकौँ & ताकि हामी प्रशंसाको लागि हुन सकौँ",
+        "note": "एकपटक फेरि, “हामी”ले पावल र अन्य यहूदी विश्‍वासीहरूलाई जनाउँछ, एफिसी विश्‍वासीहरूलाई होइन । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-exclusive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:13",
+    "bsb_verse_text": "And in Him, having heard and believed the word of truth—the gospel of your salvation—you were sealed with the promised Holy Spirit,",
+    "ult_verse_text": "उहाँमा, तपाईंले पनि, जब तपाईंले सत्यको वचन, तपाईंको मुक्तिको सुसमाचार सुन्‍नुभयो, र उहाँमा विश्‍वास गर्नुभयो, तपाईं प्रतिज्ञा गरिएको पवित्र आत्माले छाप लगाउनुभयो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "अघिल्ला दुई पदहरूमा पावलले आफ्‍नै र अन्य यहूदी विश्‍वासीहरूको बारेमा बोलिरहेका थिए, तर अब उनी एफिसी विश्‍वासीहरूको बारेमा कुरा गर्न सुरु गर्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὸν λόγον τῆς ἀληθείας",
+        "note": "सम्भावित अर्थहरू हुन् १) “सत्यताको बारेमा भएको सन्देश” वा “सत्य सन्देश ।”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐσφραγίσθητε τῷ Πνεύματι τῆς ἐπαγγελίας, τῷ Ἁγίῳ",
+        "note": "पत्रमा मैन राखिन्थ्यो र त्यस पत्र लेख्‍ने व्यक्तिलाई जनाउने चिन्हले मोहोर लगाइन्थ्यो । पावलले यही शैलीलाई एउटा चित्रणको रूपमा प्रयोग गरी हामी परमेश्‍वरका हौँ भनेर हामीलाई निर्धक्‍क बनाउनका लागि कसरी परमेश्‍वरले पवित्र आत्मालाई प्रयोग गर्नुभएको छ भन्‍ने कुरालाई देखाएका छन् । वैकल्पिक अनुवादः “परमेश्‍वरले तिमीहरूलाई उहाँले प्रतिज्ञा गर्नुभएको पवित्र आत्माले छाप लगाउनुभएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:14",
+    "bsb_verse_text": "who is the pledge of our inheritance until the redemption of those who are God’s possession, to the praise of His glory.",
+    "ult_verse_text": "उहाँको महिमाको प्रशंसाको लागि पूर्ण अधिकारको मुक्ति नहुँदासम्म हाम्रो उत्तराधिकारको बैना हो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀρραβὼν τῆς κληρονομίας ἡμῶν",
+        "note": "परमेश्‍वरले प्रतिज्ञा गर्नुभएका कुराहरूलाई प्राप्‍त गर्नु चाहिँ कोही व्यक्तिले परिवारको सदस्यबाट सम्पत्ति वा जायजेथाको अंश प्राप्‍त गरेको झैँ गरेर बताइएको छ । वैकल्पिक अनुवादः “परमेश्‍वरले प्रतिज्ञा गर्नुभएको कुरा हामीले प्राप्‍त गर्नेछौँ भनेर निश्‍चयता” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:15",
+    "bsb_verse_text": "For this reason, ever since I heard about your faith in the Lord Jesus and your love for all the saints,",
+    "ult_verse_text": "यसै कारणले, जबदेखि मैले प्रभु येशूमा तिम्रो विश्‍वास र सबै सन्तहरूप्रतिको प्रेमको बारेमा सुनेको छु,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावल एफिससका विश्‍वासीहरूका निम्ति प्रार्थना गर्छन् र ख्रीष्‍टद्वारा विश्‍वासीहरूले प्राप्‍त गरेका शक्तिको लागि परमेश्‍वरको प्रशंसा गर्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:16",
+    "bsb_verse_text": "I have not stopped giving thanks for you, remembering you in my prayers,",
+    "ult_verse_text": "मैले तिम्रो लागि धन्यवाद दिन छोडेको छैन, मेरो प्रार्थनामा {तिमीलाई} सम्झेर,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-litotes",
+        "orig_language_quote": "οὐ παύομαι εὐχαριστῶν",
+        "note": "पावलले “छाडेको छैन” भन्‍ने वाक्यांश उनले निरन्तर परमेश्‍वरलाई धन्यवाद दिइरहन्छन् भन्‍ने कुरालाई जोड दिनलाई प्रयोग गर्छन् । वैकल्पिक अनुवादः “म निरन्तर परमेश्‍वरलाई धन्यवाद दिन्छु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-litotes]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:17",
+    "bsb_verse_text": "that the God of our Lord Jesus Christ, the glorious Father, may give you a spirit of wisdom and revelation in your knowledge of Him.",
+    "ult_verse_text": "ताकि हाम्रा प्रभु येशू ख्रीष्टका परमेश्‍वर, महिमाका पिताले तिमीहरूलाई उहाँको ज्ञानमा बुद्धि र प्रकाशको आत्मा दिनुहुनेछ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "πνεῦμα σοφίας καὶ ἀποκαλύψεως, ἐν ἐπιγνώσει αὐτοῦ",
+        "note": "“उहाँको प्रकाशको बारेमा बुझ्‍नको निम्ति आत्मिक बुद्धि”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:18",
+    "bsb_verse_text": "I ask that the eyes of your heart may be enlightened, so that you may know the hope of His calling, the riches of His glorious inheritance in the saints,",
+    "ult_verse_text": "ताकि उहाँको बोलाइको आशा के हो {र} सन्तहरूमा उहाँको उत्तराधिकारको महिमाको धन के {हुन} भनी तिमीले जान्‍न सकून्‌ भनेर {तिम्रा} हृदयका आँखाहरू उज्यालो हुन सकून्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "πεφωτισμένους τοὺς ὀφθαλμοὺς τῆς καρδίας",
+        "note": "यहाँ “हृदय” भनेको व्यक्तिको दिमागको लागि प्रतिस्थापन शब्द हो । “तिमीहरूका हृदयका आँखा” भन्‍ने वाक्यांशले कोही व्यक्तिको समझशक्ति प्राप्‍त गर्ने क्षमतालाई जनाउने अलङ्कार हो । वैकल्पिक अनुवादः “कि तिमीहरूले समझशक्ति हासिल गर्न सक र प्रकाश पाएका होओ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]] अनि [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "πεφωτισμένους τοὺς ὀφθαλμοὺς τῆς καρδίας",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “कि परमेश्‍वरले तिमीहरूको हृदयलाई प्रकाश दिनुभएको होस्” वा “कि परमेश्‍वरले तिमीहरूको समझशक्तिलाई प्रकाश दिनुभएको होस्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πεφωτισμένους",
+        "note": "“देख्‍ने बनाइएको”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τῆς κληρονομίας",
+        "note": "परमेश्‍वरले विश्‍वासीहरूलाई प्रतिज्ञा गर्नुभएका कुराहरूलाई प्राप्‍त गर्नु चाहिँ कोही व्यक्तिले परिवारको सदस्यबाट सम्पत्ति वा जायजेथाको अंश प्राप्‍त गरेको झैँ गरेर बताइएको छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν τοῖς ἁγίοις",
+        "note": "“तिनीहरू सबै जसलाई उहाँले आफ्नै निम्ति अलग गर्नुभएको छ” वा “तिनीहरू सबै जो पूर्ण रूपमा उहाँकै हुन्”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:19",
+    "bsb_verse_text": "and the surpassing greatness of His power to us who believe. These are in accordance with the working of His mighty strength,",
+    "ult_verse_text": "र उहाँको शक्तिको काम अनुसार विश्‍वास गर्ने हामीहरूका लागि उहाँको शक्तिको अतुलनीय महानता के {छ},",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὸ ὑπερβάλλον μέγεθος τῆς δυνάμεως αὐτοῦ",
+        "note": "परमेश्‍वरको शक्ति चाहिँ अरू सबै शक्तिहरूभन्दा धेरै बढी छ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰς ἡμᾶς, τοὺς πιστεύοντας",
+        "note": "“हाम्रो लागि जसले विश्‍वास गर्छौँ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὴν ἐνέργειαν τοῦ κράτους τῆς ἰσχύος αὐτοῦ",
+        "note": "“उहाँको महान् शक्ति जुन हाम्रो निम्ति काममा छ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:20",
+    "bsb_verse_text": "which He exerted in Christ when He raised Him from the dead and seated Him at His right hand in the heavenly realms,",
+    "ult_verse_text": "जुन उहाँले ख्रीष्टमा काम गर्नुभयो जब उहाँले उहाँलाई मरेकाहरूबाट जीवित पार्नुभयो र उहाँलाई स्वर्गीय स्थानहरूमा आफ्नो दाहिने हातमा बसाउनुभयो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐγείρας αὐτὸν ἐκ νεκρῶν",
+        "note": "“उहाँलाई पुनः जीवित बनाउनुभयो”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐκ νεκρῶν",
+        "note": "ती सबैको माझबाट जो मरिगएका छन् । यस अभिव्यक्तिले तल पातालको संसारमा भएका सबै मृतक मानिसहरूलाई एकसाथ व्यक्त गर्छ । तिनीहरूको माझबाट फर्की आउने कुराले पुनः जीवित बन्‍ने कुराको विषयमा बताउँछ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "καθίσας ἐν δεξιᾷ αὐτοῦ, ἐν τοῖς ἐπουρανίοις",
+        "note": "राजाको “दाहिने हातपट्टि” बस्‍ने व्यक्ति चाहिँ उनको दायाँतर्फ बस्छन् र राजाको सारा अधिकारको साथमा शासन गर्छन् जुन राजाको दाहिने हातपट्टि वा दायाँपट्टि तिनी बस्छन् । यो स्थानलाई जनाउने प्रतिस्थापन शब्द हो जसले त्यस स्थानमा भएको व्यक्तिसँग भएको अधिकारलाई प्रतिनिधित्व गर्छ । वैकल्‍पिक अनुवादः “स्वर्गबाट शासन गर्नलाई सारा अधिकार उहाँलाई दिनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-symaction",
+        "orig_language_quote": "καθίσας ἐν δεξιᾷ αὐτοῦ",
+        "note": "परमेश्‍वरको “दाहिने हातपट्टि” बस्‍नु भनेको परमेश्‍वरबाट महान् सम्‍मान र अधिकार प्राप्‍त गर्ने कुराको सङ्केतात्मक कार्य हो । वैकल्‍पिक अनुवादः “उहाँलाई आफ्‍नो छेउमा सम्‍मान र अधिकारको स्थानमा बसाल्‍नुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/translate-symaction]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν τοῖς ἐπουρανίοις",
+        "note": "“अलौकिक संसारमा ।” “स्वर्गीय” भन्‍ने शब्दले परमेश्‍वर हुनुभएको स्थानलाई जनाउँछ । तपाईंले यसलाई [एफिसीहरू १:३](./03.md) मा कसरी अनुवाद गर्नुभएको छ, सो हेर्नुहोस् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:21",
+    "bsb_verse_text": "far above all rule and authority, power and dominion, and every name that is named, not only in the present age but also in the one to come.",
+    "ult_verse_text": "यस युगमा मात्र होइन, तर आउने युगमा पनि सबै शासन, अख्तियार, शक्ति र प्रभुत्व र नाउँ लिने हरेक नाउँभन्दा माथि।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὑπεράνω πάσης ἀρχῆς, καὶ ἐξουσίας, καὶ δυνάμεως, καὶ κυριότητος",
+        "note": "यिनीहरू स्वर्गदूतहरू र दुष्‍टहरू दुवैको गरेर, अलौकिक प्राणीहरूको ओहदाहरूलाई जनाउने विभिन्‍न शब्दहरू हुन् । वैकल्पिक अनुवादः “सबै किसिमका अलौकिक प्राणीहरूभन्दा धेरै माथि”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "παντὸς ὀνόματος ὀνομαζομένου",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः सम्भावित अर्थहरू हुन् १) “हरेक नाउँ जुन मानिसले दिन्छ” वा २) “हरेक नाउँ जुन परमेश्‍वरले दिनुहुन्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ὀνόματος",
+        "note": "सम्भावित अर्थहरू हुन् १) उपाधि वा २) अधिकारको स्थान । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν τῷ αἰῶνι τούτῳ",
+        "note": "“यस समयमा”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν τῷ μέλλοντι",
+        "note": "“भविष्यमा”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:22",
+    "bsb_verse_text": "And God put everything under His feet and made Him head over everything for the church,",
+    "ult_verse_text": "अनि उहाँले सबै कुरा उहाँको खुट्टामुनि राख्नुभयो र उहाँलाई मण्डलीलाई सबै कुराको शिरको रूपमा दिनुभयो,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "πάντα ὑπέταξεν ὑπὸ τοὺς πόδας αὐτοῦ",
+        "note": "यहाँ “पाउ”ले ख्रीष्‍टको प्रभुत्व, अधिकार, र शक्तिलाई प्रतिनिधित्व गर्छ । वैकल्‍पिक अनुवादः “सबै कुराहरूलाई ख्रीष्‍टको शक्तिमुनि” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "κεφαλὴν ὑπὲρ πάντα",
+        "note": "यहाँ “शिर”ले अगुवा वा जिम्‍मा पाएको व्यक्तिलाई जनाउँछ । वैकल्पिक अनुवादः “सबैकुराहरूमाथिको शासक” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 1:23",
+    "bsb_verse_text": "which is His body, the fullness of Him who fills all in all.",
+    "ult_verse_text": "जुन उहाँको शरीर हो, जो सबैमा भरिनुहुनेको पूर्णता हो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὸ σῶμα αὐτοῦ",
+        "note": "एक मानव शरीरको जस्तै गरेर, जहाँ शिरले (पद २२) शरीरसँग सम्बन्धित सबैकुराहरूलाई शासन गर्छ, त्यसरी नै ख्रीष्‍ट चाहिँ मण्‍डलीको शरीरको शिर हुनुहुन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὸ πλήρωμα τοῦ τὰ πάντα ἐν πᾶσιν πληρουμένου",
+        "note": "“ख्रीष्‍टले सबै कुराहरूलाई जीवन दिनुभए झैँ गरेर मण्‍डलीलाई उहाँको जीवन र शक्तिले भर्नुहुन्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:1",
+    "bsb_verse_text": "And you were dead in your trespasses and sins,",
+    "ult_verse_text": "अनि तिमीहरू आफ्नो अपराधहरू र पापहरूमा मरेका थियौ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले विश्‍वासीहरूलाई तिनीहरूको बितेको समय र परमेश्‍वरको सामु तिनीहरूको वर्तमान अवस्थाबारे सम्झना गराएका छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὑμᾶς ὄντας νεκροὺς τοῖς παραπτώμασιν καὶ ταῖς ἁμαρτίαις ὑμῶν",
+        "note": "यसले एउटा मृतकले शारीरिक रूपमा प्रतिक्रिया दिन नसके झैँ पापी मानिसहरूले पनि परमेश्‍वरको आज्ञापालन गर्न नसक्‍ने कुरालाई देखाउँछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "τοῖς παραπτώμασιν καὶ ταῖς ἁμαρτίαις ὑμῶν",
+        "note": "“अपराध” र “पापहरू” भन्‍ने शब्दहरूका अर्थ उस्तै-उस्तै हुन्छन् । मानिसहरूको पाप कति ठूलो छ भनेर देखाउनको निम्ति पावलले यी शब्दहरूलाई सँगै प्रयोग गरेका हुन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:2",
+    "bsb_verse_text": "in which you used to walk when you conformed to the ways of this world and of the ruler of the power of the air, the spirit who is now at work in the sons of disobedience.",
+    "ult_verse_text": "जसमा तिमीहरूले पहिले यस संसारको युग अनुसार हिँड्थ्यौ, आकाशका अख्तियारवालाहरूका अनुसार, जुन आत्मा अहिले अनाज्ञाकारिताका छोराहरूमा काम गरिरहेको छ,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "κατὰ τὸν αἰῶνα τοῦ κόσμου τούτου",
+        "note": "प्रेरितहरूले पनि “संसार”शब्दलाई यस संसारमा जिउने मानिसहरूको स्वार्थी व्यवहार र भ्रष्‍ट मूल्य-मान्यताहरूलाई जनाउन प्रयोग गरे । वैकल्पिक अनुवादः “यस संसारमा जिउने मानिसहरूको मूल्य-मान्यताअनुसार” वा “यस वर्तमान संसारका सिद्धान्तहरू पछ्याउँदै” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὸν ἄρχοντα τῆς ἐξουσίας τοῦ ἀέρος",
+        "note": "यसले दुष्‍ट वा शैतानलाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τοῦ πνεύματος τοῦ νῦν ἐνεργοῦντος",
+        "note": "“शैतानको आत्मा, जसले काम गर्दै छ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:3",
+    "bsb_verse_text": "All of us also lived among them at one time, fulfilling the cravings of our flesh and indulging its desires and thoughts. Like the rest, we were by nature children of wrath.",
+    "ult_verse_text": "जसमा हामी सबै एक समय हाम्रो शरीरको दुष्ट इच्छामा बाँचिरहेका थियौं, शरीर र दिमागको इच्छाहरू पूरा गर्दै। र हामी स्वभावैले क्रोधका सन्तान थियौं, जसै बाँकीहरू पनि।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "τὰ θελήματα τῆς σαρκὸς καὶ τῶν διανοιῶν",
+        "note": "“शरीर” र “मन”ले एउटा पूर्ण व्यक्तिलाई प्रतिनिधित्व गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τέκνα & ὀργῆς",
+        "note": "ती मानिसहरू जससँग परमेश्‍वर रिसाउनुभएको छ (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:4",
+    "bsb_verse_text": "But because of His great love for us, God, who is rich in mercy,",
+    "ult_verse_text": "तर परमेश्‍वरले हामीलाई प्रेम गर्नुभएको उहाँको महान् प्रेमको कारणले उहाँ कृपामा धनी हुनुहुन्थ्यो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "Θεὸς πλούσιος ὢν ἐν ἐλέει",
+        "note": "“परमेश्‍वर दयामा प्रचुर हुनुहुन्छ” वा “परमेश्‍वर हामीप्रति धेरै दयालु हुनुहुन्छ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "διὰ τὴν πολλὴν ἀγάπην αὐτοῦ, ἣν ἠγάπησεν ἡμᾶς",
+        "note": "“हाम्रो निम्ति उहाँको महान् प्रेमको कारण” वा “किनभने उहाँले हामीलाई धेरै प्रेम गर्नुभयो”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:5",
+    "bsb_verse_text": "made us alive with Christ even when we were dead in our trespasses. It is by grace you have been saved!",
+    "ult_verse_text": "र हामी अपराधहरूमा मरेका छौं, उहाँले हामीलाई ख्रीष्टमा सँगै जीवित पार्नुभयो — अनुग्रहद्वारा तिमीहरू बचाइएका छौ —",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "χάριτί ἐστε σεσῳσμένοι",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्‍पिक अनुवादः “परमेश्‍वरले हामीप्रतिको उहाँको महान् दयाको कारण हामीलाई बचाउनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:6",
+    "bsb_verse_text": "And God raised us up with Christ and seated us with Him in the heavenly realms in Christ Jesus,",
+    "ult_verse_text": "र हामीलाई उहाँसँगै उठाउनुभयो र उहाँसँग ख्रीष्ट येशूमा स्वर्गीय स्थानहरूमा बसाल्नुभयो,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-pastforfuture",
+        "orig_language_quote": "συνήγειρεν",
+        "note": "यहाँ बिउँताउनु भनेको मरिगएको कसैलाई पुनः जीवित बनाउने कुरालाई जनाउने वाक्‍पद्धति हो । सम्भावित अर्थहरू हुन् १) किनभने परमेश्‍वरले ख्रीष्‍टलाई फेरि जीवित भएर आउने तुल्याउनुभएको छ, परमेश्‍वरले पावल र एफिससमा भएका विश्‍वासीहरूलाई पहिल्यैबाट नयाँ आत्मिक जीवन दिइसक्‍नुभएको छ । वैकल्‍पिक अनुवादः “परमेश्‍वरले हामीलाई नयाँ जीवन दिनुभएको छ किनभने हामी ख्रीष्‍टका हौँ” वा २) किनभने परमेश्‍वरले ख्रीष्‍टलाई फेरि जीवित भएर आउने तुल्याउनुभएको छ, एफिससमा भएका विश्‍वासीहरूले तिनीहरू मरिसकेपछि ख्रीष्‍टसँगै जिउनेछन् भनेर अब जान्‍न सक्छन्, र पावलले विश्‍वासीहरू पुनः जिउने विषयमा त्यो कुरा पहिल्यै नै भइसकेको छ भने झैँ गरेर बताउन सक्छन् । वैकल्‍पिक अनुवादः “हामी पक्‍का हुन सक्छौँ परमेश्‍वरले ख्रीष्‍टलाई पुनः जीवित भएर आउने तुल्याउनुभए झैँ गरेर हामीलाई जीवन दिनुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-pastforfuture]] अनि [[rc://ne/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν τοῖς ἐπουρανίοις",
+        "note": "“अलौकिक संसारमा ।” “स्वर्गीय” भन्‍ने शब्दले परमेश्‍वर रहनुहुने स्थानलाई जनाउँछ । यसलाई [एफिसीहरू १:३](../01/03.md) मा कसरी अनुवाद गरिएको छ, सो हेर्नुहोस् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν Χριστῷ Ἰησοῦ",
+        "note": "“ख्रीष्‍ट येशूमा” र यस्तै खालका अभिव्यक्तिहरू त्यस्ता अलङ्कारहरू हुन्, जुन नयाँ करारमा धेरै पटक प्रयोग भएका छन् । यसले ख्रीष्‍ट र उहाँमा विश्‍वास गर्नेहरूका बीचमा हुन सक्‍ने सबैभन्दा मजबुत सम्बन्धलाई व्यक्त गर्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:7",
+    "bsb_verse_text": "in order that in the coming ages He might display the surpassing riches of His grace, demonstrated by His kindness to us in Christ Jesus.",
+    "ult_verse_text": "ताकि आउँदै गरेको युगहरूमा उहाँले ख्रीष्ट येशूमा उहाँको दयामा उहाँको अनुग्रहको असीम ठूलो धन देखाउन सक्नुभएकोहोस्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν τοῖς αἰῶσιν, τοῖς ἐπερχομένοις",
+        "note": "“भविष्यमा”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:8",
+    "bsb_verse_text": "For it is by grace you have been saved through faith, and this not from yourselves; it is the gift of God,",
+    "ult_verse_text": "किनभने अनुग्रहद्वारा विश्‍वासद्वारा तिमीहरूले मुक्ति पाएका छौ, र यो तिमीहरू आफैबाट होइन। यो परमेश्‍वरको वरदान हो,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "τῇ γὰρ χάριτί ἐστε σεσῳσμένοι διὰ πίστεως",
+        "note": "यदि हामीले येशूमा विश्‍वास मात्र गर्‍यौँ भने, हामीप्रति परमेश्‍वरको दया नै त्यो कारण हुन्छ जसद्वारा हामी न्यायदेखि बचाइन सक्छौँ । वैकल्‍पिक अनुवादः “तिमीहरूको उहाँमा भएको विश्‍वासको कारण परमेश्‍वरले तिमीहरूलाई अनुग्रहद्वारा बचाउनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τοῦτο",
+        "note": "“यो” शब्दले “तिमीहरू अनुग्रहबाट विश्‍वासद्वारा बचाइएका छौ” भन्‍ने कुरालाई नै जनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:9",
+    "bsb_verse_text": "not by works, so that no one can boast.",
+    "ult_verse_text": "कामबाट होइन, ताकि कसैले घमण्ड नगरोस्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "οὐκ ἐξ ἔργων, ἵνα μή τις καυχήσηται",
+        "note": "तपाईंले यहाँ नयाँ वाक्य सुरु गर्नलाई इच्‍छा गर्न सक्‍नुहुन्छ । वैकल्‍पिक अनुवादः “उद्धार कामहरूबाट आउँदैन, ताकि कसैले घमण्‍ड नगरोस्” वा “कुनै व्यक्तिले गरेको कामहरूअनुसार परमेश्‍वरले उसलाई बचाउनुहुन्‍न, त्यसैले कसैले पनि घमण्‍ड नगरोस् र त्यो उसले कमाएको हो भनेर नभनोस्”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:10",
+    "bsb_verse_text": "For we are God’s workmanship, created in Christ Jesus to do good works, which God prepared in advance as our way of life.",
+    "ult_verse_text": "किनकि हामी उहाँको कारीगरी हौं, ख्रीष्ट येशूमा असल कामहरूका लागि सृष्टि गरिएको हो, जुन परमेश्‍वरले पहिले नै तयार गर्नुभएको थियो, ताकि हामी तिनीहरूमा हिँड्न सकौं।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν Χριστῷ Ἰησοῦ",
+        "note": "“ख्रीष्‍ट येशूमा” र यस्तै खालका अभिव्यक्तिहरू त्यस्ता अलङ्कारहरू हुन्, जुन नयाँ करारमा धेरै पटक प्रयोग भएका छन् । यसले ख्रीष्‍ट र उहाँमा विश्‍वास गर्नेहरूका बीचमा हुन सक्‍ने सबैभन्दा मजबुत सम्बन्धलाई व्यक्त गर्छ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν αὐτοῖς περιπατήσωμεν",
+        "note": "कुनै मार्गमा हिँड्नु भनेको चाहिँ कोही व्यक्तिले उसको जीवन कसरी जिउँछ भन्‍ने कुरालाई जनाउने अलङ्कार हो । यहाँ “तिनमा” भन्‍ने कुराले “असल कार्यहरू”लाई जनाउँछ । वैकल्‍पिक अनुवादः “हामी ती असल कार्यहरूलाई सधैँ र निरन्तर रूपमा गरौँ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:11",
+    "bsb_verse_text": "Therefore remember that formerly you who are Gentiles in the flesh and called uncircumcised by the so-called circumcision (that done in the body by human hands)—",
+    "ult_verse_text": "त्यसकारण, याद गर कि एक समय तिमीहरू शरीरमा अन्यजातिहरू {थियौ}, जसलाई \"वेखतना\" भनि मानव हातले शरिरमा \"खतना गरिएकाहरू\" ले भन्छन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "ख्रीष्‍ट र उहाँको क्रूसद्वारा परमेश्‍वरले अन्यजातिहरू र यहूदीहरूलाई एउटै शरीरमा ल्याउनुभएको कुरालाई पावलले सम्झना दिलाएका छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὰ ἔθνη ἐν σαρκί",
+        "note": "यसले यहूदी भएर नजन्मिएका मानिसहरूलाई जनाउँछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἀκροβυστία",
+        "note": "अन्यजातिहरू बालक हुँदा तिनीहरूको खतना भएको हुँदैन र यसैकारण यहूदीहरूले तिनीहरूलाई परमेश्‍वरको व्यवस्था नमान्‍नेहरू भनेर सम्झन्थे । वैकल्पिक अनुवादः “खतना नभएका मूर्तिपूजकहरू” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "περιτομῆς",
+        "note": "यहूदीहरूका निम्ति प्रयोग हुने यो अर्को शब्द हो, किनकि आठौँ दिनमा सबै पुरूष शिशुहरूको खतना हुन्थ्यो । वैकल्पिक अनुवादः “खतना भएका मानिसहरू” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τῆς λεγομένης περιτομῆς ἐν σαρκὶ χειροποιήτου",
+        "note": "सम्भावित अर्थहरू हुन् १) “यहूदीहरू, जो मानिसहरूद्वारा खतना गरिएका हुन्” वा २) “भौतिक शरीरमा मात्र खतना गर्ने यहूदीहरू ।”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ὑπὸ τῆς λεγομένης",
+        "note": "यसलाई कर्तृ वाच्यमा अनुवाद गर्न सकिन्छ । वैकल्पिक अनुवादः “मानिसहरूले भन्‍ने कुराद्वारा” वा “तीबाट जसलाई मानिसहरूले ... भन्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:12",
+    "bsb_verse_text": "remember that at that time you were separate from Christ, alienated from the commonwealth of Israel, and strangers to the covenants of the promise, without hope and without God in the world.",
+    "ult_verse_text": "किनकि त्यसबेला तिमीहरू ख्रीष्टबाट अलग, इस्राएलको समुदायबाट बहिष्कृत र प्रतिज्ञाका करारहरूमा अपरिचित थियौ, संसारमा कुनै आशा नभएको र परमेश्‍वरविना थियौ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "χωρὶς Χριστοῦ",
+        "note": "“विश्‍वास नगर्नेहरू”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ξένοι τῶν διαθηκῶν τῆς ἐπαγγελίας",
+        "note": "पावलले अन्यजाति विश्‍वासीहरूसँग, तिनीहरू परमेश्‍वरको करार र प्रतिज्ञाको भूमिबाट अलग गरिएका परदेशीहरू झैँ थिए जस्तै गरी कुरा गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:13",
+    "bsb_verse_text": "But now in Christ Jesus you who once were far away have been brought near through the blood of Christ.",
+    "ult_verse_text": "तर अब ख्रीष्ट येशूमा तिमीहरू जो एक समय टाढा थियौ ख्रीष्टको रगतद्वारा नजिक ल्याइएका छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "तर अब ख्रीष्‍ट येशूमा",
+        "note": "ख्रीष्‍टमा विश्‍वास गर्नुभन्दा पहिले र विश्‍वास गरेपछि एफिसीहरूहरूमा भएको भिन्‍नतालाई पावलले दर्शाइरहेका छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὑμεῖς οἵ ποτε ὄντες μακρὰν, ἐγενήθητε ἐγγὺς ἐν τῷ αἵματι τοῦ Χριστοῦ",
+        "note": "पापको कारण परमेश्‍वरको नभएको हुने कुरालाई परमेश्‍वरबाट टाढा भएको झैँ गरी बताइएको छ । ख्रीष्‍टको रगतको कारण परमेश्‍वरको हुनु भन्‍ने कुरालाई परमेश्‍वरको नजिक ल्याइएको झैँ गरेर बताइएको छ । वैकल्पिक अनुवादः “तिमीहरू जो एक समय परमेश्‍वरका थिएनौ, ख्रीष्‍टको रगतको कारण अब परमेश्‍वरका भएका छौ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐν τῷ αἵματι τοῦ Χριστοῦ",
+        "note": "ख्रीष्‍टको रगत चाहिँ उहाँको मृत्युलाई जनाउने प्रतिस्थापन शब्द हो । वैकल्पिक अनुवादः “ख्रीष्‍टको मृत्युद्वारा” वा “जब ख्रीष्‍ट हाम्रो लागि मर्नुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:14",
+    "bsb_verse_text": "For He Himself is our peace, who has made the two one and has torn down the dividing wall of hostility",
+    "ult_verse_text": "किनकि उहाँ नै हाम्रो शान्ति हुनुहुन्छ, जसले दुईलाई एक बनाउनुभयो र आफ्नो शरीरमा विभाजनको बीचको पर्खाल, शत्रुतालाई नष्ट गर्नुभयो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "αὐτὸς & ἐστιν ἡ εἰρήνη ἡμῶν",
+        "note": "“येशूले हामीलाई उहाँको शान्ति दिनुहुन्छ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-inclusive",
+        "orig_language_quote": "ἡ εἰρήνη ἡμῶν",
+        "note": "“हाम्रो” भन्‍ने शब्दले पावल र उनका पाठकहरूलाई बुझाउँदछ र यसैले समावेशी छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-inclusive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὁ ποιήσας τὰ ἀμφότερα ἓν",
+        "note": "“उहाँले यहूदीहरू र अन्यजातिहरूलाई एक बनाउनुभयो”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐν τῇ σαρκὶ αὐτοῦ",
+        "note": "“उहाँको शरीर”, उहाँको भौतिक शरीर भन्‍ने शब्दहरू चाहिँ उहाँको शरीर मरेको कुरालाई जनाउने प्रतिस्थापन शब्द हो । वैकल्पिक अनुवादः “क्रूसमा उहाँको शरीरको मृत्युद्वारा” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὸ μεσότοιχον τοῦ φραγμοῦ & τὴν ἔχθραν",
+        "note": "“घृणाको पर्खाल” वा “कुविचारको पर्खाल”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:15",
+    "bsb_verse_text": "by abolishing in His flesh the law of commandments and decrees. He did this to create in Himself one new man out of the two, thus making peace",
+    "ult_verse_text": "उहाँले नियमहरूमा आज्ञाहरूको व्यवस्था खारेज गर्नुभयो ताकि उहाँले दुईलाई आफैमा एक नयाँ मानिस बनाउन सक्नुभएको होस्, शान्ति स्थापना गर्न,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὸν νόμον τῶν ἐντολῶν ἐν δόγμασιν καταργήσας",
+        "note": "यहूदीहरू र अन्यजातिहरू परमेश्‍वरमा शान्तिमा जिऊन् भनेर येशूको रगतले मोशाले दिएका व्यवस्थालाई पूरा गर्‍यो ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἕνα καινὸν ἄνθρωπον",
+        "note": "एउटा नयाँ मानिसहरू, उद्धार पाएका मानिसहरू (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν αὑτῷ",
+        "note": "यो ख्रीष्‍टसँगको एकता हो जसले यहूदीहरू र अन्यजातिहरू बीचमा पुनर्मिलापलाई सम्भव बनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:16",
+    "bsb_verse_text": "and reconciling both of them to God in one body through the cross, by which He put to death their hostility.",
+    "ult_verse_text": "र ताकि उहाँले क्रूसको माध्यमबाट दुवैलाई एउटै शरीरको रूपमा परमेश्‍वरसँग मिलाउन सक्नुभएको होस्, र त्यसमा रहेको शत्रुतालाई मारेर।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀποκαταλλάξῃ τοὺς ἀμφοτέρους",
+        "note": "“ख्रीष्‍टले यहूदीहरू र अन्यजातिहरूलाई एकसाथ शान्तिमा ल्याउनुहुन्छ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "διὰ τοῦ σταυροῦ",
+        "note": "यहाँ क्रूसले क्रूसमा भएको ख्रीष्‍टको मृत्युलाई प्रतिनिधित्व गर्छ । वैकल्पिक अनुवाद: “क्रूसमा भएको ख्रीष्‍टको मृत्युको माध्यमद्वारा” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀποκτείνας τὴν ἔχθραν",
+        "note": "तिनीहरूको शत्रुतालाई रोक्नु चाहिँ उहाँले तिनीहरूको शत्रुतालाई मार्नुभएको झैँ गरेर बताइएको छ । क्रूसमा मर्नुभएर येशूले यहूदीहरू र अन्यजातिहरू एक अर्कासँग शत्रु हुनुपर्ने कारणलाई हटाउनुभयो । नता अब तिनीहरूमध्ये कुनैलाई मोशाको व्यवस्थाअनुसार जिउन जरुरी छ । वैकल्पिक अनुवादः “तिनीहरूलाई एक अर्कालाई हेला गर्न रोक्दै” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:17",
+    "bsb_verse_text": "He came and preached peace to you who were far away and peace to those who were near.",
+    "ult_verse_text": "अनि उहाँ आउनुभयो {र} तिमीहरू जो टाढा {थियौ} शान्तिको घोषणा गर्नुभयो र नजिक {भएकाहरूलाई} शान्ति,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावल एफिसी विश्‍वासीहरूलाई भन्छन् कि वर्तमान अन्यजाति विश्‍वासीहरूलाई अब यहूदी प्रेरितहरू र अगमवक्ताहरूसँग पनि एक बनाइएको छ; तिनीहरू अब आत्मामा परमेश्‍वरको लागि मन्दिर हुन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εὐηγγελίσατο εἰρήνην",
+        "note": "“शान्तिको सुसमाचार सुनाउनुभयो” वा “शान्तिको सुसमाचार घोषणा गर्नुभयो”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὑμῖν τοῖς μακρὰν",
+        "note": "यसले अन्यजातिहरू वा गैर-यहूदीहरूलाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τοῖς ἐγγύς",
+        "note": "यसले यहूदीहरूलाई जनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:18",
+    "bsb_verse_text": "For through Him we both have access to the Father by one Spirit.",
+    "ult_verse_text": "किनकि उहाँद्वारा हामी दुवैको एउटै आत्मामा पितामा प्रवेश छ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-inclusive",
+        "orig_language_quote": "ὅτι δι’ αὐτοῦ ἔχομεν τὴν προσαγωγὴν, οἱ ἀμφότεροι",
+        "note": "यहाँ “हामी दुवै” शब्दहरूले पावल, विश्‍वासी यहूदीहरू र विश्‍वासी गैर-यहूदीहरूलाई जनाउँछन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-inclusive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν ἑνὶ Πνεύματι",
+        "note": "यहूदी र अन्यजाति दुवै गरेर, सबै विश्‍वासीहरूलाई एउटै पवित्र आत्माद्वारा परमेश्‍वर पिताकहाँ जाने अधिकार दिइएको छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:19",
+    "bsb_verse_text": "Therefore you are no longer strangers and foreigners, but fellow citizens with the saints and members of God’s household,",
+    "ult_verse_text": "त्यसोभए, तिमीहरू अब अपरिचित र विदेशी होइनौ। बरु, तिमीहरू सन्तहरू र परमेश्‍वरको घरका सदस्यहरूका सह-नागरिकहरू हौ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐστὲ συνπολῖται τῶν ἁγίων καὶ οἰκεῖοι τοῦ Θεοῦ",
+        "note": "पावलले फेरि पनि अन्यजातिहरूको विश्‍वासी भइसकेपछिको आत्मिक अवस्थाको विषयमा परदेशीहरू अर्कै राष्‍ट्रको नागरिकहरू भएको जस्तै गरी बताउँछन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:20",
+    "bsb_verse_text": "built on the foundation of the apostles and prophets, with Christ Jesus Himself as the cornerstone.",
+    "ult_verse_text": "तिमीहरू प्रेरितहरू र अगमवक्ताहरूको जगमा निर्माण गरिइएका छौ, ख्रीष्ट येशू स्वयम् कुने ढुङ्गा हुनुहुन्छ,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐποικοδομηθέντες ἐπὶ τῷ θεμελίῳ",
+        "note": "पावलले परमेश्‍वरका मानिसहरूलाई एउटा भवनको रूपमा व्यक्त गरेका छन् । ख्रीष्‍ट त्यसको कुने-ढुङ्गो हुनुहुन्छ, प्रेरितहरू जग हुन्, र विश्‍वासीहरू संरचना हुन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐποικοδομηθέντες",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले तिमीहरूलाई निर्माण गर्नुभएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:21",
+    "bsb_verse_text": "In Him the whole building is fitted together and grows into a holy temple in the Lord.",
+    "ult_verse_text": "जसमा पूरै भवन, एकसाथ मिलाएर, प्रभुको पवित्र मन्दिरमा बढ्छ,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "πᾶσα οἰκοδομὴ συναρμολογουμένη, αὔξει εἰς ναὸν ἅγιον",
+        "note": "पावलले ख्रीष्‍टको परिवारलाई एउटा भवनको रूपमा व्यक्त गरिरहेका छन् । जसरी भवन बनाउने व्यक्तिले निर्माण गर्ने क्रममा ढुङ्गाहरूलाई मिलाएर राख्छ, त्यसरी नै ख्रीष्‍टले हामीलाई मिलाएर एकसाथ जोड्दै हुनुहुन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐν ᾧ & ἐν Κυρίῳ",
+        "note": "“ख्रीष्‍टमा ... प्रभु येशूमा ।” यी अलङ्कारहरूले ख्रीष्‍ट र उहाँमा विश्‍वास गर्नेहरूका बीचमा सम्भव हुने सबैभन्दा दृढ किसिमको सम्बन्धलाई व्यक्त गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 2:22",
+    "bsb_verse_text": "And in Him you too are being built together into a dwelling place for God in His Spirit.",
+    "ult_verse_text": "जसमा तिमीहरू पनि आत्मामा परमेश्‍वरको लागि बासस्थान बनाइँदैछौ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐν ᾧ",
+        "note": "“ख्रीष्‍टमा ।” यस अलङ्कारले ख्रीष्‍ट र उहाँमा विश्‍वास गर्नेहरूका बीचमा सम्भव हुने सबैभन्दा दृढ किसिमको सम्बन्धलाई व्यक्त गर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "καὶ ὑμεῖς συνοικοδομεῖσθε, εἰς κατοικητήριον τοῦ Θεοῦ ἐν Πνεύματι",
+        "note": "पवित्र आत्माको शक्तिद्वारा परमेश्‍वर सदाको लागि वास गर्नुहुने स्थान बन्‍नको निम्ति विश्‍वासीहरूलाई कसरी सँगै राखिँदैछ भन्‍ने कुरालाई यसले वर्णन गर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "καὶ ὑμεῖς συνοικοδομεῖσθε",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले तिमीहरूलाई पनि एकसाथ निर्माण गरिरहनुभएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:1",
+    "bsb_verse_text": "For this reason I, Paul, the prisoner of Christ Jesus for the sake of you Gentiles...",
+    "ult_verse_text": "यस कारणले गर्दा म, पावल, तिमीहरू अन्यजातिहरूको तर्फबाट ख्रीष्ट येशूको कैदी,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "विश्‍वासीहरूलाई मण्डलीको गुप्‍त सत्यताको बारेमा स्पष्‍ट गराउनको निम्ति, पावल यहूदीहरू र अन।यजातिहरू बीचको एकता र मन्दिरको विषयलाई पुनः उल्लेख गर्छन्, जुन मन्दिरको विश्‍वासीहरू अब एक हिस्‍सा हुन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τούτου χάριν",
+        "note": "“तिमीहरूका निम्ति परमेश्‍वरको अनुग्रहको कारण”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὁ δέσμιος τοῦ Χριστοῦ Ἰησοῦ",
+        "note": "“त्यो व्यक्ति जसलाई ख्रीष्‍ट येशूले कैदमा राख्‍नुभएको छ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:2",
+    "bsb_verse_text": "Surely you have heard about the stewardship of God’s grace that was given to me for you,",
+    "ult_verse_text": "यदि तिमीहरूले साँच्चै परमेश्‍वरको अनुग्रहको भण्डारेपनको बारेमा सुनेका छौ जुन मलाई तिमीहरूका लागि दिइएको थियो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὴν οἰκονομίαν τῆς χάριτος τοῦ Θεοῦ, τῆς δοθείσης μοι εἰς ὑμᾶς",
+        "note": "“परमेश्‍वरको अनुग्रह तिमीहरूकहाँ ल्याउनको निम्ति उहाँले मलाई दिनुभएको जिम्मेवारी”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:3",
+    "bsb_verse_text": "that is, the mystery made known to me by revelation, as I have already written briefly.",
+    "ult_verse_text": "मलाई थाहा भएको प्रकाशअनुसार, रहस्य जसको बारेमा मैले पहिले नै विस्तृतमा लेखेको थिए।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "κατὰ ἀποκάλυψιν ἐγνωρίσθη μοι",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले मलाई प्रकट गर्नुभएको कुराअनुसार” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καθὼς προέγραψα ἐν ὀλίγῳ",
+        "note": "यी मानिसहरूलाई पावलले लेखेको अर्को पत्रलाई उनले जनाउँछन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:5",
+    "bsb_verse_text": "which was not made known to men in other generations as it has now been revealed by the Spirit to God’s holy apostles and prophets.",
+    "ult_verse_text": "जुन अन्य पुस्ताहरूमा मानिसहरूका सन्तानहरूलाई प्रकट गरिएको थिएन जसरी अहिले उहाँका पवित्र प्रेरितहरू र अगमवक्ताहरूलाई आत्माद्वारा प्रकट गरिएको छ —",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ὃ ἑτέραις γενεαῖς οὐκ ἐγνωρίσθη τοῖς υἱοῖς τῶν ἀνθρώπων",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले यी कुराहरू विगतमा भएका मानिसहरूलाई थाहा गराउनुभएन” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ὡς νῦν ἀπεκαλύφθη & ἐν Πνεύματι",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “तर अब आत्माले त्यो प्रकट गर्नुभएको छ” वा “तर अब आत्माले त्यो थाहा गराउनुभएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "उहाँका प्रेरितहरू र अगमवक्ताहरू जो यस कामको लागि अलग गरिएका थिए",
+        "note": "“प्रेरितहरू र अगमवक्ताहरू जसलाई यो काम गर्नलाई परमेश्‍वरले अलग गर्नुभएको छ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:6",
+    "bsb_verse_text": "This mystery is that through the gospel the Gentiles are fellow heirs, fellow members of the body, and fellow partakers of the promise in Christ Jesus.",
+    "ult_verse_text": "कि अन्यजातिहरू सँगी उत्तराधिकारीहरू र शरीरका सह-अङ्गहरू, र सुसमाचार मार्फत ख्रीष्ट येशूमा प्रतिज्ञाको सह-भागीदारहरू हुनेछन्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἶναι τὰ ἔθνη, συνκληρονόμα & διὰ τοῦ εὐαγγελίου",
+        "note": "अगिल्लो पदमा पावलले व्याख्या गर्न सुरुआत गरेको गुप्‍त सत्यता यही हो । ख्रीष्‍टलाई ग्रहण गर्ने अन्यजातिहरूले पनि यहूदी विश्‍वासीहरूले झैँ उही कुराहरू प्राप्‍त गर्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "σύνσωμα",
+        "note": "मण्डलीलाई प्रायः ख्रीष्‍टको शरीरको रूपमा उल्लेख गरिन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν Χριστῷ Ἰησοῦ",
+        "note": "“ख्रीष्‍ट येशूमा” र यस्तै खालका अभिव्यक्तिहरू त्यस्ता अलङ्कारहरू हुन्, जुन नयाँ करारमा धेरै पटक प्रयोग भएका छन् । तिनीहरूले ख्रीष्‍ट र उहाँमा विश्‍वास गर्नेहरूका बीचमा हुन सक्‍ने सबैभन्दा मजबुत सम्बन्धलाई व्यक्त गर्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "διὰ τοῦ εὐαγγελίου",
+        "note": "सम्भावित अर्थहरू हुन् १) सुसमाचारको कारण अन्यजातिहरू यस प्रतिज्ञामा सङ्‍गी सहभागी भएका छन् वा २) सुसमाचारको कारण अन्यजातिहरू सङ्‍गी उत्तराधिकारीहरू र उहाँको शरीरका सदस्यहरू र प्रतिज्ञाका सङ्‍गी भागीदारहरू हुन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:8",
+    "bsb_verse_text": "Though I am less than the least of all the saints, this grace was given me: to preach to the Gentiles the unsearchable riches of Christ,",
+    "ult_verse_text": "मलाई—सबै सन्तहरूमध्ये सबैभन्दा सानो—यो अनुग्रह दिइएको थियो, अन्यजातिहरूलाई ख्रीष्टको खोजी नसकिने धनको प्रचार गर्न,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀνεξιχνίαστον",
+        "note": "पूर्ण रूपमा जान्‍न नसकिने (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "πλοῦτος τοῦ Χριστοῦ",
+        "note": "पावलले ख्रीष्‍टको बारेमा भएको सत्यता र उहाँले ल्याउनुहुने आशिष्‌हरूलाई भौतिक सम्पत्तिको रूपमा व्यक्त गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:9",
+    "bsb_verse_text": "and to illuminate for everyone the stewardship of this mystery, which for ages past was kept hidden in God, who created all things.",
+    "ult_verse_text": "र सबैको लागि प्रकट गर्न को लागी रहस्य को प्रशासन के हो जुन सबै कुरा सृष्टि गर्नुहुने परमेश्‍वरमा युगौं देखि लुकेको थियो,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "τοῦ μυστηρίου, τοῦ ἀποκεκρυμμένου ἀπὸ τῶν αἰώνων ἐν τῷ Θεῷ, τῷ τὰ πάντα κτίσαντι",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । “परमेश्‍वरले, जसले सबैकुराहरू बनाउनुभयो, यस योजनालाई विगतमा लामो समयका युगहरूदेखि गोप्‍य राख्‍नुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:10",
+    "bsb_verse_text": "His purpose was that now, through the church, the manifold wisdom of God should be made known to the rulers and authorities in the heavenly realms,",
+    "ult_verse_text": "ताकि अब मण्डली मार्फत परमेश्‍वरको बहुआयामिक बुद्धि शासकहरू र स्वर्गीय स्थानहरूमा अख्तियारवालाहरूलाई बताउन सकियोस्,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "γνωρισθῇ & ταῖς ἀρχαῖς καὶ ταῖς ἐξουσίαις ἐν τοῖς ἐπουρανίοις & ἡ πολυποίκιλος σοφία τοῦ Θεοῦ",
+        "note": "“परमेश्‍वरले स्वर्गीय स्थानहरूमा भएका शासकहरू र अधिकार गर्नेहरूलाई मण्डलीद्वारा उहाँको महान् बुद्धि थाहा गराउनुहुनेछ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "ταῖς ἀρχαῖς καὶ ταῖς ἐξουσίαις",
+        "note": "यी शब्दहरूले उस्तै अर्थ दिन्छन् । हरेक आत्मिक प्राणीले परमेश्‍वरको बुद्धिको बारेमा थाहा गर्नेछ भन्‍ने कुरालाई जोड दिएर बताउनको निम्ति पावलले यी शब्दहरूलाई सँगै प्रयोग गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν τοῖς ἐπουρανίοις",
+        "note": "“अलौकिक संसारमा ।” “स्वर्गीय” भन्‍ने शब्दले परमेश्‍वर रहनुहुने स्थानलाई जनाउँछ । यसलाई [एफिसीहरू १:३](../01/03.md)१:३ मा कसरी अनुवाद गरिएको छ, सो हेर्नुहोस् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἡ πολυποίκιλος σοφία τοῦ Θεοῦ",
+        "note": "परमेश्‍वरको जटिल बुद्धि (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:11",
+    "bsb_verse_text": "according to the eternal purpose that He accomplished in Christ Jesus our Lord.",
+    "ult_verse_text": "उहाँले हाम्रा प्रभु ख्रीष्ट येशूमा पूरा गर्नुभएको अनन्त उद्देश्य अनुसार,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "κατὰ πρόθεσιν τῶν αἰώνων",
+        "note": "“अनन्तको योजनामुताबिक” वा “अनन्त योजनासँग समान”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:12",
+    "bsb_verse_text": "In Him and through faith in Him we may enter God’s presence with boldness and confidence.",
+    "ult_verse_text": "जसमा हामी साहसी छौँ र उहाँमाथिको विश्‍वासद्वारा निर्धकताका साथ प्रवेश गर्न सक्छौँ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावल उनको दुःखभोगमा परमेश्‍वरको प्रशंसा गर्छन् र यी एफिससका विश्‍वासीहरूका निम्ति प्रार्थना गर्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἔχομεν τὴν παρρησίαν",
+        "note": "“हामी निडर छौँ” वा “हामीसँग आँट छ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "προσαγωγὴν ἐν πεποιθήσει",
+        "note": "यो पहुँच परमेश्‍वरको उपस्थितिभित्रको हो भनेर स्पष्‍ट रूपमा व्यक्त गर्नु चाहिँ सहयोगी हुन सक्छ । वैकल्‍पिक अनुवादः “निश्‍चयताको साथ परमेश्‍वरको उपस्थितिमा प्रवेश पाउनु” वा “निश्‍चयताको साथ परमेश्‍वरको उपस्थितिमा प्रवेश गर्न स्वतन्‍त्रता” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πεποιθήσει",
+        "note": "certainty\" or \"assurance"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:13",
+    "bsb_verse_text": "So I ask you not to be discouraged because of my sufferings for you, which are your glory.",
+    "ult_verse_text": "त्यसकारण, म तिमीलाई मेरो लागि मेरो पीडाबाट निराश नहोऊ भनि भन्दछु, जुन तिमीहरूको महिमा हो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ὑπὲρ ὑμῶν, ἥτις ἐστὶν δόξα ὑμῶν",
+        "note": "“तिमीहरूको महिमा” भन्‍ने वाक्यांशले भावी राज्यमा तिनीहरूले महसुस गर्नुपर्ने वा गर्ने गौरवलाई जनाउने प्रतिस्थापन शब्द हो । पावलले झ्यालखानामा दुःख भोगी रहँदा एफिससका ख्रीष्‍टिएनहरूले गौरव गर्नुपर्छ । यसलाई एउटा नयाँ वाक्यको रूपमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “ ... तिमीहरूका निम्ति ... । यो तिमीहरूको हितको निम्ति हो” वा “ ... तिमीहरूका निम्ति ... । तिमीहरू यसको निम्ति गौरवान्वित हुनुपर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:14",
+    "bsb_verse_text": "... for this reason I bow my knees before the Father,",
+    "ult_verse_text": "यस कारणले गर्दा म बुबासामु घुँडा टेक्छु,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "τούτου χάριν",
+        "note": "तपाईंले कारण के हो भनेर स्पष्‍ट पार्नुपर्ने हुन सक्छ । वैकल्पिक अनुवादः “किनभने परमेश्‍वरले तिमीहरूका निम्ति यी सबै कुराहरू गर्नुभएको छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "κάμπτω τὰ γόνατά μου πρὸς τὸν Πατέρα",
+        "note": "टेकिएका घुँडाले एउटा मानिस प्रार्थनामा रहेको कुराको चित्रण गर्छ । वैकल्पिक अनुवादः “म पिताको सामु प्रार्थनामा शिर झुकाउँछु” वा “म पितासँग विनम्रतासाथ प्रार्थना गर्छु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-synecdoche]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:15",
+    "bsb_verse_text": "from whom every family in heaven and on earth derives its name.",
+    "ult_verse_text": "जसबाट स्वर्ग र पृथ्वीमा हरेक परिवारको नाम राखिएको छ,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐξ οὗ πᾶσα πατριὰ ἐν οὐρανοῖς καὶ ἐπὶ γῆς ὀνομάζεται",
+        "note": "यहाँ नाम दिने कार्यले सम्भवतः सृष्‍टिको कार्यलाई पनि प्रतिनिधित्व गर्छ । वैकल्पिक अनुवादः “जसले स्वर्ग र पृथ्वीमा भएका सबै परिवारको सृष्‍टि गरी नाम दिनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:16",
+    "bsb_verse_text": "I ask that out of the riches of His glory He may strengthen you with power through His Spirit in your inner being,",
+    "ult_verse_text": "ताकि उहाँले तिमीहरूलाई उहाँको महिमाको सम्पदा अनुसार, उहाँको आत्माद्वारा भित्री मानिसमा शक्तिद्वारा बलियो बनाइदिनुहुनेछ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "δῷ ὑμῖν κατὰ τὸ πλοῦτος τῆς δόξης αὐτοῦ, δυνάμει κραταιωθῆναι",
+        "note": "“परमेश्‍वरले, किनभने उहाँ त्यस्तो धेरै महान् र शक्तिशाली हुनुहुन्छ, उहाँको शक्तिद्वारा तिमीहरूलाई मजबुत बन्‍न दिऊन्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "δῷ",
+        "note": "“प्रदान गरून्”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:17",
+    "bsb_verse_text": "so that Christ may dwell in your hearts through faith. Then you, being rooted and grounded in love,",
+    "ult_verse_text": "कि ख्रीष्ट विश्‍वासद्वारा तिमीहरूको हृदयमा बस्‍नुभएको होस्, प्रेममा जरा गाडेर र आधारित भएर",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले [एफिसीहरू ३:१४](./14.md) मा सुरुआत गरेको प्रार्थनालाई निरन्तरता दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "κατοικῆσαι τὸν Χριστὸν διὰ τῆς πίστεως ἐν ταῖς καρδίαις ὑμῶν ἐν ἀγάπῃ, ἐρριζωμένοι καὶ τεθεμελιωμένοι",
+        "note": "“परमेश्‍वरले आफ्नो महिमाको प्रशस्तताअनुसार” एफिसीहरूलाई “दिऊन्” भनेर पावलले प्रार्थना गरेको यो दोस्रो कुरा हो । पहिलो चाहिँ तिनीहरू “बलिया पारिऊन्” भन्‍ने हो ([एफिसीहरू ३:१६](./14.md)) ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "κατοικῆσαι τὸν Χριστὸν διὰ τῆς πίστεως ἐν ταῖς καρδίαις ὑμῶν",
+        "note": "यहाँ “हृदय” शब्दले मानिसको भित्री अन्तस्करणलाई जनाउँछ, र “द्वारा” शब्दले विश्‍वासीभित्र ख्रीष्‍ट बस्‍नुहुने माध्यमलाई जनाउँछ । अनुग्रही भएर परमेश्‍वरले विश्‍वासीहरूलाई विश्‍वास प्राप्‍त गर्न दिनुभएको कारण विश्‍वासीहरूका हृदयमा ख्रीष्‍ट बास गर्नुहुन्छ । वैकल्‍पिक अनुवादः “कि ख्रीष्‍ट तिमीहरूभित्र वास गर्नुभएको होस् किनभने तिमीहरू उहाँमा भरोसा गर्छौ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐν ἀγάπῃ, ἐρριζωμένοι καὶ τεθεμελιωμένοι",
+        "note": "पावलले तिनीहरूको विश्‍वास चाहिँ गहिरो गरी जरा हालेको कुनै रूख वा पक्‍का जगमाथि निर्माण गरिएको कुनै भवन भए झैँ गरी बताउँछन् । वैकल्‍पिक अनुवादः “कि तिमीहरू बलियोसँगले जरा हालेका रूख र चट्टानमा निर्माण गरिएका भवन जस्तै होओ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:18",
+    "bsb_verse_text": "will have power, together with all the saints, to comprehend the length and width and height and depth",
+    "ult_verse_text": "ताकि तिमीहरू सबै सन्तहरूसँगै, चौडाइ, लम्बाइ, उचाइ र गहिराइ के {हो} भनेर पूर्ण रूपमा बुझ्‍न सक।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "तिमीहरूसँग सामर्थ्य हुन सकेको होस् ताकि तिमीहरूले बुझ्‍न सक",
+        "note": "यी शब्दहरूलाई पद १७ मा “कि तिमीहरूले उहाँको प्रेममा जरा गाडेका र जग बसालेका होओ” भन्‍ने शब्दहरूका साथ सुरु हुने शब्दहरूसँग दुई तरिकामा जोड्न सकिन्छ । सम्भावित अर्थहरू हुन् १) “उहाँको प्रेममा तिमीहरूले जरा गाडेका र जग बसालेका होओ ताकि तिमीहरूसँग सामर्थ्य भएको होस् र बुझ्‍न सकेका होओ भनेर म प्रार्थना गर्छु” वा २) “ताकि तिमीहरूले उहाँको प्रेममा जरा गाडेका र जग बसालेका होओ । तिमीहरूसँग सामर्थ्य भएको होस् ताकि तिमीहरूले बुझ्‍न सकेका होओ भनेर पनि म प्रार्थना गर्छु”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καταλαβέσθαι",
+        "note": "पावलले घुँडा टेकी प्रार्थना गरेको यो दोस्रो विषय हो; पहिलोचाहिँ, तिनीहरूलाई परमेश्‍वरले मजबुत गराऊन् ([एफिसीहरू ३:१६](./14.md)) र विश्‍वासद्वारा ख्रीष्‍ट तिनीहरूका हृदयमा वास गरून् ([एफिसीहरू ३:१७](./14.md)) भन्‍ने हो । अनि एफिसीहरू आफैँले गर्न सक्षम हुन सकेका होऊन् भनेर पावलले प्रार्थना गरेको पहिलो कुरा चाहिँ “बुझ्‍ने” हुनु हो ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πᾶσιν τοῖς ἁγίοις",
+        "note": "“ख्रीष्‍टमा सबै विश्‍वासीहरू” वा “सबै सन्तहरू”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὸ πλάτος, καὶ μῆκος, καὶ ὕψος, καὶ βάθος",
+        "note": "सम्भावित अर्थहरू हुन् १) यी शब्दहरूले परमेश्‍वरको बुद्धिको महानतालाई वर्णन गर्छ, वैकल्पिक अुनवादः “कसरी परमेश्‍वर त्यति धेरै बुद्धिमान् हुनुहुन्छ” वा २) यी शब्दहरूले हामीप्रतिको ख्रीष्‍टले प्रेमको तीव्रतालाई वर्णन गर्छ । वैकल्पिक अनुवादः “ख्रीष्‍टले हामीलाई कति धेरै प्रेम गर्नुहुन्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:19",
+    "bsb_verse_text": "of the love of Christ, and to know this love that surpasses knowledge, that you may be filled with all the fullness of God.",
+    "ult_verse_text": "र ख्रीष्टको प्रेम जान्‍न, जुन ज्ञान भन्दा टाढा छ ताकि तिमीहरू परमेश्‍वरको सम्पूर्ण पूर्णताले भरिऔ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "γνῶναί & ἀγάπην τοῦ Χριστοῦ",
+        "note": "एफिसीहरूले गर्न सक्षम होऊन् भनेर पावलले प्रार्थना गरेको यो दोस्रो विषय हो; पहिलो चाहिँ तिनीहरूले “बुझून्” भन्‍ने हो । वैकल्पिक अनुवादः “कि तिमीहरूले हामीप्रतिको ख्रीष्‍टको प्रेम कति महान् छ भनेर जान्‍न सक”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἵνα πληρωθῆτε εἰς πᾶν τὸ πλήρωμα τοῦ Θεοῦ",
+        "note": "पावलले घुँडा टेकी प्रार्थना गरेको यो तेस्रो विषय हो ([एफिसीहरू ३:१४](./14.md)) । पहिलो चाहिँ, तिनीहरू “बलिया बनाइऊन्” भन्‍ने हो ([एफिसीहरू ३:१६](./14.md)), र दोस्रो चाहिँ तिनीहरूले “बुझ्‍न सकून्” भन्‍ने हो ([एफिसीहरू ३:१८](./17.md)) ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 3:20",
+    "bsb_verse_text": "Now to Him who is able to do immeasurably more than all we ask or imagine, according to His power that is at work within us,",
+    "ult_verse_text": "र हामीमा काम गर्ने शक्ति अनुसार हामीले मागेका वा सोचेका सबै कुराहरू भन्दा धेरै प्रशस्त मात्रामा गर्न सक्ने उहाँलाई,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-inclusive",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "यस पुस्तकमा भएका “हामी” र “हामीलाई” भन्‍ने शब्दहरूले पावल र सबै विश्‍वासीहरूलाई समावेश गर्न निरन्तरता दिन्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-inclusive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावल आशिष्‌सँगै आफ्नो प्रार्थनालाई टुङ्गोमा ल्याउँछन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τῷ δὲ",
+        "note": "“अब परमेश्‍वरलाई जो”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ποιῆσαι ὑπέρ ἐκ περισσοῦ ὧν αἰτούμεθα ἢ νοοῦμεν",
+        "note": "“हामीले माग्‍ने वा सोच्‍ने सबैकुराभन्दा धेरै बढी गर्नलाई” वा “ती कुराहरू गर्न जुन हामीले उहाँलाई माग्‍ने सबैकुरा वा त्यसको बारेमा सोच्‍नेभन्दा धेरै महान् छन्”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:1",
+    "bsb_verse_text": "As a prisoner in the Lord, then, I urge you to walk in a manner worthy of the calling you have received:",
+    "ult_verse_text": "यसकारण म, प्रभुको लागि कैदी, तिमीलाई बोलाइएको आह्वानको योग्यतासाथ हिंड्न आग्रह गर्दछु।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "पावलले एफिसीहरूलाई लेखिरहेका कुराहरूको कारण, तिनीहरू विश्‍वासीहरूको रूपमा कसरी जिउनुपर्छ भन्‍ने कुरा उनले तिनीहरूलाई बताउँछन् र विश्‍वासीहरू एक अर्कासँग सहमतिमा रहनुपर्छ भन्‍ने कुरालाई फेरि पनि जोड दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὁ δέσμιος ἐν Κυρίῳ",
+        "note": "“प्रभुको सेवा गर्ने रोजाइको उसको कारण कैदमा भएको कोही व्यक्तिको रूपमा”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀξίως περιπατῆσαι τῆς κλήσεως",
+        "note": "हिँड्नु भनेको कोही व्यक्तिले आफ्‍नो जीवनलाई जिउने तरिकालाई व्यक्त गर्नलाई प्रयोग गरिने एउटा सामान्य तरिका हो । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:2",
+    "bsb_verse_text": "with all humility and gentleness, with patience, bearing with one another in love,",
+    "ult_verse_text": "सबै नम्रता र नम्रता संग, धैर्य संग, प्रेम मा एक अर्का संग राखेर,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μετὰ πάσης ταπεινοφροσύνης καὶ πραΰτητος",
+        "note": "“विनम्र, कोमल, र धैर्यवान् हुनलाई सिक्‍न”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:3",
+    "bsb_verse_text": "and with diligence to preserve the unity of the Spirit through the bond of peace.",
+    "ult_verse_text": "शान्तिको बन्धनमा आत्माको एकता कायम राख्‍न सक्दो प्रयास गर्दै।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τηρεῖν τὴν ἑνότητα τοῦ Πνεύματος ἐν τῷ συνδέσμῳ τῆς εἰρήνης",
+        "note": "यहाँ पावलले “शान्ति”को विषयमा त्यो चाहिँ मानिसहरूलाई एकसाथ बाँध्‍ने कुनै बन्धन भए झैँ गरी कुरा गर्छन् । यो चाहिँ अरू मानिसहरूसँग शान्तिपूर्ण तवरमा जिएर तिनीहरूसँग एउटै भएको कुरालाई जनाउने अलङ्कार हो । वैकल्‍पिक अनुवादः “एक अर्कासँग शान्तिपूर्ण तवरमा जिउन र एक भएर रहन जसरी आत्माले सम्भव बनाउनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:4",
+    "bsb_verse_text": "There is one body and one Spirit, just as you were called to one hope when you were called;",
+    "ult_verse_text": "एउटै शरीर र एउटै आत्‍मा छ, जसरी तिमीहरूलाई पनि तिमीहरूको बोलावटको एउटै आशामा बोलाइएको थियो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἓν σῶμα",
+        "note": "मण्डलीलाई प्रायः ख्रीष्‍टको शरीरको रूपमा व्यक्त गरिन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἓν Πνεῦμα",
+        "note": "“एकमात्र पवित्र आत्मा”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐκλήθητε ἐν μιᾷ ἐλπίδι τῆς κλήσεως ὑμῶν",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले तिमीहरूको बोलावटमा एउटा निश्‍चित आशा पाउनका निम्ति तिमीहरूलाई बोलाउनुभयो” वा “त्यहाँ एउटा कुरा छ जसमा तिमीहरू ढुक्‍क हुन र सो उहाँले गर्नुहुन्छ भनी अपेक्षा गर्नलाई परमेश्‍वरले तिमीहरू चुन्‍नुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:6",
+    "bsb_verse_text": "one God and Father of all, who is over all and through all and in all.",
+    "ult_verse_text": "एउटै परमेश्‍वर र सबैका पिता, जो सबैमाथि र सबैद्वारा र सबैमा हुनुहुन्छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "Πατὴρ πάντων & ἐπὶ πάντων & διὰ πάντων & ἐν πᾶσιν",
+        "note": "यहाँ “सबै” शब्दले “सबै कुराहरू” भन्‍ने अर्थ दिन्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:7",
+    "bsb_verse_text": "Now to each one of us grace has been given according to the measure of the gift of Christ.",
+    "ult_verse_text": "र हामी प्रत्येकलाई ख्रीष्टको वरदानको नाप अनुसार अनुग्रह दिइएको छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "यहाँ प्रयोग भएको उद्धरण दाऊद राजाले लेखेको गीतबाट लिइएको हो ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "मण्डली, जुन विश्‍वासीहरूको पूर्ण शरीर हो, त्यसमा प्रयोग गर्नको निम्ति ख्रीष्‍टले विश्‍वासीहरूलाई दिनुभएका वरदानहरूको विषयमा पावलले तिनीहरूलाई सम्झना दिलाउँछन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἑνὶ & κάστῳ ἡμῶν ἐδόθη ἡ χάρις",
+        "note": "यसलाई कर्तृ वाच्यको प्रयोग गरेर व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “परमेश्‍वरले हामी हरेकलाई अनुग्रह दिनुभएको छ” वा “परमेश्‍वरले हरेक विश्‍वासीलाई अनुग्रह दिनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:8",
+    "bsb_verse_text": "This is why it says: “When He ascended on high, He led captives away, and gave gifts to men.”",
+    "ult_verse_text": "त्यसकारण यसले भन्छ: \"जब उहाँ उचाइमा उक्लनुभयो, उहाँले बन्दीहरूलाई कैदमा लैजानुभयो, {र} उहाँले मानिसहरूलाई उपहारहरू दिनुभयो।\"",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀναβὰς εἰς ὕψος",
+        "note": "“जब ख्रीष्‍ट स्वर्गमा माथि जानुभयो”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:9",
+    "bsb_verse_text": "What does “He ascended” mean, except that He also descended to the lower parts of the earth?",
+    "ult_verse_text": "र यो \"उहाँ उक्लनुभयो,\" यो पृथ्वीको तल्लो क्षेत्रहरूमा पनि अवतरण गर्नु बाहेक के हो?",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀνέβη",
+        "note": "“ख्रीष्‍ट माथि जानुभयो”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καὶ κατέβη",
+        "note": "“ख्रीष्‍ट तल ... मा पनि आउनुभयो”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰς τὰ κατώτερα μέρη τῆς γῆς",
+        "note": "सम्भावित अर्थहरू हुन्ः १) “तल्लो क्षेत्रहरू भनेका पृथ्वीका भाग हुन्” वा २) “तल्लो क्षेत्रहरू” भनेका पृथ्वीलाई जनाउने अर्को तरिका हो । वैकल्‍पिक अनुवादः “तल्‍लो क्षेत्रहरूमा, पृथ्‍वी”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:10",
+    "bsb_verse_text": "He who descended is the very One who ascended above all the heavens, in order to fill all things.",
+    "ult_verse_text": "जो तल झर्नु भयो, उहाँ आफै पनि हुनुहुन्छ जो सबै स्वर्गहरू भन्दा माथि उक्लनुभयो, ताकि उहाँले सबै चीजहरू भर्न सक्‍नुभएको होस्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἵνα πληρώσῃ τὰ πάντα",
+        "note": "“ताकि उहाँ सबै ठाउँमा उहाँको शक्तिमा उपस्थित हुनुभएको होस्”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πληρώσῃ",
+        "note": "“पूरा गर्नु” वा “सन्तुष्‍ट पार्नु”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:12",
+    "bsb_verse_text": "to equip the saints for works of ministry and to build up the body of Christ,",
+    "ult_verse_text": "सेवा गर्ने कामको लागि सन्तहरूलाई सुसज्जित बनाउनको लागि, ख्रीष्टको शरीरको निर्माणको लागि,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "πρὸς τὸν καταρτισμὸν τῶν ἁγίων",
+        "note": "“उहाँले अलग गर्नुभएका मानिसहरूलाई तयार गर्न” वा “विश्‍वासीहरूलाई खाँचो परेका कुराहरू तिनीहरूलाई प्रदान गर्न”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰς ἔργον διακονίας",
+        "note": "“ताकि तिनीहरूले अरूहरूलाई सेवा गर्न सकून्”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "εἰς οἰκοδομὴν τοῦ σώματος τοῦ Χριστοῦ",
+        "note": "पावलले आत्मिक रूपमा बलियो हुँदै जाने मानिसहरूको विषयमा तिनीहरूले आफ्‍ना भौतिक शरीरहरूका बललाई बढाउन बनाउन व्यायाम गरिरहेका झैँ गरेर बताउँछन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "οἰκοδομὴν",
+        "note": "“सुधार”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "σώματος τοῦ Χριστοῦ",
+        "note": "“ख्रीष्‍टको शरीर”ले ख्रीष्‍टको मण्डलीको हरेक सदस्यलाई जनाउँछ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:13",
+    "bsb_verse_text": "until we all reach unity in the faith and in the knowledge of the Son of God, as we mature to the full measure of the stature of Christ.",
+    "ult_verse_text": "जबसम्म हामी सबै विश्‍वासको एकता र परमेश्‍वरको पुत्रको ज्ञानमा, परिपक्‍क मानिससम्म, ख्रीष्टको पूर्णताको कदको नापसम्म पुग्दैनौं,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "καταντήσωμεν & εἰς τὴν ἑνότητα τῆς πίστεως, καὶ τῆς ἐπιγνώσεως τοῦ Υἱοῦ τοῦ Θεοῦ",
+        "note": "विश्‍वासीहरू विश्‍वासमा एक हुने र विश्‍वासीहरूको रूपमा परिपक्‍व हुने हो भने तिनीहरूले येशूलाई परमेश्‍वरको पुत्रको रूपमा चिन्‍न आवश्यक छ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καταντήσωμεν & εἰς τὴν ἑνότητα τῆς πίστεως",
+        "note": "“विश्‍वासमा बराबर रूपमा बलियो हुनु” वा “विश्‍वासमा एकसाथ जोडिएको हुनु”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/guidelines-sonofgodprinciples",
+        "orig_language_quote": "τοῦ Υἱοῦ τοῦ Θεοῦ",
+        "note": "यो येशूको निम्ति एउटा महत्त्वपूर्ण नाउँ हो । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/guidelines-sonofgodprinciples]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰς ἄνδρα τέλειον",
+        "note": "“परिपक्‍व विश्‍वासीहरूक हुनु”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τέλειον",
+        "note": "“पूर्ण रूपमा विकसित” वा “हुर्केको” वा “पूर्ण”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:14",
+    "bsb_verse_text": "Then we will no longer be infants, tossed about by the waves and carried around by every wind of teaching and by the clever cunning of men in their deceitful scheming.",
+    "ult_verse_text": "ताकि हामी अब उप्रान्त छालहरूले पछाडी फ्याँकिने र छलपूर्ण षडयन्त्रको लागि चलाखी मानिसहरूको छलद्वारा शिक्षाको हरेक बतासले लैजाने केटाकेटी नहोऔं।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὦμεν νήπιοι",
+        "note": "आत्मिक रूपमा नबढेका विश्‍वासीहरू जीवनमा थोरै अनुभव बटुलेका बालकहरू झैँ हुन् भनेर पावलले बताइरहेका छन् । वैकल्पिक अनुवादः “बालकहरू जस्तै हुनु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "κλυδωνιζόμενοι καὶ περιφερόμενοι παντὶ ἀνέμῳ τῆς διδασκαλίας",
+        "note": "यस खण्डले परिपक्‍व नभएको र झूटो शिक्षालाई पछ्याउने विश्‍वासी चाहिँ हावाले पानीमाथि विभिन्‍न दिशामा ठेलिरहेको डुङ्गा भए झैँ गरेर बताउँछ ।(हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν τῇ κυβίᾳ τῶν ἀνθρώπων, ἐν πανουργίᾳ πρὸς τὴν μεθοδίαν τῆς πλάνης",
+        "note": "“विश्‍वासीहरूलाई चलाख झूटहरूद्वारा छल गर्ने धूर्त मानिसहरूद्वारा”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:15",
+    "bsb_verse_text": "Instead, speaking the truth in love, we will in all things grow up into Christ Himself, who is the head.",
+    "ult_verse_text": "बरु, प्रेममा सत्य बोल्दै, हामी सबै कुरामा उहाँमा बढ्दै जाऔं जो शिर हुनुहुन्छ, ख्रीष्ट {पनि}।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "εἰς αὐτὸν & ὅς ἐστιν ἡ κεφαλή",
+        "note": "हाम्रो शरीर स्वस्थ होस् भनेर हाम्रो शिरले शरीरका अङ्गहरूलाई सँगै मिलेर काम गर्न लगाए झैँ ख्रीष्‍टले विश्‍वासीहरूलाई एक आपसमा मिलेर काम गर्न लगाउनुहुन्छ भनेर वर्णन गर्नको लागि पावलले मानव शरीरको उदाहरण दिन्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν ἀγάπῃ",
+        "note": "“जसै सदस्यहरूले एक अर्कालाई प्रेम गर्छन्”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:16",
+    "bsb_verse_text": "From Him the whole body, fitted and held together by every supporting ligament, grows and builds itself up in love through the work of each individual part.",
+    "ult_verse_text": "जसबाट सम्पूर्ण शरीर, प्रत्येक सहयोगी जोर्नीद्वारा जोडिएको र एकसाथ समातेर, प्रत्येक व्यक्तिगत अङ्गको नापमा काम गर्दै, प्रेममा आफैलाई निर्माण गर्नको लागि शरीरको वृद्धि हुन्छ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐξ οὗ πᾶν τὸ σῶμα & τὴν αὔξησιν τοῦ σώματος ποιεῖται",
+        "note": "हाम्रो शरीर स्वस्थ होस् भनेर हाम्रो शिरले शरीरका अङ्गहरूलाई सँगै मिलेर काम गर्न लगाए झैँ ख्रीष्‍टले विश्‍वासीहरूलाई एक आपसमा मिलेर काम गर्न लगाउनुहुन्छ भनेर वर्णन गर्नको लागि पावलले मानव शरीरको उदाहरण दिन्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "διὰ πάσης ἁφῆς τῆς ἐπιχορηγίας",
+        "note": "हाम्रो शरीरमा हड्‍डीहरू र अङ्गहरूलाई जोड्ने बलियो फितालाई “तन्तु” भनिन्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:17",
+    "bsb_verse_text": "So I tell you this, and insist on it in the Lord, that you must no longer walk as the Gentiles do, in the futility of their thinking.",
+    "ult_verse_text": "त्यसकारण, म यो भन्छु र प्रभुमा तिमीहरूलाई दृढतापूर्वक आग्रह गर्दछु, कि अन्यजातिहरू पनि तिनीहरूको मनको व्यर्थतामा हिँडेझैं अब उप्रान्त नहिँड।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "तिनीहरू अब विश्‍वासीहरूका रूपमा परमेश्‍वरका पवित्र आत्माबाट मोहोर लगाइएका हुनाले तिनीहरूले अब के गर्नुहुन्‍न भन्‍ने कुरा पावल बताउँछन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τοῦτο οὖν λέγω καὶ μαρτύρομαι",
+        "note": "“मैले भर्खरै जे भनेको छु, त्यसको कारण मैले तिमीहरूलाई दृढतापूर्वक उत्साह दिन केही कुराहरू अझै बताउनेछु, किनकि हामी सबै प्रभुका हौँ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "μηκέτι ὑμᾶς περιπατεῖν, καθὼς καὶ τὰ ἔθνη περιπατεῖ ἐν ματαιότητι τοῦ νοὸς αὐτῶν",
+        "note": "“व्यर्थताका विचारहरू भएका अन्यजातिहरू झैँ जिउन छोड”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:18",
+    "bsb_verse_text": "They are darkened in their understanding and alienated from the life of God because of the ignorance that is in them due to the hardness of their hearts.",
+    "ult_verse_text": "तिनीहरूमा भएको अज्ञानताको कारणले, तिनीहरूको हृदयको कठोरताको कारणले तिनीहरूको समझशक्तिमा अन्धकार भएको छ, तिनीहरू परमेश्‍वरको जीवनबाट टाढा भएका छन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐσκοτωμένοι τῇ διανοίᾳ",
+        "note": "तिनीहरू अब स्पष्‍टसँग विचार गर्न र तर्क गर्न सक्दैनन् । वैकल्पिक अनुवादः “तिनीहरूले आफ्ना विचारहरूलाई अँध्यारा बनाएका छन्” वा “तिनीहरू बुझ्‍न सक्दैनन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἀπηλλοτριωμένοι τῆς ζωῆς τοῦ Θεοῦ, διὰ τὴν ἄγνοιαν τὴν οὖσαν ἐν αὐτοῖς",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “तिनीहरूले परमेश्‍वरलाई नचिनेका कारण, परमेश्‍वरले आफ्ना मानिसहरू जसरी जिएको चाहनुहुन्छ त्यसरी तिनीहरू जिउन सक्दैनन्” वा “तिनीहरूका अज्ञानताको कारण तिनीहरूले आफैँलाई परमेश्‍वरको जीवनबाट अलग गराएका छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀπηλλοτριωμένοι",
+        "note": "“छुट्‌ट्याइएका” वा “अलग गरिएका”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἄγνοιαν",
+        "note": "“ज्ञानको कमी” वा “जानकारीको कमी”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "διὰ τὴν πώρωσιν τῆς καρδίας αὐτῶν",
+        "note": "यहाँ “हृदयहरू” भनेको मानिसहरूको दिमागलाई जनाउने अलङ्कार हो । “तिनीहरूको हृदयको कठोरता” भन्‍ने वाक्यांश चाहिँ एउटा अलङ्कार हो जसको अर्थ “हठीपना” हुन्छ । वैकल्‍पिक अनुवादः “किनभने तिनीहरू हठी छन्” वा “किनभने तिनीहरू परमेश्‍वरलाई सुन्‍न इन्कार गर्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]] अनि [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:19",
+    "bsb_verse_text": "Having lost all sense of shame, they have given themselves over to sensuality for the practice of every kind of impurity, with a craving for more.",
+    "ult_verse_text": "तिनीहरूले सबै भावनाहरूबाट मरेर, लोभसहित हरेक प्रकारको अशुद्धताको अभ्यासको लागि आफूलाई कामुकताको हातमा सुम्पेका छन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἑαυτοὺς παρέδωκαν τῇ ἀσελγείᾳ",
+        "note": "पावलले यी मानिसहरूको विषयमा तिनीहरू वस्तुहरू भए झैँ गरी कुरा गर्छन् जुन वस्तुहरूलाई तिनीहरू आफैँले अरू मानिसहरूलाई दिइरहेका थिए, र तिनीहरूले आफ्‍ना शारीरिक इच्‍छाहरूलाई सन्तुष्‍ट पार्ने तरिका चाहिँ कुनै एउटा व्यक्ति बए झैँ गरेर बताउँछन् जसको हातमा तिनीहरूले आफैँलाई सुम्पिन्छन् । वैकल्पिक अनुवादः “केवल आफ्ना शारीरिक अभिलाषाहरू मात्र पूरा गर्न चाहन्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:20",
+    "bsb_verse_text": "But this is not the way you came to know Christ.",
+    "ult_verse_text": "तर तिमीहरूले यसरी ख्रीष्टको बारेमा सिकेनौ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὑμεῖς δὲ οὐχ οὕτως ἐμάθετε τὸν Χριστόν",
+        "note": "“यसरी” भन्‍ने शब्दले [एफिसीहरू ४:१७-१९](./17.md) मा वर्णन गरिएअनुसार अन्यजातिहरूको जिउने शैलीलाई जनाउँछ । विश्‍वासीहरूले ख्रीष्‍टको बारेमा सिकेका कुराहरू त्यसको विपरीतमा थियो भनेर यसले जोड दिन्छ । वैकल्पिक अनुवादः “तर तिमीहरूले ख्रीष्‍टको बारेमा सिकेका कुराहरू त्यस्तो थिएन”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:21",
+    "bsb_verse_text": "Surely you heard of Him and were taught in Him—in keeping with the truth that is in Jesus—",
+    "ult_verse_text": "यदि साँच्चै तिमीहरूले उहाँको बारेमा सुनेका छौ र उहाँमा सिकाइएको छ, जसरी सत्य येशूमा छ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-irony",
+        "orig_language_quote": "εἴ γε αὐτὸν ἠκούσατε καὶ ἐν αὐτῷ ἐδιδάχθητε",
+        "note": "एफिसीहरूले सुनेका छन् र तिनीहरूलाई सिकाइएको छ भन्‍ने कुरा पावललाई थाहा छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-irony]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἐν αὐτῷ ἐδιδάχθητε",
+        "note": "सम्भावित अर्थहरू हुन् १) “येशूका मानिसहरूले तिमीहरूलाई सिकाएका छन्” वा २) “तिमीहरू येशूका मानिसहरू भएका हुनाले कसैले तिमीहरूलाई सिकाएको छ ।” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καθώς ἐστιν ἀλήθεια ἐν τῷ Ἰησοῦ",
+        "note": "“येशूको बारेमा भएका सबै कुराहरू सत्य भएअनुसार”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:22",
+    "bsb_verse_text": "to put off your former way of life, your old self, which is being corrupted by its deceitful desires;",
+    "ult_verse_text": "तिमीहरूले आफ्नो पुरानो जीवन शैलीको कुरालाई त्याग्‍नु पर्छ, जुन बुढो मानिस आफ्नो छलपूर्ण इच्छाहरूका कारण भ्रष्ट भएको छ,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀποθέσθαι ὑμᾶς κατὰ τὴν προτέραν ἀναστροφὴν",
+        "note": "पावलले नैतिक गुणहरूका विषयमा तिनीहरू कपडाका टुक्राहरू भए झैँ गरी कुरा गरिरहेका छन् । वैकल्पिक अनुवादः “तिमीहरूको अगाडिको जीवन शैलीअनुसार जिउन छोड्नु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀποθέσθαι & τὸν παλαιὸν ἄνθρωπον",
+        "note": "पावलले नैतिक गुणहरूका विषयमा तिनीहरू कपडाका टुक्राहरू भए झैँ गरी कुरा गरिरहेका छन् । वैकल्पिक अनुवादः “तिमीहरूको पुरानो मनुष्यत्वले झैँ गरी जिउन छोड्नु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὸν παλαιὸν ἄνθρωπον",
+        "note": "पुरानो मानिस”ले “पुरानो आचरण” वा “अगाडिको मनुष्यत्व”लाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὸν φθειρόμενον κατὰ τὰς ἐπιθυμίας τῆς ἀπάτης",
+        "note": "पावलले मानिसको पापिष्‍ठ स्वभावलाई चिहानमा सडिरहेको मृत शरीरसँग तुलना गरेर बताउँछन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:23",
+    "bsb_verse_text": "to be renewed in the spirit of your minds;",
+    "ult_verse_text": "र तिमीहरूको दिमागको आत्मामा नवीकरण हुन,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἀνανεοῦσθαι & τῷ πνεύματι τοῦ νοὸς ὑμῶν",
+        "note": "यसलाई कर्तृ वाच्यमा अनुवाद गर्न सकिन्छ । वैकल्पिक अनुवादः “तिमीहरूका आचरणहरू र सोचाइहरू परिवर्तन गर्न परमेश्‍वरलाई दिनु” वा “तिमीहरूलाई नयाँ आचरणहरू र सोचाइहरू दिन परमेश्‍वरलाई अनुमति दिनु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:24",
+    "bsb_verse_text": "and to put on the new self, created to be like God in true righteousness and holiness.",
+    "ult_verse_text": "र परमेश्‍वरको अनुसार सृष्टि गरिएको नयाँ मानिसलाई धारण गर्न — सत्यको धार्मिकता र पवित्रतामा।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν δικαιοσύνῃ καὶ ὁσιότητι τῆς ἀληθείας",
+        "note": "“साँचो रूपमा धर्मी र पवित्र”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:25",
+    "bsb_verse_text": "Therefore each of you must put off falsehood and speak truthfully to his neighbor, for we are all members of one another.",
+    "ult_verse_text": "यसकारण, झूटलाई त्यागेर, तिमीहरू प्रत्येकले आ-आफ्नो छिमेकीसँग सत्य बोल, किनकि हामी एकअर्काका अंग हौँ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀποθέμενοι τὸ ψεῦδος",
+        "note": "“झूट बोल्न छोड”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐσμὲν ἀλλήλων μέλη",
+        "note": "“हामी एक अर्काका हौँ” वा “हामी परमेश्‍वरको परिवारका सदस्यहरू हौँ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:26",
+    "bsb_verse_text": "“Be angry, yet do not sin.” Do not let the sun set upon your anger,",
+    "ult_verse_text": "क्रोधित नहोऊ र पाप नगर। तिमीहरूको रिसमा घाम अस्ताउन नदेउ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὀργίζεσθε, καὶ μὴ ἁμαρτάνετε",
+        "note": "“तिमीहरू रिसाउन सक्छौ, तर पाप नगर” वा “यदि तिमीहरू रिसाउँछौ भने, पाप नगर”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ὁ ἥλιος μὴ ἐπιδυέτω ἐπὶ παροργισμῷ ὑμῶν",
+        "note": "घाम डुब्दै जाने कुराले रात परेको, वा दिनको अन्त्यलाई प्रतिनिधित्व गर्छ । वैकल्पिक अनुवादः “रात पर्नुअगाडि तिमीहरू रिसाउन छोड्नुपर्छ” वा “दिनको अन्त्य हुनअघि नै तिमीहरूको रीसलाई मार” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:27",
+    "bsb_verse_text": "and do not give the devil a foothold.",
+    "ult_verse_text": "न त शैतानलाई मौका देऊ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μηδὲ δίδοτε τόπον τῷ διαβόλῳ",
+        "note": "“तिमीहरूलाई पापमा डोहोर्‍याउन दुष्‍टलाई मौका नदेओ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:29",
+    "bsb_verse_text": "Let no unwholesome talk come out of your mouths, but only what is helpful for building up the one in need and bringing grace to those who listen.",
+    "ult_verse_text": "तिम्रो मुखबाट कुनै पनि भ्रष्ट कुरा ननिस्किनदेऊ, तर खाँचोमा परेको व्यक्तिको निर्माणको लागि जे पनि राम्रो छ, ताकि सुन्‍नेहरूलाई अनुग्रह मिलोस्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "λόγος σαπρὸς",
+        "note": "यसले क्रूर वा रुखो बोलीलाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πρὸς οἰκοδομὴν",
+        "note": "“अरूहरूलाई उत्साह दिन” वा “अरूहरूलाई बलिया बनाउन”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τῆς χρείας, ἵνα δῷ χάριν τοῖς ἀκούουσιν",
+        "note": "“तिनीहरूका खाँचोहरू ... । यस प्रकारले तिमीहरूलाई सुन्‍नेहरूलाई तिमीहरूले सहायता गर्नेछौ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:30",
+    "bsb_verse_text": "And do not grieve the Holy Spirit of God, in whom you were sealed for the day of redemption.",
+    "ult_verse_text": "र परमेश्‍वरको पवित्र आत्मालाई दुःखित नतुल्‍याओ, जसद्वारा तिमीहरूलाई छुटकाराको दिनको लागि छाप लगाइएको थियो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μὴ λυπεῖτε",
+        "note": "“कष्‍टमा नपार” वा “निराश नबनाओ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐν ᾧ ἐσφραγίσθητε εἰς ἡμέραν ἀπολυτρώσεως",
+        "note": "परमेश्‍वरले विश्‍वासीहरूलाई उद्धार गर्नुहुनेछ भनेर पवित्र आत्माले भरोसा दिलाउनुहुन्छ । परमेश्‍वरले विश्‍वासीहरू उहाँका हुन् भनेर देखाउनलाई पवित्र आत्मा चाहिँ तिनीहरूमाथि उहाँले राख्‍नुहुने चिन्ह हुनुभए झैँ गरेर पावलले बताउँछन् । वैकल्पिक अनुवादः “किनकि उहाँ त्यो छाप हुनुहुन्छ जसले तिमीहरूलाई पक्‍का गराउँछ कि परमेश्‍वरले उद्धारको दिनमा तिमीहरूलाई छुटकारा दिनुहुनेछ” वा “कि उहाँ नै हुनुहुन्छ जसले तिमीहरूलाई पक्‍का गराउनुहुन्छ कि परमेश्‍वरले उद्धारको दिनमा तिमीहरूलाई छुटकारा दिनुहुनेछ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-activepassive]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:31",
+    "bsb_verse_text": "Get rid of all bitterness, rage and anger, outcry and slander, along with every form of malice.",
+    "ult_verse_text": "सबै तीतोपन, र क्रोध, र रीस, र झगडा, र अपमान सबै द्वेष सहित आफैंबाट हटाइयोस्।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "विश्‍वासीहरूले के गर्नुहुन्‍न र के गर्नुपर्छ भन्‍ने वचनहरूद्वारा पावल आफ्ना निर्देशनहरूलाई टुङ्गोमा ल्याउँछन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἀρθήτω",
+        "note": "“टाढा राख” भनेको केही निश्‍चित आचरणहरू वा स्वभावहरूलाई निरन्तरता नदिने कुरालाई जनाउने अलङ्कार हो । वैकल्‍पिक अनुवादः “तिमीहरूले यी कुराहरूलाई आफ्‍नो जीवनको हिस्‍सा हुन दिनुहुँदैनः तीतोपना, क्रोध, रीस” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "πικρία, καὶ θυμὸς, καὶ ὀργὴ",
+        "note": "तीव्र आक्रोश"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 4:32",
+    "bsb_verse_text": "Be kind and tenderhearted to one another, forgiving each other just as in Christ God forgave you.",
+    "ult_verse_text": "बरु, एक-अर्काप्रति दयालु, कोमल हृदय, एकअर्कालाई क्षमा गर, जसरी ख्रीष्टमा परमेश्‍वरले पनि तिमीहरूलाई क्षमा गर्नुभयो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "दयालु होओ",
+        "note": "“बरु, दयालु होओ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εὔσπλαγχνοι",
+        "note": "अरूहरूप्रति भद्र र सान्तवना दिने किसिमका हुनु"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:1",
+    "bsb_verse_text": "Be imitators of God, therefore, as beloved children,",
+    "ult_verse_text": "यसकारण, प्यारा छोराछोरीहरू जस्तै, परमेश्‍वरको अनुकरण गर्नेहरू बन्,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "विश्‍वासीहरू परमेश्‍वरका सन्तानको रूपमाहरू तिनीहरू कसरी जिउनुपर्छ र कसरी जिउनुहुँदैन भनेर बताउनलाई पावलले निरन्तरता दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "γίνεσθε οὖν μιμηταὶ τοῦ Θεοῦ",
+        "note": "“यसैकारण, परमेश्‍वरले जे गर्नुहुन्छ तिमीहरूले पनि त्यसै गर्नुपर्छ ।” यसैकारण भन्‍ने शब्दले अगाडिको [एफिसीहरू ४:३२](../04/32.md) लाई जनाउँछ जसले विश्‍वासीहरूले किन परमेश्‍वरको देखासिकी गर्नुपर्छ भनेर बताउँछ, किनभने ख्रीष्‍टले विश्‍वासीहरूलाई माफी दिनुभयो ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-simile",
+        "orig_language_quote": "ὡς τέκνα ἀγαπητά",
+        "note": "हामी परमेश्‍वरका छोराछोरीहरू भएका हुनाले हामीले उहाँको देखासिकी गरेको वा उहाँलाई पछ्याएको उहाँ चाहनुहुन्छ । वैकल्पिक अनुवादः “जसरी धेरै प्रेम गरिएका छोराछोरीहरूले तिनीहरूका बाबुहरूको देखासिकी गर्छन्” वा “किनभने तिमीहरू उहाँका छोराछोरीहरू हौ र उहाँले तिमीहरूलाई प्यारो मानेर प्रेम गर्नुहुन्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-simile]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:2",
+    "bsb_verse_text": "and walk in love, just as Christ loved us and gave Himself up for us as a fragrant sacrificial offering to God.",
+    "ult_verse_text": "र प्रेममा हिड्, जसरी ख्रीष्टले पनि हामीलाई प्रेम गर्नुभयो र आफैलाई हाम्रो लागि अर्पण गर्नुभयो, परमेश्‍वरलाई सुगन्धित भेटी र बलिदानको लागि।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "περιπατεῖτε ἐν ἀγάπῃ",
+        "note": "हिँड्नु भनेको कसैले आफ्‍नो जीवन कसरी जिउँछ भन्‍ने कुरालाई व्यक्त गर्ने सामान्य तरिका हो । वैकल्पिक अनुवादः “प्रेमको जीवन जिओ” वा “एक अर्कालाई सधैँ प्रेम गर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "προσφορὰν καὶ θυσίαν τῷ Θεῷ εἰς ὀσμὴν εὐωδίας",
+        "note": "“परमेश्‍वरको निम्ति एक सुगन्धित भेटी र बलिदान जस्तै”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:3",
+    "bsb_verse_text": "But among you, as is proper among the saints, there must not be even a hint of sexual immorality, or of any kind of impurity, or of greed.",
+    "ult_verse_text": "तर यौन अनैतिकता र हरेक अशुद्धता वा लोभको नाउँ पनि तिमीहरूका बीचमा लिनु हुँदैन, जसरी सन्तहरूको लागि उचित छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "πορνεία δὲ, καὶ ἀκαθαρσία πᾶσα, ἢ πλεονεξία, μηδὲ ὀνομαζέσθω ἐν ὑμῖν",
+        "note": "“कुनै पनि किसिमको कामुक अनैतिकता वा कुनै पनि किसिमको अशुद्धता वा लोभको दोषी छौ भनेर कसैलाई पनि सोच्‍न लगाउने कुनै पनि त्यस्तो काम नगर”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀκαθαρσία πᾶσα",
+        "note": "“कुनै नैतिक अशुद्धता”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:4",
+    "bsb_verse_text": "Nor should there be obscenity, foolish talk, or crude joking, which are out of character, but rather thanksgiving.",
+    "ult_verse_text": "र फोहोर र मूर्ख कुरा वा बेफाईदाको ठटयौली — जुन उपयुक्त छैन — तर यसको सट्टा, धन्यवाद।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀλλὰ μᾶλλον εὐχαριστία",
+        "note": "“बरु तिमीहरूले परमेश्‍वरलाई धन्यवाद दिनुपर्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:5",
+    "bsb_verse_text": "For of this you can be sure: No immoral, impure, or greedy person (that is, an idolater) has any inheritance in the kingdom of Christ and of God.",
+    "ult_verse_text": "वास्तवमा, यो निश्‍चित रूपमा जान्, कि हरेक यौन अनैतिक वा अपवित्र वा लोभी व्यक्ति — अर्थात्, एक मूर्तिपूजक — ख्रीष्ट र परमेश्‍वरको राज्यमा कुनै उत्तराधिकार छैन।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "οὐκ ἔχει κληρονομίαν",
+        "note": "विश्‍वासीहरूले परमेश्‍वरले प्रतिज्ञा गर्नुभएका कुराहरू प्राप्‍त गर्ने विषयलाई परिवारको सदस्यबाट धनसम्पत्ति वा जायजेथाको अंश प्राप्‍त गरे जस्तै गरी व्यक्त गरिएको छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:6",
+    "bsb_verse_text": "Let no one deceive you with empty words, for because of such things the wrath of God is coming on the sons of disobedience.",
+    "ult_verse_text": "खोक्रा कुराहरूले तिमीहरूलाई कसैले धोका नदेओस्, किनकि यी कुराहरूको कारणले गर्दा अनाज्ञाकारी छोराहरूमाथि परमेश्‍वरको क्रोध आउँदैछ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "κενοῖς λόγοις",
+        "note": "शब्दहरू जसमा कुनै सत्यता हुँदैन"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:8",
+    "bsb_verse_text": "For you were once darkness, but now you are light in the Lord. Walk as children of light,",
+    "ult_verse_text": "किनकि तिमीहरू एकचोटी अन्धकारमा थियौ, तर अब {तिमीहरू} परमप्रभुमा ज्योति भएका छौ। यसैले ज्योतिका सन्तान जस्तै गरी हिँड।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἦτε γάρ ποτε σκότος",
+        "note": "जसरी कसैले अन्धकारमा देख्‍न सक्दैन, त्यसैगरी पाप गर्न मन पराउने मानिसहरूमा आत्मिक समझको अभाव हुन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "νῦν δὲ φῶς ἐν Κυρίῳ",
+        "note": "जसरी कोही व्यक्तिले ज्योतिमा देख्‍न सक्छ, त्यसैगरी परमेश्‍वरले बचाउनुभएका मानिसहरूले उहाँलाई कसरी खुशी तुल्याउने भन्‍ने कुरा बुझ्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὡς τέκνα φωτὸς περιπατεῖτε",
+        "note": "हिँड्नु भनेको कोही व्यक्तिले आफ्‍नो जीवन कसरी जिउँछ भन्‍ने कुरालाई जनाउने अलङ्कार हो । वैकल्पिक अनुवादः “ती मानिसहरू जस्तो गरी हिँड जसले तिनीहरूले के गरेको प्रभु चाहनुहुन्छ भन्‍ने कुरालाई बुझ्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:9",
+    "bsb_verse_text": "for the fruit of the light consists in all goodness, righteousness, and truth.",
+    "ult_verse_text": "(किनकि ज्योतिको फल सबै भलाइ, धार्मिकता र सत्यतामा हुन्छ)",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὁ & καρπὸς τοῦ φωτὸς ἐν πάσῃ ἀγαθωσύνῃ, καὶ δικαιοσύνῃ, καὶ ἀληθείᾳ",
+        "note": "यहाँ “फल” भनेको “नतिजा” वा “परिणाम”लाई जनाउने अलङ्कार हो । वैकल्‍पिक अनुवादः “ज्योतिमा जिउनुको नतिजा चाहिँ असल काम, धर्मी जीवनयापन, र सत्यतापूर्ण व्यवहार हो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:11",
+    "bsb_verse_text": "Have no fellowship with the fruitless deeds of darkness, but rather expose them.",
+    "ult_verse_text": "अनि अन्धकारको फलदायी कामहरूमा भाग नलेओ, बरु तिनीहरूलाई पर्दाफास गरिदेओ",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "μὴ συνκοινωνεῖτε τοῖς ἔργοις τοῖς ἀκάρποις τοῦ σκότους",
+        "note": "अविश्‍वासीहरूले गर्ने व्यर्थका, पापपूर्ण कुराहरू चाहिँ मानिसहरूले कसैले पनि नदेखोस् भनेर अन्धकारमा गर्ने दुष्‍ट कामहरू भए झैँ गरेर पावलले बताउँछन् । गरेजस्तै अविश्‍वासीहरूले गर्ने व्यर्थका, पापिष्‍ठ कामहरूबारे पावलले व्यक्त गरेका छन् । वैकल्पिक अनुवादः “अविश्‍वासीहरूसँग व्यर्थका, पापपूर्ण कुराहरू नगर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἔργοις τοῖς ἀκάρποις",
+        "note": "ती कामहरू जसले केही असल, उपयोगी वा लाभदायक कुरा गर्दैनन् । पावलले खराब कार्यहरूलाई अस्वस्थ रूखसँग दाँज्दैछन् जसले केही असल फलाउँदैन । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐλέγχετε",
+        "note": "अन्धकारको कामको विरूद्धमा बोल्नु भनेको चाहिँ मानिसहरूले तिनीहरूलाई देखून् भनेर तिनीहरूलाई उज्यालोमा ल्याउने कुरा हो जस्तो गरेर बताइएको छ । वैकल्पिक अनुवादः “तिनीहरूलाई बाहिर प्रकाशमा ल्याओ” वा “तिनीहरूलाई ढाक्‍ने कुरा हटाइदेओ” वा “यी कार्यहरू कति गलत छन् भनेर मानिसहरूलाई देखाइदेओ र बताइदेओ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:13",
+    "bsb_verse_text": "But everything exposed by the light becomes visible, for everything that is illuminated becomes a light itself.",
+    "ult_verse_text": "तर ज्योतिले प्रकट गरेको सबै कुरा प्रकट हुन्छ, किनकि प्रकट हुने सबै कुरा उज्यालो हो।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "यो उद्धरण यशैया अगमवक्ताबाट लिइएका उद्धरणहरूका सङ्ग्रह हुन् वा विश्‍वासीहरूद्वारा गाइएको भजनद्वारा लिइएको उद्धरण हो भनेर जानिएको छैन ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "πᾶν & τὸ φανερούμενον φῶς ἐστιν",
+        "note": "“ज्योतिमा आउने हरेक कुराहरूलाई मानिसहरूले प्रस्‍टैसँग देख्‍न सक्छन् ।” परमेश्‍वरका वचनहरूले मानिसहरूका कार्यहरूलाई असल वा खराब भएको भनेर देखाउँछ भनेर अर्थ दिनलाई पावलले यो मूलभूत भनाइ राख्‍छन् । बाइबलले धेरैपटक परमेश्‍वरको सत्यतालाई त्यो कुनै ज्योति भए झैँ गरेर बताउँछ जसले केही कुराको चरित्रलाई प्रकट गर्न सक्थ्यो । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:14",
+    "bsb_verse_text": "So it is said: “Wake up, O sleeper, rise up from the dead, and Christ will shine on you.”",
+    "ult_verse_text": "त्यसकारण यसले भन्छ,\"हे सुतेकाहरू, जाग, र मरेकाहरूबाट बौरी उठ, र ख्रीष्टले तिमीहरूमाथि चम्काउनुहुनेछ।\"",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-apostrophe",
+        "orig_language_quote": "ἔγειρε, ὁ καθεύδων, καὶ ἀνάστα ἐκ τῶν νεκρῶν",
+        "note": "सम्भावित अर्थहरू हुन् १) पावलले अविश्‍वासीहरूलाई सम्बोधन गरिरहेका छन् जो आत्मिक रूपमा मृत हुनबाट उठ्न जरुरी छ जसरी मरिगएको कोही व्यक्ति जवाफ दिनलाई पुनः जीवित भएर आउनुपर्छ, वा २) पावलले एफिसी विश्‍वासीहरूलाई सम्बोधन गरिरहेका छन् र तिनीहरूका आत्मिक कमजोरीलाई जनाउन मृत्युलाई एउटा अलङ्कारको रूपमा प्रयोग गरिरहेका छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-apostrophe]] अनि [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐκ τῶν νεκρῶν",
+        "note": "तिनीहरू सबैको माझबाट जो मरिगएका छन् । यस अभिव्यक्तिले तल पातालको संसारमा भएका सबै मृतक मानिसहरूलाई एकसाथ वर्णन गर्छ । तिनीहरूको माझबाट बिउँतने कुराले पुनः जीवित बन्‍ने कुराको विषयमा बताउँछ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "ἐπιφαύσει σοι",
+        "note": "यहाँ प्रयोग भएका “तिमी” शब्दका यी प्रयोगहरूले “सुताहा”लाई जनाउँछन् र ती एकवचनमा छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-you]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐπιφαύσει σοι ὁ Χριστός",
+        "note": "जसरी अन्धकारले लुकाएका कुराहरूलाई त्यहाँ वास्तवमा के छ भनेर ज्योतिले देखाउँछ, त्यसरी नै एउटा अविश्‍वासीका कामहरू कति दुष्‍ट छन् र ख्रीष्‍टले उसलाई कसरी क्षमा दिएर नयाँ जीवन दिनुहुन्छ भन्‍ने कुरा बुझ्‍नलाई ख्रीष्‍टले त्यस अविश्‍वासीलाई सक्षम बनाउनुहुनेछ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:15",
+    "bsb_verse_text": "Pay careful attention, then, to how you walk, not as unwise but as wise,",
+    "ult_verse_text": "यसकारण, तिमी कसरी हिँड्छौ, होसियारीसाथ हेर — मूर्खजस्तो होइन तर बुद्धिमानको रूपमा,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublenegatives",
+        "orig_language_quote": "βλέπετε & ἀκριβῶς πῶς περιπατεῖτε, μὴ ὡς ἄσοφοι, ἀλλ’ ὡς σοφοί",
+        "note": "मूर्ख मानिसहरूले आफैँलाई पापबाट बचाउ गर्दैनन् । तापनि, बुद्धिमान् मानिसले पापलाई चिन्‍न सक्छन् र त्यसबाट भाग्‍न सक्छन् । वैकल्पिक अनुवादः “त्यसैकारण, तिमीहरू बरु मूर्ख व्यक्ति जसरी नभएर एक बुद्धिमान व्यक्ति जसरी जिउनलाई होसियार हुनुपर्छ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublenegatives]] अनि [[rc://ne/ta/man/translate/figs-parallelism]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:16",
+    "bsb_verse_text": "redeeming the time, because the days are evil.",
+    "ult_verse_text": "समयको उद्धार गर्दै किनभने दिनहरू खराब छन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐξαγοραζόμενοι τὸν καιρόν",
+        "note": "समयलाई बुद्धिमानीपूर्वक प्रयोग गर्नु चाहिँ समयलाई बचाउनु भए झैँ गरेर बताइएको छ । वैकल्पिक अनुवादः “तिमीहरूले आफ्‍नो समयमा गर्न सक्‍ने उत्तम कुराहरू गर” वा “समयलाई बुद्धिमानीपूर्वक प्रयोग गर” वा “समयलाई त्यसको सबैभन्दा उचित प्रयोगमा लगाओ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ὅτι αἱ ἡμέραι πονηραί εἰσιν",
+        "note": "“दिनहरू” शब्द चाहिँ मानिसहरूले ती दिनहरूमा गर्ने कुरालाई जनाउने प्रतिस्थापन शब्द हो । वैकल्पिक अनुवादः “किनभने तिमीहरूका वरिपरिका मानिसहरूले सबै किसिमका दुष्‍ट कुराहरू गरिरहेका छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:18",
+    "bsb_verse_text": "Do not get drunk on wine, which leads to reckless indiscretion. Instead, be filled with the Spirit.",
+    "ult_verse_text": "र दाखमद्य पिउनु हुँदैन, जसमा लापरवाही हुन्छ। बरु, आत्माले भरिओ,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "विश्‍वासीहरूले कसरी जिउनुपर्छ भन्‍ने विषयमा भएका आफ्ना निर्देशनहरूलाई पावल अन्त्य गर्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "καὶ μὴ μεθύσκεσθε οἴνῳ",
+        "note": "“तिमीहरू दाखमद्य पिएर मात्तिनु हुँदैन”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀλλὰ πληροῦσθε ἐν Πνεύματι",
+        "note": "“बरु, तिमीहरू पवित्र आत्माद्वारा नियन्‍त्रित हुनुपर्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:19",
+    "bsb_verse_text": "Speak to one another with psalms, hymns, and spiritual songs. Sing and make music in your hearts to the Lord,",
+    "ult_verse_text": "भजन, गीत र आत्मिक गीतहरूमा एक-अर्कासँग कुरा गर्दै, गाउन र प्रभुलाई आफ्नो हृदयमा भजन गाउँदै,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-merism",
+        "orig_language_quote": "ψαλμοῖς, καὶ ὕμνοις, καὶ ᾠδαῖς πνευματικαῖς",
+        "note": "सम्भावित अर्थहरू हुन् कि १) “परमेश्‍वरको प्रशंसा गर्न गाइने सबै किसिमका गीतहरू”लाई बुझाउने शब्दहरूको रूपमा पावलले यी शब्दहरूलाई प्रयोग गरिरहेका छन् वा २) पावलले खास प्रकारका सङ्गीतहरूलाई सूचीकृत गरिरहेका छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-merism]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ψαλμοῖς",
+        "note": "यिनीहरू सम्भवतः पुरानो करारको भजनसङ्ग्रहको पुस्तकबाट लिइएका गीतहरू हुन् जुन ख्रीष्‍टिएनहरूले गाउँछन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὕμνοις",
+        "note": "यी प्रशंसा र उपासनाका गीतहरू हुन् जुन ख्रीष्‍टिएनहरूले गाउनका लागि भनेर नै लेखिएका हुन सक्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "ᾠδαῖς πνευματικαῖς",
+        "note": "सम्भावित अर्थहरू हुन् १) यी पवित्र आत्माले कुनै एउटा समयमा उत्तिनै खेर गाउनलाई प्रेरणा दिनुभएका गीतहरू हुन् वा २) “आत्मिक गानहरू” र “भजनहरू” भनेका उस्तै अर्थ बोकेका दुई शब्दहरू हुन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "τῇ καρδίᾳ ὑμῶν",
+        "note": "यहाँ “हृदय” भनेको व्यक्तिको सोचाइहरू वा भित्री मनुष्यत्वलाई जनाउने प्रतिस्थापन शब्द हो । “तिमीहरूका सारा हृदयले” भन्‍ने वाक्यांशको अर्थ केही कुरालाई उत्साहका साथ गर्ने भन्‍ने हुन्छ । वैकल्‍पिक अनुवादः “तिमीहरूका सारा व्यक्तित्वले” वा “उत्साहपूर्वक” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:20",
+    "bsb_verse_text": "always giving thanks to God the Father for everything in the name of our Lord Jesus Christ.",
+    "ult_verse_text": "हाम्रा प्रभु येशू ख्रीष्टको नाउँमा सबै कुराको लागि सधैं धन्यवाद दिँदै परमेश्‍वर पितालाई पनि,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν ὀνόματι τοῦ Κυρίου ἡμῶν, Ἰησοῦ Χριστοῦ",
+        "note": "“किनभने तिमीहरू हाम्रा प्रभु येशू ख्रीष्‍टका हौ” वा “ती मानिसहरूको रूपमा जो हाम्रा प्रभु येशू ख्रीष्‍टका हुन्”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:22",
+    "bsb_verse_text": "Wives, submit to your husbands as to the Lord.",
+    "ult_verse_text": "पत्‍नीहरू, तिमिहरूका आफ्नै पतिहरूलाई, जस्तै प्रभुलाई।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "ख्रीष्‍टिएनहरूले आफैँलाई एक अर्कामा कसरी समर्पित गर्नुपर्छ भन्‍ने विषयमा व्याख्या गर्न पावलले आरम्भ गर्छन् ([एफिसीहरू ५:२१](./18.md)) । पत्‍नीहरू र पतिहरूलाई कसरी एक अर्कासँग व्यवहार गर्नुपर्छ भन्‍ने विषयमा निर्देशनहरू दिँदै उनले सुरुवात गर्छन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:23",
+    "bsb_verse_text": "For the husband is the head of the wife as Christ is the head of the church, His body, of which He is the Savior.",
+    "ult_verse_text": "किनकि पति पत्‍नीको शिर हो जसरी ख्रीष्ट पनि मण्डलीको शिर हुनुहुन्छ — उहाँ आफैं शरीरको मुक्तिदाता {हुनुहुन्छ}।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "κεφαλὴ τῆς γυναικὸς & κεφαλὴ τῆς ἐκκλησίας",
+        "note": "“शिर” शब्दले अगुवालाई प्रतिनिधित्व गर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:25",
+    "bsb_verse_text": "Husbands, love your wives, just as Christ loved the church and gave Himself up for her",
+    "ult_verse_text": "पतिहरू हो, आफ्ना पत्‍नीहरूलाई प्रेम गर जसरी ख्रीष्टले पनि मण्डलीलाई प्रेम गर्नुभयो र त्यसको निम्ति आफूलाई अर्पण गर्नुभयो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "यहाँ “उहाँ आफैँ” वा “उहाँ” भन्‍ने शब्दले ख्रीष्‍टलाई जनाउँछन् । “त्यसलाई” भन्‍ने शब्दले मण्डलीलाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀγαπᾶτε τὰς γυναῖκας",
+        "note": "यहाँ “प्रेम” शब्दले निस्वार्थ सेवा वा पत्‍नीहरूलाई प्रेम दिने कुरालाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἑαυτὸν παρέδωκεν",
+        "note": "“मानिसहरूलाई उहाँलाई मार्न दिनुभयो”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὑπὲρ αὐτῆς",
+        "note": "पावलले विश्‍वासीहरूको समूहलाई ख्रीष्‍टले विवाह गर्नुहुने स्‍त्रीको रूपमा उल्लेख गर्छन् । वैकल्पिक अनुवादः “हाम्रा निम्ति” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:26",
+    "bsb_verse_text": "to sanctify her, cleansing her by the washing with water through the word,",
+    "ult_verse_text": "ताकि उहाँले तिनलाई पवित्र बनाउनुभएको होस्, वचनको साथ पानीले धोएर।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "καθαρίσας τῷ λουτρῷ τοῦ ὕδατος ἐν ῥήματι",
+        "note": "सम्भावित अर्थहरू हुन् १) परमेश्‍वरले ख्रीष्‍टका मानिसहरूलाई परमेश्‍वरको वचन र ख्रीष्‍टमा पानीको बप्‍तिस्माद्वारा शुद्ध गर्नुभएको कुरालाई पावलले जनाइरहेका छन् वा २) परमेश्‍वरले हामीलाई हाम्रा पापहरूबाट सन्देशद्वारा आत्मिक रूपमा सफा बनाउने कुरा चाहिँ परमेश्‍वरले हाम्रा शरीरहरूलाई पानीले धोएर सफा बनाइरहनुभएको झैँ गरेर पावलले बताउँछन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "αὐτὴν ἁγιάσῃ, καθαρίσας",
+        "note": "पावलले विश्‍वासीहरूको समूहलाई ख्रीष्‍टले विवाह गर्नुहुने स्‍त्रीको रूपमा उल्लेख गर्छन् । वैकल्पिक अनुवादः “हामीलाई पवित्र बनाउन ... हामीलाई शुद्ध बनाउनुभयो” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:27",
+    "bsb_verse_text": "and to present her to Himself as a glorious church, without stain or wrinkle or any such blemish, but holy and blameless.",
+    "ult_verse_text": "ताकि उहाँले मण्डलीलाई आफ्‍नो निम्ति महिमाको रूपमा प्रस्तुत गरून्, दाग वा चाउरी वा ती चीजहरू मध्ये कुनै पनि नभएको, तर तिनी पवित्र र निर्दोष हुन सक्छिन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "μὴ ἔχουσαν σπίλον, ἢ ῥυτίδα",
+        "note": "पावलले मण्डलीलाई सफा र राम्रो अवस्थामा रहेको कपडाको रूपमा उल्लेख गर्छन् । मण्डलीको शुद्धतालाई जोड दिनका लागि उनले एउटै अवधारणालाई दुई तरिकाहरूमा प्रयोग गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]] अनि [[rc://ne/ta/man/translate/figs-doublet]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "ἁγία καὶ ἄμωμος",
+        "note": "“खोटरहित” भन्‍ने वाक्यांशले मूलभूत रूपमा “पवित्र” भनेको जस्‍तै अर्थ दिन्छ । पावलले मण्डलीको शुद्धतालाई जोड दिनका लागि यी दुई शब्दहरूलाई सँगै प्रयोग गर्छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:28",
+    "bsb_verse_text": "In the same way, husbands ought to love their wives as their own bodies. He who loves his wife loves himself.",
+    "ult_verse_text": "त्यसैगरी पतिहरूले पनि आफ्नी पत्‍नीलाई आफ्नो शरीरलाई जस्तै माया गर्नुपर्छ। आफ्नी पत्‍नीलाई प्रेम गर्नेले आफैलाई प्रेम गर्छ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "ὡς τὰ ἑαυτῶν σώματα",
+        "note": "मानिसहरूले आफ्ना शरीरहरूलाई प्रेम गर्छन् भन्‍ने कुरालाई स्पष्‍टसँग उल्लेख गर्न सकिन्छ । वैकल्पिक अनुवादः “पतिहरूले आफ्ना शरीरहरूलाई प्रेम गरेजस्तै” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:29",
+    "bsb_verse_text": "Indeed, no one ever hated his own body, but he nourishes and cherishes it, just as Christ does the church.",
+    "ult_verse_text": "किनकि कसैले पनि आफ्नो शरीरलाई घृणा गर्दैन, तर ख्रीष्टले पनि मण्डलीलाई {गरे}झैं त्यसले आफ्नो शरीरलाई पोषण र हेरचाह गर्छ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀλλὰ ἐκτρέφει",
+        "note": "“तर खुवाउँछ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:30",
+    "bsb_verse_text": "For we are members of His body.",
+    "ult_verse_text": "किनभने हामी उहाँको शरीरका अंग हौं।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "μέλη ἐσμὲν τοῦ σώματος αὐτοῦ",
+        "note": "यहाँ पावलले विश्‍वास गर्नेहरूको येशूसँगको घनिष्‍ठ सम्बन्धको विषयमा मानौँ तिनीहरू उहाँको शरीरका भागहरू भए झैँ गरेर बताउँछन्, जसको लागि तिनिहरूले स्वभाविक रूपमा हेरचाह गर्ने थिए । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 5:31",
+    "bsb_verse_text": "“For this reason a man will leave his father and mother and be united to his wife, and the two will become one flesh.”",
+    "ult_verse_text": "\"यस कारणले गर्दा मानिसले {आफ्नो} बुबा र {आफ्नो} आमालाई छोडेर आफ्नी पत्‍नीसँग मिल्नेछ, र ती दुई एउटै शरीर हुनेछन्।\"",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "यो उद्धरण पुरानो करारको मोशाका लेखहरूबाट लिइएको हो । “आफ्नो” र “आफैँलाई” भन्‍ने शब्दहरूले पुरुष विश्‍वासीलाई जनाउँछन् जसले विवाह गर्छ ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:1",
+    "bsb_verse_text": "Children, obey your parents in the Lord, for this is right.",
+    "ult_verse_text": "छोराछोरीहरू, प्रभुमा आफ्ना आमाबाबुको आज्ञा पालन गर, किनकि यो धर्मी हो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-you",
+        "orig_language_quote": "सामान्य जानकारीः",
+        "note": "सुरुको “तिमीहरूको” भन्‍ने शब्द बहुवचनमा छ । त्यसपछि पावल मोशाको भनाइलाई उद्‌धृत गर्छन् । मोशाले इस्राएलका मानिसहरूसँग बोल्दा तिनीहरू एउटै व्यक्ति भए झैँ गरी कुरा गरिरहेका थिए, त्यसैले “तिम्रो” र “तिमी” भन्‍ने शब्दहरू एकवचनमा छन् । तपार्इंले तिनीहरूलाई बहुवचनको रूपमा अनुवाद गर्नुपर्ने हुन सक्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-you]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "ख्रीष्‍टिएनहरूले कसरी आफैँलाई एक अर्कामा सुम्पनुपर्छ भन्‍ने कुरा बताउन पावलले निरन्तरता दिन्छन् । उनले छोराछोरीहरू, बाबुहरू, कादारहरू, र मालिकहरूलाई निर्देशन दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἐν Κυρίῳ",
+        "note": "पावलले छोराछोरीहरूलाई तिनीहरूका शारीरिक बाबुआमाको आज्ञापालन गर्नलाई सम्झना गराउँछन् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:4",
+    "bsb_verse_text": "Fathers, do not provoke your children to wrath; instead, bring them up in the discipline and instruction of the Lord.",
+    "ult_verse_text": "र बुबाहरू, आफ्ना छोराछोरीहरूलाई रिस नउठाओ। बरु, तिनीहरूलाई प्रभुको अनुशासन र निर्देशनमा हुर्काओ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "μὴ παροργίζετε τὰ τέκνα ὑμῶν",
+        "note": "“तिमीहरूका छोराछोरीहरूलाई रिसाउने नबनाओ” वा “तिमीहरूका छोराछोरीहरूलाई रिसाउने नतुल्याओ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-abstractnouns",
+        "orig_language_quote": "ἐκτρέφετε αὐτὰ ἐν παιδείᾳ καὶ νουθεσίᾳ Κυρίου",
+        "note": "“अनुशासन” र “निर्देशन” जस्ता भाववाचक नामपद शब्दहरूलाई क्रियापदहरूको रूपमा व्यक्त गर्न सकिन्छ । वैकल्‍पिक अनुवादः “तिनीहरूले के गरेको प्रभु चाहनुहुन्छ भन्‍ने कुरा तिनीहरू जान्दछन् भनी पक्‍का गरेर तिनीहरूलाई वयस्कहरू बन्‍नलाई सहायता गर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-abstractnouns]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:5",
+    "bsb_verse_text": "Slaves, obey your earthly masters with respect and fear and sincerity of heart, just as you would obey Christ.",
+    "ult_verse_text": "दासहरू हो, ख्रीष्टको जस्तै आफ्नो हृदयको इमानदारीसाथ डर र काँप्दै शरीरअनुसार आफ्ना मालिकहरूको आज्ञापालन गर।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "प्रति आज्ञाकारी बन",
+        "note": "“आज्ञापालन गर ।” यो एउटा आज्ञा हो ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-doublet",
+        "orig_language_quote": "φόβου καὶ τρόμου",
+        "note": "“गहिरो आदर र कम्प” भन्‍ने वाक्यांशले तिनीहरूका मालिकहरूलाई सम्‍मान गर्ने कुराको महत्त्वलाई जोड दिनका लागि दुईवटा उस्तै अवधारणाहरूलाई प्रयोग गर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-doublet]] अनि [[rc://ne/ta/man/translate/figs-idiom]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-hyperbole",
+        "orig_language_quote": "καὶ τρόμου",
+        "note": "यहाँ “कम्‍प” भनेको अतिरञ्‍जन हो जुन दासहरूले तिनीहरूका मालिकहरूको आज्ञापालन गर्न कति महत्त्वपूर्ण छ भनी जोड दिनलाई प्रयोग गरिएको छ । वैकल्पिक अनुवादः “र डर” वा “मानौँ तिमीहरू डरले कामिरहेका थियौ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-hyperbole]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐν ἁπλότητι τῆς καρδίας ὑμῶν",
+        "note": "यहाँ “हृदय” भनेको व्यक्तिको दिमाग वा अभिप्रायहरूलाई जनाउने प्रतिस्थापन शब्द हो । वैकल्‍पिक अनुवादः “इमान्दारीसाथ” वा “निष्‍कपटताको साथ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:6",
+    "bsb_verse_text": "And do this not only to please them while they are watching, but as servants of Christ, doing the will of God from your heart.",
+    "ult_verse_text": "मानिसहरूलाई खुसी पार्ने आँखाको सेवाले होइन, तर ख्रीष्टका दासहरू भएर, आत्माबाट परमेश्‍वरको इच्छा पूरा गर।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "ὡς δοῦλοι Χριστοῦ",
+        "note": "तिमीहरूका पार्थिव मालिकहरू ख्रीष्‍ट नै भए झैँ गरी तिनीहरूको सेवा गर ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ἐκ ψυχῆς",
+        "note": "यहाँ “हृदय” भनेको “सोचाइहरू” वा “अभिप्रायहरू”लाई जनाउने प्रतिस्थापन शब्द हो । वैकल्‍पिक अनुवादः “निष्‍कपटताको साथ” वा “उत्साहित भएर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:7",
+    "bsb_verse_text": "Serve with good will, as to the Lord and not to men,",
+    "ult_verse_text": "मानिसहरूलाई होइन तर प्रभुको निम्ति राम्रो मनोवृत्तिको साथ सेवा गर्दै,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "तिमीहरूका सारा हृदयले सेवा गर",
+        "note": "यहाँ “हृदय” भनेको “सोचाइहरू” वा “भित्री मनुष्‍यत्व”लाई जनाउने प्रतिस्थापन शब्द हो । वैकल्‍पिक अनुवादः “तिमीहरूका सारा प्राणले सेवा गर” वा “तिमीहरूले सेवा गर्दा पूर्ण रूपमा समर्पित होओ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:9",
+    "bsb_verse_text": "And masters, do the same for your slaves. Give up your use of threats, because you know that He who is both their Master and yours is in heaven, and there is no favoritism with Him.",
+    "ult_verse_text": "र मालिकहरू, तिनीहरूलाई पनि त्यस्तै गर। धम्कीहरू प्रयोग गर्न बन्द गर। तिमीहरूलाई थाहा छ – गुरु दुवै तिनीहरूको र तिम्रो स्वर्गमा हुनुहुन्छ, उहाँसँग कुनै पक्षपात छैन।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὰ αὐτὰ ποιεῖτε πρὸς αὐτούς",
+        "note": "“तिमीहरूले पनि आफ्‍ना दासहरूलाई राम्रो व्यवहार गर्नुपर्छ” वा “जसरी दासहरूले तिनीहरूका मालिकहरूलाई असल गर्नुपर्छ, तिमीहरूले पनि आफ्‍ना दासहरूलाई राम्रो गर्नुपर्छ” (हेर्नुहोस्ः [एफिसीहरू ६:५](./05.md))"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰδότες ὅτι καὶ αὐτῶν καὶ ὑμῶν ὁ Κύριός ἐστιν ἐν οὐρανοῖς",
+        "note": "“ख्रीष्‍ट चाहिँ दासहरू र तिनीहरूका मालिकहरू दुवैका मालिक हुनुहुन्छ, र उहाँ स्वर्गमा हुनुहुन्छ भनेर तिमीहरू जान्दछौ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "προσωπολημψία οὐκ ἔστιν παρ’ αὐτῷ",
+        "note": "“उहाँले सबैजनालाई एक समान तरिकाले इन्साफ गर्नुहुन्छ”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:10",
+    "bsb_verse_text": "Finally, be strong in the Lord and in His mighty power.",
+    "ult_verse_text": "अन्तमा, प्रभुमा र उहाँको शक्तिको बलमा बलियो होओ।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "परमेश्‍वरको निम्ति हामी जिउने यस युद्धमा विश्‍वासीहरूलाई बलियो बनाउनको निम्ति पावलले निर्देशनहरू दिन्छन् ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τῷ κράτει τῆς ἰσχύος αὐτοῦ",
+        "note": "“उहाँको महान् शक्ति ।” “उहाँको शक्तिको सामर्थ्य”लाई [एफिसीहरू १:२१](../01/19.md) अन्ततिर कसरी अनुवाद गरिएको छ, सो हेर्नुहोस् ।"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:11",
+    "bsb_verse_text": "Put on the full armor of God, so that you can make your stand against the devil’s schemes.",
+    "ult_verse_text": "शैतानको षडयन्त्रको बिरूद्ध खडा हुन सक्षम हुनको लागि परमेश्‍वरको सम्पूर्ण हतियार धारण गर।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐνδύσασθε τὴν πανοπλίαν τοῦ Θεοῦ, πρὸς τὸ δύνασθαι ὑμᾶς στῆναι πρὸς τὰς μεθοδίας τοῦ διαβόλου",
+        "note": "एक सिपाहीले दुश्मनका आक्रमणहरूबाट आफैँलाई बचाउनको निम्ति हातहतियार धारण गरे झैँ गरी दुष्‍टको विरुद्धमा स्थिर भएर खडा हुनको निम्ति परमेश्‍वरले दिनुहुने सबै साधनहरूलाई ख्रीष्‍टिएनहरूले प्रयोग गर्नुपर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "τὰς μεθοδίας",
+        "note": "“छलपूर्ण योजनाहरू”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:12",
+    "bsb_verse_text": "For our struggle is not against flesh and blood, but against the rulers, against the authorities, against the powers of this world’s darkness, and against the spiritual forces of evil in the heavenly realms.",
+    "ult_verse_text": "किनकि हाम्रो सङ्घर्ष रगत र मासुको विरुद्धमा होइन, तर शासकहरू, अधिकारीहरू, यस अन्धकारको संसार-नियन्त्रकहरू, स्वर्गीय स्थानहरूमा भएका दुष्टताका आत्मिक शक्तिहरू विरुद्ध हो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-synecdoche",
+        "orig_language_quote": "αἷμα καὶ σάρκα",
+        "note": "यस अभिव्यक्तिले मानिसहरूलाई जनाउँछ, आत्माहरूलाई होइन जसको मानवीय शरीर हुँदैन । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-synecdoche]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "πρὸς τοὺς κοσμοκράτορας",
+        "note": "यहाँ “शक्तिहरू”ले शक्तिशाली आत्मिक प्राणीहरूलाई जनाउँछ भनेर अर्थ लगाइएको छ । यहाँ “अन्धकार” भनेको दुष्‍ट थोकहरूका निम्ति एउटा अलङ्कार हो । वैकल्‍पिक अनुवादः “शक्तिशाली आत्मिक प्राणीहरूको विरुद्धमा जसले यस वर्तमान दुष्‍ट समयमा मानिसहरूमाथि शासन गर्छन्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]] अनि [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:13",
+    "bsb_verse_text": "Therefore take up the full armor of God, so that when the day of evil comes, you will be able to stand your ground, and having done everything, to stand.",
+    "ult_verse_text": "यस कारणले गर्दा, परमेश्‍वरको सम्पूर्ण हतियार लगाओ, ताकि तिमीहरू दुष्ट दिनमा सामना गर्न सक्षम हुनेछौ, र, सबै कुरा गरेपछि, खडा हुन।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "διὰ τοῦτο, ἀναλάβετε τὴν πανοπλίαν τοῦ Θεοῦ",
+        "note": "एउटा सिपाहीले आफैँलाई शत्रुहरूबाट बचाउन हातहतियार धारण गरे जस्तै गरी ख्रीष्‍टिएनहरूले दुष्‍टसँग लड्नको निम्ति परमेश्‍वरले दिनुहुने सबै सुरक्षाका साधनहरूको प्रयोग गर्नुपर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἵνα δυνηθῆτε ἀντιστῆναι ἐν τῇ ἡμέρᾳ τῇ πονηρᾷ",
+        "note": "“स्थिर भएर खडा हुनु” भन्‍ने शब्दहरूले सफलतापूर्वक केही कुराको विरोध गर्ने वा त्यससँग लड्ने कुरालाई प्रतिनिधित्व गर्छ । वैकल्‍पिक अनुवादः “ताकि तिमीहरू दुष्‍टताको विरोध गर्न सक” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:14",
+    "bsb_verse_text": "Stand firm then, with the belt of truth buckled around your waist, with the breastplate of righteousness arrayed,",
+    "ult_verse_text": "यसकारण, सत्यले आफ्नो कम्मर बाँधेर र धार्मिकताको छाती-पाता लगाएर खडा होओ,",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "στῆτε οὖν",
+        "note": "“खडा हुनु” भन्‍ने शब्दहरूले सफलतापूर्वक केही कुराको विरोध गर्ने वा त्यससँग लड्ने कुरालाई प्रतिनिधित्व गर्छ । तपाईंले यसलाई तपार्इंले [एफिसीहरू ६:१३](./12.md) मा कसरी अनुवाद गर्नुभयो, सो हेर्नुहोस् । “त्यसैले दुष्‍टताको विरोध गर” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "περιζωσάμενοι τὴν ὀσφὺν ὑμῶν ἐν ἀληθείᾳ",
+        "note": "एउटा सिपाहीको लुगालाई उसको पेटीले पक्रेर राखेको जस्तै गरी एउटा विश्‍वासीको निम्ति सत्यताले सबै कुरालाई एकसाथ थाम्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "सत्यता & धार्मिकता",
+        "note": "हामीले सत्यता जान्‍नुपर्छ र परमेश्‍वरलाई प्रसन्‍न तुल्याउने तरिकाहरूमा व्यवहार गर्नुपर्छ ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "धार्मिकताको छाती-पाता",
+        "note": "सम्भावित अर्थहरू हुन् १) छाती-पाताले एउटा सिपाहीको छातीको सुरक्षा गरे झैँ गरी धार्मिकताको वरदानले विश्‍वासीको हृदयलाई छेक्छ वा २) परमेश्‍वरले चाहनुभएजस्तै गरी हामी जिउने कुराले हामीलाई सफा विवेक दिन्छ जसले हाम्रा हृदयहरूलाई छाती-पाताले सिपाहीको छातीलाई बचाएको जस्तै गरी सुरक्षा दिन्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:15",
+    "bsb_verse_text": "and with your feet fitted with the readiness of the gospel of peace.",
+    "ult_verse_text": "र शान्तिको सुसमाचारको तयारीको साथ आफ्नो खुट्टामा जुत्ता लगाएर।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ὑποδησάμενοι τοὺς πόδας ἐν ἑτοιμασίᾳ τοῦ εὐαγγελίου τῆς εἰρήνης",
+        "note": "जसरी राम्ररी टेक्‍नलाई एक सिपाहीले जुत्ताहरू लगाउँछ, शान्तिको सुसमाचारलाई घोषणा गर्नलाई तयार रहनका निम्ति विश्‍वासीसँग त्यसको राम्रो ज्ञान हुनुपर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:16",
+    "bsb_verse_text": "In addition to all this, take up the shield of faith, with which you can extinguish all the flaming arrows of the evil one.",
+    "ult_verse_text": "सबै कुरामा विश्‍वासको ढाल लिओ, जसद्वारा तिमीहरूले दुष्टका सबै ज्वालामुखी तीरहरू निभाउन सक्षम हुनेछौ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "ἐν πᾶσιν ἀναλαβόντες τὸν θυρεὸν τῆς πίστεως",
+        "note": "एउटा सिपाहीले शत्रुको आक्रमणहरूबाट बच्‍नको निम्ति ढाल प्रयोग गरे झैँ गरी दुष्‍टले आक्रमण गरेको समयमा सुरक्षा पाउनलाई परमेश्‍वरले दिनुहुने विश्‍वासलाई विश्‍वासीले प्रयोग गर्नुपर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὰ βέλη τοῦ πονηροῦ πεπυρωμένα",
+        "note": "एक विश्‍वासीको विरुद्धमा भएका दुष्‍टका आक्रमणहरू चाहिँ शत्रुद्वारा एक सिपाहीलाई हानिएका अग्‍निवाणहरू जस्तै छन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:17",
+    "bsb_verse_text": "And take the helmet of salvation and the sword of the Spirit, which is the word of God.",
+    "ult_verse_text": "र मुक्तिको टोप र आत्माको तरवार लिओ, जुन परमेश्‍वरको वचन हो।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὴν περικεφαλαίαν τοῦ σωτηρίου δέξασθε",
+        "note": "टोपले एउटा सिपाहीको शिरको सुरक्षा गरे झैँ गरी परमेश्‍वरद्वारा दिइएको मुक्तिले विश्‍वासीको मनको सुरक्षा गर्छ । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metaphor",
+        "orig_language_quote": "τὴν & μάχαιραν τοῦ Πνεύματος, ὅ ἐστιν ῥῆμα Θεοῦ",
+        "note": "लेखकले परमेश्‍वरका मानिसहरूका लागि भएका उहाँका निर्देशनहरूको विषयमा तिनीहरू कुनै शत्रुसँग लड्नलाई मानिसहरूले प्रयोग गर्न सक्‍ने कुनै तरवार भए झैँ गरेर बताउँछन् । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metaphor]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:18",
+    "bsb_verse_text": "Pray in the Spirit at all times, with every kind of prayer and petition. To this end, stay alert with all perseverance in your prayers for all the saints.",
+    "ult_verse_text": "हरेक प्रार्थना र अनुरोधको साथ, आत्मामा सधैं प्रार्थना गर। र यस अन्तको लागि, सबै सन्तहरूको लागि सबै लगनशीलता र अनुरोधका साथ सतर्क रहो,",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "διὰ πάσης προσευχῆς καὶ δεήσεως, προσευχόμενοι ἐν παντὶ καιρῷ ἐν Πνεύματι",
+        "note": "“हर समय आत्मामा रही प्रार्थना गर जसै तिमीहरू प्रार्थना गर्छौ र खास अनुरोधहरू राख्छौ”"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "εἰς αὐτὸ",
+        "note": "“यसै कारण” वा “यसलाई मनमा राख्दै ।” यसले परमेश्‍वरका हातहतियार धारण गर्ने आचरणलाई जनाउँछ ।"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "ἀγρυπνοῦντες ἐν πάσῃ προσκαρτερήσει καὶ δεήσει περὶ πάντων τῶν ἁγίων",
+        "note": "“सतर्क रहनमा सहनधील होओ, र परमेश्‍वरका सबै पवित्र मानिसहरूका लागि प्रार्थना गर” वा “सारा विश्‍वासीहरूका लागि निरन्तर सतर्कताका साथ प्रार्थना गर”"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:19",
+    "bsb_verse_text": "Pray also for me, that whenever I open my mouth, words may be given me so that I will boldly make known the mystery of the gospel,",
+    "ult_verse_text": "र मेरो लागि, ताकि मैले आफ्नो मुख खोल्दा म सन्देश दिन सकूँ, साहसका साथ सुसमाचारको रहस्यलाई बताउन",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "उनको समापनमा, झ्यालखानामा हुँदा सुसमाचार प्रचार गर्न साहस मिलोस् भनेर प्रार्थना गरिदिनको निम्ति पावलले अनुरोध गर्छन् र तिनीहरूलाई सान्त्वना दिनको निम्ति उनले तुखिकसलाई पठाइरहेका छन् भनी भन्छन् ।"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-activepassive",
+        "orig_language_quote": "ἵνα μοι δοθῇ λόγος",
+        "note": "यसलाई कर्तृ वाच्यमा व्यक्त गर्न सकिन्छ । वैकल्पिक अनुवादः “कि परमेश्‍वरले मलाई वचन दिनुभएको होस्” वा “परमेश्‍वरले मलाई सन्देश दिनुभएको होस्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-activepassive]])"
+      },
+      {
+        "support_reference": "",
+        "orig_language_quote": "जब म मेरो मुख खोल्छु । मैले साहसका साथ थाहा गराउन सकूँ भनेर प्रार्थना गर",
+        "note": "“जब म बोल्छु । मैले निर्भयताका साथ व्याख्या गर्न सकूँ भनेर प्रार्थना गरिदेओ”"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-idiom",
+        "orig_language_quote": "ἀνοίξει τοῦ στόματός μου",
+        "note": "यो बोल्‍ने कुरालाई जनाउने प्रतिस्थापन शब्द हो । वैकल्पिक अनुवादः “बोल्‍नु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-idiom]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:20",
+    "bsb_verse_text": "for which I am an ambassador in chains. Pray that I may proclaim it fearlessly, as I should.",
+    "ult_verse_text": "(जसको लागि म साङ्लोले बाँधेको राजदूत हुँ), ताकि यसमा म साहसपूर्वक बोल्न सकूँ, जसरी मलाई बोल्न आवश्यक छ।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "ὑπὲρ οὗ πρεσβεύω ἐν ἁλύσει",
+        "note": "“साङ्लाहरूमा” भन्‍ने शब्दहरू चाहिँ कैदमा भएको कुरालाई जनाउने प्रतिस्थापन शब्द हो । वैकल्पिक अनुवादः “म सुसमाचारको प्रतिनिधि भएको हुनाले अहिले म झ्यालखानामा छु” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      },
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-explicit",
+        "orig_language_quote": "ἵνα ἐν αὐτῷ παρρησιάσωμαι, ὡς δεῖ με λαλῆσαι",
+        "note": "पद १९ बाट “प्रार्थना” शब्दलाई बुझिएको छ । वैकल्पिक अनुवादः “त्यसैले प्रार्थना गर कि जब पनि म सुसमाचार सिकाउँछु, मैले जति साहसिलो भएर बोल्‍नुपर्छ त्यति नै साहसिलो भएर बोल्‍न सकूँ” वा “प्रार्थना गर कि मैले सुसमाचारलाई जति साहसिलो भएर भन्‍नुपर्छ त्यति नै साहसिलो भएर भन्‍न सकूँ” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-explicit]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:21",
+    "bsb_verse_text": "Tychicus, the beloved brother and faithful servant in the Lord, will tell you everything, so that you also may know about me and what I am doing.",
+    "ult_verse_text": "तर म कसरी गरिरहेको छु भनी तिमीहरूलाई पनि थाहा होस् भनेर, प्रभुमा प्रिय भाइ र विश्‍वासयोग्य सेवक तुखिकसले तिमीहरूलाई सबै कुरा बताउनेछन्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/translate-names",
+        "orig_language_quote": "Τυχικὸς",
+        "note": "पावलसँगै सेवा गर्ने धेरै मानिसहरूमध्ये तुखिकस एक थिए । (हेर्नुहोस्ः [[rc://ne/ta/man/translate/translate-names]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:22",
+    "bsb_verse_text": "I have sent him to you for this very purpose, that you may know about us, and that he may encourage your hearts.",
+    "ult_verse_text": "जसलाई मैले तिमीहरूकहाँ यस उद्देश्यका लागि पठाएको हुँ, ताकि तिमीहरूले हाम्रो बारेमा के कुराहरू जान्‍न सक र तिमीहरूको हृदयलाई प्रोत्साहन मिलोस्।",
+    "notes": [
+      {
+        "support_reference": "rc://*/ta/man/translate/figs-metonymy",
+        "orig_language_quote": "παρακαλέσῃ τὰς καρδίας ὑμῶν",
+        "note": "यहाँ “हृदयहरू” भनेको मानिसहरूको भित्री मनुष्‍यत्वलाई जनाउने प्रतिस्थापन शब्द हो । वैकल्‍पिक अनुवादः “ताकि उहाँले तिमीहरूलाई प्रोत्साहन गर्नुभएको होस्” (हेर्नुहोस्ः [[rc://ne/ta/man/translate/figs-metonymy]])"
+      }
+    ]
+  },
+  {
+    "reference": "Eph 6:23",
+    "bsb_verse_text": "Peace to the brothers and love with faith from God the Father and the Lord Jesus Christ.",
+    "ult_verse_text": "परमेश्‍वर पिता र प्रभु येशू ख्रीष्टबाट भाइहरूलाई शान्ति, र विश्‍वासका साथ प्रेम।",
+    "notes": [
+      {
+        "support_reference": "",
+        "orig_language_quote": "जोड्ने कथनः",
+        "note": "ख्रीष्‍टलाई प्रेम गर्ने सबै विश्‍वासीहरूमा शान्ति र अनुग्रहको आशिष् रहोस् भन्दै पावलले एफिसी विश्‍वासीहरूका निम्ति लेखेका उनको यस पत्रलाई अन्त्य गर्छन् ।"
+      }
+    ]
+  }
+]
