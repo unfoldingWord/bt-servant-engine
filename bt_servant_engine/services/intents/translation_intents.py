@@ -210,6 +210,7 @@ Style:
 - Write in clear prose (avoid lists unless the content is inherently a short list).
 - Cite verse numbers inline (e.g., "1:1–3", "3:16") where helpful.
 - Be faithful and restrained; do not speculate beyond the provided context.
+- Respond in the same language as the translation notes provided in the input.
 """
 
 
@@ -742,7 +743,12 @@ def get_translation_helps(
             payload.ref_label,
             payload.context_obj,
         )
-        logger.info("[translation-helps] invoking LLM with %d helps", len(payload.raw_helps))
+        expected_lang = request.user_response_language or "en"
+        logger.info(
+            "[translation-helps] invoking LLM with %d helps; expecting %s output",
+            len(payload.raw_helps),
+            expected_lang,
+        )
         resp = request.client.responses.create(
             model=model_name,
             instructions=TRANSLATION_HELPS_AGENT_SYSTEM_PROMPT,
