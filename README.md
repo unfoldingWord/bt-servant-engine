@@ -326,8 +326,8 @@ When a user requests resources in an unfamiliar language:
 | `MCP_SERVER_URL` | (SDK default) | Translation Helps MCP server URL |
 | `REACT_MAX_ITERATIONS` | `5` | Maximum Think→Act→Observe cycles |
 | `REACT_THINK_MODEL` | `gpt-4o` | LLM model for reasoning |
-| `REACT_TOOL_MAX_CHARS` | `5000` | Max characters per tool response |
-| `REACT_TOTAL_MAX_CHARS` | `15000` | Max total content across all tools |
+| `REACT_TOOL_MAX_CHARS` | `15000` | Max characters per tool response |
+| `REACT_TOTAL_MAX_CHARS` | `50000` | Max total content across all tools |
 | `REACT_FALLBACK_LANGUAGE` | `en` | Language to use when requested unavailable |
 
 ### Logging

@@ -80,8 +80,8 @@ class Settings(BaseSettings):
     # ReAct Agentic MCP Configuration
     REACT_MAX_ITERATIONS: int = Field(default=5)
     REACT_THINK_MODEL: str = Field(default="gpt-4o")
-    REACT_TOOL_MAX_CHARS: int = Field(default=5000)
-    REACT_TOTAL_MAX_CHARS: int = Field(default=15000)
+    REACT_TOOL_MAX_CHARS: int = Field(default=15000)
+    REACT_TOTAL_MAX_CHARS: int = Field(default=50000)
     REACT_FALLBACK_LANGUAGE: str = Field(default="en")
 
     OPENAI_PRICING_JSON: str = Field(
