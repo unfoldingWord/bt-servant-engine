@@ -657,11 +657,21 @@ async def _run_react_mcp_async(
 
     # Connect to MCP server
     server_url = os.getenv("MCP_SERVER_URL")
-    client_options: ClientOptions | None = (
-        cast(ClientOptions, {"serverUrl": server_url}) if server_url else None
-    )
+    if not server_url:
+        logger.error("[react-mcp] MCP_SERVER_URL not set - cannot connect to MCP server")
+        return FAILURE_MESSAGE_EN
+
+    client_options = cast(ClientOptions, {"serverUrl": server_url})
     mcp_client = TranslationHelpsClient(client_options)
-    await mcp_client.connect()
+
+    try:
+        await mcp_client.connect()
+    except Exception as conn_exc:
+        logger.error(
+            "[react-mcp] Failed to connect to MCP server",
+            extra={"server_url": server_url, "error": str(conn_exc)},
+        )
+        return FAILURE_MESSAGE_EN
 
     try:
         # Load full manifest (no whitelist)
