@@ -129,6 +129,8 @@ class ReActContext:
     user_message: str
     intent: IntentType
     manifest: Dict[str, MCPToolSpec]
+    chat_history: List[Dict[str, str]] = field(default_factory=list)
+    user_language: str = "en"
     history: List[IterationLog] = field(default_factory=list)
     accumulated_content: str = ""
 
@@ -249,9 +251,13 @@ The user is a translator who needs the raw material, not a summary.
 }}
 
 # Context
-User: {user_message}
+User's current message: {user_message}
 Intent: {intent}
-History: {history_summary}
+User's preferred language: {user_language}
+Conversation history (most recent first):
+{chat_history}
+
+Tool iteration history: {history_summary}
 """
 
 
@@ -399,6 +405,23 @@ async def _load_full_manifest(client: Any) -> Dict[str, MCPToolSpec]:
     return specs
 
 
+def _format_chat_history(chat_history: List[Dict[str, str]], max_messages: int = 5) -> str:
+    """Format chat history for the prompt, most recent first."""
+    if not chat_history:
+        return "(No previous conversation)"
+
+    # Take most recent messages
+    recent = chat_history[-max_messages:] if len(chat_history) > max_messages else chat_history
+    lines = []
+    for msg in reversed(recent):  # Most recent first
+        role = msg.get("role", "unknown")
+        content = msg.get("content", "")[:200]  # Truncate long messages
+        if len(msg.get("content", "")) > 200:
+            content += "..."
+        lines.append(f"- {role}: {content}")
+    return "\n".join(lines)
+
+
 def _think(
     deps: MCPAgenticDependencies,
     context: ReActContext,
@@ -409,6 +432,8 @@ def _think(
         manifest_json=_manifest_summary(context.manifest),
         user_message=context.user_message,
         intent=context.intent.value,
+        user_language=context.user_language,
+        chat_history=_format_chat_history(context.chat_history),
         history_summary=_history_summary(context.history),
     )
 
@@ -694,11 +719,20 @@ async def _run_react_mcp_async(
             logger.warning("[react-mcp] Manifest is empty; aborting.")
             return FAILURE_MESSAGE_EN
 
+        # Extract conversation context from brain_state
+        chat_history: List[Dict[str, str]] = []
+        user_language = "en"
+        if deps.brain_state:
+            chat_history = deps.brain_state.get("user_chat_history", [])
+            user_language = deps.brain_state.get("user_response_language", "en") or "en"
+
         # Initialize context
         context = ReActContext(
             user_message=user_message,
             intent=intent,
             manifest=manifest,
+            chat_history=chat_history,
+            user_language=user_language,
         )
 
         # Main ReAct loop
