@@ -819,6 +819,7 @@ def handle_get_passage_summary(state: Any) -> dict:
         agentic_deps = MCPAgenticDependencies(
             openai_client=open_ai_client,
             extract_cached_tokens_fn=_extract_cached_input_tokens,
+            brain_state=cast(dict[str, Any], s),
         )
         logger.info("[agentic-mcp] using dev MCP flow for get-passage-summary")
         response_text = run_agentic_mcp(
@@ -856,6 +857,7 @@ def handle_get_passage_keywords(state: Any) -> dict:
         agentic_deps = MCPAgenticDependencies(
             openai_client=open_ai_client,
             extract_cached_tokens_fn=_extract_cached_input_tokens,
+            brain_state=cast(dict[str, Any], s),
         )
         logger.info("[agentic-mcp] using dev MCP flow for get-passage-keywords")
         response_text = run_agentic_mcp(
@@ -888,6 +890,7 @@ def handle_get_translation_helps(state: Any) -> dict:
         agentic_deps = MCPAgenticDependencies(
             openai_client=open_ai_client,
             extract_cached_tokens_fn=_extract_cached_input_tokens,
+            brain_state=cast(dict[str, Any], s),
         )
         logger.info("[agentic-mcp] using dev MCP flow for get-translation-helps")
         response_text = run_agentic_mcp(
@@ -928,6 +931,7 @@ def handle_retrieve_scripture(state: Any) -> dict:
         agentic_deps = MCPAgenticDependencies(
             openai_client=open_ai_client,
             extract_cached_tokens_fn=_extract_cached_input_tokens,
+            brain_state=cast(dict[str, Any], s),
         )
         logger.info("[agentic-mcp] using dev MCP flow for retrieve-scripture")
         response_text = run_agentic_mcp(

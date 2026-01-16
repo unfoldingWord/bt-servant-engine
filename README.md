@@ -135,6 +135,227 @@ All intent handlers live in `bt_servant_engine.services.intents` and rely on sha
 
 ---
 
+## Agentic MCP Workflow (Translation Helps)
+
+When `BT_DEV_AGENTIC_MCP=true`, the engine uses a ReAct (Reason + Act) agentic loop to orchestrate calls to the Translation Helps MCP server. This enables dynamic, multi-step workflows for Bible translation assistance.
+
+### Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           bt-servant-engine                                  │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │                         ReAct Agent Loop                             │    │
+│  │                                                                      │    │
+│  │   ┌──────────┐    ┌──────────┐    ┌──────────┐                      │    │
+│  │   │  THINK   │───>│   ACT    │───>│ OBSERVE  │──┐                   │    │
+│  │   │  (LLM)   │    │  (Tools) │    │ (Results)│  │                   │    │
+│  │   └──────────┘    └──────────┘    └──────────┘  │                   │    │
+│  │        ^                                         │                   │    │
+│  │        └─────────────────────────────────────────┘                   │    │
+│  │                    (repeat until done)                               │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
+│                                    │                                         │
+│                                    │ MCP Protocol                            │
+│                                    ▼                                         │
+└────────────────────────────────────┼─────────────────────────────────────────┘
+                                     │
+                                     ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                      Translation Helps MCP Server                            │
+│                     (tc-helps.mcp.servant.bible)                            │
+│                                                                              │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │                         Available Tools                              │    │
+│  │                                                                      │    │
+│  │  Discovery:                    Fetch:                                │    │
+│  │  ├─ list_languages             ├─ fetch_scripture                    │    │
+│  │  ├─ list_subjects              ├─ fetch_translation_notes            │    │
+│  │  ├─ list_resources_for_language├─ fetch_translation_word_links       │    │
+│  │  └─ search_translation_word_   ├─ fetch_translation_word             │    │
+│  │     across_languages           ├─ fetch_translation_academy          │    │
+│  │                                └─ fetch_translation_questions        │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
+│                                    │                                         │
+│                                    ▼                                         │
+│                           Door43 Content Service                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### ReAct Loop Flow
+
+The agent follows a Think → Act → Observe cycle (max 5 iterations by default):
+
+```mermaid
+flowchart TD
+    start["User Request"] --> manifest["Load Tool Manifest<br/>(dynamic discovery)"]
+    manifest --> think1["THINK: LLM reasons<br/>about next action"]
+
+    think1 -->|action: call_tools| act["ACT: Execute<br/>MCP tool calls"]
+    think1 -->|action: done| response["Return Response"]
+
+    act --> observe["OBSERVE: Process<br/>tool results"]
+    observe -->|failure detected| discover["Auto-discover:<br/>list_languages"]
+    observe -->|success| think2["THINK: What next?"]
+    discover --> think2
+
+    think2 -->|need more info| act
+    think2 -->|have enough| response
+
+    response --> done["Done"]
+
+    subgraph "Max 5 Iterations"
+        think1
+        act
+        observe
+        discover
+        think2
+    end
+
+    classDef default fill:#f5f7ff,stroke:#3451b2,stroke-width:1px,color:#1a1a1a;
+    classDef highlight fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    class think1,think2 highlight;
+```
+
+### Key Design Principles
+
+1. **No Hardcoded Whitelists**: Tools are discovered dynamically from the MCP manifest at runtime
+2. **Agent Orchestrates**: The ReAct agent decides which tools to call and in what order
+3. **Discovery on Demand**: For common languages (en, es, fr), tries direct fetch; discovers available resources on failure
+4. **Language Fallback**: Falls back to English when resources unavailable, with logged warnings
+
+### Example Workflow: "Translation helps for Matthew 5:3"
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Iteration 1                                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ THINK: "User wants translation helps for Matthew 5:3. I need to fetch       │
+│         scripture text and translation notes. Let me call multiple tools."  │
+│                                                                              │
+│ ACT:   → fetch_scripture(reference="mat 5:3", language="en")                │
+│        → fetch_translation_notes(reference="mat 5:3", language="en")        │
+│        → fetch_translation_word_links(reference="mat 5:3", language="en")   │
+│                                                                              │
+│ OBSERVE: ✓ Scripture: "Blessed are the poor in spirit..."                   │
+│          ✓ Notes: [key translation considerations]                          │
+│          ✓ Word links: [makarios, ptochos, pneuma]                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Iteration 2                                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ THINK: "I have scripture and notes. The word links show important terms.    │
+│         Let me fetch definitions for 'makarios' (blessed) and 'ptochos'     │
+│         (poor) to provide comprehensive help."                              │
+│                                                                              │
+│ ACT:   → fetch_translation_word(term="makarios", language="en")             │
+│        → fetch_translation_word(term="ptochos", language="en")              │
+│                                                                              │
+│ OBSERVE: ✓ makarios: "blessed, happy, fortunate..."                         │
+│          ✓ ptochos: "poor, needy, lacking..."                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Iteration 3                                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ THINK: "I now have everything needed to help with this passage:             │
+│         - Scripture text                                                     │
+│         - Translation notes with key considerations                          │
+│         - Word definitions for key terms                                     │
+│         I can provide a comprehensive response."                             │
+│                                                                              │
+│ ACTION: done                                                                 │
+│                                                                              │
+│ RESPONSE: "Matthew 5:3 says 'Blessed are the poor in spirit...'             │
+│            Key translation considerations:                                   │
+│            1. 'Blessed' (makarios) - means happy, fortunate...              │
+│            2. 'Poor in spirit' (ptochos pneuma) - refers to..."             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Discovery Workflow (Unfamiliar Language)
+
+When a user requests resources in an unfamiliar language:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Iteration 1                                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ THINK: "User wants translation notes in Amharic. I'm not sure what's        │
+│         available. Let me try fetching directly first."                      │
+│                                                                              │
+│ ACT:   → fetch_translation_notes(reference="mat 5:3", language="am")        │
+│                                                                              │
+│ OBSERVE: ✗ Error: "Resource not found for language 'am'"                    │
+│          → Auto-triggering discovery...                                      │
+│          → list_languages() → [en, es-419, fr, sw, ...]                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Iteration 2                                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ THINK: "Amharic (am) is not in the available languages. I should fall       │
+│         back to English and note this in my response."                       │
+│                                                                              │
+│ ACT:   → fetch_translation_notes(reference="mat 5:3", language="en")        │
+│                                                                              │
+│ OBSERVE: ✓ Notes: [translation considerations in English]                   │
+│          ⚠ Logged: "Language fallback: am → en (resource_unavailable)"      │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Iteration 3                                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ACTION: done                                                                 │
+│                                                                              │
+│ RESPONSE: "Translation notes for Matthew 5:3 (Note: Amharic resources       │
+│            are not yet available; showing English): ..."                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Configuration
+
+| Environment Variable | Default | Description |
+|---------------------|---------|-------------|
+| `BT_DEV_AGENTIC_MCP` | `false` | Enable/disable ReAct agentic mode |
+| `MCP_SERVER_URL` | (SDK default) | Translation Helps MCP server URL |
+| `REACT_MAX_ITERATIONS` | `5` | Maximum Think→Act→Observe cycles |
+| `REACT_THINK_MODEL` | `gpt-4o` | LLM model for reasoning |
+| `REACT_TOOL_MAX_CHARS` | `5000` | Max characters per tool response |
+| `REACT_TOTAL_MAX_CHARS` | `15000` | Max total content across all tools |
+| `REACT_FALLBACK_LANGUAGE` | `en` | Language to use when requested unavailable |
+
+### Logging
+
+All ReAct operations emit structured logs for debugging and verification:
+
+```json
+{"event": "[react-mcp] Starting ReAct loop", "intent": "get-translation-helps", "max_iterations": 5}
+{"event": "[react-mcp] Loaded tools from manifest", "tool_count": 11, "tools": ["list_languages", ...]}
+{"event": "[react-mcp] Iteration starting", "iteration": 1}
+{"event": "[react-mcp] Think result", "iteration": 1, "action": "call_tools", "tool_count": 3}
+{"event": "[react-mcp] Calling tool", "tool": "fetch_scripture", "args": {"reference": "mat 5:3"}}
+{"event": "[react-mcp] Tool completed", "tool": "fetch_scripture", "success": true, "elapsed_ms": 234.5}
+{"event": "[react-mcp] Observation", "iteration": 1, "tool": "fetch_scripture", "success": true}
+{"event": "[react-mcp] Loop complete - agent done", "iteration": 3, "total_elapsed_ms": 1523.7}
+```
+
+### Intents Using Agentic MCP
+
+When `BT_DEV_AGENTIC_MCP=true`, the following intents use the ReAct loop:
+
+- `get-passage-summary` – Summarizes passages with translation context
+- `get-passage-keywords` – Extracts key terms with definitions
+- `get-translation-helps` – Comprehensive translation assistance
+- `retrieve-scripture` – Fetches scripture text with notes
+
+---
+
 ## Running the API Locally
 1. Create a virtual environment and install dependencies:
    ```bash
