@@ -655,21 +655,23 @@ async def _run_react_mcp_async(
         force=True,
     )
 
-    # Connect to MCP server
+    # Connect to MCP server (SDK defaults to https://tc-helps.mcp.servant.bible/api/mcp)
     server_url = os.getenv("MCP_SERVER_URL")
-    if not server_url:
-        logger.error("[react-mcp] MCP_SERVER_URL not set - cannot connect to MCP server")
-        return FAILURE_MESSAGE_EN
-
-    client_options = cast(ClientOptions, {"serverUrl": server_url})
+    client_options: ClientOptions | None = (
+        cast(ClientOptions, {"serverUrl": server_url}) if server_url else None
+    )
     mcp_client = TranslationHelpsClient(client_options)
+
+    # Log which URL we're using (explicit or SDK default)
+    effective_url = server_url or "https://tc-helps.mcp.servant.bible/api/mcp (default)"
+    logger.info("[react-mcp] Connecting to MCP server", extra={"server_url": effective_url})
 
     try:
         await mcp_client.connect()
     except Exception as conn_exc:
         logger.error(
             "[react-mcp] Failed to connect to MCP server",
-            extra={"server_url": server_url, "error": str(conn_exc)},
+            extra={"server_url": effective_url, "error": str(conn_exc)},
         )
         return FAILURE_MESSAGE_EN
 
