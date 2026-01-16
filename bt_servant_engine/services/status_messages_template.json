@@ -208,17 +208,7 @@
     "nl": "Ik heb mogelijk relevante documenten gevonden in de volgende bronnen: {resources}."
   },
   "REACT_CONNECTING_TO_RESOURCES": {
-    "en": "I'm connecting to translation resources to help you.",
-    "ar": "أتصل بموارد الترجمة لمساعدتك.",
-    "fr": "Je me connecte aux ressources de traduction pour vous aider.",
-    "es": "Me estoy conectando a los recursos de traducción para ayudarte.",
-    "hi": "मैं आपकी मदद के लिए अनुवाद संसाधनों से जुड़ रहा हूँ।",
-    "ru": "Подключаюсь к ресурсам перевода, чтобы помочь вам.",
-    "id": "Saya sedang menghubungkan ke sumber terjemahan untuk membantu Anda.",
-    "sw": "Ninaunganisha na rasilimali za tafsiri ili kukusaidia.",
-    "pt": "Estou me conectando aos recursos de tradução para ajudá-lo.",
-    "zh": "我正在连接翻译资源以帮助你。",
-    "nl": "Ik maak verbinding met vertaalbronnen om je te helpen."
+    "en": "Looking up translation helps for you..."
   },
   "REACT_ANALYZING_REQUEST": {
     "en": "I'm analyzing your request to determine the best approach.",
