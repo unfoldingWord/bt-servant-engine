@@ -473,7 +473,7 @@ async def _act(
                 "[react-mcp] Calling tool",
                 extra={
                     "tool": tool_name,
-                    "args": json.dumps(arg_payload, ensure_ascii=False),
+                    "tool_args": json.dumps(arg_payload, ensure_ascii=False),
                 },
             )
 
