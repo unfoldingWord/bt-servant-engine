@@ -5,6 +5,7 @@ Provides TinyDB database wiring and user data access helpers.
 
 from __future__ import annotations
 
+import threading
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Dict, List, Mapping, Optional, cast
 
@@ -29,6 +30,7 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 DB_PATH = DATA_DIR / "db.json"
 _db = TinyDB(str(DB_PATH))
+_db_lock = threading.Lock()
 
 
 def get_user_db() -> TinyDB:
@@ -45,11 +47,12 @@ def get_user_state(user_id: str) -> Dict[str, Any]:
     Returns:
         Dictionary containing all user state, or empty dict if user not found
     """
-    q = Query()
-    cond = cast(QueryLike, q.user_id == user_id)
-    raw = get_user_db().table("users").get(cond)
-    result = cast(Optional[Dict[str, Any]], raw)
-    return result.copy() if result else {"user_id": user_id}
+    with _db_lock:
+        q = Query()
+        cond = cast(QueryLike, q.user_id == user_id)
+        raw = get_user_db().table("users").get(cond)
+        result = cast(Optional[Dict[str, Any]], raw)
+        return result.copy() if result else {"user_id": user_id}
 
 
 def set_user_state(user_id: str, state: Dict[str, Any]) -> None:
@@ -63,116 +66,125 @@ def set_user_state(user_id: str, state: Dict[str, Any]) -> None:
         This will merge the provided state with existing state, not replace it.
         To remove a field, explicitly set it to None and handle removal separately.
     """
-    q = Query()
-    db = get_user_db().table("users")
-    cond = cast(QueryLike, q.user_id == user_id)
+    with _db_lock:
+        q = Query()
+        db = get_user_db().table("users")
+        cond = cast(QueryLike, q.user_id == user_id)
 
-    # Ensure user_id is in the state
-    state["user_id"] = user_id
+        # Ensure user_id is in the state
+        state["user_id"] = user_id
 
-    # Upsert the entire state
-    db.upsert(state, cond)
+        # Upsert the entire state
+        db.upsert(state, cond)
 
 
 def get_user_chat_history(user_id: str) -> List[Dict[str, str]]:
     """Retrieve chat history for the given user_id."""
-    q = Query()
-    cond = cast(QueryLike, q.user_id == user_id)
-    raw = get_user_db().table("users").get(cond)
-    result = cast(Optional[Dict[str, Any]], raw)
-    history = result.get("history", []) if result else []
-    return cast(List[Dict[str, str]], history)
+    with _db_lock:
+        q = Query()
+        cond = cast(QueryLike, q.user_id == user_id)
+        raw = get_user_db().table("users").get(cond)
+        result = cast(Optional[Dict[str, Any]], raw)
+        history = result.get("history", []) if result else []
+        return cast(List[Dict[str, str]], history)
 
 
 def update_user_chat_history(user_id: str, query: str, response: str) -> None:
     """Append a user/bot exchange to chat history (bounded)."""
-    q = Query()
-    users_table = get_user_db().table("users")
-    cond = cast(QueryLike, q.user_id == user_id)
-    existing_raw = users_table.get(cond)
-    existing = cast(Optional[Dict[str, Any]], existing_raw)
-    history = cast(List[Dict[str, str]], existing.get("history", []) if existing else [])
+    with _db_lock:
+        q = Query()
+        users_table = get_user_db().table("users")
+        cond = cast(QueryLike, q.user_id == user_id)
+        existing_raw = users_table.get(cond)
+        existing = cast(Optional[Dict[str, Any]], existing_raw)
+        history = cast(List[Dict[str, str]], existing.get("history", []) if existing else [])
 
-    history.append({"user_message": query, "assistant_response": response})
+        history.append({"user_message": query, "assistant_response": response})
 
-    history = history[-CHAT_HISTORY_MAX:]
-    users_table.upsert({"user_id": user_id, "history": history}, cond)
+        history = history[-CHAT_HISTORY_MAX:]
+        users_table.upsert({"user_id": user_id, "history": history}, cond)
 
 
 def get_user_response_language(user_id: str) -> Optional[str]:
     """Get the user's preferred response language, or None if not set."""
-    q = Query()
-    cond = cast(QueryLike, q.user_id == user_id)
-    raw = get_user_db().table("users").get(cond)
-    result = cast(Optional[Dict[str, Any]], raw)
-    lang = result.get("response_language") if result else None
-    return cast(Optional[str], lang)
+    with _db_lock:
+        q = Query()
+        cond = cast(QueryLike, q.user_id == user_id)
+        raw = get_user_db().table("users").get(cond)
+        result = cast(Optional[Dict[str, Any]], raw)
+        lang = result.get("response_language") if result else None
+        return cast(Optional[str], lang)
 
 
 def set_user_response_language(user_id: str, language: str) -> None:
     """Set the user's preferred response language."""
-    q = Query()
-    db = get_user_db().table("users")
-    cond = cast(QueryLike, q.user_id == user_id)
-    existing_raw = db.get(cond)
-    existing = cast(Optional[Dict[str, Any]], existing_raw)
-    updated: Dict[str, Any] = (
-        existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
-    )
+    with _db_lock:
+        q = Query()
+        db = get_user_db().table("users")
+        cond = cast(QueryLike, q.user_id == user_id)
+        existing_raw = db.get(cond)
+        existing = cast(Optional[Dict[str, Any]], existing_raw)
+        updated: Dict[str, Any] = (
+            existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
+        )
 
-    updated["response_language"] = language
-    db.upsert(updated, cond)
+        updated["response_language"] = language
+        db.upsert(updated, cond)
 
 
 def clear_user_response_language(user_id: str) -> None:
     """Remove the user's stored response language preference."""
-    q = Query()
-    db = get_user_db().table("users")
-    cond = cast(QueryLike, q.user_id == user_id)
-    existing_raw = db.get(cond)
-    existing = cast(Optional[Dict[str, Any]], existing_raw)
-    updated: Dict[str, Any] = (
-        existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
-    )
-    updated["user_id"] = user_id
-    updated["response_language"] = None
-    db.upsert(updated, cond)
+    with _db_lock:
+        q = Query()
+        db = get_user_db().table("users")
+        cond = cast(QueryLike, q.user_id == user_id)
+        existing_raw = db.get(cond)
+        existing = cast(Optional[Dict[str, Any]], existing_raw)
+        updated: Dict[str, Any] = (
+            existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
+        )
+        updated["user_id"] = user_id
+        updated["response_language"] = None
+        db.upsert(updated, cond)
 
 
 def get_user_last_response_language(user_id: str) -> Optional[str]:
     """Return the last response language sent to the user (if stored)."""
-    q = Query()
-    cond = cast(QueryLike, q.user_id == user_id)
-    raw = get_user_db().table("users").get(cond)
-    result = cast(Optional[Dict[str, Any]], raw)
-    lang = result.get("last_response_language") if result else None
-    return cast(Optional[str], lang)
+    with _db_lock:
+        q = Query()
+        cond = cast(QueryLike, q.user_id == user_id)
+        raw = get_user_db().table("users").get(cond)
+        result = cast(Optional[Dict[str, Any]], raw)
+        lang = result.get("last_response_language") if result else None
+        return cast(Optional[str], lang)
 
 
 def set_user_last_response_language(user_id: str, language: str) -> None:
     """Persist the last response language sent to the user."""
-    q = Query()
-    db = get_user_db().table("users")
-    cond = cast(QueryLike, q.user_id == user_id)
-    existing_raw = db.get(cond)
-    existing = cast(Optional[Dict[str, Any]], existing_raw)
-    updated: Dict[str, Any] = (
-        existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
-    )
-    updated["last_response_language"] = language
-    db.upsert(updated, cond)
+    with _db_lock:
+        q = Query()
+        db = get_user_db().table("users")
+        cond = cast(QueryLike, q.user_id == user_id)
+        existing_raw = db.get(cond)
+        existing = cast(Optional[Dict[str, Any]], existing_raw)
+        updated: Dict[str, Any] = (
+            existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
+        )
+        updated["last_response_language"] = language
+        db.upsert(updated, cond)
 
 
 def get_user_agentic_strength(user_id: str) -> Optional[str]:
     """Get the user's preferred agentic strength, or None if not set."""
-    q = Query()
-    cond = cast(QueryLike, q.user_id == user_id)
-    raw = get_user_db().table("users").get(cond)
-    result = cast(Optional[Dict[str, Any]], raw)
-    strength = result.get("agentic_strength") if result else None
-    if isinstance(strength, str) and strength in VALID_AGENTIC_STRENGTH:
-        return strength
-    return None
+    with _db_lock:
+        q = Query()
+        cond = cast(QueryLike, q.user_id == user_id)
+        raw = get_user_db().table("users").get(cond)
+        result = cast(Optional[Dict[str, Any]], raw)
+        strength = result.get("agentic_strength") if result else None
+        if isinstance(strength, str) and strength in VALID_AGENTIC_STRENGTH:
+            return strength
+        return None
 
 
 def set_user_agentic_strength(user_id: str, strength: str) -> None:
@@ -181,65 +193,70 @@ def set_user_agentic_strength(user_id: str, strength: str) -> None:
     if normalized not in VALID_AGENTIC_STRENGTH:
         raise ValueError(f"invalid agentic strength: {strength}")
 
-    q = Query()
-    db = get_user_db().table("users")
-    cond = cast(QueryLike, q.user_id == user_id)
-    existing_raw = db.get(cond)
-    existing = cast(Optional[Dict[str, Any]], existing_raw)
-    updated: Dict[str, Any] = (
-        existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
-    )
-    updated["agentic_strength"] = normalized
-    db.upsert(updated, cond)
+    with _db_lock:
+        q = Query()
+        db = get_user_db().table("users")
+        cond = cast(QueryLike, q.user_id == user_id)
+        existing_raw = db.get(cond)
+        existing = cast(Optional[Dict[str, Any]], existing_raw)
+        updated: Dict[str, Any] = (
+            existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
+        )
+        updated["agentic_strength"] = normalized
+        db.upsert(updated, cond)
 
 
 def get_user_dev_agentic_mcp(user_id: str) -> Optional[bool]:
     """Return whether the user enabled the dev MCP agentic mode."""
-    q = Query()
-    cond = cast(QueryLike, q.user_id == user_id)
-    raw = get_user_db().table("users").get(cond)
-    result = cast(Optional[Dict[str, Any]], raw)
-    value = result.get("dev_agentic_mcp") if result else None
-    return bool(value) if value is not None else None
+    with _db_lock:
+        q = Query()
+        cond = cast(QueryLike, q.user_id == user_id)
+        raw = get_user_db().table("users").get(cond)
+        result = cast(Optional[Dict[str, Any]], raw)
+        value = result.get("dev_agentic_mcp") if result else None
+        return bool(value) if value is not None else None
 
 
 def set_user_dev_agentic_mcp(user_id: str, enabled: bool) -> None:
     """Persist the user's preference for the dev MCP agentic mode."""
-    q = Query()
-    db = get_user_db().table("users")
-    cond = cast(QueryLike, q.user_id == user_id)
-    existing_raw = db.get(cond)
-    existing = cast(Optional[Dict[str, Any]], existing_raw)
-    updated: Dict[str, Any] = (
-        existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
-    )
-    updated["dev_agentic_mcp"] = bool(enabled)
-    db.upsert(updated, cond)
+    with _db_lock:
+        q = Query()
+        db = get_user_db().table("users")
+        cond = cast(QueryLike, q.user_id == user_id)
+        existing_raw = db.get(cond)
+        existing = cast(Optional[Dict[str, Any]], existing_raw)
+        updated: Dict[str, Any] = (
+            existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
+        )
+        updated["dev_agentic_mcp"] = bool(enabled)
+        db.upsert(updated, cond)
 
 
 def set_first_interaction(user_id: str, is_first: bool) -> None:
     """Set whether this is the user's first interaction."""
-    q = Query()
-    db = get_user_db().table("users")
-    cond = cast(QueryLike, q.user_id == user_id)
-    existing_raw = db.get(cond)
-    existing = cast(Optional[Dict[str, Any]], existing_raw)
-    updated: Dict[str, Any] = (
-        existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
-    )
+    with _db_lock:
+        q = Query()
+        db = get_user_db().table("users")
+        cond = cast(QueryLike, q.user_id == user_id)
+        existing_raw = db.get(cond)
+        existing = cast(Optional[Dict[str, Any]], existing_raw)
+        updated: Dict[str, Any] = (
+            existing.copy() if isinstance(existing, dict) else {"user_id": user_id}
+        )
 
-    updated["first_interaction"] = is_first
-    db.upsert(updated, cond)
+        updated["first_interaction"] = is_first
+        db.upsert(updated, cond)
 
 
 def is_first_interaction(user_id: str) -> bool:
     """Return True if this is the user's first interaction, otherwise False."""
-    q = Query()
-    cond = cast(QueryLike, q.user_id == user_id)
-    raw = get_user_db().table("users").get(cond)
-    result = cast(Optional[Dict[str, Any]], raw)
-    first = (result or {}).get("first_interaction", True)
-    return bool(first)
+    with _db_lock:
+        q = Query()
+        cond = cast(QueryLike, q.user_id == user_id)
+        raw = get_user_db().table("users").get(cond)
+        result = cast(Optional[Dict[str, Any]], raw)
+        first = (result or {}).get("first_interaction", True)
+        return bool(first)
 
 
 class UserStateAdapter(UserStatePort):

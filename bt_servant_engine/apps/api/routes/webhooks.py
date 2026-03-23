@@ -619,19 +619,26 @@ def _format_indicator_responses(responses: list[str], first_indicator: Optional[
 
 
 async def _handle_processing_failure(context: _MessageProcessingContext) -> None:
-    error_state = {
-        "user_response_language": context.user_state.get_response_language(
+    try:
+        response_lang = context.user_state.get_response_language(
             user_id=context.user_message.user_id
         )
-    }
+    except Exception:
+        logger.warning("Could not read response language during fallback", exc_info=True)
+        response_lang = None
+    error_state = {"user_response_language": response_lang}
     fallback_msg = status_messages.get_status_message(
         status_messages.PROCESSING_ERROR,
         error_state,
     )
     fallback_language = normalized_or_other(error_state["user_response_language"])
-    previous_language = context.user_state.get_last_response_language(
-        user_id=context.user_message.user_id
-    )
+    try:
+        previous_language = context.user_state.get_last_response_language(
+            user_id=context.user_message.user_id
+        )
+    except Exception:
+        logger.warning("Could not read last response language during fallback", exc_info=True)
+        previous_language = None
     indicator = _partial_support_indicator(previous_language, fallback_language)
     fallback_payload = _format_indicator_responses([fallback_msg], indicator)[0]
     try:
